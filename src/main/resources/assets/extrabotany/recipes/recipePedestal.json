@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "extrabotany:pedestal"
+  },
+  "ingredients": [
+    {
+      "item": "botania:livingrock"
+    },
+    {
+      "item": "minecraft:gold_nugget"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}

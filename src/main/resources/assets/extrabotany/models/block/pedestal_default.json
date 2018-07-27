@@ -1,0 +1,10 @@
+{
+	"Comment": "Designed by Wiiv with Cubik Studio - https://cubik.studio",
+	"parent": "extrabotany:block/shapes/pedestal",
+	"textures": {
+		"side": "extrabotany:model/pedestal/stone_side",
+		"goblet": "extrabotany:model/pedestal/stone_goblet",
+		"top_bottom": "extrabotany:model/pedestal/stone_top_bottom",
+		"particle": "extrabotany:model/pedestal/stone_top_bottom"
+	}
+}

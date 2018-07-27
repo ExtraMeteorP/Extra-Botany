@@ -1,0 +1,16 @@
+[
+{
+  "modid": "extrabotany",
+  "name": "ExtraBotany",
+  "description": "A Botania addon WIP.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ExtraMeteorP"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [botania]
+}
+]

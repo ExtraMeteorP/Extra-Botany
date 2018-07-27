@@ -1,0 +1,120 @@
+package com.meteor.extrabotany.common.block.subtile.generating;
+
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.lexicon.LexiconData;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.Vec3d;
+import vazkii.botania.api.lexicon.LexiconEntry;
+import vazkii.botania.api.subtile.RadiusDescriptor;
+import vazkii.botania.api.subtile.SubTileGenerating;
+
+public class SubTileBloodyEnchantress extends SubTileGenerating {
+	
+	private static final String TAG_BURN_TIME = "burnTime";
+	private static final int RANGE = 1;
+	private static final int START_BURN_EVENT = 0;
+
+	private int burnTime = 0;
+
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		if(redstoneSignal > 0)
+			return;
+
+		if(burnTime > 0)
+			burnTime--;
+
+		if(getWorld().isRemote) {
+			if(burnTime > 0 && supertile.getWorld().rand.nextInt(10) == 0) {
+				Vec3d offset = getWorld().getBlockState(getPos()).getOffset(getWorld(), getPos()).addVector(0.4, 0.7, 0.4);
+				supertile.getWorld().spawnParticle(EnumParticleTypes.FLAME, supertile.getPos().getX() + offset.x + Math.random() * 0.2, supertile.getPos().getY() + offset.y, supertile.getPos().getZ() + offset.z + Math.random() * 0.2, 0.0D, 0.0D, 0.0D);
+			}
+			return;
+		}
+
+		if(linkedCollector != null) {
+			if(burnTime == 0) {
+				if(mana < getMaxMana()) {
+					for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
+						if(living.isEntityAlive()){
+							living.setHealth(living.getHealth()-2F);
+							living.attackEntityFrom(DamageSource.MAGIC, 0.01F);
+							burnTime+=ConfigHandler.BLOOD_BURNTIME;
+							return;
+						}
+					}	
+				}
+			}
+		}
+	}
+
+	@Override
+	public boolean receiveClientEvent(int event, int param) {
+		if(event == START_BURN_EVENT) {
+			Entity e = getWorld().getEntityByID(param);
+			if(e != null) {
+				e.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, e.posX, e.posY + 0.1, e.posZ, 0.0D, 0.0D, 0.0D);
+				e.world.spawnParticle(EnumParticleTypes.FLAME, e.posX, e.posY, e.posZ, 0.0D, 0.0D, 0.0D);
+			}
+			return true;
+		} else {
+			return super.receiveClientEvent(event, param);
+		}
+	}
+
+	@Override
+	public int getMaxMana() {
+		return 500;
+	}
+
+	@Override
+	public int getValueForPassiveGeneration() {
+		return ConfigHandler.EFF_BLOODYENCHANTRESS;
+	}
+
+	@Override
+	public int getColor() {
+		return 0x8B0000;
+	}
+
+	@Override
+	public RadiusDescriptor getRadius() {
+		return new RadiusDescriptor.Square(toBlockPos(), RANGE);
+	}
+
+	@Override
+	public LexiconEntry getEntry() {
+		return LexiconData.bloodyenchantress;
+	}
+
+	@Override
+	public void writeToPacketNBT(NBTTagCompound cmp) {
+		super.writeToPacketNBT(cmp);
+
+		cmp.setInteger(TAG_BURN_TIME, burnTime);
+	}
+
+	@Override
+	public void readFromPacketNBT(NBTTagCompound cmp) {
+		super.readFromPacketNBT(cmp);
+
+		burnTime = cmp.getInteger(TAG_BURN_TIME);
+	}
+
+	@Override
+	public boolean canGeneratePassively() {
+		return burnTime > 0;
+	}
+
+	@Override
+	public int getDelayBetweenPassiveGeneration() {
+		return 2;
+	}
+}

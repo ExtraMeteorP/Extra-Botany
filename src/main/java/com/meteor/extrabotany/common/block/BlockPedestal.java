@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.block;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import javax.annotation.Nonnull;
@@ -12,6 +13,8 @@ import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.item.ItemGildedMashedPotato;
 import com.meteor.extrabotany.common.item.ItemSpiritFuel;
 import com.meteor.extrabotany.common.item.tool.ItemHammerUltimate;
+import com.meteor.extrabotany.common.item.tool.ItemKingGarden;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 
 import net.minecraft.block.SoundType;
@@ -35,8 +38,12 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.subtile.SubTileEntity;
+import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.ItemLexicon;
 import vazkii.botania.common.item.ModItems;
+import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
+import vazkii.botania.common.lib.LibBlockNames;
 
 public class BlockPedestal extends BlockMod{
 	
@@ -130,13 +137,64 @@ public class BlockPedestal extends BlockMod{
 						te.setStrikes(te.getStrikes() + 1);
 						heldItem.damageItem(1, player);
 						te.markForUpdate();
+						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.FRAGMENT_FORGE);
 						return true;
-					}else if(te.getItem().getItem() instanceof ItemHammerUltimate){
+					}else if(te.getItem().getItem() instanceof ItemKingGarden && !heldItem.isEmpty()){
+						
+						ItemStack stack = te.getItem();
+						ItemKingGarden k = (ItemKingGarden) te.getItem().getItem();
+						
+						int[] clear = new int[]{};
+					
+						if(k.getType(stack).length < 20 && !world.isRemote){
+							if(heldItem.getItem() instanceof ItemBlockSpecialFlower){
+								
+								if(getType(heldItem).matches(LibBlocksName.SUBTILE_BLOODYENCHANTRESS))
+									k.setType(stack, addType(k.getType(stack), 0));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_SUNBLESS))
+									k.setType(stack, addType(k.getType(stack), 1));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_MOONBLESS))
+									k.setType(stack, addType(k.getType(stack), 2));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_STARDUSTLOTUS))
+									k.setType(stack, addType(k.getType(stack), 3));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_STONESIA))
+									k.setType(stack, addType(k.getType(stack), 4));
+								else if(getType(heldItem).matches(LibBlockNames.SUBTILE_ENTROPINNYUM))
+									k.setType(stack, addType(k.getType(stack), 5));
+								else if(getType(heldItem).matches(LibBlockNames.SUBTILE_DREADTHORN))
+									k.setType(stack, addType(k.getType(stack), 6));
+								else if(getType(heldItem).matches(LibBlockNames.SUBTILE_MEDUMONE))
+									k.setType(stack, addType(k.getType(stack), 7));
+								else if(getType(heldItem).matches(LibBlockNames.SUBTILE_THERMALILY))
+									k.setType(stack, addType(k.getType(stack), 8));
+								else if(getType(heldItem).matches(LibBlockNames.SUBTILE_TIGERSEYE))
+									k.setType(stack, addType(k.getType(stack), 9));
+								else if(getType(heldItem).matches(LibBlockNames.SUBTILE_BELLETHORN))
+									k.setType(stack, addType(k.getType(stack), 10));
+								else if(getType(heldItem).matches(LibBlockNames.SUBTILE_HEISEI_DREAM))
+									k.setType(stack, addType(k.getType(stack), 11));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_ANNOYINGFLOWER))
+									k.setType(stack, addType(k.getType(stack), 12));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_MANALINKIUM))
+									k.setType(stack, addType(k.getType(stack), 13));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_OMINIVIOLET))
+									k.setType(stack, addType(k.getType(stack), 14));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_BELLFLOWER))
+									k.setType(stack, addType(k.getType(stack), 15));
+								else if(getType(heldItem).matches(LibBlocksName.SUBTILE_TINKLE))
+									k.setType(stack, addType(k.getType(stack), 16));
+							}
+						}
+						
+						return true;
+						
+					}else if(te.getItem().getItem() instanceof ItemHammerUltimate && !heldItem.isEmpty()){
 						ItemHammerUltimate stack = (ItemHammerUltimate) te.getItem().getItem();
 						if(heldItem.getItem() instanceof ItemGildedMashedPotato && stack.getRepair(te.getItem()) < 3 && heldItem.getCount() >=5){
 							if(!world.isRemote)
 								stack.setRepair(te.getItem(), stack.getRepair(te.getItem()) + 1);
 							heldItem.shrink(5);
+							ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ULTIMATEHAMMER_UPGRADE);
 							return true;
 						}else if(heldItem.getItem() == ModItems.elementiumSword && stack.getAttack(te.getItem()) < 10){
 							if(!world.isRemote)
@@ -152,9 +210,9 @@ public class BlockPedestal extends BlockMod{
 					}else if(te.getItem().getItem() instanceof ItemSpiritFuel && heldItem.getItem() == ModItems.lexicon){
 						ItemLexicon l = (ItemLexicon) heldItem.getItem();
 						l.unlockKnowledge(heldItem, ExtraBotanyAPI.dreamKnowledge);
+						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.NEWKNOWLEDGE_UNLOCK);
 						return true;
-					}
-					if(player.inventory.addItemStackToInventory(((TilePedestal)tile).getItem())){
+					}else if(player.inventory.addItemStackToInventory(((TilePedestal)tile).getItem())){
 						te.setStrikes(0);
 						te.markForUpdate();
 						te.setItem(ItemStack.EMPTY);
@@ -165,6 +223,23 @@ public class BlockPedestal extends BlockMod{
 			}
 		}
 		return false;
+	}
+	
+	public static String getType(ItemStack stack) {
+		return stack.hasTagCompound() ? ItemNBTHelper.getString(stack, SubTileEntity.TAG_TYPE, "") : "";
+	}
+	
+	public static int[] addType(int[] k, int i){
+		int[] ary = k;
+		ary=Arrays.copyOf(ary, ary.length+1);
+		ary[ary.length-1]=i;
+		return ary;
+	}
+	
+	public static int[] clear(int[] k){
+		int[] ary = k;
+		ary=Arrays.copyOf(ary, 0);
+		return ary;
 	}
 	
 	@Override

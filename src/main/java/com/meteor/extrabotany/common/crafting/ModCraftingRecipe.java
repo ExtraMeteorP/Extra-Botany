@@ -4,6 +4,7 @@ import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -11,7 +12,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -25,6 +25,9 @@ public class ModCraftingRecipe {
 	public static IRecipe ELEMENTIUM_HAMMER;
 	public static IRecipe MANAREADER;
 	public static IRecipe BINDER;
+	public static IRecipe KINGGARDEN;
+	public static IRecipe KINGGARDEN2;
+	public static IRecipe MANABARREL;
 	
 	public static void init() {
 		
@@ -46,6 +49,14 @@ public class ModCraftingRecipe {
 		BINDER = new ShapedOreRecipe(getResource("recipe_binder"), new ItemStack(ModItems.binder, 1), " XY", " ZX", "Z  ", 'X', LibOreDict.MANA_POWDER, 'Y', LibOreDict.DRAGONSTONE, 'Z', LibOreDict.LIVINGWOOD_TWIG);
 		BINDER.setRegistryName(getResource("recipe_binder"));
 	
+		KINGGARDEN = new ShapelessOreRecipe(getResource("recipe_kinggarden"), new ItemStack(ModItems.kinggarden, 1), new ItemStack(ModItems.kinggarden));
+		KINGGARDEN.setRegistryName(getResource("recipe_kinggarden"));
+		
+		KINGGARDEN2 = new ShapedOreRecipe(getResource("recipe_kinggarden2"), new ItemStack(ModItems.kinggarden, 1), "XYX", "XZX", "XAX", 'X', new ItemStack(ModItems.material), 'Y', LibOreDict.TERRA_STEEL, 'Z', Blocks.CHEST, 'A', Blocks.WOOL);
+		KINGGARDEN2.setRegistryName(getResource("recipe_kinggarden2"));
+		
+		MANABARREL = new ShapedOreRecipe(getResource("recipe_manabarrel"), new ItemStack(ModBlocks.batterybox), "XYX", "XZX", "XYX", 'X', new ItemStack(vazkii.botania.common.block.ModBlocks.pool, 1, 3), 'Y', new ItemStack(vazkii.botania.common.item.ModItems.lens), 'Z', LibOreDict.GAIA_INGOT);
+		MANABARREL.setRegistryName(getResource("recipe_manabarrel"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -59,7 +70,10 @@ public class ModCraftingRecipe {
 					TERRASTEEL_HAMMER,
 					ELEMENTIUM_HAMMER,
 					MANASTEEL_HAMMER,
-					MANAREADER
+					MANAREADER,
+					KINGGARDEN,
+					KINGGARDEN2,
+					MANABARREL
 			);
 		}
 	}

@@ -33,15 +33,15 @@ public class ItemBinder extends ItemMod{
 	
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void addInformation(ItemStack par1ItemStack, World world, List<String> stacks, ITooltipFlag flags) {
+	public void addInformation(ItemStack stack, World world, List<String> stacks, ITooltipFlag flags) {
 		String x = I18n.format("extrabotany.bindx");
 		String y = I18n.format("extrabotany.bindy");
 		String z = I18n.format("extrabotany.bindz");
 		String dim = I18n.format("extrabotany.binddim");
-		String posx = x + getPosX(par1ItemStack);
-		String posy = y + getPosY(par1ItemStack);
-		String posz = z + getPosZ(par1ItemStack);
-		String adim = dim + getDim(par1ItemStack);
+		String posx = x + getPosX(stack);
+		String posy = y + getPosY(stack);
+		String posz = z + getPosZ(stack);
+		String adim = dim + getDim(stack);
 		stacks.add(posx);
 		stacks.add(posy);
 		stacks.add(posz);

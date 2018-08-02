@@ -27,7 +27,9 @@ public class BlockSpecial extends BlockSpecialFlower{
 				LibBlocksName.SUBTILE_BELLFLOWER,
 				LibBlocksName.SUBTILE_ANNOYINGFLOWER,
 				LibBlocksName.SUBTILE_STARDUSTLOTUS,
-				LibBlocksName.SUBTILE_MANALINKIUM
+				LibBlocksName.SUBTILE_MANALINKIUM,
+				LibBlocksName.SUBTILE_REIKARLILY,
+				LibBlocksName.SUBTILE_ENCHANTEDORCHID
 		}));
 	}
 	

@@ -44,12 +44,14 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.binder);
 		addItem(ModItems.froststar);
 		addItem(ModItems.deathring);
+		addItem(ModItems.kinggarden);
 		addItem(ModItems.nightmareFuel);
 		addItem(ModItems.spiritFuel);
 		addItem(ModItems.material);
 		addBlock(ModBlocks.orichalcosblock);
 		addItem(ModItems.friedchicken);
 		addItem(ModItems.gildedmashedpotato);
+		addBlock(ModBlocks.batterybox);
 	}
 	
 	private void addItem(Item item) {

@@ -1,8 +1,10 @@
 package com.meteor.extrabotany.common.block.subtile.functional;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.item.ItemBinder;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -51,6 +53,7 @@ public class SubTileManalinkium extends SubTileFunctional{
 			x = bind.getPosX(player.getHeldItem(hand));
 			y = bind.getPosY(player.getHeldItem(hand));
 			z = bind.getPosZ(player.getHeldItem(hand));
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.MANALINKIUM_USE);
 		}
 		return true; 
 	}

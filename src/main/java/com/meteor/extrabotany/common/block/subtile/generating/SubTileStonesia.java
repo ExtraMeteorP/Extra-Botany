@@ -7,15 +7,14 @@ import java.util.List;
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
-import com.meteor.extrabotany.common.lib.LibData;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.SoundCategory;
@@ -31,10 +30,12 @@ public class SubTileStonesia extends SubTileGenerating{
 	
 	private static final String TAG_BURN_TIME = "burnTime";
 	private static final String TAG_COOLDOWN = "cooldown";
+	private static final String TAG_CATALYSIS = "catalysis";
 
 	private static final BlockPos[] OFFSETS = { new BlockPos(0, 0, 1), new BlockPos(0, 0, -1), new BlockPos(1, 0, 0), new BlockPos(-1, 0, 0), new BlockPos(-1, 0, 1), new BlockPos(-1, 0, -1), new BlockPos(1, 0, 1), new BlockPos(1, 0, -1) };
 
 	int burnTime, cooldown;
+	float catalysis = 0;
 
 	@Override
 	public void onUpdate() {
@@ -47,6 +48,30 @@ public class SubTileStonesia extends SubTileGenerating{
 			for(int i = 0; i < 3; i++)
 				Botania.proxy.wispFX(supertile.getPos().getX() + 0.5 + Math.random() * 0.2 - 0.1, supertile.getPos().getY() + 0.5 + Math.random() * 0.2 - 0.1, supertile.getPos().getZ() + 0.5 + Math.random() * 0.2 - 0.1, 0.1F, 0.1F, 0.1F, (float) Math.random() / 6, (float) -Math.random() / 30);
 		}
+		
+		for(BlockPos o : OFFSETS)
+			if(supertile.getWorld().getTileEntity(supertile.getPos().add(o)) instanceof TilePedestal){
+				TilePedestal te = (TilePedestal) supertile.getWorld().getTileEntity(supertile.getPos().add(o));
+				ItemStack i = te.getItem();
+				if(i != null){
+					if(i.isItemEqual(new ItemStack(Blocks.COAL_BLOCK)))
+						catalysis = Math.max(-5, catalysis);
+					else if(i.isItemEqual(new ItemStack(Blocks.IRON_BLOCK)))
+						catalysis = Math.max(10, catalysis);
+					else if(i.isItemEqual(new ItemStack(Blocks.GOLD_BLOCK)))
+						catalysis = Math.max(15, catalysis);
+					else if(i.isItemEqual(new ItemStack(Blocks.DIAMOND_BLOCK)))
+						catalysis = Math.max(25, catalysis);
+					else if(i.isItemEqual(new ItemStack(Blocks.LAPIS_BLOCK)))
+						catalysis = Math.max(10, catalysis);
+					else if(i.isItemEqual(new ItemStack(Blocks.EMERALD_BLOCK)))
+						catalysis = Math.max(18, catalysis);
+					else if(i.isItemEqual(new ItemStack(Blocks.REDSTONE_BLOCK)))
+						catalysis = Math.max(8, catalysis);
+					else if(i.isItemEqual(new ItemStack(ModBlocks.orichalcosblock)))
+						catalysis = Math.max(35, catalysis);
+				}
+			}
 
 		if(burnTime == 0) {
 			if(mana < getMaxMana() && !supertile.getWorld().isRemote) {
@@ -55,39 +80,11 @@ public class SubTileStonesia extends SubTileGenerating{
 				for(BlockPos offset : offsets) {
 					BlockPos pos = supertile.getPos().add(offset);
 					Block block = supertile.getWorld().getBlockState(pos).getBlock();
-					if(block != null && LibData.getOreBurnTime(block) > 0) {
-						float catalysis = 0;
-						
-						for(int x = -1; x < 1; x++){
-							for(int z = -1; z < 1; z++){
-								BlockPos posi = new BlockPos(supertile.getPos().add(x, 0, z));
-								if(supertile.getWorld().getTileEntity(posi) instanceof TilePedestal){
-									TilePedestal te = (TilePedestal) supertile.getWorld().getTileEntity(posi);
-									Item i = te.getItem().getItem();
-									if(i != null){
-										if(i == Item.getItemFromBlock(Blocks.COAL_BLOCK))
-											catalysis -=2;
-										else if(i == Item.getItemFromBlock(Blocks.IRON_BLOCK))
-											catalysis +=4;
-										else if(i == Item.getItemFromBlock(Blocks.GOLD_BLOCK))
-											catalysis +=8;
-										else if(i == Item.getItemFromBlock(Blocks.DIAMOND_BLOCK))
-											catalysis +=14;
-										else if(i == Item.getItemFromBlock(Blocks.LAPIS_BLOCK))
-											catalysis +=6;
-										else if(i == Item.getItemFromBlock(Blocks.EMERALD_BLOCK))
-											catalysis +=10;
-										else if(i == Item.getItemFromBlock(Blocks.REDSTONE_BLOCK))
-											catalysis +=4;
-										else if(i == Item.getItemFromBlock(ModBlocks.orichalcosblock))
-											catalysis +=25;
-									}
-								}
-							}
-						}
-						
+					int output = RecipeStonesia.getOutput(new ItemStack(block));
+					if(block != null && output != 0){
+											
 						if(cooldown == 0){
-							burnTime += (LibData.getOreBurnTime(block) * (1+catalysis/100));
+							burnTime += output * (1+catalysis/100);
 							supertile.getWorld().setBlockToAir(pos);
 							cooldown = getCooldown();
 						}
@@ -139,6 +136,7 @@ public class SubTileStonesia extends SubTileGenerating{
 
 		cmp.setInteger(TAG_BURN_TIME, burnTime);
 		cmp.setInteger(TAG_COOLDOWN, cooldown);
+		cmp.setFloat(TAG_CATALYSIS, catalysis);
 	}
 
 	@Override
@@ -147,6 +145,7 @@ public class SubTileStonesia extends SubTileGenerating{
 
 		burnTime = cmp.getInteger(TAG_BURN_TIME);
 		cooldown = cmp.getInteger(TAG_COOLDOWN);
+		catalysis = cmp.getFloat(TAG_CATALYSIS);
 	}
 
 	@Override

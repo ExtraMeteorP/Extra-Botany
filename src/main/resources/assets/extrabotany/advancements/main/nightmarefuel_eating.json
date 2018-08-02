@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:nightmarefuel"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:nightmarefuelEating"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:nightmarefuelEating.desc"
+    }
+  },
+  "parent": "extrabotany:main/root",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

@@ -1,8 +1,8 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.crafting.recipe.RecipeOmniviolet;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
-import com.meteor.extrabotany.common.lib.LibData;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
@@ -47,8 +47,9 @@ public class SubTileOmniViolet extends SubTileGenerating{
 							ItemStack stack = item.getItem();
 							if(stack.isEmpty() || stack.getItem().hasContainerItem(stack))
 								continue;
-
-							int burnTime = stack.getItem() == Item.getItemFromBlock(ModBlocks.spreader) ? 0 : LibData.getBookBurnTime(stack);
+							
+							int output = RecipeOmniviolet.getOutput(stack);
+							int burnTime = stack.getItem() == Item.getItemFromBlock(ModBlocks.spreader) ? 0 : output;
 							if(burnTime > 0 && stack.getCount() > 0) {
 								float buff = ConfigHandler.LP_OMNIVIOLET ? 1+bookCases() * 0.05F : 1;
 								

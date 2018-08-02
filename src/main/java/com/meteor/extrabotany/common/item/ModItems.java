@@ -2,8 +2,10 @@ package com.meteor.extrabotany.common.item;
 
 import com.meteor.extrabotany.common.item.equipment.ItemBaubleDeathRing;
 import com.meteor.extrabotany.common.item.equipment.ItemBaubleFrostStar;
+import com.meteor.extrabotany.common.item.tool.ItemCamera;
 import com.meteor.extrabotany.common.item.tool.ItemHammer;
 import com.meteor.extrabotany.common.item.tool.ItemHammerUltimate;
+import com.meteor.extrabotany.common.item.tool.ItemKingGarden;
 import com.meteor.extrabotany.common.item.tool.ItemManaReader;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
@@ -35,6 +37,9 @@ public class ModItems {
 	public static final Item hammerterrasteel = new ItemHammer(LibItemsName.HAMMER_TERRASTEEL, BotaniaAPI.terrasteelToolMaterial);
 	public static final Item hammerultimate = new ItemHammerUltimate();
 	
+	public static final Item kinggarden = new ItemKingGarden();
+	public static final Item camera = new ItemCamera();
+	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
 		IForgeRegistry<Item> r = evt.getRegistry();
@@ -51,6 +56,8 @@ public class ModItems {
 		r.register(gildedmashedpotato);
 		r.register(hammerultimate);
 		r.register(binder);
+		r.register(kinggarden);
+		r.register(camera);
 		registerOreDictionary();
 	}
 	

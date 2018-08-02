@@ -1,8 +1,10 @@
 package com.meteor.extrabotany.common.block.subtile.functional;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.item.ItemBinder;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,7 +26,6 @@ import vazkii.botania.common.Botania;
 
 public class SubTileStardustLotus extends SubTileFunctional{
 	
-	private static final int COST = 2000;
 	private static final int RANGE = 1;
 	
 	private static final String TAG_MANA = "consumed";
@@ -105,6 +106,8 @@ public class SubTileStardustLotus extends SubTileFunctional{
 			Botania.proxy.sparkleFX(posx + 0.5F, posy + 1F, posz + 0.5F, 1F, 0.75F, 0.79F, 5F, 10);
 			for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
 				living.setPosition(x,y,z);
+				if(living instanceof EntityPlayer)
+					ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.STARDUSTLOTUS_TELEPORT);
 				hasPaper = false;
 				consumed = 0;
 			}

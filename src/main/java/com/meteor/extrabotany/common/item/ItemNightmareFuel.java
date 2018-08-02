@@ -1,5 +1,7 @@
 package com.meteor.extrabotany.common.item;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,6 +29,7 @@ public class ItemNightmareFuel extends ItemFoodMod implements IFuelHandler{
 			player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 1200, 3));
 			player.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 1200, 3));
 		}
+		ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.NIGHTMAREFUEL_EATING);
     }
 	
 	@Override

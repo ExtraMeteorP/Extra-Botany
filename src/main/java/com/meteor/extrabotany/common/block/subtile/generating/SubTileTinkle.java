@@ -1,8 +1,10 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -70,6 +72,7 @@ public class SubTileTinkle extends SubTileGenerating{
 	            
 	            if(time >= limit){
 	                mana += ConfigHandler.EFF_TINKLE + buff;
+	                ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.TINKLE_USE);
 	                time %= limit;
 	            }
 	

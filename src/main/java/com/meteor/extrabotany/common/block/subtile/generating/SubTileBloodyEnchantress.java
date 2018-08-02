@@ -1,10 +1,13 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
@@ -44,6 +47,8 @@ public class SubTileBloodyEnchantress extends SubTileGenerating {
 				if(mana < getMaxMana()) {
 					for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
 						if(living.isEntityAlive()){
+							if(living instanceof EntityPlayer)
+								ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.BLOODYENCHANTRESS_USE);
 							living.setHealth(living.getHealth()-2F);
 							living.attackEntityFrom(DamageSource.MAGIC, 0.01F);
 							burnTime+=ConfigHandler.BLOOD_BURNTIME;

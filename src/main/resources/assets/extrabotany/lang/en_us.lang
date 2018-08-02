@@ -14,11 +14,14 @@ item.extrabotany:terrasteelhammer.name=Terrasteel Hammer
 item.extrabotany:elementiumhammer.name=Elementium Hammer
 item.extrabotany:ultimatehammer.name=Ultimate Hammer
 
+item.extrabotany:kinggarden.name=Garden of King's Law
+
 item.extrabotany:froststar.name=Frost Ring
 item.extrabotany:deathring.name=Curse Ring
 
 tile.extrabotany:pedestal.name=Livingrock Pedestal
 tile.extrabotany:blockorichalcos.name=Block of Orichalcos
+tile.extrabotany:manabarrel.name=Mana Buffer
 
 extrabotanymisc.hammer=Forge
 extrabotanymisc.hammerTip=Tip:Use Hammer to forge item
@@ -43,6 +46,10 @@ tile.botania:flower.stardustlotus.name=Stardust Lotus
 tile.botania:flower.stardustlotus.reference=東方星蓮船
 tile.botania:flower.manalinkium.name=Manalinkium
 tile.botania:flower.manalinkium.reference=Link Summon
+tile.botania:flower.reikarlily.name=Reikar Lily
+tile.botania:flower.reikarlily.reference=Game Crash
+tile.botania:flower.enchantedorchid.name=Enchanted Orchid
+tile.botania:flower.enchantedorchid.reference=I have no time playing games
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
@@ -66,6 +73,7 @@ extrabotany.bindx=X:
 extrabotany.bindy=Y:
 extrabotany.bindz=Z:
 extrabotany.binddim=Dim:
+extrabotany.kinggarden=Configuration:
 
 botania.entry.bloodyenchantress=Bloody Enchantress
 botania.page.bloodyenchantress0=Bloody Enchantress can create &4Mana&0 by consuming creatures' life , working efficiently when creatures are nearby. But creatures sacrificed by this way will not produce any drops or experience.
@@ -122,6 +130,28 @@ botania.page.stardustlotus1=Better than wolves.
 botania.page.stardustlotus2=Complete the Multi-block structure to let it work.
 botania.page.stardustlotus3=The flower should be placed at middle.
 botania.tagline.stardustlotus=Directional Teleport
+
+botania.entry.reikarlily=Reikar Lily
+botania.page.reikarlily0=Reikar Lily can turn thunder's great energy into mana. When a lightning bolt hits nearby, it will generate a great amount of mana immediately, and produce mana continuously for a long time.
+botania.page.reikarlily1=I Choose You!
+botania.tagline.reikarlily=Thunder Energy
+
+botania.entry.enchantedorchid=Enchanted Orchid
+botania.page.enchantedorchid0=Enchanted Orchid can change grass block beneath to Enchanted soil. It will need a black lotus, a large quantity of mana and a long time for each transform.
+botania.page.enchantedorchid1=真実はいつも一つ
+botania.tagline.enchantedorchid=Knowledge is power and I know a lot
+
+botania.entry.manabarrel=Mana Buffer
+botania.page.manabarrel0=Mana Buffer can store as much mana as 64 mana pools do. It will drain mana from adjacent mana pools and supply to the mana pool on it.
+botania.page.manabarrel1=un...deux...trois...
+botania.tagline.manabarrel=Store Mana
+
+botania.entry.kinggarden=Garden of King's Law
+botania.page.kinggarden0=Garden of King's Law can summon flowers which are recorded by it to give the enemy a heavy blow. Just place it on the Livingrock Pedestal, hold a flower and right-click to record. Different flowers will have different effects.
+botania.page.kinggarden1=For example, Blood Enchantress will deal high magic damage, Sunshine Lily will set enemies on fire. But not every type of flower can be recorded.
+botania.page.kinggarden2=Enuma Elish.
+botania.page.kinggarden3=Sha Nagba Imuru.
+botania.tagline.kinggarden=Ultimate Flower Work
 
 botania.entry.nightmarefuel=Nightmare Fuel
 botania.page.nightmarefuel0=The Nightmare Fuel, which is edible, is a kind of advanced fuel extracted out by mana.
@@ -181,6 +211,39 @@ botania.entry.=
 botania.page.0=
 botania.page.1=
 botania.tagline.=
+
+extrabotany.desc=Welcome to the World of the supreme principle of Mana
+
+advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
+advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)
+advancement.extrabotany:newknowledgeUnlock=Unlock New Knowledge
+advancement.extrabotany:newknowledgeUnlock.desc=Hold a Lexicon and right-click a Livingrock Pedestal with a Spirit Fuel
+advancement.extrabotany:pedestalCraft=CONNECT
+advancement.extrabotany:pedestalCraft.desc=Craft a Livingrock Pedestal
+advancement.extrabotany:ultimatehammerCraft=PONPONPON
+advancement.extrabotany:ultimatehammerCraft.desc=Craft a Ultimate Hammer
+advancement.extrabotany:ultimatehammerUpgrade=裏表ラバーズ
+advancement.extrabotany:ultimatehammerUpgrade.desc=Use Gilded Mashed Potato to upgrade your Ultimate Hammer
+advancement.extrabotany:fragmentForge=Gears of Love
+advancement.extrabotany:fragmentForge.desc=Forge once on the Livingrock Pedestal
+advancement.extrabotany:manareaderCraft=Satisfaction
+advancement.extrabotany:manareaderCraft.desc=Craft a Mana Reader
+advancement.extrabotany:posbinderCraft=Letter Song
+advancement.extrabotany:posbinderCraft.desc=Craft a Position Reader
+advancement.extrabotany:stardustlotusTeleport=Promise
+advancement.extrabotany:stardustlotusTeleport.desc=Use Stardust Lotus to teleport yourself
+advancement.extrabotany:manalinkiumUse=Crystalline
+advancement.extrabotany:manalinkiumUse.desc=Bind a mana pool to Manalinkium
+advancement.extrabotany:tinkleUse=Project Diva desu
+advancement.extrabotany:tinkleUse.desc=Dance around a Tinkle Flower
+advancement.extrabotany:bloodyenchantressUse=Sweet Devil
+advancement.extrabotany:bloodyenchantressUse.desc=Use Bloody Enchantress to generate mana
+advancement.extrabotany:manabufferCraft=ロストワンの号哭
+advancement.extrabotany:manabufferCraft.desc=Craft a Mana Buffer
+advancement.extrabotany:kinggardenCraft=Last Night,Good Night
+advancement.extrabotany:kinggardenCraft.desc=Craft a Garden of King's Law
+advancement.extrabotany:annoyingdogSummon=April Fool
+advancement.extrabotany:annoyingdogSummon.desc=The Dog absorbs the artifact
 
 extrabotany.versioning.flavour=
 extrabotany.versioning.outdated=

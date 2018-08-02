@@ -14,11 +14,14 @@ item.extrabotany:terrasteelhammer.name=泰拉钢锤
 item.extrabotany:elementiumhammer.name=源质钢锤
 item.extrabotany:ultimatehammer.name=镀金究极锤
 
+item.extrabotany:kinggarden.name=王之花园
+
 item.extrabotany:froststar.name=霜冻之星
 item.extrabotany:deathring.name=诅咒指环
 
 tile.extrabotany:pedestal.name=活石祭坛
 tile.extrabotany:blockorichalcos.name=奥利哈刚块
+tile.extrabotany:manabarrel.name=魔力缓存器
 
 extrabotanymisc.hammer=锻造
 extrabotanymisc.hammerTip=提示:用锤子右键活石祭坛来锻造物品
@@ -43,9 +46,12 @@ tile.botania:flower.stardustlotus.name=星移莲
 tile.botania:flower.stardustlotus.reference=東方星蓮船
 tile.botania:flower.manalinkium.name=魔链星
 tile.botania:flower.manalinkium.reference=链接召唤
+tile.botania:flower.reikarlily.name=雷卡兰
+tile.botania:flower.reikarlily.reference=游戏崩溃
+tile.botania:flower.enchantedorchid.name=蕴魔瑾
+tile.botania:flower.enchantedorchid.reference=我可没时间陪你玩游戏
 tile.botania:flower..name=
 tile.botania:flower..reference=
-
 
 itemGroup.extrabotany=额外植物学
 
@@ -67,6 +73,7 @@ extrabotany.bindx=X坐标:
 extrabotany.bindy=Y坐标:
 extrabotany.bindz=Z坐标:
 extrabotany.binddim=次元:
+extrabotany.kinggarden=已配置数:
 
 botania.entry.bloodyenchantress=血腥妖姬
 botania.page.bloodyenchantress0=能够将生物的生命值转化为 &4魔力&0,一旦有生物在其附近 就会开始魔力的转化,效率 较为可观.需要注意的是通 过这种方式献祭的生物不会 有任何掉落.
@@ -123,6 +130,28 @@ botania.page.stardustlotus1=比狼好.
 botania.page.stardustlotus2=这朵花需要满足多方块结构 才能工作.
 botania.page.stardustlotus3=花需要摆放在第二层正中间
 botania.tagline.stardustlotus=远程传送
+
+botania.entry.reikarlily=雷卡兰
+botania.page.reikarlily0=雷卡兰可以将闪电的巨大能 量转化为魔力,每当有闪电劈 在其附近时,就会立刻产出巨 大魔力,并且余热会使其继 续缓慢地产出魔力.
+botania.page.reikarlily1=就决定是你了!
+botania.tagline.reikarlily=个!十!百!千!万丈目闪电!
+
+botania.entry.enchantedorchid=蕴魔瑾
+botania.page.enchantedorchid0=蕴魔瑾可以将其地表附近的 草方块转化为蕴魔土,但这个 过程需要漫长的时间和大量 的魔力.并且每次转化都需要 消耗一个黑莲花.
+botania.page.enchantedorchid1=真相只有一个!
+botania.tagline.enchantedorchid=无穷无尽的知识就是我的力量
+
+botania.entry.manabarrel=魔力缓存器
+botania.page.manabarrel0=魔力缓存器可以缓存大量的 魔力,约等于64个魔力池.它可 以从相邻四面的魔力池中吸 取魔力,并向上方的魔力池输 出魔力.
+botania.page.manabarrel1=un...deux...trois...
+botania.tagline.manabarrel=缓存魔力
+
+botania.entry.kinggarden=王之花园
+botania.page.kinggarden0=王之花园可以将其所记录的 花种召唤出来并对敌人进行 打击.需要将王之花园摆放在 活石祭坛上并用对应花右键 来添加配置.不同的花效果 不同.
+botania.page.kinggarden1=例如鲜血妖姬可以造成大量 魔法伤害,而日耀百合可以点 燃敌人,但不是所有种类的花 都可以配置进去.
+botania.page.kinggarden2=天地乖离开辟之星.
+botania.page.kinggarden3=全知且全能之星.
+botania.tagline.kinggarden=无限花制
 
 botania.entry.nightmarefuel=梦魇燃料
 botania.page.nightmarefuel0=通过魔力萃取出的更为高级 的燃料,可食用.
@@ -182,6 +211,42 @@ botania.entry.=
 botania.page.0=
 botania.page.1=
 botania.tagline.=
+
+extrabotany.desc=欢迎来到Mana至上主义的世界
+
+advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
+advancement.extrabotany:nightmarefuelEating.desc=食用一个梦魇燃料.(这真的能吃吗)
+advancement.extrabotany:newknowledgeUnlock=解锁新知识
+advancement.extrabotany:newknowledgeUnlock.desc=手持手册右键带有精神燃料的活石祭坛
+advancement.extrabotany:pedestalCraft=CONNECT
+advancement.extrabotany:pedestalCraft.desc=合成一个活石祭坛
+advancement.extrabotany:ultimatehammerCraft=PONPONPON
+advancement.extrabotany:ultimatehammerCraft.desc=合成一个究极镀金锤
+advancement.extrabotany:ultimatehammerUpgrade=裏表ラバーズ
+advancement.extrabotany:ultimatehammerUpgrade.desc=使用镀金土豆泥升级一次究极镀金锤
+advancement.extrabotany:fragmentForge=Gears of Love
+advancement.extrabotany:fragmentForge.desc=在活石祭坛上锻造一次
+advancement.extrabotany:manareaderCraft=Satisfaction
+advancement.extrabotany:manareaderCraft.desc=合成一个魔力读取器
+advancement.extrabotany:posbinderCraft=Letter Song
+advancement.extrabotany:posbinderCraft.desc=合成一个坐标读取器
+advancement.extrabotany:stardustlotusTeleport=Promise
+advancement.extrabotany:stardustlotusTeleport.desc=使用星移莲传送自己一次
+advancement.extrabotany:manalinkiumUse=Crystalline
+advancement.extrabotany:manalinkiumUse.desc=给魔链星绑定一个魔力池
+advancement.extrabotany:tinkleUse=Project Diva desu
+advancement.extrabotany:tinkleUse.desc=在叮当舞花旁跳舞
+advancement.extrabotany:bloodyenchantressUse=Sweet Devil
+advancement.extrabotany:bloodyenchantressUse.desc=将自己沐浴在血海中
+advancement.extrabotany:manabufferCraft=ロストワンの号哭
+advancement.extrabotany:manabufferCraft.desc=合成一个魔力缓存器
+advancement.extrabotany:kinggardenCraft=Last Night,Good Night
+advancement.extrabotany:kinggardenCraft.desc=合成一个王之花园
+advancement.extrabotany:annoyingdogSummon=April Fool
+advancement.extrabotany:annoyingdogSummon.desc=狗吸收了神器
+
+advancement.extrabotany:=
+advancement.extrabotany:.desc=
 
 extrabotany.versioning.flavour=额外植物学已更新
 extrabotany.versioning.outdated=你所使用的额外植物学版本为%s,最新版本为%s.

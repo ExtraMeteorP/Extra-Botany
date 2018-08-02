@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.item.tool;
 
+import com.meteor.extrabotany.common.block.tile.TileManaBarrel;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
@@ -25,7 +26,12 @@ public class ItemManaReader extends ItemMod{
         TileEntity te = worldIn.getTileEntity(pos);
         if(te instanceof TilePool){
         	TilePool p = (TilePool)te;
-        	int cap = p.manaCap;
+			int mana = p.getCurrentMana();
+			if(!worldIn.isRemote){
+				player.sendMessage(new TextComponentTranslation(String.valueOf(mana)));
+			}
+        }else if(te instanceof TileManaBarrel){
+        	TileManaBarrel p = (TileManaBarrel)te;
 			int mana = p.getCurrentMana();
 			if(!worldIn.isRemote){
 				player.sendMessage(new TextComponentTranslation(String.valueOf(mana)));

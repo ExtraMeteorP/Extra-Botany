@@ -12,8 +12,11 @@ public class LibBlocksName {
 	public static final String SUBTILE_ANNOYINGFLOWER = "annoyingflower";
 	public static final String SUBTILE_STARDUSTLOTUS = "stardustlotus";
 	public static final String SUBTILE_MANALINKIUM = "manalinkium";
+	public static final String SUBTILE_REIKARLILY = "reikarlily";
+	public static final String SUBTILE_ENCHANTEDORCHID = "enchantedorchid";
 	
 	public static final String TILE_PEDESTAL = "pedestal";
+	public static final String TILE_BATTERYBOX = "manabarrel";
 	
 	public static final String BLOCKORICHALCOS = "blockorichalcos";
 }

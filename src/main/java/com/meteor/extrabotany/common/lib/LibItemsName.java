@@ -11,12 +11,15 @@ public class LibItemsName {
 	public static final String GILDEDMASHEDPOTATO = "gildedmashedpotato";
 	public static final String GILDEDPOTATOBATTERY = "gildedpotatobattery";
 	
+	public static final String CAMERA = "camera";
 	public static final String TRAVELJOURNAL = "traveljournal";
 	
 	public static final String HAMMER_MANASTEEL = "manasteelhammer";
 	public static final String HAMMER_ELEMENTIUM = "elementiumhammer";
 	public static final String HAMMER_TERRASTEEL = "terrasteelhammer";
 	public static final String HAMMER_ULTIMATE = "ultimatehammer";
+	
+	public static final String KINGGARDEN = "kinggarden";
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";

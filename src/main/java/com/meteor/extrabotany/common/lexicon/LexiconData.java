@@ -30,10 +30,12 @@ public class LexiconData {
 	public static LexiconEntry stonesia;
 	public static LexiconEntry tinkle;
 	public static LexiconEntry bellflower;
+	public static LexiconEntry reikarlily;
 	
 	public static LexiconEntry annoyingflower;
 	public static LexiconEntry stardustlotus;
 	public static LexiconEntry manalinkium;
+	public static LexiconEntry enchantedorchid;
 	
 	public static LexiconEntry pedestal;
 	public static LexiconEntry nightmarefuel;
@@ -42,6 +44,8 @@ public class LexiconData {
 	public static LexiconEntry binder;
 	public static LexiconEntry hammer;
 	public static LexiconEntry goldpotato;
+	public static LexiconEntry kinggarden;
+	public static LexiconEntry manabarrel;
 	
 	public static LexiconEntry froststar;
 	public static LexiconEntry deathring;
@@ -75,6 +79,10 @@ public class LexiconData {
 		bellflower.setLexiconPages(new PageText("0"),
 					new PagePetalRecipe<>("1", ModPetalRecipe.bellflowerRecipe));
 		
+		reikarlily = new DreamLexiconEntry(LibLexicon.GFLOWER_REIKARLILY,  BotaniaAPI.categoryGenerationFlowers);
+		reikarlily.setLexiconPages(new PageText("0"),
+					new PagePetalRecipe<>("1", ModPetalRecipe.reikarlilyRecipe));
+		
 		annoyingflower = new BasicLexiconEntry(LibLexicon.FFLOWER_ANNOYINGFLOWER,  BotaniaAPI.categoryFunctionalFlowers);
 		annoyingflower.setLexiconPages(new PageText("0"),
 					new PagePetalRecipe<>("1", ModPetalRecipe.annoyingflowerRecipe),
@@ -89,6 +97,10 @@ public class LexiconData {
 		stardustlotus.setLexiconPages(new PageText("0"),
 					new PagePetalRecipe<>("1", ModPetalRecipe.stardustlotusRecipe),
 					new PageText("2"), new PageMultiblock("3", SubTileStardustLotus.makeMultiblockSet()));
+		
+		enchantedorchid = new DreamLexiconEntry(LibLexicon.FFLOWER_ENCHANTEDORCHID,  BotaniaAPI.categoryFunctionalFlowers);
+		enchantedorchid.setLexiconPages(new PageText("0"),
+					new PagePetalRecipe<>("1", ModPetalRecipe.enchantedorchidRecipe));
 		
 		pedestal = new BasicLexiconEntry(LibLexicon.PEDESTAL,  BotaniaAPI.categoryBasics);
 		pedestal.setLexiconPages(new PageText("0"),
@@ -126,6 +138,16 @@ public class LexiconData {
 		binder = new DreamLexiconEntry(LibLexicon.BINDER,  BotaniaAPI.categoryTools);
 		binder.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_binder")));
+		
+		kinggarden = new DreamLexiconEntry(LibLexicon.KINGGARDEN,  BotaniaAPI.categoryTools);
+		kinggarden.setLexiconPages(new PageText("0"),
+					new PageText("1"),
+					new PageCraftingRecipe("2", getResource("recipe_kinggarden2")),
+					new PageCraftingRecipe("3", getResource("recipe_kinggarden")));
+		
+		manabarrel = new DreamLexiconEntry(LibLexicon.MANABARREL,  BotaniaAPI.categoryMana);
+		manabarrel.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_manabarrel")));
 		
 		froststar = new BasicLexiconEntry(LibLexicon.BAUBLE_FROSTSTAR,  BotaniaAPI.categoryBaubles);
 		froststar.setLexiconPages(new PageText("0"),

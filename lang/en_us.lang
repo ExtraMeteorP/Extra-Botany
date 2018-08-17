@@ -1,0 +1,340 @@
+botania.knowledge.dream=&6Dream&7 Knowledge
+
+item.extrabotany:manareader.name=Mana Reader
+item.extrabotany:binder.name=Position Reader
+item.extrabotany:spiritfuel.name=Spirit Fuel
+item.extrabotany:spirit.name=Spirit fragment
+item.extrabotany:nightmarefuel.name=Nightmare Fuel
+item.extrabotany:friedchicken.name=Fried Chicken Leg
+item.extrabotany:ingotorichalcos.name=Orichalcos Ingot
+item.extrabotany:goldpotato.name=Gilded Potato
+item.extrabotany:gildedmashedpotato.name=Gilded Mashed Potato
+item.extrabotany:manasteelhammer.name=Manasteel Hammer
+item.extrabotany:terrasteelhammer.name=Terrasteel Hammer
+item.extrabotany:elementiumhammer.name=Elementium Hammer
+item.extrabotany:ultimatehammer.name=Ultimate Hammer
+item.extrabotany:natureorb.name=Nature Orb
+item.extrabotany:heromedal.name=Medal for Heroism
+item.extrabotany:manasteelshield.name=Manasteel Shield
+item.extrabotany:elementiumshield.name=Elementium Shield
+item.extrabotany:terrasteelshield.name=Terrasteel Shield
+
+item.extrabotany:kinggarden.name=Garden of King's Law
+item.extrabotany:rewardbag1.name=Reward Bag Eins
+item.extrabotany:rewardbag2.name=Reward Bag Zwei
+item.extrabotany:rewardbag3.name=Reward Bag Drei
+item.extrabotany:rewardbag4.name=Reward Bag Vier
+item.extrabotany:treasurebox.name=Pandora's Box
+item.extrabotany:failnaught.name=Failnaught
+item.extrabotany:camera.name=Shameimaru's Camera
+item.extrabotany:achilleshield.name=Achilled Shield
+item.extrabotany:mastermanaring.name=Master Band of Mana
+item.extrabotany:recordgaia3.name=Scathed Music Disc
+item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
+
+item.extrabotany:froststar.name=Frost Ring
+item.extrabotany:deathring.name=Curse Ring
+item.extrabotany:.name=
+
+tile.extrabotany:pedestal.name=Livingrock Pedestal
+tile.extrabotany:blockorichalcos.name=Block of Orichalcos
+tile.extrabotany:manabarrel.name=Mana Buffer
+
+entity.extrabotany:flowerWeapon.name=Flower
+entity.extrabotany:gaiaIII.name=Gaia Guardian III
+entity.extrabotany:skullmissile.name=Skull Missile
+entity.extrabotany:skulllandmine.name=Skull Landmine
+entity.extrabotany:skullminion.name=Skull Minion
+entity.extrabotany:magicarrow.name=Magic Arrow
+entity.extrabotany:.name=
+
+extrabotanymisc.hammer=Forge
+extrabotanymisc.hammerTip=Tip:Use Hammer to forge item
+
+tile.botania:flower.bloodyenchantress.name=Bloody Enchantress
+tile.botania:flower.bloodyenchantress.reference=A bargain forged in blood and shadow
+tile.botania:flower.sunbless.name=Sunshine Lily
+tile.botania:flower.sunbless.reference=May the light heal and enlighten you
+tile.botania:flower.moonbless.name=Moonlight Lily
+tile.botania:flower.moonbless.reference=May you find all you have lost
+tile.botania:flower.omniviolet.name=Omniviolet
+tile.botania:flower.omniviolet.reference=Need not to know
+tile.botania:flower.stonesia.name=Stonesia
+tile.botania:flower.stonesia.reference=ONLY THE KING CAN TAKE THE FLOWER FROM THE STONE
+tile.botania:flower.tinkle.name=Tinkle Flower
+tile.botania:flower.tinkle.reference=My turn
+tile.botania:flower.bellflower.name=Bell Flower
+tile.botania:flower.bellflower.reference=Lost wind
+tile.botania:flower.annoyingflower.name=Annoying Flower
+tile.botania:flower.annoyingflower.reference=Rest time
+tile.botania:flower.stardustlotus.name=Stardust Lotus
+tile.botania:flower.stardustlotus.reference=東方星蓮船
+tile.botania:flower.manalinkium.name=Manalinkium
+tile.botania:flower.manalinkium.reference=Link Summon
+tile.botania:flower.reikarlily.name=Reikar Lily
+tile.botania:flower.reikarlily.reference=Game Crash
+tile.botania:flower.enchantedorchid.name=Enchanted Orchid
+tile.botania:flower.enchantedorchid.reference=I have no time playing games
+tile.botania:flower..name=
+tile.botania:flower..reference=
+
+itemGroup.extrabotany=ExtraBotany
+
+extrabotany.repairupgrade1=Repair Upgrade I
+extrabotany.repairupgrade2=Repair Upgrade II
+extrabotany.repairupgrade3=Repair Upgrade III
+extrabotany.damageupgrade1=Sharpness Upgrade I
+extrabotany.damageupgrade2=Sharpness Upgrade II
+extrabotany.damageupgrade3=Sharpness Upgrade III
+extrabotany.damageupgrade4=Sharpness Upgrade IV
+extrabotany.damageupgrade5=Sharpness Upgrade V
+extrabotany.damageupgrade6=Sharpness Upgrade VI
+extrabotany.damageupgrade7=Sharpness Upgrade VII
+extrabotany.damageupgrade8=Sharpness Upgrade VIII
+extrabotany.damageupgrade9=Sharpness Upgrade IX
+extrabotany.damageupgrade10=Sharpness Upgrade X
+extrabotany.rangeupgrade=Range Upgrade I
+extrabotany.bindx=X:
+extrabotany.bindy=Y:
+extrabotany.bindz=Z:
+extrabotany.binddim=Dim:
+extrabotany.kinggarden=Configuration:
+extrabotanymisc.gaiaPreparing=Gaia Guardian is prepareing a SPECIAL attack!
+extrabotanymisc.gaiaWarning=5 seconds left before Gaia Guardian uses the SPECIAL attack!
+extrabotanymisc.gaiaWarning2=Gaia Guardian will do MASS DMG on a certain player , who will be the lucky one ?
+extrabotanymisc.gaiaWarning3=Gaia Guardian deal mass DMG to you!
+extrabotanymisc.minionSpawn=Gaia Guardian sommoned minions . You'd better kill minions first:D
+extrabotany.natureorb=Natural Breath:
+extrabotany.natureorbeffect1false=The Blessing of Mana(Deactivated)
+extrabotany.natureorbeffect1true=The Blessing of Mana&b(Activated)
+extrabotany.natureorbeffect2false=The Blessing of Regeneration(Deactivated)
+extrabotany.natureorbeffect2true=The Blessing of Regeneration&4(Activated)
+extrabotany.natureorbeffect3false=The Blessing of Senro(Deactivated)
+extrabotany.natureorbeffect3true=The Blessing of Senro&2(Activated)
+extrabotany.bonusbase=You'll have the chance to get following Items:
+
+botania.entry.bloodyenchantress=Bloody Enchantress
+botania.page.bloodyenchantress0=Bloody Enchantress can create &4Mana&0 by consuming creatures' life , working efficiently when creatures are nearby. But creatures sacrificed by this way will not produce any drops or experience.
+botania.page.bloodyenchantress1=The only cure is death.
+botania.tagline.bloodyenchantress=Burning soul
+
+botania.entry.sunbless=Sunshine Lily
+botania.page.sunbless0=Like &1Dayblooms&0, Sunshine Lily can produce &4Mana&0 with sunlight, but slightly more efficiently. Please notice that it will still decay.
+botania.page.sunbless1=Heal and heat.
+botania.tagline.sunbless=Mana from the Sun
+
+botania.entry.moonbless=Moonlight Lily
+botania.page.moonbless0=Like &1Nightshade&0, Moonlight Lily generates &4Mana&0 at night, but slightly more efficiently. Please notice that it will still decay.
+botania.page.moonbless1=Sowing of the Fool.
+botania.tagline.moonbless=Mana from the Moon
+
+botania.entry.omniviolet=Omniviolet
+botania.page.omniviolet0=As a saying goes that Knowledge is power, Omniviolet can convert books or written books to &4Mana&0. Bookshelves arranged according to enchantment table structure in the surrounding area can serve as catalysts, increasing its mana generation efficiency. 
+botania.page.omniviolet1=Akashic Records.
+botania.tagline.omniviolet=Knowledge is power
+
+botania.entry.stonesia=Stonesia
+botania.page.stonesia0=Stonesia can let stones, cobblestones or ores be converted into &4Mana&0, and the rarer the ore is, the more mana it will produce. A Livingrock pedestal with Nature Orb arranged in the surrounding area can increase its mana generation efficiency.
+botania.page.stonesia1=Diamond and Pearl.
+botania.tagline.stonesia=Rare Value
+
+botania.entry.tinkle=Tinkle Flower
+botania.page.tinkle0=Tinkle flower can convert kinetic energy to &4Mana&0, producing &4Mana&0 when players movning nearby. A Livingrock pedestal with a Nature Orb arranged in the surrounding area can increase its mana generation efficiency.
+botania.page.tinkle1=Ding dong, here I come to find you.
+botania.tagline.tinkle=Rush!Rush!Rush!
+
+botania.entry.bellflower=Bell Flower
+botania.page.bellflower0=Create &4Mana&0 by wind power, which needs to be placed in the open-air. The higher it is, the more mana it produces. A Livingrock pedestal with a Nature Orb arranged in the surrounding area can increase its mana generation efficiency. As a passive flower, the bell flowers will decay.
+botania.page.bellflower1=Only the storms can knock down the trees.
+botania.tagline.bellflower=Mana from the wind
+
+botania.entry.annoyingflower=Annoying Flower
+botania.page.annoyingflower0=Placing a livingrock pedestal with water bucket on it in the surrounding area, then annoying flower will start to fish by using &4Mana&0. Giving Fried chicken leg to it will significantly increase the efficiency and the chance of getting treasures.
+botania.page.annoyingflower1=RK800.
+botania.page.annoyingflower2=Fried chicken leg which is soaked in &4Mana&0 can restore more hunger saturation.
+botania.page.annoyingflower3=わしも 悪魔なんて じゃない.
+botania.tagline.annoyingflower=Time to fish.
+
+botania.entry.manalinkium=Manalinkium
+botania.page.manalinkium0=Manalinkium can wirelessly transfer mana to a mana pool, just use a Position Reader to link that pool to the Manalinkium.
+botania.page.manalinkium1=This is too real.
+botania.page.manalinkium2=Complete the Multi-block structure to let it work.
+botania.page.manalinkium3=The flower should be placed at middle.
+botania.tagline.manalinkium=Wireless Transmission
+
+botania.entry.stardustlotus=Stardust Lotus
+botania.page.stardustlotus0=Stardust Lotus can use mana to teleport creatures to the specific location, just use a Position Reader to link a position to the Stardust Lotus. After linking, throw a paper and wait. A sparkle means the portal is ready.
+botania.page.stardustlotus1=Better than wolves.
+botania.page.stardustlotus2=Complete the Multi-block structure to let it work.
+botania.page.stardustlotus3=The flower should be placed at middle.
+botania.tagline.stardustlotus=Directional Teleport
+
+botania.entry.reikarlily=Reikar Lily
+botania.page.reikarlily0=Reikar Lily can turn thunder's great energy into mana. When a lightning bolt hits nearby, it will generate a great amount of mana immediately, and produce mana continuously for a long time.
+botania.page.reikarlily1=I Choose You!
+botania.tagline.reikarlily=Thunder Energy
+
+botania.entry.enchantedorchid=Enchanted Orchid
+botania.page.enchantedorchid0=Enchanted Orchid can change grass block beneath to Enchanted soil. It will need a black lotus, a large quantity of mana and a long time for each transform.
+botania.page.enchantedorchid1=真実はいつも一つ
+botania.tagline.enchantedorchid=Knowledge is power and I know a lot
+
+botania.entry.manabarrel=Mana Buffer
+botania.page.manabarrel0=Mana Buffer can store as much mana as 64 mana pools do. It will drain mana from adjacent mana pools and supply to the mana pool on it.
+botania.page.manabarrel1=un...deux...trois...
+botania.tagline.manabarrel=Store Mana
+
+botania.entry.kinggarden=Garden of King's Law
+botania.page.kinggarden0=Garden of King's Law can summon flowers which are recorded by it to give the enemy a heavy blow. Just place it on the Livingrock Pedestal, hold a flower and right-click to record. Different flowers will have different effects.
+botania.page.kinggarden1=For example, Blood Enchantress will deal high magic damage, Sunshine Lily will set enemies on fire. But not every type of flower can be recorded.
+botania.page.kinggarden2=Enuma Elish.
+botania.page.kinggarden3=Sha Nagba Imuru.
+botania.tagline.kinggarden=Ultimate Flower Work
+
+botania.entry.nightmarefuel=Nightmare Fuel
+botania.page.nightmarefuel0=The Nightmare Fuel, which is edible, is a kind of advanced fuel extracted out by mana.
+botania.page.nightmarefuel1=脳が震える.
+botania.tagline.nightmarefuel=
+
+botania.entry.spiritfuel=Spirit Fuel
+botania.page.spiritfuel0=The Spirit Fuel, which is edible too, is a kind of material obtained by eating a nightmare fuel. Holding a lexicon and right click  a livingrock pedestal with spirit fuel can unlock new knowledge.
+botania.page.spiritfuel1=A believing heart is your magic.
+botania.tagline.spiritfuel=Hive mind
+
+botania.entry.manareader=Mana Reader
+botania.page.manareader0=Right clicking mana pool with mana reader in hand can display amount of &4Mana&0. 
+botania.page.manareader1=Rion.
+botania.tagline.manareader=Display mana
+
+botania.entry.binder=Position Reader
+botania.page.binder0=Hold the Position Reader, sneak and right-click a block to store its position. Right-click a block without sneaking will put the stored information into it.
+botania.page.binder1=The greatest inventions of the century
+botania.tagline.binder=Show Position
+
+botania.entry.pedestal=Livingrock Pedestal
+botania.page.pedestal0=Right click to place items on the livingrock pedestal.Using hammer on a livingrock pedestal can forge item on it.
+botania.page.pedestal1=What is evel? Everything that comes from weakness is evil.
+botania.page.pedestal2=Hidden is a kind of outstanding talent.
+botania.page.pedestal3=L'enfer, c'est les autres.
+botania.page.pedestal4=Rien n'est si dangereux qu'un ignorant ami；Mieux vaudrait un sage ennemi.
+botania.page.pedestal5=Lasciate ogni speranza,voi ch'entrate.
+botania.page.pedestal6=L'homme est condamné à être libre.
+botania.tagline.pedestal=Show item
+
+botania.entry.froststar=Frost Ring
+botania.page.froststar0=&1Frost Ring&0 freezes large areas of water and lava, and adds slowness to nearby creature spectated by wearer.
+botania.page.froststar1=I am the frozen heart of the Scourge!
+botania.tagline.froststar=Freeze, don't move
+
+botania.entry.deathring=Curse Ring
+botania.page.deathring0=&1Curse Ring&0 consumes a little &4Mana&0 and gives wither and unluck effect to nearby creature spectated by wearer.
+botania.page.deathring1=Do not fear power... fear those who wield it!
+botania.tagline.deathring=The eternal hunt has begun.
+
+botania.entry.hammer=Hammer
+botania.page.hammer0=Hammers for forging, can also be used as pickaxes
+botania.page.hammer1=梦の中で逢った、ような
+botania.page.hammer2=それはとっても嬉しいなって
+botania.page.hammer3=もう何も怖くない
+botania.page.hammer4=Ultimate Hammer which can use mana to repair automatically, is the upgraded version of terrasteel hammer. Place it in the Livingrock Pedestal and then you can use corresponding items to upgrade it. Gilded Mashed Potato - Repair Upgrade, Elementium Sword - Sharpness Upgrade, and Terrasteel Hammer - Range Upgrade.
+botania.page.hammer5=後悔なんて、あるわけない
+botania.tagline.hammer=
+
+botania.entry.goldpotato=Gilded Potato
+botania.page.goldpotato0=Gilded Potato, may have other use.
+botania.page.goldpotato1=奇迹も、魔法も、あるんだよ
+botania.tagline.goldpotato=Golden Legendary
+
+botania.entry.failnaught=Failnaught
+botania.page.failnaught0=Using mana, Failnaught can shoot a magic arrow which wil pierce through the enemies and deal damage to the nearby living creatures. The longer you pull the bow, the higher damage it will do.
+botania.page.failnaught1=A hundred shots, a hundred bull's eyes.
+botania.tagline.failnaught=ARTIFACT.
+
+botania.entry.natureorb=Nature Orb
+botania.page.natureorb0=Nature Orb can store &1Natural Breath&0, which can protect the carrier. When it is placed on the Livingrock Pedestal, some kinds of flowers nearby will be boosted.
+botania.page.natureorb1=Not Blood Orb.
+botania.page.natureorb2=Rank I Ritual.
+botania.page.natureorb3=Rank II Ritual.
+botania.page.natureorb4=Build a Multi-block structure, place it on the Livingrock Pedestal to collect &1Natural Breath&0.
+botania.tagline.natureorb=Natural Balance
+
+botania.entry.camera=Shameimaru's Camera
+botania.page.camera0=After using Shameimaru's Camera, the mobs in sight will lose its abilities. The projectiles in sight will also vanish. Creatures affected by this will return to normal after getting hurt.
+botania.page.camera1=風符「風神一扇」
+botania.tagline.camera=疾風「風神少女」
+
+botania.entry.gaia3=Ritual of Gaia III
+botania.page.gaia30=Use 100,000 Natural Breath stored in Nature Orb to summon more powerful Gaia Guardian. It will has greater power and gain new abilities.
+botania.page.gaia31=Before chanllenge Gaia Guardian III, you should obey some new rules. First, the blocks in the field should belongs to Vanilla Minecraft or Botania, any other kinds of blocks will be destroyed. Also, the items you hold or equip should be Botania's or Vanilla, others will be disarmed. While battling, you should avoid red landmines as they will deal mass damage to you.
+botania.page.gaia32=Pokemon Get Daze.
+botania.tagline.gaia3=It's HARDCORE
+
+botania.entry.relicshield=Achilled Shield
+botania.page.relicshield0=&4Achilled Shield&0 can reflect damage and most kinds of projectiles. Colliding the enemies while blocking will deal high damage to them. 
+botania.page.relicshield1=俺は人间をやめるぞ
+botania.tagline.relicshield=AT Field
+
+botania.entry.mastermanaring=Master Band of Mana
+botania.page.mastermanaring0=&4Master Band of Mana&0 can store nearly infinite Mana.
+botania.page.mastermanaring1=The Cake is a Lie.
+botania.tagline.mastermanaring=IMPOSSIBLE
+
+botania.entry.=
+botania.page.0=
+botania.page.1=
+botania.tagline.=
+
+extrabotany.desc=Welcome to the World of the supreme principle of Mana
+
+advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
+advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)
+advancement.extrabotany:newknowledgeUnlock=Unlock New Knowledge
+advancement.extrabotany:newknowledgeUnlock.desc=Hold a Lexicon and right-click a Livingrock Pedestal with a Spirit Fuel
+advancement.extrabotany:pedestalCraft=CONNECT
+advancement.extrabotany:pedestalCraft.desc=Craft a Livingrock Pedestal
+advancement.extrabotany:ultimatehammerCraft=PONPONPON
+advancement.extrabotany:ultimatehammerCraft.desc=Craft a Ultimate Hammer
+advancement.extrabotany:ultimatehammerUpgrade=裏表ラバーズ
+advancement.extrabotany:ultimatehammerUpgrade.desc=Use Gilded Mashed Potato to upgrade your Ultimate Hammer
+advancement.extrabotany:fragmentForge=Gears of Love
+advancement.extrabotany:fragmentForge.desc=Forge once on the Livingrock Pedestal
+advancement.extrabotany:manareaderCraft=Satisfaction
+advancement.extrabotany:manareaderCraft.desc=Craft a Mana Reader
+advancement.extrabotany:posbinderCraft=Letter Song
+advancement.extrabotany:posbinderCraft.desc=Craft a Position Reader
+advancement.extrabotany:stardustlotusTeleport=Promise
+advancement.extrabotany:stardustlotusTeleport.desc=Use Stardust Lotus to teleport yourself
+advancement.extrabotany:manalinkiumUse=Crystalline
+advancement.extrabotany:manalinkiumUse.desc=Bind a mana pool to Manalinkium
+advancement.extrabotany:tinkleUse=Project Diva desu
+advancement.extrabotany:tinkleUse.desc=Dance around a Tinkle Flower
+advancement.extrabotany:bloodyenchantressUse=Sweet Devil
+advancement.extrabotany:bloodyenchantressUse.desc=Use Bloody Enchantress to generate mana
+advancement.extrabotany:manabufferCraft=ロストワンの号哭
+advancement.extrabotany:manabufferCraft.desc=Craft a Mana Buffer
+advancement.extrabotany:kinggardenCraft=Last Night,Good Night
+advancement.extrabotany:kinggardenCraft.desc=Craft a Garden of King's Law
+advancement.extrabotany:annoyingdogSummon=April Fool
+advancement.extrabotany:annoyingdogSummon.desc=The Dog absorbs the artifact
+advancement.extrabotany:failnaughtCraft=from Y to Y
+advancement.extrabotany:failnaughtCraft.desc=Obtain Failnaught
+advancement.extrabotany:cameraCraft=lukaluka night fever
+advancement.extrabotany:cameraCraft.desc=Obtain Shameimaru's Camera
+advancement.extrabotany:gaiaDefeat=KiLLER LADY
+advancement.extrabotany:gaiaDefeat.desc=Defeat Gaia Guardian III
+advancement.extrabotany:natureorbCraft=Single floor
+advancement.extrabotany:natureorbCraft.desc=Craft a Nature Orb
+advancement.extrabotany:landmineActive=WORLD'S END UMBRELLA
+advancement.extrabotany:landmineActive.desc=Take damage from a red landmine
+advancement.extrabotany:achilleshieldCraft=Mr.Wonder
+advancement.extrabotany:achilleshieldCraft.desc=Obtain Achille Shield
+advancement.extrabotany:mastermanaringCraft=COLOR
+advancement.extrabotany:mastermanaringCraft.desc=Obtain Master Band of Mana
+advancement.extrabotany:mastermanaringFill=Fairytale
+advancement.extrabotany:mastermanaringFill.desc=Fill it to WIN the game
+
+advancement.extrabotany:=
+advancement.extrabotany:.desc=
+
+extrabotany.versioning.flavour=
+extrabotany.versioning.outdated=

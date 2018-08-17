@@ -1,0 +1,340 @@
+botania.knowledge.dream=&6梦想&7的知识
+
+item.extrabotany:manareader.name=魔力读取器
+item.extrabotany:binder.name=坐标读取器
+item.extrabotany:spiritfuel.name=精神燃料
+item.extrabotany:spirit.name=精神碎片
+item.extrabotany:nightmarefuel.name=梦魇燃料
+item.extrabotany:friedchicken.name=香香鸡
+item.extrabotany:ingotorichalcos.name=奥利哈刚锭
+item.extrabotany:goldpotato.name=镀金服务器
+item.extrabotany:gildedmashedpotato.name=镀金土豆泥
+item.extrabotany:manasteelhammer.name=魔力钢锤
+item.extrabotany:terrasteelhammer.name=泰拉钢锤
+item.extrabotany:elementiumhammer.name=源质钢锤
+item.extrabotany:ultimatehammer.name=镀金究极锤
+item.extrabotany:natureorb.name=自然蕴息宝珠
+item.extrabotany:heromedal.name=英雄勋章
+item.extrabotany:manasteelshield.name=魔力钢盾牌
+item.extrabotany:elementiumshield.name=源质钢盾牌
+item.extrabotany:terrasteelshield.name=泰拉钢盾牌
+
+item.extrabotany:kinggarden.name=王之花园
+item.extrabotany:rewardbag1.name=奖励袋Eins
+item.extrabotany:rewardbag2.name=奖励袋Zwei
+item.extrabotany:rewardbag3.name=奖励袋Drei
+item.extrabotany:rewardbag4.name=奖励袋Vier
+item.extrabotany:treasurebox.name=潘多拉魔盒
+item.extrabotany:failnaught.name=百中弓
+item.extrabotany:camera.name=文文的相机
+item.extrabotany:achilleshield.name=勇士盾
+item.extrabotany:mastermanaring.name=大师魔力之戒
+item.extrabotany:recordgaia3.name=损坏的唱片
+item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
+
+item.extrabotany:froststar.name=霜冻之星
+item.extrabotany:deathring.name=诅咒指环
+item.extrabotany:.name=
+
+tile.extrabotany:pedestal.name=活石祭坛
+tile.extrabotany:blockorichalcos.name=奥利哈刚块
+tile.extrabotany:manabarrel.name=魔力缓存器
+
+entity.extrabotany:flowerWeapon.name=花
+entity.extrabotany:gaiaIII.name=盖亚守护者III
+entity.extrabotany:skullmissile.name=飞弹
+entity.extrabotany:skulllandmine.name=地雷
+entity.extrabotany:skullminion.name=仆从
+entity.extrabotany:magicarrow.name=魔法箭
+entity.extrabotany:.name=
+
+extrabotanymisc.hammer=锻造
+extrabotanymisc.hammerTip=提示:用锤子右键活石祭坛来锻造物品
+
+tile.botania:flower.bloodyenchantress.name=血腥妖姬
+tile.botania:flower.bloodyenchantress.reference=用鲜血和暗影铸造的假货
+tile.botania:flower.sunbless.name=日耀百合
+tile.botania:flower.sunbless.reference=愿光芒能治愈并指引你
+tile.botania:flower.moonbless.name=月光百合
+tile.botania:flower.moonbless.reference=愿你能找到所有失去的东西
+tile.botania:flower.omniviolet.name=全知瑾
+tile.botania:flower.omniviolet.reference=我知万物
+tile.botania:flower.stonesia.name=石中姬
+tile.botania:flower.stonesia.reference=ONLY THE KING CAN TAKE THE FLOWER FROM THE STONE
+tile.botania:flower.tinkle.name=叮当舞花
+tile.botania:flower.tinkle.reference=接下来是我的回合
+tile.botania:flower.bellflower.name=风铃花
+tile.botania:flower.bellflower.reference=迷失的风
+tile.botania:flower.annoyingflower.name=神烦花
+tile.botania:flower.annoyingflower.reference=摸了
+tile.botania:flower.stardustlotus.name=星移莲
+tile.botania:flower.stardustlotus.reference=東方星蓮船
+tile.botania:flower.manalinkium.name=魔链星
+tile.botania:flower.manalinkium.reference=链接召唤
+tile.botania:flower.reikarlily.name=雷卡兰
+tile.botania:flower.reikarlily.reference=游戏崩溃
+tile.botania:flower.enchantedorchid.name=蕴魔瑾
+tile.botania:flower.enchantedorchid.reference=我可没时间陪你玩游戏
+tile.botania:flower..name=
+tile.botania:flower..reference=
+
+itemGroup.extrabotany=额外植物学
+
+extrabotany.repairupgrade1=修复升级I
+extrabotany.repairupgrade2=修复升级II
+extrabotany.repairupgrade3=修复升级III
+extrabotany.damageupgrade1=锋利升级I
+extrabotany.damageupgrade2=锋利升级II
+extrabotany.damageupgrade3=锋利升级III
+extrabotany.damageupgrade4=锋利升级IV
+extrabotany.damageupgrade5=锋利升级V
+extrabotany.damageupgrade6=锋利升级VI
+extrabotany.damageupgrade7=锋利升级VII
+extrabotany.damageupgrade8=锋利升级VIII
+extrabotany.damageupgrade9=锋利升级IX
+extrabotany.damageupgrade10=锋利升级X
+extrabotany.rangeupgrade=范围升级I
+extrabotany.bindx=X坐标:
+extrabotany.bindy=Y坐标:
+extrabotany.bindz=Z坐标:
+extrabotany.binddim=次元:
+extrabotany.kinggarden=已配置数:
+extrabotanymisc.gaiaPreparing=盖亚守护者正在准备一次特殊攻击
+extrabotanymisc.gaiaWarning=还有5秒盖亚守护者将发动特殊攻击
+extrabotanymisc.gaiaWarning2=盖亚守护者将抽取一位玩家造成大量伤害,究竟是谁会这么幸运呢
+extrabotanymisc.gaiaWarning3=盖亚守护者对你造成了巨额伤害
+extrabotanymisc.minionSpawn=盖亚守护者召唤了仆从,建议优先击杀仆从
+extrabotany.natureorb=自然之息:
+extrabotany.natureorbeffect1false=魔力的加护(未激活)
+extrabotany.natureorbeffect1true=魔力的加护&b(已激活)
+extrabotany.natureorbeffect2false=再生的加护(未激活)
+extrabotany.natureorbeffect2true=再生的加护&4(已激活)
+extrabotany.natureorbeffect3false=森罗的加护(未激活)
+extrabotany.natureorbeffect3true=森罗的加护&2(已激活)
+extrabotany.bonusbase=开启后有概率获得以下物品
+
+botania.entry.bloodyenchantress=血腥妖姬
+botania.page.bloodyenchantress0=能够将生物的生命值转化为 &4魔力&0,一旦有生物在其附近 就会开始魔力的转化,效率 较为可观.需要注意的是通 过这种方式献祭的生物不会 有任何掉落.
+botania.page.bloodyenchantress1=死亡是唯一的解药.
+botania.tagline.bloodyenchantress=燃烧生命
+
+botania.entry.sunbless=日耀百合
+botania.page.sunbless0=拥有着和&1太阳花&0一样的能力 ,能将阳光转化为&4魔力&0,但 是比起它有着更高的&4魔力&0产 出.但过程仍然显得十分缓 慢.
+botania.page.sunbless1=光与热.
+botania.tagline.sunbless=太阳的魔力
+
+botania.entry.moonbless=月光百合
+botania.page.moonbless0=拥有着和&1紫颠茄&0一样的能力 ,能在夜晚产生&4魔力&0,但 是比起它有着更高的&4魔力&0产 出.但过程仍然显得十分缓 慢.
+botania.page.moonbless1=愚者的播种.
+botania.tagline.moonbless=月亮的魔力
+
+botania.entry.omniviolet=全知瑾
+botania.page.omniviolet0=知识就是力量,全知瑾能够 将书本或成书转化为&4魔力&0, 并且在其周围按附魔台方式 摆放上书架的话能够起到催 化剂的效果,增加其产魔效 率.
+botania.page.omniviolet1=阿克夏记录.
+botania.tagline.omniviolet=知识就是力量
+
+botania.entry.stonesia=石中姬
+botania.page.stonesia0=石中姬可以将圆石或石头变 为&4魔力&0的形式,但由于这两种 东西过于廉价,效果并不好. 矿石或许是更好的选择,越 是稀有的矿石其转化出的魔 力也越多.同时在其工作范围 内摆放上带有自然蕴息宝珠的活石祭坛 可以催化其效率.
+botania.page.stonesia1=珍珠与钻石.
+botania.tagline.stonesia=珍稀价值
+
+botania.entry.tinkle=叮当舞花
+botania.page.tinkle0=叮当舞花可以将动能变为&4魔力&0,玩 家在其附近移动时会产出魔力, 如果在其周围摆放上带有自然蕴 息宝珠的活石祭坛可以提高其魔 力产出.
+botania.page.tinkle1=叮咚,我来找你了哦
+botania.tagline.tinkle=冲!冲!冲!
+
+botania.entry.bellflower=风铃花
+botania.page.bellflower0=能将风能转化为&4魔力&0的花,需 要摆放在露天的地方,海拔越 高效率越高,如果在其周围摆 放上带有自然蕴息宝珠的活石祭坛可 提高其魔力产出.但它仍会枯 萎.
+botania.page.bellflower1=只有风暴才能击倒大树.
+botania.tagline.bellflower=风的魔力
+
+botania.entry.annoyingflower=神烦花
+botania.page.annoyingflower0=在神烦花周围摆放上一个带 有水桶的活石祭坛,它就可以 消耗&4魔力&0来自动钓鱼.如果给 它投喂香香鸡的话,它接下 来几次的工作效率会得到大 幅提高并有更高概率钓到稀 有物品.
+botania.page.annoyingflower1=RK800.
+botania.page.annoyingflower2=浸泡过魔力的香香鸡能够回 复更多的饱食度.
+botania.page.annoyingflower3=毕竟我也不是什么恶魔.
+botania.tagline.annoyingflower=现在是钓鱼时间
+
+botania.entry.manalinkium=魔链星
+botania.page.manalinkium0=魔链星可以将魔力无线传输 至一个绑定的魔力池中,只需 要用坐标读取器将魔力池的 坐标录入即可.
+botania.page.manalinkium1=太真实了.
+botania.page.manalinkium2=这朵花需要满足多方块结构 才能工作.
+botania.page.manalinkium3=花需要摆放在第二层正中间
+botania.tagline.manalinkium=无线传输
+
+botania.entry.stardustlotus=星移莲
+botania.page.stardustlotus0=星移莲可以消耗魔力将生物 传送到指定坐标位置上,只需 要你用坐标读取器将坐标录 入进去即可.丢1张纸即可开 启传送门,当星移莲发出闪光 时说明传送门准备就绪.
+botania.page.stardustlotus1=比狼好.
+botania.page.stardustlotus2=这朵花需要满足多方块结构 才能工作.
+botania.page.stardustlotus3=花需要摆放在第二层正中间
+botania.tagline.stardustlotus=远程传送
+
+botania.entry.reikarlily=雷卡兰
+botania.page.reikarlily0=雷卡兰可以将闪电的巨大能 量转化为魔力,每当有闪电劈 在其附近时,就会立刻产出巨 大魔力,并且余热会使其继 续缓慢地产出魔力.
+botania.page.reikarlily1=就决定是你了!
+botania.tagline.reikarlily=个!十!百!千!万丈目闪电!
+
+botania.entry.enchantedorchid=蕴魔瑾
+botania.page.enchantedorchid0=蕴魔瑾可以将其地表附近的 草方块转化为蕴魔土,但这个 过程需要漫长的时间和大量 的魔力.并且每次转化都需要 消耗一个黑莲花.
+botania.page.enchantedorchid1=真相只有一个!
+botania.tagline.enchantedorchid=无穷无尽的知识就是我的力量
+
+botania.entry.manabarrel=魔力缓存器
+botania.page.manabarrel0=魔力缓存器可以缓存大量的 魔力,约等于64个魔力池.它可 以从相邻四面的魔力池中吸 取魔力,并向上方的魔力池输 出魔力.
+botania.page.manabarrel1=un...deux...trois...
+botania.tagline.manabarrel=缓存魔力
+
+botania.entry.kinggarden=王之花园
+botania.page.kinggarden0=王之花园可以将其所记录的 花种召唤出来并对敌人进行 打击.需要将王之花园摆放在 活石祭坛上并用对应花右键 来添加配置.不同的花效果 不同.
+botania.page.kinggarden1=例如鲜血妖姬可以造成大量 魔法伤害,而日耀百合可以点 燃敌人,但不是所有种类的花 都可以配置进去.
+botania.page.kinggarden2=天地乖离开辟之星.
+botania.page.kinggarden3=全知且全能之星.
+botania.tagline.kinggarden=无限花制
+
+botania.entry.nightmarefuel=梦魇燃料
+botania.page.nightmarefuel0=通过魔力萃取出的更为高级 的燃料,可食用.
+botania.page.nightmarefuel1=大脑在颤抖.
+botania.tagline.nightmarefuel=生前是个体面人
+
+botania.entry.spiritfuel=精神燃料
+botania.page.spiritfuel0=食用梦魇燃料后得到的产物, 可食用.通过锻造可萃取出精 神碎片,是一种常用的材料. 手持手册右键带有精神燃料 的活石祭坛可解锁新的知识.
+botania.page.spiritfuel1=相信的心就是你的魔法.
+botania.tagline.spiritfuel=意识集合体
+
+botania.entry.manareader=魔力读取器
+botania.page.manareader0=手持魔力读取器右键魔力池 可以显示魔力量.
+botania.page.manareader1=Rion.
+botania.tagline.manareader=显示魔力
+
+botania.entry.binder=坐标读取器
+botania.page.binder0=手持坐标读取器蹲下右键一 个方块就可以记录下该方块 的坐标,右键将坐标录入到需 要提供坐标的装置上.
+botania.page.binder1=本世纪最伟大的发明.
+botania.tagline.binder=读取坐标
+
+botania.entry.pedestal=活石祭坛
+botania.page.pedestal0=可以手持物品右键来将物品 摆放在活石祭坛上.可以使 用锤子右键活石祭坛来锻造 摆放在上面的物品.
+botania.page.pedestal1=什么是恶?凡是源于虚弱的东西都是恶.
+botania.page.pedestal2=深藏不露是一种卓越的才能.
+botania.page.pedestal3=他人即地狱.
+botania.page.pedestal4=宁可有聪明的敌人也不要有无知的队友.
+botania.page.pedestal5=进入此门者当舍弃一切希望.
+botania.page.pedestal6=人注定要受自由之苦.
+botania.tagline.pedestal=展示物品
+
+botania.entry.froststar=霜冻之星
+botania.page.froststar0=&1霜冻之星&0能让装备者行走时 冻结脚下大范围的水和岩浆, 并会使小范围内装备者所视 的生物减速.
+botania.page.froststar1=我是天灾的冰冻之心.
+botania.tagline.froststar=冻住,不许走
+
+botania.entry.deathring=诅咒指环
+botania.page.deathring0=&1诅咒指环&0能消耗少量的&4魔力&0 使小范围内所视的生物获得 凋零和不幸的效果.
+botania.page.deathring1=力量本身并不可怕,可怕的是它的主人.
+botania.tagline.deathring=永恒的狩猎开始了
+
+botania.entry.hammer=锤子
+botania.page.hammer0=锻造用的锤子,也可以用作 镐子来挖矿.
+botania.page.hammer1=似乎在梦中见过的样子
+botania.page.hammer2=我想那还真是令人高兴啊
+botania.page.hammer3=已经没什么好害怕的了
+botania.page.hammer4=究极镀金锤是泰拉钢锤的升 级版,可以消耗魔力修复耐久. 将其摆放在活石祭坛上可以 用对应物品进行升级.使用 镀金土豆泥升级耐久,源质钢 剑升级锋利,泰拉钢锤升级范 围.当解锁范围升级后可以右 键切换模式.
+botania.page.hammer5=怎么可能会后悔
+botania.tagline.hammer=锻造唯一指定
+
+botania.entry.goldpotato=金色小土豆
+botania.page.goldpotato0=镀了金的土豆,可能有其他用处.
+botania.page.goldpotato1=奇迹和魔法都是存在的
+botania.tagline.goldpotato=金色传说
+
+botania.entry.failnaught=百中弓
+botania.page.failnaught0=&4百中弓&0可以消耗魔力发射出 一支能够贯穿敌人的箭,这支 箭能对周围较大范围敌人造 成伤害.蓄力时间越久,其伤害也 就越高,飞行距离也越长.
+botania.page.failnaught1=百发百中.
+botania.tagline.failnaught=古遗物
+
+botania.entry.natureorb=自然蕴息宝珠
+botania.page.natureorb0=自然蕴息宝珠可以储存自然 之息,利用自然的力量来守护 携带者.同时将其摆在活石祭 坛上可以使周围部分种类的 花的效率得到提升.
+botania.page.natureorb1=不是气血宝珠.
+botania.page.natureorb2=一阶祭坛.
+botania.page.natureorb3=二阶祭坛.
+botania.page.natureorb4=自然蕴息宝珠需要搭建多方 块结构,放置在活石祭坛上来 收集自然之息.
+botania.tagline.natureorb=自然平衡
+
+botania.entry.camera=文文的相机
+botania.page.camera0=&4文文的相机&0在使用后能消耗 魔力使视野内的敌对生物失 去行动能力,并使视野内所有 投掷物消失.受这个效果影响 的生物会在受伤后重新恢复 行动能力.
+botania.page.camera1=风符「风神一扇」
+botania.tagline.camera=风符「风神少女」
+
+botania.entry.gaia3=盖亚仪式III
+botania.page.gaia30=可以消耗自然蕴息宝珠中储 存的自然之息,通过自然之力 来召唤出更为强大的盖亚守 护者,其各项能力将得到的大 幅度的提升.这一过程需要消 耗10w自然之息.
+botania.page.gaia31=挑战盖亚守护者III需要遵守 一些新的规则,首先场地内的 非原版或非植物魔法的方块, 以及所有液体都将被破坏.其 次玩家身上也不能携带,持有, 装备任何非原版或非植物魔 法的物品,一旦违反都将被缴 械在地上.与盖亚守护者III 战斗的时候要注意地上的地 雷的颜色,尤其是红色的地雷 要小心.
+botania.page.gaia32=我得到了!
+botania.tagline.gaia3=硬核难度
+
+botania.entry.relicshield=勇士盾
+botania.page.relicshield0=&4勇士盾&0可以说是最强之盾也 是最强之矛,能在格挡伤害的 同时将伤害反射,并能够反弹 绝大多数的投掷物.盾牌开启 期间碰撞敌人能对其造成高 额伤害.
+botania.page.relicshield1=你要说的下一句话是
+botania.tagline.relicshield=AT力场
+
+botania.entry.mastermanaring=大师魔力之戒
+botania.page.mastermanaring0=&4大师魔力之戒&0能够储存近乎无限的魔力.
+botania.page.mastermanaring1=蛋糕是个谎言.
+botania.tagline.mastermanaring=不可能的事
+
+botania.entry.=
+botania.page.0=
+botania.page.1=
+botania.tagline.=
+
+extrabotany.desc=欢迎来到Mana至上主义的世界
+
+advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
+advancement.extrabotany:nightmarefuelEating.desc=食用一个梦魇燃料.(这真的能吃吗)
+advancement.extrabotany:newknowledgeUnlock=解锁新知识
+advancement.extrabotany:newknowledgeUnlock.desc=手持手册右键带有精神燃料的活石祭坛
+advancement.extrabotany:pedestalCraft=CONNECT
+advancement.extrabotany:pedestalCraft.desc=合成一个活石祭坛
+advancement.extrabotany:ultimatehammerCraft=PONPONPON
+advancement.extrabotany:ultimatehammerCraft.desc=合成一个究极镀金锤
+advancement.extrabotany:ultimatehammerUpgrade=裏表ラバーズ
+advancement.extrabotany:ultimatehammerUpgrade.desc=使用镀金土豆泥升级一次究极镀金锤
+advancement.extrabotany:fragmentForge=Gears of Love
+advancement.extrabotany:fragmentForge.desc=在活石祭坛上锻造一次
+advancement.extrabotany:manareaderCraft=Satisfaction
+advancement.extrabotany:manareaderCraft.desc=合成一个魔力读取器
+advancement.extrabotany:posbinderCraft=Letter Song
+advancement.extrabotany:posbinderCraft.desc=合成一个坐标读取器
+advancement.extrabotany:stardustlotusTeleport=Promise
+advancement.extrabotany:stardustlotusTeleport.desc=使用星移莲传送自己一次
+advancement.extrabotany:manalinkiumUse=Crystalline
+advancement.extrabotany:manalinkiumUse.desc=给魔链星绑定一个魔力池
+advancement.extrabotany:tinkleUse=Project Diva desu
+advancement.extrabotany:tinkleUse.desc=在叮当舞花旁跳舞
+advancement.extrabotany:bloodyenchantressUse=Sweet Devil
+advancement.extrabotany:bloodyenchantressUse.desc=将自己沐浴在血海中
+advancement.extrabotany:manabufferCraft=ロストワンの号哭
+advancement.extrabotany:manabufferCraft.desc=合成一个魔力缓存器
+advancement.extrabotany:kinggardenCraft=Last Night,Good Night
+advancement.extrabotany:kinggardenCraft.desc=合成一个王之花园
+advancement.extrabotany:annoyingdogSummon=April Fool
+advancement.extrabotany:annoyingdogSummon.desc=狗吸收了神器
+advancement.extrabotany:failnaughtCraft=from Y to Y
+advancement.extrabotany:failnaughtCraft.desc=获得百中弓
+advancement.extrabotany:cameraCraft=lukaluka night fever
+advancement.extrabotany:cameraCraft.desc=获得文文的相机
+advancement.extrabotany:gaiaDefeat=KiLLER LADY
+advancement.extrabotany:gaiaDefeat.desc=击败盖亚守护者III
+advancement.extrabotany:natureorbCraft=雨夢楼
+advancement.extrabotany:natureorbCraft.desc=合成一个自然蕴息宝珠
+advancement.extrabotany:landmineActive=WORLD'S END UMBRELLA
+advancement.extrabotany:landmineActive.desc=触发一次红色地雷
+advancement.extrabotany:achilleshieldCraft=Mr.Wonder
+advancement.extrabotany:achilleshieldCraft.desc=获得勇士盾
+advancement.extrabotany:mastermanaringCraft=COLOR
+advancement.extrabotany:mastermanaringCraft.desc=获得大师魔力指环
+advancement.extrabotany:mastermanaringFill=Fairytale
+advancement.extrabotany:mastermanaringFill.desc=充满它来赢得Minecraft
+
+advancement.extrabotany:=
+advancement.extrabotany:.desc=
+
+extrabotany.versioning.flavour=额外植物学已更新
+extrabotany.versioning.outdated=你所使用的额外植物学版本为%s,最新版本为%s.

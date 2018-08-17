@@ -1,0 +1,16 @@
+# Ingore Gradle Files
+.gradle/
+.nb-gradle/
+.nb-gradle-properties
+build/
+
+# Ingore some IDE Files
+.idea/
+*.iml
+eclipse/
+
+# Ingore some file
+CREDITS-fml.txt
+LICENSE-fml.txt
+MinecraftForge-Credits.txt
+MinecraftForge-License.txt

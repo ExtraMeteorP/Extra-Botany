@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
+import com.meteor.extrabotany.api.subtile.SubTileGeneratingNature;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
@@ -9,9 +10,8 @@ import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
-import vazkii.botania.api.subtile.SubTileGenerating;
 
-public class SubTileBellFlower extends SubTileGenerating{
+public class SubTileBellFlower extends SubTileGeneratingNature{
 	
 	private static final int RANGE = 2;
 	
@@ -24,25 +24,8 @@ public class SubTileBellFlower extends SubTileGenerating{
 		int baseGen = ConfigHandler.EFF_BELLFLOWER;
 		int baseY = ConfigHandler.BASEY;
 		int y = this.supertile.getPos().getY();
-		
-		boolean hasDiamond = false;
         
-        for(int x = -4; x < 4; x++){
-			for(int z = -4; z < 4; z++){
-				BlockPos posi = new BlockPos(supertile.getPos().add(x, 0, z));
-				if(supertile.getWorld().getTileEntity(posi) instanceof TilePedestal){
-					TilePedestal te = (TilePedestal) supertile.getWorld().getTileEntity(posi);
-					Item i = te.getItem().getItem();
-					if(i != null){
-						if(i == Items.DIAMOND){
-							hasDiamond = true;
-						}
-					}
-				}
-			}
-        }
-        
-        int buff = ConfigHandler.LP_BELLFLOWER ? hasDiamond ? 2 : 0 : 0;
+        int buff = ConfigHandler.LP_BELLFLOWER ? isEnabled() ? 2 : 0 : 0;
         
 		if(this.getWorld().canBlockSeeSky(this.supertile.getPos()) && y > baseY){
 			int rain = ConfigHandler.LP_BELLFLOWER ? this.getWorld().isRaining() ? 2 : 0 : 0;
@@ -51,6 +34,16 @@ public class SubTileBellFlower extends SubTileGenerating{
 				mana += gen;
 		}
 		
+	}
+	
+	@Override
+	public int getRate(){
+		return 2;
+	}
+	
+	@Override
+	public boolean willConsume(){
+		return true;
 	}
 	
 	@Override

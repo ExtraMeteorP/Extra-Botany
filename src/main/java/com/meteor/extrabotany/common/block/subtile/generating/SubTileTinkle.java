@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.api.subtile.SubTileGeneratingNature;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
@@ -16,9 +17,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import vazkii.botania.api.lexicon.LexiconEntry;
-import vazkii.botania.api.subtile.SubTileGenerating;
 
-public class SubTileTinkle extends SubTileGenerating{
+public class SubTileTinkle extends SubTileGeneratingNature{
 	
 	private static final int RANGE = 9;
 	private static final String TAG_TIME = "time";
@@ -27,6 +27,11 @@ public class SubTileTinkle extends SubTileGenerating{
 	@Override
 	public LexiconEntry getEntry() {
 		return LexiconData.tinkle;
+	}
+	
+	@Override
+	public boolean acceptsRedstone() {
+		return true;
 	}
 	
 	@Override
@@ -51,24 +56,7 @@ public class SubTileTinkle extends SubTileGenerating{
 	
 	            final int limit = 10;
 	            
-	            boolean hasDiamond = false;
-	            
-	            for(int x = -4; x < 4; x++){
-					for(int z = -4; z < 4; z++){
-						BlockPos posi = new BlockPos(supertile.getPos().add(x, 0, z));
-						if(supertile.getWorld().getTileEntity(posi) instanceof TilePedestal){
-							TilePedestal te = (TilePedestal) supertile.getWorld().getTileEntity(posi);
-							Item i = te.getItem().getItem();
-							if(i != null){
-								if(i == Items.DIAMOND){
-									hasDiamond = true;
-								}
-							}
-						}
-					}
-	            }
-	            
-	            int buff = ConfigHandler.LP_BELLFLOWER ? hasDiamond ? 15 : 0 : 0;
+	            int buff = ConfigHandler.LP_BELLFLOWER ? isEnabled() ? 15 : 0 : 0;
 	            
 	            if(time >= limit){
 	                mana += ConfigHandler.EFF_TINKLE + buff;
@@ -80,6 +68,16 @@ public class SubTileTinkle extends SubTileGenerating{
 	                tag.setByte(TAG_TIME, (byte) time);
 	        }
         }
+	}
+	
+	@Override
+	public int getRate(){
+		return 8;
+	}
+	
+	@Override
+	public boolean willConsume(){
+		return true;
 	}
 	
 	@Override

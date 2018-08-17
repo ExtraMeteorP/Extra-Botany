@@ -13,15 +13,40 @@ item.extrabotany:manasteelhammer.name=Manasteel Hammer
 item.extrabotany:terrasteelhammer.name=Terrasteel Hammer
 item.extrabotany:elementiumhammer.name=Elementium Hammer
 item.extrabotany:ultimatehammer.name=Ultimate Hammer
+item.extrabotany:natureorb.name=Nature Orb
+item.extrabotany:heromedal.name=Medal for Heroism
+item.extrabotany:manasteelshield.name=Manasteel Shield
+item.extrabotany:elementiumshield.name=Elementium Shield
+item.extrabotany:terrasteelshield.name=Terrasteel Shield
 
 item.extrabotany:kinggarden.name=Garden of King's Law
+item.extrabotany:rewardbag1.name=Reward Bag Eins
+item.extrabotany:rewardbag2.name=Reward Bag Zwei
+item.extrabotany:rewardbag3.name=Reward Bag Drei
+item.extrabotany:rewardbag4.name=Reward Bag Vier
+item.extrabotany:treasurebox.name=Pandora's Box
+item.extrabotany:failnaught.name=Failnaught
+item.extrabotany:camera.name=Shameimaru's Camera
+item.extrabotany:achilleshield.name=Achilled Shield
+item.extrabotany:mastermanaring.name=Master Band of Mana
+item.extrabotany:recordgaia3.name=Scathed Music Disc
+item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
 
 item.extrabotany:froststar.name=Frost Ring
 item.extrabotany:deathring.name=Curse Ring
+item.extrabotany:.name=
 
 tile.extrabotany:pedestal.name=Livingrock Pedestal
 tile.extrabotany:blockorichalcos.name=Block of Orichalcos
 tile.extrabotany:manabarrel.name=Mana Buffer
+
+entity.extrabotany:flowerWeapon.name=Flower
+entity.extrabotany:gaiaIII.name=Gaia Guardian III
+entity.extrabotany:skullmissile.name=Skull Missile
+entity.extrabotany:skulllandmine.name=Skull Landmine
+entity.extrabotany:skullminion.name=Skull Minion
+entity.extrabotany:magicarrow.name=Magic Arrow
+entity.extrabotany:.name=
 
 extrabotanymisc.hammer=Forge
 extrabotanymisc.hammerTip=Tip:Use Hammer to forge item
@@ -74,6 +99,19 @@ extrabotany.bindy=Y:
 extrabotany.bindz=Z:
 extrabotany.binddim=Dim:
 extrabotany.kinggarden=Configuration:
+extrabotanymisc.gaiaPreparing=Gaia Guardian is prepareing a SPECIAL attack!
+extrabotanymisc.gaiaWarning=5 seconds left before Gaia Guardian uses the SPECIAL attack!
+extrabotanymisc.gaiaWarning2=Gaia Guardian will do MASS DMG on a certain player , who will be the lucky one ?
+extrabotanymisc.gaiaWarning3=Gaia Guardian deal mass DMG to you!
+extrabotanymisc.minionSpawn=Gaia Guardian sommoned minions . You'd better kill minions first:D
+extrabotany.natureorb=Natural Breath:
+extrabotany.natureorbeffect1false=The Blessing of Mana(Deactivated)
+extrabotany.natureorbeffect1true=The Blessing of Mana&b(Activated)
+extrabotany.natureorbeffect2false=The Blessing of Regeneration(Deactivated)
+extrabotany.natureorbeffect2true=The Blessing of Regeneration&4(Activated)
+extrabotany.natureorbeffect3false=The Blessing of Senro(Deactivated)
+extrabotany.natureorbeffect3true=The Blessing of Senro&2(Activated)
+extrabotany.bonusbase=You'll have the chance to get following Items:
 
 botania.entry.bloodyenchantress=Bloody Enchantress
 botania.page.bloodyenchantress0=Bloody Enchantress can create &4Mana&0 by consuming creatures' life , working efficiently when creatures are nearby. But creatures sacrificed by this way will not produce any drops or experience.
@@ -96,17 +134,17 @@ botania.page.omniviolet1=Akashic Records.
 botania.tagline.omniviolet=Knowledge is power
 
 botania.entry.stonesia=Stonesia
-botania.page.stonesia0=Stonesia can let stones, cobblestones or ores be converted into &4Mana&0, and the rarer the ore is, the more mana it will produce. Livingrock pedestals with mineral (excluding coal) blocks arranged in the surrounding area can increase its mana generation efficiency. The rarer the mineral blocks are, the more efficient it is. Coal blocks reduce the efficiency instead.
+botania.page.stonesia0=Stonesia can let stones, cobblestones or ores be converted into &4Mana&0, and the rarer the ore is, the more mana it will produce. A Livingrock pedestal with Nature Orb arranged in the surrounding area can increase its mana generation efficiency.
 botania.page.stonesia1=Diamond and Pearl.
 botania.tagline.stonesia=Rare Value
 
 botania.entry.tinkle=Tinkle Flower
-botania.page.tinkle0=Tinkle flower can convert kinetic energy to &4Mana&0, producing &4Mana&0 when players movning nearby. A Livingrock pedestal with a diamond arranged in the surrounding area can increase its mana generation efficiency.
+botania.page.tinkle0=Tinkle flower can convert kinetic energy to &4Mana&0, producing &4Mana&0 when players movning nearby. A Livingrock pedestal with a Nature Orb arranged in the surrounding area can increase its mana generation efficiency.
 botania.page.tinkle1=Ding dong, here I come to find you.
 botania.tagline.tinkle=Rush!Rush!Rush!
 
 botania.entry.bellflower=Bell Flower
-botania.page.bellflower0=Create &4Mana&0 by wind power, which needs to be placed in the open-air. The higher it is, the more mana it produces. A Livingrock pedestal with a diamond arranged in the surrounding area can increase its mana generation efficiency. As a passive flower, the bell flowers will decay.
+botania.page.bellflower0=Create &4Mana&0 by wind power, which needs to be placed in the open-air. The higher it is, the more mana it produces. A Livingrock pedestal with a Nature Orb arranged in the surrounding area can increase its mana generation efficiency. As a passive flower, the bell flowers will decay.
 botania.page.bellflower1=Only the storms can knock down the trees.
 botania.tagline.bellflower=Mana from the wind
 
@@ -207,6 +245,40 @@ botania.page.goldpotato0=Gilded Potato, may have other use.
 botania.page.goldpotato1=奇迹も、魔法も、あるんだよ
 botania.tagline.goldpotato=Golden Legendary
 
+botania.entry.failnaught=Failnaught
+botania.page.failnaught0=Using mana, Failnaught can shoot a magic arrow which wil pierce through the enemies and deal damage to the nearby living creatures. The longer you pull the bow, the higher damage it will do.
+botania.page.failnaught1=A hundred shots, a hundred bull's eyes.
+botania.tagline.failnaught=ARTIFACT.
+
+botania.entry.natureorb=Nature Orb
+botania.page.natureorb0=Nature Orb can store &1Natural Breath&0, which can protect the carrier. When it is placed on the Livingrock Pedestal, some kinds of flowers nearby will be boosted.
+botania.page.natureorb1=Not Blood Orb.
+botania.page.natureorb2=Rank I Ritual.
+botania.page.natureorb3=Rank II Ritual.
+botania.page.natureorb4=Build a Multi-block structure, place it on the Livingrock Pedestal to collect &1Natural Breath&0.
+botania.tagline.natureorb=Natural Balance
+
+botania.entry.camera=Shameimaru's Camera
+botania.page.camera0=After using Shameimaru's Camera, the mobs in sight will lose its abilities. The projectiles in sight will also vanish. Creatures affected by this will return to normal after getting hurt.
+botania.page.camera1=風符「風神一扇」
+botania.tagline.camera=疾風「風神少女」
+
+botania.entry.gaia3=Ritual of Gaia III
+botania.page.gaia30=Use 100,000 Natural Breath stored in Nature Orb to summon more powerful Gaia Guardian. It will has greater power and gain new abilities.
+botania.page.gaia31=Before chanllenge Gaia Guardian III, you should obey some new rules. First, the blocks in the field should belongs to Vanilla Minecraft or Botania, any other kinds of blocks will be destroyed. Also, the items you hold or equip should be Botania's or Vanilla, others will be disarmed. While battling, you should avoid red landmines as they will deal mass damage to you.
+botania.page.gaia32=Pokemon Get Daze.
+botania.tagline.gaia3=It's HARDCORE
+
+botania.entry.relicshield=Achilled Shield
+botania.page.relicshield0=&4Achilled Shield&0 can reflect damage and most kinds of projectiles. Colliding the enemies while blocking will deal high damage to them. 
+botania.page.relicshield1=俺は人间をやめるぞ
+botania.tagline.relicshield=AT Field
+
+botania.entry.mastermanaring=Master Band of Mana
+botania.page.mastermanaring0=&4Master Band of Mana&0 can store nearly infinite Mana.
+botania.page.mastermanaring1=The Cake is a Lie.
+botania.tagline.mastermanaring=IMPOSSIBLE
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
@@ -244,6 +316,25 @@ advancement.extrabotany:kinggardenCraft=Last Night,Good Night
 advancement.extrabotany:kinggardenCraft.desc=Craft a Garden of King's Law
 advancement.extrabotany:annoyingdogSummon=April Fool
 advancement.extrabotany:annoyingdogSummon.desc=The Dog absorbs the artifact
+advancement.extrabotany:failnaughtCraft=from Y to Y
+advancement.extrabotany:failnaughtCraft.desc=Obtain Failnaught
+advancement.extrabotany:cameraCraft=lukaluka night fever
+advancement.extrabotany:cameraCraft.desc=Obtain Shameimaru's Camera
+advancement.extrabotany:gaiaDefeat=KiLLER LADY
+advancement.extrabotany:gaiaDefeat.desc=Defeat Gaia Guardian III
+advancement.extrabotany:natureorbCraft=Single floor
+advancement.extrabotany:natureorbCraft.desc=Craft a Nature Orb
+advancement.extrabotany:landmineActive=WORLD'S END UMBRELLA
+advancement.extrabotany:landmineActive.desc=Take damage from a red landmine
+advancement.extrabotany:achilleshieldCraft=Mr.Wonder
+advancement.extrabotany:achilleshieldCraft.desc=Obtain Achille Shield
+advancement.extrabotany:mastermanaringCraft=COLOR
+advancement.extrabotany:mastermanaringCraft.desc=Obtain Master Band of Mana
+advancement.extrabotany:mastermanaringFill=Fairytale
+advancement.extrabotany:mastermanaringFill.desc=Fill it to WIN the game
+
+advancement.extrabotany:=
+advancement.extrabotany:.desc=
 
 extrabotany.versioning.flavour=
 extrabotany.versioning.outdated=

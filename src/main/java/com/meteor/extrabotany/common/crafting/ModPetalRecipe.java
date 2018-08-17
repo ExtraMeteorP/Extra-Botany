@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.crafting;
 
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 
@@ -32,18 +33,30 @@ public class ModPetalRecipe {
 	public static RecipePetals enchantedorchidRecipe;
 	
 	public static void init() {
-		bloodyenchantressRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_BLOODYENCHANTRESS), red, red, red, red, runeFire, runeSummer, runeWrath);
-		moonblessRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_SUNBLESS), red, red, red, white);
-		sunblessRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MOONBLESS), yellow, yellow, yellow, white);
-		omnivioletRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_OMINIVIOLET), blue, blue, purple, purple, runeSpring, runeMana, runeLust);
-		stonesiaRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_STONESIA), gray, gray, black, gaiaSpirit, runeAutumn, runeGluttony);
-		tinkleRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_TINKLE), yellow, yellow, green, lime, runeEarth, new ItemStack(ModItems.material), new ItemStack(ModItems.material));
-		bellflowerRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_BELLFLOWER), yellow, yellow, lime, lime, new ItemStack(ModItems.material));
-		annoyingflowerRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_ANNOYINGFLOWER), white, white, pink, pink, green, runeMana, new ItemStack(ModItems.material));
-		stardustlotusRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_STARDUSTLOTUS), purple, purple, purple, magenta, magenta, runeEnvy, runePride, gaiaSpirit);
-		manalinkiumRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MANALINKIUM), lightBlue, lightBlue, cyan, cyan, cyan, runeLust, runeSloth, gaiaSpirit);
-		reikarlilyRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_REIKARLILY), lightBlue, lightBlue, cyan, cyan, blue, runePride, runeSloth, runeEnvy, gaiaSpirit);
-		enchantedorchidRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_ENCHANTEDORCHID), purple, purple, magenta, lime, lime, runePride, runeGreed, runeGluttony, gaiaSpirit);
+		if(ConfigHandler.ENABLE_BE)
+			bloodyenchantressRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_BLOODYENCHANTRESS), red, red, red, red, runeFire, runeSummer, runeWrath);
+		if(ConfigHandler.ENABLE_MB)
+			moonblessRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_SUNBLESS), red, red, red, white);
+		if(ConfigHandler.ENABLE_SB)
+			sunblessRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MOONBLESS), yellow, yellow, yellow, white);
+		if(ConfigHandler.ENABLE_OV)
+			omnivioletRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_OMINIVIOLET), blue, blue, purple, purple, runeSpring, runeMana, runeLust);
+		if(ConfigHandler.ENABLE_SS)
+			stonesiaRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_STONESIA), gray, gray, black, gaiaSpirit, runeAutumn, runeGluttony);
+		if(ConfigHandler.ENABLE_TK)
+			tinkleRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_TINKLE), yellow, yellow, green, lime, runeEarth, new ItemStack(ModItems.material), new ItemStack(ModItems.material));
+		if(ConfigHandler.ENABLE_BF)
+			bellflowerRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_BELLFLOWER), yellow, yellow, lime, lime, new ItemStack(ModItems.material));
+		if(ConfigHandler.ENABLE_AF)
+			annoyingflowerRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_ANNOYINGFLOWER), white, white, pink, pink, green, runeMana, new ItemStack(ModItems.material));
+		if(ConfigHandler.ENABLE_SL)
+			stardustlotusRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_STARDUSTLOTUS), purple, purple, purple, magenta, magenta, runeEnvy, runePride, gaiaSpirit);
+		if(ConfigHandler.ENABLE_ML)
+			manalinkiumRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MANALINKIUM), lightBlue, lightBlue, cyan, cyan, cyan, runeLust, runeSloth, gaiaSpirit);
+		if(ConfigHandler.ENABLE_RL)
+			reikarlilyRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_REIKARLILY), lightBlue, lightBlue, cyan, cyan, blue, runePride, runeSloth, runeEnvy, gaiaSpirit);
+		if(ConfigHandler.ENABLE_EO)
+			enchantedorchidRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_ENCHANTEDORCHID), purple, purple, magenta, lime, lime, runePride, runeGreed, runeGluttony, gaiaSpirit);
 	}
 
 }

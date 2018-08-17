@@ -4,14 +4,12 @@ import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.lib.LibBlocksName;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 
 public class ExtraBotanyCreativeTab extends CreativeTabs{
 	public ExtraBotanyCreativeTab() {
@@ -23,7 +21,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(ModItems.hammerterrasteel);
+		return new ItemStack(ModItems.relicshield);
 	}
 	
 	@Override
@@ -42,6 +40,9 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.hammerultimate);
 		addItem(ModItems.manaReader);
 		addItem(ModItems.binder);
+		addItem(ModItems.manasteelshield);
+		addItem(ModItems.elementiumshield);
+		addItem(ModItems.terrasteelshield);
 		addItem(ModItems.froststar);
 		addItem(ModItems.deathring);
 		addItem(ModItems.kinggarden);
@@ -51,7 +52,14 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addBlock(ModBlocks.orichalcosblock);
 		addItem(ModItems.friedchicken);
 		addItem(ModItems.gildedmashedpotato);
+		addItem(ModItems.orb);
 		addBlock(ModBlocks.batterybox);
+		addItem(ModItems.rewardbag);
+		addItem(ModItems.treasure);
+		addItem(ModItems.failnaught);
+		addItem(ModItems.camera);
+		addItem(ModItems.relicshield);
+		addItem(ModItems.mastermanaring);
 	}
 	
 	private void addItem(Item item) {

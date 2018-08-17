@@ -1,0 +1,152 @@
+package com.meteor.extrabotany.common.item.equipment.tool;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.annotation.Nonnull;
+
+import com.meteor.extrabotany.api.item.INatureOrb;
+import com.meteor.extrabotany.api.orb.OrbItemHandler;
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.entity.EntityGaiaIII;
+import com.meteor.extrabotany.common.item.ItemMod;
+import com.meteor.extrabotany.common.lib.LibItemsName;
+
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.server.SPacketRemoveEntityEffect;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.mana.ManaItemHandler;
+import vazkii.botania.common.core.helper.ItemNBTHelper;
+
+public class ItemNatureOrb extends ItemMod implements INatureOrb{
+	
+	public static final String TAG_XP = "xp";
+	public static int max = 500000;
+
+	public ItemNatureOrb() {
+		super(LibItemsName.NATUREORB);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack stack, World world, List<String> stacks, ITooltipFlag flags) {
+		String i = I18n.format("extrabotany.natureorb");
+		String ci = i + getXP(stack) + "/" + max;
+		String a = I18n.format("extrabotany.natureorbeffect1"+ (getXP(stack) > 100000));
+		String b = I18n.format("extrabotany.natureorbeffect2"+ (getXP(stack) > 300000));
+		String c = I18n.format("extrabotany.natureorbeffect3"+ (getXP(stack) > 400000));
+		addStringToTooltip(ci, stacks);
+		if(GuiScreen.isShiftKeyDown()){
+			addStringToTooltip(a, stacks);
+			addStringToTooltip(b, stacks);
+			addStringToTooltip(c, stacks);
+		}else
+			addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), stacks);
+	}
+	
+	void addStringToTooltip(String s, List<String> tooltip) {
+		tooltip.add(s.replaceAll("&", "\u00a7"));
+	}
+	
+	@Nonnull
+	@Override
+	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+		if(player.isSneaking() && getXP(player.getHeldItem(hand)) >= 100000 && ConfigHandler.GAIA_ENABLE){
+			return EntityGaiaIII.spawn(player, player.getHeldItem(hand), worldIn, pos) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+		}
+		return EnumActionResult.SUCCESS;
+	}
+	
+	@Override
+	public void getSubItems(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> list) {
+		if(isInCreativeTab(tab)) {
+			list.add(new ItemStack(this));
+			ItemStack s = new ItemStack(this);
+			setXP(s, max);
+			list.add(s);
+		}
+	}
+	
+	@Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected){
+    	super.onUpdate(stack, world, entity, itemSlot, isSelected);
+    	if(entity instanceof EntityPlayer){
+    		EntityPlayer p = (EntityPlayer) entity;
+    		
+    		if(getXP(stack) > 100000)
+    			ManaItemHandler.dispatchMana(stack, p, 1, true);
+    		if(getXP(stack) > 200000){
+    			ManaItemHandler.dispatchMana(stack, p, 1, true);
+    		}
+    		if(getXP(stack) > 300000){
+    			ManaItemHandler.dispatchMana(stack, p, 1, true);
+    			if(p.ticksExisted % 60 == 0)
+    				p.heal(1F);
+    		}
+    		if(getXP(stack) > 400000){
+    			ManaItemHandler.dispatchMana(stack, p, 1, true);
+    			clearPotions(p);
+    		}
+    	}
+    }
+    
+	private void clearPotions(EntityPlayer player) {
+		int posXInt = MathHelper.floor(player.getPosition().getX());
+		int posZInt = MathHelper.floor(player.getPosition().getZ());
+
+		List<Potion> potionsToRemove = player.getActivePotionEffects().stream()
+				.filter(effect -> effect.getPotion().isBadEffect())
+				.map(PotionEffect::getPotion)
+				.distinct()
+				.collect(Collectors.toList());
+
+		potionsToRemove.forEach(potion -> {
+			player.removePotionEffect(potion);
+			if(!player.getEntityWorld().isRemote)
+				((WorldServer) player.getEntityWorld()).getPlayerChunkMap().getEntry(posXInt >> 4, posZInt >> 4).sendPacket(new SPacketRemoveEntityEffect(player.getEntityId(), potion));
+		});
+	}
+	
+	@Override
+	public boolean showDurabilityBar(ItemStack stack) {
+		return true;
+	}
+
+	@Override
+	public double getDurabilityForDisplay(ItemStack stack) {
+		return 1.0 - (float) getXP(stack) / (float) max;
+	}
+	
+    @Override
+	public void addXP(ItemStack stack, int xp){
+		setXP(stack, Math.min(Math.max(getXP(stack) + xp, 0), max));
+	}
+	
+    @Override
+	public void setXP(ItemStack stack, int xp) {
+		ItemNBTHelper.setInt(stack, TAG_XP, xp);
+	}
+
+    @Override
+	public int getXP(ItemStack stack) {
+		return ItemNBTHelper.getInt(stack, TAG_XP, 0);
+	}
+
+}

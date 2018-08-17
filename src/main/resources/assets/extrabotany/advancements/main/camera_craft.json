@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:camera"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:cameraCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:cameraCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/gaia_defeat",
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:camera"
+          }
+        ]
+      }
+    }
+  }
+}

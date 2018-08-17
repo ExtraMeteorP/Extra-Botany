@@ -1,12 +1,23 @@
 package com.meteor.extrabotany.common.item;
 
-import com.meteor.extrabotany.common.item.equipment.ItemBaubleDeathRing;
-import com.meteor.extrabotany.common.item.equipment.ItemBaubleFrostStar;
-import com.meteor.extrabotany.common.item.tool.ItemCamera;
-import com.meteor.extrabotany.common.item.tool.ItemHammer;
-import com.meteor.extrabotany.common.item.tool.ItemHammerUltimate;
-import com.meteor.extrabotany.common.item.tool.ItemKingGarden;
-import com.meteor.extrabotany.common.item.tool.ItemManaReader;
+import com.meteor.extrabotany.common.item.bonus.ItemRewardBag;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemDeathRing;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemFrostStar;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemMasterManaRing;
+import com.meteor.extrabotany.common.item.equipment.shield.ItemElementiumShield;
+import com.meteor.extrabotany.common.item.equipment.shield.ItemManasteelShield;
+import com.meteor.extrabotany.common.item.equipment.shield.ItemTerrasteelShield;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemBinder;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemHammer;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemHammerUltimate;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemManaReader;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
+import com.meteor.extrabotany.common.item.record.ItemRecordA;
+import com.meteor.extrabotany.common.item.relic.ItemAchilleshield;
+import com.meteor.extrabotany.common.item.relic.ItemCamera;
+import com.meteor.extrabotany.common.item.relic.ItemFailnaught;
+import com.meteor.extrabotany.common.item.relic.ItemTreasure;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -29,8 +40,9 @@ public class ModItems {
 	
 	public static final Item binder = new ItemBinder();
 	
-	public static final Item froststar = new ItemBaubleFrostStar();
-	public static final Item deathring = new ItemBaubleDeathRing();
+	public static final Item froststar = new ItemFrostStar();
+	public static final Item deathring = new ItemDeathRing();
+	public static final Item mastermanaring = new ItemMasterManaRing();
 	
 	public static final Item hammermanasteel = new ItemHammer(LibItemsName.HAMMER_MANASTEEL, BotaniaAPI.manasteelToolMaterial);
 	public static final Item hammerelementium = new ItemHammer(LibItemsName.HAMMER_ELEMENTIUM, BotaniaAPI.elementiumToolMaterial);
@@ -39,6 +51,17 @@ public class ModItems {
 	
 	public static final Item kinggarden = new ItemKingGarden();
 	public static final Item camera = new ItemCamera();
+	public static final Item orb = new ItemNatureOrb();
+	public static final Item failnaught = new ItemFailnaught();
+	
+	public static final Item rewardbag = new ItemRewardBag();
+	public static final Item treasure = new ItemTreasure();
+	public static final Item gaiarecord = new ItemRecordA();
+	
+	public static final Item manasteelshield = new ItemManasteelShield();
+	public static final Item terrasteelshield = new ItemTerrasteelShield();
+	public static final Item elementiumshield = new ItemElementiumShield();
+	public static final Item relicshield = new ItemAchilleshield();
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -58,6 +81,16 @@ public class ModItems {
 		r.register(binder);
 		r.register(kinggarden);
 		r.register(camera);
+		r.register(orb);
+		r.register(failnaught);
+		r.register(rewardbag);
+		r.register(treasure);
+		r.register(gaiarecord);
+		r.register(manasteelshield);
+		r.register(terrasteelshield);
+		r.register(elementiumshield);
+		r.register(relicshield);
+		r.register(mastermanaring);
 		registerOreDictionary();
 	}
 	

@@ -6,14 +6,14 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
-import com.meteor.extrabotany.api.IHammer;
 import com.meteor.extrabotany.api.PedestalVariant;
+import com.meteor.extrabotany.api.item.IHammer;
 import com.meteor.extrabotany.client.core.handler.ModelHandler;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.item.ItemGildedMashedPotato;
 import com.meteor.extrabotany.common.item.ItemSpiritFuel;
-import com.meteor.extrabotany.common.item.tool.ItemHammerUltimate;
-import com.meteor.extrabotany.common.item.tool.ItemKingGarden;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemHammerUltimate;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 
@@ -38,7 +38,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.lexicon.multiblock.Multiblock;
+import vazkii.botania.api.lexicon.multiblock.MultiblockSet;
 import vazkii.botania.api.subtile.SubTileEntity;
+import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.ItemLexicon;
 import vazkii.botania.common.item.ModItems;

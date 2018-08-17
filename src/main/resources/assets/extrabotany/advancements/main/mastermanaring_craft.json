@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:mastermanaring"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:mastermanaringCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:mastermanaringCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/gaia_defeat",
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:mastermanaring"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:treasurebox"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:gaiaDefeat"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:gaiaDefeat.desc"
+    }
+  },
+  "parent": "extrabotany:main/natureorb_craft",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

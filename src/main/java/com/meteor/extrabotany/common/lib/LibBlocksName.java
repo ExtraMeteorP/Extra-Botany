@@ -17,6 +17,7 @@ public class LibBlocksName {
 	
 	public static final String TILE_PEDESTAL = "pedestal";
 	public static final String TILE_BATTERYBOX = "manabarrel";
+	public static final String TILE_SCREEN = "screen";
 	
 	public static final String BLOCKORICHALCOS = "blockorichalcos";
 }

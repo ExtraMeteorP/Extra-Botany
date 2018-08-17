@@ -1,8 +1,9 @@
 package com.meteor.extrabotany.common.block.subtile.functional;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.api.subtile.SubTileFunctionalNature;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
-import com.meteor.extrabotany.common.item.ItemBinder;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemBinder;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 
@@ -21,10 +22,9 @@ import net.minecraft.world.World;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.lexicon.multiblock.Multiblock;
 import vazkii.botania.api.lexicon.multiblock.MultiblockSet;
-import vazkii.botania.api.subtile.SubTileFunctional;
 import vazkii.botania.common.Botania;
 
-public class SubTileStardustLotus extends SubTileFunctional{
+public class SubTileStardustLotus extends SubTileFunctionalNature{
 	
 	private static final int RANGE = 1;
 	
@@ -68,10 +68,12 @@ public class SubTileStardustLotus extends SubTileFunctional{
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) { 
 		if(player.getHeldItem(hand).getItem() instanceof ItemBinder){
 			ItemBinder bind = (ItemBinder) player.getHeldItem(hand).getItem();
-			x = bind.getPosX(player.getHeldItem(hand));
-			y = bind.getPosY(player.getHeldItem(hand));
-			z = bind.getPosZ(player.getHeldItem(hand));
-			dim = bind.getDim(player.getHeldItem(hand));
+			if(bind.getPosY(player.getHeldItem(hand)) != -1){
+				x = bind.getPosX(player.getHeldItem(hand));
+				y = bind.getPosY(player.getHeldItem(hand));
+				z = bind.getPosZ(player.getHeldItem(hand));
+				dim = bind.getDim(player.getHeldItem(hand));
+			}
 		}
 		return true; 
 	}
@@ -86,7 +88,7 @@ public class SubTileStardustLotus extends SubTileFunctional{
 		if(!canTPExist(this.getWorld(), this.getPos()) || redstoneSignal > 0)
 			return;
 		
-		shouldCost = (int) (ConfigHandler.BASECOST + Math.sqrt(Math.pow(x-posx, 2) + Math.pow(y-posy, 2) + Math.pow(z-posz, 2))* ConfigHandler.PERCOST);
+		shouldCost = (int) (((ConfigHandler.BASECOST + Math.sqrt(Math.pow(x-posx, 2) + Math.pow(y-posy, 2) + Math.pow(z-posz, 2))* ConfigHandler.PERCOST)) * (isEnabled() ? 0.8F : 1F));
 		
 		if(!hasPaper){
 			for(EntityItem item : supertile.getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
@@ -102,16 +104,36 @@ public class SubTileStardustLotus extends SubTileFunctional{
 			consumed +=ConfigHandler.CONSUMESPEED;
 		}
 		
-		if(consumed >= shouldCost){
-			Botania.proxy.sparkleFX(posx + 0.5F, posy + 1F, posz + 0.5F, 1F, 0.75F, 0.79F, 5F, 10);
-			for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
-				living.setPosition(x,y,z);
-				if(living instanceof EntityPlayer)
-					ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.STARDUSTLOTUS_TELEPORT);
-				hasPaper = false;
-				consumed = 0;
+		if(consumed > 0){
+			int imax = 360 * consumed / shouldCost;
+			for(int i = 0; i < imax; i += 15) {
+				float rad = i * (float) Math.PI / 180F;
+				double x = posx + 0.5 - Math.cos(rad) * 2;
+				double y = posy + 0.2;
+				double z = posz + 0.5 - Math.sin(rad) * 2;
+				Botania.proxy.sparkleFX(x, y, z, 1F, 0.1F, 1F, 1F, 10);
 			}
 		}
+		
+		
+		if(consumed >= shouldCost){
+			Botania.proxy.sparkleFX(posx + 0.5F, posy + 1F, posz + 0.5F, 1F, 0.1F, 1F, 5F, 10);
+			for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
+				living.setPosition(x,y + 0.5,z);
+				if(living instanceof EntityPlayer)
+					ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.STARDUSTLOTUS_TELEPORT);
+			}
+		}
+	}
+	
+	@Override
+	public int getRate(){
+		return 60;
+	}
+	
+	@Override
+	public boolean willConsume(){
+		return true;
 	}
 	
 	private static final BlockPos[] QUARTZ_LOCATIONS = {

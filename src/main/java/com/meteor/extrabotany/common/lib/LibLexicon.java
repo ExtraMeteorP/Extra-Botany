@@ -27,4 +27,12 @@ public class LibLexicon {
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";
+	
+	public static final String GAIA_III = "gaia3";
+	public static final String NATUREORB = "natureorb";
+	public static final String RELIC_FAILNAUGHT = "failnaught";
+	public static final String RELIC_CAMERA = "camera";
+	public static final String RELIC_RELICSHIELD = "relicshield";
+	public static final String RELIC_MASTERMANARING = "mastermanaring";
+
 }

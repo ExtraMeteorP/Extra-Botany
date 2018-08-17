@@ -13,6 +13,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModSounds {
 	
 	public static final SoundEvent annoyingflower = makeSoundEvent("annoyingflower");
+	public static final SoundEvent gaiaMusic3 = makeSoundEvent("music.gaia3");
 	
 	private static SoundEvent makeSoundEvent(String name) {
 		ResourceLocation loc = new ResourceLocation(LibMisc.MOD_ID, name);
@@ -23,6 +24,9 @@ public class ModSounds {
 	public static void registerSounds(RegistryEvent.Register<SoundEvent> evt) {
 		IForgeRegistry<SoundEvent> r = evt.getRegistry();
 		r.register(annoyingflower);
+		r.register(gaiaMusic3);
 	}
+	
+	private ModSounds() {}
 
 }

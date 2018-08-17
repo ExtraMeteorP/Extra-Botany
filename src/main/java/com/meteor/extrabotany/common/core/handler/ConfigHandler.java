@@ -57,6 +57,25 @@ public class ConfigHandler {
 	
 	public static int MB_SPEED;
 	
+	public static boolean GAIA_ENABLE;
+	public static boolean GAIA_DISARM;
+	public static boolean GAIA_SMASH;
+	
+	public static boolean ENABLE_AF;
+	public static boolean ENABLE_EO;
+	public static boolean ENABLE_ML;
+	public static boolean ENABLE_SL;
+	public static boolean ENABLE_BF;
+	public static boolean ENABLE_BE;
+	public static boolean ENABLE_MB;
+	public static boolean ENABLE_OV;
+	public static boolean ENABLE_RL;
+	public static boolean ENABLE_SS;
+	public static boolean ENABLE_SB;
+	public static boolean ENABLE_TK;
+	
+	public static boolean ENABLE_TOOLTIP;
+	
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
 		CONFIG.load();
@@ -64,6 +83,20 @@ public class ConfigHandler {
 	}
 	
 	private void syncConfigs() {
+		ENABLE_AF = CONFIG.get("enable flowers", "annoying flower", true).getBoolean(true);
+		ENABLE_EO = CONFIG.get("enable flowers", "enchanted orchid", true).getBoolean(true);
+		ENABLE_ML = CONFIG.get("enable flowers", "manalinkium", true).getBoolean(true);
+		ENABLE_SL = CONFIG.get("enable flowers", "stardust lotus", true).getBoolean(true);
+		ENABLE_BF = CONFIG.get("enable flowers", "bell flower", true).getBoolean(true);
+		ENABLE_BE = CONFIG.get("enable flowers", "bloody enchantress", true).getBoolean(true);
+		ENABLE_MB = CONFIG.get("enable flowers", "moonlight lily", true).getBoolean(true);
+		ENABLE_OV = CONFIG.get("enable flowers", "omniviolet", true).getBoolean(true);
+		ENABLE_RL = CONFIG.get("enable flowers", "reikar lily", true).getBoolean(true);
+		ENABLE_SS = CONFIG.get("enable flowers", "stonesia", true).getBoolean(true);
+		ENABLE_SB = CONFIG.get("enable flowers", "sunshine lily", true).getBoolean(true);
+		ENABLE_TK = CONFIG.get("enable flowers", "tinkle flower", true).getBoolean(true);
+		
+		
 		CRAFTING_STRIKES = CONFIG.getInt("pedestal", "strike times", 5, 1, Integer.MAX_VALUE, "");
 		
 		EFF_OMNIVIOLET = CONFIG.getInt("mana per tick", "omniviolet", 8, 1, Integer.MAX_VALUE, "");
@@ -92,8 +125,8 @@ public class ConfigHandler {
 		TICKS = CONFIG.getInt("interval bewteen fishing", "annoying flower", 200, 1, Integer.MAX_VALUE, "");	
 		TIMES = CONFIG.getInt("times fried chicken leg add", "annoying flower", 3, 1, Integer.MAX_VALUE, "");	
 		
-		BASECOST = CONFIG.getInt("mana cost at least", "stardust lotus", 10000, 1, Integer.MAX_VALUE, "");	
-		PERCOST = CONFIG.getInt("mana cost per meter", "stardust lotus", 100, 1, Integer.MAX_VALUE, "");	
+		BASECOST = CONFIG.getInt("mana cost at least", "stardust lotus", 20000, 1, Integer.MAX_VALUE, "");	
+		PERCOST = CONFIG.getInt("mana cost per meter", "stardust lotus", 150, 1, Integer.MAX_VALUE, "");	
 		CONSUMESPEED = CONFIG.getInt("mana consumed per tick", "stardust lotus", 800, 1, 100000, "");	
 		
 		SPEED = CONFIG.getInt("mana transfered per tick", "manalinkium", 400, 1, Integer.MAX_VALUE, "");	
@@ -107,9 +140,15 @@ public class ConfigHandler {
 		
 		EO_COST = CONFIG.getInt("mana cost for each enchanted soil", "enchantedorchid", 500000, 1, Integer.MAX_VALUE, "");
 		EO_SPEED = CONFIG.getInt("the speed of mana consuming", "enchantedorchid", 200, 1, 10000, "");
-		EO_RANGE = CONFIG.getInt("range", "enchantedorchid", 4, 1, Integer.MAX_VALUE, "");
+		EO_RANGE = CONFIG.getInt("transform range", "enchantedorchid", 4, 1, Integer.MAX_VALUE, "");
 		
 		MB_SPEED = CONFIG.getInt("mana transfer speed", "mana buffer", 400, 1, Integer.MAX_VALUE, "");
+		
+		GAIA_ENABLE = CONFIG.get("gaia guardian III", "enable spawning", true).getBoolean(true);
+		GAIA_DISARM = CONFIG.get("gaia guardian III", "enable disarm", true).getBoolean(true);
+		GAIA_SMASH = CONFIG.get("gaia guardian III", "enable destroy blocks", true).getBoolean(true);
+		
+		ENABLE_TOOLTIP = CONFIG.get("Tooltips", "enable mana visualization", true).getBoolean(true);
 		
 		if (CONFIG.hasChanged())
 			CONFIG.save();

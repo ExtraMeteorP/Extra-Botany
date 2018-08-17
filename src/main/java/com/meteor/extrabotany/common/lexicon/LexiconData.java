@@ -2,6 +2,8 @@ package com.meteor.extrabotany.common.lexicon;
 
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
+import com.meteor.extrabotany.common.block.tile.TilePedestal;
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.ModManaInfusionRecipe;
 import com.meteor.extrabotany.common.crafting.ModPedestalRecipe;
 import com.meteor.extrabotany.common.crafting.ModPetalRecipe;
@@ -13,6 +15,7 @@ import com.meteor.extrabotany.common.lib.LibMisc;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
+import vazkii.botania.common.entity.EntityDoppleganger;
 import vazkii.botania.common.lexicon.BasicLexiconEntry;
 import vazkii.botania.common.lexicon.page.PageCraftingRecipe;
 import vazkii.botania.common.lexicon.page.PageManaInfusionRecipe;
@@ -50,57 +53,117 @@ public class LexiconData {
 	public static LexiconEntry froststar;
 	public static LexiconEntry deathring;
 	
+	public static LexiconEntry gaia3;
+	public static LexiconEntry natureorb;
+	public static LexiconEntry failnaught;
+	public static LexiconEntry camera;
+	public static LexiconEntry relicshield;
+	public static LexiconEntry mastermanaring;
+	
 	public static void init() {	
-		bloodyenchantress = new BasicLexiconEntry(LibLexicon.GFLOWER_BLOODYENCHANTRESS,  BotaniaAPI.categoryGenerationFlowers);
-		bloodyenchantress.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.bloodyenchantressRecipe));
+		gaia3 = new DreamLexiconEntry(LibLexicon.GAIA_III,  BotaniaAPI.categoryAlfhomancy);
+		gaia3.setLexiconPages(new PageText("0"),
+					new PageText("1"),
+					new PageMultiblock("2", EntityDoppleganger.makeMultiblockSet()));
 		
-		sunbless = new BasicLexiconEntry(LibLexicon.GFLOWER_SUNBLESS,  BotaniaAPI.categoryGenerationFlowers);
-		sunbless.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.sunblessRecipe));
+		failnaught = new DreamLexiconEntry(LibLexicon.RELIC_FAILNAUGHT,  BotaniaAPI.categoryTools);
+		failnaught.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_failnaught")));
 		
-		moonbless = new BasicLexiconEntry(LibLexicon.GFLOWER_MOONBLESS,  BotaniaAPI.categoryGenerationFlowers);
-		moonbless.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.moonblessRecipe));
+		camera = new DreamLexiconEntry(LibLexicon.RELIC_CAMERA,  BotaniaAPI.categoryTools);
+		camera.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_camera")));
 		
-		omniviolet = new BasicLexiconEntry(LibLexicon.GFLOWER_OMNIVIOLET,  BotaniaAPI.categoryGenerationFlowers);
-		omniviolet.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.omnivioletRecipe));
+		relicshield = new DreamLexiconEntry(LibLexicon.RELIC_RELICSHIELD,  BotaniaAPI.categoryTools);
+		relicshield.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_relicshield")));
 		
-		stonesia = new BasicLexiconEntry(LibLexicon.GFLOWER_STONESIA,  BotaniaAPI.categoryGenerationFlowers);
-		stonesia.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.stonesiaRecipe));
+		mastermanaring = new DreamLexiconEntry(LibLexicon.RELIC_MASTERMANARING,  BotaniaAPI.categoryTools);
+		mastermanaring.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_mastermanaring")));
 		
-		tinkle = new DreamLexiconEntry(LibLexicon.GFLOWER_TINKLE,  BotaniaAPI.categoryGenerationFlowers);
-		tinkle.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.tinkleRecipe));
+		natureorb = new DreamLexiconEntry(LibLexicon.NATUREORB,  BotaniaAPI.categoryTools);
+		natureorb.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_natureorb")),
+					new PageText("4"),
+					new PageMultiblock("2", TilePedestal.makeMultiblockSet()),
+					new PageMultiblock("3", TilePedestal.makeMultiblockSet2()));
 		
-		bellflower = new DreamLexiconEntry(LibLexicon.GFLOWER_BELLFLOWER,  BotaniaAPI.categoryGenerationFlowers);
-		bellflower.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.bellflowerRecipe));
 		
-		reikarlily = new DreamLexiconEntry(LibLexicon.GFLOWER_REIKARLILY,  BotaniaAPI.categoryGenerationFlowers);
-		reikarlily.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.reikarlilyRecipe));
+		if(ConfigHandler.ENABLE_BE){
+			bloodyenchantress = new BasicLexiconEntry(LibLexicon.GFLOWER_BLOODYENCHANTRESS,  BotaniaAPI.categoryGenerationFlowers);
+			bloodyenchantress.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.bloodyenchantressRecipe));
+		}
 		
-		annoyingflower = new BasicLexiconEntry(LibLexicon.FFLOWER_ANNOYINGFLOWER,  BotaniaAPI.categoryFunctionalFlowers);
-		annoyingflower.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.annoyingflowerRecipe),
-					new PageText("2"), new PageManaInfusionRecipe("3", ModManaInfusionRecipe.friedchickenRecipe));
+		if(ConfigHandler.ENABLE_SB){
+			sunbless = new BasicLexiconEntry(LibLexicon.GFLOWER_SUNBLESS,  BotaniaAPI.categoryGenerationFlowers);
+			sunbless.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.sunblessRecipe));
+		}
 		
-		manalinkium = new DreamLexiconEntry(LibLexicon.FFLOWER_MANALINKIUM,  BotaniaAPI.categoryFunctionalFlowers);
-		manalinkium.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.manalinkiumRecipe),
-					new PageText("2"), new PageMultiblock("3", SubTileManalinkium.makeMultiblockSet()));
+		if(ConfigHandler.ENABLE_MB){
+			moonbless = new BasicLexiconEntry(LibLexicon.GFLOWER_MOONBLESS,  BotaniaAPI.categoryGenerationFlowers);
+			moonbless.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.moonblessRecipe));
+		}
 		
-		stardustlotus = new DreamLexiconEntry(LibLexicon.FFLOWER_STARDUSTLOTUS,  BotaniaAPI.categoryFunctionalFlowers);
-		stardustlotus.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.stardustlotusRecipe),
-					new PageText("2"), new PageMultiblock("3", SubTileStardustLotus.makeMultiblockSet()));
+		if(ConfigHandler.ENABLE_OV){
+			omniviolet = new BasicLexiconEntry(LibLexicon.GFLOWER_OMNIVIOLET,  BotaniaAPI.categoryGenerationFlowers);
+			omniviolet.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.omnivioletRecipe));
+		}
 		
-		enchantedorchid = new DreamLexiconEntry(LibLexicon.FFLOWER_ENCHANTEDORCHID,  BotaniaAPI.categoryFunctionalFlowers);
-		enchantedorchid.setLexiconPages(new PageText("0"),
-					new PagePetalRecipe<>("1", ModPetalRecipe.enchantedorchidRecipe));
+		if(ConfigHandler.ENABLE_SS){
+			stonesia = new BasicLexiconEntry(LibLexicon.GFLOWER_STONESIA,  BotaniaAPI.categoryGenerationFlowers);
+			stonesia.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.stonesiaRecipe));
+		}
+		
+		if(ConfigHandler.ENABLE_TK){
+			tinkle = new DreamLexiconEntry(LibLexicon.GFLOWER_TINKLE,  BotaniaAPI.categoryGenerationFlowers);
+			tinkle.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.tinkleRecipe));
+		}
+		
+		if(ConfigHandler.ENABLE_BF){
+			bellflower = new DreamLexiconEntry(LibLexicon.GFLOWER_BELLFLOWER,  BotaniaAPI.categoryGenerationFlowers);
+			bellflower.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.bellflowerRecipe));
+		}
+		
+		if(ConfigHandler.ENABLE_RL){
+			reikarlily = new DreamLexiconEntry(LibLexicon.GFLOWER_REIKARLILY,  BotaniaAPI.categoryGenerationFlowers);
+			reikarlily.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.reikarlilyRecipe));
+		}
+		
+		if(ConfigHandler.ENABLE_AF){
+			annoyingflower = new BasicLexiconEntry(LibLexicon.FFLOWER_ANNOYINGFLOWER,  BotaniaAPI.categoryFunctionalFlowers);
+			annoyingflower.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.annoyingflowerRecipe),
+						new PageText("2"), new PageManaInfusionRecipe("3", ModManaInfusionRecipe.friedchickenRecipe));
+		}
+		
+		if(ConfigHandler.ENABLE_ML){
+			manalinkium = new DreamLexiconEntry(LibLexicon.FFLOWER_MANALINKIUM,  BotaniaAPI.categoryFunctionalFlowers);
+			manalinkium.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.manalinkiumRecipe),
+						new PageText("2"), new PageMultiblock("3", SubTileManalinkium.makeMultiblockSet()));
+		}
+		
+		if(ConfigHandler.ENABLE_SL){
+			stardustlotus = new DreamLexiconEntry(LibLexicon.FFLOWER_STARDUSTLOTUS,  BotaniaAPI.categoryFunctionalFlowers);
+			stardustlotus.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.stardustlotusRecipe),
+						new PageText("2"), new PageMultiblock("3", SubTileStardustLotus.makeMultiblockSet()));
+		}
+		
+		if(ConfigHandler.ENABLE_EO){
+			enchantedorchid = new DreamLexiconEntry(LibLexicon.FFLOWER_ENCHANTEDORCHID,  BotaniaAPI.categoryFunctionalFlowers);
+			enchantedorchid.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.enchantedorchidRecipe));
+		}
 		
 		pedestal = new BasicLexiconEntry(LibLexicon.PEDESTAL,  BotaniaAPI.categoryBasics);
 		pedestal.setLexiconPages(new PageText("0"),

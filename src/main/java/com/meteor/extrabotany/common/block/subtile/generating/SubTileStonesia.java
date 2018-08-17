@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.meteor.extrabotany.common.block.ModBlocks;
-import com.meteor.extrabotany.common.block.tile.TilePedestal;
+import com.meteor.extrabotany.api.subtile.SubTileGeneratingNature;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
@@ -13,7 +12,6 @@ import com.meteor.extrabotany.common.lexicon.LexiconData;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -22,11 +20,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
-import vazkii.botania.api.subtile.SubTileGenerating;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 
-public class SubTileStonesia extends SubTileGenerating{
+public class SubTileStonesia extends SubTileGeneratingNature{
 	
 	private static final String TAG_BURN_TIME = "burnTime";
 	private static final String TAG_COOLDOWN = "cooldown";
@@ -35,7 +32,6 @@ public class SubTileStonesia extends SubTileGenerating{
 	private static final BlockPos[] OFFSETS = { new BlockPos(0, 0, 1), new BlockPos(0, 0, -1), new BlockPos(1, 0, 0), new BlockPos(-1, 0, 0), new BlockPos(-1, 0, 1), new BlockPos(-1, 0, -1), new BlockPos(1, 0, 1), new BlockPos(1, 0, -1) };
 
 	int burnTime, cooldown;
-	float catalysis = 0;
 
 	@Override
 	public void onUpdate() {
@@ -49,29 +45,7 @@ public class SubTileStonesia extends SubTileGenerating{
 				Botania.proxy.wispFX(supertile.getPos().getX() + 0.5 + Math.random() * 0.2 - 0.1, supertile.getPos().getY() + 0.5 + Math.random() * 0.2 - 0.1, supertile.getPos().getZ() + 0.5 + Math.random() * 0.2 - 0.1, 0.1F, 0.1F, 0.1F, (float) Math.random() / 6, (float) -Math.random() / 30);
 		}
 		
-		for(BlockPos o : OFFSETS)
-			if(supertile.getWorld().getTileEntity(supertile.getPos().add(o)) instanceof TilePedestal){
-				TilePedestal te = (TilePedestal) supertile.getWorld().getTileEntity(supertile.getPos().add(o));
-				ItemStack i = te.getItem();
-				if(i != null){
-					if(i.isItemEqual(new ItemStack(Blocks.COAL_BLOCK)))
-						catalysis = Math.max(-5, catalysis);
-					else if(i.isItemEqual(new ItemStack(Blocks.IRON_BLOCK)))
-						catalysis = Math.max(10, catalysis);
-					else if(i.isItemEqual(new ItemStack(Blocks.GOLD_BLOCK)))
-						catalysis = Math.max(15, catalysis);
-					else if(i.isItemEqual(new ItemStack(Blocks.DIAMOND_BLOCK)))
-						catalysis = Math.max(25, catalysis);
-					else if(i.isItemEqual(new ItemStack(Blocks.LAPIS_BLOCK)))
-						catalysis = Math.max(10, catalysis);
-					else if(i.isItemEqual(new ItemStack(Blocks.EMERALD_BLOCK)))
-						catalysis = Math.max(18, catalysis);
-					else if(i.isItemEqual(new ItemStack(Blocks.REDSTONE_BLOCK)))
-						catalysis = Math.max(8, catalysis);
-					else if(i.isItemEqual(new ItemStack(ModBlocks.orichalcosblock)))
-						catalysis = Math.max(35, catalysis);
-				}
-			}
+		float catalysis = ConfigHandler.LP_STONESIA ? isEnabled() ? 200 : 0 : 0;
 
 		if(burnTime == 0) {
 			if(mana < getMaxMana() && !supertile.getWorld().isRemote) {
@@ -84,7 +58,7 @@ public class SubTileStonesia extends SubTileGenerating{
 					if(block != null && output != 0){
 											
 						if(cooldown == 0){
-							burnTime += output * (1+catalysis/100);
+							burnTime += (output + catalysis);
 							supertile.getWorld().setBlockToAir(pos);
 							cooldown = getCooldown();
 						}
@@ -100,6 +74,16 @@ public class SubTileStonesia extends SubTileGenerating{
 				doBurnParticles();
 			burnTime--;
 		}
+	}
+	
+	@Override
+	public int getRate(){
+		return 25;
+	}
+	
+	@Override
+	public boolean willConsume(){
+		return ConfigHandler.LP_STONESIA;
 	}
 	
 	public void doBurnParticles() {
@@ -136,7 +120,6 @@ public class SubTileStonesia extends SubTileGenerating{
 
 		cmp.setInteger(TAG_BURN_TIME, burnTime);
 		cmp.setInteger(TAG_COOLDOWN, cooldown);
-		cmp.setFloat(TAG_CATALYSIS, catalysis);
 	}
 
 	@Override
@@ -145,7 +128,6 @@ public class SubTileStonesia extends SubTileGenerating{
 
 		burnTime = cmp.getInteger(TAG_BURN_TIME);
 		cooldown = cmp.getInteger(TAG_COOLDOWN);
-		catalysis = cmp.getFloat(TAG_CATALYSIS);
 	}
 
 	@Override

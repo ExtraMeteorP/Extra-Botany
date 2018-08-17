@@ -12,7 +12,25 @@ public class LibItemsName {
 	public static final String GILDEDPOTATOBATTERY = "gildedpotatobattery";
 	
 	public static final String CAMERA = "camera";
+	public static final String FAILNAUGHT = "failnaught";
+	public static final String ACHILLESHIELD = "achilleshield";
+	
+	public static final String SHIELDMANASTEEL = "manasteelshield";
+	public static final String SHIELDTERRASTEEL = "terrasteelshield";
+	public static final String SHIELDELEMENTIUM = "elementiumshield";
+	
 	public static final String TRAVELJOURNAL = "traveljournal";
+	public static final String NATUREORB = "natureorb";
+	public static final String RECORDA = "recordgaia3";
+	
+	public static final String REWARD_TREASURE = "treasurebox";
+	public static final String REWARD_BAG = "rewardbag";
+	public static final String[] REWARD_BAGS_NAMES = new String[] {
+			"rewardbag1",
+			"rewardbag2",
+			"rewardbag3",
+			"rewardbag4",
+		};
 	
 	public static final String HAMMER_MANASTEEL = "manasteelhammer";
 	public static final String HAMMER_ELEMENTIUM = "elementiumhammer";
@@ -23,11 +41,13 @@ public class LibItemsName {
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";
+	public static final String BAUBLE_MASTERMANARING = "mastermanaring";
 	
 	public static final String[] MANA_RESOURCE_NAMES = new String[] {
 		"spirit",
 		"ingotorichalcos",
 		"goldpotato",
+		"heromedal",
 	};
 	
 }

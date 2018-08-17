@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.item.tool.ItemKingGarden;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

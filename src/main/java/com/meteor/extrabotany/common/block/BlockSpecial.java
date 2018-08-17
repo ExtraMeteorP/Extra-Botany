@@ -1,10 +1,9 @@
 package com.meteor.extrabotany.common.block;
 
-import java.util.Arrays;
-
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.ExtraBotany;
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,20 +16,30 @@ import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 public class BlockSpecial extends BlockSpecialFlower{
 
 	static {
-		ExtraBotany.subtilesForCreativeMenu.addAll(Arrays.asList(new String[] {	
-				LibBlocksName.SUBTILE_BLOODYENCHANTRESS,
-				LibBlocksName.SUBTILE_SUNBLESS,
-				LibBlocksName.SUBTILE_MOONBLESS,
-				LibBlocksName.SUBTILE_OMINIVIOLET,
-				LibBlocksName.SUBTILE_STONESIA,
-				LibBlocksName.SUBTILE_TINKLE,
-				LibBlocksName.SUBTILE_BELLFLOWER,
-				LibBlocksName.SUBTILE_ANNOYINGFLOWER,
-				LibBlocksName.SUBTILE_STARDUSTLOTUS,
-				LibBlocksName.SUBTILE_MANALINKIUM,
-				LibBlocksName.SUBTILE_REIKARLILY,
-				LibBlocksName.SUBTILE_ENCHANTEDORCHID
-		}));
+		if(ConfigHandler.ENABLE_BE)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_BLOODYENCHANTRESS);
+		if(ConfigHandler.ENABLE_SB)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_SUNBLESS);
+		if(ConfigHandler.ENABLE_MB)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_MOONBLESS);
+		if(ConfigHandler.ENABLE_OV)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_OMINIVIOLET);
+		if(ConfigHandler.ENABLE_SS)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_STONESIA);
+		if(ConfigHandler.ENABLE_TK)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_TINKLE);
+		if(ConfigHandler.ENABLE_BF)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_BELLFLOWER);
+		if(ConfigHandler.ENABLE_AF)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_ANNOYINGFLOWER);
+		if(ConfigHandler.ENABLE_SL)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_STARDUSTLOTUS);
+		if(ConfigHandler.ENABLE_ML)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_MANALINKIUM);
+		if(ConfigHandler.ENABLE_RL)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_REIKARLILY);
+		if(ConfigHandler.ENABLE_EO)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_ENCHANTEDORCHID);
 	}
 	
 	@Override

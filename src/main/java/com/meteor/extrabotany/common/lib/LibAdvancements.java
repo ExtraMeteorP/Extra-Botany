@@ -17,6 +17,16 @@ public class LibAdvancements {
 	public static final String MANAREADER_CRAFT = "manareader_craft";
 	public static final String POSBINDER_CRAFT = "posbinder_craft";
 	public static final String MANALINKIUM_USE = "manalinkium_use";
+	
+	public static final String NATUREORB_CRAFT = "natureorb_craft";
+	public static final String GAIA_DEFEAT = "gaia_defeat";
+	public static final String FAILNAUGHT_CRAFT = "failnaught_craft";
+	public static final String CAMERA_CRAFT = "camera_craft";
+	public static final String LANDMINE_ACTIVE = "landmine_active";
+	public static final String RELICSHIELD_CRAFT = "relicshield_craft";
+	public static final String MASTERMANARING_CRAFT = "mastermanaring_craft";
+	public static final String MASTERMANARING_FILL = "mastermanaring_fill";
+	
 	public static final String PREFIX = "main/";
 
 }

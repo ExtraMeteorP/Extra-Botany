@@ -13,9 +13,11 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.block.properties.PropertyEnum;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.WorldServer;
@@ -30,7 +32,7 @@ public class ExtraBotanyAPI {
 	public static final List<RecipeStonesia> stonesiaRecipes = new ArrayList<RecipeStonesia>();
 	public static final List<RecipeOmniviolet> omnivioletRecipes = new ArrayList<RecipeOmniviolet>();
 	public static final PropertyEnum<PedestalVariant> PEDESTAL_VARIANT = PropertyEnum.create("variant", PedestalVariant.class);
-	public static final PropertyEnum<BatteryBoxVariant> BATTERYBOX_VARIANT = PropertyEnum.create("variant", BatteryBoxVariant.class);
+	public static final PropertyEnum<ManaBufferVariant> BATTERYBOX_VARIANT = PropertyEnum.create("variant", ManaBufferVariant.class);
 	
 	static {
     	dreamKnowledge = BotaniaAPI.registerKnowledgeType("dream", TextFormatting.DARK_RED, false);
@@ -62,6 +64,14 @@ public class ExtraBotanyAPI {
 			if(advancement!=null)
 				advancements.grantCriterion(advancement, "ebt_trigger");
 		}
+	}
+	
+	public static void dealTrueDamage(EntityLivingBase living, float amount){
+		if(living.getHealth() > 0)
+			if(living.getHealth() <= amount){
+				living.setHealth(1F);
+				living.attackEntityFrom(DamageSource.MAGIC, Integer.MAX_VALUE);
+			}else living.setHealth(living.getHealth() - amount);
 	}
 	
 }

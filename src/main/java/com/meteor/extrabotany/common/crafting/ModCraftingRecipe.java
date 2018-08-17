@@ -28,6 +28,14 @@ public class ModCraftingRecipe {
 	public static IRecipe KINGGARDEN;
 	public static IRecipe KINGGARDEN2;
 	public static IRecipe MANABARREL;
+	public static IRecipe FAILNAUGHT;
+	public static IRecipe CAMERA;
+	public static IRecipe NATUREORB;
+	public static IRecipe RELICSHIELD;
+	public static IRecipe MASTERMANARING;
+	public static IRecipe SHIELDMANASTEEL;
+	public static IRecipe SHIELDTERRASTEEL;
+	public static IRecipe SHIELDELEMENTIUM;
 	
 	public static void init() {
 		
@@ -57,6 +65,30 @@ public class ModCraftingRecipe {
 		
 		MANABARREL = new ShapedOreRecipe(getResource("recipe_manabarrel"), new ItemStack(ModBlocks.batterybox), "XYX", "XZX", "XYX", 'X', new ItemStack(vazkii.botania.common.block.ModBlocks.pool, 1, 3), 'Y', new ItemStack(vazkii.botania.common.item.ModItems.lens), 'Z', LibOreDict.GAIA_INGOT);
 		MANABARREL.setRegistryName(getResource("recipe_manabarrel"));
+		
+		FAILNAUGHT = new ShapedOreRecipe(getResource("recipe_failnaught"), new ItemStack(ModItems.failnaught), " #X", "#AX", " #X", '#', LibOreDict.TERRA_STEEL, 'X', LibOreDict.MANA_STRING, 'A', new ItemStack(ModItems.material, 1, 3));
+		FAILNAUGHT.setRegistryName(getResource("recipe_failnaught"));
+		
+		CAMERA = new ShapedOreRecipe(getResource("recipe_camera"), new ItemStack(ModItems.camera), "###", "#A#", "XXX", '#', new ItemStack(vazkii.botania.common.block.ModFluffBlocks.darkQuartz), 'X', LibOreDict.TERRA_STEEL, 'A', new ItemStack(ModItems.material, 1, 3));
+		CAMERA.setRegistryName(getResource("recipe_camera"));
+		
+		NATUREORB = new ShapedOreRecipe(getResource("recipe_natureorb"), new ItemStack(ModItems.orb), "#B#", "BAB", "#B#", '#', LibOreDict.TERRA_STEEL, 'B', LibOreDict.DRAGONSTONE, 'A', LibOreDict.MANA_PEARL);
+		NATUREORB.setRegistryName(getResource("recipe_natureorb"));
+		
+		SHIELDMANASTEEL = new ShapedOreRecipe(getResource("recipe_manasteelshield"), new ItemStack(ModItems.manasteelshield), "A A", "ABA", "A A", 'B', new ItemStack(Items.SHIELD), 'A', LibOreDict.MANA_STEEL);
+		SHIELDMANASTEEL.setRegistryName(getResource("recipe_manasteelshield"));
+		
+		SHIELDTERRASTEEL = new ShapedOreRecipe(getResource("recipe_terrasteelshield"), new ItemStack(ModItems.terrasteelshield), "A A", "ABA", "A A", 'B', new ItemStack(Items.SHIELD), 'A', LibOreDict.TERRA_STEEL);
+		SHIELDTERRASTEEL.setRegistryName(getResource("recipe_terrasteelshield"));
+		
+		SHIELDELEMENTIUM = new ShapedOreRecipe(getResource("recipe_elementiumshield"), new ItemStack(ModItems.elementiumshield), "A A", "ABA", "A A", 'B', new ItemStack(Items.SHIELD), 'A', LibOreDict.ELEMENTIUM);
+		SHIELDELEMENTIUM.setRegistryName(getResource("recipe_elementiumshield"));
+		
+		RELICSHIELD = new ShapedOreRecipe(getResource("recipe_relicshield"), new ItemStack(ModItems.relicshield), "ACA", "ABA", "ABA", 'B', new ItemStack(Items.SHIELD), 'A', LibOreDict.TERRA_STEEL, 'C', new ItemStack(ModItems.material, 1, 3));
+		RELICSHIELD.setRegistryName(getResource("recipe_relicshield"));
+		
+		MASTERMANARING = new ShapedOreRecipe(getResource("recipe_mastermanaring"), new ItemStack(ModItems.mastermanaring), "ACA", "BDB", "ABA", 'B', new ItemStack(vazkii.botania.common.item.ModItems.manaTablet), 'A', LibOreDict.TERRA_STEEL, 'C', new ItemStack(ModItems.material, 1, 3), 'D', new ItemStack(vazkii.botania.common.item.ModItems.manaRingGreater));
+		MASTERMANARING.setRegistryName(getResource("recipe_mastermanaring"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -73,7 +105,16 @@ public class ModCraftingRecipe {
 					MANAREADER,
 					KINGGARDEN,
 					KINGGARDEN2,
-					MANABARREL
+					MANABARREL,
+					CAMERA,
+					BINDER,
+					FAILNAUGHT,
+					NATUREORB,
+					SHIELDMANASTEEL,
+					SHIELDTERRASTEEL,
+					SHIELDELEMENTIUM,
+					RELICSHIELD,
+					MASTERMANARING
 			);
 		}
 	}

@@ -2,7 +2,7 @@ package com.meteor.extrabotany.common.block.subtile.functional;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
-import com.meteor.extrabotany.common.item.ItemBinder;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemBinder;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 

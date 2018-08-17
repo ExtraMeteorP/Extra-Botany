@@ -18,7 +18,7 @@ import vazkii.botania.api.recipe.IFlowerComponent;
 
 public class ItemMaterial extends ItemMod implements IFlowerComponent{
 	
-	final int types = 3;
+	final int types = 4;
 
 	public ItemMaterial() {
 		super(LibItemsName.MATERIAL);

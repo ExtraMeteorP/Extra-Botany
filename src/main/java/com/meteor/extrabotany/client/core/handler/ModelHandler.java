@@ -16,6 +16,7 @@ import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileStonesia;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -59,18 +60,30 @@ public class ModelHandler {
 	}
 
 	private static void registerSubtiles() {
-		BotaniaAPIClient.registerSubtileModel(SubTileBloodyEnchantress.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_BLOODYENCHANTRESS));
-		BotaniaAPIClient.registerSubtileModel(SubTileSunBless.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_SUNBLESS));
-		BotaniaAPIClient.registerSubtileModel(SubTileMoonBless.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MOONBLESS));
-		BotaniaAPIClient.registerSubtileModel(SubTileOmniViolet.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_OMINIVIOLET));
-		BotaniaAPIClient.registerSubtileModel(SubTileStonesia.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_STONESIA));
-		BotaniaAPIClient.registerSubtileModel(SubTileTinkle.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_TINKLE));
-		BotaniaAPIClient.registerSubtileModel(SubTileBellFlower.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_BELLFLOWER));
-		BotaniaAPIClient.registerSubtileModel(SubTileAnnoyingFlower.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_ANNOYINGFLOWER));
-		BotaniaAPIClient.registerSubtileModel(SubTileStardustLotus.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_STARDUSTLOTUS));
-		BotaniaAPIClient.registerSubtileModel(SubTileManalinkium.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MANALINKIUM));
-		BotaniaAPIClient.registerSubtileModel(SubTileReikarLily.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_REIKARLILY));
-		BotaniaAPIClient.registerSubtileModel(SubTileEnchantedOrchid.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_ENCHANTEDORCHID));
+		if(ConfigHandler.ENABLE_BE)
+			BotaniaAPIClient.registerSubtileModel(SubTileBloodyEnchantress.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_BLOODYENCHANTRESS));
+		if(ConfigHandler.ENABLE_SB)
+			BotaniaAPIClient.registerSubtileModel(SubTileSunBless.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_SUNBLESS));
+		if(ConfigHandler.ENABLE_MB)
+			BotaniaAPIClient.registerSubtileModel(SubTileMoonBless.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MOONBLESS));
+		if(ConfigHandler.ENABLE_OV)
+			BotaniaAPIClient.registerSubtileModel(SubTileOmniViolet.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_OMINIVIOLET));
+		if(ConfigHandler.ENABLE_SS)
+			BotaniaAPIClient.registerSubtileModel(SubTileStonesia.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_STONESIA));
+		if(ConfigHandler.ENABLE_TK)
+			BotaniaAPIClient.registerSubtileModel(SubTileTinkle.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_TINKLE));
+		if(ConfigHandler.ENABLE_BF)
+			BotaniaAPIClient.registerSubtileModel(SubTileBellFlower.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_BELLFLOWER));
+		if(ConfigHandler.ENABLE_AF)
+			BotaniaAPIClient.registerSubtileModel(SubTileAnnoyingFlower.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_ANNOYINGFLOWER));
+		if(ConfigHandler.ENABLE_SL)
+			BotaniaAPIClient.registerSubtileModel(SubTileStardustLotus.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_STARDUSTLOTUS));
+		if(ConfigHandler.ENABLE_ML)
+			BotaniaAPIClient.registerSubtileModel(SubTileManalinkium.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MANALINKIUM));
+		if(ConfigHandler.ENABLE_RL)
+			BotaniaAPIClient.registerSubtileModel(SubTileReikarLily.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_REIKARLILY));
+		if(ConfigHandler.ENABLE_EO)
+			BotaniaAPIClient.registerSubtileModel(SubTileEnchantedOrchid.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_ENCHANTEDORCHID));
 	}
 	
 	private static final Map<IRegistryDelegate<Block>, IStateMapper> customStateMappers = ReflectionHelper.getPrivateValue(ModelLoader.class, null, "customStateMappers");

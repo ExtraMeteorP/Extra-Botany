@@ -47,9 +47,12 @@ public class SubTileBloodyEnchantress extends SubTileGenerating {
 				if(mana < getMaxMana()) {
 					for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
 						if(living.isEntityAlive()){
-							if(living instanceof EntityPlayer)
+							if(living instanceof EntityPlayer){
 								ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.BLOODYENCHANTRESS_USE);
-							living.setHealth(living.getHealth()-2F);
+								ExtraBotanyAPI.dealTrueDamage(living, 2F);
+							}else{
+								living.setHealth(living.getHealth() - 2F);
+							}
 							living.attackEntityFrom(DamageSource.MAGIC, 0.01F);
 							burnTime+=ConfigHandler.BLOOD_BURNTIME;
 							return;

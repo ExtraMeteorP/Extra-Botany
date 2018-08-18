@@ -1,4 +1,4 @@
-package com.meteor.extrabotany.common.item.equipment.bauble;
+package com.meteor.extrabotany.common.item.relic;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,6 +6,7 @@ import java.util.UUID;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemBauble;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
@@ -163,6 +164,10 @@ public class ItemMasterManaRing extends ItemBauble implements IManaItem, IManaTo
 			}
 
 		} else addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
+	}
+	
+	public void addStringToTooltip(String s, List<String> tooltip) {
+		tooltip.add(s.replaceAll("&", "\u00a7"));
 	}
 
 	public boolean shouldDamageWrongPlayer() {

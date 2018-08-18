@@ -27,6 +27,8 @@ public class LibAdvancements {
 	public static final String MASTERMANARING_CRAFT = "mastermanaring_craft";
 	public static final String MASTERMANARING_FILL = "mastermanaring_fill";
 	
+	public static final String MUSIC_ALL = "music_all";
+	
 	public static final String PREFIX = "main/";
 
 }

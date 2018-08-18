@@ -136,10 +136,11 @@ public class BlockPedestal extends BlockMod{
 						return true;
 					}
 				}else{
-					if(heldItem.getItem() instanceof IHammer && !(te.getItem().getItem() instanceof ItemHammerUltimate)){
+					if(heldItem.getItem() instanceof IHammer){
 						te.setStrikes(te.getStrikes() + 1);
 						heldItem.damageItem(1, player);
 						te.markForUpdate();
+						world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BLOCK_ANVIL_HIT, SoundCategory.PLAYERS, 0.5F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1, false);
 						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.FRAGMENT_FORGE);
 						return true;
 					}else if(te.getItem().getItem() instanceof ItemKingGarden && !heldItem.isEmpty()){

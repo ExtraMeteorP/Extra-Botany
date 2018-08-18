@@ -1,24 +1,30 @@
 package com.meteor.extrabotany.common.entity;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
@@ -30,6 +36,8 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntitySkullMinion.class, DataSerializers.VARINT);
 	private static final String TAG_SHIELD = "shield";
 	private static final DataParameter<Integer> SHIELD = EntityDataManager.createKey(EntitySkullMinion.class, DataSerializers.VARINT);
+	
+	private int tpDelay = 200;
 
 	public EntitySkullMinion(World worldIn) {
 		super(worldIn);
@@ -81,6 +89,16 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 		for(EntityGaiaIII g : getHostAround())
 			if(ticksExisted % 100 == 0 && g.getRankIII())
 				g.heal(2F);
+		
+		if(tpDelay > 0)	
+			tpDelay--;
+
+		if(tpDelay == 0 && getHealth() > 0 && !getHostAround().isEmpty()){
+			double newx = posX - 1 + world.rand.nextDouble() * 2;
+			double newz = posZ - 1 + world.rand.nextDouble() * 2;
+			this.setPosition(newx, posY, newz);
+			tpDelay = 180;
+		}
 	}
 	
 	@Override

@@ -36,6 +36,7 @@ public class ModCraftingRecipe {
 	public static IRecipe SHIELDMANASTEEL;
 	public static IRecipe SHIELDTERRASTEEL;
 	public static IRecipe SHIELDELEMENTIUM;
+	public static IRecipe HEROMEDAL;
 	
 	public static void init() {
 		
@@ -89,6 +90,9 @@ public class ModCraftingRecipe {
 		
 		MASTERMANARING = new ShapedOreRecipe(getResource("recipe_mastermanaring"), new ItemStack(ModItems.mastermanaring), "ACA", "BDB", "ABA", 'B', new ItemStack(vazkii.botania.common.item.ModItems.manaTablet), 'A', LibOreDict.TERRA_STEEL, 'C', new ItemStack(ModItems.material, 1, 3), 'D', new ItemStack(vazkii.botania.common.item.ModItems.manaRingGreater));
 		MASTERMANARING.setRegistryName(getResource("recipe_mastermanaring"));
+		
+		HEROMEDAL = new ShapelessOreRecipe(getResource("recipe_heromedal"), new ItemStack(ModItems.rewardbag, 8, 2), new ItemStack(ModItems.material, 1, 3));
+		HEROMEDAL.setRegistryName(getResource("recipe_heromedal"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -114,7 +118,8 @@ public class ModCraftingRecipe {
 					SHIELDTERRASTEEL,
 					SHIELDELEMENTIUM,
 					RELICSHIELD,
-					MASTERMANARING
+					MASTERMANARING,
+					HEROMEDAL
 			);
 		}
 	}

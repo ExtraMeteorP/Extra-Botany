@@ -48,12 +48,11 @@ public class ItemCamera extends ItemModRelic implements IManaUsingItem{
 		ItemStack stack = player.getHeldItem(hand);
 		
 		if(ManaItemHandler.requestManaExact(stack, player, 3000, true) && !world.isRemote){
-			for(EntityLivingBase living : player.getEntityWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))){
-				if(living != player && living.isSpectatedByPlayer((EntityPlayerMP) player)){
+			for(EntityLiving living : player.getEntityWorld().getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))){
+				if(living.isSpectatedByPlayer((EntityPlayerMP) player)){
 					living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 5));
 					if(living instanceof IMob){
-						EntityLiving mob = (EntityLiving) living;
-						mob.setNoAI(true);
+						living.setNoAI(true);
 					}			
 				}
 			}

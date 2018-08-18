@@ -1,24 +1,18 @@
 package com.meteor.extrabotany.common.block.tile;
 
-import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
+import java.util.List;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityShulker;
-import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.entity.passive.EntityCow;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.entity.passive.EntityMooshroom;
-import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.entity.passive.EntityPig;
-import net.minecraft.entity.passive.EntityRabbit;
-import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import vazkii.botania.common.block.tile.TileMod;
 
 public class TileCocoonDesire extends TileMod implements ITickable{
@@ -29,6 +23,9 @@ public class TileCocoonDesire extends TileMod implements ITickable{
 	private ItemStack item = ItemStack.EMPTY;
 	private int rot;
 	private boolean isDirty;
+	private static Item[] items = new Item[]{
+			Items.CHORUS_FRUIT
+	};
 
 	@Override
 	public void update() {
@@ -36,6 +33,19 @@ public class TileCocoonDesire extends TileMod implements ITickable{
 		if(timePassed >= TIME){
 			hatch();
 			timePassed = 0;
+		}
+		
+		if(getItem() == ItemStack.EMPTY && !world.isRemote){
+			for(EntityItem e : getItemsAround()){
+				ItemStack stack = e.getItem();
+				for(int i = 0; i < items.length; i++)
+					if(stack.getItem().equals(items[i])){
+						ItemStack newItem = stack.copy();
+						newItem.setCount(1);
+						setItem(newItem);
+						stack.shrink(1);
+					}			
+			}
 		}
 		
 		if(isDirty){
@@ -51,48 +61,10 @@ public class TileCocoonDesire extends TileMod implements ITickable{
 	
 	private void hatch() {
 		if(!world.isRemote) {
-			if(world.rand.nextInt(100) == 7 && !(getItem().getItem() instanceof ItemNatureOrb))
-				world.destroyBlock(pos, false);
-			
+		
 			EntityLiving entity = null;
 			float specialChance = 0.05F;
-			if(getItem() == ItemStack.EMPTY || getItem().getItem() instanceof ItemNatureOrb){
-				if(Math.random() < specialChance) {
-					int entityType = world.rand.nextInt(3);
-					switch(entityType) {
-					case 0:
-						entity = new EntityHorse(world);
-						break;
-					case 1:
-						entity = new EntityWolf(world);
-						break;
-					case 2:
-						entity = new EntityOcelot(world);
-						break;
-					}
-				} else {
-					int entityType = world.rand.nextInt(5);
-					switch(entityType) {
-					case 0:
-						entity = new EntitySheep(world);
-						break;
-					case 1:
-						if(Math.random() < 0.01)
-							entity = new EntityMooshroom(world);
-						else entity = new EntityCow(world);
-						break;
-					case 2:
-						entity = new EntityPig(world);
-						break;
-					case 3:
-						entity = new EntityChicken(world);
-						break;
-					case 4:
-						entity = new EntityRabbit(world);
-						break;
-					}
-				}
-			}else{
+			if(getItem() != ItemStack.EMPTY){
 				Item i = getItem().getItem();
 				if(i == Items.CHORUS_FRUIT)
 					entity = new EntityShulker(world);
@@ -109,6 +81,12 @@ public class TileCocoonDesire extends TileMod implements ITickable{
 				entity.spawnExplosionParticle();
 			}
 		}
+	}
+	
+	private List<EntityItem> getItemsAround() {
+		BlockPos source = this.pos;
+		float range = 1F;
+		return world.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
 	}
 	
 	public int getRotation(){

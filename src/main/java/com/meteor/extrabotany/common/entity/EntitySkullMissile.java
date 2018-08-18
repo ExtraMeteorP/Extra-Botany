@@ -174,7 +174,7 @@ public class EntitySkullMissile extends EntityThrowableCopy{
 				motionY = Math.abs(motionY);
 			motionZ = motionVec.z;
 
-			List<EntityPlayer> targetList = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(posX - 1.2, posY - 1, posZ - 1.2, posX + 1.2, posY + 1, posZ + 1.2));
+			List<EntityPlayer> targetList = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(posX - 1, posY - 1, posZ - 1, posX + 1, posY + 1, posZ + 1));
 			if(targetList.contains(target)) {
 				target.attackEntityFrom(DamageSource.GENERIC, getDamage());
 				ExtraBotanyAPI.dealTrueDamage(target, getTrueDamage());

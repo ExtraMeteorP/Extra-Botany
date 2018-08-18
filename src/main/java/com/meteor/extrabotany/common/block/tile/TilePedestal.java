@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.block.tile;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.item.INatureOrb;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
@@ -88,20 +89,22 @@ public class TilePedestal extends TileEntity implements ITickable{
 					o.addXP(getItem(), 2);
 				Botania.proxy.sparkleFX(pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.15F, 0.8F, 0.15F, 3F, 10);
 			}
+		}
 		
-			
-			if (getStrikes() >= ConfigHandler.CRAFTING_STRIKES) {
-				ItemStack input = getItem();
-				ItemStack output = RecipePedestal.getOutput(getItem());
-					if (output.isEmpty() || output.equals(input)) {
-						setStrikes(0);
-						return;
-					} else {
-						setItem(output);
-						setStrikes(0);
-						EntityXPOrb orb = new EntityXPOrb(world, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 1);
+		if (getStrikes() >= ConfigHandler.CRAFTING_STRIKES) {
+			ItemStack input = getItem();
+			for(RecipePedestal rp : ExtraBotanyAPI.pedestalRecipes){
+				ItemStack output = rp.getOutput(getItem());
+				if (output.isEmpty() || output.equals(input)) {
+					setStrikes(0);
+					return;
+				} else {
+					setItem(output);
+					setStrikes(0);
+					EntityXPOrb orb = new EntityXPOrb(world, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 1);
+					if(!world.isRemote)
 						world.spawnEntity(orb);
-					}
+				}
 			}
 		}
 	}

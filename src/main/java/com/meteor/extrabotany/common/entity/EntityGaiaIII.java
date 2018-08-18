@@ -22,6 +22,7 @@ import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
@@ -287,8 +288,12 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				tries++;
 			if(tries >= 50)
 				teleportTo(source.getX() + 0.5, source.getY() + 1.6, source.getZ() + 0.5);
-			tpDelay = getRankIII() ? 50 : 70;
+			tpDelay = getRankIII() ? 50 : 65;
 		}
+		
+		if(ticksExisted > 2600)
+			for(EntityPlayer p : getPlayersAround())
+				ExtraBotanyAPI.unlockAdvancement(p, LibAdvancements.MUSIC_ALL);
 
 	}
 	
@@ -313,7 +318,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	}
 	
 	private boolean match(Block block){
-		String m = block.getRegistryName().toString();
+		String m = Block.REGISTRY.getNameForObject(block).toString();
 		if(m.indexOf("botania") != -1 || m.indexOf("extrabotany") != -1 || m.indexOf("minecraft") != -1)
 			return true;
 		return false;
@@ -773,10 +778,10 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	}
 
 	private void smashCheatyBlocks() {
-		int radius = 1;
-		int posXInt = MathHelper.floor(posX);
-		int posYInt = MathHelper.floor(posY);
-		int posZInt = MathHelper.floor(posZ);
+		int radius = 10;
+		int posXInt = MathHelper.floor(getSource().getX());
+		int posYInt = MathHelper.floor(getSource().getY());
+		int posZInt = MathHelper.floor(getSource().getZ());
 		for(int i = -radius; i < radius + 1; i++)
 			for(int j = -radius; j < radius + 1; j++)
 				for(int k = -radius; k < radius + 1; k++) {
@@ -784,7 +789,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 					int yp = posYInt + j;
 					int zp = posZInt + k;
 					BlockPos posp = new BlockPos(xp, yp, zp);
-					if(isCheatyBlock(world, posp) || world.getBlockState(posp).getBlock() instanceof IFluidBlock || !match(world.getBlockState(posp).getBlock())) {
+					if(isCheatyBlock(world, posp) || world.getBlockState(posp).getMaterial() == Material.WATER || world.getBlockState(posp).getMaterial() == Material.LAVA || !match(world.getBlockState(posp).getBlock())) {
 						world.destroyBlock(posp, true);
 					}
 				}

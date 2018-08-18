@@ -332,6 +332,8 @@ advancement.extrabotany:mastermanaringCraft=COLOR
 advancement.extrabotany:mastermanaringCraft.desc=Obtain Master Band of Mana
 advancement.extrabotany:mastermanaringFill=Fairytale
 advancement.extrabotany:mastermanaringFill.desc=Fill it to WIN the game
+advancement.extrabotany:musicAll=千本桜
+advancement.extrabotany:musicAll.desc=Patient Listener
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=

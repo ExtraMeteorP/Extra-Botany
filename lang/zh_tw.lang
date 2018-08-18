@@ -332,6 +332,8 @@ advancement.extrabotany:mastermanaringCraft=COLOR
 advancement.extrabotany:mastermanaringCraft.desc=獲得大師魔力指環
 advancement.extrabotany:mastermanaringFill=Fairytale
 advancement.extrabotany:mastermanaringFill.desc=充滿它來贏得Minecraft
+advancement.extrabotany:musicAll=千本桜
+advancement.extrabotany:musicAll.desc=耐心的聆听者
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=

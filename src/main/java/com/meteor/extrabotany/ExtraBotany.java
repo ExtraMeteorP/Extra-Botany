@@ -34,7 +34,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ExtraBotany{
     public static final String MODID = "extrabotany";
     public static final String NAME = "extrabotany";
-    public static final String VERSION = "33";
+    public static final String VERSION = "34";
 
     public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
     
@@ -70,7 +70,8 @@ public class ExtraBotany{
     @EventHandler
 	public void Init(FMLInitializationEvent event){
     	MinecraftForge.EVENT_BUS.register(ConfigHandler.INSTANCE);
-    	MinecraftForge.EVENT_BUS.register(new ToolTipHandler());
+    	if(event.getSide().isClient())
+    		MinecraftForge.EVENT_BUS.register(new ToolTipHandler());
     	MinecraftForge.EVENT_BUS.register(ItemShieldCopy.EventHandler.INSTANCE);
     	ModEntities.init();
 		ModRecipe.init();

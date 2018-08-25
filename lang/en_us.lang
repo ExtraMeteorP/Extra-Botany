@@ -34,11 +34,28 @@ item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
 
 item.extrabotany:froststar.name=Frost Ring
 item.extrabotany:deathring.name=Curse Ring
+item.extrabotany:combatmaidhelm.name=Pleiades Combat Maid Headgear
+item.extrabotany:combatmaidchest.name=Pleiades Combat Maid Suit
+item.extrabotany:combatmaidlegs.name=Pleiades Combat Maid Skirt
+item.extrabotany:combatmaidboots.name=Pleiades Combat Maid Boots
+item.extrabotany:cosmeticmaidhelm.name=Starry Idol Headgear
+item.extrabotany:cosmeticmaidchest.name=Starry Idol Suit
+item.extrabotany:cosmeticmaidlegs.name=Starry Idol Skirt
+item.extrabotany:cosmeticmaidboots.name=Starry Idol Boots
 item.extrabotany:.name=
+
+extrabotany.armorset.cosmeticmaid.desc0=Super Mana Affinity
+extrabotany.armorset.combatmaid.desc0=Super Power when Empty-handed
+extrabotany.armorset.combatmaid.desc1=Greater Regeneration
+extrabotany.armorset.combatmaid.desc2=Mana Affinity
+extrabotany.armorset.cosmeticmaid.name=Starry Idol
+extrabotany.armorset.combatmaid.name=Pleiades Combat Maid
 
 tile.extrabotany:pedestal.name=Livingrock Pedestal
 tile.extrabotany:blockorichalcos.name=Block of Orichalcos
 tile.extrabotany:manabarrel.name=Mana Buffer
+tile.extrabotany:cocoondesire.name=Cocoon of Desire
+tile.extrabotany:managenerator.name=Flux Manafield
 
 entity.extrabotany:flowerWeapon.name=Flower
 entity.extrabotany:gaiaIII.name=Gaia Guardian III
@@ -278,6 +295,35 @@ botania.entry.mastermanaring=Master Band of Mana
 botania.page.mastermanaring0=&4Master Band of Mana&0 can store nearly infinite Mana.
 botania.page.mastermanaring1=The Cake is a Lie.
 botania.tagline.mastermanaring=IMPOSSIBLE
+
+botania.entry.cocoondesire=Cocoon of Desire
+botania.page.cocoondesire0=Cocoon of Desire will slowly evolve the rudimentary contents inside it into a creature. Giving the items can be done via a right click or simply dropping them on it.
+botania.page.cocoondesire1=Block of Coal will be evolved into Wither Skeleton. Wheat - Pig and Wool - Sheep. More are waiting for discovering.
+botania.page.cocoondesire2=Nerf this
+botania.tagline.cocoondesire=Incubator
+
+botania.entry.combatmaid=Pleiades Combat Maid
+botania.page.combatmaid0=The improved version of Terrasteel Armor. The wearer will gain the ability of regeneration while wearing a set of it. It will also clear bad effects and give wearer super power when he or she is empty-handed.
+botania.page.combatmaid1=Pleiades Combat Maid Headgear
+botania.page.combatmaid2=Pleiades Combat Maid Suit
+botania.page.combatmaid3=Pleiades Combat Maid Skirt
+botania.page.combatmaid4=Pleiades Combat Maid Boots
+botania.tagline.combatmaid=Overlord
+
+botania.entry.cosmeticmaid=Starry Idol
+botania.page.cosmeticmaid0=The improved version of Manasteel Armor, give wearer high mana discount.
+botania.page.cosmeticmaid1=Starry Idol Headgear
+botania.page.cosmeticmaid2=Starry Idol Suit
+botania.page.cosmeticmaid3=Starry Idol Skirt
+botania.page.cosmeticmaid4=Starry Idol Boots
+botania.tagline.cosmeticmaid=Miku Miku Dance
+
+botania.entry.managenerator=Flux Manafield
+botania.page.managenerator0=By passing &4Forge Energy&0 through a field of natural energy, its state can change from a redstone energy source to &4Mana&0.<br>Simply putting &4FE&0 transporters nearby, converting the &4FE&0 into &4Mana&0, and sending it to any nearby spreaders.
+botania.page.managenerator1=Science
+botania.tagline.managenerator=Converts Energy into Mana
+
+
 
 botania.entry.=
 botania.page.0=

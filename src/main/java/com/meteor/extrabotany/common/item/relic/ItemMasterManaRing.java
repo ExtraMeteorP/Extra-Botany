@@ -133,7 +133,7 @@ public class ItemMasterManaRing extends ItemBauble implements IManaItem, IManaTo
 
 	@Override
 	public int getRGBDurabilityForDisplay(ItemStack stack) {
-		return MathHelper.hsvToRGB(getManaFractionForDisplay(stack) / 3.0F, 1.0F, 1.0F);
+		return MathHelper.hsvToRGB(getManaFractionForDisplay(stack)/4.0F, 1.0F, 1.0F);
 	}
 	
 	@Override
@@ -141,7 +141,7 @@ public class ItemMasterManaRing extends ItemBauble implements IManaItem, IManaTo
 		if(!world.isRemote && entity instanceof EntityPlayer){
 			EntityPlayer player = (EntityPlayer) entity;
 			updateRelic(stack, player);
-			if(getMana(stack) == Integer.MAX_VALUE)
+			if(getMana(stack) == Integer.MAX_VALUE && !world.isRemote)
 				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.MASTERMANARING_FILL);
 		}
 	}

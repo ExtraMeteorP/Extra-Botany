@@ -16,11 +16,14 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.common.util.EnumHelper;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.KnowledgeType;
 
@@ -33,6 +36,8 @@ public class ExtraBotanyAPI {
 	public static final List<RecipeOmniviolet> omnivioletRecipes = new ArrayList<RecipeOmniviolet>();
 	public static final PropertyEnum<PedestalVariant> PEDESTAL_VARIANT = PropertyEnum.create("variant", PedestalVariant.class);
 	public static final PropertyEnum<ManaBufferVariant> BATTERYBOX_VARIANT = PropertyEnum.create("variant", ManaBufferVariant.class);
+	public static final ArmorMaterial orichalcosArmorMaterial = EnumHelper.addArmorMaterial("TERRASTEEL", "terrasteel", 50,
+			new int[] { 4, 7, 9, 4 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
 	
 	static {
     	dreamKnowledge = BotaniaAPI.registerKnowledgeType("dream", TextFormatting.DARK_RED, false);
@@ -44,7 +49,7 @@ public class ExtraBotanyAPI {
 		return recipe;
 	};
 	
-	public static RecipeStonesia registerStonesiaRecipe(int output, ItemStack input){
+	public static RecipeStonesia registerStonesiaRecipe(int output, Object input){
 		RecipeStonesia recipe = new RecipeStonesia(output, input);
 		stonesiaRecipes.add(recipe);
 		return recipe;

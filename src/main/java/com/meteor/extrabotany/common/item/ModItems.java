@@ -1,6 +1,14 @@
 package com.meteor.extrabotany.common.item;
 
 import com.meteor.extrabotany.common.item.bonus.ItemRewardBag;
+import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidBoots;
+import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidChest;
+import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidHelm;
+import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidLegs;
+import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidBoots;
+import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidChest;
+import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidHelm;
+import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidLegs;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemDeathRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemFrostStar;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemElementiumShield;
@@ -63,6 +71,16 @@ public class ModItems {
 	public static final Item elementiumshield = new ItemElementiumShield();
 	public static final Item relicshield = new ItemAchilleshield();
 	
+	public static final Item cmhelm = new ItemCombatMaidHelm();
+	public static final Item cmchest = new ItemCombatMaidChest();
+	public static final Item cmleg = new ItemCombatMaidLegs();
+	public static final Item cmboot = new ItemCombatMaidBoots();
+	
+	public static final Item cosmhelm = new ItemCosmeticMaidHelm();
+	public static final Item cosmchest = new ItemCosmeticMaidChest();
+	public static final Item cosmleg = new ItemCosmeticMaidLegs();
+	public static final Item cosmboot = new ItemCosmeticMaidBoots();
+	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
 		IForgeRegistry<Item> r = evt.getRegistry();
@@ -91,6 +109,14 @@ public class ModItems {
 		r.register(elementiumshield);
 		r.register(relicshield);
 		r.register(mastermanaring);
+		r.register(cmboot);
+		r.register(cmchest);
+		r.register(cmhelm);
+		r.register(cmleg);
+		r.register(cosmhelm);
+		r.register(cosmchest);
+		r.register(cosmleg);
+		r.register(cosmboot);
 		registerOreDictionary();
 	}
 	

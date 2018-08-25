@@ -51,6 +51,8 @@ public class SubTileReikarLily extends SubTileGenerating{
 			cooldown--;
 		if(cd > 0)
 			cd--;
+		if(burnTime > 0)
+			burnTime--;
 	
 	}
 	

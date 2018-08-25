@@ -10,13 +10,16 @@ import com.meteor.extrabotany.api.orb.OrbItemHandler;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.entity.EntityGaiaIII;
 import com.meteor.extrabotany.common.item.ItemMod;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemBauble;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
+import baubles.api.BaubleType;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketRemoveEntityEffect;
@@ -35,7 +38,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 
-public class ItemNatureOrb extends ItemMod implements INatureOrb{
+public class ItemNatureOrb extends ItemBauble implements INatureOrb{
 	
 	public static final String TAG_XP = "xp";
 	public static int max = 500000;
@@ -44,25 +47,29 @@ public class ItemNatureOrb extends ItemMod implements INatureOrb{
 		super(LibItemsName.NATUREORB);
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
-	public void addInformation(ItemStack stack, World world, List<String> stacks, ITooltipFlag flags) {
+	@SideOnly(Side.CLIENT)
+	public void addHiddenTooltip(ItemStack stack, World world, List<String> stacks, ITooltipFlag flags) {
+		String key = vazkii.botania.client.core.helper.RenderHelper.getKeyDisplayString("Baubles Inventory");
 		String i = I18n.format("extrabotany.natureorb");
 		String ci = i + getXP(stack) + "/" + max;
 		String a = I18n.format("extrabotany.natureorbeffect1"+ (getXP(stack) > 100000));
 		String b = I18n.format("extrabotany.natureorbeffect2"+ (getXP(stack) > 300000));
 		String c = I18n.format("extrabotany.natureorbeffect3"+ (getXP(stack) > 400000));
+
+		if(key != null)
+			addStringToTooltip(I18n.format("botania.baubletooltip", key), stacks);
+
+		ItemStack cosmetic = getCosmeticItem(stack);
+		if(!cosmetic.isEmpty())
+			addStringToTooltip(I18n.format("botaniamisc.hasCosmetic", cosmetic.getDisplayName()), stacks);
+
+		if(hasPhantomInk(stack))
+			addStringToTooltip(I18n.format("botaniamisc.hasPhantomInk"), stacks);
 		addStringToTooltip(ci, stacks);
-		if(GuiScreen.isShiftKeyDown()){
-			addStringToTooltip(a, stacks);
-			addStringToTooltip(b, stacks);
-			addStringToTooltip(c, stacks);
-		}else
-			addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), stacks);
-	}
-	
-	void addStringToTooltip(String s, List<String> tooltip) {
-		tooltip.add(s.replaceAll("&", "\u00a7"));
+		addStringToTooltip(a, stacks);
+		addStringToTooltip(b, stacks);
+		addStringToTooltip(c, stacks);
 	}
 	
 	@Nonnull
@@ -85,27 +92,26 @@ public class ItemNatureOrb extends ItemMod implements INatureOrb{
 	}
 	
 	@Override
-    public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected){
-    	super.onUpdate(stack, world, entity, itemSlot, isSelected);
-    	if(entity instanceof EntityPlayer){
+	public void onWornTick(ItemStack stack, EntityLivingBase entity) {
+		super.onWornTick(stack, entity);
+		if(entity instanceof EntityPlayer){
     		EntityPlayer p = (EntityPlayer) entity;
     		
     		if(getXP(stack) > 100000)
     			ManaItemHandler.dispatchMana(stack, p, 1, true);
-    		if(getXP(stack) > 200000){
+    		if(getXP(stack) > 200000)
     			ManaItemHandler.dispatchMana(stack, p, 1, true);
-    		}
     		if(getXP(stack) > 300000){
     			ManaItemHandler.dispatchMana(stack, p, 1, true);
     			if(p.ticksExisted % 60 == 0)
     				p.heal(1F);
     		}
     		if(getXP(stack) > 400000){
-    			ManaItemHandler.dispatchMana(stack, p, 1, true);
-    			clearPotions(p);
+    			if(p.ticksExisted % 25 == 0)
+    				clearPotions(p);
     		}
     	}
-    }
+	}
     
 	private void clearPotions(EntityPlayer player) {
 		int posXInt = MathHelper.floor(player.getPosition().getX());
@@ -147,6 +153,11 @@ public class ItemNatureOrb extends ItemMod implements INatureOrb{
     @Override
 	public int getXP(ItemStack stack) {
 		return ItemNBTHelper.getInt(stack, TAG_XP, 0);
+	}
+
+	@Override
+	public BaubleType getBaubleType(ItemStack arg0) {
+		return BaubleType.CHARM;
 	}
 
 }

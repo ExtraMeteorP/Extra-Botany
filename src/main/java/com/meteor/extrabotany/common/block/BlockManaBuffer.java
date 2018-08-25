@@ -6,6 +6,7 @@ import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.ManaBufferVariant;
 import com.meteor.extrabotany.client.core.handler.ModelHandler;
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
+import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 
 import net.minecraft.block.SoundType;
@@ -103,7 +104,7 @@ public class BlockManaBuffer extends BlockMod implements ILexiconable{
 
 	@Override
 	public LexiconEntry getEntry(World arg0, BlockPos arg1, EntityPlayer arg2, ItemStack arg3) {
-		return null;
+		return LexiconData.manabarrel;
 	}
 	
 	@SideOnly(Side.CLIENT)

@@ -36,9 +36,9 @@ public class ModPetalRecipe {
 		if(ConfigHandler.ENABLE_BE)
 			bloodyenchantressRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_BLOODYENCHANTRESS), red, red, red, red, runeFire, runeSummer, runeWrath);
 		if(ConfigHandler.ENABLE_MB)
-			moonblessRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_SUNBLESS), red, red, red, white);
+			moonblessRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MOONBLESS), red, red, red, white);
 		if(ConfigHandler.ENABLE_SB)
-			sunblessRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MOONBLESS), yellow, yellow, yellow, white);
+			sunblessRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_SUNBLESS), yellow, yellow, yellow, white);
 		if(ConfigHandler.ENABLE_OV)
 			omnivioletRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_OMINIVIOLET), blue, blue, purple, purple, runeSpring, runeMana, runeLust);
 		if(ConfigHandler.ENABLE_SS)

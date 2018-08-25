@@ -44,8 +44,6 @@ public class SubTileStonesia extends SubTileGeneratingNature{
 			for(int i = 0; i < 3; i++)
 				Botania.proxy.wispFX(supertile.getPos().getX() + 0.5 + Math.random() * 0.2 - 0.1, supertile.getPos().getY() + 0.5 + Math.random() * 0.2 - 0.1, supertile.getPos().getZ() + 0.5 + Math.random() * 0.2 - 0.1, 0.1F, 0.1F, 0.1F, (float) Math.random() / 6, (float) -Math.random() / 30);
 		}
-		
-		float catalysis = ConfigHandler.LP_STONESIA ? isEnabled() ? 200 : 0 : 0;
 
 		if(burnTime == 0) {
 			if(mana < getMaxMana() && !supertile.getWorld().isRemote) {
@@ -58,7 +56,7 @@ public class SubTileStonesia extends SubTileGeneratingNature{
 					if(block != null && output != 0){
 											
 						if(cooldown == 0){
-							burnTime += (output + catalysis);
+							burnTime += (output);
 							supertile.getWorld().setBlockToAir(pos);
 							cooldown = getCooldown();
 						}
@@ -159,7 +157,8 @@ public class SubTileStonesia extends SubTileGeneratingNature{
 	
 	@Override
 	public int getValueForPassiveGeneration() {
-		return ConfigHandler.EFF_STONESIA;
+		int catalysis = ConfigHandler.LP_STONESIA ? isEnabled() ? 2 : 0 : 0;
+		return ConfigHandler.EFF_STONESIA + catalysis;
 	}
 
 	public int getCooldown() {

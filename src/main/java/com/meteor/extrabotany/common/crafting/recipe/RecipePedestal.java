@@ -22,7 +22,6 @@ public class RecipePedestal {
 		return input;
 	}
 
-
 	public static List<RecipePedestal> getRecipeList() {
 		return Collections.unmodifiableList(ExtraBotanyAPI.pedestalRecipes);
 	}

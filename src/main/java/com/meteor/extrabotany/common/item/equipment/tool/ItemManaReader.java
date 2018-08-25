@@ -18,6 +18,7 @@ import vazkii.botania.api.subtile.SubTileFunctional;
 import vazkii.botania.api.subtile.SubTileGenerating;
 import vazkii.botania.common.block.tile.TileSpecialFlower;
 import vazkii.botania.common.block.tile.mana.TilePool;
+import vazkii.botania.common.block.tile.mana.TileSpreader;
 
 public class ItemManaReader extends ItemMod{
 
@@ -36,6 +37,11 @@ public class ItemManaReader extends ItemMod{
 				player.sendMessage(new TextComponentTranslation(String.valueOf(mana)));			
         }else if(te instanceof TileManaBuffer){
         	TileManaBuffer p = (TileManaBuffer)te;
+			int mana = p.getCurrentMana();
+			if(!worldIn.isRemote)
+				player.sendMessage(new TextComponentTranslation(String.valueOf(mana)));			
+        }else if(te instanceof TileSpreader){
+        	TileSpreader p = (TileSpreader)te;
 			int mana = p.getCurrentMana();
 			if(!worldIn.isRemote)
 				player.sendMessage(new TextComponentTranslation(String.valueOf(mana)));			

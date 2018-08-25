@@ -87,7 +87,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	
 	public static final float ARENA_RANGE = 12F;
 	private static final int SPAWN_TICKS = 160;
-	private static final float MAX_HP = 400F;
+	private static final float MAX_HP = 450F;
 
 	private static final String TAG_INVUL_TIME = "invulTime";
 	private static final String TAG_AGGRO = "aggro";
@@ -129,8 +129,8 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	private boolean isPlayingMusic = false;
 	private boolean aggro = false;
 	private int tpDelay = 0;
-	private int cd = 400;
-	private int snapcd = 300;
+	private int cd = 600;
+	private int snapcd = 350;
 	private final List<UUID> playersWhoAttacked = new ArrayList<>();
 	private final BossInfoServer bossInfo = (BossInfoServer) new BossInfoServer(new TextComponentTranslation("entity." + LibEntityNames.DOPPLEGANGER_REGISTRY + ".name"), BossInfo.Color.PINK, BossInfo.Overlay.PROGRESS).setCreateFog(true);;
 	public EntityPlayer trueKiller = null;
@@ -208,15 +208,15 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		
 		
 		if(getRankIII()){
-			if(ticksExisted % 40 == 0){
-				for(int t = 0; t< 3; t++)
+			if(ticksExisted % 50 == 0){
+				for(int t = 0; t< 2; t++)
 					spawnMissile(2);
 				heal(1F);
 			}
 			if(cd == 0){
-				for(int t = 0; t< 35; t++)
+				for(int t = 0; t< 22 + getPlayerCount() * 4; t++)
 					spawnMissile(3);
-				cd = 400;
+				cd = 460;
 			}
 		}
 		
@@ -242,7 +242,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			if(ticksExisted % 60 == 0)
 				spawnMissile(1);
 			
-		if(ticksExisted > 60 && ticksExisted % 20 == 0){
+		if(ticksExisted > 60 && ticksExisted % 25 == 0){
 			spawnMissile(0);
 			if(world.rand.nextInt(10) < 4)
 				spawnMissile(1);
@@ -252,12 +252,12 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			for(EntityPlayer player : getPlayersAround())
 				disarm(player);
 		
-		if(cd > 0 && getRankIII())
+		if(cd > 0 && getRankIII() && snapcd >= 200)
 			cd--;
 		if(snapcd > 0 && getRankII())
 			snapcd--;
 		
-		if(cd == 380)
+		if(cd == 500)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing").setStyle(new Style().setColor(TextFormatting.WHITE)));
@@ -275,8 +275,8 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		if(snapcd == 0 && !world.isRemote){
 			EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayerCount()));
 			player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3").setStyle(new Style().setColor(TextFormatting.RED)));
-			ExtraBotanyAPI.dealTrueDamage(player, 15);
-			snapcd = 300;
+			ExtraBotanyAPI.dealTrueDamage(player, 12);
+			snapcd = 350;
 		}
 		
 		if(tpDelay > 0)	
@@ -288,7 +288,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				tries++;
 			if(tries >= 50)
 				teleportTo(source.getX() + 0.5, source.getY() + 1.6, source.getZ() + 0.5);
-			tpDelay = getRankIII() ? 50 : 65;
+			tpDelay = getRankIII() ? 60 : 70;
 		}
 		
 		if(ticksExisted > 2600)
@@ -330,7 +330,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			BlockPos p = getSource().add(MINION_LOCATIONS[c]);
 			m.setPosition(p.getX(), p.getY(), p.getZ());
 			m.setType(c);
-			m.setShield(5);
+			m.setShield(6);
 			if(!world.isRemote)
 				world.spawnEntity(m);
 		}
@@ -339,21 +339,19 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	private void spawnMissile(int type) {
 		EntitySkullMissile missile = new EntitySkullMissile(this);
 		missile.setPosition(posX + (Math.random() - 0.5 * 0.1), posY + 1.8 + (Math.random() - 0.5 * 0.1), posZ + (Math.random() - 0.5 * 0.1));
-		missile.setDamage(6);
+		missile.setDamage(3);
 		if(type > 0){
 			missile.setFire(true);
-			missile.setTrueDamage(1);
 		}
 		if(type > 1){
 			missile.setEffect(true);
+			missile.setTrueDamage(1);
 		}
 		if(missile.findTarget()) {
 			if(type > 2){
 				int x = getSource().getX() - 10 + rand.nextInt(20);
 				int z = getSource().getZ() - 10 + rand.nextInt(20);
 				missile.setPosition(x,posY + 1.8 + (Math.random() - 0.5 * 0.1),z);
-				missile.setDamage(10);
-				missile.setTrueDamage(2);
 			}
 			playSound(ModSounds.missile, 0.6F, 0.8F + (float) Math.random() * 0.2F);
 			if(!world.isRemote)

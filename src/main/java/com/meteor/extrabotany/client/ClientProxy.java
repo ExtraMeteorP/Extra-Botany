@@ -6,8 +6,10 @@ import com.meteor.extrabotany.client.render.entity.RenderGaiaIII;
 import com.meteor.extrabotany.client.render.entity.RenderSkullLandmine;
 import com.meteor.extrabotany.client.render.entity.RenderSkullMinion;
 import com.meteor.extrabotany.client.render.entity.RenderSkullMissile;
+import com.meteor.extrabotany.client.render.tile.RenderTileCocoonDesire;
 import com.meteor.extrabotany.client.render.tile.RenderTilePedestal;
 import com.meteor.extrabotany.common.CommonProxy;
+import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.version.VersionChecker;
 import com.meteor.extrabotany.common.entity.EntityFlowerWeapon;
@@ -45,6 +47,7 @@ public class ClientProxy extends CommonProxy{
 	
 	private void initRenderers() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TilePedestal.class, new RenderTilePedestal());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileCocoonDesire.class, new RenderTileCocoonDesire());
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlowerWeapon.class, RenderFlowerWeapon::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkullMissile.class, RenderSkullMissile::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkullLandmine.class, RenderSkullLandmine::new);

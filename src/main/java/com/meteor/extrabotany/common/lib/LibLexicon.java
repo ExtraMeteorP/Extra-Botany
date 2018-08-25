@@ -24,9 +24,13 @@ public class LibLexicon {
 	public static final String HAMMER = "hammer";
 	public static final String GOLDPOTATO = "goldpotato";
 	public static final String KINGGARDEN = "kinggarden";
+	public static final String MANAGENERATOR = "managenerator";
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";
+	
+	public static final String ARMOR_COMBAT = "combatmaid";
+	public static final String ARMOR_COSMETIC = "cosmeticmaid";
 	
 	public static final String GAIA_III = "gaia3";
 	public static final String NATUREORB = "natureorb";
@@ -34,5 +38,6 @@ public class LibLexicon {
 	public static final String RELIC_CAMERA = "camera";
 	public static final String RELIC_RELICSHIELD = "relicshield";
 	public static final String RELIC_MASTERMANARING = "mastermanaring";
+	public static final String RELIC_COCOONDESIRE = "cocoondesire";
 
 }

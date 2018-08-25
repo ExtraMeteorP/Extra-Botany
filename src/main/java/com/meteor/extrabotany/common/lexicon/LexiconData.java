@@ -8,10 +8,12 @@ import com.meteor.extrabotany.common.crafting.ModManaInfusionRecipe;
 import com.meteor.extrabotany.common.crafting.ModPedestalRecipe;
 import com.meteor.extrabotany.common.crafting.ModPetalRecipe;
 import com.meteor.extrabotany.common.crafting.ModRuneRecipe;
+import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lexicon.page.PagePedestalRecipe;
 import com.meteor.extrabotany.common.lib.LibLexicon;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
@@ -59,12 +61,18 @@ public class LexiconData {
 	public static LexiconEntry camera;
 	public static LexiconEntry relicshield;
 	public static LexiconEntry mastermanaring;
+	public static LexiconEntry cocoondesire;
+	public static LexiconEntry managenerator;
+	
+	public static LexiconEntry cm;
+	public static LexiconEntry cosm;
 	
 	public static void init() {	
 		gaia3 = new DreamLexiconEntry(LibLexicon.GAIA_III,  BotaniaAPI.categoryAlfhomancy);
 		gaia3.setLexiconPages(new PageText("0"),
 					new PageText("1"),
 					new PageMultiblock("2", EntityDoppleganger.makeMultiblockSet()));
+		gaia3.setIcon(new ItemStack(ModItems.material, 1, 3));
 		
 		failnaught = new DreamLexiconEntry(LibLexicon.RELIC_FAILNAUGHT,  BotaniaAPI.categoryTools);
 		failnaught.setLexiconPages(new PageText("0"),
@@ -73,6 +81,10 @@ public class LexiconData {
 		camera = new DreamLexiconEntry(LibLexicon.RELIC_CAMERA,  BotaniaAPI.categoryTools);
 		camera.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_camera")));
+		
+		managenerator = new DreamLexiconEntry(LibLexicon.MANAGENERATOR,  BotaniaAPI.categoryMana);
+		managenerator.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_managenerator")));
 		
 		relicshield = new DreamLexiconEntry(LibLexicon.RELIC_RELICSHIELD,  BotaniaAPI.categoryTools);
 		relicshield.setLexiconPages(new PageText("0"),
@@ -88,6 +100,20 @@ public class LexiconData {
 					new PageText("4"),
 					new PageMultiblock("2", TilePedestal.makeMultiblockSet()),
 					new PageMultiblock("3", TilePedestal.makeMultiblockSet2()));
+		
+		cm = new DreamLexiconEntry(LibLexicon.ARMOR_COMBAT,  BotaniaAPI.categoryTools);
+		cm.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_cmhelm")),
+					new PageCraftingRecipe("2", getResource("recipe_cmchest")),
+					new PageCraftingRecipe("3", getResource("recipe_cmlegs")),
+					new PageCraftingRecipe("4", getResource("recipe_cmboots")));
+		
+		cosm = new BasicLexiconEntry(LibLexicon.ARMOR_COSMETIC,  BotaniaAPI.categoryTools);
+		cosm.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_cosmhelm")),
+					new PageCraftingRecipe("2", getResource("recipe_cosmchest")),
+					new PageCraftingRecipe("3", getResource("recipe_cosmlegs")),
+					new PageCraftingRecipe("4", getResource("recipe_cosmboots")));
 		
 		
 		if(ConfigHandler.ENABLE_BE){
@@ -219,6 +245,11 @@ public class LexiconData {
 		deathring = new DreamLexiconEntry(LibLexicon.BAUBLE_DEATHRING,  BotaniaAPI.categoryBaubles);
 		deathring.setLexiconPages(new PageText("0"),
 					new PageRuneRecipe("1", ModRuneRecipe.recipeDeathring));
+		
+		cocoondesire = new DreamLexiconEntry(LibLexicon.RELIC_COCOONDESIRE,  BotaniaAPI.categoryDevices);
+		cocoondesire.setLexiconPages(new PageText("0"),
+					new PageText("1"),
+					new PageCraftingRecipe("2", getResource("recipe_cocoondesire")));
 	}
 	
 	private static ResourceLocation getResource(String inName) {

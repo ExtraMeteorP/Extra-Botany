@@ -183,11 +183,9 @@ public class EntitySkullMissile extends EntityThrowableCopy{
 				if(getEffect()){
 					target.addPotionEffect(new PotionEffect(MobEffects.WITHER, 200, 1));
 				}
-				if(getDamage() > 8){
-					float m = 0.35F;
-					for(int i = 0; i < 25; i++)
-						Botania.proxy.wispFX(posX, posY + 1, posZ, 0.15F, 0.15F, 1F, 0.5F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
-				}
+				float m = 0.35F;
+				for(int i = 0; i < 25; i++)
+					Botania.proxy.wispFX(posX, posY + 1, posZ, (float)Math.random(), (float)Math.random(), (float)Math.random(), 0.5F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
 				setDead();
 			}
 			

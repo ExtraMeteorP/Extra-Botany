@@ -36,8 +36,6 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntitySkullMinion.class, DataSerializers.VARINT);
 	private static final String TAG_SHIELD = "shield";
 	private static final DataParameter<Integer> SHIELD = EntityDataManager.createKey(EntitySkullMinion.class, DataSerializers.VARINT);
-	
-	private int tpDelay = 200;
 
 	public EntitySkullMinion(World worldIn) {
 		super(worldIn);
@@ -89,16 +87,6 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 		for(EntityGaiaIII g : getHostAround())
 			if(ticksExisted % 100 == 0 && g.getRankIII())
 				g.heal(2F);
-		
-		if(tpDelay > 0)	
-			tpDelay--;
-
-		if(tpDelay == 0 && getHealth() > 0 && !getHostAround().isEmpty()){
-			double newx = posX - 1 + world.rand.nextDouble() * 2;
-			double newz = posZ - 1 + world.rand.nextDouble() * 2;
-			this.setPosition(newx, posY, newz);
-			tpDelay = 180;
-		}
 	}
 	
 	@Override
@@ -135,7 +123,7 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.4);
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(50);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0);
 	}
 	

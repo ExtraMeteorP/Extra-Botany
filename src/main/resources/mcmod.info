@@ -2,8 +2,8 @@
 {
   "modid": "extrabotany",
   "name": "ExtraBotany",
-  "description": "A Botania addon WIP.",
-  "version": "r1.1-32",
+  "description": "A Botania addon.",
+  "version": "r1.1-37",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",

@@ -14,6 +14,7 @@ import com.meteor.extrabotany.common.item.ItemGildedMashedPotato;
 import com.meteor.extrabotany.common.item.ItemSpiritFuel;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemHammerUltimate;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
+import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 
@@ -38,17 +39,16 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vazkii.botania.api.lexicon.multiblock.Multiblock;
-import vazkii.botania.api.lexicon.multiblock.MultiblockSet;
+import vazkii.botania.api.lexicon.ILexiconable;
+import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.SubTileEntity;
-import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.ItemLexicon;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 import vazkii.botania.common.lib.LibBlockNames;
 
-public class BlockPedestal extends BlockMod{
+public class BlockPedestal extends BlockMod implements ILexiconable{
 	
 	private static final AxisAlignedBB AABB = new AxisAlignedBB(0.125, 0.125, 0.125, 0.875, 20.0/16, 0.875);
 
@@ -144,7 +144,8 @@ public class BlockPedestal extends BlockMod{
 						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.FRAGMENT_FORGE);
 						return true;
 					}else if(te.getItem().getItem() instanceof ItemKingGarden && !heldItem.isEmpty()){
-						
+						te.setStrikes(0);
+						te.markForUpdate();
 						ItemStack stack = te.getItem();
 						ItemKingGarden k = (ItemKingGarden) te.getItem().getItem();
 						
@@ -194,6 +195,8 @@ public class BlockPedestal extends BlockMod{
 						
 					}else if(te.getItem().getItem() instanceof ItemHammerUltimate && !heldItem.isEmpty()){
 						ItemHammerUltimate stack = (ItemHammerUltimate) te.getItem().getItem();
+						te.setStrikes(0);
+						te.markForUpdate();
 						if(heldItem.getItem() instanceof ItemGildedMashedPotato && stack.getRepair(te.getItem()) < 3 && heldItem.getCount() >=5){
 							if(!world.isRemote)
 								stack.setRepair(te.getItem(), stack.getRepair(te.getItem()) + 1);
@@ -212,6 +215,8 @@ public class BlockPedestal extends BlockMod{
 							return true;
 						}
 					}else if(te.getItem().getItem() instanceof ItemSpiritFuel && heldItem.getItem() == ModItems.lexicon){
+						te.setStrikes(0);
+						te.markForUpdate();
 						ItemLexicon l = (ItemLexicon) heldItem.getItem();
 						l.unlockKnowledge(heldItem, ExtraBotanyAPI.dreamKnowledge);
 						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.NEWKNOWLEDGE_UNLOCK);
@@ -289,6 +294,11 @@ public class BlockPedestal extends BlockMod{
 	@Override
 	public void registerModels() {
 		ModelHandler.registerBlockToState(this, PedestalVariant.values().length - 1);;
+	}
+
+	@Override
+	public LexiconEntry getEntry(World arg0, BlockPos arg1, EntityPlayer arg2, ItemStack arg3) {
+		return LexiconData.pedestal;
 	}
 
 }

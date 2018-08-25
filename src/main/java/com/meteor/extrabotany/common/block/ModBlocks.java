@@ -12,7 +12,9 @@ import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileStonesia;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
+import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
+import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.item.block.ItemBlockMod;
@@ -36,6 +38,8 @@ public class ModBlocks {
 	public static final Block orichalcosblock = new BlockOrichalcos();
 	public static final Block blockspecial = new BlockSpecial();
 	public static final Block batterybox = new BlockManaBuffer();
+	public static final Block cocoondesire = new BlockCocoonDesire();
+	public static final Block managenerator = new BlockManaGenerator();
 	
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> evt) {
@@ -43,6 +47,8 @@ public class ModBlocks {
 		r.register(pedestal);
 		r.register(orichalcosblock);
 		r.register(batterybox);
+		r.register(cocoondesire);
+		r.register(managenerator);
 	}
 	
 	@SubscribeEvent
@@ -51,6 +57,8 @@ public class ModBlocks {
 		r.register(new ItemBlockMod(pedestal).setRegistryName(pedestal.getRegistryName()));
 		r.register(new ItemBlockMod(orichalcosblock).setRegistryName(orichalcosblock.getRegistryName()));
 		r.register(new ItemBlockMod(batterybox).setRegistryName(batterybox.getRegistryName()));
+		r.register(new ItemBlockMod(cocoondesire).setRegistryName(cocoondesire.getRegistryName()));
+		r.register(new ItemBlockMod(managenerator).setRegistryName(managenerator.getRegistryName()));
 		initTileEntities();
 	}
 	
@@ -81,6 +89,8 @@ public class ModBlocks {
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_ENCHANTEDORCHID, SubTileEnchantedOrchid.class);
 		registerTile(TilePedestal.class, LibBlocksName.TILE_PEDESTAL);
 		registerTile(TileManaBuffer.class, LibBlocksName.TILE_BATTERYBOX);
+		registerTile(TileCocoonDesire.class, LibBlocksName.TILE_COCOON);
+		registerTile(TileManaGenerator.class, LibBlocksName.TILE_MANAGENERATOR);
 	}
 	
 	private static void registerTile(Class<? extends TileEntity> clazz, String key) {

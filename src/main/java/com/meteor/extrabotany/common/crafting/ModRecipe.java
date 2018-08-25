@@ -20,15 +20,37 @@ public class ModRecipe {
 	}
 	
 	public static void initStonesiaRecipe(){
-		ExtraBotanyAPI.registerStonesiaRecipe(10, new ItemStack(Blocks.STONE));
-		ExtraBotanyAPI.registerStonesiaRecipe(5, new ItemStack(Blocks.COBBLESTONE));
-		ExtraBotanyAPI.registerStonesiaRecipe(330, new ItemStack(Blocks.COAL_ORE));
-		ExtraBotanyAPI.registerStonesiaRecipe(390, new ItemStack(Blocks.IRON_ORE));
-		ExtraBotanyAPI.registerStonesiaRecipe(800, new ItemStack(Blocks.DIAMOND_ORE));
-		ExtraBotanyAPI.registerStonesiaRecipe(350, new ItemStack(Blocks.REDSTONE_ORE));
-		ExtraBotanyAPI.registerStonesiaRecipe(310, new ItemStack(Blocks.LAPIS_ORE));
-		ExtraBotanyAPI.registerStonesiaRecipe(600, new ItemStack(Blocks.GOLD_ORE));
-		ExtraBotanyAPI.registerStonesiaRecipe(700, new ItemStack(Blocks.EMERALD_ORE));
+		addStonesiaRecipe(10, "stone");
+		addStonesiaRecipe(5, "cobblestone");
+		addStonesiaRecipe(290, "oreCoal");
+		addStonesiaRecipe(350, "oreIron");
+		addStonesiaRecipe(730, "oreDiamond");
+		addStonesiaRecipe(310, "oreRedstone");
+		addStonesiaRecipe(270, "oreLapis");
+		addStonesiaRecipe(550, "oreGold");
+		addStonesiaRecipe(670, "oreEmerald");
+		addStonesiaRecipe(300, "oreCopper");
+		addStonesiaRecipe(300, "oreTin");
+		addStonesiaRecipe(380, "oreAluminum");
+		addStonesiaRecipe(380, "oreLead");
+		addStonesiaRecipe(450, "oreAmber");
+		addStonesiaRecipe(450, "oreCinnabar");
+		addStonesiaRecipe(450, "oreCertusQuartz");
+		addStonesiaRecipe(1200, "oreMithril");
+		addStonesiaRecipe(450, "oreNickel");
+		addStonesiaRecipe(550, "oreSilver");
+		addStonesiaRecipe(290, "oreSulfur");
+		addStonesiaRecipe(550, "oreUranium");
+		addStonesiaRecipe(320, "oreZinc");
+		addStonesiaRecipe(320, "oreQuartz");
+		addStonesiaRecipe(520, "oreCobalt");
+		addStonesiaRecipe(520, "oreArdite");
+		addStonesiaRecipe(500, "oreTungsten");
+		addStonesiaRecipe(400, "oreOsmium");		
+	}
+	
+	public static void addStonesiaRecipe(int i, Object o){
+		ExtraBotanyAPI.registerStonesiaRecipe(i, o);
 	}
 	
 	public static void initOmnivioletRecipe(){

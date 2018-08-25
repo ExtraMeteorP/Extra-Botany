@@ -37,6 +37,17 @@ public class ModCraftingRecipe {
 	public static IRecipe SHIELDTERRASTEEL;
 	public static IRecipe SHIELDELEMENTIUM;
 	public static IRecipe HEROMEDAL;
+	public static IRecipe COCOONDESIRE;
+	public static IRecipe MANAGENERATOR;
+	
+	public static IRecipe CMHELM;
+	public static IRecipe CMCHEST;
+	public static IRecipe CMLEGS;
+	public static IRecipe CMBOOTS;
+	public static IRecipe COSMHELM;
+	public static IRecipe COSMCHEST;
+	public static IRecipe COSMLEGS;
+	public static IRecipe COSMBOOTS;
 	
 	public static void init() {
 		
@@ -88,11 +99,41 @@ public class ModCraftingRecipe {
 		RELICSHIELD = new ShapedOreRecipe(getResource("recipe_relicshield"), new ItemStack(ModItems.relicshield), "ACA", "ABA", "ABA", 'B', new ItemStack(Items.SHIELD), 'A', LibOreDict.TERRA_STEEL, 'C', new ItemStack(ModItems.material, 1, 3));
 		RELICSHIELD.setRegistryName(getResource("recipe_relicshield"));
 		
+		COCOONDESIRE = new ShapedOreRecipe(getResource("recipe_cocoondesire"), new ItemStack(ModBlocks.cocoondesire), "ABA", "BCB", "ABA", 'B', new ItemStack(ModItems.material, 1, 2), 'A', LibOreDict.TERRA_STEEL, 'C', new ItemStack(ModItems.material, 1, 3));
+		COCOONDESIRE.setRegistryName(getResource("recipe_cocoondesire"));
+		
+		MANAGENERATOR = new ShapedOreRecipe(getResource("recipe_managenerator"), new ItemStack(ModBlocks.managenerator), "ABA", "BCB", "ABA", 'B', new ItemStack(Blocks.LAPIS_BLOCK), 'A', LibOreDict.LIVING_ROCK, 'C', new ItemStack(ModItems.material, 1, 3));
+		MANAGENERATOR.setRegistryName(getResource("recipe_managenerator"));
+		
 		MASTERMANARING = new ShapedOreRecipe(getResource("recipe_mastermanaring"), new ItemStack(ModItems.mastermanaring), "ACA", "BDB", "ABA", 'B', new ItemStack(vazkii.botania.common.item.ModItems.manaTablet), 'A', LibOreDict.TERRA_STEEL, 'C', new ItemStack(ModItems.material, 1, 3), 'D', new ItemStack(vazkii.botania.common.item.ModItems.manaRingGreater));
 		MASTERMANARING.setRegistryName(getResource("recipe_mastermanaring"));
 		
 		HEROMEDAL = new ShapelessOreRecipe(getResource("recipe_heromedal"), new ItemStack(ModItems.rewardbag, 8, 2), new ItemStack(ModItems.material, 1, 3));
 		HEROMEDAL.setRegistryName(getResource("recipe_heromedal"));
+		
+		CMHELM = new ShapedOreRecipe(getResource("recipe_cmhelm"), new ItemStack(ModItems.cmhelm), "AAA", "BCB", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelHelm));
+		CMHELM.setRegistryName(getResource("recipe_cmhelm"));
+		
+		CMCHEST = new ShapedOreRecipe(getResource("recipe_cmchest"), new ItemStack(ModItems.cmchest), "B B", "BCB", "AAA", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelChest));
+		CMCHEST.setRegistryName(getResource("recipe_cmchest"));
+		
+		CMLEGS = new ShapedOreRecipe(getResource("recipe_cmlegs"), new ItemStack(ModItems.cmleg), "AAA", "BCB", "B B", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelLegs));
+		CMLEGS.setRegistryName(getResource("recipe_cmlegs"));
+		
+		CMBOOTS = new ShapedOreRecipe(getResource("recipe_cmboots"), new ItemStack(ModItems.cmboot), "BCB", "AAA", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelBoots));
+		CMBOOTS.setRegistryName(getResource("recipe_cmboots"));
+		
+		COSMHELM = new ShapedOreRecipe(getResource("recipe_cosmhelm"), new ItemStack(ModItems.cosmhelm), "AAA", "ACA", "AAA", 'A', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.manasteelHelm));
+		COSMHELM.setRegistryName(getResource("recipe_cosmhelm"));
+		
+		COSMCHEST = new ShapedOreRecipe(getResource("recipe_cosmchest"), new ItemStack(ModItems.cosmchest), "AAA", "ACA", "AAA", 'A', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.manasteelChest));
+		COSMCHEST.setRegistryName(getResource("recipe_cosmchest"));
+		
+		COSMLEGS = new ShapedOreRecipe(getResource("recipe_cosmlegs"), new ItemStack(ModItems.cosmleg), "AAA", "ACA", "AAA", 'A', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.manasteelLegs));
+		COSMLEGS.setRegistryName(getResource("recipe_cosmlegs"));
+		
+		COSMBOOTS = new ShapedOreRecipe(getResource("recipe_cosmboots"), new ItemStack(ModItems.cosmboot), "AAA", "ACA", "AAA", 'A', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.manasteelBoots));
+		COSMBOOTS.setRegistryName(getResource("recipe_cosmboots"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -119,7 +160,17 @@ public class ModCraftingRecipe {
 					SHIELDELEMENTIUM,
 					RELICSHIELD,
 					MASTERMANARING,
-					HEROMEDAL
+					HEROMEDAL,
+					COCOONDESIRE,
+					CMHELM,
+					CMCHEST,
+					CMLEGS,
+					CMBOOTS,
+					COSMHELM,
+					COSMCHEST,
+					COSMLEGS,
+					COSMBOOTS,
+					MANAGENERATOR
 			);
 		}
 	}

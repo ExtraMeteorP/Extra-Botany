@@ -76,6 +76,10 @@ public class ConfigHandler {
 	
 	public static boolean ENABLE_TOOLTIP;
 	
+	public static int MG_MAXENERGY;
+	public static int MG_CONVERT;
+	public static int MG_TRANSFERSPEED;
+	
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
 		CONFIG.load();
@@ -96,6 +100,9 @@ public class ConfigHandler {
 		ENABLE_SB = CONFIG.get("enable flowers", "sunshine lily", true).getBoolean(true);
 		ENABLE_TK = CONFIG.get("enable flowers", "tinkle flower", true).getBoolean(true);
 		
+		MG_MAXENERGY = CONFIG.getInt("max energy stored", "flux manafield", 40000, 1, Integer.MAX_VALUE, "");
+		MG_CONVERT = CONFIG.getInt("1000 FE converts to how much. Default is 99", "flux manafield", 99, 1, Integer.MAX_VALUE, "");
+		MG_TRANSFERSPEED = CONFIG.getInt("the speed it transfer mana to spreader", "flux manafield", 200, 1, Integer.MAX_VALUE, "");
 		
 		CRAFTING_STRIKES = CONFIG.getInt("pedestal", "strike times", 5, 1, Integer.MAX_VALUE, "");
 		
@@ -118,7 +125,7 @@ public class ConfigHandler {
 		EFF_TINKLE = CONFIG.getInt("efficiency", "tinkle flower", 45, 1, Integer.MAX_VALUE, "");
 		LP_TINKLE = CONFIG.get("tinkle flower", "enable catalysis", true).getBoolean(true);
 		
-		EFF_STONESIA = CONFIG.getInt("mana per tick", "stonesia", 6, 1, Integer.MAX_VALUE, "");	
+		EFF_STONESIA = CONFIG.getInt("mana per tick", "stonesia", 5, 1, Integer.MAX_VALUE, "");	
 		LP_STONESIA = CONFIG.get("stonesia", "enable catalysis", true).getBoolean(true);
 		
 		ANNOYINGFLOWER_COST = CONFIG.getInt("mana cost for fishing", "annoying flower", 50, 1, Integer.MAX_VALUE, "");	

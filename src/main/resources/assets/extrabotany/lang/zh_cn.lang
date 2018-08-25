@@ -34,11 +34,28 @@ item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
 
 item.extrabotany:froststar.name=霜冻之星
 item.extrabotany:deathring.name=诅咒指环
+item.extrabotany:combatmaidhelm.name=昴星团战斗女仆头饰
+item.extrabotany:combatmaidchest.name=昴星团战斗女仆服
+item.extrabotany:combatmaidlegs.name=昴星团战斗女仆裙甲
+item.extrabotany:combatmaidboots.name=昴星团战斗女仆鞋子
+item.extrabotany:cosmeticmaidhelm.name=星空歌姬头饰
+item.extrabotany:cosmeticmaidchest.name=星空歌姬服
+item.extrabotany:cosmeticmaidlegs.name=星空歌姬裙甲
+item.extrabotany:cosmeticmaidboots.name=星空歌姬鞋子
 item.extrabotany:.name=
+
+extrabotany.armorset.cosmeticmaid.desc0=超强魔力亲和
+extrabotany.armorset.combatmaid.desc0=空手怪力
+extrabotany.armorset.combatmaid.desc1=再生增强
+extrabotany.armorset.combatmaid.desc2=魔力亲和
+extrabotany.armorset.cosmeticmaid.name=星空歌姬
+extrabotany.armorset.combatmaid.name=昴星团战斗女仆
 
 tile.extrabotany:pedestal.name=活石祭坛
 tile.extrabotany:blockorichalcos.name=奥利哈刚块
 tile.extrabotany:manabarrel.name=魔力缓存器
+tile.extrabotany:cocoondesire.name=不随想之茧
+tile.extrabotany:managenerator.name=FE转换器
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -278,6 +295,33 @@ botania.entry.mastermanaring=大师魔力之戒
 botania.page.mastermanaring0=&4大师魔力之戒&0能够储存近乎无限的魔力.
 botania.page.mastermanaring1=蛋糕是个谎言.
 botania.tagline.mastermanaring=不可能的事
+
+botania.entry.cocoondesire=不随想之茧
+botania.page.cocoondesire0=不随想之茧需要提供指定的 物品来孵化出对应的生物, 给予的方式既可以是直接右 键也可以是丢在旁边.孵化的 过程较为漫长,并且孵化完毕 后不随想之茧并不会因此消失.
+botania.page.cocoondesire1=例如煤炭块对应凋零骷髅,小 麦对应猪,羊毛对应羊.其 他配方待发现中.
+botania.page.cocoondesire2=这太imba了.
+botania.tagline.cocoondesire=孵化者
+
+botania.entry.combatmaid=昴星团战斗女仆套
+botania.page.combatmaid0=泰拉钢套的改进版,拥有超强 的再生能力和防御力,并且能 清除负面效果,同时能使装备 者获得空手怪力.
+botania.page.combatmaid1=昴星团战斗女仆头饰
+botania.page.combatmaid2=昴星团战斗女仆服
+botania.page.combatmaid3=昴星团战斗女仆裙甲
+botania.page.combatmaid4=昴星团战斗女仆鞋子
+botania.tagline.combatmaid=罪域的骨终为王
+
+botania.entry.cosmeticmaid=星空歌姬套
+botania.page.cosmeticmaid0=魔钢套的改进版,拥有着超强 的魔力亲和力.
+botania.page.cosmeticmaid1=星空歌姬头饰
+botania.page.cosmeticmaid2=星空歌姬服
+botania.page.cosmeticmaid3=星空歌姬裙甲
+botania.page.cosmeticmaid4=星空歌姬鞋子
+botania.tagline.cosmeticmaid=Miku Miku Dance
+
+botania.entry.managenerator=RF转换器
+botania.page.managenerator0=将&4FE能量&0引入自然能量场,就可 以将其从红石能量源形态转 为&4魔力&0.<br>只需将能量传输设备贴着这转 换,转换器就可以把输入的&4FE能量&0 转化为&4魔力&0,并输出到邻近的魔 力发射器中.
+botania.page.managenerator1=超科学
+botania.tagline.managenerator=RF转换
 
 botania.entry.=
 botania.page.0=

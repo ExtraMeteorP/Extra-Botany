@@ -99,11 +99,12 @@ public class TilePedestal extends TileEntity implements ITickable{
 					setStrikes(0);
 					return;
 				} else {
-					setItem(output);
 					setStrikes(0);
+					setItem(output);
 					EntityXPOrb orb = new EntityXPOrb(world, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 1);
 					if(!world.isRemote)
 						world.spawnEntity(orb);
+					break;
 				}
 			}
 		}

@@ -6,6 +6,7 @@ import java.util.List;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class RecipeStonesia {
 	
@@ -27,21 +28,22 @@ public class RecipeStonesia {
 	}
 
 	private final int output;
-	private final ItemStack input;
+	private final Object input;
 
-	public RecipeStonesia(int output, ItemStack input) {
+	public RecipeStonesia(int output, Object input) {
 		this.output = output;
-		this.input = input.copy();
+		this.input = input;
 
 			if (input instanceof ItemStack)
-				input = input.copy();
-
-			else
+				input = (ItemStack)input;
+			else if(input instanceof String){
+					input = (String)input;
+			}else
 				throw new IllegalArgumentException("Input must be an ItemStack");
 	}
 
-	public ItemStack getInput() {
-		return input.copy();
+	public Object getInput() {
+		return input;
 	}
 
 	public int getOutput() {
@@ -57,21 +59,32 @@ public class RecipeStonesia {
 	}
 
 	@SuppressWarnings("unchecked")
-	private boolean areStacksTheSame(ItemStack stack, ItemStack target) {
+	private boolean areStacksTheSame(Object stack, ItemStack target) {
 		return areStacksTheSame(stack, target, false);
 	}
 
-	public static boolean areStacksTheSame(ItemStack stack1, ItemStack stack2, boolean matchSize) {
-		if (stack1.isEmpty() || stack2.isEmpty())
-			return false;
-
-		if (stack1.getItem() == stack2.getItem())
-			if (stack1.getItemDamage() == stack2.getItemDamage())
-				if (!matchSize || stack1.getCount() == stack2.getCount()) {
-					if (stack1.hasTagCompound() && stack2.hasTagCompound())
-						return stack1.getTagCompound().equals(stack2.getTagCompound());
-					return stack1.hasTagCompound() == stack2.hasTagCompound();
-				}
+	public static boolean areStacksTheSame(Object stack1, ItemStack stack2, boolean matchSize) {
+		if(stack1 instanceof ItemStack){
+			if (((ItemStack) stack1).isEmpty() || stack2.isEmpty())
+				return false;
+	
+			if (((ItemStack) stack1).getItem() == stack2.getItem())
+				if (((ItemStack) stack1).getItemDamage() == stack2.getItemDamage())
+					if (!matchSize || ((ItemStack) stack1).getCount() == stack2.getCount()) {
+						if (((ItemStack) stack1).hasTagCompound() && stack2.hasTagCompound())
+							return ((ItemStack) stack1).getTagCompound().equals(stack2.getTagCompound());
+						return ((ItemStack) stack1).hasTagCompound() == stack2.hasTagCompound();
+					}
+		}else if(stack1 instanceof String){
+			for(ItemStack stack : OreDictionary.getOres((String) stack1))
+				if (stack.getItem() == stack2.getItem())
+					if (stack.getItemDamage() == stack2.getItemDamage())
+						if (!matchSize || stack.getCount() == stack2.getCount()) {
+							if (stack.hasTagCompound() && stack2.hasTagCompound())
+								return stack.getTagCompound().equals(stack2.getTagCompound());
+							return stack.hasTagCompound() == stack2.hasTagCompound();
+						}
+		}
 		return false;
 	}
 

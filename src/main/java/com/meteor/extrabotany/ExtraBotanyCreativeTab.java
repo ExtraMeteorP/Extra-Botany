@@ -46,6 +46,14 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.froststar);
 		addItem(ModItems.deathring);
 		addItem(ModItems.kinggarden);
+		addItem(ModItems.cosmhelm);
+		addItem(ModItems.cosmchest);
+		addItem(ModItems.cosmleg);
+		addItem(ModItems.cosmboot);
+		addItem(ModItems.cmhelm);
+		addItem(ModItems.cmchest);
+		addItem(ModItems.cmleg);
+		addItem(ModItems.cmboot);
 		addItem(ModItems.nightmareFuel);
 		addItem(ModItems.spiritFuel);
 		addItem(ModItems.material);
@@ -54,6 +62,8 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.gildedmashedpotato);
 		addItem(ModItems.orb);
 		addBlock(ModBlocks.batterybox);
+		addBlock(ModBlocks.managenerator);
+		addBlock(ModBlocks.cocoondesire);
 		addItem(ModItems.rewardbag);
 		addItem(ModItems.treasure);
 		addItem(ModItems.failnaught);

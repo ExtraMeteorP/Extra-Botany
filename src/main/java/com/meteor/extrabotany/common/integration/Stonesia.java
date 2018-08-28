@@ -1,4 +1,4 @@
-package com.meteor.extrabotany.common.intergration;
+package com.meteor.extrabotany.common.integration;
 
 import com.blamejared.mtlib.helpers.InputHelper;
 import com.blamejared.mtlib.utils.BaseAction;

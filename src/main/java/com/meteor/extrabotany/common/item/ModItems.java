@@ -1,6 +1,10 @@
 package com.meteor.extrabotany.common.item;
 
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.item.bonus.ItemRewardBag;
+import com.meteor.extrabotany.common.item.brew.ItemBrewCocktail;
+import com.meteor.extrabotany.common.item.brew.ItemBrewInfiniteWine;
+import com.meteor.extrabotany.common.item.brew.ItemBrewSplashGrenade;
 import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidBoots;
 import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidChest;
 import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidHelm;
@@ -45,6 +49,7 @@ public class ModItems {
 	public static final Item material = new ItemMaterial();
 	public static final Item friedchicken = new ItemFriedChicken();
 	public static final Item gildedmashedpotato = new ItemGildedMashedPotato();
+	public static final Item manadrink = new ItemManaDrink();
 	
 	public static final Item binder = new ItemBinder();
 	
@@ -61,6 +66,10 @@ public class ModItems {
 	public static final Item camera = new ItemCamera();
 	public static final Item orb = new ItemNatureOrb();
 	public static final Item failnaught = new ItemFailnaught();
+	
+	public static final Item splashgrenade = new ItemBrewSplashGrenade();
+	public static final Item cocktail = new ItemBrewCocktail();
+	public static final Item infinitewine = new ItemBrewInfiniteWine();
 	
 	public static final Item rewardbag = new ItemRewardBag();
 	public static final Item treasure = new ItemTreasure();
@@ -104,9 +113,11 @@ public class ModItems {
 		r.register(rewardbag);
 		r.register(treasure);
 		r.register(gaiarecord);
-		r.register(manasteelshield);
-		r.register(terrasteelshield);
-		r.register(elementiumshield);
+		if(ConfigHandler.ENABLE_SHIELD){
+			r.register(manasteelshield);
+			r.register(terrasteelshield);
+			r.register(elementiumshield);
+		}
 		r.register(relicshield);
 		r.register(mastermanaring);
 		r.register(cmboot);
@@ -117,6 +128,10 @@ public class ModItems {
 		r.register(cosmchest);
 		r.register(cosmleg);
 		r.register(cosmboot);
+		r.register(manadrink);
+		r.register(splashgrenade);
+		r.register(cocktail);
+		r.register(infinitewine);
 		registerOreDictionary();
 	}
 	

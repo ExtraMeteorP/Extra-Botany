@@ -83,7 +83,7 @@ public class ItemMasterManaRing extends ItemBauble implements IManaItem, IManaTo
 
 	@Override
 	public int getMaxMana(ItemStack stack) {
-		return MAX_MANA;
+		return MAX_MANA -1;
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class ItemMasterManaRing extends ItemBauble implements IManaItem, IManaTo
 
 	@Override
 	public int getRGBDurabilityForDisplay(ItemStack stack) {
-		return MathHelper.hsvToRGB(getManaFractionForDisplay(stack)/4.0F, 1.0F, 1.0F);
+		return MathHelper.hsvToRGB(1.0F, 1.0F, 1.0F);
 	}
 	
 	@Override

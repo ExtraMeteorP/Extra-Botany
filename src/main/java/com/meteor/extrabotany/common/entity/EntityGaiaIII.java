@@ -187,8 +187,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		if(world.getDifficulty() == EnumDifficulty.PEACEFUL)
 			setDead();
 		
-		if(ConfigHandler.GAIA_SMASH)
-			smashCheatyBlocks();
+		smashCheatyBlocks();
 
 		List<EntityPlayer> players = getPlayersAround();
 		int playerCount = getPlayerCount();
@@ -787,7 +786,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 					int yp = posYInt + j;
 					int zp = posZInt + k;
 					BlockPos posp = new BlockPos(xp, yp, zp);
-					if(isCheatyBlock(world, posp) || world.getBlockState(posp).getMaterial() == Material.WATER || world.getBlockState(posp).getMaterial() == Material.LAVA || !match(world.getBlockState(posp).getBlock())) {
+					if(isCheatyBlock(world, posp) || world.getBlockState(posp).getMaterial() == Material.WATER || world.getBlockState(posp).getMaterial() == Material.LAVA || (ConfigHandler.GAIA_SMASH && !match(world.getBlockState(posp).getBlock()))) {
 						world.destroyBlock(posp, true);
 					}
 				}

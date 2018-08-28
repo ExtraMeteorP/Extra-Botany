@@ -1,28 +1,36 @@
 package com.meteor.extrabotany.common.block.tile;
 
+import java.util.List;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.google.common.base.Predicates;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import vazkii.botania.api.mana.IManaReceiver;
+import vazkii.botania.api.mana.spark.ISparkAttachable;
+import vazkii.botania.api.mana.spark.ISparkEntity;
 import vazkii.botania.common.block.tile.TileMod;
 import vazkii.botania.common.block.tile.mana.TileSpreader;
 
-public class TileManaGenerator extends TileMod implements ITickable, IManaReceiver{
+public class TileManaGenerator extends TileMod implements ITickable, IManaReceiver, ISparkAttachable{
 	
 	private static final String TAG_MANA = "mana";
 	private static final String TAG_ENERGY = "energy";
 	int mana;
-	int energy = 0;
+	public int energy = 0;
 	private static final int MAX_ENERGY = ConfigHandler.MG_MAXENERGY;
 
 	private final IEnergyStorage energyHandler = new IEnergyStorage() {
@@ -59,6 +67,9 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 	@Override
 	public void update() {
 		
+		if(!ConfigHandler.DISABLE_MANAGENERATOR)
+			return;
+		
 		int speed = ConfigHandler.MG_TRANSFERSPEED;
 		
 		for(EnumFacing e : EnumFacing.VALUES) {
@@ -83,7 +94,7 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 			}
 			
 			if(te instanceof TileSpreader){
-				TileSpreader p = (TileSpreader) world.getTileEntity(pos.add(new BlockPos(0, 1, 0)));
+				TileSpreader p = (TileSpreader) te;
 				if(getCurrentMana() >= speed && p.getCurrentMana() < p.getMaxMana()){
 					int current = Math.min(speed, p.getMaxMana() - p.getCurrentMana());
 					p.recieveMana(current);
@@ -94,7 +105,7 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 		
 		if(energy >= 1000){
 			energy -=1000;
-			mana +=ConfigHandler.MG_CONVERT;
+			recieveMana(ConfigHandler.MG_CONVERT);
 		}
 		
 	}
@@ -129,6 +140,37 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 	public void readPacketNBT(NBTTagCompound cmp) {
 		mana = cmp.getInteger(TAG_MANA);
 		energy = cmp.getInteger(TAG_ENERGY);
+	}
+	
+	@Override
+	public boolean areIncomingTranfersDone() {
+		return false;
+	}
+
+	@Override
+	public void attachSpark(ISparkEntity arg0) {}
+
+	@Override
+	public boolean canAttachSpark(ItemStack arg0) {
+		return true;
+	}
+
+	@Override
+	public ISparkEntity getAttachedSpark() {
+		List sparks = world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.up(), pos.up().add(1, 1, 1)), Predicates.instanceOf(ISparkEntity.class));
+		if(sparks.size() == 1) {
+			Entity e = (Entity) sparks.get(0);
+			return (ISparkEntity) e;
+		}
+		return null;
+	}
+
+	@Override
+	public int getAvailableSpaceForMana() {
+		int space = Math.max(0, 1000000 - getCurrentMana());
+		if(space > 0)
+			return space;
+		else return 0;
 	}
 
 }

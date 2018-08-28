@@ -1,6 +1,8 @@
 package com.meteor.extrabotany.common.item.equipment.tool;
 
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
+import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
+import com.meteor.extrabotany.common.block.tile.TileManaLiquefaction;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
@@ -34,17 +36,31 @@ public class ItemManaReader extends ItemMod{
         	TilePool p = (TilePool)te;
 			int mana = p.getCurrentMana();
 			if(!worldIn.isRemote)
-				player.sendMessage(new TextComponentTranslation(String.valueOf(mana)));			
+				sendMessage(player, mana);			
         }else if(te instanceof TileManaBuffer){
         	TileManaBuffer p = (TileManaBuffer)te;
 			int mana = p.getCurrentMana();
 			if(!worldIn.isRemote)
-				player.sendMessage(new TextComponentTranslation(String.valueOf(mana)));			
+				sendMessage(player, mana);		
+        }else if(te instanceof TileManaLiquefaction){
+        	TileManaLiquefaction p = (TileManaLiquefaction)te;
+			int mana = p.getCurrentMana();
+			if(!worldIn.isRemote){
+				sendMessage(player, mana);
+				player.sendMessage(new TextComponentTranslation("Fluided Mana:"+String.valueOf(p.energy)+"mb"));	
+			}
+        }else if(te instanceof TileManaGenerator){
+        	TileManaGenerator p = (TileManaGenerator)te;
+			int mana = p.getCurrentMana();
+			if(!worldIn.isRemote){
+				sendMessage(player, mana);
+				player.sendMessage(new TextComponentTranslation("FE:"+String.valueOf(p.energy)+"rf"));	
+			}
         }else if(te instanceof TileSpreader){
         	TileSpreader p = (TileSpreader)te;
 			int mana = p.getCurrentMana();
 			if(!worldIn.isRemote)
-				player.sendMessage(new TextComponentTranslation(String.valueOf(mana)));			
+				sendMessage(player, mana);		
         }else if(te instanceof TileSpecialFlower){
         	TileSpecialFlower f = (TileSpecialFlower) te;
         	SubTileEntity se = f.getSubTile();
@@ -63,6 +79,10 @@ public class ItemManaReader extends ItemMod{
         	}	
         }
 		return EnumActionResult.PASS;
+	}
+	
+	public void sendMessage(EntityPlayer player, int mana){
+		player.sendMessage(new TextComponentTranslation("Mana:"+String.valueOf(mana)));
 	}
 
 

@@ -4,6 +4,7 @@ import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.crafting.ModBrewRecipe;
 import com.meteor.extrabotany.common.crafting.ModManaInfusionRecipe;
 import com.meteor.extrabotany.common.crafting.ModPedestalRecipe;
 import com.meteor.extrabotany.common.crafting.ModPetalRecipe;
@@ -19,6 +20,7 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.common.entity.EntityDoppleganger;
 import vazkii.botania.common.lexicon.BasicLexiconEntry;
+import vazkii.botania.common.lexicon.page.PageBrew;
 import vazkii.botania.common.lexicon.page.PageCraftingRecipe;
 import vazkii.botania.common.lexicon.page.PageManaInfusionRecipe;
 import vazkii.botania.common.lexicon.page.PageMultiblock;
@@ -63,11 +65,33 @@ public class LexiconData {
 	public static LexiconEntry mastermanaring;
 	public static LexiconEntry cocoondesire;
 	public static LexiconEntry managenerator;
+	public static LexiconEntry manadrink;
+	public static LexiconEntry manaliquefication;
+	public static LexiconEntry splashgrenade;
+	public static LexiconEntry cocktail;
+	public static LexiconEntry infinitewine;
 	
 	public static LexiconEntry cm;
 	public static LexiconEntry cosm;
 	
 	public static void init() {	
+		cocktail = new BasicLexiconEntry(LibLexicon.COCKTAIL,  BotaniaAPI.categoryDevices);
+		cocktail.setLexiconPages(new PageText("0"),
+					new PageBrew(ModBrewRecipe.revolution, "1", "2"),
+					new PageBrew(ModBrewRecipe.shell, "3", "4"),
+					new PageBrew(ModBrewRecipe.deadpool, "5", "6"),
+					new PageBrew(ModBrewRecipe.oneforall, "7", "8"),
+					new PageBrew(ModBrewRecipe.floating, "9", "10"));
+		cocktail.setIcon(new ItemStack(ModItems.cocktail));
+		
+		splashgrenade = new BasicLexiconEntry(LibLexicon.GRENADE,  BotaniaAPI.categoryDevices);
+		splashgrenade.setLexiconPages(new PageText("0"));
+		splashgrenade.setIcon(new ItemStack(ModItems.splashgrenade));
+		
+		infinitewine = new DreamLexiconEntry(LibLexicon.INFINITEWINE,  BotaniaAPI.categoryDevices);
+		infinitewine.setLexiconPages(new PageText("0"));
+		infinitewine.setIcon(new ItemStack(ModItems.infinitewine));
+		
 		gaia3 = new DreamLexiconEntry(LibLexicon.GAIA_III,  BotaniaAPI.categoryAlfhomancy);
 		gaia3.setLexiconPages(new PageText("0"),
 					new PageText("1"),
@@ -81,10 +105,22 @@ public class LexiconData {
 		camera = new DreamLexiconEntry(LibLexicon.RELIC_CAMERA,  BotaniaAPI.categoryTools);
 		camera.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_camera")));
+		if(ConfigHandler.DISABLE_MANAGENERATOR){
+			managenerator = new DreamLexiconEntry(LibLexicon.MANAGENERATOR,  BotaniaAPI.categoryMana);
+			managenerator.setLexiconPages(new PageText("0"),
+						new PageCraftingRecipe("1", getResource("recipe_managenerator")));
+		}
 		
-		managenerator = new DreamLexiconEntry(LibLexicon.MANAGENERATOR,  BotaniaAPI.categoryMana);
-		managenerator.setLexiconPages(new PageText("0"),
-					new PageCraftingRecipe("1", getResource("recipe_managenerator")));
+		if(ConfigHandler.DISABLE_MANALIQUEFICATION){
+			manaliquefication = new BasicLexiconEntry(LibLexicon.MANALIQUEFICATION,  BotaniaAPI.categoryMana);
+			manaliquefication.setLexiconPages(new PageText("0"),
+						new PageCraftingRecipe("1", getResource("recipe_manaliquefaction")));
+		}
+		
+		manadrink = new BasicLexiconEntry(LibLexicon.MANADRINK,  BotaniaAPI.categoryTools);
+		manadrink.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_emptybottle")));
+		manadrink.setIcon(new ItemStack(ModItems.manadrink));
 		
 		relicshield = new DreamLexiconEntry(LibLexicon.RELIC_RELICSHIELD,  BotaniaAPI.categoryTools);
 		relicshield.setLexiconPages(new PageText("0"),

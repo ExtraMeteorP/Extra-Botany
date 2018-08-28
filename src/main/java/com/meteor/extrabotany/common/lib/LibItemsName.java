@@ -6,6 +6,7 @@ public class LibItemsName {
 	public static final String BINDER = "binder";
 	public static final String SPIRITFUEL = "spiritfuel";
 	public static final String NIGHTMAREFUEL = "nightmarefuel";
+	public static final String MANADRINK = "manadrink";
 	public static final String MATERIAL = "material";
 	public static final String FRIEDCHICKEN = "friedchicken";
 	public static final String GILDEDMASHEDPOTATO = "gildedmashedpotato";
@@ -22,6 +23,10 @@ public class LibItemsName {
 	public static final String TRAVELJOURNAL = "traveljournal";
 	public static final String NATUREORB = "natureorb";
 	public static final String RECORDA = "recordgaia3";
+	
+	public static final String BREW_SPLASHGRENADE = "splashgrenade";
+	public static final String BREW_COCKTAIL = "cocktail";
+	public static final String BREW_INFINITEWINE = "infinitewine";
 	
 	public static final String REWARD_TREASURE = "treasurebox";
 	public static final String REWARD_BAG = "rewardbag";
@@ -48,6 +53,7 @@ public class LibItemsName {
 		"ingotorichalcos",
 		"goldpotato",
 		"heromedal",
+		"emptybottle",
 	};
 	
 }

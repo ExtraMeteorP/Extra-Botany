@@ -3,7 +3,6 @@ package com.meteor.extrabotany.common.crafting;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -15,6 +14,7 @@ public class ModRecipe {
 		ModCraftingRecipe.init();
 		ModRuneRecipe.init();
 		ModPedestalRecipe.init();
+		ModBrewRecipe.init();
 		initStonesiaRecipe();
 		initOmnivioletRecipe();
 	}

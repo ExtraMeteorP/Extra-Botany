@@ -15,7 +15,9 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(makeName("skullmissile"), EntitySkullMissile.class, "extrabotany:skullmissile", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("skulllandmine"), EntitySkullLandmine.class, "extrabotany:skulllandmine", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("skullminion"), EntitySkullMinion.class, "extrabotany:skullminion", id++, ExtraBotany.instance, 64, 10, true);
-		EntityRegistry.registerModEntity(makeName("magicarrow"), EntitySkullMinion.class, "extrabotany:magicarrow", id++, ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("magicarrow"), EntityMagicArrow.class, "extrabotany:magicarrow", id++, ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("splashgrenade"), EntitySplashGrenade.class, "extrabotany:splashgrenade", id++, ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("itemcrystal"), EntitySplashGrenade.class, "extrabotany:itemcrystal", id++, ExtraBotany.instance, 64, 10, true);
 	}
 	
 	private static ResourceLocation makeName(String s) {

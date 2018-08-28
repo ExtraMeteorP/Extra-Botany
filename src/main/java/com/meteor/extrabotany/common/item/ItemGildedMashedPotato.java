@@ -14,7 +14,9 @@ public class ItemGildedMashedPotato extends ItemFoodMod{
 		super(3, 4F, false, LibItemsName.GILDEDMASHEDPOTATO);
 	}
 	
+	@Override
 	public void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player){
+		super.onFoodEaten(stack, worldIn, player);
 		player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 600, 3));
 		player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 600, 3));
 		player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 600, 1));

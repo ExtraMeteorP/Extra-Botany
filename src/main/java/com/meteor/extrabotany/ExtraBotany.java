@@ -10,16 +10,10 @@ import org.apache.logging.log4j.Logger;
 
 import com.meteor.extrabotany.common.CommonProxy;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
-import com.meteor.extrabotany.common.core.handler.ToolTipHandler;
-import com.meteor.extrabotany.common.crafting.ModRecipe;
-import com.meteor.extrabotany.common.entity.ModEntities;
-import com.meteor.extrabotany.common.item.equipment.shield.ItemShieldCopy;
-import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.IAction;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -34,7 +28,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ExtraBotany{
     public static final String MODID = "extrabotany";
     public static final String NAME = "extrabotany";
-    public static final String VERSION = "37";
+    public static final String VERSION = "39";
 
     public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
     
@@ -69,13 +63,6 @@ public class ExtraBotany{
 
     @EventHandler
 	public void Init(FMLInitializationEvent event){
-    	MinecraftForge.EVENT_BUS.register(ConfigHandler.INSTANCE);
-    	if(event.getSide().isClient())
-    		MinecraftForge.EVENT_BUS.register(new ToolTipHandler());
-    	MinecraftForge.EVENT_BUS.register(ItemShieldCopy.EventHandler.INSTANCE);
-    	ModEntities.init();
-		ModRecipe.init();
-		LexiconData.init();
 		proxy.init(event);
 	}
 	

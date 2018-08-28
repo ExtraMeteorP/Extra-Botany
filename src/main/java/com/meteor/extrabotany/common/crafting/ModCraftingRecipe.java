@@ -1,6 +1,11 @@
 package com.meteor.extrabotany.common.crafting;
 
 import com.meteor.extrabotany.common.block.ModBlocks;
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.crafting.recipe.brew.CocktailRecipe;
+import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRecipe;
+import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRemakeRecipe;
+import com.meteor.extrabotany.common.crafting.recipe.brew.SplashGrenadeRecipe;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -39,6 +44,8 @@ public class ModCraftingRecipe {
 	public static IRecipe HEROMEDAL;
 	public static IRecipe COCOONDESIRE;
 	public static IRecipe MANAGENERATOR;
+	public static IRecipe MANALIQUEFACTION;
+	public static IRecipe EMPTYBOTTLE;
 	
 	public static IRecipe CMHELM;
 	public static IRecipe CMCHEST;
@@ -134,6 +141,12 @@ public class ModCraftingRecipe {
 		
 		COSMBOOTS = new ShapedOreRecipe(getResource("recipe_cosmboots"), new ItemStack(ModItems.cosmboot), "AAA", "ACA", "AAA", 'A', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.manasteelBoots));
 		COSMBOOTS.setRegistryName(getResource("recipe_cosmboots"));
+		
+		EMPTYBOTTLE = new ShapedOreRecipe(getResource("recipe_emptybottle"), new ItemStack(ModItems.material, 3, 4), "A A", "A A", " A ", 'A', new ItemStack(vazkii.botania.common.block.ModBlocks.manaGlass));
+		EMPTYBOTTLE.setRegistryName(getResource("recipe_emptybottle"));
+		
+		MANALIQUEFACTION = new ShapedOreRecipe(getResource("recipe_manaliquefaction"), new ItemStack(ModBlocks.manaliquefying), "ABA", "BCB", "ABA", 'B', new ItemStack(Blocks.LAPIS_BLOCK), 'A', LibOreDict.LIVING_ROCK, 'C', new ItemStack(vazkii.botania.common.block.ModBlocks.pool));
+		MANALIQUEFACTION.setRegistryName(getResource("recipe_manaliquefaction"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -155,9 +168,6 @@ public class ModCraftingRecipe {
 					BINDER,
 					FAILNAUGHT,
 					NATUREORB,
-					SHIELDMANASTEEL,
-					SHIELDTERRASTEEL,
-					SHIELDELEMENTIUM,
 					RELICSHIELD,
 					MASTERMANARING,
 					HEROMEDAL,
@@ -170,8 +180,21 @@ public class ModCraftingRecipe {
 					COSMCHEST,
 					COSMLEGS,
 					COSMBOOTS,
-					MANAGENERATOR
+					MANAGENERATOR,
+					MANALIQUEFACTION,
+					EMPTYBOTTLE
 			);
+			if(ConfigHandler.ENABLE_SHIELD){
+				event.getRegistry().registerAll(
+					SHIELDMANASTEEL,
+					SHIELDTERRASTEEL,
+					SHIELDELEMENTIUM
+				);
+			}
+			event.getRegistry().register(new CocktailRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_cocktail")));
+			event.getRegistry().register(new InfiniteWineRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_infinitewine")));
+			event.getRegistry().register(new InfiniteWineRemakeRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_infinitewinereset")));
+			event.getRegistry().register(new SplashGrenadeRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_splashgrenade")));
 		}
 	}
 	

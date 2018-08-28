@@ -75,10 +75,14 @@ public class ConfigHandler {
 	public static boolean ENABLE_TK;
 	
 	public static boolean ENABLE_TOOLTIP;
+	public static boolean ENABLE_SHIELD;
 	
 	public static int MG_MAXENERGY;
 	public static int MG_CONVERT;
 	public static int MG_TRANSFERSPEED;
+	
+	public static boolean DISABLE_MANAGENERATOR;
+	public static boolean DISABLE_MANALIQUEFICATION;
 	
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
@@ -99,6 +103,11 @@ public class ConfigHandler {
 		ENABLE_SS = CONFIG.get("enable flowers", "stonesia", true).getBoolean(true);
 		ENABLE_SB = CONFIG.get("enable flowers", "sunshine lily", true).getBoolean(true);
 		ENABLE_TK = CONFIG.get("enable flowers", "tinkle flower", true).getBoolean(true);
+		
+		ENABLE_SHIELD = CONFIG.get("enable shields", "enable non-relic shields", true).getBoolean(true);
+		
+		DISABLE_MANAGENERATOR = CONFIG.get("enable blocks", "flux manafield", true).getBoolean(true);
+		DISABLE_MANALIQUEFICATION = CONFIG.get("enable blocks", "mana liquefication", true).getBoolean(true);
 		
 		MG_MAXENERGY = CONFIG.getInt("max energy stored", "flux manafield", 40000, 1, Integer.MAX_VALUE, "");
 		MG_CONVERT = CONFIG.getInt("1000 FE converts to how much. Default is 99", "flux manafield", 99, 1, Integer.MAX_VALUE, "");
@@ -153,7 +162,7 @@ public class ConfigHandler {
 		
 		GAIA_ENABLE = CONFIG.get("gaia guardian III", "enable spawning", true).getBoolean(true);
 		GAIA_DISARM = CONFIG.get("gaia guardian III", "enable disarm", true).getBoolean(true);
-		GAIA_SMASH = CONFIG.get("gaia guardian III", "enable destroy blocks", true).getBoolean(true);
+		GAIA_SMASH = CONFIG.get("gaia guardian III", "enable destroy blocks", false).getBoolean(false);
 		
 		ENABLE_TOOLTIP = CONFIG.get("Tooltips", "enable mana visualization", true).getBoolean(true);
 		

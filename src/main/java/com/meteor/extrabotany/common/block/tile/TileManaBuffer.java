@@ -2,17 +2,16 @@ package com.meteor.extrabotany.common.block.tile;
 
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import vazkii.botania.api.internal.VanillaPacketDispatcher;
-import vazkii.botania.api.mana.IManaPool;
+import vazkii.botania.api.mana.IManaReceiver;
 import vazkii.botania.api.mana.IThrottledPacket;
 import vazkii.botania.common.block.tile.mana.TilePool;
 
-public class TileManaBuffer extends TileEntity implements IManaPool, ITickable, IThrottledPacket{
+public class TileManaBuffer extends TileEntity implements IManaReceiver, ITickable, IThrottledPacket{
 	
 	private static final BlockPos[] POOL_LOCATIONS = {
 			new BlockPos(1, 0, 0), new BlockPos(0, 0, 1), new BlockPos(-1, 0, 0), new BlockPos(0, 0, -1), new BlockPos(0, -1, 0)
@@ -143,21 +142,6 @@ public class TileManaBuffer extends TileEntity implements IManaPool, ITickable, 
 		super.readFromNBT(cmp);
 		mana = cmp.getInteger(TAG_MANA);
 		manaCap = cmp.getInteger(TAG_MANA_CAP);
-	}
-
-	@Override
-	public EnumDyeColor getColor() {
-		return null;
-	}
-
-	@Override
-	public boolean isOutputtingPower() {
-		return true;
-	}
-
-	@Override
-	public void setColor(EnumDyeColor arg0) {
-		
 	}
 	
 	@Override

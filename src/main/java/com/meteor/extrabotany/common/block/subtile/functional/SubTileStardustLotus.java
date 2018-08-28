@@ -18,6 +18,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.lexicon.multiblock.Multiblock;
@@ -38,7 +41,8 @@ public class SubTileStardustLotus extends SubTileFunctionalNature{
 	int dim = 0;
 	int consumed = 0;
 	int shouldCost = 0;
-	int x,y,z = 0;
+	int x,z = 0;
+	int y = -1;
 	boolean hasPaper = false;
 	
 	@Override
@@ -68,12 +72,15 @@ public class SubTileStardustLotus extends SubTileFunctionalNature{
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) { 
 		if(player.getHeldItem(hand).getItem() instanceof ItemBinder){
 			ItemBinder bind = (ItemBinder) player.getHeldItem(hand).getItem();
-			if(bind.getPosY(player.getHeldItem(hand)) != -1){
-				x = bind.getPosX(player.getHeldItem(hand));
-				y = bind.getPosY(player.getHeldItem(hand));
-				z = bind.getPosZ(player.getHeldItem(hand));
-				dim = bind.getDim(player.getHeldItem(hand));
+			if(bind.getPosY(player.getHeldItem(hand)) == -1 || bind.getDim(player.getHeldItem(hand)) != player.dimension){
+				if(!world.isRemote)
+					player.sendMessage(new TextComponentTranslation("extrabotanymisc.bindingwrong").setStyle(new Style().setColor(TextFormatting.DARK_RED)));
+				return false;
 			}
+			x = bind.getPosX(player.getHeldItem(hand));
+			y = bind.getPosY(player.getHeldItem(hand));
+			z = bind.getPosZ(player.getHeldItem(hand));
+			dim = bind.getDim(player.getHeldItem(hand));
 		}
 		return true; 
 	}
@@ -85,7 +92,7 @@ public class SubTileStardustLotus extends SubTileFunctionalNature{
 		int posy = this.supertile.getPos().getY();
 		int posz = this.supertile.getPos().getZ();
 		
-		if(!canTPExist(this.getWorld(), this.getPos()) || redstoneSignal > 0)
+		if(!canTPExist(this.getWorld(), this.getPos()) || redstoneSignal > 0 || y == -1)
 			return;
 		
 		shouldCost = (int) (((ConfigHandler.BASECOST + Math.sqrt(Math.pow(x-posx, 2) + Math.pow(y-posy, 2) + Math.pow(z-posz, 2))* ConfigHandler.PERCOST)) * (isEnabled() ? 0.8F : 1F));

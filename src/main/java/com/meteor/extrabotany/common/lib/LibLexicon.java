@@ -25,6 +25,11 @@ public class LibLexicon {
 	public static final String GOLDPOTATO = "goldpotato";
 	public static final String KINGGARDEN = "kinggarden";
 	public static final String MANAGENERATOR = "managenerator";
+	public static final String MANALIQUEFICATION = "manaliquefaction";
+	public static final String MANADRINK = "manadrink";
+	public static final String COCKTAIL = "cocktail";
+	public static final String GRENADE = "splashgrenade";
+	public static final String INFINITEWINE = "infinitewine";
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";

@@ -1,0 +1,51 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "extrabotany:items/emptybottle",
+    "layer1": "extrabotany:items/cocktail_0"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 1
+      },
+      "model": "extrabotany:item/cocktail_1"
+    },
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 2
+      },
+      "model": "extrabotany:item/cocktail_2"
+    },
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 3
+      },
+      "model": "extrabotany:item/cocktail_3"
+    },
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 4
+      },
+      "model": "extrabotany:item/cocktail_4"
+    },
+	{
+      "predicate": {
+        "extrabotany:swigs_taken": 5
+      },
+      "model": "extrabotany:item/cocktail_5"
+    },    
+	{
+      "predicate": {
+        "extrabotany:swigs_taken": 6
+      },
+      "model": "extrabotany:item/cocktail_6"
+    },    
+	{
+      "predicate": {
+        "extrabotany:swigs_taken": 7
+      },
+      "model": "extrabotany:item/cocktail_7"
+    }
+  ]
+}

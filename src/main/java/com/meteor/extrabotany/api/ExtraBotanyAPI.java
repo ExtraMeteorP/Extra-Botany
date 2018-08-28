@@ -36,7 +36,7 @@ public class ExtraBotanyAPI {
 	public static final List<RecipeOmniviolet> omnivioletRecipes = new ArrayList<RecipeOmniviolet>();
 	public static final PropertyEnum<PedestalVariant> PEDESTAL_VARIANT = PropertyEnum.create("variant", PedestalVariant.class);
 	public static final PropertyEnum<ManaBufferVariant> BATTERYBOX_VARIANT = PropertyEnum.create("variant", ManaBufferVariant.class);
-	public static final ArmorMaterial orichalcosArmorMaterial = EnumHelper.addArmorMaterial("TERRASTEEL", "terrasteel", 50,
+	public static final ArmorMaterial orichalcosArmorMaterial = EnumHelper.addArmorMaterial("ORICHALCOS", "orichalcos", 50,
 			new int[] { 4, 7, 9, 4 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
 	
 	static {
@@ -47,19 +47,19 @@ public class ExtraBotanyAPI {
 		RecipePedestal recipe = new RecipePedestal(output, input);
 		pedestalRecipes.add(recipe);
 		return recipe;
-	};
-	
+	}
+
 	public static RecipeStonesia registerStonesiaRecipe(int output, Object input){
 		RecipeStonesia recipe = new RecipeStonesia(output, input);
 		stonesiaRecipes.add(recipe);
 		return recipe;
-	};
+	}
 	
 	public static RecipeOmniviolet registerOmnivioletRecipe(int output, ItemStack input){
 		RecipeOmniviolet recipe = new RecipeOmniviolet(output, input);
 		omnivioletRecipes.add(recipe);
 		return recipe;
-	};
+	}
 	
 	public static void unlockAdvancement(EntityPlayer player, String name){
 		if(player instanceof EntityPlayerMP){

@@ -3,6 +3,7 @@ package com.meteor.extrabotany;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.block.ModBlocks;
+import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.item.ModItems;
 
 import net.minecraft.block.Block;
@@ -40,9 +41,11 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.hammerultimate);
 		addItem(ModItems.manaReader);
 		addItem(ModItems.binder);
-		addItem(ModItems.manasteelshield);
-		addItem(ModItems.elementiumshield);
-		addItem(ModItems.terrasteelshield);
+		if(ConfigHandler.ENABLE_SHIELD){
+			addItem(ModItems.manasteelshield);
+			addItem(ModItems.elementiumshield);
+			addItem(ModItems.terrasteelshield);
+		}
 		addItem(ModItems.froststar);
 		addItem(ModItems.deathring);
 		addItem(ModItems.kinggarden);
@@ -59,10 +62,12 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.material);
 		addBlock(ModBlocks.orichalcosblock);
 		addItem(ModItems.friedchicken);
+		addItem(ModItems.manadrink);
 		addItem(ModItems.gildedmashedpotato);
 		addItem(ModItems.orb);
 		addBlock(ModBlocks.batterybox);
 		addBlock(ModBlocks.managenerator);
+		addBlock(ModBlocks.manaliquefying);
 		addBlock(ModBlocks.cocoondesire);
 		addItem(ModItems.rewardbag);
 		addItem(ModItems.treasure);
@@ -70,6 +75,9 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.camera);
 		addItem(ModItems.relicshield);
 		addItem(ModItems.mastermanaring);
+		addItem(ModItems.cocktail);
+		addItem(ModItems.infinitewine);
+		addItem(ModItems.splashgrenade);
 	}
 	
 	private void addItem(Item item) {

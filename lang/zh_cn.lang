@@ -1,5 +1,13 @@
 botania.knowledge.dream=&6梦想&7的知识
 
+botania.brew.revolution=革命
+botania.brew.shell=龟壳
+botania.brew.oneforall=欧尔麦特
+botania.brew.deadpool=死灵
+botania.brew.floating=漂浮
+
+extrabotany.nei.pedestal=活石祭坛
+
 item.extrabotany:manareader.name=魔力读取器
 item.extrabotany:binder.name=坐标读取器
 item.extrabotany:spiritfuel.name=精神燃料
@@ -18,6 +26,11 @@ item.extrabotany:heromedal.name=英雄勋章
 item.extrabotany:manasteelshield.name=魔力钢盾牌
 item.extrabotany:elementiumshield.name=源质钢盾牌
 item.extrabotany:terrasteelshield.name=泰拉钢盾牌
+item.extrabotany:emptybottle.name=魔法玻璃空瓶
+item.extrabotany:manadrink.name=魔力鸡尾酒
+item.extrabotany:splashgrenade.name=装有%s 的圣水手雷
+item.extrabotany:cocktail.name=装有%s (%s)的秘制鸡尾酒
+item.extrabotany:infinitewine.name=装有%s (%s)的无限之酒
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -56,6 +69,7 @@ tile.extrabotany:blockorichalcos.name=奥利哈刚块
 tile.extrabotany:manabarrel.name=魔力缓存器
 tile.extrabotany:cocoondesire.name=不随想之茧
 tile.extrabotany:managenerator.name=FE转换器
+tile.extrabotany:manaliquefaction.name=魔力液化器
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -95,6 +109,8 @@ tile.botania:flower.enchantedorchid.reference=我可没时间陪你玩游戏
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
+fluid.mana=液态魔力
+
 itemGroup.extrabotany=额外植物学
 
 extrabotany.repairupgrade1=修复升级I
@@ -129,6 +145,8 @@ extrabotany.natureorbeffect2true=再生的加护&4(已激活)
 extrabotany.natureorbeffect3false=森罗的加护(未激活)
 extrabotany.natureorbeffect3true=森罗的加护&2(已激活)
 extrabotany.bonusbase=开启后有概率获得以下物品
+extrabotanymisc.disabledblock=该方块已被禁用,请不要使用或合成.
+extrabotanymisc.bindingwrong=绑定失败,请确认坐标是否正确或者是否是同一次元的坐标
 
 botania.entry.bloodyenchantress=血腥妖姬
 botania.page.bloodyenchantress0=能够将生物的生命值转化为 &4魔力&0,一旦有生物在其附近 就会开始魔力的转化,效率 较为可观.需要注意的是通 过这种方式献祭的生物不会 有任何掉落.
@@ -322,6 +340,38 @@ botania.entry.managenerator=RF转换器
 botania.page.managenerator0=将&4FE能量&0引入自然能量场,就可 以将其从红石能量源形态转 为&4魔力&0.<br>只需将能量传输设备贴着这转 换,转换器就可以把输入的&4FE能量&0 转化为&4魔力&0,并输出到邻近的魔 力发射器中.
 botania.page.managenerator1=超科学
 botania.tagline.managenerator=RF转换
+
+botania.entry.manadrink=魔力鸡尾酒
+botania.page.manadrink0=使用魔法玻璃空瓶对着至少 存有100mb液态魔力的魔力液 化器右键可以获得新鲜的魔 力鸡尾酒.
+botania.page.manadrink1=干杯
+botania.tagline.manadrink=美味又易燃
+
+botania.entry.manaliquefaction=魔力液化器
+botania.page.manaliquefaction0=魔力液化器可以吸取附近容 器中的液态魔力并转化为魔 力形式输送给邻近的魔力发 射器中. <br>如果给予它一个红石信号,那 么它会转为吸收魔力并转化 为液态魔力输送给邻近的液 体容器中.
+botania.page.manaliquefaction1=这不科学
+botania.tagline.manaliquefaction=液态魔力
+
+botania.entry.cocktail=秘制鸡尾酒
+botania.page.cocktail0=比起普通的酿造能够多饮用 两次,并且药水的持续时间也 要来得更长.只需要将装有所 需酿造的烧瓶和魔力鸡尾酒 合成即可得到对应的秘制鸡 尾酒. <br>同时我们现在也有了一些新 的酿造品种.
+botania.page.cocktail1=能够大幅提升挖掘效率,但是 需要透支运气.
+botania.page.cocktail2=
+botania.page.cocktail3=拥有超强的防御力,但行动却 也变得像乌龟一样慢.
+botania.page.cocktail4=
+botania.page.cocktail5=获得超强的力量,但是代价是 什么?
+botania.page.cocktail6=
+botania.page.cocktail7=几乎所有的正面效果!但只能 维持一小会.
+botania.page.cocktail8=
+botania.page.cocktail9=能够让人漂浮起来的药水,或 许给敌人添加这种效果会更好?
+botania.page.cocktail10=
+botania.tagline.cocktail=
+
+botania.entry.infinitewine=无限之酒
+botania.page.infinitewine0=几乎能饮用无限次数的无限 之酒,它会消耗魔力缓慢地恢 复饮用次数.只需要将装有所 需酿造的秘制鸡尾酒和英雄 勋章合成即可,当然如果你想 改变无限之酒所含的酿造的 话也可以再将它和装有其他 种类酿造的秘制鸡尾酒再合成. <br>平均每天能恢复3次饮用次数.
+botania.tagline.infinitewine=永生之酒
+
+botania.entry.splashgrenade=圣水手雷
+botania.page.splashgrenade0=将装有所需酿造的秘制鸡尾 酒和爆裂紫颂果合成即可得 到对应的圣水手雷.圣水手雷 爆炸后会给予大范围生物较 高的伤害,给予玩家其所含的 正面效果而给予其他生物负 面效果. <br>可以说是几乎完美的酿造,但 为什么是一颗手雷呢?
+botania.tagline.splashgrenade=爆炸即是艺术
 
 botania.entry.=
 botania.page.0=

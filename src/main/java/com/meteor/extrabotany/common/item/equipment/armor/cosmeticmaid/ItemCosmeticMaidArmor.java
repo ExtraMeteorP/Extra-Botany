@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.client.model.ModelArmorCosmeticMaid;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidArmor;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -33,12 +36,22 @@ public class ItemCosmeticMaidArmor extends ItemCombatMaidArmor implements IManaD
 	
 	@Override
 	public float getDiscount(ItemStack stack, int slot, EntityPlayer player, @Nullable ItemStack tool) {
-		return hasArmorSet(player) ? 0.75F : 0F;
+		return hasArmorSet(player) ? 0.6F : 0F;
 	}
 	
 	@Override
 	public String getArmorTextureAfterInk(ItemStack stack, EntityEquipmentSlot slot) {
 		return "extrabotany:textures/model/armor_cosmeticmaid.png";
+	}
+	
+	@Override
+	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
+		Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
+		attrib.removeAll(SharedMonsterAttributes.ARMOR.getName());
+		attrib.removeAll(SharedMonsterAttributes.ARMOR_TOUGHNESS.getName());
+		attrib.removeAll(SharedMonsterAttributes.MAX_HEALTH.getName());
+		attrib.removeAll(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName());
+		return attrib;
 	}
 	
 	private static ItemStack[] armorset;

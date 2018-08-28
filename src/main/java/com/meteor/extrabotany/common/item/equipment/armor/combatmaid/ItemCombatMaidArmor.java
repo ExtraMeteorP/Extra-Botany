@@ -89,6 +89,7 @@ public class ItemCombatMaidArmor extends ItemArmor implements ISpecialArmor, IMa
 		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
 		if (slot == armorType) {
 			attrib.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, (double) getArmorDisplay(null, new ItemStack(this), type.getIndex()) / 20, 0));
+			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, 5, 0));
 		}
 		return attrib;
 	}

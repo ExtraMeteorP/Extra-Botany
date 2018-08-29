@@ -33,37 +33,6 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 	public int energy = 0;
 	private static final int MAX_ENERGY = ConfigHandler.MG_MAXENERGY;
 
-	private final IEnergyStorage energyHandler = new IEnergyStorage() {
-		@Override
-		public int getEnergyStored() {
-			return energy;
-		}
-
-		@Override
-		public int getMaxEnergyStored() {
-			return MAX_ENERGY;
-		}
-
-		@Override public boolean canExtract() { return false; }
-		@Override public int extractEnergy(int maxExtract, boolean simulate) { return 0; }
-
-		@Override public int receiveEnergy(int maxReceive, boolean simulate) { return 0; }
-		@Override public boolean canReceive() { return false; }
-	};
-	
-	@Override
-	public boolean hasCapability(@Nonnull Capability<?> cap, @Nullable EnumFacing side) {
-		return cap == CapabilityEnergy.ENERGY || super.hasCapability(cap, side);
-	}
-
-	@Override
-	@Nullable
-	public <T> T getCapability(@Nonnull Capability<T> cap, @Nullable EnumFacing side) {
-		if(cap == CapabilityEnergy.ENERGY) {
-			return CapabilityEnergy.ENERGY.cast(energyHandler);
-		} else return super.getCapability(cap, side);
-	}
-
 	@Override
 	public void update() {
 		
@@ -90,7 +59,7 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 			}
 
 			if(storage != null) {
-				energy += storage.extractEnergy(1000, false);
+				recieveEnergy(storage.extractEnergy(1000, false));
 			}
 			
 			if(te instanceof TileSpreader){
@@ -104,7 +73,7 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 		}
 		
 		if(energy >= 1000){
-			energy -=1000;
+			recieveEnergy(-1000);
 			recieveMana(ConfigHandler.MG_CONVERT);
 		}
 		
@@ -118,6 +87,10 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 	@Override
 	public boolean isFull() {
 		return energy >= MAX_ENERGY;
+	}
+	
+	public void recieveEnergy(int mana) {
+		this.energy = Math.min(MAX_ENERGY, this.energy + mana);
 	}
 
 	@Override

@@ -2,36 +2,28 @@ package com.meteor.extrabotany.common.entity;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockLeaves;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityPotion;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.brew.Brew;
-import vazkii.botania.common.Botania;
+import vazkii.botania.api.brew.IBrewItem;
 import vazkii.botania.common.entity.EntityThrowableCopy;
 
 public class EntitySplashGrenade extends EntityThrowableCopy{
 	
 	private static final String TAG_EFFECT = "effect";
 	private static final DataParameter<ItemStack> ITEM = EntityDataManager.<ItemStack>createKey(EntityPotion.class, DataSerializers.ITEM_STACK);
-	private static final DataParameter<String> EFFECT = EntityDataManager.createKey(EntitySplashGrenade.class, DataSerializers.STRING);
 	
 	public EntitySplashGrenade(World world) {
 		super(world);
@@ -49,8 +41,6 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
 	@Override
 	protected void entityInit() {
 		super.entityInit();
-		setSize(0.5F, 0.5F);
-		dataManager.register(EFFECT, "");
 		dataManager.register(ITEM, ItemStack.EMPTY);
 	}
 	
@@ -80,7 +70,8 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
 	}
 	
 	public void onImpact(){
-    	Brew brew = BotaniaAPI.getBrewFromKey(getEffect());		
+    	IBrewItem bi = (IBrewItem) getPotion().getItem();	
+    	Brew brew = bi.getBrew(getPotion());
 		double range = 5;
 		AxisAlignedBB bounds = new AxisAlignedBB(posX - range, posY - range, posZ - range, posX + range, posY + range, posZ + range);
 		List<EntityLivingBase> entitiess;
@@ -115,7 +106,8 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
         }
 
         if (!this.world.isRemote){
-        	Brew brew = BotaniaAPI.getBrewFromKey(getEffect());
+        	IBrewItem bi = (IBrewItem) getPotion().getItem();	
+        	Brew brew = bi.getBrew(getPotion());
     		
     		double range = 5;
     		AxisAlignedBB bounds = new AxisAlignedBB(posX - range, posY - range, posZ - range, posX + range, posY + range, posZ + range);
@@ -158,7 +150,6 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
 	@Override
     public void writeEntityToNBT(NBTTagCompound cmp){
 		super.writeEntityToNBT(cmp);
-		cmp.setString(TAG_EFFECT, "");
         
         ItemStack itemstack = this.getPotion();
 
@@ -171,7 +162,6 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
 	@Override
 	public void readEntityFromNBT(NBTTagCompound cmp){
 		super.readEntityFromNBT(cmp);
-		setEffect(cmp.getString(TAG_EFFECT));
         ItemStack itemstack = new ItemStack(cmp.getCompoundTag("Potion"));
 
         if (itemstack.isEmpty())
@@ -182,13 +172,5 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
         {
             this.setItem(itemstack);
         }
-	}
-	
-	public String getEffect() {
-		return dataManager.get(EFFECT);
-	}
-	
-	public void setEffect(String eff) {
-		dataManager.set(EFFECT, eff);;
 	}
 }

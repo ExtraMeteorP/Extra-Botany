@@ -84,6 +84,11 @@ public class ConfigHandler {
 	public static boolean DISABLE_MANAGENERATOR;
 	public static boolean DISABLE_MANALIQUEFICATION;
 	
+	public static boolean ENABLE_WAILAPOOL;
+	public static boolean ENABLE_WAILAMANAGEN;
+	public static boolean ENABLE_WAILAMANABUFFER;
+	public static boolean ENABLE_WAILAMANALIQUE;
+	
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
 		CONFIG.load();
@@ -91,6 +96,11 @@ public class ConfigHandler {
 	}
 	
 	private void syncConfigs() {
+		ENABLE_WAILAPOOL = CONFIG.get("Waila Support", "enable mana pool information", true).getBoolean(true);
+		ENABLE_WAILAMANAGEN = CONFIG.get("Waila Support", "enable flux manafield information", true).getBoolean(true);
+		ENABLE_WAILAMANABUFFER = CONFIG.get("Waila Support", "enable mana buffer information", true).getBoolean(true);
+		ENABLE_WAILAMANALIQUE = CONFIG.get("Waila Support", "enable mana liquefaction information", true).getBoolean(true);
+		
 		ENABLE_AF = CONFIG.get("enable flowers", "annoying flower", true).getBoolean(true);
 		ENABLE_EO = CONFIG.get("enable flowers", "enchanted orchid", true).getBoolean(true);
 		ENABLE_ML = CONFIG.get("enable flowers", "manalinkium", true).getBoolean(true);

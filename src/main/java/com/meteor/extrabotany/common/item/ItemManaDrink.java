@@ -19,13 +19,6 @@ public class ItemManaDrink extends ItemFoodMod{
 	}
 	
 	@Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn){
-        ItemStack itemstack = playerIn.getHeldItem(handIn);
-        playerIn.setActiveHand(handIn);
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
-    }
-	
-	@Override
 	public void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player){
 		super.onFoodEaten(stack, worldIn, player);	
 		if(player.shouldHeal())
@@ -34,7 +27,7 @@ public class ItemManaDrink extends ItemFoodMod{
 		player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 1200, 0));
 		player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 1200, 0));
 		player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 1200, 0));
-		ManaItemHandler.dispatchManaExact(stack, player, 30000, true);
+		ManaItemHandler.dispatchManaExact(stack, player, 10000, true);
 	}
 
 }

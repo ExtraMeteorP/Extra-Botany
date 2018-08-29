@@ -11,10 +11,8 @@ import com.meteor.extrabotany.common.lib.LibItemsName;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -41,43 +39,21 @@ public class ItemBrewSplashGrenade extends ItemMod implements IBrewItem {
 		setMaxStackSize(16);
 	}
 	
-	@Nonnull
 	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
-		return EnumAction.BOW;
-	}
-	
-	@Nonnull
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(@Nonnull World world, EntityPlayer player, @Nonnull EnumHand hand) {
-		ItemStack stack = player.getHeldItem(hand);
-		player.setActiveHand(hand);
-		return new ActionResult<>(EnumActionResult.SUCCESS, stack);
-	}
-	
-	@Override
-    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entity, int timeLeft){
-		if(!(entity instanceof EntityPlayer))
-            return;
-        EntityPlayer living = (EntityPlayer) entity;
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand handIn){
+        ItemStack stack = player.getHeldItem(handIn);
 
-		EntitySplashGrenade sg = new EntitySplashGrenade(world, living);
+		EntitySplashGrenade sg = new EntitySplashGrenade(world, player);
 		sg.setItem(stack);
-		sg.setEffect(getBrew(stack).getKey());
-		sg.shoot(living, living.rotationPitch, living.rotationYaw, 0.0F, 1.0F, 1.0F);
+		sg.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.0F, 1.0F);
 		if(!world.isRemote)
 			world.spawnEntity(sg);
 
-		if(world.rand.nextBoolean())
-			world.playSound(null, living.posX, living.posY, living.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 1F, 1F);
+		world.playSound((EntityPlayer)null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_SPLASH_POTION_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
-		stack.shrink(1);
-	}
-	
-	@Override
-	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
-		return 72000;
-	}
+		stack.shrink(1);;
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+    }
 
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {

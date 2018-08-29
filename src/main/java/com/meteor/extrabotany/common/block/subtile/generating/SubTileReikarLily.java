@@ -41,7 +41,8 @@ public class SubTileReikarLily extends SubTileGenerating{
 			if(!bolt.isDead){
 				if(cooldown == 0){
 					burnTime += ConfigHandler.RL_BURNTIME;
-					mana += ConfigHandler.RL_BASEGEN;
+					if(mana < getMaxMana())
+						mana += Math.min(ConfigHandler.RL_BASEGEN, getMaxMana() - mana);
 					cooldown = getCooldown();
 				}
 			}

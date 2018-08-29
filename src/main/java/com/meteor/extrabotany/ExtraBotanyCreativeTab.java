@@ -16,6 +16,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 	public ExtraBotanyCreativeTab() {
 		super("extrabotany");
 		setNoTitle();
+		setBackgroundImageName("extrabotany.png");
 	}
 
 	NonNullList<ItemStack> list;

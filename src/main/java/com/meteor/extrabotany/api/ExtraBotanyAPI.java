@@ -12,7 +12,6 @@ import com.meteor.extrabotany.common.lib.LibMisc;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.advancements.PlayerAdvancements;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -34,8 +33,6 @@ public class ExtraBotanyAPI {
 	public static final List<RecipePedestal> pedestalRecipes = new ArrayList<RecipePedestal>();
 	public static final List<RecipeStonesia> stonesiaRecipes = new ArrayList<RecipeStonesia>();
 	public static final List<RecipeOmniviolet> omnivioletRecipes = new ArrayList<RecipeOmniviolet>();
-	public static final PropertyEnum<PedestalVariant> PEDESTAL_VARIANT = PropertyEnum.create("variant", PedestalVariant.class);
-	public static final PropertyEnum<ManaBufferVariant> BATTERYBOX_VARIANT = PropertyEnum.create("variant", ManaBufferVariant.class);
 	public static final ArmorMaterial orichalcosArmorMaterial = EnumHelper.addArmorMaterial("ORICHALCOS", "orichalcos", 50,
 			new int[] { 4, 7, 9, 4 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
 	

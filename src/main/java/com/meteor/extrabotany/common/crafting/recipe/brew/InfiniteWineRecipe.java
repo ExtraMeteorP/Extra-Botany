@@ -14,7 +14,6 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
-import vazkii.botania.common.item.brew.ItemBrewFlask;
 
 public class InfiniteWineRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 

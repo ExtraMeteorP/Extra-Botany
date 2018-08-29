@@ -6,9 +6,7 @@ import java.util.Random;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
-import com.meteor.extrabotany.api.PedestalVariant;
 import com.meteor.extrabotany.api.item.IHammer;
-import com.meteor.extrabotany.client.core.handler.ModelHandler;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.item.ItemGildedMashedPotato;
 import com.meteor.extrabotany.common.item.ItemSpiritFuel;
@@ -20,7 +18,6 @@ import com.meteor.extrabotany.common.lib.LibBlocksName;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -56,35 +53,8 @@ public class BlockPedestal extends BlockMod implements ILexiconable{
 		super(Material.ROCK, LibBlocksName.TILE_PEDESTAL);
 		setHardness(3.5F);
 		setSoundType(SoundType.STONE);
-		setDefaultState(blockState.getBaseState()
-				.withProperty(ExtraBotanyAPI.PEDESTAL_VARIANT, PedestalVariant.DEFAULT));
-	}
-	
-	@Nonnull
-	@Override
-	public BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, ExtraBotanyAPI.PEDESTAL_VARIANT);
 	}
 
-	@Override
-	public int getMetaFromState(IBlockState state) {
-		return state.getValue(ExtraBotanyAPI.PEDESTAL_VARIANT).ordinal();
-	}
-
-	@Nonnull
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		if (meta < 0 || meta >= PedestalVariant.values().length ) {
-			meta = 0;
-		}
-		return getDefaultState().withProperty(ExtraBotanyAPI.PEDESTAL_VARIANT, PedestalVariant.values()[meta]);
-	}
-	
-	@Override
-	public int damageDropped(IBlockState state) {
-		return getMetaFromState(state);
-	}
-	
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
 		return true;
@@ -288,12 +258,6 @@ public class BlockPedestal extends BlockMod implements ILexiconable{
 	@Override
 	public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
 		return new TilePedestal();
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerModels() {
-		ModelHandler.registerBlockToState(this, PedestalVariant.values().length - 1);;
 	}
 
 	@Override

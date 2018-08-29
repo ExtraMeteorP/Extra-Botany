@@ -141,7 +141,7 @@ public class ItemMasterManaRing extends ItemBauble implements IManaItem, IManaTo
 		if(!world.isRemote && entity instanceof EntityPlayer){
 			EntityPlayer player = (EntityPlayer) entity;
 			updateRelic(stack, player);
-			if(getMana(stack) == Integer.MAX_VALUE && !world.isRemote)
+			if(getMana(stack) == Integer.MAX_VALUE - 1 && !world.isRemote)
 				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.MASTERMANARING_FILL);
 		}
 	}

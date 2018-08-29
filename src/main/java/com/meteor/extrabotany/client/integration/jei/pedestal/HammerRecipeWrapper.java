@@ -3,10 +3,12 @@ package com.meteor.extrabotany.client.integration.jei.pedestal;
 import java.util.List;
 
 import javax.annotation.Nonnull;
-import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.IRecipeWrapper;
+
 import com.google.common.collect.ImmutableList;
 import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
+
+import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
 public class HammerRecipeWrapper implements IRecipeWrapper{

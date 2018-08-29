@@ -50,15 +50,15 @@ public class ItemMaterial extends ItemMod implements IFlowerComponent{
 		
 			if(te instanceof TileManaLiquefaction){
 				TileManaLiquefaction tee = (TileManaLiquefaction) te;
-				if(tee.energy >= 100 && !world.isRemote){
-					tee.energy -=100;
+				if(tee.energy >= 25 && !world.isRemote){
+					tee.energy -=25;
 					player.inventory.addItemStackToInventory(new ItemStack(ModItems.manadrink));
 					player.getHeldItem(hand).shrink(1);
 				}	
 			}else if(te instanceof TilePool){
 				TilePool p = (TilePool) te;
-				if(p.getCurrentMana() >= 100000 && !world.isRemote){
-					p.recieveMana(-100000);
+				if(p.getCurrentMana() >= 25000 && !world.isRemote){
+					p.recieveMana(-25000);
 					player.inventory.addItemStackToInventory(new ItemStack(ModItems.manadrink));
 					player.getHeldItem(hand).shrink(1);
 				}

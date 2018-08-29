@@ -1,6 +1,5 @@
 package com.meteor.extrabotany.common.crafting.recipe;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.brew.Brew;
-import vazkii.botania.api.brew.IBrewItem;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.brew.ItemBrewFlask;
 

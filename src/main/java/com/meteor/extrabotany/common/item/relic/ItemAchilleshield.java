@@ -40,13 +40,6 @@ import vazkii.botania.common.item.relic.ItemRelic;
 public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IPixieSpawner{
 	
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
-	
-	private static final Potion[] potions = {
-			MobEffects.BLINDNESS,
-			MobEffects.WITHER,
-			MobEffects.SLOWNESS,
-			MobEffects.WEAKNESS
-	};
 
 	public ItemAchilleshield() {
 		super(BotaniaAPI.terrasteelToolMaterial, LibItemsName.ACHILLESHIELD);

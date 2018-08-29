@@ -59,7 +59,8 @@ public class SubTileTinkle extends SubTileGeneratingNature{
 	            int buff = ConfigHandler.LP_BELLFLOWER ? isEnabled() ? 15 : 0 : 0;
 	            
 	            if(time >= limit){
-	                mana += ConfigHandler.EFF_TINKLE + buff;
+	            	if(mana < getMaxMana())
+	            		mana += Math.min(ConfigHandler.EFF_TINKLE + buff, getMaxMana() - mana);
 	                ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.TINKLE_USE);
 	                time %= limit;
 	            }

@@ -41,7 +41,7 @@ public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic{
 		if(!world.isRemote && entity instanceof EntityPlayer){
 			updateRelic(stack, (EntityPlayer) entity);
 			if(isRightPlayer((EntityPlayer) entity, stack) && ManaItemHandler.requestManaExact(stack, (EntityPlayer) entity, 2000, true) && entity.ticksExisted % 6000 == 0)
-				setSwigsLeft(stack, Math.min(9, getSwigsLeft(stack) + 1));
+				setSwigsLeft(stack, Math.min(12, getSwigsLeft(stack) + 1));
 		}
 	}
 

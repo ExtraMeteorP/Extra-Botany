@@ -1,5 +1,13 @@
 botania.knowledge.dream=&6夢想&7的知識
 
+botania.brew.revolution=革命
+botania.brew.shell=龜殼
+botania.brew.oneforall=歐爾麥特
+botania.brew.deadpool=死靈
+botania.brew.floating=漂浮
+
+extrabotany.nei.pedestal=活石祭壇
+
 item.extrabotany:manareader.name=魔力讀取器
 item.extrabotany:binder.name=座標讀取器
 item.extrabotany:spiritfuel.name=精神燃料
@@ -18,6 +26,11 @@ item.extrabotany:heromedal.name=英雄勳章
 item.extrabotany:manasteelshield.name=魔力鋼盾牌
 item.extrabotany:elementiumshield.name=源質鋼盾牌
 item.extrabotany:terrasteelshield.name=泰拉鋼盾牌
+item.extrabotany:emptybottle.name=魔法玻璃空瓶
+item.extrabotany:manadrink.name=魔力雞尾酒
+item.extrabotany:splashgrenade.name=裝有%s 的聖水手雷
+item.extrabotany:cocktail.name=裝有%s (%s)的秘制雞尾酒
+item.extrabotany:infinitewine.name=裝有%s (%s)的無限之酒
 
 item.extrabotany:kinggarden.name=王之花園
 item.extrabotany:rewardbag1.name=獎勵袋Eins
@@ -34,27 +47,29 @@ item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
 
 item.extrabotany:froststar.name=霜凍之星
 item.extrabotany:deathring.name=詛咒指環
-item.extrabotany:combatmaidhelm.name=昴星团战斗女仆头饰
-item.extrabotany:combatmaidchest.name=昴星团战斗女仆服
-item.extrabotany:combatmaidlegs.name=昴星团战斗女仆裙甲
-item.extrabotany:combatmaidboots.name=昴星团战斗女仆鞋子
-item.extrabotany:cosmeticmaidhelm.name=星空歌姬头饰
+item.extrabotany:combatmaidhelm.name=昴星團戰鬥女僕頭飾
+item.extrabotany:combatmaidchest.name=昴星團戰鬥女僕服
+item.extrabotany:combatmaidlegs.name=昴星團戰鬥女僕裙甲
+item.extrabotany:combatmaidboots.name=昴星團戰鬥女僕鞋子
+item.extrabotany:cosmeticmaidhelm.name=星空歌姬頭飾
 item.extrabotany:cosmeticmaidchest.name=星空歌姬服
 item.extrabotany:cosmeticmaidlegs.name=星空歌姬裙甲
 item.extrabotany:cosmeticmaidboots.name=星空歌姬鞋子
 item.extrabotany:.name=
 
-extrabotany.armorset.cosmeticmaid.desc0=超强魔力亲和
+extrabotany.armorset.cosmeticmaid.desc0=超強魔力親和
 extrabotany.armorset.combatmaid.desc0=空手怪力
-extrabotany.armorset.combatmaid.desc1=再生增强
-extrabotany.armorset.combatmaid.desc2=魔力亲和
+extrabotany.armorset.combatmaid.desc1=再生增強
+extrabotany.armorset.combatmaid.desc2=魔力親和
 extrabotany.armorset.cosmeticmaid.name=星空歌姬
-extrabotany.armorset.combatmaid.name=昴星团战斗女仆
+extrabotany.armorset.combatmaid.name=昴星團戰鬥女僕
 
 tile.extrabotany:pedestal.name=活石祭壇
 tile.extrabotany:blockorichalcos.name=奧利哈剛塊
 tile.extrabotany:manabarrel.name=魔力緩存器
-tile.extrabotany:cocoondesire.name=不随想之茧
+tile.extrabotany:cocoondesire.name=不隨想之繭
+tile.extrabotany:managenerator.name=FE轉換器
+tile.extrabotany:manaliquefaction.name=魔力液化器
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=蓋亞守護者III
@@ -94,6 +109,8 @@ tile.botania:flower.enchantedorchid.reference=我可沒時間陪你玩遊戲
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
+fluid.mana=液態魔力
+
 itemGroup.extrabotany=額外植物學
 
 extrabotany.repairupgrade1=修復升級I
@@ -128,6 +145,8 @@ extrabotany.natureorbeffect2true=再生的加護&4(已啟動)
 extrabotany.natureorbeffect3false=森羅的加護(未啟動)
 extrabotany.natureorbeffect3true=森羅的加護&2(已啟動)
 extrabotany.bonusbase=開啟後有概率獲得以下物品
+extrabotanymisc.disabledblock=該方塊已被禁用,請不要使用或合成.
+extrabotanymisc.bindingwrong=綁定失敗,請確認座標是否正確或者是否是同一次元的座標
 
 botania.entry.bloodyenchantress=血腥妖姬
 botania.page.bloodyenchantress0=能夠將生物的生命值轉化為 &4魔力&0,一旦有生物在其附近 就會開始魔力的轉化,效率 較為可觀.需要注意的是通 過這種方式獻祭的生物不會 有任何掉落.
@@ -295,27 +314,64 @@ botania.page.mastermanaring0=&4大師魔力之戒&0能夠儲存近乎無限的�
 botania.page.mastermanaring1=蛋糕是個謊言.
 botania.tagline.mastermanaring=不可能的事
 
-botania.entry.cocoondesire=不随想之茧
-botania.page.cocoondesire0=不随想之茧需要提供指定的 物品来孵化出对应的生物, 给予的方式既可以是直接右 键也可以是丢在旁边.孵化的 过程较为漫长,并且孵化完毕 后不随想之茧并不会因此消失.
-botania.page.cocoondesire1=例如煤炭块对应凋零骷髅,小 麦对应猪,羊毛对应羊.其 他配方待发现中.
-botania.page.cocoondesire2=这太imba了.
+botania.entry.cocoondesire=不隨想之繭
+botania.page.cocoondesire0=不隨想之繭需要提供指定的 物品來孵化出對應的生物, 給予的方式既可以是直接右 鍵也可以是丟在旁邊.孵化的 過程較為漫長,並且孵化完畢 後不隨想之繭並不會因此消失.
+botania.page.cocoondesire1=例如煤炭塊對應凋零骷髏,小 麥對應豬,羊毛對應羊.其 他配方待發現中.
+botania.page.cocoondesire2=這太imba了.
 botania.tagline.cocoondesire=孵化者
 
-botania.entry.combatmaid=昴星团战斗女仆套
-botania.page.combatmaid0=泰拉钢套的改进版,拥有超强 的再生能力和防御力,并且能 清除负面效果,同时能使装备 者获得空手怪力.
-botania.page.combatmaid1=昴星团战斗女仆头饰
-botania.page.combatmaid2=昴星团战斗女仆服
-botania.page.combatmaid3=昴星团战斗女仆裙甲
-botania.page.combatmaid4=昴星团战斗女仆鞋子
-botania.tagline.combatmaid=罪域的骨终为王
+botania.entry.combatmaid=昴星團戰鬥女僕套
+botania.page.combatmaid0=泰拉鋼套的改進版,擁有超強 的再生能力和防禦力,並且能 清除負面效果,同時能使裝備 者獲得空手怪力.
+botania.page.combatmaid1=昴星團戰鬥女僕頭飾
+botania.page.combatmaid2=昴星團戰鬥女僕服
+botania.page.combatmaid3=昴星團戰鬥女僕裙甲
+botania.page.combatmaid4=昴星團戰鬥女僕鞋子
+botania.tagline.combatmaid=罪域的骨終為王
 
 botania.entry.cosmeticmaid=星空歌姬套
-botania.page.cosmeticmaid0=魔钢套的改进版,拥有着超强 的魔力亲和力.
-botania.page.cosmeticmaid1=星空歌姬头饰
+botania.page.cosmeticmaid0=魔鋼套的改進版,擁有著超強 的魔力親和力.
+botania.page.cosmeticmaid1=星空歌姬頭飾
 botania.page.cosmeticmaid2=星空歌姬服
 botania.page.cosmeticmaid3=星空歌姬裙甲
 botania.page.cosmeticmaid4=星空歌姬鞋子
 botania.tagline.cosmeticmaid=Miku Miku Dance
+
+botania.entry.managenerator=RF轉換器
+botania.page.managenerator0=將&4FE能量&0引入自然能量場,就可 以將其從紅石能量源形態轉 為&4魔力&0.<br>只需將能量傳輸設備貼著這轉 換,轉換器就可以把輸入的&4FE能量&0 轉化為&4魔力&0,並輸出到鄰近的魔 力發射器中.
+botania.page.managenerator1=超科學
+botania.tagline.managenerator=RF轉換
+
+botania.entry.manadrink=魔力雞尾酒
+botania.page.manadrink0=使用魔法玻璃空瓶對著至少 存有100mb液態魔力的魔力液 化器右鍵可以獲得新鮮的魔 力雞尾酒.
+botania.page.manadrink1=乾杯
+botania.tagline.manadrink=美味又易燃
+
+botania.entry.manaliquefaction=魔力液化器
+botania.page.manaliquefaction0=魔力液化器可以吸取附近容 器中的液態魔力並轉化為魔 力形式輸送給鄰近的魔力發 射器中. <br>如果給予它一個紅石信號,那 麼它會轉為吸收魔力並轉化 為液態魔力輸送給鄰近的液 體容器中.
+botania.page.manaliquefaction1=這不科學
+botania.tagline.manaliquefaction=液態魔力
+
+botania.entry.cocktail=秘制雞尾酒
+botania.page.cocktail0=比起普通的釀造能夠多飲用 兩次,並且藥水的持續時間也 要來得更長.只需要將裝有所 需釀造的燒瓶和魔力雞尾酒 合成即可得到對應的秘制雞 尾酒. <br>同時我們現在也有了一些新 的釀造品種.
+botania.page.cocktail1=能夠大幅提升挖掘效率,但是 需要透支運氣.
+botania.page.cocktail2=
+botania.page.cocktail3=擁有超強的防禦力,但行動卻 也變得像烏龜一樣慢.
+botania.page.cocktail4=
+botania.page.cocktail5=獲得超強的力量,但是代價是 什麼?
+botania.page.cocktail6=
+botania.page.cocktail7=幾乎所有的正面效果!但只能 維持一小會.
+botania.page.cocktail8=
+botania.page.cocktail9=能夠讓人漂浮起來的藥水,或 許給敵人添加這種效果會更好?
+botania.page.cocktail10=
+botania.tagline.cocktail=
+
+botania.entry.infinitewine=無限之酒
+botania.page.infinitewine0=幾乎能飲用無限次數的無限 之酒,它會消耗魔力緩慢地恢 複飲用次數.只需要將裝有所 需釀造的秘制雞尾酒和英雄 勳章合成即可,當然如果你想 改變無限之酒所含的釀造的 話也可以再將它和裝有其他 種類釀造的秘制雞尾酒再合成. <br>平均每天能恢復3次飲用次數.
+botania.tagline.infinitewine=永生之酒
+
+botania.entry.splashgrenade=聖水手雷
+botania.page.splashgrenade0=將裝有所需釀造的秘制雞尾 酒和爆裂紫頌果合成即可得 到對應的聖水手雷.聖水手雷 爆炸後會給予大範圍生物較 高的傷害,給予玩家其所含的 正面效果而給予其他生物負 面效果. <br>可以說是幾乎完美的釀造,但 為什麼是一顆手雷呢?
+botania.tagline.splashgrenade=爆炸即是藝術
 
 botania.entry.=
 botania.page.0=
@@ -371,7 +427,7 @@ advancement.extrabotany:mastermanaringCraft.desc=獲得大師魔力指環
 advancement.extrabotany:mastermanaringFill=Fairytale
 advancement.extrabotany:mastermanaringFill.desc=充滿它來贏得Minecraft
 advancement.extrabotany:musicAll=千本桜
-advancement.extrabotany:musicAll.desc=耐心的聆听者
+advancement.extrabotany:musicAll.desc=耐心的聆聽者
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=

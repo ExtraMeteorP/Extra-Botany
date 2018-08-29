@@ -99,11 +99,7 @@ tile.botania:flower.bellflower.reference=Lost wind
 tile.botania:flower.annoyingflower.name=Annoying Flower
 tile.botania:flower.annoyingflower.reference=Rest time
 tile.botania:flower.stardustlotus.name=Stardust Lotus
-<<<<<<< HEAD
 tile.botania:flower.stardustlotus.reference=Undefined Fantastic Object
-=======
-tile.botania:flower.stardustlotus.reference=Oriental Star Lotus
->>>>>>> 28cf5d98495f855ac8a4d764445cb9545c723ecb
 tile.botania:flower.manalinkium.name=Manalinkium
 tile.botania:flower.manalinkium.reference=Link Summon
 tile.botania:flower.reikarlily.name=Reikar Lily
@@ -149,11 +145,8 @@ extrabotany.natureorbeffect2true=Blessing of Regeneration&4(Activated)
 extrabotany.natureorbeffect3false=Blessing of Senro(Deactivated)
 extrabotany.natureorbeffect3true=Blessing of Senro&2(Activated)
 extrabotany.bonusbase=You have the chance to get the following items:
-<<<<<<< HEAD
 extrabotanymisc.disabledblock=This Block has been disabled. Don't craft or use it.
 extrabotanymisc.bindingwrong=Fail to bind. Check whether the position is right or not, or maybe it's not from the same dimension.
-=======
->>>>>>> 28cf5d98495f855ac8a4d764445cb9545c723ecb
 
 botania.entry.bloodyenchantress=Bloody Enchantress
 botania.page.bloodyenchantress0=The Bloody Enchantress creates &4Mana&0 by consuming nearby creatures' life. Creatures sacrificed to the Bloody Enchantress will not produce any drops or experience.
@@ -167,13 +160,8 @@ botania.tagline.sunbless=Mana from the sun
 
 botania.entry.moonbless=Moonlight Lily
 botania.page.moonbless0=Like the &1Nightshade&0 the Moonlight Lily generates &4Mana&0 at night, but it is slightly more efficient. Please note that it will still decay.
-<<<<<<< HEAD
  botania.page.moonbless1=Sowing of the fool.
  botania.tagline.moonbless=Mana from the moon
-=======
-botania.page.moonbless1=Sowing of the fool.
-botania.tagline.moonbless=Mana from the moon
->>>>>>> 28cf5d98495f855ac8a4d764445cb9545c723ecb
 
 botania.entry.omniviolet=Omniviolet
 botania.page.omniviolet0=According to a saying, knowledge is power. The Omniviolet converts Books or Written Books into &4Mana&0. To increase the amount of mana generated, Bookshelves can be placed around the Omniviolet in a similar fashion to an Enchantment Table. 
@@ -206,11 +194,7 @@ botania.entry.manalinkium=Manalinkium
 botania.page.manalinkium0=The Manalinkium can wirelessly transfer &4Mana&0 to a Mana Pool. Right-clicking it with a Position Reader that has the position of a Mana Pool stored will start the process.
 botania.page.manalinkium1=This is too real.
 botania.page.manalinkium2=A multiblock structure is needed to function.
-<<<<<<< HEAD
  botania.page.manalinkium3=The Manalinkium has to be placed one above the empty middle block.
-=======
-botania.page.manalinkium3=The Manalinkium has to be placed one above the empty middle block.
->>>>>>> 28cf5d98495f855ac8a4d764445cb9545c723ecb
 botania.tagline.manalinkium=Wireless Transmission
 
 botania.entry.stardustlotus=Stardust Lotus
@@ -232,11 +216,7 @@ botania.tagline.enchantedorchid=Knowledge is power and I know a lot
 
 botania.entry.manabarrel=Mana Buffer
 botania.page.manabarrel0=The Mana Buffer can store as much &4Mana&0 as 64 Mana Pools. It will drain &4Mana&0 from adjacent mana pools and supply it to a Mana Pool placed on top of it.
-<<<<<<< HEAD
  botania.page.manabarrel1=Un...Deux...Trois...
-=======
-botania.page.manabarrel1=Un...Deux...Trois...
->>>>>>> 28cf5d98495f855ac8a4d764445cb9545c723ecb
 botania.tagline.manabarrel=Store Mana
 
 botania.entry.kinggarden=Garden of King's Law
@@ -340,25 +320,16 @@ botania.page.cocoondesire1=Block of Coal - Wither Skeleton. Wheat - Pig. Wool - 
 botania.page.cocoondesire2=Nerf this
 botania.tagline.cocoondesire=Incubator
 
-<<<<<<< HEAD
 botania.entry.combatmaid=Pleiades Combat Maid
 botania.page.combatmaid0=An improved version of Terrasteel Armor. The wearer will gain the ability of regeneration while wearing a full set of it. It will also clear negative effects and give the wearer super powers when empty-handed.
 botania.page.combatmaid1=Pleiades Combat Maid Headgear
 botania.page.combatmaid2=Pleiades Combat Maid Suit
 botania.page.combatmaid3=Pleiades Combat Maid Skirt
 botania.page.combatmaid4=Pleiades Combat Maid Boots
-=======
-botania.entry.combatmaid=Pleiades Combat Squire
-botania.page.combatmaid0=An improved version of Terrasteel Armor. The wearer will gain the ability of regeneration while wearing a full set of it. It will also clear negative effects and give the wearer super powers when empty-handed.
-botania.page.combatmaid1=Pleiades Combat Squire Headgear
-botania.page.combatmaid2=Pleiades Combat Squire Suit
-botania.page.combatmaid3=Pleiades Combat Squire Skirt
-botania.page.combatmaid4=Pleiades Combat Squire Boots
->>>>>>> 28cf5d98495f855ac8a4d764445cb9545c723ecb
 botania.tagline.combatmaid=Overlord
 
 botania.entry.cosmeticmaid=Starry Idol
-botania.page.cosmeticmaid0=An improved version of Manasteel Armor. It gives the wearer a high mana discount.
+botania.page.cosmeticmaid0=The improved version of Manasteel Armor, give wearer high mana discount.
 botania.page.cosmeticmaid1=Starry Idol Headgear
 botania.page.cosmeticmaid2=Starry Idol Suit
 botania.page.cosmeticmaid3=Starry Idol Skirt
@@ -407,7 +378,7 @@ botania.page.0=
 botania.page.1=
 botania.tagline.=
 
-extrabotany.desc=Welcome to the supreme World of Mana
+extrabotany.desc=Welcome to the World of the supreme principle of Mana
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)
@@ -417,11 +388,7 @@ advancement.extrabotany:pedestalCraft=CONNECT
 advancement.extrabotany:pedestalCraft.desc=Craft a Livingrock Pedestal
 advancement.extrabotany:ultimatehammerCraft=PONPONPON
 advancement.extrabotany:ultimatehammerCraft.desc=Craft an Ultimate Hammer
-<<<<<<< HEAD
 advancement.extrabotany:ultimatehammerUpgrade=裏表ラバーズ
-=======
-advancement.extrabotany:ultimatehammerUpgrade=Sides Lovers
->>>>>>> 28cf5d98495f855ac8a4d764445cb9545c723ecb
 advancement.extrabotany:ultimatehammerUpgrade.desc=Use a Gilded Mashed Potato to upgrade your Ultimate Hammer
 advancement.extrabotany:fragmentForge=Gears of Love
 advancement.extrabotany:fragmentForge.desc=Forge one item on the Livingrock Pedestal
@@ -441,21 +408,13 @@ advancement.extrabotany:manabufferCraft=ロストワンの号哭
 advancement.extrabotany:manabufferCraft.desc=Craft a Mana Buffer
 advancement.extrabotany:kinggardenCraft=Last Night, Good Night
 advancement.extrabotany:kinggardenCraft.desc=Craft a Garden of King's Law
-advancement.extrabotany:annoyingdogSummon=April Fools
+advancement.extrabotany:annoyingdogSummon=April Fool
 advancement.extrabotany:annoyingdogSummon.desc=The Dog absorbs the artifact
-<<<<<<< HEAD
 advancement.extrabotany:failnaughtCraft=from Y to Y
 advancement.extrabotany:failnaughtCraft.desc=Craft the Failnaught
 advancement.extrabotany:cameraCraft=lukaluka night fever
 advancement.extrabotany:cameraCraft.desc=Craft a Shameimaru's Camera
 advancement.extrabotany:gaiaDefeat=KiLLER LADY
-=======
-advancement.extrabotany:failnaughtCraft=From Y to Y
-advancement.extrabotany:failnaughtCraft.desc=Craft the Failnaught
-advancement.extrabotany:cameraCraft=lukaluka night fever
-advancement.extrabotany:cameraCraft.desc=Craft a Shameimaru's Camera
-advancement.extrabotany:gaiaDefeat=KILLER LADY
->>>>>>> 28cf5d98495f855ac8a4d764445cb9545c723ecb
 advancement.extrabotany:gaiaDefeat.desc=Defeat Gaia Guardian III
 advancement.extrabotany:natureorbCraft=Single floor
 advancement.extrabotany:natureorbCraft.desc=Craft a Nature Orb

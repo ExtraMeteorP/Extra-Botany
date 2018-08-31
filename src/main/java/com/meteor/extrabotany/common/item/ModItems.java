@@ -90,6 +90,8 @@ public class ModItems {
 	public static final Item cosmleg = new ItemCosmeticMaidLegs();
 	public static final Item cosmboot = new ItemCosmeticMaidBoots();
 	
+	public static final Item flyingboat = new ItemFlyingBoat();
+	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
 		IForgeRegistry<Item> r = evt.getRegistry();
@@ -132,6 +134,7 @@ public class ModItems {
 		r.register(splashgrenade);
 		r.register(cocktail);
 		r.register(infinitewine);
+		r.register(flyingboat);
 		registerOreDictionary();
 	}
 	

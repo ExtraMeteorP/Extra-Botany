@@ -24,6 +24,8 @@ public class LibItemsName {
 	public static final String NATUREORB = "natureorb";
 	public static final String RECORDA = "recordgaia3";
 	
+	public static final String FLYINGBOAT = "flyingboat";
+	
 	public static final String BREW_SPLASHGRENADE = "splashgrenade";
 	public static final String BREW_COCKTAIL = "cocktail";
 	public static final String BREW_INFINITEWINE = "infinitewine";
@@ -47,6 +49,12 @@ public class LibItemsName {
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";
 	public static final String BAUBLE_MASTERMANARING = "mastermanaring";
+	
+	public static final String[] FLYING_BOAT_NAMES = new String[] {
+			"boat_manasteel",
+			"boat_elementium",
+			"boat_terrasteel"
+		};
 	
 	public static final String[] MANA_RESOURCE_NAMES = new String[] {
 		"spirit",

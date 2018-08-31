@@ -14,6 +14,8 @@ import com.meteor.extrabotany.common.lib.LibMisc;
 
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.IAction;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -23,6 +25,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod(modid = LibMisc.MOD_ID, name = ExtraBotany.NAME, version = ExtraBotany.VERSION, dependencies = "required-after:botania;after:Baubles", updateJSON = ExtraBotany.UPDATE_URL)
 public class ExtraBotany{
@@ -53,11 +58,27 @@ public class ExtraBotany{
 	public ExtraBotany() {
 		super();
 	}
+	
+	 @SideOnly(Side.CLIENT)
+	 public static KeyBinding keyForward;
+	 @SideOnly(Side.CLIENT)
+	 public static KeyBinding keyBackward;
+	 @SideOnly(Side.CLIENT)
+	 public static KeyBinding keyLeft;
+	 @SideOnly(Side.CLIENT)
+	 public static KeyBinding keyRight;
+	 @SideOnly(Side.CLIENT)
+	 public static KeyBinding keyUp;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
     	proxy.preInit(event);
     	ConfigHandler.INSTANCE.loadConfig(event);
+    	 keyForward = Minecraft.getMinecraft().gameSettings.keyBindForward;
+         keyBackward = Minecraft.getMinecraft().gameSettings.keyBindBack;
+         keyLeft = Minecraft.getMinecraft().gameSettings.keyBindLeft;
+         keyRight = Minecraft.getMinecraft().gameSettings.keyBindRight;
+         keyUp = Minecraft.getMinecraft().gameSettings.keyBindJump;
     	logger.info("Welcome to the World of the supreme principle of Mana");
     }
 
@@ -109,6 +130,11 @@ public class ExtraBotany{
     	logger.info("$**$*!*$$$$$$!!!!!!!!!!!!!!!!!!!!o*$!!!!!!!!!!!!!!!*ooooo!!!!!!!!!!!!!!!!!!!!!!!!!!o**$*!!!!!!!$$***");
 	}
 	
+	@EventHandler
+    public void serverStarting(FMLServerStartingEvent event){
+        proxy.serverStarting(event);
+    }
+
     @Mod.EventHandler
     public void loadComplete(FMLLoadCompleteEvent event) {
     	if(Loader.isModLoaded("mtlib") && Loader.isModLoaded("crafttweaker")){

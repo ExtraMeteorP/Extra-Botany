@@ -34,6 +34,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 	@Override
 	public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 		this.list = list;
+		addItem(ModItems.flyingboat);
 		addBlock(ModBlocks.blockspecial);
 		addBlock(ModBlocks.pedestal);
 		addItem(ModItems.hammermanasteel);

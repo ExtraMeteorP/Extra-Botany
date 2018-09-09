@@ -2,8 +2,6 @@ package com.meteor.extrabotany.common;
 
 import com.meteor.extrabotany.common.block.fluid.ModFluid;
 import com.meteor.extrabotany.common.brew.ModBrew;
-import com.meteor.extrabotany.common.core.command.ChatEvent;
-import com.meteor.extrabotany.common.core.command.CommandEmoji;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.ToolTipHandler;
 import com.meteor.extrabotany.common.crafting.ModRecipe;
@@ -21,6 +19,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
+		ConfigHandler.INSTANCE.loadConfig(event);
 		ModFluid.init();	
 	}
 	
@@ -28,7 +27,7 @@ public class CommonProxy {
     	MinecraftForge.EVENT_BUS.register(ConfigHandler.INSTANCE);
     	if(event.getSide().isClient()){
     		MinecraftForge.EVENT_BUS.register(new ToolTipHandler());
-    		MinecraftForge.EVENT_BUS.register(new ChatEvent());
+    		//MinecraftForge.EVENT_BUS.register(new ChatEvent());
     	}
     	MinecraftForge.EVENT_BUS.register(ItemShieldCopy.EventHandler.INSTANCE);
     	ModEntities.init();
@@ -36,7 +35,6 @@ public class CommonProxy {
 		ModRecipe.init();
 		LexiconData.init();
 		if (Loader.isModLoaded("waila")){
-			FMLInterModComms.sendMessage("waila", "register", "com.meteor.extrabotany.client.integration.waila.WailaSpreader.register");
 			if(ConfigHandler.ENABLE_WAILAPOOL)
 				FMLInterModComms.sendMessage("waila", "register", "com.meteor.extrabotany.client.integration.waila.WailaPool.register");
 			if(ConfigHandler.ENABLE_WAILAMANAGEN)
@@ -53,6 +51,6 @@ public class CommonProxy {
 	}
 	
     public void serverStarting(FMLServerStartingEvent event){
-    	event.registerServerCommand(new CommandEmoji());
+    	//event.registerServerCommand(new CommandEmoji());
     }
 }

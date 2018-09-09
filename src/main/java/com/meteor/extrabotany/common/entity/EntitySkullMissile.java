@@ -25,7 +25,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.Vector3;
-import vazkii.botania.common.entity.EntityThrowableCopy;
 
 public class EntitySkullMissile extends EntityThrowableCopy{
 	
@@ -135,7 +134,7 @@ public class EntitySkullMissile extends EntityThrowableCopy{
 
 		super.onUpdate();
 
-		if(!world.isRemote && (!findTarget() || time > 75)) {
+		if(!world.isRemote && (!findTarget() || time > 100)) {
 			setDead();
 			return;
 		}
@@ -188,9 +187,6 @@ public class EntitySkullMissile extends EntityThrowableCopy{
 					Botania.proxy.wispFX(posX, posY + 1, posZ, (float)Math.random(), (float)Math.random(), (float)Math.random(), 0.5F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
 				setDead();
 			}
-			
-			if(diffVec.mag() < 1)
-				setDead();
 
 		}
 		
@@ -237,10 +233,12 @@ public class EntitySkullMissile extends EntityThrowableCopy{
 		switch (pos.typeOfHit) {
 			case BLOCK: {
 				Block block = world.getBlockState(pos.getBlockPos()).getBlock();
-				if(!(block instanceof BlockBush) && !(block instanceof BlockLeaves))
-					setDead();
-				break;
-			}
+				if(block instanceof BlockBush || block instanceof BlockLeaves)
+					return;
+				
+				setDead();
+					break;
+				}
 			case ENTITY: {
 				if (pos.entityHit == getTargetEntity())
 					setDead();

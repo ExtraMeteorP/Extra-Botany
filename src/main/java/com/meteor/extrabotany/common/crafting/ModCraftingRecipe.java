@@ -1,8 +1,10 @@
 package com.meteor.extrabotany.common.crafting;
 
+import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.brew.CocktailRecipe;
+import com.meteor.extrabotany.common.crafting.recipe.brew.HelmRevealingRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRemakeRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.SplashGrenadeRecipe;
@@ -46,6 +48,9 @@ public class ModCraftingRecipe {
 	public static IRecipe MANAGENERATOR;
 	public static IRecipe MANALIQUEFACTION;
 	public static IRecipe EMPTYBOTTLE;
+	public static IRecipe FLYINGBOATMANASTEEL;
+	public static IRecipe FLYINGBOATELEMENTIUM;
+	public static IRecipe FLYINGBOATTERRASTEEL;
 	
 	public static IRecipe CMHELM;
 	public static IRecipe CMCHEST;
@@ -55,6 +60,11 @@ public class ModCraftingRecipe {
 	public static IRecipe COSMCHEST;
 	public static IRecipe COSMLEGS;
 	public static IRecipe COSMBOOTS;
+	
+	public static IRecipe SWHELM;
+	public static IRecipe SWCHEST;
+	public static IRecipe SWLEGS;
+	public static IRecipe SWBOOTS;
 	
 	public static void init() {
 		
@@ -147,6 +157,27 @@ public class ModCraftingRecipe {
 		
 		MANALIQUEFACTION = new ShapedOreRecipe(getResource("recipe_manaliquefaction"), new ItemStack(ModBlocks.manaliquefying), "ABA", "BCB", "ABA", 'B', new ItemStack(Blocks.LAPIS_BLOCK), 'A', LibOreDict.LIVING_ROCK, 'C', new ItemStack(vazkii.botania.common.block.ModBlocks.pool));
 		MANALIQUEFACTION.setRegistryName(getResource("recipe_manaliquefaction"));
+		
+		FLYINGBOATMANASTEEL = new ShapedOreRecipe(getResource("recipe_flyingboatmanasteel"), new ItemStack(ModItems.flyingboat), "C C", "ABA", "AAA", 'A', LibOreDict.MANA_STEEL, 'B', new ItemStack(vazkii.botania.common.item.ModItems.manaTablet), 'C', new ItemStack(Items.DRAGON_BREATH));
+		FLYINGBOATMANASTEEL.setRegistryName(getResource("recipe_flyingboatmanasteel"));
+		
+		FLYINGBOATELEMENTIUM = new ShapedOreRecipe(getResource("recipe_flyingboatelementium"), new ItemStack(ModItems.flyingboat, 1, 1), "ABA", "AAA", 'A', LibOreDict.ELEMENTIUM, 'B', new ItemStack(ModItems.flyingboat));
+		FLYINGBOATELEMENTIUM.setRegistryName(getResource("recipe_flyingboatelementium"));
+		
+		FLYINGBOATTERRASTEEL = new ShapedOreRecipe(getResource("recipe_flyingboatterrasteel"), new ItemStack(ModItems.flyingboat, 1, 2), "ABA", "AAA", 'A', LibOreDict.TERRA_STEEL, 'B', new ItemStack(ModItems.flyingboat, 1, 1));
+		FLYINGBOATTERRASTEEL.setRegistryName(getResource("recipe_flyingboatterrasteel"));
+		
+		SWHELM = new ShapedOreRecipe(getResource("recipe_swhelm"), new ItemStack(ModItems.cosmleg), "AAA", "A A", 'A', new ItemStack(ModItems.material, 1, 5));
+		SWHELM.setRegistryName(getResource("recipe_swhelm"));
+		
+		SWCHEST = new ShapedOreRecipe(getResource("recipe_swchest"), new ItemStack(ModItems.cosmleg), "A A", "AAA", "AAA", 'A', new ItemStack(ModItems.material, 1, 5));
+		SWCHEST.setRegistryName(getResource("recipe_swchest"));
+		
+		SWLEGS = new ShapedOreRecipe(getResource("recipe_swlegs"), new ItemStack(ModItems.cosmleg), "AAA", "A A", "A A", 'A', new ItemStack(ModItems.material, 1, 5));
+		SWLEGS.setRegistryName(getResource("recipe_swlegs"));
+		
+		SWBOOTS = new ShapedOreRecipe(getResource("recipe_swboots"), new ItemStack(ModItems.cosmleg), "A A", "A A", 'A', new ItemStack(ModItems.material, 1, 5));
+		SWBOOTS.setRegistryName(getResource("recipe_swboots"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -155,6 +186,12 @@ public class ModCraftingRecipe {
 		public static void registerRecipes(final RegistryEvent.Register<IRecipe> event) {
 			init();
 			final IForgeRegistry<IRecipe> registry = event.getRegistry();
+			if(ExtraBotany.thaumcraftLoaded) {
+				registry.register(new HelmRevealingRecipe(ModItems.coshelmrevealing, ModItems.cosmhelm)
+						.setRegistryName(LibMisc.MOD_ID, "cosmeticmaidhelm" + "_from_goggles"));
+				registry.register(new HelmRevealingRecipe(ModItems.cmhelmrevealing, ModItems.cmhelm)
+						.setRegistryName(LibMisc.MOD_ID, "combatmaidhelm" + "_from_goggles"));
+			}
 			event.getRegistry().registerAll(
 					PEDESTAL,
 					TERRASTEEL_HAMMER,
@@ -182,7 +219,14 @@ public class ModCraftingRecipe {
 					COSMBOOTS,
 					MANAGENERATOR,
 					MANALIQUEFACTION,
-					EMPTYBOTTLE
+					EMPTYBOTTLE,
+					FLYINGBOATMANASTEEL,
+					FLYINGBOATTERRASTEEL,
+					FLYINGBOATELEMENTIUM,
+					SWHELM,
+					SWCHEST,
+					SWLEGS,
+					SWBOOTS
 			);
 			if(ConfigHandler.ENABLE_SHIELD){
 				event.getRegistry().registerAll(

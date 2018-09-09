@@ -41,6 +41,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.mana.ManaItemHandler;
 
 public class EntityFlyingBoat extends Entity{
     private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.<Integer>createKey(EntityFlyingBoat.class, DataSerializers.VARINT);
@@ -65,6 +66,7 @@ public class EntityFlyingBoat extends Entity{
     private boolean backInputDown;
     private boolean upInputDown;
     private double waterLevel;
+    private int driveticks;
     /**
      * How much the raft should glide given the slippery blocks it's currently gliding over.
      * Halved every tick.
@@ -73,9 +75,6 @@ public class EntityFlyingBoat extends Entity{
     private EntityFlyingBoat.Status status;
     private EntityFlyingBoat.Status previousStatus;
     private double lastYd;
-
-    boolean isTerrasteel = this.getRaftType().getMetadata() == 2;
-    boolean isAdvanced = this.getRaftType().getMetadata() > 0;
     
     public EntityFlyingBoat(World worldIn)
     {
@@ -287,10 +286,30 @@ public class EntityFlyingBoat extends Entity{
         super.onUpdate();
         this.tickLerp();
         this.motionY = 0;
-        if(this.upInputDown)
+        int height = 0;
+        
+        for(int y = 0; y < 255; y ++){
+        	height++;
+        	if(this.getEntityWorld().getBlockState(this.getPosition().add(0, -y, 0)).getBlock() != Blocks.AIR)
+        		break;
+        }
+        
+        boolean isTerrasteel = this.getRaftType() == EntityFlyingBoat.Type.TERRASTEEL;
+        boolean isAdvanced = this.getRaftType() == EntityFlyingBoat.Type.ELEMENTIUM;
+        int maxheight = isTerrasteel ? 255 : isAdvanced ? 64 : 32;
+        
+        if(this.upInputDown && height <= maxheight)
         	this.setPosition(this.posX, this.posY + 0.35F, this.posZ);
         else if(this.getEntityWorld().getBlockState(this.getPosition().add(0, -1, 0)).getBlock() == Blocks.AIR)
         	this.setPosition(this.posX, this.posY - 0.15F, this.posZ);
+        
+        if(!this.getPassengers().isEmpty() && this.getPassengers().get(0) instanceof EntityPlayer){
+        	EntityPlayer player = (EntityPlayer) this.getPassengers().get(0);
+        	
+            if(!ManaItemHandler.requestManaExact(new ItemStack(Items.APPLE), player, 1, true))
+        		this.removePassengers();
+        	
+        }
 
         if (this.canPassengerSteer())
         {
@@ -307,7 +326,7 @@ public class EntityFlyingBoat extends Entity{
                 this.world.sendPacketToServer(new CPacketSteerBoat(this.getPaddleState(0), this.getPaddleState(1)));
             }
 
-            this.move(MoverType.SELF, this.motionX * (isTerrasteel ? 2F : 1F) * (isAdvanced ? 1.5F : 1F), this.motionY, this.motionZ * (isTerrasteel ? 2F : 1F) * (isAdvanced ? 1.5F : 1F));
+            this.move(MoverType.SELF, this.motionX, this.motionY, this.motionZ);
         }
         else
         {
@@ -741,17 +760,19 @@ public class EntityFlyingBoat extends Entity{
             {
                 f += 0.005F;
             }
-
+            
             this.rotationYaw += (this.deltaRotation);
+            boolean isTerrasteel = this.getRaftType() == EntityFlyingBoat.Type.TERRASTEEL;
+            boolean isAdvanced = this.getRaftType() == EntityFlyingBoat.Type.ELEMENTIUM;
 
             if (this.forwardInputDown)
             {	
-                f += 0.05F * 1.65F;
+                f += 0.05F * 1.25F * (isTerrasteel ? 1.6F : 1F) * (isAdvanced ? 1.3F : 1F);
             }
 
             if (this.backInputDown)
             {
-                f -= 0.005F * 1.65F * (isTerrasteel ? 2.5F : 1F) * (isAdvanced ? 1.75F : 1F);
+                f -= 0.005F * 1.45F * (isTerrasteel ? 2.5F : 1F) * (isAdvanced ? 1.75F : 1F);
             }
             
             this.motionX += (double)(MathHelper.sin(-this.rotationYaw * 0.017453292F) * f);

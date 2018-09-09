@@ -25,7 +25,6 @@ import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.handler.ModSounds;
 import vazkii.botania.common.core.helper.PlayerHelper;
 import vazkii.botania.common.core.helper.Vector3;
-import vazkii.botania.common.entity.EntityThrowableCopy;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 
 public class EntityFlowerWeapon extends EntityThrowableCopy{
@@ -307,4 +306,5 @@ public class EntityFlowerWeapon extends EntityThrowableCopy{
 	public void setRotation(float rot) {
 		dataManager.set(ROTATION, rot);
 	}
+
 }

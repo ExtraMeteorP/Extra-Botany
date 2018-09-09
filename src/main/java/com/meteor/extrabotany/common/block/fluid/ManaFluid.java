@@ -10,11 +10,9 @@ public class ManaFluid extends Fluid{
 
     public ManaFluid(String fluidName) {
         super(fluidName, new ResourceLocation(LibMisc.MOD_ID, "blocks/fluid/" + fluidName + "_still"), new ResourceLocation(LibMisc.MOD_ID, "blocks/fluid/" + fluidName + "_flow"));
-    }
-    
-    @Override
-    public int getTemperature(FluidStack stack){
-        return 100;
+        this.setViscosity(1200);
+        this.setTemperature(100);
+        this.setLuminosity(12);
     }
 
 }

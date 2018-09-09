@@ -34,7 +34,6 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 	@Override
 	public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 		this.list = list;
-		addItem(ModItems.flyingboat);
 		addBlock(ModBlocks.blockspecial);
 		addBlock(ModBlocks.pedestal);
 		addItem(ModItems.hammermanasteel);
@@ -48,6 +47,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 			addItem(ModItems.elementiumshield);
 			addItem(ModItems.terrasteelshield);
 		}
+		addItem(ModItems.flyingboat);
 		addItem(ModItems.froststar);
 		addItem(ModItems.deathring);
 		addItem(ModItems.kinggarden);
@@ -59,6 +59,16 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.cmchest);
 		addItem(ModItems.cmleg);
 		addItem(ModItems.cmboot);
+		addItem(ModItems.swhelm);
+		addItem(ModItems.swchest);
+		addItem(ModItems.swleg);
+		addItem(ModItems.swboot);
+		addItem(ModItems.shadowkatana);
+		addItem(ModItems.cmchestdarkened);
+		if(ExtraBotany.thaumcraftLoaded){
+			addItem(ModItems.coshelmrevealing);
+			addItem(ModItems.cmhelmrevealing);
+		}
 		addItem(ModItems.nightmareFuel);
 		addItem(ModItems.spiritFuel);
 		addItem(ModItems.material);

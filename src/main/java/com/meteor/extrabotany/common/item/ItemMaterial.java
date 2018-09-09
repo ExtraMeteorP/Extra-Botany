@@ -27,7 +27,7 @@ import vazkii.botania.common.block.tile.mana.TilePool;
 
 public class ItemMaterial extends ItemMod implements IFlowerComponent{
 	
-	final int types = 5;
+	final int types = 6;
 
 	public ItemMaterial() {
 		super(LibItemsName.MATERIAL);

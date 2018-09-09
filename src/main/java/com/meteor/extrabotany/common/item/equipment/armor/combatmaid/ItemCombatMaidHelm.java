@@ -1,9 +1,12 @@
 package com.meteor.extrabotany.common.item.equipment.armor.combatmaid;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
+
+import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketRemoveEntityEffect;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -23,10 +27,26 @@ import vazkii.botania.api.mana.IManaGivingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 
 public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDiscountArmor, IManaGivingItem{
+	
+	public List<DamageSource> source = new ArrayList();
 
 	public ItemCombatMaidHelm() {
-		super(EntityEquipmentSlot.HEAD, "combatmaidhelm");
+		this(LibItemsName.CMHELM);
 		MinecraftForge.EVENT_BUS.register(this);
+		source.add(DamageSource.ANVIL);
+		source.add(DamageSource.CACTUS);
+		source.add(DamageSource.DROWN);
+		source.add(DamageSource.FALL);
+		source.add(DamageSource.FALLING_BLOCK);
+		source.add(DamageSource.IN_FIRE);
+		source.add(DamageSource.LAVA);
+		source.add(DamageSource.ON_FIRE);
+		source.add(DamageSource.LIGHTNING_BOLT);
+		source.add(DamageSource.WITHER);
+	}
+	
+	public ItemCombatMaidHelm(String name) {
+		super(EntityEquipmentSlot.HEAD, name);
 	}
 	
 	@Override
@@ -73,6 +93,18 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDisc
 					event.setAmount(event.getAmount() + 10F);
 				if(player.shouldHeal())
 					player.heal(event.getAmount()/5F);
+			}	
+		}
+	}
+	
+	@SubscribeEvent
+	public void onPlayerAttacked(LivingHurtEvent event) {
+		Entity target = event.getEntityLiving();
+		if(target instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) target;
+			if(hasArmorSet(player)) {
+				if(source.contains(event.getSource()))
+					event.setAmount(0);
 			}	
 		}
 	}

@@ -7,12 +7,19 @@ import com.meteor.extrabotany.common.item.brew.ItemBrewInfiniteWine;
 import com.meteor.extrabotany.common.item.brew.ItemBrewSplashGrenade;
 import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidBoots;
 import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidChest;
+import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidChestDarkened;
 import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidHelm;
+import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidHelmRevealing;
 import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidLegs;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidBoots;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidChest;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidHelm;
+import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidHelmRevealing;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidLegs;
+import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorBoots;
+import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorChest;
+import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorHelm;
+import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorLegs;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemDeathRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemFrostStar;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemElementiumShield;
@@ -24,6 +31,7 @@ import com.meteor.extrabotany.common.item.equipment.tool.ItemHammerUltimate;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemManaReader;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemShadowKatana;
 import com.meteor.extrabotany.common.item.record.ItemRecordA;
 import com.meteor.extrabotany.common.item.relic.ItemAchilleshield;
 import com.meteor.extrabotany.common.item.relic.ItemCamera;
@@ -84,11 +92,20 @@ public class ModItems {
 	public static final Item cmchest = new ItemCombatMaidChest();
 	public static final Item cmleg = new ItemCombatMaidLegs();
 	public static final Item cmboot = new ItemCombatMaidBoots();
+	public static final Item cmhelmrevealing = new ItemCombatMaidHelmRevealing();
+	public static final Item cmchestdarkened = new ItemCombatMaidChestDarkened();
 	
 	public static final Item cosmhelm = new ItemCosmeticMaidHelm();
 	public static final Item cosmchest = new ItemCosmeticMaidChest();
 	public static final Item cosmleg = new ItemCosmeticMaidLegs();
 	public static final Item cosmboot = new ItemCosmeticMaidBoots();
+	public static final Item coshelmrevealing = new ItemCosmeticMaidHelmRevealing();
+	
+	public static final Item swhelm = new ItemShadowWarriorHelm();
+	public static final Item swchest = new ItemShadowWarriorChest();
+	public static final Item swleg = new ItemShadowWarriorLegs();
+	public static final Item swboot = new ItemShadowWarriorBoots();
+	public static final Item shadowkatana = new ItemShadowKatana();
 	
 	public static final Item flyingboat = new ItemFlyingBoat();
 	
@@ -135,6 +152,14 @@ public class ModItems {
 		r.register(cocktail);
 		r.register(infinitewine);
 		r.register(flyingboat);
+		r.register(coshelmrevealing);
+		r.register(cmhelmrevealing);
+		r.register(swboot);
+		r.register(swchest);
+		r.register(swhelm);
+		r.register(swleg);
+		r.register(cmchestdarkened);
+		r.register(shadowkatana);
 		registerOreDictionary();
 	}
 	

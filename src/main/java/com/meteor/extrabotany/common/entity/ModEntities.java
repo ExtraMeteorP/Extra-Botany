@@ -18,6 +18,7 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(makeName("magicarrow"), EntityMagicArrow.class, "extrabotany:magicarrow", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("splashgrenade"), EntitySplashGrenade.class, "extrabotany:splashgrenade", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("fb"), EntityFlyingBoat.class, "extrabotany:fb", id++, ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("darkpixie"), EntityDarkPixie.class, "extrabotany:darkpixie", id++, ExtraBotany.instance, 64, 10, true);
 	}
 	
 	private static ResourceLocation makeName(String s) {

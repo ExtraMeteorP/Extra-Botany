@@ -86,7 +86,7 @@ public class ItemNatureOrb extends ItemBauble implements INatureOrb{
 		if(isInCreativeTab(tab)) {
 			list.add(new ItemStack(this));
 			ItemStack s = new ItemStack(this);
-			setXP(s, max);
+			setXP(s, getMaxXP(s));
 			list.add(s);
 		}
 	}
@@ -137,12 +137,12 @@ public class ItemNatureOrb extends ItemBauble implements INatureOrb{
 
 	@Override
 	public double getDurabilityForDisplay(ItemStack stack) {
-		return 1.0 - (float) getXP(stack) / (float) max;
+		return 1.0 - (float) getXP(stack) / (float) getMaxXP(stack);
 	}
 	
     @Override
 	public void addXP(ItemStack stack, int xp){
-		setXP(stack, Math.min(Math.max(getXP(stack) + xp, 0), max));
+		setXP(stack, Math.min(Math.max(getXP(stack) + xp, 0), getMaxXP(stack)));
 	}
 	
     @Override
@@ -158,6 +158,21 @@ public class ItemNatureOrb extends ItemBauble implements INatureOrb{
 	@Override
 	public BaubleType getBaubleType(ItemStack arg0) {
 		return BaubleType.CHARM;
+	}
+
+	@Override
+	public int getMaxXP(ItemStack stack) {
+		return max;
+	}
+
+	@Override
+	public boolean canExportTo(ItemStack stack, ItemStack otherstack) {
+		return true;
+	}
+
+	@Override
+	public boolean canReceiveFrom(ItemStack stack, ItemStack otherstack) {
+		return true;
 	}
 
 }

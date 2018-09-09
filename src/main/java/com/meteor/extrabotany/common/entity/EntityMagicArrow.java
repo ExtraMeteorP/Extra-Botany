@@ -15,7 +15,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
-import vazkii.botania.common.entity.EntityThrowableCopy;
 
 public class EntityMagicArrow extends EntityThrowableCopy{
 	

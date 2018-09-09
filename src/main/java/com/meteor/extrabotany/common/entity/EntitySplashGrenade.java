@@ -18,7 +18,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.brew.IBrewItem;
-import vazkii.botania.common.entity.EntityThrowableCopy;
 
 public class EntitySplashGrenade extends EntityThrowableCopy{
 	
@@ -173,4 +172,5 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
             this.setItem(itemstack);
         }
 	}
+
 }

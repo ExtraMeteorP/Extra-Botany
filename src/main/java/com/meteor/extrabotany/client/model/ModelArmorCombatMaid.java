@@ -31,7 +31,10 @@ public class ModelArmorCombatMaid extends ModelArmor{
 	private final ModelRenderer b2;
 	
     private final ModelRenderer legL;
-    private final ModelRenderer legR;
+    private final ModelRenderer legR; 
+	
+    private final ModelRenderer legLeft;
+    private final ModelRenderer legRight;
     
     private final ModelRenderer bootL;
     private final ModelRenderer bootR;
@@ -112,6 +115,18 @@ public class ModelArmorCombatMaid extends ModelArmor{
         this.pantsAnchor = new ModelRenderer(this, 0, 0);
         this.pantsAnchor.setRotationPoint(0.0F, 0.0F, 0.0F);
         this.pantsAnchor.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, s);
+        this.legR = new ModelRenderer(this, 0, 0);
+        this.legR.addBox(-2F, 0F, -2F, 0, 0, 0, s);
+        this.legR.setRotationPoint(-2F, 12F, 0F);
+        this.legR.setTextureSize(64, 32);
+        this.legR.mirror = true;
+        this.setRotateAngle(legR, 0F, 0F, 0F);
+        this.legL = new ModelRenderer(this, 0, 0);
+        this.legL.addBox(-2F, 0F, -2F, 0, 0, 0, s);
+        this.legL.setRotationPoint(2F, 12F, 0F);
+        this.legL.setTextureSize(64, 32);
+        this.legL.mirror = true;
+        this.setRotateAngle(legL, 0F, 0F, 0F);
         
         this.b2 = new ModelRenderer(this, 1, 32);
         this.b2.addBox(0F, 0F, 0F, 6, 4, 1);
@@ -150,18 +165,18 @@ public class ModelArmorCombatMaid extends ModelArmor{
         this.a1.mirror = true;
         this.setRotateAngle(a1, 0.3490659F, 0F, 0F);
                 
-        this.legR = new ModelRenderer(this, 0, 16);
-        this.legR.addBox(-2F, 0F, -2F, 4, 12, 4, s);
-        this.legR.setRotationPoint(-2F, 12F, 0F);
-        this.legR.setTextureSize(64, 32);
-        this.legR.mirror = true;
-        this.setRotateAngle(legR, 0F, 0F, 0F);
-        this.legL = new ModelRenderer(this, 0, 16);
-        this.legL.addBox(-2F, 0F, -2F, 4, 12, 4, s);
-        this.legL.setRotationPoint(2F, 12F, 0F);
-        this.legL.setTextureSize(64, 32);
-        this.legL.mirror = true;
-        this.setRotateAngle(legL, 0F, 0F, 0F);
+        this.legRight = new ModelRenderer(this, 0, 16);
+        this.legRight.addBox(-2F, 0F, -2F, 4, 12, 4, s);
+        this.legRight.setRotationPoint(0F, 0F, 0F);
+        this.legRight.setTextureSize(64, 32);
+        this.legRight.mirror = true;
+        this.setRotateAngle(legRight, 0F, 0F, 0F);
+        this.legLeft = new ModelRenderer(this, 0, 16);
+        this.legLeft.addBox(-2F, 0F, -2F, 4, 12, 4, s);
+        this.legLeft.setRotationPoint(0F, 0F, 0F);
+        this.legLeft.setTextureSize(64, 32);
+        this.legLeft.mirror = true;
+        this.setRotateAngle(legLeft, 0F, 0F, 0F);
         
         //boots
         this.bootL = new ModelRenderer(this, 0, 0);
@@ -182,18 +197,16 @@ public class ModelArmorCombatMaid extends ModelArmor{
        
         this.armLAnchor.addChild(this.left);
         this.armRAnchor.addChild(this.right);
-
-        
+       
         this.pantsAnchor.addChild(this.a1);
         this.pantsAnchor.addChild(this.a2);
         this.pantsAnchor.addChild(this.a3);
         this.pantsAnchor.addChild(this.a4);
         this.pantsAnchor.addChild(this.b1);
         this.pantsAnchor.addChild(this.b2);
-
-        
-        this.bootL.addChild(this.legL);
-        this.bootR.addChild(this.legR);
+      
+        this.bootL.addChild(this.legLeft);
+        this.bootR.addChild(this.legRight);
 	}
 
 	@Override

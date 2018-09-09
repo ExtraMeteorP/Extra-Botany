@@ -1,7 +1,10 @@
 package com.meteor.extrabotany.api.orb;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import com.meteor.extrabotany.api.item.INatureOrb;
 
@@ -10,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import vazkii.botania.api.BotaniaAPI;
 
 public class OrbItemHandler {
 	
@@ -36,6 +40,29 @@ public class OrbItemHandler {
 		return toReturn;
 	}
 	
+	public static Map<Integer, ItemStack> getOrbBaubles(EntityPlayer player) {
+		if (player == null)
+			return new HashMap<Integer, ItemStack>();
+
+		IItemHandler baublesInv = BotaniaAPI.internalHandler.getBaublesInventoryWrapped(player);
+		if (baublesInv == null)
+			return new HashMap<Integer, ItemStack>();
+
+
+		Map<Integer, ItemStack> toReturn = new HashMap<Integer, ItemStack>();
+		int size = baublesInv.getSlots();
+
+		for(int slot = 0; slot < size; slot++) {
+			ItemStack stackInSlot = baublesInv.getStackInSlot(slot);
+
+			if(!stackInSlot.isEmpty() && stackInSlot.getItem() instanceof INatureOrb) {
+				toReturn.put(slot, stackInSlot);
+			}
+		}
+
+		return toReturn;
+	}
+	
 	public static int requestNature(ItemStack stack, EntityPlayer player, int xpToGet, boolean remove) {
 		if(stack.isEmpty())
 			return 0;
@@ -45,7 +72,7 @@ public class OrbItemHandler {
 			if(stackInSlot == stack)
 				continue;
 				INatureOrb orb = (INatureOrb) stackInSlot.getItem();
-				if(stack.getItem() instanceof INatureOrb)
+				if(stack.getItem() instanceof INatureOrb && !((INatureOrb) stack.getItem()).canReceiveFrom(stack, stackInSlot))
 					continue;
 				
 				if(orb.getXP(stackInSlot) < xpToGet)
@@ -56,6 +83,27 @@ public class OrbItemHandler {
 
 				return xpToGet;
 			}
+		
+		Map<Integer, ItemStack> baubles = getOrbBaubles(player);
+		for (Entry<Integer, ItemStack> entry : baubles.entrySet()) {
+			ItemStack stackInSlot = entry.getValue();
+			if(stackInSlot == stack)
+				continue;
+			INatureOrb manaItem = (INatureOrb) stackInSlot.getItem();
+			if(manaItem.getXP(stackInSlot) > 0) {
+				if(stack.getItem() instanceof INatureOrb && !((INatureOrb) stack.getItem()).canReceiveFrom(stack, stackInSlot))
+					continue;
+
+				int mana = Math.min(xpToGet, manaItem.getXP(stackInSlot));
+
+				if(remove)
+					manaItem.addXP(stackInSlot, -mana);
+
+				BotaniaAPI.internalHandler.sendBaubleUpdatePacket(player, entry.getKey());
+
+				return mana;
+			}
+		}
 
 		return 0;
 	}
@@ -69,7 +117,7 @@ public class OrbItemHandler {
 			if(stackInSlot == stack)
 				continue;
 				INatureOrb orb = (INatureOrb) stackInSlot.getItem();
-				if(stack.getItem() instanceof INatureOrb)
+				if(stack.getItem() instanceof INatureOrb && !((INatureOrb) stack.getItem()).canReceiveFrom(stack, stackInSlot))
 					continue;
 				
 				if(orb.getXP(stackInSlot) < xpToGet)
@@ -80,6 +128,118 @@ public class OrbItemHandler {
 
 				return true;
 			}
+		
+		Map<Integer, ItemStack> baubles = getOrbBaubles(player);
+		for (Entry<Integer, ItemStack> entry : baubles.entrySet()) {
+			ItemStack stackInSlot = entry.getValue();
+			if(stackInSlot == stack)
+				continue;
+			INatureOrb manaItemSlot = (INatureOrb) stackInSlot.getItem();
+			if(manaItemSlot.getXP(stackInSlot) > xpToGet) {
+				if(stack.getItem() instanceof INatureOrb && !((INatureOrb) stack.getItem()).canReceiveFrom(stack, stackInSlot))
+					continue;
+
+				if(remove)
+					manaItemSlot.addXP(stackInSlot, -xpToGet);
+				BotaniaAPI.internalHandler.sendBaubleUpdatePacket(player, entry.getKey());
+
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
+	public static int dispatchMana(ItemStack stack, EntityPlayer player, int xpToSend, boolean add) {
+		if(stack.isEmpty())
+			return 0;
+
+		List<ItemStack> items = getOrbItems(player);
+		for (ItemStack stackInSlot : items) {
+			if(stackInSlot == stack)
+				continue;
+			INatureOrb manaItemSlot = (INatureOrb) stackInSlot.getItem();
+			if(manaItemSlot.canReceiveFrom(stackInSlot, stack)) {
+				if(stack.getItem() instanceof INatureOrb && !((INatureOrb) stack.getItem()).canExportTo(stack, stackInSlot))
+					continue;
+
+				int received;
+				if(manaItemSlot.getXP(stackInSlot) + xpToSend <= manaItemSlot.getMaxXP(stackInSlot))
+					received = xpToSend;
+				else received = xpToSend - (manaItemSlot.getXP(stackInSlot) + xpToSend - manaItemSlot.getMaxXP(stackInSlot));
+
+
+				if(add)
+					manaItemSlot.addXP(stackInSlot, xpToSend);
+
+				return received;
+			}
+		}
+
+		Map<Integer, ItemStack> baubles = getOrbBaubles(player);
+		for (Entry<Integer, ItemStack> entry : baubles.entrySet()) {
+			ItemStack stackInSlot = entry.getValue();
+			if(stackInSlot == stack)
+				continue;
+			INatureOrb manaItemSlot = (INatureOrb) stackInSlot.getItem();
+			if(manaItemSlot.canReceiveFrom(stackInSlot, stack)) {
+				if(stack.getItem() instanceof INatureOrb && !((INatureOrb) stack.getItem()).canExportTo(stack, stackInSlot))
+					continue;
+
+				int received;
+				if(manaItemSlot.getXP(stackInSlot) + xpToSend <= manaItemSlot.getMaxXP(stackInSlot))
+					received = xpToSend;
+				else received = xpToSend - (manaItemSlot.getXP(stackInSlot) + xpToSend - manaItemSlot.getMaxXP(stackInSlot));
+
+
+				if(add)
+					manaItemSlot.addXP(stackInSlot, xpToSend);
+				BotaniaAPI.internalHandler.sendBaubleUpdatePacket(player, entry.getKey());
+
+				return received;
+			}
+		}
+
+		return 0;
+	}
+
+	public static boolean dispatchManaExact(ItemStack stack, EntityPlayer player, int xpToSend, boolean add) {
+		if(stack.isEmpty())
+			return false;
+
+		List<ItemStack> items = getOrbItems(player);
+		for (ItemStack stackInSlot : items) {
+			if(stackInSlot == stack)
+				continue;
+			INatureOrb manaItemSlot = (INatureOrb) stackInSlot.getItem();
+			if(manaItemSlot.getXP(stackInSlot) + xpToSend <= manaItemSlot.getMaxXP(stackInSlot) && manaItemSlot.canReceiveFrom(stackInSlot, stack)) {
+				if(stack.getItem() instanceof INatureOrb && !((INatureOrb) stack.getItem()).canExportTo(stack, stackInSlot))
+					continue;
+
+				if(add)
+					manaItemSlot.addXP(stackInSlot, xpToSend);
+
+				return true;
+			}
+		}
+
+		Map<Integer, ItemStack> baubles = getOrbBaubles(player);
+		for (Entry<Integer, ItemStack> entry : baubles.entrySet()) {
+			ItemStack stackInSlot = entry.getValue();
+			if(stackInSlot == stack)
+				continue;
+			INatureOrb manaItemSlot = (INatureOrb) stackInSlot.getItem();
+			if(manaItemSlot.getXP(stackInSlot) + xpToSend <= manaItemSlot.getMaxXP(stackInSlot) && manaItemSlot.canReceiveFrom(stackInSlot, stack)) {
+				if(stack.getItem() instanceof INatureOrb && !((INatureOrb) stack.getItem()).canExportTo(stack, stackInSlot))
+					continue;
+
+				if(add)
+					manaItemSlot.addXP(stackInSlot, xpToSend);
+				BotaniaAPI.internalHandler.sendBaubleUpdatePacket(player, entry.getKey());
+
+				return true;
+			}
+		}
 
 		return false;
 	}

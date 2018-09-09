@@ -95,7 +95,7 @@ public class ItemKingGarden extends ItemMod implements IManaUsingItem {
 	public void onUsingTick(ItemStack stack, EntityLivingBase living, int count) {
 		int spawned = getWeaponsSpawned(stack);
 
-		if(count != getMaxItemUseDuration(stack) && spawned < getType(stack).length && !living.world.isRemote && (!(living instanceof EntityPlayer) || ManaItemHandler.requestManaExact(stack, (EntityPlayer) living, 100, true))) {
+		if(count != getMaxItemUseDuration(stack) && spawned < getType(stack).length && !living.world.isRemote && (!(living instanceof EntityPlayer) || ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) living, 100, true))) {
 			Vector3 look = new Vector3(living.getLookVec()).multiply(1, 0, 1);
 			
 			double playerRot = Math.toRadians(living.rotationYaw + 90);

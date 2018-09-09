@@ -9,7 +9,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.meteor.extrabotany.common.CommonProxy;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import crafttweaker.CraftTweakerAPI;
@@ -33,7 +32,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ExtraBotany{
     public static final String MODID = "extrabotany";
     public static final String NAME = "extrabotany";
-    public static final String VERSION = "40";
+    public static final String VERSION = "41";
 
     public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
     
@@ -50,6 +49,8 @@ public class ExtraBotany{
 	
 	@Instance(LibMisc.MOD_ID)
 	public static ExtraBotany instance;
+	
+	public static boolean thaumcraftLoaded = false;
 	
 	public static void addSubTileToCreativeMenu(String key) {
 		subtilesForCreativeMenu.add(key);
@@ -73,12 +74,14 @@ public class ExtraBotany{
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
     	proxy.preInit(event);
-    	ConfigHandler.INSTANCE.loadConfig(event);
-    	 keyForward = Minecraft.getMinecraft().gameSettings.keyBindForward;
-         keyBackward = Minecraft.getMinecraft().gameSettings.keyBindBack;
-         keyLeft = Minecraft.getMinecraft().gameSettings.keyBindLeft;
-         keyRight = Minecraft.getMinecraft().gameSettings.keyBindRight;
-         keyUp = Minecraft.getMinecraft().gameSettings.keyBindJump;
+    	thaumcraftLoaded = Loader.isModLoaded("thaumcraft");
+    	if(event.getSide().isClient()){
+	    	keyForward = Minecraft.getMinecraft().gameSettings.keyBindForward;
+	        keyBackward = Minecraft.getMinecraft().gameSettings.keyBindBack;
+	        keyLeft = Minecraft.getMinecraft().gameSettings.keyBindLeft;
+	        keyRight = Minecraft.getMinecraft().gameSettings.keyBindRight;
+	        keyUp = Minecraft.getMinecraft().gameSettings.keyBindJump;
+    	}
     	logger.info("Welcome to the World of the supreme principle of Mana");
     }
 

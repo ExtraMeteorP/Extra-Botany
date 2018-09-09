@@ -1,0 +1,57 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+    "textures": {
+		"0": "extrabotany:items/shadowkatana"
+    },
+    "elements": [
+        {
+            "name": "sword",
+            "from": [ 8.0, 4.0, 8.0 ], 
+            "to": [ 9.0, 24.0, 10.0 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 15.0, 0.0, 16.0, 16.0 ] },
+                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 2.0, 16.0 ] },
+                "south": { "texture": "#0", "uv": [ 15.0, 0.0, 16.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 2.0, 16.0 ] },
+                "up": { "texture": "#0", "uv": [ 10.0, 0.0, 11.0, 2.0 ] },
+                "down": { "texture": "#0", "uv": [ 10.0, 2.0, 11.0, 4.0 ] }
+            }
+        },
+        {
+            "name": "handle",
+            "from": [ 7.5, 8.0, 7.5 ], 
+            "to": [ 9.5, 9.0, 10.5 ], 
+            "faces": {
+                "north": { "texture": "#0", "uv": [ 4.0, 0.0, 6.0, 1.0 ] },
+                "east": { "texture": "#0", "uv": [ 4.0, 1.0, 7.0, 2.0 ] },
+                "south": { "texture": "#0", "uv": [ 4.0, 2.0, 6.0, 3.0 ] },
+                "west": { "texture": "#0", "uv": [ 4.0, 3.0, 7.0, 4.0 ] },
+                "up": { "texture": "#0", "uv": [ 4.0, 4.0, 6.0, 7.0 ] },
+                "down": { "texture": "#0", "uv": [ 4.0, 4.0, 6.0, 7.0 ] }
+            }
+        }
+    ],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [ 1, 1.35, 1 ]
+		},
+		"thirdperson_lefthand": {
+			"scale": [ 1, 1.35, 1 ]
+		},
+		"firstperson_righthand": {
+			"scale": [ 1, 1.35, 1 ]
+		},
+		"firstperson_lefthand": {
+			"scale": [ 1, 1.35, 1 ]
+		},
+		"gui": {
+			"scale": [ 1,1,1 ]
+		},
+		"fixed": {
+			"scale": [ 0.5, 0.5, 0.5 ]
+		},
+		"ground": {
+			"scale": [ 1, 1, 1 ]
+		}
+	}
+}

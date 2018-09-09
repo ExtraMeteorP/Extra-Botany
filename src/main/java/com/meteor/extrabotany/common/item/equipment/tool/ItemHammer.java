@@ -38,7 +38,7 @@ public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer {
 	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5) {
 		super.onUpdate(stack, world, entity, par4, par5);
 		if(!(stack.getItem() instanceof ItemHammerUltimate))
-			if(!world.isRemote && entity.ticksExisted % 10 == 0 && ManaItemHandler.requestManaExact(stack, (EntityPlayer)entity, 60, true)){
+			if(!world.isRemote && entity.ticksExisted % 10 == 0 && ManaItemHandler.requestManaExact(stack, (EntityPlayer)entity, 60, true) && stack.getItemDamage() > 0){
 				stack.setItemDamage(stack.getItemDamage() - 1);
 			}
 	}

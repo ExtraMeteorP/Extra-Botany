@@ -13,6 +13,7 @@ item.extrabotany:binder.name=Position Reader
 item.extrabotany:spiritfuel.name=Spirit Fuel
 item.extrabotany:spirit.name=Spirit Fragment
 item.extrabotany:nightmarefuel.name=Nightmare Fuel
+item.extrabotany:shadowium.name=Shadowium
 item.extrabotany:friedchicken.name=Fried Chicken Leg
 item.extrabotany:ingotorichalcos.name=Orichalcos Ingot
 item.extrabotany:goldpotato.name=Gilded Potato
@@ -31,6 +32,9 @@ item.extrabotany:manadrink.name=Mana Cocktail
 item.extrabotany:splashgrenade.name=Holy Grenade
 item.extrabotany:cocktail.name=Special-made Cocktail
 item.extrabotany:infinitewine.name=Infinite Wine
+item.extrabotany:boat_manasteel.name=Manasteel Airship
+item.extrabotany:boat_elementium.name=Elementium Airship
+item.extrabotany:boat_terrasteel.name=Terrasteel Airship
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
@@ -55,12 +59,23 @@ item.extrabotany:cosmeticmaidhelm.name=Starry Idol Headgear
 item.extrabotany:cosmeticmaidchest.name=Starry Idol Suit
 item.extrabotany:cosmeticmaidlegs.name=Starry Idol Skirt
 item.extrabotany:cosmeticmaidboots.name=Starry Idol Boots
+item.extrabotany:combatmaidhelmrevealing.name=Pleiades Combat Maid Headgear of Revealing
+item.extrabotany:cosmeticmaidhelmrevealing.name=Starry Idol Headgear of Revealing
+item.extrabotany:combatmaidchestdarkened.name=Shadow Pleiades Combat Maid Suit
+item.extrabotany:shadowwarriorhelm.name=Shadow Warrior Helmet
+item.extrabotany:shadowwarriorchest.name=Shadow Warrior Chestplate
+item.extrabotany:shadowwarriorlegs.name=Shadow Warrior Leggings
+item.extrabotany:shadowwarriorboots.name=Shadow Warrior Boots
+item.extrabotany:shadowkatana.name=Shadow Katana
 item.extrabotany:.name=
 
 extrabotany.armorset.cosmeticmaid.desc0=Super Mana Affinity
 extrabotany.armorset.combatmaid.desc0=Super Power when empty-handed
 extrabotany.armorset.combatmaid.desc1=Greater Regeneration
 extrabotany.armorset.combatmaid.desc2=Mana Affinity
+extrabotany.armorset.shadowwarrior.desc0=This night is so frightful and boundless. That my eyes come down with gloomy darkness.
+extrabotany.armorset.shadowwarrior.desc1=But just by them both. I am seeking my rosiness
+extrabotany.armorset.shadowwarrior.name=Shadow Warrior
 extrabotany.armorset.cosmeticmaid.name=Starry Idol
 extrabotany.armorset.combatmaid.name=Pleiades Combat Maid
 
@@ -77,6 +92,7 @@ entity.extrabotany:skullmissile.name=Skull Missile
 entity.extrabotany:skulllandmine.name=Skull Landmine
 entity.extrabotany:skullminion.name=Skull Minion
 entity.extrabotany:magicarrow.name=Magic Arrow
+entity.extrabotany:fb.name=Airship
 entity.extrabotany:.name=
 
 extrabotanymisc.hammer=Forge
@@ -109,7 +125,8 @@ tile.botania:flower.enchantedorchid.reference=I have no time playing games
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
-fluid.mana=Fluided Mana
+fluid.fluidedmana=Fluided Mana
+tile.fluidedmana.name=Fluided Mana
 
 itemGroup.extrabotany=ExtraBotany
 

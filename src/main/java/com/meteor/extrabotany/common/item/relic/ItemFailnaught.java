@@ -83,7 +83,7 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
         EntityPlayer player = (EntityPlayer) entity;
         int i = (int) ((getMaxItemUseDuration(stack) - timeLeft) * chargeVelocityMultiplier());
         int rank = i / 15;
-        if(isRightPlayer(player, stack) && ManaItemHandler.requestManaExact(stack, player, Math.min(480, 220 + rank * 50), true)){
+        if(isRightPlayer(player, stack) && ManaItemHandler.requestManaExactForTool(stack, player, Math.min(480, 220 + rank * 50), true)){
         	EntityMagicArrow arrow = new EntityMagicArrow(world, player);
         	arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
         	arrow.setDamage(Math.min(50, 5 + rank * 8));

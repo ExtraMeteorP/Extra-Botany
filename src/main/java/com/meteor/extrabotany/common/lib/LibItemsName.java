@@ -50,6 +50,25 @@ public class LibItemsName {
 	public static final String BAUBLE_DEATHRING = "deathring";
 	public static final String BAUBLE_MASTERMANARING = "mastermanaring";
 	
+	public static final String CMHELM = "combatmaidhelm";
+	public static final String CMCHEST = "combatmaidchest";
+	public static final String CMLEGS = "combatmaidlegs";
+	public static final String CMBOOTS = "combatmaidboots";
+	public static final String CMHELMREVEALING = "combatmaidhelmrevealing";
+	public static final String CMCHESTDARKENED = "combatmaidchestdarkened";
+	
+	public static final String COSMHELM = "cosmeticmaidhelm";
+	public static final String COSMCHEST = "cosmeticmaidchest";
+	public static final String COSMLEGS = "cosmeticmaidlegs";
+	public static final String COSMBOOTS = "cosmeticmaidboots";
+	public static final String COSMHELMREVEALING = "cosmeticmaidhelmrevealing";
+	
+	public static final String SWHELM = "shadowwarriorhelm";
+	public static final String SWCHEST = "shadowwarriorchest";
+	public static final String SWLEGS = "shadowwarriorlegs";
+	public static final String SWBOOTS = "shadowwarriorboots";
+	public static final String SHADOWKATANA = "shadowkatana";
+	
 	public static final String[] FLYING_BOAT_NAMES = new String[] {
 			"boat_manasteel",
 			"boat_elementium",
@@ -62,6 +81,11 @@ public class LibItemsName {
 		"goldpotato",
 		"heromedal",
 		"emptybottle",
+		"shadowium",
+		"corebase",
+		"coremanasteel",
+		"coreelementium",
+		"coreterrasteel"
 	};
 	
 }

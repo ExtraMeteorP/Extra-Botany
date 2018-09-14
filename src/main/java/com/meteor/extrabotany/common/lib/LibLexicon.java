@@ -31,12 +31,14 @@ public class LibLexicon {
 	public static final String GRENADE = "splashgrenade";
 	public static final String INFINITEWINE = "infinitewine";
 	public static final String FLYINGBOAT = "flyingboat";
+	public static final String ELFJAR = "elfjar";
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";
 	
 	public static final String ARMOR_COMBAT = "combatmaid";
 	public static final String ARMOR_COSMETIC = "cosmeticmaid";
+	public static final String ARMOR_SHADOW = "shadowwarrior";
 	
 	public static final String GAIA_III = "gaia3";
 	public static final String NATUREORB = "natureorb";

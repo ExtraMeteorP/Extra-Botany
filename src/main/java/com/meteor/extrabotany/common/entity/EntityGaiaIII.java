@@ -16,7 +16,7 @@ import org.lwjgl.opengl.ARBShaderObjects;
 import com.google.common.base.Optional;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;

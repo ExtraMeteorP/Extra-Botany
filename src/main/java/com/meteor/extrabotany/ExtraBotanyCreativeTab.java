@@ -3,7 +3,7 @@ package com.meteor.extrabotany;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.block.ModBlocks;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.ModItems;
 
 import net.minecraft.block.Block;
@@ -80,6 +80,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addBlock(ModBlocks.batterybox);
 		addBlock(ModBlocks.managenerator);
 		addBlock(ModBlocks.manaliquefying);
+		addBlock(ModBlocks.elfjar);
 		addBlock(ModBlocks.cocoondesire);
 		addItem(ModItems.rewardbag);
 		addItem(ModItems.treasure);

@@ -2,7 +2,7 @@ package com.meteor.extrabotany.common;
 
 import com.meteor.extrabotany.common.block.fluid.ModFluid;
 import com.meteor.extrabotany.common.brew.ModBrew;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.ToolTipHandler;
 import com.meteor.extrabotany.common.crafting.ModRecipe;
 import com.meteor.extrabotany.common.entity.ModEntities;
@@ -44,6 +44,8 @@ public class CommonProxy {
 			if(ConfigHandler.ENABLE_WAILAMANABUFFER)
 				FMLInterModComms.sendMessage("waila", "register", "com.meteor.extrabotany.client.integration.waila.WailaManaBuffer.register");
 		}
+		if(ConfigHandler.ENABLE_TOP)
+			FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe", "com.meteor.extrabotany.client.integration.theoneprobe.TOPHandler");
 	}
 	
 	public void postInit(FMLPostInitializationEvent event) {

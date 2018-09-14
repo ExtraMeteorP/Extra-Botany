@@ -1,8 +1,12 @@
-package com.meteor.extrabotany.common.core.handler;
+package com.meteor.extrabotany.common.core.config;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
 
+import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
+import net.minecraftforge.fml.client.config.GuiConfigEntries;
+import net.minecraftforge.fml.client.config.IConfigElement;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -10,8 +14,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ConfigHandler {
 	
 	public static final ConfigHandler INSTANCE = new ConfigHandler();
-	public Configuration CONFIG;
-	
+	public static Configuration CONFIG;
+
 	public static int CRAFTING_STRIKES;
 	
 	public static int EFF_OMNIVIOLET;
@@ -57,9 +61,9 @@ public class ConfigHandler {
 	
 	public static int MB_SPEED;
 	
-	public static boolean GAIA_ENABLE;
-	public static boolean GAIA_DISARM;
-	public static boolean GAIA_SMASH;
+	public static boolean GAIA_ENABLE = true;
+	public static boolean GAIA_DISARM = true;
+	public static boolean GAIA_SMASH = false;
 	
 	public static boolean ENABLE_AF;
 	public static boolean ENABLE_EO;
@@ -81,13 +85,15 @@ public class ConfigHandler {
 	public static int MG_CONVERT;
 	public static int MG_TRANSFERSPEED;
 	
-	public static boolean DISABLE_MANAGENERATOR;
-	public static boolean DISABLE_MANALIQUEFICATION;
+	public static boolean DISABLE_MANAGENERATOR = true;
+	public static boolean DISABLE_MANALIQUEFICATION = true;
 	
-	public static boolean ENABLE_WAILAPOOL;
-	public static boolean ENABLE_WAILAMANAGEN;
-	public static boolean ENABLE_WAILAMANABUFFER;
-	public static boolean ENABLE_WAILAMANALIQUE;
+	public static boolean ENABLE_WAILAPOOL = true;
+	public static boolean ENABLE_WAILAMANAGEN = true;
+	public static boolean ENABLE_WAILAMANABUFFER = true;
+	public static boolean ENABLE_WAILAMANALIQUE = true;
+	
+	public static boolean ENABLE_TOP = true;
 	
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
@@ -96,10 +102,30 @@ public class ConfigHandler {
 	}
 	
 	private void syncConfigs() {
-		ENABLE_WAILAPOOL = CONFIG.get("Waila Support", "enable mana pool information", true).getBoolean(true);
-		ENABLE_WAILAMANAGEN = CONFIG.get("Waila Support", "enable flux manafield information", true).getBoolean(true);
-		ENABLE_WAILAMANABUFFER = CONFIG.get("Waila Support", "enable mana buffer information", true).getBoolean(true);
-		ENABLE_WAILAMANALIQUE = CONFIG.get("Waila Support", "enable mana liquefaction information", true).getBoolean(true);
+		String desc;
+		
+		desc = "Whether to enable Waila Support for Mana Pool. Default is true. Require MC restart.";
+		ENABLE_WAILAPOOL = loadPropBool("waila.pool", desc, ENABLE_WAILAPOOL);
+		desc = "Whether to enable Waila Support for Flux Manafield. Default is true. Require MC restart.";
+		ENABLE_WAILAMANAGEN = loadPropBool("waila.managenerator", desc, ENABLE_WAILAMANAGEN);
+		desc = "Whether to enable Waila Support for Mana Buffer. Default is true. Require MC restart.";
+		ENABLE_WAILAMANABUFFER = loadPropBool("waila.manabuffer", desc, ENABLE_WAILAMANABUFFER);
+		desc = "Whether to enable Waila Support for Mana Liquefaction Device. Default is true. Require MC restart.";
+		ENABLE_WAILAMANALIQUE = loadPropBool("waila.manaliquefaction", desc, ENABLE_WAILAMANALIQUE);
+		
+		desc = "Whether to enable The One Probe Support. Default is true. Require MC restart.";
+		ENABLE_TOP = loadPropBool("enable.topsupport", desc, ENABLE_TOP);
+		
+		desc = "Whether to enable Flux Manafield. Default is true.";
+		DISABLE_MANAGENERATOR = loadPropBool("enable.managenerator", desc, DISABLE_MANAGENERATOR);
+		desc = "Whether to enable Mana Liquefaction Device. Default is true.";
+		DISABLE_MANALIQUEFICATION = loadPropBool("enable.manaliquefaction", desc, DISABLE_MANALIQUEFICATION);
+		desc = "Whether to enable the Summoning of Gaia Guardian III. Default is true.";
+		GAIA_ENABLE = loadPropBool("enable.gaiaspawning", desc, GAIA_ENABLE);
+		desc = "Whether Gaia Guardian III will disarm or not. Default is true.";
+		GAIA_DISARM = loadPropBool("enable.gaiadisarm", desc, GAIA_DISARM);
+		desc = "Whether Gaia Guardian III will destroy other mod's blocks. Default is false.";
+		GAIA_SMASH = loadPropBool("enable.gaiasmash", desc, GAIA_SMASH);
 		
 		ENABLE_AF = CONFIG.get("enable flowers", "annoying flower", true).getBoolean(true);
 		ENABLE_EO = CONFIG.get("enable flowers", "enchanted orchid", true).getBoolean(true);
@@ -115,9 +141,6 @@ public class ConfigHandler {
 		ENABLE_TK = CONFIG.get("enable flowers", "tinkle flower", true).getBoolean(true);
 		
 		ENABLE_SHIELD = CONFIG.get("enable shields", "enable non-relic shields", true).getBoolean(true);
-		
-		DISABLE_MANAGENERATOR = CONFIG.get("enable blocks", "flux manafield", true).getBoolean(true);
-		DISABLE_MANALIQUEFICATION = CONFIG.get("enable blocks", "mana liquefication", true).getBoolean(true);
 		
 		MG_MAXENERGY = CONFIG.getInt("max energy stored", "flux manafield", 40000, 1, Integer.MAX_VALUE, "");
 		MG_CONVERT = CONFIG.getInt("1000 FE converts to how much. Default is 99", "flux manafield", 99, 1, Integer.MAX_VALUE, "");
@@ -170,14 +193,31 @@ public class ConfigHandler {
 		
 		MB_SPEED = CONFIG.getInt("mana transfer speed", "mana buffer", 400, 1, Integer.MAX_VALUE, "");
 		
-		GAIA_ENABLE = CONFIG.get("gaia guardian III", "enable spawning", true).getBoolean(true);
-		GAIA_DISARM = CONFIG.get("gaia guardian III", "enable disarm", true).getBoolean(true);
-		GAIA_SMASH = CONFIG.get("gaia guardian III", "enable destroy blocks", false).getBoolean(false);
-		
 		ENABLE_TOOLTIP = CONFIG.get("Tooltips", "enable mana visualization", true).getBoolean(true);
 		
 		if (CONFIG.hasChanged())
 			CONFIG.save();
+	}
+	
+	public static int loadPropInt(String propName, String desc, int default_) {
+		Property prop = CONFIG.get(Configuration.CATEGORY_GENERAL, "extrabotany.config."+propName, default_);
+		prop.setComment(desc);
+
+		return prop.getInt(default_);
+	}
+
+	public static double loadPropDouble(String propName, String desc, double default_) {
+		Property prop = CONFIG.get(Configuration.CATEGORY_GENERAL, "extrabotany.config."+propName, default_);
+		prop.setComment(desc);
+
+		return prop.getDouble(default_);
+	}
+
+	public static boolean loadPropBool(String propName, String desc, boolean default_) {
+		Property prop = CONFIG.get(Configuration.CATEGORY_GENERAL, "extrabotany.config."+propName, default_);
+		prop.setComment(desc);
+
+		return prop.getBoolean(default_);
 	}
 	
 	@SubscribeEvent

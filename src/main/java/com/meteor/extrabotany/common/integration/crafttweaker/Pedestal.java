@@ -1,4 +1,4 @@
-package com.meteor.extrabotany.common.integration;
+package com.meteor.extrabotany.common.integration.crafttweaker;
 
 import java.util.LinkedList;
 

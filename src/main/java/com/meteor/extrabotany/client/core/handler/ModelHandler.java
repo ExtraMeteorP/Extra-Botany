@@ -16,7 +16,7 @@ import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileStonesia;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 import com.meteor.extrabotany.common.lib.LibMisc;
 

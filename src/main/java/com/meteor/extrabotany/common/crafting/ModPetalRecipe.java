@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.crafting;
 
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 

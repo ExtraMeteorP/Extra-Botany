@@ -8,6 +8,7 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.meteor.extrabotany.client.ClientProxy;
 import com.meteor.extrabotany.common.CommonProxy;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -28,11 +29,16 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = LibMisc.MOD_ID, name = ExtraBotany.NAME, version = ExtraBotany.VERSION, dependencies = "required-after:botania;after:Baubles", updateJSON = ExtraBotany.UPDATE_URL)
+@Mod(modid = LibMisc.MOD_ID, 
+	name = ExtraBotany.NAME, 
+	version = ExtraBotany.VERSION, 
+	dependencies = "required-after:botania;after:Baubles", 
+	updateJSON = ExtraBotany.UPDATE_URL, 
+	guiFactory = "com.meteor.extrabotany.common.core.config.ConfigGui")
 public class ExtraBotany{
     public static final String MODID = "extrabotany";
     public static final String NAME = "extrabotany";
-    public static final String VERSION = "41";
+    public static final String VERSION = "42";
 
     public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
     
@@ -88,6 +94,12 @@ public class ExtraBotany{
     @EventHandler
 	public void Init(FMLInitializationEvent event){
 		proxy.init(event);
+		if(ClientProxy.halloween){
+			logger.info("Trick or treat?");
+		}
+		if(ClientProxy.christmas){
+			logger.info("Happy Christmas!");
+		}
 	}
 	
 	@EventHandler

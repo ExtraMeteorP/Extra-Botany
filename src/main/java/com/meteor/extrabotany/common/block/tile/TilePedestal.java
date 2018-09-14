@@ -2,7 +2,7 @@ package com.meteor.extrabotany.common.block.tile;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.item.INatureOrb;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
 
 import net.minecraft.block.state.IBlockState;

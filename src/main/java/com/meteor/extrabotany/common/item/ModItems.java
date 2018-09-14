@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.item;
 
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.bonus.ItemRewardBag;
 import com.meteor.extrabotany.common.item.brew.ItemBrewCocktail;
 import com.meteor.extrabotany.common.item.brew.ItemBrewInfiniteWine;
@@ -40,11 +40,14 @@ import com.meteor.extrabotany.common.item.relic.ItemMasterManaRing;
 import com.meteor.extrabotany.common.item.relic.ItemTreasure;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.LibOreDicts;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import vazkii.botania.api.BotaniaAPI;
 
@@ -164,6 +167,6 @@ public class ModItems {
 	}
 	
 	private static void registerOreDictionary() {
-		
+		OreDictionary.registerOre(LibOreDicts.SHADOWIUM, new ItemStack(material, 1, 5));
 	}
 }

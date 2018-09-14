@@ -23,9 +23,7 @@ import vazkii.botania.client.core.helper.ShaderHelper;
 import vazkii.botania.client.core.proxy.ClientProxy;
 
 @SideOnly(Side.CLIENT)
-public class RenderElfJar extends TileEntitySpecialRenderer<TileElfJar>
-{
-	public static int forceManaNumber = -1;
+public class RenderElfJar extends TileEntitySpecialRenderer<TileElfJar>{
 
 	@Override
 	public void render(@Nonnull TileElfJar pool, double d0, double d1, double d2, float f, int digProgress, float unused) {
@@ -53,23 +51,23 @@ public class RenderElfJar extends TileEntitySpecialRenderer<TileElfJar>
 		GlStateManager.color(1, 1, 1, a);
 		GlStateManager.enableRescaleNormal();
 
-		int mana = pool.fluidTank.getFluid() == null ? 0 : pool.fluidTank.getFluid().amount;
+		int mana = pool.fluidTank.getFluid() == null ? 0 : pool.fluidTank.getFluidAmount();
 		int cap = pool.fluidTank.getCapacity();
 
-		float waterLevel = (float) mana / (float) cap * 0.8F;
+		float waterLevel = (float) mana / (float) cap * 0.76F;
 
 		float s = 1F / 16F;
 		float v = 1F / 8F;
 		float w = -v * 3.5F;
 
-		if(waterLevel > 0 && pool.fluidTank.getFluidAmount() > 0) {
+		if(waterLevel > 0 && pool.fluidTank.getFluid() != null) {
 			s = 1F / 256F * 14F;
 			GlStateManager.pushMatrix();
 			GlStateManager.enableBlend();
 			GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			GlStateManager.disableAlpha();
 			GlStateManager.color(1F, 1F, 1F, a);
-			GlStateManager.translate(w, -1F - (0.43F - waterLevel), w);
+			GlStateManager.translate(w, -1F - (0.38F - waterLevel), w);
 			GlStateManager.rotate(90F, 1F, 0F, 0F);
 			GlStateManager.scale(s, s, s);
 			renderIcon(0, 0, getFluidTexture(pool.fluidTank.getFluid()), 16, 16, 240);
@@ -79,8 +77,6 @@ public class RenderElfJar extends TileEntitySpecialRenderer<TileElfJar>
 			GlStateManager.popMatrix();
 		}
 		GlStateManager.popMatrix();
-
-		forceManaNumber = -1;
 	}
 	
 	public static TextureAtlasSprite getFluidTexture(FluidStack fluid) {

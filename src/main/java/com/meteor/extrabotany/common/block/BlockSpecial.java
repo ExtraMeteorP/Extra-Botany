@@ -3,7 +3,7 @@ package com.meteor.extrabotany.common.block;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.ExtraBotany;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 
 import net.minecraft.creativetab.CreativeTabs;

@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 
 import vazkii.botania.api.lexicon.LexiconEntry;

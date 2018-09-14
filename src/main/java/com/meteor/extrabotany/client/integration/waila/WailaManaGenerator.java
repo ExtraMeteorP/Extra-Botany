@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.meteor.extrabotany.common.block.BlockManaGenerator;
 import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;

@@ -19,7 +19,7 @@ import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
 import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
 import com.meteor.extrabotany.common.block.tile.TileManaLiquefaction;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.block.ItemBlockMod;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 import com.meteor.extrabotany.common.lib.LibMisc;
@@ -43,7 +43,7 @@ public class ModBlocks {
 	public static final Block batterybox = new BlockManaBuffer();
 	public static final Block cocoondesire = new BlockCocoonDesire();
 	public static final Block managenerator = new BlockManaGenerator();
-	public static final Block manaliquefying = new BlockManaLiquefying();
+	public static final Block manaliquefying = new BlockManaLiquefaction();
 	public static final Block manafluid = new BlockManaFluid();
 	public static final Block elfjar = new BlockElfJar();
 	

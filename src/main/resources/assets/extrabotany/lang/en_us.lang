@@ -85,6 +85,7 @@ tile.extrabotany:manabarrel.name=Mana Buffer
 tile.extrabotany:cocoondesire.name=Cocoon of Desire
 tile.extrabotany:managenerator.name=Flux Manafield
 tile.extrabotany:manaliquefaction.name=Mana Liquefaction Device
+tile.extrabotany:elfjar.name=Livingrock Barrel
 
 entity.extrabotany:flowerWeapon.name=Flower
 entity.extrabotany:gaiaIII.name=Gaia Guardian III
@@ -390,12 +391,39 @@ botania.entry.splashgrenade=Holy Grenade
 botania.page.splashgrenade0=Craft Special-made Cocktail with Popped Chorus Fruits will get corresponding Holy Grenade. The Holy Grenade will deal massive damage after exploding, giving bad effects to other creatures and giving the rest effects to players. <br>A perfect item, but why is it a grenade?
 botania.tagline.splashgrenade=Art is explosion
 
+botania.entry.shadowwarrior=Shadow Warrior
+botania.page.shadowwarrior0=With the magic of Gilded Mashed Potato, we can use Nightmare Fuel and Elementium Ingot to make Shadowium. It's a special king of material.
+botania.page.shadowwarrior1=And Then There Were None.
+botania.page.shadowwarrior2=With the power of Shadowium, the armors and weapons made of it will give wearer special effects when the night comes.
+botania.page.shadowwarrior3=Shadow Warrior Helmet
+botania.page.shadowwarrior4=Shadow Warrior Chestplate
+botania.page.shadowwarrior5=Shadow Warrior Leggings
+botania.page.shadowwarrior6=Shadow Warrior Boots
+botania.page.shadowwarrior7=Shadow Katana
+botania.tagline.shadowwarrior=Not Vampire
+
+botania.entry.elfjar=Livingrock Barrel
+botania.page.elfjar0=Livingrock Barrel can simply contain 16 buckets of liquid. It will supply water to the Altar next to it if it has.
+botania.page.elfjar1=Minecraft is too easy.
+botania.tagline.elfjar=Simple
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
 botania.tagline.=
 
 extrabotany.desc=Welcome to the World of the supreme principle of Mana
+
+extrabotany.config.waila.pool=Waila Support for Mana Pool
+extrabotany.config.waila.managenerator=Waila Support for Flux Manafield
+extrabotany.config.waila.manabuffer=Waila Support for Mana Buffer
+extrabotany.config.waila.manaliquefaction=Waila Support for Mana Liquefaction
+extrabotany.config.enable.managenerator=Enable Flux Manafield
+extrabotany.config.enable.manaliquefaction=Enable Mana Liquefaction Device
+extrabotany.config.enable.gaiaspawning=Enable Summoning Gaia Guardian III
+extrabotany.config.enable.gaiadisarm=Enable Gaia Guardian III to Disarm
+extrabotany.config.enable.gaiasmash=Enable Gaia Guardian III to destroy block
+extrabotany.config.enable.topsupport=Enable The One Probe Support
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)

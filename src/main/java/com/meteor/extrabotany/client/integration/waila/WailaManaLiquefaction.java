@@ -2,7 +2,7 @@ package com.meteor.extrabotany.client.integration.waila;
 
 import java.util.List;
 
-import com.meteor.extrabotany.common.block.BlockManaLiquefying;
+import com.meteor.extrabotany.common.block.BlockManaLiquefaction;
 import com.meteor.extrabotany.common.block.tile.TileManaLiquefaction;
 
 import mcp.mobius.waila.api.IWailaConfigHandler;
@@ -21,7 +21,7 @@ public class WailaManaLiquefaction implements IWailaDataProvider{
 	
 	public static void register(IWailaRegistrar registrar)
 	{
-        registrar.registerBodyProvider(new WailaManaLiquefaction(), BlockManaLiquefying.class);
+        registrar.registerBodyProvider(new WailaManaLiquefaction(), BlockManaLiquefaction.class);
     }
 
 	@Override

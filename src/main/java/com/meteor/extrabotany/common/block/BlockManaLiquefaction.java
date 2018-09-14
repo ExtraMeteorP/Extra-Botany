@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 import vazkii.botania.api.lexicon.ILexiconable;
 import vazkii.botania.api.lexicon.LexiconEntry;
 
-public class BlockManaLiquefying extends BlockMod implements ILexiconable {
+public class BlockManaLiquefaction extends BlockMod implements ILexiconable {
 	
-	public BlockManaLiquefying() {
+	public BlockManaLiquefaction() {
 		super(Material.ROCK, LibBlocksName.TILE_MANALIQUEFYING);
 		setHardness(2.0F);
 		setResistance(10.0F);

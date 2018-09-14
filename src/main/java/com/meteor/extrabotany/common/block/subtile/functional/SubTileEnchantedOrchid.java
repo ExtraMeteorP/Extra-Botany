@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.block.subtile.functional;
 
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 
 import net.minecraft.entity.item.EntityItem;

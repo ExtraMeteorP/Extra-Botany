@@ -3,7 +3,7 @@ package com.meteor.extrabotany.common.lexicon;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.ModBrewRecipe;
 import com.meteor.extrabotany.common.crafting.ModManaInfusionRecipe;
 import com.meteor.extrabotany.common.crafting.ModPedestalRecipe;
@@ -53,6 +53,7 @@ public class LexiconData {
 	public static LexiconEntry goldpotato;
 	public static LexiconEntry kinggarden;
 	public static LexiconEntry manabarrel;
+	public static LexiconEntry elfjar;
 	
 	public static LexiconEntry froststar;
 	public static LexiconEntry deathring;
@@ -73,6 +74,7 @@ public class LexiconData {
 	
 	public static LexiconEntry cm;
 	public static LexiconEntry cosm;
+	public static LexiconEntry sw;
 	
 	public static void init() {	
 		cocktail = new BasicLexiconEntry(LibLexicon.COCKTAIL,  BotaniaAPI.categoryDevices);
@@ -121,6 +123,20 @@ public class LexiconData {
 		manadrink.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_emptybottle")));
 		manadrink.setIcon(new ItemStack(ModItems.manadrink));
+		
+		elfjar = new BasicLexiconEntry(LibLexicon.ELFJAR,  BotaniaAPI.categoryDevices);
+		elfjar.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_elfjar")));
+		
+		sw = new DreamLexiconEntry(LibLexicon.ARMOR_SHADOW,  BotaniaAPI.categoryTools);
+		sw.setLexiconPages(new PageText("0"),
+					new PageRuneRecipe("1", ModRuneRecipe.recipeShadowium),
+					new PageText("2"),
+					new PageCraftingRecipe("3", getResource("recipe_swhelm")),
+					new PageCraftingRecipe("4", getResource("recipe_swchest")),
+					new PageCraftingRecipe("5", getResource("recipe_swlegs")),
+					new PageCraftingRecipe("6", getResource("recipe_swboots")),
+					new PageCraftingRecipe("7", getResource("recipe_shadowkatana")));
 		
 		relicshield = new DreamLexiconEntry(LibLexicon.RELIC_RELICSHIELD,  BotaniaAPI.categoryTools);
 		relicshield.setLexiconPages(new PageText("0"),

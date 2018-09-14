@@ -2,7 +2,7 @@ package com.meteor.extrabotany.common.crafting;
 
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.block.ModBlocks;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.brew.CocktailRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.HelmRevealingRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRecipe;
@@ -10,6 +10,7 @@ import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRemakeReci
 import com.meteor.extrabotany.common.crafting.recipe.brew.SplashGrenadeRecipe;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.LibOreDicts;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -65,6 +66,9 @@ public class ModCraftingRecipe {
 	public static IRecipe SWCHEST;
 	public static IRecipe SWLEGS;
 	public static IRecipe SWBOOTS;
+	
+	public static IRecipe SKATANA;
+	public static IRecipe ELFJAR;
 	
 	public static void init() {
 		
@@ -167,17 +171,23 @@ public class ModCraftingRecipe {
 		FLYINGBOATTERRASTEEL = new ShapedOreRecipe(getResource("recipe_flyingboatterrasteel"), new ItemStack(ModItems.flyingboat, 1, 2), "ABA", "AAA", 'A', LibOreDict.TERRA_STEEL, 'B', new ItemStack(ModItems.flyingboat, 1, 1));
 		FLYINGBOATTERRASTEEL.setRegistryName(getResource("recipe_flyingboatterrasteel"));
 		
-		SWHELM = new ShapedOreRecipe(getResource("recipe_swhelm"), new ItemStack(ModItems.cosmleg), "AAA", "A A", 'A', new ItemStack(ModItems.material, 1, 5));
+		SWHELM = new ShapedOreRecipe(getResource("recipe_swhelm"), new ItemStack(ModItems.swhelm), "AAA", "A A", 'A', LibOreDicts.SHADOWIUM);
 		SWHELM.setRegistryName(getResource("recipe_swhelm"));
 		
-		SWCHEST = new ShapedOreRecipe(getResource("recipe_swchest"), new ItemStack(ModItems.cosmleg), "A A", "AAA", "AAA", 'A', new ItemStack(ModItems.material, 1, 5));
+		SWCHEST = new ShapedOreRecipe(getResource("recipe_swchest"), new ItemStack(ModItems.swchest), "A A", "AAA", "AAA", 'A', LibOreDicts.SHADOWIUM);
 		SWCHEST.setRegistryName(getResource("recipe_swchest"));
 		
-		SWLEGS = new ShapedOreRecipe(getResource("recipe_swlegs"), new ItemStack(ModItems.cosmleg), "AAA", "A A", "A A", 'A', new ItemStack(ModItems.material, 1, 5));
+		SWLEGS = new ShapedOreRecipe(getResource("recipe_swlegs"), new ItemStack(ModItems.swleg), "AAA", "A A", "A A", 'A', LibOreDicts.SHADOWIUM);
 		SWLEGS.setRegistryName(getResource("recipe_swlegs"));
 		
-		SWBOOTS = new ShapedOreRecipe(getResource("recipe_swboots"), new ItemStack(ModItems.cosmleg), "A A", "A A", 'A', new ItemStack(ModItems.material, 1, 5));
+		SWBOOTS = new ShapedOreRecipe(getResource("recipe_swboots"), new ItemStack(ModItems.swboot), "A A", "A A", 'A', LibOreDicts.SHADOWIUM);
 		SWBOOTS.setRegistryName(getResource("recipe_swboots"));
+		
+		SKATANA = new ShapedOreRecipe(getResource("recipe_shadowkatana"), new ItemStack(ModItems.shadowkatana), "A", "A", "B", 'A', LibOreDicts.SHADOWIUM, 'B', LibOreDict.LIVINGWOOD_TWIG);
+		SKATANA.setRegistryName(getResource("recipe_shadowkatana"));
+		
+		ELFJAR = new ShapedOreRecipe(getResource("recipe_elfjar"), new ItemStack(ModBlocks.elfjar), "A A", "A A", "AAA", 'A', LibOreDict.LIVING_ROCK);
+		ELFJAR.setRegistryName(getResource("recipe_elfjar"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -226,7 +236,9 @@ public class ModCraftingRecipe {
 					SWHELM,
 					SWCHEST,
 					SWLEGS,
-					SWBOOTS
+					SWBOOTS,
+					ELFJAR,
+					SKATANA
 			);
 			if(ConfigHandler.ENABLE_SHIELD){
 				event.getRegistry().registerAll(

@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.meteor.extrabotany.api.subtile.SubTileGeneratingNature;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 

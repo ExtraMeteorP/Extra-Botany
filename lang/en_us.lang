@@ -13,6 +13,7 @@ item.extrabotany:binder.name=Position Reader
 item.extrabotany:spiritfuel.name=Spirit Fuel
 item.extrabotany:spirit.name=Spirit Fragment
 item.extrabotany:nightmarefuel.name=Nightmare Fuel
+item.extrabotany:shadowium.name=Shadowium
 item.extrabotany:friedchicken.name=Fried Chicken Leg
 item.extrabotany:ingotorichalcos.name=Orichalcos Ingot
 item.extrabotany:goldpotato.name=Gilded Potato
@@ -31,6 +32,9 @@ item.extrabotany:manadrink.name=Mana Cocktail
 item.extrabotany:splashgrenade.name=Holy Grenade
 item.extrabotany:cocktail.name=Special-made Cocktail
 item.extrabotany:infinitewine.name=Infinite Wine
+item.extrabotany:boat_manasteel.name=Manasteel Airship
+item.extrabotany:boat_elementium.name=Elementium Airship
+item.extrabotany:boat_terrasteel.name=Terrasteel Airship
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
@@ -55,12 +59,23 @@ item.extrabotany:cosmeticmaidhelm.name=Starry Idol Headgear
 item.extrabotany:cosmeticmaidchest.name=Starry Idol Suit
 item.extrabotany:cosmeticmaidlegs.name=Starry Idol Skirt
 item.extrabotany:cosmeticmaidboots.name=Starry Idol Boots
+item.extrabotany:combatmaidhelmrevealing.name=Pleiades Combat Maid Headgear of Revealing
+item.extrabotany:cosmeticmaidhelmrevealing.name=Starry Idol Headgear of Revealing
+item.extrabotany:combatmaidchestdarkened.name=Shadow Pleiades Combat Maid Suit
+item.extrabotany:shadowwarriorhelm.name=Shadow Warrior Helmet
+item.extrabotany:shadowwarriorchest.name=Shadow Warrior Chestplate
+item.extrabotany:shadowwarriorlegs.name=Shadow Warrior Leggings
+item.extrabotany:shadowwarriorboots.name=Shadow Warrior Boots
+item.extrabotany:shadowkatana.name=Shadow Katana
 item.extrabotany:.name=
 
 extrabotany.armorset.cosmeticmaid.desc0=Super Mana Affinity
 extrabotany.armorset.combatmaid.desc0=Super Power when empty-handed
 extrabotany.armorset.combatmaid.desc1=Greater Regeneration
 extrabotany.armorset.combatmaid.desc2=Mana Affinity
+extrabotany.armorset.shadowwarrior.desc0=This night is so frightful and boundless. That my eyes come down with gloomy darkness.
+extrabotany.armorset.shadowwarrior.desc1=But just by them both. I am seeking my rosiness
+extrabotany.armorset.shadowwarrior.name=Shadow Warrior
 extrabotany.armorset.cosmeticmaid.name=Starry Idol
 extrabotany.armorset.combatmaid.name=Pleiades Combat Maid
 
@@ -70,6 +85,7 @@ tile.extrabotany:manabarrel.name=Mana Buffer
 tile.extrabotany:cocoondesire.name=Cocoon of Desire
 tile.extrabotany:managenerator.name=Flux Manafield
 tile.extrabotany:manaliquefaction.name=Mana Liquefaction Device
+tile.extrabotany:elfjar.name=Livingrock Barrel
 
 entity.extrabotany:flowerWeapon.name=Flower
 entity.extrabotany:gaiaIII.name=Gaia Guardian III
@@ -77,6 +93,7 @@ entity.extrabotany:skullmissile.name=Skull Missile
 entity.extrabotany:skulllandmine.name=Skull Landmine
 entity.extrabotany:skullminion.name=Skull Minion
 entity.extrabotany:magicarrow.name=Magic Arrow
+entity.extrabotany:fb.name=Airship
 entity.extrabotany:.name=
 
 extrabotanymisc.hammer=Forge
@@ -109,7 +126,8 @@ tile.botania:flower.enchantedorchid.reference=I have no time playing games
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
-fluid.mana=Fluided Mana
+fluid.fluidedmana=Fluided Mana
+tile.fluidedmana.name=Fluided Mana
 
 itemGroup.extrabotany=ExtraBotany
 
@@ -373,12 +391,39 @@ botania.entry.splashgrenade=Holy Grenade
 botania.page.splashgrenade0=Craft Special-made Cocktail with Popped Chorus Fruits will get corresponding Holy Grenade. The Holy Grenade will deal massive damage after exploding, giving bad effects to other creatures and giving the rest effects to players. <br>A perfect item, but why is it a grenade?
 botania.tagline.splashgrenade=Art is explosion
 
+botania.entry.shadowwarrior=Shadow Warrior
+botania.page.shadowwarrior0=With the magic of Gilded Mashed Potato, we can use Nightmare Fuel and Elementium Ingot to make Shadowium. It's a special king of material.
+botania.page.shadowwarrior1=And Then There Were None.
+botania.page.shadowwarrior2=With the power of Shadowium, the armors and weapons made of it will give wearer special effects when the night comes.
+botania.page.shadowwarrior3=Shadow Warrior Helmet
+botania.page.shadowwarrior4=Shadow Warrior Chestplate
+botania.page.shadowwarrior5=Shadow Warrior Leggings
+botania.page.shadowwarrior6=Shadow Warrior Boots
+botania.page.shadowwarrior7=Shadow Katana
+botania.tagline.shadowwarrior=Not Vampire
+
+botania.entry.elfjar=Livingrock Barrel
+botania.page.elfjar0=Livingrock Barrel can simply contain 16 buckets of liquid. It will supply water to the Altar next to it if it has.
+botania.page.elfjar1=Minecraft is too easy.
+botania.tagline.elfjar=Simple
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
 botania.tagline.=
 
 extrabotany.desc=Welcome to the World of the supreme principle of Mana
+
+extrabotany.config.waila.pool=Waila Support for Mana Pool
+extrabotany.config.waila.managenerator=Waila Support for Flux Manafield
+extrabotany.config.waila.manabuffer=Waila Support for Mana Buffer
+extrabotany.config.waila.manaliquefaction=Waila Support for Mana Liquefaction
+extrabotany.config.enable.managenerator=Enable Flux Manafield
+extrabotany.config.enable.manaliquefaction=Enable Mana Liquefaction Device
+extrabotany.config.enable.gaiaspawning=Enable Summoning Gaia Guardian III
+extrabotany.config.enable.gaiadisarm=Enable Gaia Guardian III to Disarm
+extrabotany.config.enable.gaiasmash=Enable Gaia Guardian III to destroy block
+extrabotany.config.enable.topsupport=Enable The One Probe Support
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)

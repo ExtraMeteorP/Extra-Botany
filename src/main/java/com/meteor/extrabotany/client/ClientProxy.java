@@ -1,5 +1,8 @@
 package com.meteor.extrabotany.client;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+
 import com.meteor.extrabotany.client.core.handler.ColorHandler;
 import com.meteor.extrabotany.client.core.handler.EventHandlerClient;
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
@@ -37,6 +40,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy{
 	
+	public static boolean christmas = false;
+	public static boolean halloween = false;
+	
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
@@ -50,6 +56,11 @@ public class ClientProxy extends CommonProxy{
 		super.init(event);
 		VersionChecker.init();
 		ColorHandler.init();
+		LocalDateTime now = LocalDateTime.now();
+		if (now.getMonth() == Month.DECEMBER && now.getDayOfMonth() >= 16 || now.getMonth() == Month.JANUARY && now.getDayOfMonth() <= 2)
+			christmas = true;
+		if(now.getMonth() == Month.OCTOBER)
+			halloween = true;
 	}
 	
 	@Override

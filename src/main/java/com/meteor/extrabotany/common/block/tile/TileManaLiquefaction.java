@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.google.common.base.Predicates;
 import com.meteor.extrabotany.common.block.fluid.ModFluid;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;

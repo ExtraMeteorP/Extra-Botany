@@ -85,6 +85,7 @@ tile.extrabotany:manabarrel.name=魔力缓存器
 tile.extrabotany:cocoondesire.name=不随想之茧
 tile.extrabotany:managenerator.name=FE转换器
 tile.extrabotany:manaliquefaction.name=魔力液化器
+tile.extrabotany:elfjar.name=活石桶
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -390,12 +391,39 @@ botania.entry.splashgrenade=圣水手雷
 botania.page.splashgrenade0=将装有所需酿造的秘制鸡尾 酒和爆裂紫颂果合成即可得 到对应的圣水手雷。圣水手雷 爆炸后会给予大范围生物较 高的伤害，给予玩家其所含的 正面效果而给予其他生物负 面效果。 <br>可以说是几乎完美的酿造，但 为什么是一颗手雷呢?
 botania.tagline.splashgrenade=爆炸即是艺术
 
+botania.entry.shadowwarrior=暗影武士护甲
+botania.page.shadowwarrior0=以镀金土豆泥作为媒介，将梦魇燃料和源质钢锭结合得到的全新材料暗影锭。
+botania.page.shadowwarrior1=无人生还。
+botania.page.shadowwarrior2=用它制成的装甲和武器在夜晚会使使用者能力得到大幅提升。
+botania.page.shadowwarrior3=暗影武士头盔
+botania.page.shadowwarrior4=暗影武士护甲
+botania.page.shadowwarrior5=暗影武士护腿
+botania.page.shadowwarrior6=暗影武士靴子
+botania.page.shadowwarrior7=影刃
+botania.tagline.shadowwarrior=不是吸血鬼
+
+botania.entry.elfjar=活石桶
+botania.page.elfjar0=可以储存16桶液体的桶，如果装有水的话可以给邻近花药台提供水源。
+botania.page.elfjar1=Minecraft太简单了。
+botania.tagline.elfjar=普通
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
 botania.tagline.=
 
 extrabotany.desc=欢迎来到Mana至上主义的世界
+
+extrabotany.config.waila.pool=启用魔力池WAILA支持
+extrabotany.config.waila.managenerator=启用FE转换器WAILA支持
+extrabotany.config.waila.manabuffer=启用魔力缓存器WAILA支持
+extrabotany.config.waila.manaliquefaction=启用魔力液化器WAILA支持
+extrabotany.config.enable.managenerator=启用FE转换器
+extrabotany.config.enable.manaliquefaction=启用魔力液化器
+extrabotany.config.enable.gaiaspawning=允许盖亚守护者III生成
+extrabotany.config.enable.gaiadisarm=允许盖亚守护者III缴械
+extrabotany.config.enable.gaiasmash=允许盖亚守护者III破坏方块
+extrabotany.config.enable.topsupport=启用TOP支持
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=食用一个梦魇燃料.(这真的能吃吗)

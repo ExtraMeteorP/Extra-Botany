@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
-import com.meteor.extrabotany.common.core.handler.ConfigHandler;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.ItemFriedChicken;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 

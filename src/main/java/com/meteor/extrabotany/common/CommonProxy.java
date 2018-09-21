@@ -6,6 +6,7 @@ import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.ToolTipHandler;
 import com.meteor.extrabotany.common.crafting.ModRecipe;
 import com.meteor.extrabotany.common.entity.ModEntities;
+import com.meteor.extrabotany.common.integration.tinkerconstruct.TConstructCompat;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemShieldCopy;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 
@@ -21,6 +22,8 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigHandler.INSTANCE.loadConfig(event);
 		ModFluid.init();	
+		if (Loader.isModLoaded("tconstruct"))
+			TConstructCompat.preInit();
 	}
 	
 	public void init(FMLInitializationEvent event) {
@@ -54,5 +57,9 @@ public class CommonProxy {
 	
     public void serverStarting(FMLServerStartingEvent event){
     	//event.registerServerCommand(new CommandEmoji());
+    }
+    
+    public void setTinkersRenderColor(slimeknights.tconstruct.library.materials.Material material, int color) {
+    	
     }
 }

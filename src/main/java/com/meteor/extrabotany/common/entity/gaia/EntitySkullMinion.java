@@ -1,4 +1,4 @@
-package com.meteor.extrabotany.common.entity;
+package com.meteor.extrabotany.common.entity.gaia;
 
 import java.util.List;
 
@@ -79,8 +79,8 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 				p.dropItem(true);
 		
 		for(EntityGaiaIII g : getHostAround())
-			if(ticksExisted % 100 == 0 && g.getRankIII())
-				g.heal(2F);
+			if(ticksExisted % 160 == 0 && g.getRankIII())
+				g.heal(1F);
 	}
 	
 	@Override

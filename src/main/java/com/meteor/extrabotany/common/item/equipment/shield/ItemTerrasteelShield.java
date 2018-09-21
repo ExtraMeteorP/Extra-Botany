@@ -36,10 +36,5 @@ public class ItemTerrasteelShield extends ItemManasteelShield{
 	public float getAttackerKnockbackMultiplier(ItemStack stack, EntityLivingBase attacked, float damage, DamageSource source) {
 		return 1F;
 	}
-	
-	@Override
-	public int getManaPerDamage(){
-		return 100;
-	}
 
 }

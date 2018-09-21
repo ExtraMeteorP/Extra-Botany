@@ -8,7 +8,6 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.meteor.extrabotany.client.ClientProxy;
 import com.meteor.extrabotany.common.CommonProxy;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -32,7 +31,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod(modid = LibMisc.MOD_ID, 
 	name = ExtraBotany.NAME, 
 	version = ExtraBotany.VERSION, 
-	dependencies = "required-after:botania;after:Baubles", 
+	dependencies = "required-after:botania;"
+			+ "after:Baubles;"
+			+ "after:waila;"
+			+ "after:jei;"
+			+ "after:theoneprobe;"
+			+ "after:thaumcraft;"
+			+ "after:tconstruct;"
+			+ "after:mtlib;"
+			+ "after:crafttweaker", 
 	updateJSON = ExtraBotany.UPDATE_URL, 
 	guiFactory = "com.meteor.extrabotany.common.core.config.ConfigGui")
 public class ExtraBotany{
@@ -66,16 +73,16 @@ public class ExtraBotany{
 		super();
 	}
 	
-	 @SideOnly(Side.CLIENT)
-	 public static KeyBinding keyForward;
-	 @SideOnly(Side.CLIENT)
-	 public static KeyBinding keyBackward;
-	 @SideOnly(Side.CLIENT)
-	 public static KeyBinding keyLeft;
-	 @SideOnly(Side.CLIENT)
-	 public static KeyBinding keyRight;
-	 @SideOnly(Side.CLIENT)
-	 public static KeyBinding keyUp;
+	@SideOnly(Side.CLIENT)
+	public static KeyBinding keyForward;
+	@SideOnly(Side.CLIENT)
+	public static KeyBinding keyBackward;
+	@SideOnly(Side.CLIENT)
+	public static KeyBinding keyLeft;
+	@SideOnly(Side.CLIENT)
+	public static KeyBinding keyRight;
+	@SideOnly(Side.CLIENT)
+	public static KeyBinding keyUp;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -94,12 +101,6 @@ public class ExtraBotany{
     @EventHandler
 	public void Init(FMLInitializationEvent event){
 		proxy.init(event);
-		if(ClientProxy.halloween){
-			logger.info("Trick or treat?");
-		}
-		if(ClientProxy.christmas){
-			logger.info("Happy Christmas!");
-		}
 	}
 	
 	@EventHandler

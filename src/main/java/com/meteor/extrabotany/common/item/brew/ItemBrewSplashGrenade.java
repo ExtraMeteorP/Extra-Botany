@@ -51,7 +51,7 @@ public class ItemBrewSplashGrenade extends ItemMod implements IBrewItem {
 
 		world.playSound((EntityPlayer)null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_SPLASH_POTION_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
-		stack.shrink(1);;
+		stack.shrink(1);
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
 

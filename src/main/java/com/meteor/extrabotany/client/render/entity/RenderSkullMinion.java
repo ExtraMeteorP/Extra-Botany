@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.client.render.entity;
 
-import com.meteor.extrabotany.common.entity.EntitySkullMinion;
+import com.meteor.extrabotany.common.entity.gaia.EntitySkullMinion;
 
 import net.minecraft.client.model.ModelSkeletonHead;
 import net.minecraft.client.renderer.GlStateManager;

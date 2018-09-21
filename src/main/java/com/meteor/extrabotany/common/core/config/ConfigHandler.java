@@ -2,11 +2,8 @@ package com.meteor.extrabotany.common.core.config;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
 
-import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
-import net.minecraftforge.fml.client.config.GuiConfigEntries;
-import net.minecraftforge.fml.client.config.IConfigElement;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -64,6 +61,7 @@ public class ConfigHandler {
 	public static boolean GAIA_ENABLE = true;
 	public static boolean GAIA_DISARM = true;
 	public static boolean GAIA_SMASH = false;
+	public static boolean GAIA_DIVINEJUDGE = true;
 	
 	public static boolean ENABLE_AF;
 	public static boolean ENABLE_EO;
@@ -126,6 +124,8 @@ public class ConfigHandler {
 		GAIA_DISARM = loadPropBool("enable.gaiadisarm", desc, GAIA_DISARM);
 		desc = "Whether Gaia Guardian III will destroy other mod's blocks. Default is false.";
 		GAIA_SMASH = loadPropBool("enable.gaiasmash", desc, GAIA_SMASH);
+		desc = "Whether Gaia Guardian III will release Divine Judge. Default is true.";
+		GAIA_DIVINEJUDGE = loadPropBool("enable.divinejudge", desc, GAIA_DIVINEJUDGE);
 		
 		ENABLE_AF = CONFIG.get("enable flowers", "annoying flower", true).getBoolean(true);
 		ENABLE_EO = CONFIG.get("enable flowers", "enchanted orchid", true).getBoolean(true);

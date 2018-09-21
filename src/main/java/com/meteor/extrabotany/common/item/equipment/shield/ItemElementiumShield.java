@@ -21,11 +21,6 @@ public class ItemElementiumShield extends ItemManasteelShield implements IPixieS
 		}
 		super.onAttackBlocked(stack, attacked, damage, source);
 	}
-	
-	@Override
-	public int getManaPerDamage(){
-		return 80;
-	}
 
 	@Override
 	public float getPixieChance(ItemStack arg0) {

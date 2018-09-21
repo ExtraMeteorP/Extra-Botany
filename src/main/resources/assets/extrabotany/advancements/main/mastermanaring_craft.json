@@ -8,7 +8,8 @@
     },
     "description": {
       "translate": "advancement.extrabotany:mastermanaringCraft.desc"
-    }
+    },
+	"frame": "challenge"
   },
   "parent": "extrabotany:main/gaia_defeat",
   "criteria": {

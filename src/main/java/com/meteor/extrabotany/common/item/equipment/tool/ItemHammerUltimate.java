@@ -206,7 +206,6 @@ public class ItemHammerUltimate extends ItemHammer implements IManaItem, ISequen
 
 	@Override
 	public void onUpdate(ItemStack par1ItemStack, World world, Entity par3Entity, int par4, boolean par5) {
-		super.onUpdate(par1ItemStack, world, par3Entity, par4, par5);
 		if(!world.isRemote && par3Entity.ticksExisted % (40 - getRepair(par1ItemStack) * 10) == 0 && ManaItemHandler.requestManaExact(par1ItemStack, (EntityPlayer)par3Entity, (getManaPerDamage() - getRepair(par1ItemStack) * 5), true) && par1ItemStack.getItemDamage() > 0){
 			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() - 1);
 		}

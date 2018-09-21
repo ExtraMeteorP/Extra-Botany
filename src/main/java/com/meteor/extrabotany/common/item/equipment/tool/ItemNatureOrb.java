@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import com.meteor.extrabotany.api.item.INatureOrb;
 import com.meteor.extrabotany.api.orb.OrbItemHandler;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
-import com.meteor.extrabotany.common.entity.EntityGaiaIII;
+import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemBauble;
 import com.meteor.extrabotany.common.lib.LibItemsName;

@@ -2,7 +2,9 @@ package com.meteor.extrabotany.client.render.entity;
 
 import javax.annotation.Nonnull;
 
-import com.meteor.extrabotany.common.entity.EntityGaiaIII;
+import com.meteor.extrabotany.client.ClientProxy;
+import com.meteor.extrabotany.client.lib.LibResource;
+import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
 
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.renderer.entity.RenderBiped;
@@ -119,6 +121,6 @@ public class RenderGaiaIII extends RenderBiped<EntityGaiaIII> {
 	@Nonnull
 	@Override
 	protected ResourceLocation getEntityTexture(@Nonnull EntityGaiaIII entity) {
-		return GAIA_TEXTURES;
+		return ClientProxy.halloween ? new ResourceLocation(LibResource.GAIAIII_PUMPKIN) : GAIA_TEXTURES;
 	}
 }

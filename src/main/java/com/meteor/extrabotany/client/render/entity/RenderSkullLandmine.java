@@ -1,6 +1,8 @@
 package com.meteor.extrabotany.client.render.entity;
 
-import com.meteor.extrabotany.common.entity.EntitySkullLandmine;
+import com.meteor.extrabotany.client.ClientProxy;
+import com.meteor.extrabotany.client.lib.LibResource;
+import com.meteor.extrabotany.common.entity.gaia.EntitySkullLandmine;
 
 import net.minecraft.client.model.ModelSkeletonHead;
 import net.minecraft.client.renderer.GlStateManager;
@@ -63,6 +65,6 @@ public class RenderSkullLandmine extends Render<EntitySkullLandmine>{
     }
 
     protected ResourceLocation getEntityTexture(EntitySkullLandmine entity){
-        return entity.getType() == 2 ? SKULL_TEXTURES3 : entity.getType() == 1 ? SKULL_TEXTURES2 : SKULL_TEXTURES;
+        return entity.getType() == 2 ? ClientProxy.halloween ?  new ResourceLocation(LibResource.PUMPKIN) : SKULL_TEXTURES3 : entity.getType() == 1 ? SKULL_TEXTURES2 : SKULL_TEXTURES;
     }
 }

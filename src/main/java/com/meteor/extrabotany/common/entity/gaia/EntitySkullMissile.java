@@ -1,10 +1,11 @@
-package com.meteor.extrabotany.common.entity;
+package com.meteor.extrabotany.common.entity.gaia;
 
 import java.util.List;
 
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.common.entity.EntityThrowableCopy;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;

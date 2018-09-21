@@ -35,6 +35,7 @@ item.extrabotany:infinitewine.name=装有%s (%s)的无限之酒
 item.extrabotany:boat_manasteel.name=魔钢飞船
 item.extrabotany:boat_elementium.name=源质钢飞船
 item.extrabotany:boat_terrasteel.name=泰拉钢飞船
+item.extrabotany:excaliber.name=王者圣剑
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -86,6 +87,7 @@ tile.extrabotany:cocoondesire.name=不随想之茧
 tile.extrabotany:managenerator.name=FE转换器
 tile.extrabotany:manaliquefaction.name=魔力液化器
 tile.extrabotany:elfjar.name=活石桶
+tile.extrabotany:trophy.name=奖杯
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -424,6 +426,7 @@ extrabotany.config.enable.gaiaspawning=允许盖亚守护者III生成
 extrabotany.config.enable.gaiadisarm=允许盖亚守护者III缴械
 extrabotany.config.enable.gaiasmash=允许盖亚守护者III破坏方块
 extrabotany.config.enable.topsupport=启用TOP支持
+extrabotany.config.enable.divinejudge=允许盖亚守护者III释放天堂裁决
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=食用一个梦魇燃料.(这真的能吃吗)
@@ -473,9 +476,26 @@ advancement.extrabotany:mastermanaringFill=Fairytale
 advancement.extrabotany:mastermanaringFill.desc=充满它来赢得Minecraft
 advancement.extrabotany:musicAll=千本桜
 advancement.extrabotany:musicAll.desc=耐心的聆听者
+advancement.extrabotany:armorsetCos=cat's dance
+advancement.extrabotany:armorsetCos.desc=装备一套星空歌姬
+advancement.extrabotany:armorsetCombat=Drug Of Gold
+advancement.extrabotany:armorsetCombat.desc=装备一套昴星团战斗女仆
+advancement.extrabotany:armorsetSW=Crazy ∞ nighT
+advancement.extrabotany:armorsetSW.desc=装备一套暗影武士
+advancement.extrabotany:airshipMaxheight=Slowly sky
+advancement.extrabotany:airshipMaxheight.desc=驾驶飞船达到200米高
+advancement.extrabotany:infinitewineCraft=shake it
+advancement.extrabotany:infinitewineCraft.desc=获得无限之酒
+advancement.extrabotany:excaliberCraft=ReAct
+advancement.extrabotany:excaliberCraft.desc=获得王者圣剑
+advancement.extrabotany:allStats=Erase or Zero
+advancement.extrabotany:allStats.desc=解锁全部额外植物学的成就
 
-advancement.extrabotany:=
-advancement.extrabotany:.desc=
+advancement.extrabotany:=暗影
+advancement.extrabotany:.desc=暗影
+
+modifier.shadow.name=
+material.extrabotany:ingotshadowium.name=
 
 extrabotany.versioning.flavour=额外植物学已更新
 extrabotany.versioning.outdated=你所使用的额外植物学版本为%s，最新版本为%s.

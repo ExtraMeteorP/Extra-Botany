@@ -21,8 +21,8 @@ public class EntityMagicArrow extends EntityThrowableCopy{
 	private static final String TAG_DAMAGE = "damage";
 	private static final String TAG_LIFE = "life";
 	
-	private static final DataParameter<Integer> DAMAGE = EntityDataManager.createKey(EntityFlowerWeapon.class, DataSerializers.VARINT);
-	private static final DataParameter<Integer> LIFE = EntityDataManager.createKey(EntityFlowerWeapon.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> DAMAGE = EntityDataManager.createKey(EntityMagicArrow.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> LIFE = EntityDataManager.createKey(EntityMagicArrow.class, DataSerializers.VARINT);
 
 	public EntityMagicArrow(World worldIn) {
 		super(worldIn);

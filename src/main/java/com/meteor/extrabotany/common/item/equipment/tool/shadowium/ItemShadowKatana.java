@@ -1,4 +1,4 @@
-package com.meteor.extrabotany.common.item.equipment.tool;
+package com.meteor.extrabotany.common.item.equipment.tool.shadowium;
 
 import java.util.List;
 import java.util.UUID;
@@ -29,10 +29,13 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.BotaniaAPI;
+import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 
-public class ItemShadowKatana extends ItemSword implements IModelReg{
+public class ItemShadowKatana extends ItemSword implements IModelReg, IManaUsingItem{
+	
+	private static final int MANA_PER_DAMAGE = 60;
 
 	public ItemShadowKatana() {
 		super(BotaniaAPI.elementiumToolMaterial);
@@ -42,30 +45,31 @@ public class ItemShadowKatana extends ItemSword implements IModelReg{
 	}
 	
 	@Override
-    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected){
-    	super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+    public void onUpdate(ItemStack stack, World world, Entity player, int itemSlot, boolean isSelected){
+    	super.onUpdate(stack, world, player, itemSlot, isSelected);
+    	if(!world.isRemote && player instanceof EntityPlayer && stack.getItemDamage() > 0 && ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) player, MANA_PER_DAMAGE * 2, true))
+			stack.setItemDamage(stack.getItemDamage() - 1);
     	
-    	if(worldIn.isDaytime())
+    	if(world.isDaytime())
     		ItemNBTHelper.setBoolean(stack, "isnight", false);
     	else
     		ItemNBTHelper.setBoolean(stack, "isnight", true);
     	
     	int RANGE = 8;
     	
-    	if(entityIn instanceof EntityPlayer){
-    		EntityPlayer player = (EntityPlayer) entityIn;
-    		if(!(player.getHeldItemMainhand().getItem() instanceof ItemShadowKatana))
+    	if(player instanceof EntityPlayer){
+    		if(!(((EntityPlayer) player).getHeldItemMainhand().getItem() instanceof ItemShadowKatana))
     			return;
     		
-    		List<EntityLivingBase> livings = worldIn.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(entityIn.getPosition().add(-RANGE, -RANGE, -RANGE), entityIn.getPosition().add(RANGE + 1, RANGE + 1, RANGE + 1)));
+    		List<EntityLivingBase> livings = world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(player.getPosition().add(-RANGE, -RANGE, -RANGE), player.getPosition().add(RANGE + 1, RANGE + 1, RANGE + 1)));
 	    	if(livings.size() > 1)
 	    		for(EntityLivingBase living : livings){
 	    			if(living == player)
 	    				continue;
-		    		if(player.swingProgressInt == 4 && living.isEntityAlive() && ManaItemHandler.requestManaExactForTool(stack, player, 100, true)){
-		    			EntityDarkPixie pixie = DarkPixieHandler.getPixie(player, living, stack);
-		    			if(!worldIn.isRemote)
-		    				worldIn.spawnEntity(pixie);
+		    		if(((EntityPlayer) player).swingProgressInt == 4 && living.isEntityAlive() && ManaItemHandler.requestManaExactForTool(stack, ((EntityPlayer) player), 100, true)){
+		    			EntityDarkPixie pixie = DarkPixieHandler.getPixie(((EntityPlayer) player), living, stack);
+		    			if(!world.isRemote)
+		    				world.spawnEntity(pixie);
 		    			break;
 		    		}
 		    	}
@@ -102,6 +106,11 @@ public class ItemShadowKatana extends ItemSword implements IModelReg{
 	@Override
 	public void registerModels() {
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+	}
+
+	@Override
+	public boolean usesMana(ItemStack arg0) {
+		return true;
 	}
 
 }

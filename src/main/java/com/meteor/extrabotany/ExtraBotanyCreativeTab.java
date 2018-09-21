@@ -36,6 +36,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		this.list = list;
 		addBlock(ModBlocks.blockspecial);
 		addBlock(ModBlocks.pedestal);
+		addBlock(ModBlocks.trophy);
 		addItem(ModItems.hammermanasteel);
 		addItem(ModItems.hammerelementium);
 		addItem(ModItems.hammerterrasteel);
@@ -86,6 +87,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.treasure);
 		addItem(ModItems.failnaught);
 		addItem(ModItems.camera);
+		addItem(ModItems.excaliber);
 		addItem(ModItems.relicshield);
 		addItem(ModItems.mastermanaring);
 		addItem(ModItems.cocktail);

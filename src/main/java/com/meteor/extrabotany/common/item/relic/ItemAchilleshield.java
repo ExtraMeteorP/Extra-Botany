@@ -105,11 +105,6 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 	}
 	
 	@Override
-	public int getManaPerDamage(){
-		return 120;
-	}
-	
-	@Override
 	public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
 		super.onUsingTick(stack, player, count);
 		if((player.motionX > 0 || player.motionZ > 0) && player.isHandActive()){

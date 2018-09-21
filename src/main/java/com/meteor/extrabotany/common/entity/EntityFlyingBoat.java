@@ -5,10 +5,11 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Lists;
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.item.ModItems;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.block.BlockLiquid;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -305,6 +306,8 @@ public class EntityFlyingBoat extends Entity{
         
         if(!this.getPassengers().isEmpty() && this.getPassengers().get(0) instanceof EntityPlayer){
         	EntityPlayer player = (EntityPlayer) this.getPassengers().get(0);
+        	if(this.posY > 200)
+        		ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.AIRSHIP);
         	
             if(!ManaItemHandler.requestManaExact(new ItemStack(Items.APPLE), player, 1, true))
         		this.removePassengers();

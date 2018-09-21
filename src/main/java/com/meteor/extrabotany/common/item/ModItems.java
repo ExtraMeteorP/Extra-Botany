@@ -31,12 +31,17 @@ import com.meteor.extrabotany.common.item.equipment.tool.ItemHammerUltimate;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemManaReader;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
-import com.meteor.extrabotany.common.item.equipment.tool.ItemShadowKatana;
+import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowKatana;
+import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowiumAxe;
+import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowiumPickaxe;
+import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowiumShovel;
 import com.meteor.extrabotany.common.item.record.ItemRecordA;
 import com.meteor.extrabotany.common.item.relic.ItemAchilleshield;
 import com.meteor.extrabotany.common.item.relic.ItemCamera;
+import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
 import com.meteor.extrabotany.common.item.relic.ItemFailnaught;
 import com.meteor.extrabotany.common.item.relic.ItemMasterManaRing;
+import com.meteor.extrabotany.common.item.relic.ItemPocketWatchMoon;
 import com.meteor.extrabotany.common.item.relic.ItemTreasure;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
@@ -77,6 +82,8 @@ public class ModItems {
 	public static final Item camera = new ItemCamera();
 	public static final Item orb = new ItemNatureOrb();
 	public static final Item failnaught = new ItemFailnaught();
+	public static final Item pocketwatch = new ItemPocketWatchMoon();
+	public static final Item excaliber = new ItemExcaliber();
 	
 	public static final Item splashgrenade = new ItemBrewSplashGrenade();
 	public static final Item cocktail = new ItemBrewCocktail();
@@ -111,6 +118,10 @@ public class ModItems {
 	public static final Item shadowkatana = new ItemShadowKatana();
 	
 	public static final Item flyingboat = new ItemFlyingBoat();
+	
+	public static final Item shadowiumpick = new ItemShadowiumPickaxe();
+	public static final Item shadowiumaxe = new ItemShadowiumAxe();
+	public static final Item shadowiumshovel = new ItemShadowiumShovel();
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -163,6 +174,7 @@ public class ModItems {
 		r.register(swleg);
 		r.register(cmchestdarkened);
 		r.register(shadowkatana);
+		r.register(excaliber);
 		registerOreDictionary();
 	}
 	

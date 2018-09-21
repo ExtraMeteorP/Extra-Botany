@@ -1,6 +1,8 @@
 package com.meteor.extrabotany.client.render.entity;
 
-import com.meteor.extrabotany.common.entity.EntitySkullMissile;
+import com.meteor.extrabotany.client.ClientProxy;
+import com.meteor.extrabotany.client.lib.LibResource;
+import com.meteor.extrabotany.common.entity.gaia.EntitySkullMissile;
 
 import net.minecraft.client.model.ModelSkeletonHead;
 import net.minecraft.client.renderer.GlStateManager;
@@ -9,8 +11,6 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderSkullMissile extends Render<EntitySkullMissile>{
-  
-    private static final ResourceLocation SKULL_TEXTURES = new ResourceLocation("extrabotany:textures/entity/skullmissile.png");
 
     private final ModelSkeletonHead skeletonHeadModel = new ModelSkeletonHead();
 
@@ -61,7 +61,9 @@ public class RenderSkullMissile extends Render<EntitySkullMissile>{
     }
 
     protected ResourceLocation getEntityTexture(EntitySkullMissile entity){
-        return SKULL_TEXTURES;
+    	if(ClientProxy.halloween)
+    		return new ResourceLocation(LibResource.PUMPKIN);
+        return new ResourceLocation(LibResource.MISSILE);
     }
 
 }

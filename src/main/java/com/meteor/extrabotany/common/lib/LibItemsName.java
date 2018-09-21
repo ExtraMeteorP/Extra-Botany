@@ -15,6 +15,8 @@ public class LibItemsName {
 	public static final String CAMERA = "camera";
 	public static final String FAILNAUGHT = "failnaught";
 	public static final String ACHILLESHIELD = "achilleshield";
+	public static final String POCKETWATCHMOON = "pocketwatchmoon";
+	public static final String EXCALIBER = "excaliber";
 	
 	public static final String SHIELDMANASTEEL = "manasteelshield";
 	public static final String SHIELDTERRASTEEL = "terrasteelshield";
@@ -67,7 +69,12 @@ public class LibItemsName {
 	public static final String SWCHEST = "shadowwarriorchest";
 	public static final String SWLEGS = "shadowwarriorlegs";
 	public static final String SWBOOTS = "shadowwarriorboots";
+	
 	public static final String SHADOWKATANA = "shadowkatana";
+	public static final String SHADOWIUMPICKAXE = "shadowiumpickaxe";
+	public static final String SHADOWIUMAXE = "shadowiumaxe";
+	public static final String SHADOWIUMSHOVEL = "shadowiumshovel";
+	public static final String SHADOWIUMHOE = "shadowiumhoe";
 	
 	public static final String[] FLYING_BOAT_NAMES = new String[] {
 			"boat_manasteel",

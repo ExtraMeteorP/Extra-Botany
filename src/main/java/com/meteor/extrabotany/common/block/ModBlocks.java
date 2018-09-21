@@ -46,6 +46,7 @@ public class ModBlocks {
 	public static final Block manaliquefying = new BlockManaLiquefaction();
 	public static final Block manafluid = new BlockManaFluid();
 	public static final Block elfjar = new BlockElfJar();
+	public static final Block trophy = new BlockTrophy();
 	
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> evt) {
@@ -58,6 +59,7 @@ public class ModBlocks {
 		r.register(manaliquefying);
 		r.register(manafluid);
 		r.register(elfjar);
+		r.register(trophy);
 	}
 	
 	@SubscribeEvent
@@ -71,6 +73,7 @@ public class ModBlocks {
 		r.register(new ItemBlockMod(manaliquefying).setRegistryName(manaliquefying.getRegistryName()));
 		r.register(new ItemBlockMod(manafluid).setRegistryName(manafluid.getRegistryName()));
 		r.register(new ItemBlockMod(elfjar).setRegistryName(elfjar.getRegistryName()));
+		r.register(new ItemBlockMod(trophy).setRegistryName(trophy.getRegistryName()));
 		initTileEntities();
 	}
 	

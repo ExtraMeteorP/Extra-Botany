@@ -8,6 +8,8 @@ import javax.annotation.Nonnull;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
+import baubles.api.BaublesApi;
+import baubles.api.cap.IBaublesItemHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -21,28 +23,33 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.item.IRelic;
+import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic{
+public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic, IManaUsingItem{
 	
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
+	private static final int MANA_PER_DAMAGE = 1000;
 	
 	public ItemBrewInfiniteWine() {
 		super(LibItemsName.BREW_INFINITEWINE, 12, 18, 1, 2F, new ItemStack(ModItems.material, 1, 4));
 	}
 	
 	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected){
 		if(!world.isRemote && entity instanceof EntityPlayer){
 			updateRelic(stack, (EntityPlayer) entity);
-			if(isRightPlayer((EntityPlayer) entity, stack) && ManaItemHandler.requestManaExact(stack, (EntityPlayer) entity, 2000, true) && entity.ticksExisted % 6000 == 0)
-				setSwigsLeft(stack, Math.min(12, getSwigsLeft(stack) + 1));
 		}
+		
+		if(!world.isRemote && world.getWorldTime() % 6000 == 0 && entity instanceof EntityPlayer && getSwigsLeft(stack) < 12 && ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entity, MANA_PER_DAMAGE * 2, true))
+			setSwigsLeft(stack, getSwigsLeft(stack) + 1);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -132,6 +139,11 @@ public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic{
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 		return BotaniaAPI.rarityRelic;
+	}
+
+	@Override
+	public boolean usesMana(ItemStack stack) {
+		return true;
 	}
 	
 }

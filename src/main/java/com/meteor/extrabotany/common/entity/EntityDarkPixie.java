@@ -13,11 +13,10 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
-import vazkii.botania.common.entity.EntityPixie;
 
 public class EntityDarkPixie extends EntityFlying{
 
-	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntityPixie.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntityDarkPixie.class, DataSerializers.VARINT);
 
 	private EntityLivingBase summoner = null;
 	private float damage = 0;

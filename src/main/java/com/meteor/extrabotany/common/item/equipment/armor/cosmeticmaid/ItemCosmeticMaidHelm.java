@@ -2,11 +2,14 @@ package com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid;
 
 import javax.annotation.Nullable;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import vazkii.botania.api.mana.IManaDiscountArmor;
 
 public class ItemCosmeticMaidHelm  extends ItemCosmeticMaidArmor implements IManaDiscountArmor{
@@ -17,6 +20,14 @@ public class ItemCosmeticMaidHelm  extends ItemCosmeticMaidArmor implements IMan
 	
 	public ItemCosmeticMaidHelm(String name) {
 		super(EntityEquipmentSlot.HEAD, name);
+	}
+	
+	@Override
+	public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
+		super.onArmorTick(world, player, stack);
+		if(hasArmorSet(player)) {
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COS);
+		}
 	}
 	
 	@Override

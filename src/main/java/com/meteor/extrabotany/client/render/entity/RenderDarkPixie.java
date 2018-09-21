@@ -5,6 +5,8 @@ import javax.annotation.Nonnull;
 import org.lwjgl.opengl.ARBShaderObjects;
 import org.lwjgl.opengl.GL11;
 
+import com.meteor.extrabotany.client.ClientProxy;
+import com.meteor.extrabotany.client.lib.LibResource;
 import com.meteor.extrabotany.common.entity.EntityDarkPixie;
 
 import net.minecraft.client.renderer.GlStateManager;
@@ -38,7 +40,9 @@ public class RenderDarkPixie extends RenderLiving<EntityDarkPixie> {
 	@Nonnull
 	@Override
 	protected ResourceLocation getEntityTexture(@Nonnull EntityDarkPixie entity) {
-		return new ResourceLocation("extrabotany:textures/entity/darkpixie.png");
+		if(ClientProxy.halloween)
+			return new ResourceLocation(LibResource.DARKPIXIE_PUMPKIN);
+		return new ResourceLocation(LibResource.DARKPIXIE);
 	}
 
 	@Override

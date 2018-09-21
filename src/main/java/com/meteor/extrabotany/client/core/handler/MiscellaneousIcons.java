@@ -12,12 +12,16 @@ public class MiscellaneousIcons {
 	public static final MiscellaneousIcons INSTANCE = new MiscellaneousIcons();
 	
 	public TextureAtlasSprite[] kingGardenWeaponIcons;
+	public TextureAtlasSprite[] swordDomainIcons;
 	
 	@SubscribeEvent
 	public void onTextureStitch(TextureStitchEvent.Pre evt) {
 		kingGardenWeaponIcons = new TextureAtlasSprite[ItemKingGarden.WEAPON_TYPES];
 		for(int i = 0; i < ItemKingGarden.WEAPON_TYPES; i++)
 			kingGardenWeaponIcons[i] = IconHelper.forName(evt.getMap(), "flower_weapon_" + i, "items");
+		swordDomainIcons = new TextureAtlasSprite[8];
+		for(int i = 0; i < 8; i++)
+			swordDomainIcons[i] = IconHelper.forName(evt.getMap(), "sworddomain_" + i, "items");
 	}
 
 }

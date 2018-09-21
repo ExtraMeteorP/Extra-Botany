@@ -1,4 +1,4 @@
-package com.meteor.extrabotany.common.entity;
+package com.meteor.extrabotany.common.entity.gaia;
 
 import java.util.List;
 

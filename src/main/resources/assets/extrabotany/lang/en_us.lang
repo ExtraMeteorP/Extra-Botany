@@ -35,6 +35,7 @@ item.extrabotany:infinitewine.name=Infinite Wine
 item.extrabotany:boat_manasteel.name=Manasteel Airship
 item.extrabotany:boat_elementium.name=Elementium Airship
 item.extrabotany:boat_terrasteel.name=Terrasteel Airship
+item.extrabotany:excaliber.name=Excaliber
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
@@ -86,6 +87,7 @@ tile.extrabotany:cocoondesire.name=Cocoon of Desire
 tile.extrabotany:managenerator.name=Flux Manafield
 tile.extrabotany:manaliquefaction.name=Mana Liquefaction Device
 tile.extrabotany:elfjar.name=Livingrock Barrel
+tile.extrabotany:trophy.name=Trophy
 
 entity.extrabotany:flowerWeapon.name=Flower
 entity.extrabotany:gaiaIII.name=Gaia Guardian III
@@ -424,6 +426,7 @@ extrabotany.config.enable.gaiaspawning=Enable Summoning Gaia Guardian III
 extrabotany.config.enable.gaiadisarm=Enable Gaia Guardian III to Disarm
 extrabotany.config.enable.gaiasmash=Enable Gaia Guardian III to destroy block
 extrabotany.config.enable.topsupport=Enable The One Probe Support
+extrabotany.config.enable.divinejudge=Enable Gaia Guardian III to release Sword Domain
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)
@@ -473,9 +476,26 @@ advancement.extrabotany:mastermanaringFill=Fairytale
 advancement.extrabotany:mastermanaringFill.desc=Fill it to WIN the game
 advancement.extrabotany:musicAll=Senbonzakura
 advancement.extrabotany:musicAll.desc=Patient Listener
+advancement.extrabotany:armorsetCos=cat's dance
+advancement.extrabotany:armorsetCos.desc=Wear Starry Idol Armor Set
+advancement.extrabotany:armorsetCombat=Drug Of Gold
+advancement.extrabotany:armorsetCombat.desc=Wear Pleiades Combat Maid Armor Set
+advancement.extrabotany:armorsetSW=Crazy ∞ nighT
+advancement.extrabotany:armorsetSW.desc=Wear Shadow Warrior Armor Set at night
+advancement.extrabotany:airshipMaxheight=Slowly sky
+advancement.extrabotany:airshipMaxheight.desc=Drive Terrasteel Airship at least 200 metres high
+advancement.extrabotany:infinitewineCraft=shake it
+advancement.extrabotany:infinitewineCraft.desc=Obtain Infinite Wine
+advancement.extrabotany:excaliberCraft=ReAct
+advancement.extrabotany:excaliberCraft.desc=Obtain Excaliber
+advancement.extrabotany:allStats=Erase or Zero
+advancement.extrabotany:allStats.desc=Unlock All ExtraBotany's Advancements
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=
+
+advancement.extrabotany:=Shadow
+advancement.extrabotany:.desc=Shadowium
 
 extrabotany.versioning.flavour=
 extrabotany.versioning.outdated=

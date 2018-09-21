@@ -8,7 +8,8 @@
     },
     "description": {
       "translate": "advancement.extrabotany:mastermanaringFill.desc"
-    }
+    },
+	"frame": "challenge"
   },
   "parent": "extrabotany:main/mastermanaring_craft",
   "criteria": {

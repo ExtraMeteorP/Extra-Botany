@@ -1,4 +1,4 @@
-package com.meteor.extrabotany.common.entity;
+package com.meteor.extrabotany.common.entity.gaia;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -66,7 +66,6 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.boss.IBotaniaBoss;
@@ -129,9 +128,9 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	private boolean isPlayingMusic = false;
 	private boolean aggro = false;
 	private int tpDelay = 0;
-	private int cd = 600;
-	private int snapcd = 350;
-	private final List<UUID> playersWhoAttacked = new ArrayList<>();
+	private int cd = 200;
+	private int skillType = 0;
+	public final List<UUID> playersWhoAttacked = new ArrayList<>();
 	private final BossInfoServer bossInfo = (BossInfoServer) new BossInfoServer(new TextComponentTranslation("entity." + LibEntityNames.DOPPLEGANGER_REGISTRY + ".name"), BossInfo.Color.PINK, BossInfo.Overlay.PROGRESS).setCreateFog(true);;
 	public EntityPlayer trueKiller = null;
 
@@ -149,18 +148,24 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		
+		for(EntityPlayer player : getPlayersAround())
+			if(!playersWhoAttacked.contains(player.getUniqueID()))
+				playersWhoAttacked.add(player.getUniqueID());
+		
 		if(!getRankII() && getHealth() <= getMaxHealth() * 0.75F){
 			setRankII(true);
 			setShield(5);
 			spawnMinion();
+			spawnDivineJudge();
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.minionSpawn").setStyle(new Style().setColor(TextFormatting.WHITE)));
 		}
-		if(!getRankIII() && getHealth() <= getMaxHealth() * 0.35F){
+		if(!getRankIII() && getHealth() <= getMaxHealth() * 0.4F){
 			setRankIII(true);
 			setShield(5);
 			spawnMinion();
+			spawnDivineJudge();
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.minionSpawn").setStyle(new Style().setColor(TextFormatting.WHITE)));
@@ -212,30 +217,13 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 					spawnMissile(2);
 				heal(1F);
 			}
-			if(cd == 0){
+			if(cd == 0 && skillType == 1){
 				for(int t = 0; t< 22 + getPlayerCount() * 4; t++)
 					spawnMissile(3);
-				cd = 460;
+				cd = 200;
+				skillType = 2;
 			}
 		}
-		
-		int base = 6 + getPlayerCount() * 4;
-		int count = getRankIII() ? base + 9 : getRankII() ? base + 5 : base;
-		if(ticksExisted > 200 && ticksExisted % (getRankIII() ? 170 : getRankII() ? 210 : 250) == 0)
-			for(int i = 0; i < count; i++) {
-				int x = source.getX() - 10 + rand.nextInt(20);
-				int z = source.getZ() - 10 + rand.nextInt(20);
-				int y = world.getTopSolidOrLiquidBlock(new BlockPos(x, -1, z)).getY();
-				
-				EntitySkullLandmine landmine = new EntitySkullLandmine(world);
-				if(i % 5 == 0)
-					landmine.setType(2);
-				if(i % 7 == 0)
-					landmine.setType(1);
-				landmine.setPosition(x + 0.5, y, z + 0.5);
-				landmine.summoner = this;
-				world.spawnEntity(landmine);
-			}
 		
 		if(getRankII())
 			if(ticksExisted % 60 == 0)
@@ -247,35 +235,66 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				spawnMissile(1);
 		}
 		
+		int base = 8 + getPlayerCount() * 3;
+		int count = getRankIII() ? base + 9 : getRankII() ? base + 5 : base;
+		if(ticksExisted > 200 && ticksExisted % (getRankIII() ? 170 : getRankII() ? 210 : 250) == 0)
+			for(int i = 0; i < count; i++) {
+				int x = source.getX() - 10 + rand.nextInt(20);
+				int z = source.getZ() - 10 + rand.nextInt(20);
+				int y = world.getTopSolidOrLiquidBlock(new BlockPos(x, -1, z)).getY();
+				
+				EntitySkullLandmine landmine = new EntitySkullLandmine(world);
+				if(i % 6 == 0)
+					landmine.setType(2);
+				if(i % 5 == 0)
+					landmine.setType(1);
+				landmine.setPosition(x + 0.5, y, z + 0.5);
+				landmine.summoner = this;
+				world.spawnEntity(landmine);
+			}
+		
 		if(ConfigHandler.GAIA_DISARM)
 			for(EntityPlayer player : getPlayersAround())
 				disarm(player);
 		
-		if(cd > 0 && getRankIII() && snapcd >= 200)
+		if(cd > 0 && getRankII())
 			cd--;
-		if(snapcd > 0 && getRankII())
-			snapcd--;
-		
-		if(cd == 500)
+
+		if(cd == 250 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing").setStyle(new Style().setColor(TextFormatting.WHITE)));
 		
-		if(cd == 100)
+		if(cd == 100 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning").setStyle(new Style().setColor(TextFormatting.RED)));
 		
-		if(snapcd == 100)
+		if(cd == 100 && skillType == 0)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2").setStyle(new Style().setColor(TextFormatting.RED)));
 		
-		if(snapcd == 0 && !world.isRemote){
+		if(cd == 0 && !world.isRemote && skillType == 0){
 			EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayerCount()));
 			player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3").setStyle(new Style().setColor(TextFormatting.RED)));
-			ExtraBotanyAPI.dealTrueDamage(player, 12);
-			snapcd = 350;
+			ExtraBotanyAPI.dealTrueDamage(player, 14);
+			cd = 320;
+			skillType = getRankIII() ? 1 : world.rand.nextInt(2);
+		}
+		
+		if(cd == 0 && !world.isRemote && skillType == 2){
+			if(ConfigHandler.GAIA_DIVINEJUDGE)
+				spawnDivineJudge();
+			else spawnMinion();
+			cd = 260;
+			skillType = getRankIII() ? 3 : 0;
+		}
+		
+		if(cd == 0 && !world.isRemote && skillType == 3){
+			spawnMinion();
+			cd = 300;
+			skillType = world.rand.nextInt(1);
 		}
 		
 		if(tpDelay > 0)	
@@ -335,16 +354,35 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		}
 	}
 	
+	private void spawnDivineJudge(){
+		for(int i = 0; i < 8; i ++) {
+			float rad = i * 45 * (float) Math.PI / 180F;
+			double x = getSource().getX() + 0.5 - Math.cos(rad) * 5;
+			double y = getSource().getY() + 7;
+			double z = getSource().getZ() + 0.5 - Math.sin(rad) * 5;
+			EntitySwordDomain domain = new EntitySwordDomain(this.getEntityWorld());
+			EntityDomain d = new EntityDomain(this.getEntityWorld());
+			d.setPosition(x, y - 0.5F, z);
+			this.getEntityWorld().spawnEntity(d);
+			domain.setUUID(playersWhoAttacked.get(Math.min(i, Math.max(0, playersWhoAttacked.size() - 1))));
+			domain.setType(i);
+			domain.setPosition(x, y, z + 2);
+			domain.setCount((int) (y - 2));
+			domain.setSource(getSource());
+			this.getEntityWorld().spawnEntity(domain);
+		}
+	}
+	
 	private void spawnMissile(int type) {
 		EntitySkullMissile missile = new EntitySkullMissile(this);
 		missile.setPosition(posX + (Math.random() - 0.5 * 0.1), posY + 1.8 + (Math.random() - 0.5 * 0.1), posZ + (Math.random() - 0.5 * 0.1));
-		missile.setDamage(3);
+		missile.setDamage(4);
 		if(type > 0){
 			missile.setFire(true);
 		}
 		if(type > 1){
 			missile.setEffect(true);
-			missile.setTrueDamage(1);
+			missile.setTrueDamage(2);
 		}
 		if(missile.findTarget()) {
 			if(type > 2){

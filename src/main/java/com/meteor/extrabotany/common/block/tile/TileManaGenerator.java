@@ -2,12 +2,11 @@ package com.meteor.extrabotany.common.block.tile;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.google.common.base.Predicates;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 
+import cofh.redstoneflux.api.IEnergyConnection;
+import cofh.redstoneflux.api.IEnergyReceiver;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -16,16 +15,20 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fml.common.Optional;
 import vazkii.botania.api.mana.IManaReceiver;
 import vazkii.botania.api.mana.spark.ISparkAttachable;
 import vazkii.botania.api.mana.spark.ISparkEntity;
 import vazkii.botania.common.block.tile.TileMod;
 import vazkii.botania.common.block.tile.mana.TileSpreader;
 
-public class TileManaGenerator extends TileMod implements ITickable, IManaReceiver, ISparkAttachable{
+@Optional.InterfaceList({
+	@Optional.Interface(modid = "redstoneflux", iface = "cofh.redstoneflux.api.IEnergyConnection", striprefs = true),
+	@Optional.Interface(modid = "redstoneflux", iface = "cofh.redstoneflux.api.IEnergyStorage", striprefs = true),
+	@Optional.Interface(modid = "redstoneflux", iface = "cofh.redstoneflux.api.IEnergyReceiver", striprefs = true)})
+public class TileManaGenerator extends TileMod implements ITickable, IManaReceiver, ISparkAttachable, IEnergyConnection, IEnergyStorage, IEnergyReceiver{
 	
 	private static final String TAG_MANA = "mana";
 	private static final String TAG_ENERGY = "energy";
@@ -144,6 +147,62 @@ public class TileManaGenerator extends TileMod implements ITickable, IManaReceiv
 		if(space > 0)
 			return space;
 		else return 0;
+	}
+
+	@Override
+	public int receiveEnergy(int maxReceive, boolean simulate) {
+		int space = getMaxEnergyStored() - this.energy;
+		if(!simulate)
+			this.energy = Math.min(this.energy + maxReceive, getMaxEnergyStored());
+		return Math.min(space, maxReceive);
+	}
+
+	@Override
+	public int extractEnergy(int maxExtract, boolean simulate) {
+		int available = this.energy;
+		if(!simulate)
+			this.energy = Math.max(this.energy - maxExtract, 0);
+		return Math.min(maxExtract, available);
+	}
+
+	@Override
+	public int getEnergyStored() {
+		return this.energy;
+	}
+
+	@Override
+	public int getMaxEnergyStored() {
+		return MAX_ENERGY;
+	}
+
+	@Override
+	public boolean canExtract() {
+		return true;
+	}
+
+	@Override
+	public boolean canReceive() {
+		return true;
+	}
+
+	@Override
+	public boolean canConnectEnergy(EnumFacing arg0) {
+		return true;
+	}
+
+	@Override
+	public int getEnergyStored(EnumFacing arg0) {
+		return this.energy;
+	}
+
+	@Override
+	public int getMaxEnergyStored(EnumFacing arg0) {
+		return MAX_ENERGY;
+	}
+
+	@Override
+	public int receiveEnergy(EnumFacing arg0, int arg1, boolean arg2) {
+		return receiveEnergy(arg1, arg2);
 	}
 
 }

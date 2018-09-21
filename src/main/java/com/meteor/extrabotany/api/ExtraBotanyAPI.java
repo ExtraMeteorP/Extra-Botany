@@ -16,6 +16,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -35,6 +36,9 @@ public class ExtraBotanyAPI {
 	public static final List<RecipeOmniviolet> omnivioletRecipes = new ArrayList<RecipeOmniviolet>();
 	public static final ArmorMaterial orichalcosArmorMaterial = EnumHelper.addArmorMaterial("ORICHALCOS", "orichalcos", 50,
 			new int[] { 4, 7, 9, 4 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
+	public static final ArmorMaterial shadowiumArmorMaterial = EnumHelper.addArmorMaterial("SHADOWIUM", "shadowium", 12,
+			new int[] { 3, 6, 5, 2 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3F);
+	public static final ToolMaterial shadowiumToolMaterial = EnumHelper.addToolMaterial("SHADOWIUM", 3, 800, 6.5F, 2F, 12);
 	
 	static {
     	dreamKnowledge = BotaniaAPI.registerKnowledgeType("dream", TextFormatting.DARK_RED, false);
@@ -64,7 +68,7 @@ public class ExtraBotanyAPI {
 			AdvancementManager manager = ((WorldServer)player.getEntityWorld()).getAdvancementManager();
 			Advancement advancement = manager.getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+name));
 			if(advancement!=null)
-				advancements.grantCriterion(advancement, "ebt_trigger");
+				advancements.grantCriterion(advancement, "ebt_trigger");		
 		}
 	}
 	

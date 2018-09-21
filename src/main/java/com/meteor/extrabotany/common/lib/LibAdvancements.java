@@ -29,6 +29,15 @@ public class LibAdvancements {
 	
 	public static final String MUSIC_ALL = "music_all";
 	
+	public static final String ARMORSET_COS = "armorset_cos";
+	public static final String ARMORSET_COMBAT = "armorset_combat";
+	public static final String ARMORSET_SW = "armorset_sw";
+	public static final String INFINITEWINE = "infinitewine_craft";
+	public static final String AIRSHIP = "airship_maxheight";
+	public static final String EXCALIBER = "excaliber_craft";
+	
+	public static final String ALLSTATS = "stats_all";
+	
 	public static final String PREFIX = "main/";
 
 }

@@ -17,9 +17,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 
-public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer {
+public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer, IManaUsingItem{
+	
+	private static final int MANA_PER_DAMAGE = 60;
 
 	public ItemHammer(String name, ToolMaterial material) {
 		super(material);
@@ -34,13 +37,9 @@ public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer {
 		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
 	}
 	
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int par4, boolean par5) {
-		super.onUpdate(stack, world, entity, par4, par5);
-		if(!(stack.getItem() instanceof ItemHammerUltimate))
-			if(!world.isRemote && entity.ticksExisted % 10 == 0 && ManaItemHandler.requestManaExact(stack, (EntityPlayer)entity, 60, true) && stack.getItemDamage() > 0){
-				stack.setItemDamage(stack.getItemDamage() - 1);
-			}
+	public void onUpdate(ItemStack stack, World world, Entity player, int par4, boolean par5) {
+		if(!world.isRemote && player instanceof EntityPlayer && stack.getItemDamage() > 0 && ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) player, MANA_PER_DAMAGE * 2, true))
+			stack.setItemDamage(stack.getItemDamage() - 1);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -51,6 +50,11 @@ public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer {
 
 	@Override
 	public boolean isHammer() {
+		return true;
+	}
+	
+	@Override
+	public boolean usesMana(ItemStack stack) {
 		return true;
 	}
 }

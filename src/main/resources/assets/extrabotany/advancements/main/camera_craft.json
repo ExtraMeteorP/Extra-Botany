@@ -8,7 +8,8 @@
     },
     "description": {
       "translate": "advancement.extrabotany:cameraCraft.desc"
-    }
+    },
+	"frame": "challenge"
   },
   "parent": "extrabotany:main/gaia_defeat",
   "criteria": {

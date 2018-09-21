@@ -69,6 +69,7 @@ public class ModCraftingRecipe {
 	
 	public static IRecipe SKATANA;
 	public static IRecipe ELFJAR;
+	public static IRecipe EXCALIBER;
 	
 	public static void init() {
 		
@@ -188,6 +189,9 @@ public class ModCraftingRecipe {
 		
 		ELFJAR = new ShapedOreRecipe(getResource("recipe_elfjar"), new ItemStack(ModBlocks.elfjar), "A A", "A A", "AAA", 'A', LibOreDict.LIVING_ROCK);
 		ELFJAR.setRegistryName(getResource("recipe_elfjar"));
+		
+		EXCALIBER = new ShapedOreRecipe(getResource("recipe_excaliber"), new ItemStack(ModItems.excaliber), "A", "B", "C", 'B', new ItemStack(vazkii.botania.common.item.ModItems.terraSword), 'A', new ItemStack(ModItems.material, 1, 3) , 'C', LibOreDict.DREAMWOOD_TWIG);
+		EXCALIBER.setRegistryName(getResource("recipe_excaliber"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -238,7 +242,8 @@ public class ModCraftingRecipe {
 					SWLEGS,
 					SWBOOTS,
 					ELFJAR,
-					SKATANA
+					SKATANA,
+					EXCALIBER
 			);
 			if(ConfigHandler.ENABLE_SHIELD){
 				event.getRegistry().registerAll(

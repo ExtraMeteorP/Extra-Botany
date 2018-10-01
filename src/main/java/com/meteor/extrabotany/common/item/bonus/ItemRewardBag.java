@@ -7,9 +7,12 @@ import java.util.Random;
 
 import javax.annotation.Nonnull;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.item.Bonus;
 import com.meteor.extrabotany.api.item.WeightCategory;
+import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.ItemMod;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -70,14 +73,15 @@ public class ItemRewardBag extends ItemMod{
 			Bonus.addItem(new ItemStack(ModItems.manaResource, 3, i), 11, categorysC);
 		Bonus.addItem(new ItemStack(com.meteor.extrabotany.common.item.ModItems.material, 1, 3), 1, categorysC);
 		//D
-		Bonus.addItem(new ItemStack(Items.IRON_INGOT, 8), 8, categorysD);
-		Bonus.addItem(new ItemStack(Items.DIAMOND, 2), 1, categorysD);
-		Bonus.addItem(new ItemStack(Items.COAL, 14), 10, categorysD);
-		Bonus.addItem(new ItemStack(Items.GOLD_INGOT, 6), 6, categorysD);
-		Bonus.addItem(new ItemStack(ModItems.overgrowthSeed, 2), 2, categorysD);
-		Bonus.addItem(new ItemStack(ModItems.blackLotus, 3), 2, categorysD);
-		Bonus.addItem(new ItemStack(Items.ENDER_PEARL, 4), 6, categorysD);
-		Bonus.addItem(new ItemStack(Items.REDSTONE, 16), 6, categorysD);
+		Bonus.addItem(new ItemStack(Items.IRON_INGOT, 6), 24, categorysD);
+		Bonus.addItem(new ItemStack(Items.DIAMOND, 2), 13, categorysD);
+		Bonus.addItem(new ItemStack(Items.COAL, 8), 28, categorysD);
+		Bonus.addItem(new ItemStack(Items.GOLD_INGOT, 5), 17, categorysD);
+		Bonus.addItem(new ItemStack(ModItems.overgrowthSeed, 2), 10, categorysD);
+		Bonus.addItem(new ItemStack(ModItems.blackLotus, 3), 15, categorysD);
+		Bonus.addItem(new ItemStack(Items.ENDER_PEARL, 4), 18, categorysD);
+		Bonus.addItem(new ItemStack(Items.REDSTONE, 12), 18, categorysD);
+		Bonus.addItem(new ItemStack(com.meteor.extrabotany.common.item.ModItems.relics, 1), 1, categorysD);
 	}
 	
 	@Nonnull
@@ -140,6 +144,8 @@ public class ItemRewardBag extends ItemMod{
 			ItemStack newstack = rollItem(stack).copy();
 			world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (world.rand.nextFloat() * 0.4F + 0.8F));
 			player.inventory.addItemStackToInventory(newstack);
+			if(newstack.getItem().getRegistryName().toString().indexOf("medal") != -1)
+				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.LUCKYDRAW);
 			stack.shrink(1);
 			return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 		}

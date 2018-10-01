@@ -1,0 +1,20 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:heromedal"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:luckyDraw"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:luckyDraw.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/gaia_defeat",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

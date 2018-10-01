@@ -23,6 +23,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
+import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
+import vazkii.botania.common.lib.LibBlockNames;
 import vazkii.botania.common.lib.LibOreDict;
 
 public class ModCraftingRecipe {
@@ -70,6 +72,9 @@ public class ModCraftingRecipe {
 	public static IRecipe SKATANA;
 	public static IRecipe ELFJAR;
 	public static IRecipe EXCALIBER;
+	public static IRecipe SUPERCROWN;
+	public static IRecipe PUREDAISYPENDANT;
+	public static IRecipe REDSCARF;
 	
 	public static void init() {
 		
@@ -192,6 +197,15 @@ public class ModCraftingRecipe {
 		
 		EXCALIBER = new ShapedOreRecipe(getResource("recipe_excaliber"), new ItemStack(ModItems.excaliber), "A", "B", "C", 'B', new ItemStack(vazkii.botania.common.item.ModItems.terraSword), 'A', new ItemStack(ModItems.material, 1, 3) , 'C', LibOreDict.DREAMWOOD_TWIG);
 		EXCALIBER.setRegistryName(getResource("recipe_excaliber"));
+		
+		SUPERCROWN = new ShapedOreRecipe(getResource("recipe_supercrown"), new ItemStack(ModItems.supercrown), "ABA", "ACA", "DED", 'B', new ItemStack(vazkii.botania.common.item.ModItems.cosmetic, 1, 8), 'A', "ingotGold" , 'C', LibOreDict.RUNE[15], 'D', new ItemStack(vazkii.botania.common.item.ModItems.manaResource, 1, 5), 'E', new ItemStack(Items.GOLDEN_APPLE));
+		SUPERCROWN.setRegistryName(getResource("recipe_supercrown"));
+		
+		PUREDAISYPENDANT = new ShapedOreRecipe(getResource("recipe_puredaisypendant"), new ItemStack(ModItems.puredaisypendant), "ABA", " A ", 'B', LibOreDict.ELEMENTIUM_NUGGET, 'A', ItemBlockSpecialFlower.ofType(LibBlockNames.SUBTILE_PUREDAISY));
+		PUREDAISYPENDANT.setRegistryName(getResource("recipe_puredaisypendant"));
+		
+		REDSCARF = new ShapedOreRecipe(getResource("recipe_redscarf"), new ItemStack(ModItems.redscarf), "AAA", "ABA", "AAA", 'B', new ItemStack(ModItems.material), 'A', LibOreDict.PETAL[14]);
+		REDSCARF.setRegistryName(getResource("recipe_redscarf"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -243,7 +257,10 @@ public class ModCraftingRecipe {
 					SWBOOTS,
 					ELFJAR,
 					SKATANA,
-					EXCALIBER
+					EXCALIBER,
+					SUPERCROWN,
+					PUREDAISYPENDANT,
+					REDSCARF
 			);
 			if(ConfigHandler.ENABLE_SHIELD){
 				event.getRegistry().registerAll(

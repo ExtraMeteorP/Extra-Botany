@@ -66,7 +66,7 @@ public class ItemCombatMaidArmor extends ItemCosmeticMaidArmor{
 
 		return armorset;
 	}
-
+	
 	@Override
 	public boolean hasArmorSetItem(EntityPlayer player, int i) {
 		if(player == null || player.inventory == null || player.inventory.armorInventory == null)

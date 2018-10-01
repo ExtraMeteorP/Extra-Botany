@@ -348,7 +348,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			BlockPos p = getSource().add(MINION_LOCATIONS[c]);
 			m.setPosition(p.getX(), p.getY(), p.getZ());
 			m.setType(c);
-			m.setShield(6);
+			m.setShield(2);
 			if(!world.isRemote)
 				world.spawnEntity(m);
 		}

@@ -36,6 +36,7 @@ item.extrabotany:boat_manasteel.name=魔钢飞船
 item.extrabotany:boat_elementium.name=源质钢飞船
 item.extrabotany:boat_terrasteel.name=泰拉钢飞船
 item.extrabotany:excaliber.name=王者圣剑
+item.extrabotany:buddhistrelics.name=源初造物丨虚空万藏
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -52,6 +53,9 @@ item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
 
 item.extrabotany:froststar.name=霜冻之星
 item.extrabotany:deathring.name=诅咒指环
+item.extrabotany:puredaisypendant.name=白雏菊项链
+item.extrabotany:supercrown.name=超级王冠
+item.extrabotany:redscarf.name=红领巾
 item.extrabotany:combatmaidhelm.name=昴星团战斗女仆头饰
 item.extrabotany:combatmaidchest.name=昴星团战斗女仆服
 item.extrabotany:combatmaidlegs.name=昴星团战斗女仆裙甲
@@ -88,6 +92,7 @@ tile.extrabotany:managenerator.name=FE转换器
 tile.extrabotany:manaliquefaction.name=魔力液化器
 tile.extrabotany:elfjar.name=活石桶
 tile.extrabotany:trophy.name=奖杯
+tile.extrabotany:fluidedmana.name=液态魔力
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -324,6 +329,12 @@ botania.page.gaia31=挑战盖亚守护者III需要遵守 一些新的规则，�
 botania.page.gaia32=我得到了!
 botania.tagline.gaia3=硬核难度
 
+botania.entry.gaia4=盖亚仪式IV
+botania.page.gaia40=可以消耗自然蕴息宝珠中储 存的自然之息，通过自然之力 来召唤出更为强大的盖亚守 护者，其各项能力将得到的大 幅度的提升。这一过程需要消 耗10w自然之息。
+botania.page.gaia41=挑战盖亚守护者IV需要遵守 一些新的规则，首先场地内的 非原版或非植物魔法的方块， 以及所有液体都将被破坏。其 次玩家身上也不能携带，持有， 装备任何非原版或非植物魔 法的物品，一旦违反都将被缴 械在地上。与盖亚守护者III 战斗的时候要注意地上的地 雷的颜色，尤其是红色的地雷 要小心。
+botania.page.gaia42=我得到了!
+botania.tagline.gaia3=硬核难度
+
 botania.entry.relicshield=勇士盾
 botania.page.relicshield0=&4勇士盾&0可以说是最强之盾也 是最强之矛，能在格挡伤害的 同时将伤害反射，并能够反弹 绝大多数的投掷物。盾牌开启 期间碰撞敌人能对其造成高 额伤害。
 botania.page.relicshield1=你要说的下一句话是
@@ -409,6 +420,20 @@ botania.page.elfjar0=可以储存16桶液体的桶，如果装有水的话可以
 botania.page.elfjar1=Minecraft太简单了。
 botania.tagline.elfjar=普通
 
+botania.entry.supercrown=超级王冠
+botania.page.supercrown0=当你装备一套星空歌姬或昴 星团战斗女仆时，每当你受到 伤害时，超级王冠会为使伤害 减少2点。
+botania.page.supercrown1=你并不是奇诺比奥。
+botania.tagline.supercrown=猫里奥
+
+botania.entry.puredaisypendant=白雏菊项链
+botania.page.puredaisypendant0=手持白雏菊项链右击方块与 白雏菊效果相同，但这一过程 需要消耗少量魔力，并且每 使用64次需要冷却2.5分钟， 只有装备在饰品栏里才会开 始冷却。
+botania.page.puredaisypendant1=My beauty is in position.
+botania.tagline.puredaisypendant=Now You See Me, Now You Don't
+
+botania.entry.buddhistrelics=源初造物丨虚空万藏
+botania.page.buddhistrelics0=源初造物丨虚空万藏可以近 乎完美地模拟几种遗物的形 态，通过下蹲右键来切换形态 ，但维持其他形态需要持续 消耗魔力。
+botania.tagline.buddhistrelics=java.lang.NullPointerException
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
@@ -490,12 +515,16 @@ advancement.extrabotany:excaliberCraft=ReAct
 advancement.extrabotany:excaliberCraft.desc=获得王者圣剑
 advancement.extrabotany:allStats=Erase or Zero
 advancement.extrabotany:allStats.desc=解锁全部额外植物学的成就
+advancement.extrabotany:luckyDraw=Starduster
+advancement.extrabotany:luckyDraw.desc=通过奖励袋获得英雄勋章
+advancement.extrabotany:=SPiCa
+advancement.extrabotany:.desc=获得源初造物丨虚空万藏
 
-advancement.extrabotany:=暗影
-advancement.extrabotany:.desc=暗影
+advancement.extrabotany:=
+advancement.extrabotany:.desc=
 
-modifier.shadow.name=
-material.extrabotany:ingotshadowium.name=
+modifier.shadow.name=暗影
+material.extrabotany:ingotshadowium.name=暗影
 
 extrabotany.versioning.flavour=额外植物学已更新
 extrabotany.versioning.outdated=你所使用的额外植物学版本为%s，最新版本为%s.

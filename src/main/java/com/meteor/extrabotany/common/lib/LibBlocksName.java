@@ -23,6 +23,7 @@ public class LibBlocksName {
 	public static final String TILE_ELFJAR = "elfjar";
 	public static final String TILE_TROPHY = "trophy";
 	
+	public static final String TILE_INFINITYCUBE = "infinitycube";
 	public static final String TILE_SCREEN = "screen";
 	public static final String TILE_CRYSTALIZER = "crystallizer";
 	

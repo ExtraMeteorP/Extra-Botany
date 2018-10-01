@@ -36,6 +36,7 @@ item.extrabotany:boat_manasteel.name=Manasteel Airship
 item.extrabotany:boat_elementium.name=Elementium Airship
 item.extrabotany:boat_terrasteel.name=Terrasteel Airship
 item.extrabotany:excaliber.name=Excaliber
+item.extrabotany:buddhistrelics.name=Origin Creation - Omniscience
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
@@ -50,8 +51,11 @@ item.extrabotany:mastermanaring.name=Master Band of Mana
 item.extrabotany:recordgaia3.name=Scathed Music Disc
 item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
 
-item.extrabotany:froststar.name=Frost Ring
-item.extrabotany:deathring.name=Curse Ring
+item.extrabotany:froststar.name=Ring of Frost
+item.extrabotany:deathring.name=Ring of Curse
+item.extrabotany:puredaisypendant.name=Pure Daisy Pendant
+item.extrabotany:supercrown.name=Super Crown
+item.extrabotany:redscarf.name=Red Scarf
 item.extrabotany:combatmaidhelm.name=Pleiades Combat Maid Headgear
 item.extrabotany:combatmaidchest.name=Pleiades Combat Maid Suit
 item.extrabotany:combatmaidlegs.name=Pleiades Combat Maid Skirt
@@ -88,6 +92,7 @@ tile.extrabotany:managenerator.name=Flux Manafield
 tile.extrabotany:manaliquefaction.name=Mana Liquefaction Device
 tile.extrabotany:elfjar.name=Livingrock Barrel
 tile.extrabotany:trophy.name=Trophy
+tile.extrabotany:fluidedmana.name=Fluided Mana
 
 entity.extrabotany:flowerWeapon.name=Flower
 entity.extrabotany:gaiaIII.name=Gaia Guardian III
@@ -324,6 +329,12 @@ botania.page.gaia31=For the Gaia Guardian III fight, you need to learn some new 
 botania.page.gaia32=Natural Selection.
 botania.tagline.gaia3=It's HARDCORE
 
+botania.entry.gaia4=Ritual of Gaia IV
+botania.page.gaia40=The Nature Orb stores concentrated Natural Breath. 100,000 of it can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.
+botania.page.gaia41=For the Gaia Guardian IV fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania. Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
+botania.page.gaia42=Natural Selection.
+botania.tagline.gaia4=It's HARDCORE
+
 botania.entry.relicshield=Achilled Shield
 botania.page.relicshield0=The &4Achilled Shield&0 can reflect damage and most projectiles. Colliding with enemies while blocking will deal damage to them. 
 botania.page.relicshield1=I will stop humans
@@ -409,6 +420,20 @@ botania.page.elfjar0=Livingrock Barrel can simply contain 16 buckets of liquid. 
 botania.page.elfjar1=Minecraft is too easy.
 botania.tagline.elfjar=Simple
 
+botania.entry.supercrown=Super Crown
+botania.page.supercrown0=When you are equipping Starry Idol Armor Set or Pleiades Combat Maid Armor Set, Super Crown will reduce every damage you take by 2.
+botania.page.supercrown1=You are not Toadette.
+botania.tagline.supercrown=Cat Mario
+
+botania.entry.puredaisypendant=Pure Daisy Pendant
+botania.page.puredaisypendant0=Holding a Pure Daisy Pendant and right-click a block has the same effect as Pure Daisy, but costs a little mana. After every 64 times you use, it will cool down for 2.5min, and it only cools down when it is equipped.
+botania.page.puredaisypendant1=My beauty is in position.
+botania.tagline.puredaisypendant=Now You See Me, Now You Don't
+
+botania.entry.buddhistrelics=Origin Creation - Omniscience
+botania.page.buddhistrelics0=Origin Creation - Omniscience can simulate some of the Relics, sneak and right-click to switch its form. Keeping other form will cost mana constantly.
+botania.tagline.buddhistrelics=java.lang.NullPointerException
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
@@ -490,12 +515,16 @@ advancement.extrabotany:excaliberCraft=ReAct
 advancement.extrabotany:excaliberCraft.desc=Obtain Excaliber
 advancement.extrabotany:allStats=Erase or Zero
 advancement.extrabotany:allStats.desc=Unlock All ExtraBotany's Advancements
+advancement.extrabotany:luckyDraw=Starduster
+advancement.extrabotany:luckyDraw.desc=Obtain Medal for Heroism through Reward Bag
+advancement.extrabotany:huddhistRelics=SPiCa
+advancement.extrabotany:huddhistRelics.desc=Obtain Origin Creation - Omniscience
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=
 
-advancement.extrabotany:=Shadow
-advancement.extrabotany:.desc=Shadowium
+modifier.shadow.name=Shadow
+material.extrabotany:ingotshadowium.name=Shadowium
 
 extrabotany.versioning.flavour=
 extrabotany.versioning.outdated=

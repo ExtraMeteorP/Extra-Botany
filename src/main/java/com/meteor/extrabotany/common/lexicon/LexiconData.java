@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.lexicon;
 
+import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
@@ -57,6 +58,9 @@ public class LexiconData {
 	
 	public static LexiconEntry froststar;
 	public static LexiconEntry deathring;
+	public static LexiconEntry puredaisypendant;
+	public static LexiconEntry supercrown;
+	public static LexiconEntry redscarf;
 	
 	public static LexiconEntry gaia3;
 	public static LexiconEntry natureorb;
@@ -71,6 +75,7 @@ public class LexiconData {
 	public static LexiconEntry splashgrenade;
 	public static LexiconEntry cocktail;
 	public static LexiconEntry infinitewine;
+	public static LexiconEntry relics;
 	
 	public static LexiconEntry cm;
 	public static LexiconEntry cosm;
@@ -93,8 +98,8 @@ public class LexiconData {
 		infinitewine = new DreamLexiconEntry(LibLexicon.INFINITEWINE,  BotaniaAPI.categoryDevices);
 		infinitewine.setLexiconPages(new PageText("0"));
 		infinitewine.setIcon(new ItemStack(ModItems.infinitewine));
-		
-		gaia3 = new DreamLexiconEntry(LibLexicon.GAIA_III,  BotaniaAPI.categoryAlfhomancy);
+
+		gaia3 = new DreamLexiconEntry(ExtraBotany.naturalpledgeLoaded ? LibLexicon.GAIA_IV : LibLexicon.GAIA_III,  BotaniaAPI.categoryAlfhomancy);
 		gaia3.setLexiconPages(new PageText("0"),
 					new PageText("1"),
 					new PageMultiblock("2", EntityDoppleganger.makeMultiblockSet()));
@@ -124,6 +129,14 @@ public class LexiconData {
 					new PageCraftingRecipe("1", getResource("recipe_emptybottle")));
 		manadrink.setIcon(new ItemStack(ModItems.manadrink));
 		
+		supercrown = new BasicLexiconEntry(LibLexicon.BAUBLE_SUPERCROWN,  BotaniaAPI.categoryBaubles);
+		supercrown.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_supercrown")));
+		
+		puredaisypendant = new BasicLexiconEntry(LibLexicon.BAUBLE_PUREDAISYPENDANT,  BotaniaAPI.categoryBaubles);
+		puredaisypendant.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_puredaisypendant")));
+		
 		elfjar = new BasicLexiconEntry(LibLexicon.ELFJAR,  BotaniaAPI.categoryDevices);
 		elfjar.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_elfjar")));
@@ -141,6 +154,9 @@ public class LexiconData {
 		relicshield = new DreamLexiconEntry(LibLexicon.RELIC_RELICSHIELD,  BotaniaAPI.categoryTools);
 		relicshield.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_relicshield")));
+		
+		relics = new DreamLexiconEntry(LibLexicon.RELIC_RELICS,  BotaniaAPI.categoryTools);
+		relics.setLexiconPages(new PageText("0"));
 		
 		mastermanaring = new DreamLexiconEntry(LibLexicon.RELIC_MASTERMANARING,  BotaniaAPI.categoryTools);
 		mastermanaring.setLexiconPages(new PageText("0"),

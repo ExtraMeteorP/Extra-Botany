@@ -51,6 +51,9 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.flyingboat);
 		addItem(ModItems.froststar);
 		addItem(ModItems.deathring);
+		addItem(ModItems.puredaisypendant);
+		addItem(ModItems.supercrown);
+		addItem(ModItems.redscarf);
 		addItem(ModItems.kinggarden);
 		addItem(ModItems.cosmhelm);
 		addItem(ModItems.cosmchest);
@@ -90,6 +93,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.excaliber);
 		addItem(ModItems.relicshield);
 		addItem(ModItems.mastermanaring);
+		addItem(ModItems.relics);
 		addItem(ModItems.cocktail);
 		addItem(ModItems.infinitewine);
 		addItem(ModItems.splashgrenade);

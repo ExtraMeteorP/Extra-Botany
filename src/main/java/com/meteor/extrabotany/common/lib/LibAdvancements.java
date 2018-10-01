@@ -36,6 +36,10 @@ public class LibAdvancements {
 	public static final String AIRSHIP = "airship_maxheight";
 	public static final String EXCALIBER = "excaliber_craft";
 	
+	public static final String BUDDHISTRELICS = "buddhist_relics";
+	
+	public static final String LUCKYDRAW = "lucky_draw";
+	
 	public static final String ALLSTATS = "stats_all";
 	
 	public static final String PREFIX = "main/";

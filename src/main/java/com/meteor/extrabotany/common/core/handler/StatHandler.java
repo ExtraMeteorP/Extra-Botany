@@ -7,12 +7,10 @@ import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
-import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -22,6 +20,8 @@ public class StatHandler {
 	
 	@SubscribeEvent
 	public static void getAchievement(AdvancementEvent event) {
+		if(!(event.getEntityLiving() instanceof EntityPlayer))
+			return;
 		if(hasAllStats(event.getEntityPlayer())){
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModBlocks.trophy), 0);
 			ExtraBotanyAPI.unlockAdvancement(event.getEntityPlayer(), LibAdvancements.ALLSTATS);
@@ -56,7 +56,8 @@ public class StatHandler {
 		LibAdvancements.ARMORSET_COS,
 		LibAdvancements.ARMORSET_SW,
 		LibAdvancements.INFINITEWINE,
-		LibAdvancements.EXCALIBER
+		LibAdvancements.EXCALIBER,
+		LibAdvancements.BUDDHISTRELICS
 	};
 	
 	public static boolean hasAllStats(EntityPlayer player){
@@ -68,10 +69,10 @@ public class StatHandler {
 	
 	public static boolean hasStat(EntityPlayer player, String name){
 		if(player instanceof EntityPlayerMP){
-			PlayerAdvancements advancements = ((EntityPlayerMP)player).getAdvancements();
-			AdvancementManager manager = ((WorldServer)player.getEntityWorld()).getAdvancementManager();
+			AdvancementManager manager = ((EntityPlayerMP)player).getServerWorld().getAdvancementManager();
 			Advancement advancement = manager.getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+name));
-			return advancements.getProgress(advancement).isDone();
+			if(advancement != null)
+				return ((EntityPlayerMP)player).getAdvancements().getProgress(advancement).isDone();
 		}
 		return false;
 	}

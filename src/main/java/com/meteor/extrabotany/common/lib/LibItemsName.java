@@ -17,6 +17,7 @@ public class LibItemsName {
 	public static final String ACHILLESHIELD = "achilleshield";
 	public static final String POCKETWATCHMOON = "pocketwatchmoon";
 	public static final String EXCALIBER = "excaliber";
+	public static final String BUDDHISTRELICS = "buddhistrelics";
 	
 	public static final String SHIELDMANASTEEL = "manasteelshield";
 	public static final String SHIELDTERRASTEEL = "terrasteelshield";
@@ -51,6 +52,9 @@ public class LibItemsName {
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";
 	public static final String BAUBLE_MASTERMANARING = "mastermanaring";
+	public static final String BAUBLE_PUREDAISYPENDANT = "puredaisypendant";
+	public static final String BAUBLE_SUPERCROWN = "supercrown";
+	public static final String BAUBLE_REDSCARF = "redscarf";
 	
 	public static final String CMHELM = "combatmaidhelm";
 	public static final String CMCHEST = "combatmaidchest";

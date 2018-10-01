@@ -118,6 +118,11 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 			stack.setItemDamage(stack.getItemDamage() - 1);
 	}
 	
+    @Override
+    public boolean isEnchantable(ItemStack stack){
+        return true;
+    }
+	
 	public int getManaPerDamage() {
 		return MANA_PER_DAMAGE;
 	}
@@ -226,7 +231,7 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 		return attrib;
 	}
 	
-	public EntityManaBurst getBurst(EntityPlayer player, ItemStack stack) {
+	public static EntityManaBurst getBurst(EntityPlayer player, ItemStack stack) {
 		EntityManaBurst burst = new EntityManaBurst(player, EnumHand.MAIN_HAND);
 
 		float motionModifier = 7F;

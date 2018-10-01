@@ -15,6 +15,7 @@ import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
 import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
 import com.meteor.extrabotany.common.block.tile.TileElfJar;
+import com.meteor.extrabotany.common.block.tile.TileInfinityCube;
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
 import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
 import com.meteor.extrabotany.common.block.tile.TileManaLiquefaction;
@@ -47,6 +48,7 @@ public class ModBlocks {
 	public static final Block manafluid = new BlockManaFluid();
 	public static final Block elfjar = new BlockElfJar();
 	public static final Block trophy = new BlockTrophy();
+	//public static final Block infinitycube = new BlockInfinityCube();
 	
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> evt) {
@@ -60,6 +62,7 @@ public class ModBlocks {
 		r.register(manafluid);
 		r.register(elfjar);
 		r.register(trophy);
+		//r.register(infinitycube);
 	}
 	
 	@SubscribeEvent
@@ -74,6 +77,7 @@ public class ModBlocks {
 		r.register(new ItemBlockMod(manafluid).setRegistryName(manafluid.getRegistryName()));
 		r.register(new ItemBlockMod(elfjar).setRegistryName(elfjar.getRegistryName()));
 		r.register(new ItemBlockMod(trophy).setRegistryName(trophy.getRegistryName()));
+		//r.register(new ItemBlockMod(infinitycube).setRegistryName(infinitycube.getRegistryName()));
 		initTileEntities();
 	}
 	
@@ -108,6 +112,7 @@ public class ModBlocks {
 		registerTile(TileManaGenerator.class, LibBlocksName.TILE_MANAGENERATOR);
 		registerTile(TileManaLiquefaction.class, LibBlocksName.TILE_MANALIQUEFYING);
 		registerTile(TileElfJar.class, LibBlocksName.TILE_ELFJAR);
+		//registerTile(TileInfinityCube.class, LibBlocksName.TILE_INFINITYCUBE);
 	}
 	
 	private static void registerTile(Class<? extends TileEntity> clazz, String key) {

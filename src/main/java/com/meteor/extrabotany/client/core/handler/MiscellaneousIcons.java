@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.client.core.handler;
 
 import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
+import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -13,6 +14,7 @@ public class MiscellaneousIcons {
 	
 	public TextureAtlasSprite[] kingGardenWeaponIcons;
 	public TextureAtlasSprite[] swordDomainIcons;
+	public TextureAtlasSprite puredaisyPendantIcon;
 	
 	@SubscribeEvent
 	public void onTextureStitch(TextureStitchEvent.Pre evt) {
@@ -22,6 +24,7 @@ public class MiscellaneousIcons {
 		swordDomainIcons = new TextureAtlasSprite[8];
 		for(int i = 0; i < 8; i++)
 			swordDomainIcons[i] = IconHelper.forName(evt.getMap(), "sworddomain_" + i, "items");
+		puredaisyPendantIcon = IconHelper.forName(evt.getMap(), "puredaisypendant", "items");
 	}
 
 }

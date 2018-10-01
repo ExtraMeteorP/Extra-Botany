@@ -25,6 +25,8 @@ import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -32,7 +34,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 	name = ExtraBotany.NAME, 
 	version = ExtraBotany.VERSION, 
 	dependencies = "required-after:botania;"
-			+ "after:Baubles;"
+			+ "after:baubles;"
 			+ "after:waila;"
 			+ "after:jei;"
 			+ "after:theoneprobe;"
@@ -45,7 +47,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ExtraBotany{
     public static final String MODID = "extrabotany";
     public static final String NAME = "extrabotany";
-    public static final String VERSION = "42";
+    public static final String VERSION = "44";
+    public static SimpleNetworkWrapper network;
 
     public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
     
@@ -64,6 +67,7 @@ public class ExtraBotany{
 	public static ExtraBotany instance;
 	
 	public static boolean thaumcraftLoaded = false;
+	public static boolean naturalpledgeLoaded = false;
 	
 	public static void addSubTileToCreativeMenu(String key) {
 		subtilesForCreativeMenu.add(key);
@@ -87,7 +91,9 @@ public class ExtraBotany{
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
     	proxy.preInit(event);
+    	network = NetworkRegistry.INSTANCE.newSimpleChannel(LibMisc.MOD_ID);
     	thaumcraftLoaded = Loader.isModLoaded("thaumcraft");
+    	naturalpledgeLoaded = Loader.isModLoaded("botanicaladdons");
     	if(event.getSide().isClient()){
 	    	keyForward = Minecraft.getMinecraft().gameSettings.keyBindForward;
 	        keyBackward = Minecraft.getMinecraft().gameSettings.keyBindBack;

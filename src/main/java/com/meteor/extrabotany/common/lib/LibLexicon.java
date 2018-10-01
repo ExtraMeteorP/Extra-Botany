@@ -35,17 +35,22 @@ public class LibLexicon {
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";
+	public static final String BAUBLE_PUREDAISYPENDANT = "puredaisypendant";
+	public static final String BAUBLE_SUPERCROWN = "supercrown";
+	public static final String BAUBLE_REDSCARF = "redscarf";
 	
 	public static final String ARMOR_COMBAT = "combatmaid";
 	public static final String ARMOR_COSMETIC = "cosmeticmaid";
 	public static final String ARMOR_SHADOW = "shadowwarrior";
 	
 	public static final String GAIA_III = "gaia3";
+	public static final String GAIA_IV = "gaia4";
 	public static final String NATUREORB = "natureorb";
 	public static final String RELIC_FAILNAUGHT = "failnaught";
 	public static final String RELIC_CAMERA = "camera";
 	public static final String RELIC_RELICSHIELD = "relicshield";
 	public static final String RELIC_MASTERMANARING = "mastermanaring";
 	public static final String RELIC_COCOONDESIRE = "cocoondesire";
+	public static final String RELIC_RELICS = "buddhistrelics";
 
 }

@@ -22,6 +22,9 @@ import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShad
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorLegs;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemDeathRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemFrostStar;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemPureDaisyPendant;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemRedScarf;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemSuperCrown;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemElementiumShield;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemManasteelShield;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemTerrasteelShield;
@@ -37,6 +40,7 @@ import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowium
 import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowiumShovel;
 import com.meteor.extrabotany.common.item.record.ItemRecordA;
 import com.meteor.extrabotany.common.item.relic.ItemAchilleshield;
+import com.meteor.extrabotany.common.item.relic.ItemBuddhistRelics;
 import com.meteor.extrabotany.common.item.relic.ItemCamera;
 import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
 import com.meteor.extrabotany.common.item.relic.ItemFailnaught;
@@ -72,6 +76,9 @@ public class ModItems {
 	public static final Item froststar = new ItemFrostStar();
 	public static final Item deathring = new ItemDeathRing();
 	public static final Item mastermanaring = new ItemMasterManaRing();
+	public static final Item puredaisypendant = new ItemPureDaisyPendant();
+	public static final Item supercrown = new ItemSuperCrown();
+	public static final Item redscarf = new ItemRedScarf();
 	
 	public static final Item hammermanasteel = new ItemHammer(LibItemsName.HAMMER_MANASTEEL, BotaniaAPI.manasteelToolMaterial);
 	public static final Item hammerelementium = new ItemHammer(LibItemsName.HAMMER_ELEMENTIUM, BotaniaAPI.elementiumToolMaterial);
@@ -89,7 +96,6 @@ public class ModItems {
 	public static final Item cocktail = new ItemBrewCocktail();
 	public static final Item infinitewine = new ItemBrewInfiniteWine();
 	
-	public static final Item rewardbag = new ItemRewardBag();
 	public static final Item treasure = new ItemTreasure();
 	public static final Item gaiarecord = new ItemRecordA();
 	
@@ -97,6 +103,7 @@ public class ModItems {
 	public static final Item terrasteelshield = new ItemTerrasteelShield();
 	public static final Item elementiumshield = new ItemElementiumShield();
 	public static final Item relicshield = new ItemAchilleshield();
+	public static final Item relics = new ItemBuddhistRelics();
 	
 	public static final Item cmhelm = new ItemCombatMaidHelm();
 	public static final Item cmchest = new ItemCombatMaidChest();
@@ -122,6 +129,7 @@ public class ModItems {
 	public static final Item shadowiumpick = new ItemShadowiumPickaxe();
 	public static final Item shadowiumaxe = new ItemShadowiumAxe();
 	public static final Item shadowiumshovel = new ItemShadowiumShovel();
+	public static final Item rewardbag = new ItemRewardBag();
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -143,7 +151,7 @@ public class ModItems {
 		r.register(camera);
 		r.register(orb);
 		r.register(failnaught);
-		r.register(rewardbag);
+		r.register(relics);
 		r.register(treasure);
 		r.register(gaiarecord);
 		if(ConfigHandler.ENABLE_SHIELD){
@@ -175,6 +183,10 @@ public class ModItems {
 		r.register(cmchestdarkened);
 		r.register(shadowkatana);
 		r.register(excaliber);
+		r.register(puredaisypendant);
+		r.register(rewardbag);
+		r.register(supercrown);
+		r.register(redscarf);
 		registerOreDictionary();
 	}
 	

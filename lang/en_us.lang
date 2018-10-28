@@ -37,6 +37,13 @@ item.extrabotany:boat_elementium.name=Elementium Airship
 item.extrabotany:boat_terrasteel.name=Terrasteel Airship
 item.extrabotany:excaliber.name=Excaliber
 item.extrabotany:buddhistrelics.name=Origin Creation - Omniscience
+item.extrabotany:spearsubspace.name=Spear of Subspace
+item.extrabotany:masterhandbag.name=Mini Handbag
+item.extrabotany:coregod.name=Core of God
+item.extrabotany:candy0.name=Halloween Candy Eins
+item.extrabotany:candy1.name=Halloween Candy Zwei
+item.extrabotany:candy2.name=Halloween Candy Drei
+item.extrabotany:candybag.name=Halloween Candy Night
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
@@ -93,6 +100,7 @@ tile.extrabotany:manaliquefaction.name=Mana Liquefaction Device
 tile.extrabotany:elfjar.name=Livingrock Barrel
 tile.extrabotany:trophy.name=Trophy
 tile.extrabotany:fluidedmana.name=Fluided Mana
+tile.extrabotany:quantummanabuffer.name=Quantum Mana Buffer
 
 entity.extrabotany:flowerWeapon.name=Flower
 entity.extrabotany:gaiaIII.name=Gaia Guardian III
@@ -130,6 +138,10 @@ tile.botania:flower.reikarlily.name=Reikar Lily
 tile.botania:flower.reikarlily.reference=Game Crash
 tile.botania:flower.enchantedorchid.name=Enchanted Orchid
 tile.botania:flower.enchantedorchid.reference=I have no time playing games
+tile.botania:flower.edelweiss.name=Edelweiss
+tile.botania:flower.edelweiss.reference=Do you want to build a snowman?
+tile.botania:flower.mirrowtunia.name=Mirrortunia
+tile.botania:flower.mirrowtunia.reference=Mirror,mirror,on the wall
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
@@ -138,6 +150,8 @@ tile.fluidedmana.name=Fluided Mana
 
 itemGroup.extrabotany=ExtraBotany
 
+extrabotany.wings0=Wings: Godness
+extrabotany.wings1=Wings: Flandre
 extrabotany.repairupgrade1=Repair Upgrade I
 extrabotany.repairupgrade2=Repair Upgrade II
 extrabotany.repairupgrade3=Repair Upgrade III
@@ -233,6 +247,16 @@ botania.entry.reikarlily=Reikar Lily
 botania.page.reikarlily0=The Reikar Lily turns the tremendous energy of lightning into &4Mana&0. When a lightning bolt hits nearby, it will generate a great amount of &4Mana&0 immediately and continue to produce &4Mana&0 for a long time.
 botania.page.reikarlily1=I Choose You!
 botania.tagline.reikarlily=Lightning Energy
+
+botania.entry.edelweiss=Edelweiss
+botania.page.edelweiss0=Edelweiss will swallow the snow golem or iron golem to produce mana.
+botania.page.edelweiss1=If you are reading this, you can read.
+botania.tagline.edelweiss=A bit cruel
+
+botania.entry.mirrortunia=Mirrortunia
+botania.page.mirrortunia0=Mirrortunia will give players around a potion effect called "Mirror Force", and clear bad potion effects.
+botania.page.mirrortunia1=
+botania.tagline.mirrortunia=
 
 botania.entry.enchantedorchid=Enchanted Orchid
 botania.page.enchantedorchid0=The Enchanted Orchid can infuse grass blocks beneath it to create Enchanted Soil. It will need a Black Lotus, a large quantity of &4Mana&0 and a long time for each transformation.
@@ -434,6 +458,17 @@ botania.entry.buddhistrelics=Origin Creation - Omniscience
 botania.page.buddhistrelics0=Origin Creation - Omniscience can simulate some of the Relics, sneak and right-click to switch its form. Keeping other form will cost mana constantly.
 botania.tagline.buddhistrelics=java.lang.NullPointerException
 
+botania.entry.spearsubspace=Spear of Subspace
+botania.page.spearsubspace0=Using Spear of Subspace will summon energies from subspace to attack enemies.
+botania.page.spearsubspace1=
+botania.page.spearsubspace3=Orichalcos Ingot
+botania.tagline.spearsubspace=
+
+botania.entry.godcore=Core of God
+botania.page.godcore0=Equip Core of God and then you will have the ability to fly. It will enhance your strength and make you fly faster.
+botania.page.godcore1=
+botania.tagline.godcore=
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
@@ -452,6 +487,8 @@ extrabotany.config.enable.gaiadisarm=Enable Gaia Guardian III to Disarm
 extrabotany.config.enable.gaiasmash=Enable Gaia Guardian III to destroy block
 extrabotany.config.enable.topsupport=Enable The One Probe Support
 extrabotany.config.enable.divinejudge=Enable Gaia Guardian III to release Sword Domain
+extrabotany.config.enable.candybag=Enable Monster to hold a Halloween Candy Night when spawning
+extrabotany.config.chance.candybag=The chance that monster will hold a Halloween Candy Night when spawning
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)
@@ -517,14 +554,26 @@ advancement.extrabotany:allStats=Erase or Zero
 advancement.extrabotany:allStats.desc=Unlock All ExtraBotany's Advancements
 advancement.extrabotany:luckyDraw=Starduster
 advancement.extrabotany:luckyDraw.desc=Obtain Medal for Heroism through Reward Bag
-advancement.extrabotany:huddhistRelics=SPiCa
-advancement.extrabotany:huddhistRelics.desc=Obtain Origin Creation - Omniscience
+advancement.extrabotany:buddhistRelics=SPiCa
+advancement.extrabotany:buddhistRelics.desc=Obtain Origin Creation - Omniscience
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=
 
+extrabotany.potion.mindcrack=Mind Crush
+extrabotany.potion.eternity=Eternity
+extrabotany.potion.reflect=Mirror Force
+extrabotany.potion.constantpain=Constant Pain
+extrabotany.potion.blacksabbath=Black Sabbath
+extrabotany.potion.divinejustice=Divine Justice
+
 modifier.shadow.name=Shadow
+modifier.shadow.desc=§oThe Long Dark！§r\nUse Mana to repair, summon dark pixie when you hit the living creature.
 material.extrabotany:ingotshadowium.name=Shadowium
 
 extrabotany.versioning.flavour=
 extrabotany.versioning.outdated=
+
+cuisine.material.friedchicken=香香鸡
+cuisine.effect.diuren.name=丢人
+cuisine.effect.diuren.tip=丢人

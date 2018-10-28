@@ -37,6 +37,13 @@ item.extrabotany:boat_elementium.name=源质钢飞船
 item.extrabotany:boat_terrasteel.name=泰拉钢飞船
 item.extrabotany:excaliber.name=王者圣剑
 item.extrabotany:buddhistrelics.name=源初造物丨虚空万藏
+item.extrabotany:spearsubspace.name=亚空之矛
+item.extrabotany:masterhandbag.name=旅行手袋
+item.extrabotany:coregod.name=律者核心
+item.extrabotany:candy0.name=万圣节糖果Eins
+item.extrabotany:candy1.name=万圣节糖果Zwei
+item.extrabotany:candy2.name=万圣节糖果Drei
+item.extrabotany:candybag.name=万圣糖惊魂夜
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -93,6 +100,7 @@ tile.extrabotany:manaliquefaction.name=魔力液化器
 tile.extrabotany:elfjar.name=活石桶
 tile.extrabotany:trophy.name=奖杯
 tile.extrabotany:fluidedmana.name=液态魔力
+tile.extrabotany:quantummanabuffer.name=量子魔力缓存器
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -130,6 +138,10 @@ tile.botania:flower.reikarlily.name=雷卡兰
 tile.botania:flower.reikarlily.reference=游戏崩溃
 tile.botania:flower.enchantedorchid.name=蕴魔瑾
 tile.botania:flower.enchantedorchid.reference=我可没时间陪你玩游戏
+tile.botania:flower.edelweiss.name=雪绒花
+tile.botania:flower.edelweiss.reference=你想堆个雪人吗
+tile.botania:flower.mirrowtunia.name=镜姬
+tile.botania:flower.mirrowtunia.reference=魔镜啊魔镜
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
@@ -138,6 +150,8 @@ tile.fluidedmana.name=液态魔力
 
 itemGroup.extrabotany=额外植物学
 
+extrabotany.wings0=翅膀：律者
+extrabotany.wings1=翅膀：芙兰朵露
 extrabotany.repairupgrade1=修复升级I
 extrabotany.repairupgrade2=修复升级II
 extrabotany.repairupgrade3=修复升级III
@@ -233,6 +247,16 @@ botania.entry.reikarlily=雷卡兰
 botania.page.reikarlily0=雷卡兰可以将闪电的巨大能 量转化为魔力，每当有闪电劈 在其附近时，就会立刻产出巨 大魔力，并且余热会使其继 续缓慢地产出魔力。
 botania.page.reikarlily1=就决定是你了!
 botania.tagline.reikarlily=个!十!百!千!万丈目闪电!
+
+botania.entry.edelweiss=雪绒花
+botania.page.edelweiss0=雪绒花可以通过吞噬雪傀儡 或者铁傀儡来产出魔力。
+botania.page.edelweiss1=If you are reading this, you can read.
+botania.tagline.edelweiss=有些残忍
+
+botania.entry.mirrortunia=镜姬
+botania.page.mirrortunia0=镜姬会消耗魔力给周围玩家 添加镜子反射效果，并清除 负面效果。
+botania.page.mirrortunia1=
+botania.tagline.mirrortunia=
 
 botania.entry.enchantedorchid=蕴魔瑾
 botania.page.enchantedorchid0=蕴魔瑾可以将其地表附近的 草方块转化为蕴魔土，但这个 过程需要漫长的时间和大量 的魔力。并且每次转化都需要 消耗一个黑莲花。
@@ -405,9 +429,9 @@ botania.page.splashgrenade0=将装有所需酿造的秘制鸡尾 酒和爆裂紫
 botania.tagline.splashgrenade=爆炸即是艺术
 
 botania.entry.shadowwarrior=暗影武士护甲
-botania.page.shadowwarrior0=以镀金土豆泥作为媒介，将梦魇燃料和源质钢锭结合得到的全新材料暗影锭。
+botania.page.shadowwarrior0=以镀金土豆泥作为媒介，将 梦魇燃料和源质钢锭结合得 到的全新材料暗影锭。
 botania.page.shadowwarrior1=无人生还。
-botania.page.shadowwarrior2=用它制成的装甲和武器在夜晚会使使用者能力得到大幅提升。
+botania.page.shadowwarrior2=用它制成的装甲和武器在夜 晚会使使用者能力得到大幅 提升。
 botania.page.shadowwarrior3=暗影武士头盔
 botania.page.shadowwarrior4=暗影武士护甲
 botania.page.shadowwarrior5=暗影武士护腿
@@ -416,7 +440,7 @@ botania.page.shadowwarrior7=影刃
 botania.tagline.shadowwarrior=不是吸血鬼
 
 botania.entry.elfjar=活石桶
-botania.page.elfjar0=可以储存16桶液体的桶，如果装有水的话可以给邻近花药台提供水源。
+botania.page.elfjar0=可以储存16桶液体的桶，如 果装有水的话可以给邻近花 药台提供水源。
 botania.page.elfjar1=Minecraft太简单了。
 botania.tagline.elfjar=普通
 
@@ -433,6 +457,17 @@ botania.tagline.puredaisypendant=Now You See Me, Now You Don't
 botania.entry.buddhistrelics=源初造物丨虚空万藏
 botania.page.buddhistrelics0=源初造物丨虚空万藏可以近 乎完美地模拟几种遗物的形 态，通过下蹲右键来切换形态 ，但维持其他形态需要持续 消耗魔力。
 botania.tagline.buddhistrelics=java.lang.NullPointerException
+
+botania.entry.spearsubspace=亚空之矛
+botania.page.spearsubspace0=使用亚空之矛可以从亚空间 召唤能量进行大范围高额伤 害打击。
+botania.page.spearsubspace1=
+botania.page.spearsubspace3=奥利哈刚锭
+botania.tagline.spearsubspace=
+
+botania.entry.godcore=律者核心
+botania.page.godcore0=装备律者核心可以通过消耗 魔力进行飞行，并且飞行速 度和攻击力都会得到提升。
+botania.page.godcore1=
+botania.tagline.godcore=
 
 botania.entry.=
 botania.page.0=
@@ -452,6 +487,8 @@ extrabotany.config.enable.gaiadisarm=允许盖亚守护者III缴械
 extrabotany.config.enable.gaiasmash=允许盖亚守护者III破坏方块
 extrabotany.config.enable.topsupport=启用TOP支持
 extrabotany.config.enable.divinejudge=允许盖亚守护者III释放天堂裁决
+extrabotany.config.enable.candybag=允许怪物生成时有概率持有万圣糖惊魂夜
+extrabotany.config.chance.candybag=怪物生成时持有万圣糖惊魂夜的概率
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=食用一个梦魇燃料.(这真的能吃吗)
@@ -517,14 +554,26 @@ advancement.extrabotany:allStats=Erase or Zero
 advancement.extrabotany:allStats.desc=解锁全部额外植物学的成就
 advancement.extrabotany:luckyDraw=Starduster
 advancement.extrabotany:luckyDraw.desc=通过奖励袋获得英雄勋章
-advancement.extrabotany:=SPiCa
-advancement.extrabotany:.desc=获得源初造物丨虚空万藏
+advancement.extrabotany:buddhistRelics=SPiCa
+advancement.extrabotany:buddhistRelics.desc=获得源初造物丨虚空万藏
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=
 
+extrabotany.potion.mindcrack=心灵崩坏
+extrabotany.potion.eternity=永恒
+extrabotany.potion.reflect=镜子反射
+extrabotany.potion.constantpain=痛觉残留
+extrabotany.potion.blacksabbath=黑色安息日
+extrabotany.potion.divinejustice=神圣制裁
+
 modifier.shadow.name=暗影
+modifier.shadow.desc=§o漫漫长夜！§r\n会消耗魔力自动修复，击中敌人时会召唤黑暗精灵。
 material.extrabotany:ingotshadowium.name=暗影
 
 extrabotany.versioning.flavour=额外植物学已更新
 extrabotany.versioning.outdated=你所使用的额外植物学版本为%s，最新版本为%s.
+
+cuisine.material.friedchicken=香香鸡
+cuisine.effect.diuren.name=丢人
+cuisine.effect.diuren.tip=丢人

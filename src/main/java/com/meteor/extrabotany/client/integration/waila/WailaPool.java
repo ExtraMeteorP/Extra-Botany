@@ -17,26 +17,22 @@ import vazkii.botania.common.block.tile.mana.TilePool;
 
 public class WailaPool implements IWailaDataProvider{
 	
-	public static void register(IWailaRegistrar registrar)
-	{
+	public static void register(IWailaRegistrar registrar){
         registrar.registerBodyProvider(new WailaPool(), BlockPool.class);
     }
 
 	@Override
-	public ItemStack getWailaStack(IWailaDataAccessor accessor, IWailaConfigHandler config)
-	{
+	public ItemStack getWailaStack(IWailaDataAccessor accessor, IWailaConfigHandler config){
 		return null;
 	}
 
 	@Override
-	public List<String> getWailaHead(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config)
-	{
+	public List<String> getWailaHead(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
 		return currenttip;
 	}
 
 	@Override
-	public List<String> getWailaBody(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config)
-	{
+	public List<String> getWailaBody(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
 		if(accessor.getTileEntity() instanceof TilePool){
 			TilePool pool = (TilePool) accessor.getTileEntity();
 			currenttip.add("Mana:" + pool.getCurrentMana() + "/" + pool.manaCap);
@@ -46,14 +42,12 @@ public class WailaPool implements IWailaDataProvider{
 	}
 
 	@Override
-	public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config)
-	{
+	public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
 		return currenttip;
 	}
 
 	@Override
-	public NBTTagCompound getNBTData(EntityPlayerMP player, TileEntity te, NBTTagCompound tag, World world, BlockPos pos)
-	{
+	public NBTTagCompound getNBTData(EntityPlayerMP player, TileEntity te, NBTTagCompound tag, World world, BlockPos pos){
 		return tag;
 	}
 }

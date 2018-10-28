@@ -25,7 +25,7 @@ public class BlockManaFluid extends BlockFluidClassic implements IModelReg{
         setCreativeTab(ExtraBotany.tabExtraBotany);
         setUnlocalizedName("fluidedmana");
     }
-
+	
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {

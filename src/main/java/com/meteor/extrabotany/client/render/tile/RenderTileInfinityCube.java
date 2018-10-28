@@ -4,7 +4,6 @@ import javax.annotation.Nonnull;
 
 import org.lwjgl.opengl.GL11;
 
-import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
 import com.meteor.extrabotany.common.block.tile.TileInfinityCube;
 
 import net.minecraft.block.state.IBlockState;

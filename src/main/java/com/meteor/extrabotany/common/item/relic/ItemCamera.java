@@ -3,12 +3,12 @@ package com.meteor.extrabotany.common.item.relic;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
+import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IProjectile;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
@@ -39,15 +39,11 @@ public class ItemCamera extends ItemModRelic implements IManaUsingItem{
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
 		ItemStack stack = player.getHeldItem(hand);
 		
-		if(ManaItemHandler.requestManaExactForTool(stack, player, 3000, true) && !world.isRemote){
+		if(ManaItemHandler.requestManaExactForTool(stack, player, 900, true) && !world.isRemote){
 			for(EntityLiving living : player.getEntityWorld().getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))){
 				if(living.isSpectatedByPlayer((EntityPlayerMP) player)){
 					living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 5));
-					if(!living.isNonBoss())
-						continue;
-					if(living instanceof IMob){
-						living.setNoAI(true);
-					}			
+					living.addPotionEffect(new PotionEffect(ModPotions.mindcrack,300, 1));		
 				}
 			}
 
@@ -61,11 +57,6 @@ public class ItemCamera extends ItemModRelic implements IManaUsingItem{
 	
 	@SubscribeEvent
 	public void onEntityDamaged(LivingHurtEvent event) {
-		if(event.getEntityLiving() instanceof IMob){
-			EntityLiving living = (EntityLiving) event.getEntityLiving();
-			if(living.isAIDisabled())
-				living.setNoAI(false);
-		}
 		
 		if(event.getEntityLiving() instanceof IEntityWithShield){
 			EntityLiving living = (EntityLiving) event.getEntityLiving();

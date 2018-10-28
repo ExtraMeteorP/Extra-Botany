@@ -1,4 +1,5 @@
 {
 	"music.gaia3": { "sounds":[{"name": "extrabotany:music/dbg", "stream": true}] },
-	"annoyingflower": { "sounds":["extrabotany:annoyingflower"], "subtitle": "extrabotany.subtitle.annoyingFlower" }
+	"annoyingflower": { "sounds":["extrabotany:annoyingflower"], "subtitle": "extrabotany.subtitle.annoyingFlower" },
+	"spearsubspace": { "sounds":["extrabotany:spearsubspace"], "subtitle": "extrabotany.subtitle.spearsubspace" }
 }

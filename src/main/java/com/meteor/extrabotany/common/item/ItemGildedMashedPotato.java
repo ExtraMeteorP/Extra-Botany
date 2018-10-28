@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public class ItemGildedMashedPotato extends ItemFoodMod{
 
 	public ItemGildedMashedPotato() {
-		super(3, 4F, false, LibItemsName.GILDEDMASHEDPOTATO);
+		super(4, 1F, false, LibItemsName.GILDEDMASHEDPOTATO);
 	}
 	
 	@Override

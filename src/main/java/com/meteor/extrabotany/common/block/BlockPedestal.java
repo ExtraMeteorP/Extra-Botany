@@ -106,7 +106,28 @@ public class BlockPedestal extends BlockMod implements ILexiconable{
 						return true;
 					}
 				}else{
-					if(heldItem.getItem() instanceof IHammer){
+					if(te.getItem().getItem() instanceof ItemHammerUltimate && !heldItem.isEmpty()){
+						ItemHammerUltimate stack = (ItemHammerUltimate) te.getItem().getItem();
+						te.setStrikes(0);
+						te.markForUpdate();
+						if(heldItem.getItem() instanceof ItemGildedMashedPotato && stack.getRepair(te.getItem()) < 3 && heldItem.getCount() >=5){
+							if(!world.isRemote)
+								stack.setRepair(te.getItem(), stack.getRepair(te.getItem()) + 1);
+							heldItem.shrink(5);
+							ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ULTIMATEHAMMER_UPGRADE);
+							return true;
+						}else if(heldItem.getItem() == ModItems.elementiumSword && stack.getAttack(te.getItem()) < 10){
+							if(!world.isRemote)
+								stack.setAttack(te.getItem(), stack.getAttack(te.getItem()) + 1);
+							heldItem.shrink(1);
+							return true;
+						}else if(heldItem.getItem() == com.meteor.extrabotany.common.item.ModItems.hammerterrasteel && !stack.hasRange(te.getItem())){
+							if(!world.isRemote)
+								stack.setRange(te.getItem(), true);
+							heldItem.shrink(1);
+							return true;
+						}
+					}else if(heldItem.getItem() instanceof IHammer){
 						te.setStrikes(te.getStrikes() + 1);
 						heldItem.damageItem(1, player);
 						te.markForUpdate();
@@ -163,27 +184,6 @@ public class BlockPedestal extends BlockMod implements ILexiconable{
 						
 						return true;
 						
-					}else if(te.getItem().getItem() instanceof ItemHammerUltimate && !heldItem.isEmpty()){
-						ItemHammerUltimate stack = (ItemHammerUltimate) te.getItem().getItem();
-						te.setStrikes(0);
-						te.markForUpdate();
-						if(heldItem.getItem() instanceof ItemGildedMashedPotato && stack.getRepair(te.getItem()) < 3 && heldItem.getCount() >=5){
-							if(!world.isRemote)
-								stack.setRepair(te.getItem(), stack.getRepair(te.getItem()) + 1);
-							heldItem.shrink(5);
-							ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ULTIMATEHAMMER_UPGRADE);
-							return true;
-						}else if(heldItem.getItem() == ModItems.elementiumSword && stack.getAttack(te.getItem()) < 10){
-							if(!world.isRemote)
-								stack.setAttack(te.getItem(), stack.getAttack(te.getItem()) + 1);
-							heldItem.shrink(1);
-							return true;
-						}else if(heldItem.getItem() == com.meteor.extrabotany.common.item.ModItems.hammerterrasteel && !stack.hasRange(te.getItem())){
-							if(!world.isRemote)
-								stack.setRange(te.getItem(), true);
-							heldItem.shrink(1);
-							return true;
-						}
 					}else if(te.getItem().getItem() instanceof ItemSpiritFuel && heldItem.getItem() == ModItems.lexicon){
 						te.setStrikes(0);
 						te.markForUpdate();

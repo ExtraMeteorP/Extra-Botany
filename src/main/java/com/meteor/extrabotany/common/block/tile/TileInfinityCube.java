@@ -21,7 +21,6 @@ import net.minecraftforge.fluids.BlockFluidBase;
 import vazkii.botania.api.mana.IManaReceiver;
 import vazkii.botania.api.mana.spark.ISparkAttachable;
 import vazkii.botania.api.mana.spark.ISparkEntity;
-import vazkii.botania.common.block.tile.TileMod;
 
 public class TileInfinityCube extends TileEntity implements ITickable, IManaReceiver, ISparkAttachable{
 	

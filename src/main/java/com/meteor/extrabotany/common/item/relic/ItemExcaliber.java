@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.ExtraBotany;
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.client.render.IModelReg;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
@@ -30,6 +31,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -234,7 +236,7 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 	public static EntityManaBurst getBurst(EntityPlayer player, ItemStack stack) {
 		EntityManaBurst burst = new EntityManaBurst(player, EnumHand.MAIN_HAND);
 
-		float motionModifier = 7F;
+		float motionModifier = 9F;
 		burst.setColor(0xFFFF20);
 		burst.setMana(MANA_PER_DAMAGE);
 		burst.setStartingMana(MANA_PER_DAMAGE);
@@ -258,6 +260,21 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 		EntityThrowable entity = (EntityThrowable) burst;
 		AxisAlignedBB axis = new AxisAlignedBB(entity.posX, entity.posY, entity.posZ, entity.lastTickPosX, entity.lastTickPosY, entity.lastTickPosZ).grow(1);
 		String attacker = ItemNBTHelper.getString(burst.getSourceLens(), TAG_ATTACKER_USERNAME, "");
+		
+		if(burst.getColor() == 0XFFAF00){
+			AxisAlignedBB axis1 = new AxisAlignedBB(entity.posX -2.5F, entity.posY -2.5F, entity.posZ -2.5F, entity.lastTickPosX + 2.5F, entity.lastTickPosY + 2.5F, entity.lastTickPosZ + 2.5F);
+			List<EntityLivingBase> entities = entity.world.getEntitiesWithinAABB(EntityLivingBase.class, axis1);
+			for(EntityLivingBase living : entities) {
+				if(living instanceof EntityPlayer && (living.getName().equals(attacker) || FMLCommonHandler.instance().getMinecraftServerInstance() != null && !FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled()))
+					continue;
+				if(entity.ticksExisted % 3 == 0)
+					ExtraBotanyAPI.dealTrueDamage(living, 2.2F);
+				if(living.hurtTime == 0)
+					living.attackEntityFrom(DamageSource.MAGIC, 8F);
+			}
+			return;
+		}
+		
 		int homeID = ItemNBTHelper.getInt(stack, TAG_HOME_ID, -1);
 		if(homeID == -1) {
 			AxisAlignedBB axis1 = new AxisAlignedBB(entity.posX -5F, entity.posY -5F, entity.posZ -5F, entity.lastTickPosX + 5F, entity.lastTickPosY + 5F, entity.lastTickPosZ + 5F);
@@ -270,6 +287,7 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 				break;
 			}
 		}
+	
 		List<EntityLivingBase> entities = entity.world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
 		if(homeID != -1) {
 			Entity home = entity.world.getEntityByID(homeID);
@@ -286,15 +304,16 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 			if(living instanceof EntityPlayer && (living.getName().equals(attacker) || FMLCommonHandler.instance().getMinecraftServerInstance() != null && !FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled()))
 				continue;
 
-			if(living.hurtTime == 0) {
+			if(living.isEntityAlive()) {
 				int cost = MANA_PER_DAMAGE / 3;
 				int mana = burst.getMana();
 				if(mana >= cost) {
 					burst.setMana(mana - cost);
-					float damage = 4F + BotaniaAPI.terrasteelToolMaterial.getAttackDamage();
+					float damage = BotaniaAPI.terrasteelToolMaterial.getAttackDamage();
 					if(!burst.isFake() && !entity.world.isRemote) {
 						EntityPlayer player = living.world.getPlayerEntityByName(attacker);
 						living.attackEntityFrom(player == null ? DamageSource.MAGIC : DamageSource.causePlayerDamage(player), damage);
+						ExtraBotanyAPI.dealTrueDamage(living, 4F);
 						entity.setDead();
 						break;
 					}
@@ -321,7 +340,10 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 	}
 
 	@Override
-	public boolean collideBurst(IManaBurst arg0, RayTraceResult arg1, boolean arg2, boolean dead, ItemStack arg4) {
+	public boolean collideBurst(IManaBurst burst, RayTraceResult arg1, boolean arg2, boolean dead, ItemStack arg4) {
+		EntityThrowable entity = (EntityThrowable) burst;
+		if(burst.getColor() == 0XFFAF00)
+			entity.getEntityWorld().spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, entity.posX, entity.posY, entity.posZ, 1D, 0D, 0D);
 		return dead;
 	}
 	

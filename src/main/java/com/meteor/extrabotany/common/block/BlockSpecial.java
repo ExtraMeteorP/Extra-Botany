@@ -40,6 +40,10 @@ public class BlockSpecial extends BlockSpecialFlower{
 			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_REIKARLILY);
 		if(ConfigHandler.ENABLE_EO)
 			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_ENCHANTEDORCHID);
+		if(ConfigHandler.ENABLE_EW)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_EDELWEISS);
+		if(ConfigHandler.ENABLE_MT)
+			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_MIRROWTUNIA);
 	}
 	
 	@Override

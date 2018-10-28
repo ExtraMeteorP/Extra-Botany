@@ -14,6 +14,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class StatHandler {
@@ -22,9 +24,17 @@ public class StatHandler {
 	public static void getAchievement(AdvancementEvent event) {
 		if(!(event.getEntityLiving() instanceof EntityPlayer))
 			return;
-		if(hasAllStats(event.getEntityPlayer())){
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ALLSTATS))){
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModBlocks.trophy), 0);
-			ExtraBotanyAPI.unlockAdvancement(event.getEntityPlayer(), LibAdvancements.ALLSTATS);
+		}
+	}
+	
+	@SubscribeEvent
+	public static void checkAdvancements(TickEvent.PlayerTickEvent event) {
+		if(event.phase == Phase.END){
+			if(hasAllStats(event.player)){
+				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.ALLSTATS);
+			}
 		}
 	}
 	

@@ -12,8 +12,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import vazkii.botania.api.item.ICosmeticBauble;
-import vazkii.botania.api.item.IBaubleRender.Helper;
-import vazkii.botania.api.item.IBaubleRender.RenderType;
 
 public class ItemRedScarf extends ItemBauble implements ICosmeticBauble{
 

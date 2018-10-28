@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL11;
 
 import com.meteor.extrabotany.client.ClientProxy;
 import com.meteor.extrabotany.client.lib.LibResource;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.entity.EntityDarkPixie;
 
 import net.minecraft.client.renderer.GlStateManager;
@@ -16,7 +17,6 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.internal.ShaderCallback;
 import vazkii.botania.client.core.helper.ShaderHelper;
-import vazkii.botania.client.lib.LibResources;
 import vazkii.botania.client.model.ModelPixie;
 
 public class RenderDarkPixie extends RenderLiving<EntityDarkPixie> {
@@ -40,7 +40,7 @@ public class RenderDarkPixie extends RenderLiving<EntityDarkPixie> {
 	@Nonnull
 	@Override
 	protected ResourceLocation getEntityTexture(@Nonnull EntityDarkPixie entity) {
-		if(ClientProxy.halloween)
+		if(ClientProxy.halloween && ConfigHandler.ENABLE_FEATURES)
 			return new ResourceLocation(LibResource.DARKPIXIE_PUMPKIN);
 		return new ResourceLocation(LibResource.DARKPIXIE);
 	}

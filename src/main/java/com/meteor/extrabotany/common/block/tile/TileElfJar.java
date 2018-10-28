@@ -1,19 +1,33 @@
 package com.meteor.extrabotany.common.block.tile;
 
+import javax.annotation.Nullable;
+
+import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
+import com.meteor.extrabotany.common.core.network.FluidUpdatePacket;
+import com.meteor.extrabotany.common.core.network.FluidUpdatePacket.IFluidPacketReceiver;
+
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import vazkii.botania.common.block.tile.TileAltar;
-import vazkii.botania.common.block.tile.TileMod;
 
-public class TileElfJar extends TileMod implements ITickable{
+public class TileElfJar extends TileEntity implements ITickable, IFluidPacketReceiver{
 	
-	public FluidTankBase fluidTank = new FluidTankBase(16000);
+	public FluidTank fluidTank = new FluidTank(16000)
+    {
+        protected void onContentsChanged()
+        {
+        	TileElfJar.this.onContentsChanged(0);
+        };
+    };
 
 	@Override
 	public void update() {
@@ -31,83 +45,58 @@ public class TileElfJar extends TileMod implements ITickable{
 		}
 	}
 
-	@Override
-	public void readFromNBT(NBTTagCompound compound){
-		super.readFromNBT(compound);
-		if (compound.hasKey("Fluid"))
-			fluidTank.setFluid(FluidStack.loadFluidStackFromNBT(compound.getCompoundTag("Fluid")));
-		else
-			fluidTank.setFluid(null);
-	}
+    @Override
+    public void readFromNBT(NBTTagCompound compound)
+    {
+        super.readFromNBT(compound);
+        fluidTank.readFromNBT(compound.getCompoundTag("Fluid"));
+    }
 
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound){
-		compound = super.writeToNBT(compound);
-		if (fluidTank.getFluid() != null){
-			NBTTagCompound fluidTag = new NBTTagCompound();
-			fluidTank.getFluid().writeToNBT(fluidTag);
-			compound.setTag("Fluid", fluidTag);
-		}
-		return compound;
-	}
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound compound)
+    {
+        super.writeToNBT(compound);
+        compound.setTag("Fluid", fluidTank.writeToNBT(new NBTTagCompound()));
+        return compound;
+    }
 	
-	@Override
-	public boolean hasCapability(Capability<?> capability, EnumFacing facing)
-	{
-		return capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
-	}
+    @Override
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing)
+    {
+        return capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
+    }
+
+    @Override
+    @Nullable
+    public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing)
+    {
+        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
+        {
+            return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(fluidTank);
+        }
+        return super.getCapability(capability, facing);
+    }
+    
+    public void onContentsChanged(int slot)
+    {
+        refresh();
+    }
+		
+    void refresh()
+    {
+        if (hasWorld() && !world.isRemote)
+        {
+            IBlockState state = world.getBlockState(pos);
+            world.markAndNotifyBlock(pos, null, state, state, 11);
+            world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), false);
+            ExtraBotanyNetwork.sendToClients((WorldServer) world, getPos(), new FluidUpdatePacket(getPos(), fluidTank.getFluid()));
+        }
+    }
 
 	@Override
-	public <T> T getCapability(Capability<T> capability, EnumFacing facing)
-	{
-		return capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY ? (T) fluidTank : super.getCapability(capability, facing);
-	}
-	
-	public class FluidTankBase extends FluidTank
-	{
-		public FluidTankBase(int capacity)
-		{
-			super(capacity);
-		}
-
-		@Override
-		public int fill(FluidStack resource, boolean doFill)
-		{
-			if (resource == null || !canFillFluidType(resource))
-				return 0;
-
-			int amountFilled = super.fill(resource, doFill);
-
-			return amountFilled;
-		}
-
-		@Override
-		public FluidStack drain(FluidStack resource, boolean doDrain)
-		{
-			if (resource == null || !canDrainFluidType(resource))
-				return null;
-
-			return drain(resource.amount, doDrain);
-		}
-
-		@Override
-		public FluidStack drain(int maxDrain, boolean doDrain)
-		{
-			FluidStack drainedStack = super.drain(maxDrain, doDrain);
-			return drainedStack;
-		}
-
-		@Override
-		public boolean canFillFluidType(FluidStack fluid)
-		{
-			return this.fluid == null || this.fluid.getFluid() == null || this.fluid.getFluid() == fluid.getFluid();
-		}
-
-		@Override
-		public boolean canDrainFluidType(FluidStack fluid)
-		{
-			return this.fluid != null && this.fluid.getFluid() != null && this.fluid.getFluid() == fluid.getFluid();
-		}
+	public void updateFluidTo(FluidStack fluid) {
+		int oldAmount = fluidTank.getFluidAmount();
+		fluidTank.setFluid(fluid);		
 	}
 
 }

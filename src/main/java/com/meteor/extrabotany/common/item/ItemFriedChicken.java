@@ -5,7 +5,7 @@ import com.meteor.extrabotany.common.lib.LibItemsName;
 public class ItemFriedChicken extends ItemFoodMod{
 
 	public ItemFriedChicken() {
-		super(10, 8F, true, LibItemsName.FRIEDCHICKEN);
+		super(10, 0.8F, true, LibItemsName.FRIEDCHICKEN);
 	}
 
 }

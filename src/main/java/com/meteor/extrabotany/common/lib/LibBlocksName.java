@@ -14,9 +14,12 @@ public class LibBlocksName {
 	public static final String SUBTILE_MANALINKIUM = "manalinkium";
 	public static final String SUBTILE_REIKARLILY = "reikarlily";
 	public static final String SUBTILE_ENCHANTEDORCHID = "enchantedorchid";
+	public static final String SUBTILE_EDELWEISS = "edelweiss";
+	public static final String SUBTILE_MIRROWTUNIA = "mirrowtunia";
 	
 	public static final String TILE_PEDESTAL = "pedestal";
 	public static final String TILE_BATTERYBOX = "manabarrel";
+	public static final String TILE_QUANTUMMANABUFFER = "quantummanabuffer";
 	public static final String TILE_COCOON = "cocoondesire";
 	public static final String TILE_MANAGENERATOR = "managenerator";
 	public static final String TILE_MANALIQUEFYING = "manaliquefaction";

@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.item;
 
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
+import com.meteor.extrabotany.common.item.bonus.ItemCandyBag;
 import com.meteor.extrabotany.common.item.bonus.ItemRewardBag;
 import com.meteor.extrabotany.common.item.brew.ItemBrewCocktail;
 import com.meteor.extrabotany.common.item.brew.ItemBrewInfiniteWine;
@@ -20,6 +21,7 @@ import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShad
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorChest;
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorHelm;
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorLegs;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemCoreGod;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemDeathRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemFrostStar;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemPureDaisyPendant;
@@ -33,11 +35,9 @@ import com.meteor.extrabotany.common.item.equipment.tool.ItemHammer;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemHammerUltimate;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemManaReader;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemMasterHandbag;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
-import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowKatana;
-import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowiumAxe;
-import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowiumPickaxe;
-import com.meteor.extrabotany.common.item.equipment.tool.shadowium.ItemShadowiumShovel;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemShadowKatana;
 import com.meteor.extrabotany.common.item.record.ItemRecordA;
 import com.meteor.extrabotany.common.item.relic.ItemAchilleshield;
 import com.meteor.extrabotany.common.item.relic.ItemBuddhistRelics;
@@ -46,6 +46,7 @@ import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
 import com.meteor.extrabotany.common.item.relic.ItemFailnaught;
 import com.meteor.extrabotany.common.item.relic.ItemMasterManaRing;
 import com.meteor.extrabotany.common.item.relic.ItemPocketWatchMoon;
+import com.meteor.extrabotany.common.item.relic.ItemSpearSubspace;
 import com.meteor.extrabotany.common.item.relic.ItemTreasure;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
@@ -79,6 +80,7 @@ public class ModItems {
 	public static final Item puredaisypendant = new ItemPureDaisyPendant();
 	public static final Item supercrown = new ItemSuperCrown();
 	public static final Item redscarf = new ItemRedScarf();
+	public static final Item godcore = new ItemCoreGod();
 	
 	public static final Item hammermanasteel = new ItemHammer(LibItemsName.HAMMER_MANASTEEL, BotaniaAPI.manasteelToolMaterial);
 	public static final Item hammerelementium = new ItemHammer(LibItemsName.HAMMER_ELEMENTIUM, BotaniaAPI.elementiumToolMaterial);
@@ -125,11 +127,13 @@ public class ModItems {
 	public static final Item shadowkatana = new ItemShadowKatana();
 	
 	public static final Item flyingboat = new ItemFlyingBoat();
+	public static final Item masterhandbag = new ItemMasterHandbag();
+	public static final Item spearsubspace = new ItemSpearSubspace();
 	
-	public static final Item shadowiumpick = new ItemShadowiumPickaxe();
-	public static final Item shadowiumaxe = new ItemShadowiumAxe();
-	public static final Item shadowiumshovel = new ItemShadowiumShovel();
+	public static final Item candy = new ItemHalloweenCandy();
+
 	public static final Item rewardbag = new ItemRewardBag();
+	public static final Item candybag = new ItemCandyBag();
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -184,13 +188,22 @@ public class ModItems {
 		r.register(shadowkatana);
 		r.register(excaliber);
 		r.register(puredaisypendant);
-		r.register(rewardbag);
 		r.register(supercrown);
 		r.register(redscarf);
+		r.register(masterhandbag);
+		r.register(spearsubspace);
+		r.register(godcore);
+		r.register(candy);
+		
+		r.register(rewardbag);
+		r.register(candybag);
 		registerOreDictionary();
 	}
 	
 	private static void registerOreDictionary() {
 		OreDictionary.registerOre(LibOreDicts.SHADOWIUM, new ItemStack(material, 1, 5));
+		OreDictionary.registerOre(LibOreDicts.ORICHALCOS, new ItemStack(material, 1, 1));
+		for(int i = 0; i < 2; i++)
+			OreDictionary.registerOre(LibOreDicts.COREGOD, new ItemStack(godcore, 1, i));
 	}
 }

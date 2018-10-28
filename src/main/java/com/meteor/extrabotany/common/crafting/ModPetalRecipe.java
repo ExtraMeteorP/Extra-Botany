@@ -26,11 +26,13 @@ public class ModPetalRecipe {
 	public static RecipePetals tinkleRecipe;
 	public static RecipePetals bellflowerRecipe;
 	public static RecipePetals reikarlilyRecipe;
+	public static RecipePetals edelweissRecipe;
 	
 	public static RecipePetals annoyingflowerRecipe;
 	public static RecipePetals stardustlotusRecipe;
 	public static RecipePetals manalinkiumRecipe;
 	public static RecipePetals enchantedorchidRecipe;
+	public static RecipePetals mirrortuniaRecipe;
 	
 	public static void init() {
 		if(ConfigHandler.ENABLE_BE)
@@ -57,6 +59,10 @@ public class ModPetalRecipe {
 			reikarlilyRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_REIKARLILY), lightBlue, lightBlue, cyan, cyan, blue, runePride, runeSloth, runeEnvy, gaiaSpirit);
 		if(ConfigHandler.ENABLE_EO)
 			enchantedorchidRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_ENCHANTEDORCHID), purple, purple, magenta, lime, lime, runePride, runeGreed, runeGluttony, gaiaSpirit);
+		if(ConfigHandler.ENABLE_EW)
+			edelweissRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_EDELWEISS), runeWinter, runeMana, white, white, white, lightBlue, lightBlue, manaPowder);
+		if(ConfigHandler.ENABLE_MT)
+			mirrortuniaRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MIRROWTUNIA), runeAir, runePride, runeWrath, cyan, cyan, lightBlue, blue, manaPowder);
 	}
 
 }

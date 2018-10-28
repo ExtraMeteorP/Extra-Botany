@@ -4,9 +4,11 @@ import com.meteor.extrabotany.common.block.fluid.BlockManaFluid;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileAnnoyingFlower;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileEnchantedOrchid;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
+import com.meteor.extrabotany.common.block.subtile.functional.SubTileMirrortunia;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBellFlower;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBloodyEnchantress;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileEdelweiss;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileMoonBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileOmniViolet;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
@@ -15,11 +17,11 @@ import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
 import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
 import com.meteor.extrabotany.common.block.tile.TileElfJar;
-import com.meteor.extrabotany.common.block.tile.TileInfinityCube;
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
 import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
 import com.meteor.extrabotany.common.block.tile.TileManaLiquefaction;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
+import com.meteor.extrabotany.common.block.tile.TileQuantumManaBuffer;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.block.ItemBlockMod;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
@@ -46,8 +48,9 @@ public class ModBlocks {
 	public static final Block managenerator = new BlockManaGenerator();
 	public static final Block manaliquefying = new BlockManaLiquefaction();
 	public static final Block manafluid = new BlockManaFluid();
-	public static final Block elfjar = new BlockElfJar();
+	public static final Block elfjar = new BlockLivingrockBarrel();
 	public static final Block trophy = new BlockTrophy();
+	public static final Block quantummanabuffer = new BlockQuantumManaBuffer();
 	//public static final Block infinitycube = new BlockInfinityCube();
 	
 	@SubscribeEvent
@@ -62,6 +65,7 @@ public class ModBlocks {
 		r.register(manafluid);
 		r.register(elfjar);
 		r.register(trophy);
+		r.register(quantummanabuffer);
 		//r.register(infinitycube);
 	}
 	
@@ -77,6 +81,7 @@ public class ModBlocks {
 		r.register(new ItemBlockMod(manafluid).setRegistryName(manafluid.getRegistryName()));
 		r.register(new ItemBlockMod(elfjar).setRegistryName(elfjar.getRegistryName()));
 		r.register(new ItemBlockMod(trophy).setRegistryName(trophy.getRegistryName()));
+		r.register(new ItemBlockMod(quantummanabuffer).setRegistryName(quantummanabuffer.getRegistryName()));
 		//r.register(new ItemBlockMod(infinitycube).setRegistryName(infinitycube.getRegistryName()));
 		initTileEntities();
 	}
@@ -106,12 +111,17 @@ public class ModBlocks {
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_REIKARLILY, SubTileReikarLily.class);
 		if(ConfigHandler.ENABLE_EO)
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_ENCHANTEDORCHID, SubTileEnchantedOrchid.class);
+		if(ConfigHandler.ENABLE_EW)
+			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_EDELWEISS, SubTileEdelweiss.class);
+		if(ConfigHandler.ENABLE_MT)
+			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_MIRROWTUNIA, SubTileMirrortunia.class);
 		registerTile(TilePedestal.class, LibBlocksName.TILE_PEDESTAL);
 		registerTile(TileManaBuffer.class, LibBlocksName.TILE_BATTERYBOX);
 		registerTile(TileCocoonDesire.class, LibBlocksName.TILE_COCOON);
 		registerTile(TileManaGenerator.class, LibBlocksName.TILE_MANAGENERATOR);
 		registerTile(TileManaLiquefaction.class, LibBlocksName.TILE_MANALIQUEFYING);
 		registerTile(TileElfJar.class, LibBlocksName.TILE_ELFJAR);
+		registerTile(TileQuantumManaBuffer.class, LibBlocksName.TILE_QUANTUMMANABUFFER);
 		//registerTile(TileInfinityCube.class, LibBlocksName.TILE_INFINITYCUBE);
 	}
 	

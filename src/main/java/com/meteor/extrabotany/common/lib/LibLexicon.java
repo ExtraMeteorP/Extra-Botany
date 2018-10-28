@@ -10,10 +10,12 @@ public class LibLexicon {
 	public static final String GFLOWER_TINKLE = "tinkle";
 	public static final String GFLOWER_BELLFLOWER = "bellflower";
 	public static final String GFLOWER_REIKARLILY = "reikarlily";
+	public static final String GFLOWER_EDELWEISS = "edelweiss";
 	public static final String FFLOWER_ANNOYINGFLOWER = "annoyingflower";
 	public static final String FFLOWER_MANALINKIUM = "manalinkium";
 	public static final String FFLOWER_STARDUSTLOTUS = "stardustlotus";
 	public static final String FFLOWER_ENCHANTEDORCHID = "enchantedorchid";
+	public static final String FFLOWER_MIRROWTUNIA = "mirrortunia";
 	
 	public static final String PEDESTAL = "pedestal";
 	public static final String MANABARREL = "manabarrel";
@@ -52,5 +54,7 @@ public class LibLexicon {
 	public static final String RELIC_MASTERMANARING = "mastermanaring";
 	public static final String RELIC_COCOONDESIRE = "cocoondesire";
 	public static final String RELIC_RELICS = "buddhistrelics";
+	public static final String RELIC_SPEARSUBSPACE = "spearsubspace";
+	public static final String RELIC_GODCORE = "godcore";
 
 }

@@ -1,13 +1,9 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
 import com.meteor.extrabotany.api.subtile.SubTileGeneratingNature;
-import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.util.math.BlockPos;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 

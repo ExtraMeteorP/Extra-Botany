@@ -72,12 +72,25 @@ public class ExtraBotanyAPI {
 		}
 	}
 	
-	public static void dealTrueDamage(EntityLivingBase living, float amount){
-		if(living.getHealth() > 0)
-			if(living.getHealth() <= amount){
-				living.setHealth(1F);
-				living.attackEntityFrom(DamageSource.MAGIC, Integer.MAX_VALUE);
-			}else living.setHealth(living.getHealth() - amount);
+	public static float dealTrueDamage(EntityLivingBase entity, float amount){
+		float result = 0;
+
+        if(entity == null) return result;
+        if(!(entity instanceof EntityLivingBase)) return result;
+        if(!entity.isEntityAlive()) return result;
+        if(amount < 0) return result;
+
+        EntityLivingBase target = (EntityLivingBase)entity;
+        target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), 0.01F);
+        float health = (target).getHealth();
+        if(0 < health){
+            float postHealth = Math.max(1,health - amount);
+            target.setHealth(postHealth);
+            if(health < amount)
+            	target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), Integer.MAX_VALUE-1);
+            result = health - postHealth;
+        }
+        return result;
 	}
 	
 }

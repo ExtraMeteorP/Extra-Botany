@@ -97,6 +97,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	private static final String TAG_RANKII = "rank2";
 	private static final String TAG_RANKIII = "rank3";
 	private static final String TAG_SHIELD = "shield";
+	private static final String TAG_HARDCORE = "hardcore";
 
 	private static final DataParameter<Integer> INVUL_TIME = EntityDataManager.createKey(EntityGaiaIII.class, DataSerializers.VARINT);
 	private static final DataParameter<Integer> SHIELD = EntityDataManager.createKey(EntityGaiaIII.class, DataSerializers.VARINT);
@@ -105,6 +106,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	private static final DataParameter<Optional<UUID>> BOSSINFO_ID = EntityDataManager.createKey(EntityGaiaIII.class, DataSerializers.OPTIONAL_UNIQUE_ID);
 	private static final DataParameter<Boolean> RANKII = EntityDataManager.createKey(EntityGaiaIII.class, DataSerializers.BOOLEAN);
 	private static final DataParameter<Boolean> RANKIII = EntityDataManager.createKey(EntityGaiaIII.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<Boolean> HARDCORE = EntityDataManager.createKey(EntityGaiaIII.class, DataSerializers.BOOLEAN);
 
 	private static final BlockPos[] PYLON_LOCATIONS = {
 			new BlockPos(4, 1, 4),
@@ -152,18 +154,18 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			if(!playersWhoAttacked.contains(player.getUniqueID()))
 				playersWhoAttacked.add(player.getUniqueID());
 		
-		if(!getRankII() && getHealth() <= getMaxHealth() * 0.75F){
+		if(!getRankII() && (getHealth() <= getMaxHealth() * 0.75F || getHardcore())){
 			setRankII(true);
-			setShield(5);
+			setShield(getHardcore() ? 10 : 5);
 			spawnMinion();
 			spawnDivineJudge();
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.minionSpawn").setStyle(new Style().setColor(TextFormatting.WHITE)));
 		}
-		if(!getRankIII() && getHealth() <= getMaxHealth() * 0.4F){
+		if(!getRankIII() && (getHealth() <= getMaxHealth() * 0.4F || getHardcore() && getHealth() <= getMaxHealth() * 0.6F)){
 			setRankIII(true);
-			setShield(5);
+			setShield(getHardcore() ? 10 : 5);
 			spawnMinion();
 			spawnDivineJudge();
 			for(EntityPlayer player : getPlayersAround())
@@ -235,7 +237,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				spawnMissile(1);
 		}
 		
-		int base = 8 + getPlayerCount() * 3;
+		int base = getHardcore() ? 10 + getPlayerCount() * 4 : 8 + getPlayerCount() * 3;
 		int count = getRankIII() ? base + 9 : getRankII() ? base + 5 : base;
 		if(ticksExisted > 200 && ticksExisted % (getRankIII() ? 170 : getRankII() ? 210 : 250) == 0)
 			for(int i = 0; i < count; i++) {
@@ -376,13 +378,13 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	private void spawnMissile(int type) {
 		EntitySkullMissile missile = new EntitySkullMissile(this);
 		missile.setPosition(posX + (Math.random() - 0.5 * 0.1), posY + 1.8 + (Math.random() - 0.5 * 0.1), posZ + (Math.random() - 0.5 * 0.1));
-		missile.setDamage(4);
+		missile.setDamage(getHardcore() ? 6 : 4);
 		if(type > 0){
 			missile.setFire(true);
 		}
 		if(type > 1){
 			missile.setEffect(true);
-			missile.setTrueDamage(2);
+			missile.setTrueDamage(getHardcore() ? 3 : 2);
 		}
 		if(missile.findTarget()) {
 			if(type > 2){
@@ -396,7 +398,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		}
 	}
 
-	public static boolean spawn(EntityPlayer player, ItemStack stack, World world, BlockPos pos) {
+	public static boolean spawn(EntityPlayer player, ItemStack stack, World world, BlockPos pos, boolean hardcore) {
 		if(world.getTileEntity(pos) instanceof TileEntityBeacon && isTruePlayer(player)) {
 			if(world.getDifficulty() == EnumDifficulty.PEACEFUL) {
 				if(!world.isRemote)
@@ -438,6 +440,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			e.setPosition(pos.getX() + 0.5, pos.getY() + 3, pos.getZ() + 0.5);
 			e.setSource(pos);
 			e.setShield(5);
+			e.setHardcore(hardcore);
 
 			int playerCount = (int) e.getPlayersAround().stream().filter(EntityGaiaIII::isTruePlayer).count();
 			e.setPlayerCount(playerCount);
@@ -528,7 +531,16 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		dataManager.register(BOSSINFO_ID, Optional.absent());
 		dataManager.register(RANKII, false);
 		dataManager.register(RANKIII, false);
+		dataManager.register(HARDCORE, false);
 		dataManager.register(SHIELD, 0);
+	}
+	
+	public boolean getHardcore(){
+		return dataManager.get(HARDCORE);
+	}
+	
+	public void setHardcore(boolean b){
+		dataManager.set(HARDCORE, b);
 	}
 	
 	public boolean getRankII(){

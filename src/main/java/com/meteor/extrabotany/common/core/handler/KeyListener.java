@@ -1,7 +1,5 @@
 package com.meteor.extrabotany.common.core.handler;
 
-import java.rmi.registry.Registry;
-
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
 import com.meteor.extrabotany.common.lib.LibMisc;

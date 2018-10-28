@@ -11,6 +11,8 @@ public class LibItemsName {
 	public static final String FRIEDCHICKEN = "friedchicken";
 	public static final String GILDEDMASHEDPOTATO = "gildedmashedpotato";
 	public static final String GILDEDPOTATOBATTERY = "gildedpotatobattery";
+	public static final String CANDY = "candy";
+	public static final String CANDYBAG = "candybag";
 	
 	public static final String CAMERA = "camera";
 	public static final String FAILNAUGHT = "failnaught";
@@ -18,6 +20,8 @@ public class LibItemsName {
 	public static final String POCKETWATCHMOON = "pocketwatchmoon";
 	public static final String EXCALIBER = "excaliber";
 	public static final String BUDDHISTRELICS = "buddhistrelics";
+	public static final String MASTERHANDBAG = "masterhandbag";
+	public static final String SPEARSUBSPACE = "spearsubspace";
 	
 	public static final String SHIELDMANASTEEL = "manasteelshield";
 	public static final String SHIELDTERRASTEEL = "terrasteelshield";
@@ -55,6 +59,7 @@ public class LibItemsName {
 	public static final String BAUBLE_PUREDAISYPENDANT = "puredaisypendant";
 	public static final String BAUBLE_SUPERCROWN = "supercrown";
 	public static final String BAUBLE_REDSCARF = "redscarf";
+	public static final String BAUBLE_COREGOD = "coregod";
 	
 	public static final String CMHELM = "combatmaidhelm";
 	public static final String CMCHEST = "combatmaidchest";
@@ -92,11 +97,7 @@ public class LibItemsName {
 		"goldpotato",
 		"heromedal",
 		"emptybottle",
-		"shadowium",
-		"corebase",
-		"coremanasteel",
-		"coreelementium",
-		"coreterrasteel"
+		"shadowium"
 	};
 	
 }

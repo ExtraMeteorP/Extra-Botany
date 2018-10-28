@@ -8,17 +8,21 @@ import com.meteor.extrabotany.client.core.handler.ColorHandler;
 import com.meteor.extrabotany.client.core.handler.EventHandlerClient;
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
 import com.meteor.extrabotany.client.render.entity.RenderDarkPixie;
-import com.meteor.extrabotany.client.render.entity.RenderEntityDomain;
 import com.meteor.extrabotany.client.render.entity.RenderFlowerWeapon;
 import com.meteor.extrabotany.client.render.entity.RenderFlyCutter;
 import com.meteor.extrabotany.client.render.entity.RenderFlyingBoat;
-import com.meteor.extrabotany.client.render.entity.RenderGaiaIII;
-import com.meteor.extrabotany.client.render.entity.RenderSkullLandmine;
-import com.meteor.extrabotany.client.render.entity.RenderSkullMinion;
-import com.meteor.extrabotany.client.render.entity.RenderSkullMissile;
+import com.meteor.extrabotany.client.render.entity.RenderMagicArrow;
 import com.meteor.extrabotany.client.render.entity.RenderSplashGrenade;
-import com.meteor.extrabotany.client.render.entity.RenderSwordDomain;
-import com.meteor.extrabotany.client.render.tile.RenderElfJar;
+import com.meteor.extrabotany.client.render.entity.RenderSubspace;
+import com.meteor.extrabotany.client.render.entity.RenderSubspaceSpear;
+import com.meteor.extrabotany.client.render.entity.gaia.RenderDomain;
+import com.meteor.extrabotany.client.render.entity.gaia.RenderGaiaIII;
+import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullLandmine;
+import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullMinion;
+import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullMissile;
+import com.meteor.extrabotany.client.render.entity.gaia.RenderSwordDomain;
+import com.meteor.extrabotany.client.render.tile.RenderLivingrockBarrel;
+import com.meteor.extrabotany.client.render.tile.RenderQuantumManaBuffer;
 import com.meteor.extrabotany.client.render.tile.RenderTileCocoonDesire;
 import com.meteor.extrabotany.client.render.tile.RenderTileInfinityCube;
 import com.meteor.extrabotany.client.render.tile.RenderTilePedestal;
@@ -27,12 +31,15 @@ import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
 import com.meteor.extrabotany.common.block.tile.TileElfJar;
 import com.meteor.extrabotany.common.block.tile.TileInfinityCube;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
-import com.meteor.extrabotany.common.core.version.VersionChecker;
+import com.meteor.extrabotany.common.block.tile.TileQuantumManaBuffer;
 import com.meteor.extrabotany.common.entity.EntityDarkPixie;
 import com.meteor.extrabotany.common.entity.EntityFlowerWeapon;
 import com.meteor.extrabotany.common.entity.EntityFlyCutter;
 import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
+import com.meteor.extrabotany.common.entity.EntityMagicArrow;
 import com.meteor.extrabotany.common.entity.EntitySplashGrenade;
+import com.meteor.extrabotany.common.entity.EntitySubspace;
+import com.meteor.extrabotany.common.entity.EntitySubspaceSpear;
 import com.meteor.extrabotany.common.entity.gaia.EntityDomain;
 import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullLandmine;
@@ -63,7 +70,6 @@ public class ClientProxy extends CommonProxy{
 	@Override
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
-		VersionChecker.init();
 		ColorHandler.init();
 		LocalDateTime now = LocalDateTime.now();
 		if (now.getMonth() == Month.DECEMBER && now.getDayOfMonth() >= 16 || now.getMonth() == Month.JANUARY && now.getDayOfMonth() <= 2)
@@ -84,8 +90,9 @@ public class ClientProxy extends CommonProxy{
 	private void initRenderers() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TilePedestal.class, new RenderTilePedestal());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileCocoonDesire.class, new RenderTileCocoonDesire());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileElfJar.class, new RenderElfJar());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileElfJar.class, new RenderLivingrockBarrel());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileInfinityCube.class, new RenderTileInfinityCube());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileQuantumManaBuffer.class, new RenderQuantumManaBuffer());
 		RenderingRegistry.registerEntityRenderingHandler(EntityDarkPixie.class, RenderDarkPixie::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlyingBoat.class, RenderFlyingBoat::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlowerWeapon.class, RenderFlowerWeapon::new);
@@ -95,8 +102,11 @@ public class ClientProxy extends CommonProxy{
 		RenderingRegistry.registerEntityRenderingHandler(EntityGaiaIII.class, RenderGaiaIII::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySplashGrenade.class, RenderSplashGrenade::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySwordDomain.class, RenderSwordDomain::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityDomain.class, RenderEntityDomain::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityDomain.class, RenderDomain::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlyCutter.class, RenderFlyCutter::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityMagicArrow.class, RenderMagicArrow::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntitySubspace.class, RenderSubspace::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntitySubspaceSpear.class, RenderSubspaceSpear::new);
 	}
 	
     @Override

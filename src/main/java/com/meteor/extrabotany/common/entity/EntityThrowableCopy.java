@@ -25,8 +25,7 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class EntityThrowableCopy extends Entity implements IProjectile
-{
+public abstract class EntityThrowableCopy extends Entity implements IProjectile{
 	private int xTile;
 	private int yTile;
 	private int zTile;

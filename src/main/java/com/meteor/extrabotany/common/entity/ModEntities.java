@@ -28,6 +28,8 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(makeName("sworddomain"), EntitySwordDomain.class, "extrabotany:sworddomain", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("domain"), EntityDomain.class, "extrabotany:domain", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("flycutter"), EntityFlyCutter.class, "extrabotany:flycutter", id++, ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("subspace"), EntitySubspace.class, "extrabotany:subspace", id++, ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("subspacespear"), EntitySubspaceSpear.class, "extrabotany:subspacespear", id++, ExtraBotany.instance, 64, 10, true);
 	}
 	
 	private static ResourceLocation makeName(String s) {

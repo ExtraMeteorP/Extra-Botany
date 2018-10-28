@@ -13,7 +13,7 @@ public class TOPHandler implements Function<ITheOneProbe, Void>{
     	theOneProbe.registerProvider(new TOPManaLiquefaction());
     	theOneProbe.registerProvider(new TOPManaGenerator());
     	theOneProbe.registerProvider(new TOPManaBuffer());
-    	theOneProbe.registerProvider(new TOPElfJar());
+    	theOneProbe.registerProvider(new TOPLivingrockBarrel());
     	
     	theOneProbe.registerProvider(new TOPPool());
     	theOneProbe.registerProvider(new TOPSpreader());

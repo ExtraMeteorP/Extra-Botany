@@ -18,6 +18,7 @@ import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -50,7 +51,8 @@ public class TileCocoonDesire extends TileMod implements ITickable{
 			Items.GUNPOWDER,
 			Items.GOLD_INGOT,
 			Items.BLAZE_ROD,
-			Items.GHAST_TEAR
+			Items.GHAST_TEAR,
+			Item.getItemFromBlock(Blocks.EMERALD_BLOCK)
 	};
 
 	@Override
@@ -120,6 +122,8 @@ public class TileCocoonDesire extends TileMod implements ITickable{
 					entity = new EntityPigZombie(world);
 				if(i == Items.GHAST_TEAR)
 					entity = new EntityGhast(world);
+				if(i == Item.getItemFromBlock(Blocks.EMERALD_BLOCK))
+					entity = new EntityVillager(world);
 				
 				if(entity != null)
 					setItem(ItemStack.EMPTY);

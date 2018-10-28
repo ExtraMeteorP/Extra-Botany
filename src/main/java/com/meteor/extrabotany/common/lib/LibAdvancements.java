@@ -40,6 +40,9 @@ public class LibAdvancements {
 	
 	public static final String LUCKYDRAW = "lucky_draw";
 	
+	public static final String SPEARSUBSPACE = "spearsubspace_craft";
+	public static final String QUANTUMMANABUFFER = "quantum_craft";
+	
 	public static final String ALLSTATS = "stats_all";
 	
 	public static final String PREFIX = "main/";

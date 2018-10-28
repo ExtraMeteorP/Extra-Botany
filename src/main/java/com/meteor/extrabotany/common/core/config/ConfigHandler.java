@@ -75,6 +75,8 @@ public class ConfigHandler {
 	public static boolean ENABLE_SS;
 	public static boolean ENABLE_SB;
 	public static boolean ENABLE_TK;
+	public static boolean ENABLE_EW;
+	public static boolean ENABLE_MT;
 	
 	public static boolean ENABLE_TOOLTIP;
 	public static boolean ENABLE_SHIELD;
@@ -92,6 +94,11 @@ public class ConfigHandler {
 	public static boolean ENABLE_WAILAMANALIQUE = true;
 	
 	public static boolean ENABLE_TOP = true;
+	
+	public static boolean ENABLE_FEATURES = true;
+	
+	public static boolean ENABLE_CANDYBAGDROP = true;
+	public static double CANDYBAG_DROPCHANCE = 0.02F;
 	
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
@@ -126,6 +133,10 @@ public class ConfigHandler {
 		GAIA_SMASH = loadPropBool("enable.gaiasmash", desc, GAIA_SMASH);
 		desc = "Whether Gaia Guardian III will release Divine Judge. Default is true.";
 		GAIA_DIVINEJUDGE = loadPropBool("enable.divinejudge", desc, GAIA_DIVINEJUDGE);
+		desc = "Whether Monster will have the chance to hold a Halloween Candy Night when spawning. Default is true.";
+		ENABLE_CANDYBAGDROP = loadPropBool("enable.candybag", desc, ENABLE_CANDYBAGDROP);
+		desc = "The Chance a monster will hold a Halloween Candy Night. Default is 2%.";
+		CANDYBAG_DROPCHANCE = loadPropDouble("chance.candybag", desc, CANDYBAG_DROPCHANCE);
 		
 		ENABLE_AF = CONFIG.get("enable flowers", "annoying flower", true).getBoolean(true);
 		ENABLE_EO = CONFIG.get("enable flowers", "enchanted orchid", true).getBoolean(true);
@@ -139,6 +150,10 @@ public class ConfigHandler {
 		ENABLE_SS = CONFIG.get("enable flowers", "stonesia", true).getBoolean(true);
 		ENABLE_SB = CONFIG.get("enable flowers", "sunshine lily", true).getBoolean(true);
 		ENABLE_TK = CONFIG.get("enable flowers", "tinkle flower", true).getBoolean(true);
+		ENABLE_EW = CONFIG.get("enable flowers", "edelweiss", true).getBoolean(true);
+		ENABLE_MT = CONFIG.get("enable flowers", "mirrowtunia", true).getBoolean(true);
+		
+		ENABLE_FEATURES = CONFIG.get("enable features", "easter eggs", true).getBoolean(true);
 		
 		ENABLE_SHIELD = CONFIG.get("enable shields", "enable non-relic shields", true).getBoolean(true);
 		
@@ -170,8 +185,8 @@ public class ConfigHandler {
 		EFF_STONESIA = CONFIG.getInt("mana per tick", "stonesia", 5, 1, Integer.MAX_VALUE, "");	
 		LP_STONESIA = CONFIG.get("stonesia", "enable catalysis", true).getBoolean(true);
 		
-		ANNOYINGFLOWER_COST = CONFIG.getInt("mana cost for fishing", "annoying flower", 50, 1, Integer.MAX_VALUE, "");	
-		TICKS = CONFIG.getInt("interval bewteen fishing", "annoying flower", 200, 1, Integer.MAX_VALUE, "");	
+		ANNOYINGFLOWER_COST = CONFIG.getInt("mana cost for fishing", "annoying flower", 100, 1, Integer.MAX_VALUE, "");	
+		TICKS = CONFIG.getInt("interval bewteen fishing", "annoying flower", 260, 1, Integer.MAX_VALUE, "");	
 		TIMES = CONFIG.getInt("times fried chicken leg add", "annoying flower", 3, 1, Integer.MAX_VALUE, "");	
 		
 		BASECOST = CONFIG.getInt("mana cost at least", "stardust lotus", 20000, 1, Integer.MAX_VALUE, "");	

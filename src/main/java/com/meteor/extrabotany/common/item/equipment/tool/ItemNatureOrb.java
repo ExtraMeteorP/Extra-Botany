@@ -6,19 +6,15 @@ import java.util.stream.Collectors;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.item.INatureOrb;
-import com.meteor.extrabotany.api.orb.OrbItemHandler;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
-import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemBauble;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import baubles.api.BaubleType;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -35,10 +31,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import vazkii.botania.api.mana.IManaGivingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 
-public class ItemNatureOrb extends ItemBauble implements INatureOrb{
+public class ItemNatureOrb extends ItemBauble implements INatureOrb, IManaGivingItem{
 	
 	public static final String TAG_XP = "xp";
 	public static int max = 500000;
@@ -76,7 +73,7 @@ public class ItemNatureOrb extends ItemBauble implements INatureOrb{
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
 		if(player.isSneaking() && getXP(player.getHeldItem(hand)) >= 100000 && ConfigHandler.GAIA_ENABLE){
-			return EntityGaiaIII.spawn(player, player.getHeldItem(hand), worldIn, pos) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+			return EntityGaiaIII.spawn(player, player.getHeldItem(hand), worldIn, pos, false) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
 		}
 		return EnumActionResult.SUCCESS;
 	}
@@ -98,22 +95,24 @@ public class ItemNatureOrb extends ItemBauble implements INatureOrb{
     		EntityPlayer p = (EntityPlayer) entity;
     		
     		if(getXP(stack) > 100000)
-    			ManaItemHandler.dispatchMana(stack, p, 1, true);
+    			ManaItemHandler.dispatchManaExact(stack, p, 1, true);
     		if(getXP(stack) > 200000)
-    			ManaItemHandler.dispatchMana(stack, p, 1, true);
+    			ManaItemHandler.dispatchManaExact(stack, p, 1, true);
     		if(getXP(stack) > 300000){
-    			ManaItemHandler.dispatchMana(stack, p, 1, true);
+    			ManaItemHandler.dispatchManaExact(stack, p, 1, true);
     			if(p.ticksExisted % 60 == 0)
     				p.heal(1F);
     		}
     		if(getXP(stack) > 400000){
-    			if(p.ticksExisted % 25 == 0)
+    			if(p.ticksExisted % 40 == 0){
     				clearPotions(p);
+    				addXP(stack, -10);
+    			}
     		}
     	}
 	}
     
-	private void clearPotions(EntityPlayer player) {
+	public static void clearPotions(EntityPlayer player) {
 		int posXInt = MathHelper.floor(player.getPosition().getX());
 		int posZInt = MathHelper.floor(player.getPosition().getZ());
 

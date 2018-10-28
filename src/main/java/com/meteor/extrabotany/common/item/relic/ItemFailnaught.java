@@ -23,7 +23,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -34,6 +33,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -82,17 +82,23 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
             return;
         EntityPlayer player = (EntityPlayer) entity;
         int i = (int) ((getMaxItemUseDuration(stack) - timeLeft) * chargeVelocityMultiplier());
+        if(i < 12)
+        	return;
         int rank = i / 15;
         if(isRightPlayer(player, stack) && ManaItemHandler.requestManaExactForTool(stack, player, Math.min(480, 220 + rank * 50), true)){
         	EntityMagicArrow arrow = new EntityMagicArrow(world, player);
         	arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
-        	arrow.setDamage(Math.min(50, 5 + rank * 8));
+        	arrow.setDamage(Math.min(40, 8 + rank * 7));
+        	arrow.rotationYaw = player.rotationYaw;
+        	arrow.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
         	int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
         	if (j > 0){
-				arrow.setDamage(arrow.getDamage() + j + 1);
+				arrow.setDamage(arrow.getDamage() + j * 2);
 			}
         	arrow.setLife(Math.min(150, 5 + i * 4));
-        	world.spawnEntity(arrow);
+        	
+        	if(!world.isRemote)
+        		world.spawnEntity(arrow);
         
         	world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
         	player.addStat(StatList.getObjectUseStats(this));

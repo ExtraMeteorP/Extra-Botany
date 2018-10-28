@@ -5,17 +5,13 @@ import javax.annotation.Nonnull;
 import org.lwjgl.opengl.GL11;
 
 import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
-import com.meteor.extrabotany.common.block.tile.TilePedestal;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 
 public class RenderTileCocoonDesire extends TileEntitySpecialRenderer<TileCocoonDesire> {
 

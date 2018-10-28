@@ -166,10 +166,10 @@ public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem{
 	@Override
 	public void onUsingTick(ItemStack stack, EntityLivingBase living, int count) {
 		super.onUsingTick(stack, living, count);
-		if(!(living instanceof EntityPlayer) || getMode(stack) != 1)
+		if(!(living instanceof EntityPlayer))
 			return;
 		EntityPlayer player = (EntityPlayer) living;
-		if(ManaItemHandler.requestManaExact(stack, player, 500, true)){
+		if(ManaItemHandler.requestManaExact(stack, player, 500, true) && getMode(stack) == 1){
 			if(count % 5 == 0)
 				player.getFoodStats().addStats(1, 1F);
 		}

@@ -4,7 +4,6 @@ import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
 
 public class ManaFluid extends Fluid{
 

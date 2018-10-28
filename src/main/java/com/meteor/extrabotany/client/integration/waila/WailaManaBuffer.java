@@ -18,43 +18,37 @@ import net.minecraft.world.World;
 
 public class WailaManaBuffer implements IWailaDataProvider{
 	
-	public static void register(IWailaRegistrar registrar)
-	{
+	public static void register(IWailaRegistrar registrar){
         registrar.registerBodyProvider(new WailaManaBuffer(), BlockManaBuffer.class);
     }
 
 	@Override
-	public ItemStack getWailaStack(IWailaDataAccessor accessor, IWailaConfigHandler config)
-	{
+	public ItemStack getWailaStack(IWailaDataAccessor accessor, IWailaConfigHandler config){
 		return null;
 	}
 
 	@Override
-	public List<String> getWailaHead(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config)
-	{
+	public List<String> getWailaHead(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
 		return currenttip;
 	}
 
 	@Override
-	public List<String> getWailaBody(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config)
-	{
+	public List<String> getWailaBody(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
 		if(accessor.getTileEntity() instanceof TileManaBuffer){
 			TileManaBuffer pool = (TileManaBuffer) accessor.getTileEntity();
-			currenttip.add("Mana:" + pool.getCurrentMana() + "/" + 64000000);
+			currenttip.add("Mana:" + pool.getCurrentMana() + "/" + pool.getMaxMana());
 			return currenttip;
 		}
 		return currenttip;
 	}
 
 	@Override
-	public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config)
-	{
+	public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
 		return currenttip;
 	}
 
 	@Override
-	public NBTTagCompound getNBTData(EntityPlayerMP player, TileEntity te, NBTTagCompound tag, World world, BlockPos pos)
-	{
+	public NBTTagCompound getNBTData(EntityPlayerMP player, TileEntity te, NBTTagCompound tag, World world, BlockPos pos){
 		return tag;
 	}
 }

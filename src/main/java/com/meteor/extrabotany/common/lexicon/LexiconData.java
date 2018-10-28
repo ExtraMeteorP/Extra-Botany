@@ -39,11 +39,13 @@ public class LexiconData {
 	public static LexiconEntry tinkle;
 	public static LexiconEntry bellflower;
 	public static LexiconEntry reikarlily;
+	public static LexiconEntry edelweiss;
 	
 	public static LexiconEntry annoyingflower;
 	public static LexiconEntry stardustlotus;
 	public static LexiconEntry manalinkium;
 	public static LexiconEntry enchantedorchid;
+	public static LexiconEntry mirrortunia;
 	
 	public static LexiconEntry pedestal;
 	public static LexiconEntry nightmarefuel;
@@ -76,6 +78,8 @@ public class LexiconData {
 	public static LexiconEntry cocktail;
 	public static LexiconEntry infinitewine;
 	public static LexiconEntry relics;
+	public static LexiconEntry spearsubspace;
+	public static LexiconEntry godcore;
 	
 	public static LexiconEntry cm;
 	public static LexiconEntry cosm;
@@ -109,9 +113,19 @@ public class LexiconData {
 		failnaught.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_failnaught")));
 		
+		spearsubspace = new DreamLexiconEntry(LibLexicon.RELIC_SPEARSUBSPACE,  BotaniaAPI.categoryTools);
+		spearsubspace.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_spearsubspace")),
+					new PageRuneRecipe("3", ModRuneRecipe.recipeOrichalcos));
+		
 		camera = new DreamLexiconEntry(LibLexicon.RELIC_CAMERA,  BotaniaAPI.categoryTools);
 		camera.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_camera")));
+		
+		godcore = new DreamLexiconEntry(LibLexicon.RELIC_GODCORE,  BotaniaAPI.categoryTools);
+		godcore.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_coregod")));
+		
 		if(ConfigHandler.DISABLE_MANAGENERATOR){
 			managenerator = new DreamLexiconEntry(LibLexicon.MANAGENERATOR,  BotaniaAPI.categoryMana);
 			managenerator.setLexiconPages(new PageText("0"),
@@ -157,6 +171,7 @@ public class LexiconData {
 		
 		relics = new DreamLexiconEntry(LibLexicon.RELIC_RELICS,  BotaniaAPI.categoryTools);
 		relics.setLexiconPages(new PageText("0"));
+		relics.setIcon(new ItemStack(ModItems.relics));
 		
 		mastermanaring = new DreamLexiconEntry(LibLexicon.RELIC_MASTERMANARING,  BotaniaAPI.categoryTools);
 		mastermanaring.setLexiconPages(new PageText("0"),
@@ -257,6 +272,18 @@ public class LexiconData {
 			enchantedorchid = new DreamLexiconEntry(LibLexicon.FFLOWER_ENCHANTEDORCHID,  BotaniaAPI.categoryFunctionalFlowers);
 			enchantedorchid.setLexiconPages(new PageText("0"),
 						new PagePetalRecipe<>("1", ModPetalRecipe.enchantedorchidRecipe));
+		}
+		
+		if(ConfigHandler.ENABLE_MT){
+			mirrortunia = new DreamLexiconEntry(LibLexicon.FFLOWER_MIRROWTUNIA,  BotaniaAPI.categoryFunctionalFlowers);
+			mirrortunia.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.mirrortuniaRecipe));
+		}
+		
+		if(ConfigHandler.ENABLE_EW){
+			edelweiss = new DreamLexiconEntry(LibLexicon.GFLOWER_EDELWEISS,  BotaniaAPI.categoryGenerationFlowers);
+			edelweiss.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.edelweissRecipe));
 		}
 		
 		pedestal = new BasicLexiconEntry(LibLexicon.PEDESTAL,  BotaniaAPI.categoryBasics);

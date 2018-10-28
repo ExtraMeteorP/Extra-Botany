@@ -17,7 +17,7 @@ public class TOPManaBuffer implements IProbeInfoProvider{
 	    public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data){
 	    	if(world.getTileEntity(data.getPos()) instanceof TileManaBuffer){
 	    		TileManaBuffer tile = (TileManaBuffer) world.getTileEntity(data.getPos());
-	    		probeInfo.text("Mana:" + tile.getCurrentMana() + "/" + tile.manaCap);
+	    		probeInfo.text("Mana:" + tile.getCurrentMana() + "/" + tile.getMaxMana());
 	    	}
 	    }
 		

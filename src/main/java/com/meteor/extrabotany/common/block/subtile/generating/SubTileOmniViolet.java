@@ -43,7 +43,7 @@ public class SubTileOmniViolet extends SubTileGenerating{
 					int slowdown = getSlowdownFactor();
 
 					for(EntityItem item : supertile.getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
-						if(item.getAge() >= 59 + slowdown && !item.isDead) {
+						if(item.ticksExisted >= 59 + slowdown && !item.isDead) {
 							ItemStack stack = item.getItem();
 							if(stack.isEmpty() || stack.getItem().hasContainerItem(stack))
 								continue;

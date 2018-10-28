@@ -14,6 +14,7 @@ public class ModSounds {
 	
 	public static final SoundEvent annoyingflower = makeSoundEvent("annoyingflower");
 	public static final SoundEvent gaiaMusic3 = makeSoundEvent("music.gaia3");
+	public static final SoundEvent spearsubspace = makeSoundEvent("spearsubspace");
 	
 	private static SoundEvent makeSoundEvent(String name) {
 		ResourceLocation loc = new ResourceLocation(LibMisc.MOD_ID, name);
@@ -25,6 +26,7 @@ public class ModSounds {
 		IForgeRegistry<SoundEvent> r = evt.getRegistry();
 		r.register(annoyingflower);
 		r.register(gaiaMusic3);
+		r.register(spearsubspace);
 	}
 	
 	private ModSounds() {}

@@ -44,11 +44,19 @@ public class TileManaBuffer extends TileEntity implements IManaReceiver, ITickab
 	public boolean isFull() {
 		return true;
 	}
+	
+	public int getMaxMana(){
+		return manaCap;
+	}
+	
+	public int getTransferSpeed(){
+		return ConfigHandler.MB_SPEED;
+	}
 
 	@Override
 	public void recieveMana(int mana) {
 		int old = this.mana;
-		this.mana = Math.max(0, Math.min(getCurrentMana() + mana, manaCap));
+		this.mana = Math.max(0, Math.min(getCurrentMana() + mana, getMaxMana()));
 		if(old != this.mana) {
 			world.updateComparatorOutputLevel(pos, world.getBlockState(pos).getBlock());
 			markDispatchable();
@@ -89,20 +97,20 @@ public class TileManaBuffer extends TileEntity implements IManaReceiver, ITickab
 				VanillaPacketDispatcher.dispatchTEToNearbyPlayers(this);
 		}
 		
-		int speed = ConfigHandler.MB_SPEED;
+		int speed = getTransferSpeed();
 		
 		for(BlockPos o : POOL_LOCATIONS)//input
 			if(world.getTileEntity(pos.add(o)) instanceof TilePool){
 				TilePool p = (TilePool) world.getTileEntity(pos.add(o));
-				if(p.getCurrentMana() >= speed && getCurrentMana() < this.manaCap){
-					int current = Math.min(speed, this.manaCap - getCurrentMana());
+				if(p.getCurrentMana() >= speed && getCurrentMana() < getMaxMana()){
+					int current = Math.min(speed, getMaxMana() - getCurrentMana());
 					p.recieveMana(-current);
 					recieveMana(current);
 				}
 			}else if(world.getTileEntity(pos.add(o)) instanceof TileManaBuffer){
 				TileManaBuffer p = (TileManaBuffer) world.getTileEntity(pos.add(o));
-				if(p.getCurrentMana() >= speed && getCurrentMana() < this.manaCap){
-					int current = Math.min(speed, this.manaCap - getCurrentMana());
+				if(p.getCurrentMana() >= speed && getCurrentMana() < getMaxMana()){
+					int current = Math.min(speed, getMaxMana() - getCurrentMana());
 					p.recieveMana(-current);
 					recieveMana(current);
 				}
@@ -133,7 +141,7 @@ public class TileManaBuffer extends TileEntity implements IManaReceiver, ITickab
 	public NBTTagCompound writeToNBT(NBTTagCompound cmp) {
 		super.writeToNBT(cmp);
 		cmp.setInteger(TAG_MANA, mana);
-		cmp.setInteger(TAG_MANA_CAP, manaCap);
+		cmp.setInteger(TAG_MANA_CAP, getMaxMana());
 		return cmp;
 	}
 	

@@ -2,18 +2,14 @@ package com.meteor.extrabotany.common.block.subtile.generating;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.subtile.SubTileGeneratingNature;
-import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import vazkii.botania.api.lexicon.LexiconEntry;

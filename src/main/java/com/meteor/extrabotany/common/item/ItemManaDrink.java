@@ -15,7 +15,7 @@ import vazkii.botania.api.mana.ManaItemHandler;
 public class ItemManaDrink extends ItemFoodMod{
 
 	public ItemManaDrink() {
-		super(1, 1F, false, LibItemsName.MANADRINK);
+		super(1, 0.4F, false, LibItemsName.MANADRINK);
 	}
 	
 	@Override
@@ -28,6 +28,14 @@ public class ItemManaDrink extends ItemFoodMod{
 		player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 1200, 0));
 		player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 1200, 0));
 		ManaItemHandler.dispatchManaExact(stack, player, 10000, true);
+		player.addItemStackToInventory(new ItemStack(ModItems.material, 1, 4));
 	}
+	
+	@Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn){
+        ItemStack itemstack = playerIn.getHeldItem(handIn);
+        playerIn.setActiveHand(handIn);
+        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+    }
 
 }

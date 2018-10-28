@@ -1,8 +1,6 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.item.equipment.armor.combatmaid.ItemCombatMaidArmor;
-import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidArmor;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import baubles.api.BaubleType;

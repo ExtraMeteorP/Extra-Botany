@@ -12,6 +12,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -29,6 +32,14 @@ public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer, IMana
 		setCreativeTab(ExtraBotany.tabExtraBotany);
 		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
 		setUnlocalizedName(name);
+	}
+	
+	@Nonnull
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(@Nonnull World world, EntityPlayer player, @Nonnull EnumHand hand) {
+		ItemStack stack = player.getHeldItem(hand);
+		ExtraBotany.logger.info(player.rotationPitch);
+		return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 	}
 
 	@Nonnull

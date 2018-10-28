@@ -75,6 +75,17 @@ public class ModCraftingRecipe {
 	public static IRecipe SUPERCROWN;
 	public static IRecipe PUREDAISYPENDANT;
 	public static IRecipe REDSCARF;
+	public static IRecipe SPEARSUBSPACE;
+	public static IRecipe QUANTUMMANABUFFER;
+	public static IRecipe ORICHALCOSBLOCK;
+	public static IRecipe ORICHALCOS;
+	public static IRecipe COREGOD;
+	public static IRecipe CANDYA;
+	public static IRecipe CANDYB;
+	public static IRecipe CANDYC;
+	public static IRecipe MINIHANDBAG;
+	public static IRecipe COREGODRESET;
+	public static IRecipe COREGODA;
 	
 	public static void init() {
 		
@@ -206,6 +217,39 @@ public class ModCraftingRecipe {
 		
 		REDSCARF = new ShapedOreRecipe(getResource("recipe_redscarf"), new ItemStack(ModItems.redscarf), "AAA", "ABA", "AAA", 'B', new ItemStack(ModItems.material), 'A', LibOreDict.PETAL[14]);
 		REDSCARF.setRegistryName(getResource("recipe_redscarf"));
+		
+		SPEARSUBSPACE = new ShapedOreRecipe(getResource("recipe_spearsubspace"), new ItemStack(ModItems.spearsubspace), "  A", " B ", "A  ", 'B', new ItemStack(ModItems.shadowkatana), 'A', LibOreDicts.ORICHALCOS);
+		SPEARSUBSPACE.setRegistryName(getResource("recipe_spearsubspace"));
+		
+		QUANTUMMANABUFFER = new ShapedOreRecipe(getResource("recipe_quantummanabuffer"), new ItemStack(ModBlocks.quantummanabuffer), "AAA", "ABA", "AAA", 'B', LibOreDicts.ORICHALCOS, 'A', new ItemStack(ModBlocks.batterybox));
+		QUANTUMMANABUFFER.setRegistryName(getResource("recipe_quantummanabuffer"));
+		
+		ORICHALCOSBLOCK = new ShapedOreRecipe(getResource("recipe_orichalcosblock"), new ItemStack(ModBlocks.orichalcosblock), "AAA", "AAA", "AAA", 'A', LibOreDicts.ORICHALCOS);
+		ORICHALCOSBLOCK.setRegistryName(getResource("recipe_orichalcosblock"));
+		
+		ORICHALCOS = new ShapelessOreRecipe(getResource("recipe_orichalcos"), new ItemStack(ModItems.material, 9, 1), new ItemStack(ModBlocks.orichalcosblock));
+		ORICHALCOS.setRegistryName(getResource("recipe_orichalcos"));
+		
+		COREGOD = new ShapedOreRecipe(getResource("recipe_coregod"), new ItemStack(ModItems.godcore), "ABA", "ACA", "AAA", 'A', LibOreDict.QUARTZ[6], 'B', new ItemStack(ModItems.material, 1, 3), 'C', new ItemStack(vazkii.botania.common.item.ModItems.flightTiara));
+		COREGOD.setRegistryName(getResource("recipe_coregod"));
+		
+		CANDYA = new ShapelessOreRecipe(getResource("recipe_candya"), new ItemStack(ModItems.candy, 3, 0), new ItemStack(Items.PAPER), new ItemStack(Items.SUGAR), new ItemStack(Items.SUGAR), new ItemStack(Items.SUGAR), new ItemStack(Blocks.PUMPKIN), new ItemStack(Items.GLOWSTONE_DUST));
+		CANDYA.setRegistryName(getResource("recipe_candya"));
+		
+		CANDYB = new ShapelessOreRecipe(getResource("recipe_candyb"), new ItemStack(ModItems.candy, 3, 1), new ItemStack(Items.PAPER), new ItemStack(Items.SUGAR), new ItemStack(Items.SUGAR), new ItemStack(Items.SUGAR), new ItemStack(Blocks.PUMPKIN), new ItemStack(Items.DYE, 1, 2));
+		CANDYB.setRegistryName(getResource("recipe_candyb"));
+		
+		CANDYC = new ShapelessOreRecipe(getResource("recipe_candyc"), new ItemStack(ModItems.candy, 3, 2), new ItemStack(Items.PAPER), new ItemStack(Items.SUGAR), new ItemStack(Items.SUGAR), new ItemStack(Items.SUGAR), new ItemStack(Blocks.PUMPKIN), new ItemStack(Items.REDSTONE));
+		CANDYC.setRegistryName(getResource("recipe_candyc"));
+		
+		MINIHANDBAG = new ShapedOreRecipe(getResource("recipe_minihandbag"), new ItemStack(ModItems.masterhandbag), "ABA", "ACA","AAA", 'B', new ItemStack(ModItems.material), 'A', "leather", 'C', new ItemStack(Blocks.CHEST));
+		MINIHANDBAG.setRegistryName(getResource("recipe_minihandbag"));
+		
+		COREGODRESET = new ShapelessOreRecipe(getResource("recipe_coregodreset"), new ItemStack(ModItems.godcore), LibOreDicts.COREGOD);
+		COREGODRESET.setRegistryName(getResource("recipe_coregodreset"));
+		
+		COREGODA = new ShapelessOreRecipe(getResource("recipe_coregoda"), new ItemStack(ModItems.godcore, 1, 1), LibOreDicts.COREGOD, new ItemStack(ModItems.candybag));
+		COREGODA.setRegistryName(getResource("recipe_coregoda"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -260,7 +304,18 @@ public class ModCraftingRecipe {
 					EXCALIBER,
 					SUPERCROWN,
 					PUREDAISYPENDANT,
-					REDSCARF
+					REDSCARF,
+					SPEARSUBSPACE,
+					ORICHALCOSBLOCK,
+					QUANTUMMANABUFFER,
+					ORICHALCOS,
+					COREGOD,
+					CANDYA,
+					CANDYB,
+					CANDYC,
+					MINIHANDBAG,
+					COREGODRESET,
+					COREGODA
 			);
 			if(ConfigHandler.ENABLE_SHIELD){
 				event.getRegistry().registerAll(

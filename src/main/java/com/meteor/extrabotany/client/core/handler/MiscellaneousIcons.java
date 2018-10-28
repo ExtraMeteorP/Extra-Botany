@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.client.core.handler;
 
 import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
-import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -14,7 +13,10 @@ public class MiscellaneousIcons {
 	
 	public TextureAtlasSprite[] kingGardenWeaponIcons;
 	public TextureAtlasSprite[] swordDomainIcons;
+	public TextureAtlasSprite[] subspaceIcons;
+	public TextureAtlasSprite[] godcoreIcons;
 	public TextureAtlasSprite puredaisyPendantIcon;
+	public TextureAtlasSprite volantoroIcon;
 	
 	@SubscribeEvent
 	public void onTextureStitch(TextureStitchEvent.Pre evt) {
@@ -25,6 +27,15 @@ public class MiscellaneousIcons {
 		for(int i = 0; i < 8; i++)
 			swordDomainIcons[i] = IconHelper.forName(evt.getMap(), "sworddomain_" + i, "items");
 		puredaisyPendantIcon = IconHelper.forName(evt.getMap(), "puredaisypendant", "items");
+		
+		subspaceIcons = new TextureAtlasSprite[6];
+		for(int i = 0; i < 6; i++)
+			subspaceIcons[i] = IconHelper.forName(evt.getMap(), "subspace_" + i, "items");
+		
+		godcoreIcons = new TextureAtlasSprite[3];
+		for(int i = 0; i < 3; i++)
+			godcoreIcons[i] = IconHelper.forName(evt.getMap(), "godcore_" + i, "items");
+		volantoroIcon = IconHelper.forName(evt.getMap(), "volantoro", "items");
 	}
 
 }

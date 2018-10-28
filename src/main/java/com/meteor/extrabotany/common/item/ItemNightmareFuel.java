@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ItemNightmareFuel extends ItemFoodMod implements IFuelHandler{
 
 	public ItemNightmareFuel() {
-		super(0, 2, false, LibItemsName.NIGHTMAREFUEL);
+		super(0, 0, false, LibItemsName.NIGHTMAREFUEL);
 		GameRegistry.registerFuelHandler(this);
 	}
 	

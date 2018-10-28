@@ -9,6 +9,7 @@ import com.meteor.extrabotany.common.entity.ModEntities;
 import com.meteor.extrabotany.common.integration.tinkerconstruct.TConstructCompat;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemShieldCopy;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
+import com.meteor.extrabotany.common.world.ModWorld;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
@@ -37,6 +38,7 @@ public class CommonProxy {
     	ModBrew.init();
 		ModRecipe.init();
 		LexiconData.init();
+		ModWorld.init();
 		if (Loader.isModLoaded("waila")){
 			if(ConfigHandler.ENABLE_WAILAPOOL)
 				FMLInterModComms.sendMessage("waila", "register", "com.meteor.extrabotany.client.integration.waila.WailaPool.register");

@@ -20,10 +20,10 @@ public class EntityMagicArrow extends EntityThrowableCopy{
 	
 	private static final String TAG_DAMAGE = "damage";
 	private static final String TAG_LIFE = "life";
-	
+	private static final String TAG_ROTATION = "rotation";
 	private static final DataParameter<Integer> DAMAGE = EntityDataManager.createKey(EntityMagicArrow.class, DataSerializers.VARINT);
 	private static final DataParameter<Integer> LIFE = EntityDataManager.createKey(EntityMagicArrow.class, DataSerializers.VARINT);
-
+	private static final DataParameter<Float> ROTATION = EntityDataManager.createKey(EntityMagicArrow.class, DataSerializers.FLOAT);
 	public EntityMagicArrow(World worldIn) {
 		super(worldIn);
 	}
@@ -38,6 +38,7 @@ public class EntityMagicArrow extends EntityThrowableCopy{
 		setSize(0F, 0F);
 		dataManager.register(DAMAGE, 0);
 		dataManager.register(LIFE, 0);
+		dataManager.register(ROTATION, 0F);
 	}
 	
 	@Override
@@ -101,6 +102,7 @@ public class EntityMagicArrow extends EntityThrowableCopy{
 		super.writeEntityToNBT(cmp);
 		cmp.setInteger(TAG_LIFE, getLife());
 		cmp.setInteger(TAG_DAMAGE, getDamage());
+		cmp.setFloat(TAG_ROTATION, getRotation());
 	}
 	
 	@Override
@@ -108,6 +110,15 @@ public class EntityMagicArrow extends EntityThrowableCopy{
 		super.readEntityFromNBT(cmp);
 		setLife(cmp.getInteger(TAG_LIFE));
 		setDamage(cmp.getInteger(TAG_DAMAGE));
+		setRotation(cmp.getFloat(TAG_ROTATION));
+	}
+	
+	public float getRotation() {
+		return dataManager.get(ROTATION);
+	}
+
+	public void setRotation(float rot) {
+		dataManager.set(ROTATION, rot);
 	}
 	
 	public int getLife() {

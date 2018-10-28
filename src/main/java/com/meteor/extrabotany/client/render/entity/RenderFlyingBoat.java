@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.client.render.entity;
 
 import com.meteor.extrabotany.client.model.ModelBoatCopy;
-import com.meteor.extrabotany.client.model.ModelBoatNew;
 import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
 import com.meteor.extrabotany.common.lib.LibMisc;
 

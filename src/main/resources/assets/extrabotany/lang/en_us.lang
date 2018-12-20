@@ -17,6 +17,9 @@ item.extrabotany:shadowium.name=Shadowium
 item.extrabotany:friedchicken.name=Fried Chicken Leg
 item.extrabotany:ingotorichalcos.name=Orichalcos Ingot
 item.extrabotany:goldpotato.name=Gilded Potato
+item.extrabotany:godcloth.name=Das Rheingold
+item.extrabotany:photonium.name=Photonium
+item.extrabotany:ticket.name=Challenge Ticket
 item.extrabotany:gildedmashedpotato.name=Gilded Mashed Potato
 item.extrabotany:manasteelhammer.name=Manasteel Hammer
 item.extrabotany:terrasteelhammer.name=Terrasteel Hammer
@@ -40,16 +43,24 @@ item.extrabotany:buddhistrelics.name=Origin Creation - Omniscience
 item.extrabotany:spearsubspace.name=Spear of Subspace
 item.extrabotany:masterhandbag.name=Mini Handbag
 item.extrabotany:coregod.name=Core of God
+item.extrabotany:judahoath.name=Judah Oath
+item.extrabotany:judahoathkira.name=Judah Oath KIRA
 item.extrabotany:candy0.name=Halloween Candy Eins
 item.extrabotany:candy1.name=Halloween Candy Zwei
 item.extrabotany:candy2.name=Halloween Candy Drei
 item.extrabotany:candybag.name=Halloween Candy Night
+item.extrabotany:candychris0.name=Christmas Candy Eins
+item.extrabotany:candychris1.name=Christmas Candy Zwei
+item.extrabotany:candychris2.name=Christmas Candy Drei
+item.extrabotany:candybagchris.name=Christmas Garland
+item.extrabotany:walkingcane.name=Walking Cane
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
 item.extrabotany:rewardbag2.name=Reward Bag Zwei
 item.extrabotany:rewardbag3.name=Reward Bag Drei
 item.extrabotany:rewardbag4.name=Reward Bag Vier
+item.extrabotany:rewardbag943.name=Reward Bag 9-3/4
 item.extrabotany:treasurebox.name=Pandora's Box
 item.extrabotany:failnaught.name=Failnaught
 item.extrabotany:camera.name=Shameimaru's Camera
@@ -60,6 +71,11 @@ item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
 
 item.extrabotany:froststar.name=Ring of Frost
 item.extrabotany:deathring.name=Ring of Curse
+item.extrabotany:walljumping.name=Ring of Wall-Jump
+item.extrabotany:wallrunning.name=Ring of Wall-Run
+item.extrabotany:parkour.name=Ring of Parkour
+item.extrabotany:elvenking.name=Ring of Elven King
+item.extrabotany:allforone.name=ALL FOR ONE
 item.extrabotany:puredaisypendant.name=Pure Daisy Pendant
 item.extrabotany:supercrown.name=Super Crown
 item.extrabotany:redscarf.name=Red Scarf
@@ -79,6 +95,10 @@ item.extrabotany:shadowwarriorchest.name=Shadow Warrior Chestplate
 item.extrabotany:shadowwarriorlegs.name=Shadow Warrior Leggings
 item.extrabotany:shadowwarriorboots.name=Shadow Warrior Boots
 item.extrabotany:shadowkatana.name=Shadow Katana
+item.extrabotany:goblinslayerhelm.name=Goblin Slayer Helmet
+item.extrabotany:goblinslayerchest.name=Goblin Slayer Chestplate
+item.extrabotany:goblinslayerlegs.name=Goblin Slayer Leggings
+item.extrabotany:goblinslayerboots.name=Goblin Slayer Boots
 item.extrabotany:.name=
 
 extrabotany.armorset.cosmeticmaid.desc0=Super Mana Affinity
@@ -88,6 +108,9 @@ extrabotany.armorset.combatmaid.desc2=Mana Affinity
 extrabotany.armorset.shadowwarrior.desc0=This night is so frightful and boundless. That my eyes come down with gloomy darkness.
 extrabotany.armorset.shadowwarrior.desc1=But just by them both. I am seeking my rosiness
 extrabotany.armorset.shadowwarrior.name=Shadow Warrior
+extrabotany.armorset.goblinslayer.desc0=
+extrabotany.armorset.goblinslayer.desc1=
+extrabotany.armorset.goblinslayer.name=Goblin Slayer
 extrabotany.armorset.cosmeticmaid.name=Starry Idol
 extrabotany.armorset.combatmaid.name=Pleiades Combat Maid
 
@@ -128,6 +151,8 @@ tile.botania:flower.tinkle.name=Tinkle Flower
 tile.botania:flower.tinkle.reference=My turn
 tile.botania:flower.bellflower.name=Bell Flower
 tile.botania:flower.bellflower.reference=Lost wind
+tile.botania:flower.geminiorchid.name=Gemini Orchid
+tile.botania:flower.geminiorchid.reference=
 tile.botania:flower.annoyingflower.name=Annoying Flower
 tile.botania:flower.annoyingflower.reference=Rest time
 tile.botania:flower.stardustlotus.name=Stardust Lotus
@@ -175,7 +200,7 @@ extrabotanymisc.gaiaPreparing=The Gaia Guardian is preparing a SPECIAL attack!
 extrabotanymisc.gaiaWarning=5 seconds left before the Gaia Guardian uses his SPECIAL attack!
 extrabotanymisc.gaiaWarning2=The Gaia Guardian will do massive damage to one random player! Who will be the lucky one ?
 extrabotanymisc.gaiaWarning3=The Gaia Guardian deals massive damage to you!
-extrabotanymisc.minionSpawn=The Gaia Guardian summoned his minions. You better kill the minions first ;-)
+extrabotanymisc.minionSpawn=The Gaia Guardian summoned its minions. You better kill the minions first ;-)
 extrabotany.natureorb=Natural Breath: 
 extrabotany.natureorbeffect1false=Blessing of Mana(Deactivated)
 extrabotany.natureorbeffect1true=Blessing of Mana&b(Activated)
@@ -185,7 +210,16 @@ extrabotany.natureorbeffect3false=Blessing of Senro(Deactivated)
 extrabotany.natureorbeffect3true=Blessing of Senro&2(Activated)
 extrabotany.bonusbase=You have the chance to get the following items:
 extrabotanymisc.disabledblock=This Block has been disabled. Don't craft or use it.
-extrabotanymisc.bindingwrong=Fail to bind. Check whether the position is right or not, or maybe it's not from the same dimension.
+extrabotanymisc.bindingwrong=Failed to bind. Check whether the position is right or not, or maybe it's not from the same dimension.
+extrabotanymisc.noveline0=This is, to me, the loveliest and saddest landscape in the world.
+extrabotanymisc.noveline1=It is the same as that on the preceding page, but I have drawn it again to impress it on your memory.
+extrabotanymisc.noveline2=It is here that the little prince appeared on Earth, and disappeared.
+extrabotanymisc.noveline3=Look at it carefully so that you will be sure to recognise it in case you travel some day to the African desert.
+extrabotanymisc.noveline4=And, if you should come upon this spot, please do not hurry on.
+extrabotanymisc.noveline5=Wait for a time, exactly under the star.
+extrabotanymisc.noveline6=Then, if a little man appears who laughs, who has golden hair and who refuses to answer questions, you will know who he is.
+extrabotanymisc.noveline7=If this should happen, please comfort me.
+extrabotanymisc.noveline8=Send me word that he has come back.
 
 botania.entry.bloodyenchantress=Bloody Enchantress
 botania.page.bloodyenchantress0=The Bloody Enchantress creates &4Mana&0 by consuming nearby creatures' life. Creatures sacrificed to the Bloody Enchantress will not produce any drops or experience.
@@ -226,14 +260,15 @@ botania.entry.annoyingflower=Annoying Flower
 botania.page.annoyingflower0=The Annoying Flower can fish in nearby Livingrock Pedestal filled with water. For that process it will use mana. Feeding Fried Chicken Legs to it will significantly increase the efficiency and the chance of getting treasure.
 botania.page.annoyingflower1=RK800.
 botania.page.annoyingflower2=Cooked Chicken can be fried by soaking it in &4Mana&0. Fried Chicken Legs restore more hunger and give saturation.
-botania.page.annoyingflower3=わしも 悪魔なんて じゃない.
+botania.page.annoyingflower3=Neither a angel or a devil
 botania.tagline.annoyingflower=Time to fish.
 
 botania.entry.manalinkium=Manalinkium
 botania.page.manalinkium0=The Manalinkium can wirelessly transfer &4Mana&0 to a Mana Pool. Right-clicking it with a Position Reader that has the position of a Mana Pool stored will start the process.
 botania.page.manalinkium1=This is too real.
 botania.page.manalinkium2=A multiblock structure is needed to function.
- botania.page.manalinkium3=The Manalinkium has to be placed one above the empty middle block.
+botania.page.manalinkium3=The Manalinkium has to be placed one above the empty middle block.
+botania.page.manalinkium4=
 botania.tagline.manalinkium=Wireless Transmission
 
 botania.entry.stardustlotus=Stardust Lotus
@@ -241,6 +276,7 @@ botania.page.stardustlotus0=The Stardust Lotus uses &4Mana&0 to create a portal 
 botania.page.stardustlotus1=Better than wolves.
 botania.page.stardustlotus2=A multiblock structure is needed to function.
 botania.page.stardustlotus3=The Stardust Lotus has to be placed one above the empty middle block.
+botania.page.stardustlotus4=
 botania.tagline.stardustlotus=Directional Teleport
 
 botania.entry.reikarlily=Reikar Lily
@@ -253,6 +289,12 @@ botania.page.edelweiss0=Edelweiss will swallow the snow golem or iron golem to p
 botania.page.edelweiss1=If you are reading this, you can read.
 botania.tagline.edelweiss=A bit cruel
 
+botania.entry.geminiorchid=Gemini Orchid
+botania.page.geminiorchid0=A &1Gemini Orchid&0 is like a thermoelectric generator. If you place a block of lava in the corner diagonally opposite, and then place a block of water in another corner diagonally opposite, it will begin to produce mana. The higher the gap between two blocks' temperatures, the quicker mana will be generated.
+botania.page.geminiorchid1=I am power incarnate!
+botania.page.geminiorchid2=
+botania.tagline.geminiorchid=
+
 botania.entry.mirrortunia=Mirrortunia
 botania.page.mirrortunia0=Mirrortunia will give players around a potion effect called "Mirror Force", and clear bad potion effects.
 botania.page.mirrortunia1=
@@ -260,7 +302,7 @@ botania.tagline.mirrortunia=
 
 botania.entry.enchantedorchid=Enchanted Orchid
 botania.page.enchantedorchid0=The Enchanted Orchid can infuse grass blocks beneath it to create Enchanted Soil. It will need a Black Lotus, a large quantity of &4Mana&0 and a long time for each transformation.
-botania.page.enchantedorchid1=真実はいつも一つ
+botania.page.enchantedorchid1=The truth is always one
 botania.tagline.enchantedorchid=Knowledge is power and I know a lot
 
 botania.entry.manabarrel=Mana Buffer
@@ -316,7 +358,7 @@ botania.page.deathring1=Do not fear power... fear those who wield it!
 botania.tagline.deathring=The eternal hunt has begun.
 
 botania.entry.hammer=Hammer
-botania.page.hammer0=Hammers are used for forging on Livingrock Pedestals. They can also be used as pickaxes. Hammers can use &4Mana&0 instead of durability.
+botania.page.hammer0=Hammers are used for forging on Livingrock Pedestals. They can also be used as pickaxes and can use &4Mana&0 instead of durability.
 botania.page.hammer1=Encountered in my dream.
 botania.page.hammer2=That would be very nice.
 botania.page.hammer3=I am not afraid of anything anymore.
@@ -348,14 +390,14 @@ botania.page.camera1=Snapshot
 botania.tagline.camera=Say "cheese"!
 
 botania.entry.gaia3=Ritual of Gaia III
-botania.page.gaia30=The Nature Orb stores concentrated Natural Breath. 100,000 of it can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.
-botania.page.gaia31=For the Gaia Guardian III fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania. Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
+botania.page.gaia30=100,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.
+botania.page.gaia31=For the Gaia Guardian III fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! (except if its changed in the config) 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania (except if its changed in the config). Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
 botania.page.gaia32=Natural Selection.
 botania.tagline.gaia3=It's HARDCORE
 
 botania.entry.gaia4=Ritual of Gaia IV
-botania.page.gaia40=The Nature Orb stores concentrated Natural Breath. 100,000 of it can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.
-botania.page.gaia41=For the Gaia Guardian IV fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania. Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
+botania.page.gaia40=100,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.
+botania.page.gaia41=For the Gaia Guardian IV fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! (except if its changed in the config) 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania (except if its changed in the config). Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
 botania.page.gaia42=Natural Selection.
 botania.tagline.gaia4=It's HARDCORE
 
@@ -365,7 +407,7 @@ botania.page.relicshield1=I will stop humans
 botania.tagline.relicshield=AT Field
 
 botania.entry.mastermanaring=Master Band of Mana
-botania.page.mastermanaring0=The &4Master Band of Mana&0 can store nearly infinite amounts of &4Mana&0.
+botania.page.mastermanaring0=The &4Master Band of Mana&0 can store nearly a infinite amount of &4Mana&0.
 botania.page.mastermanaring1=The Cake is a Lie.
 botania.tagline.mastermanaring=IMPOSSIBLE
 
@@ -384,7 +426,7 @@ botania.page.combatmaid4=Pleiades Combat Maid Boots
 botania.tagline.combatmaid=Overlord
 
 botania.entry.cosmeticmaid=Starry Idol
-botania.page.cosmeticmaid0=The improved version of Manasteel Armor, give wearer high mana discount.
+botania.page.cosmeticmaid0=An improved version of Manasteel Armor,it gives the wearer a high mana discount.
 botania.page.cosmeticmaid1=Starry Idol Headgear
 botania.page.cosmeticmaid2=Starry Idol Suit
 botania.page.cosmeticmaid3=Starry Idol Skirt
@@ -404,10 +446,11 @@ botania.tagline.manadrink=Tasty
 botania.entry.manaliquefaction=Mana Liquefaction Device
 botania.page.manaliquefaction0=Mana Liquefaction Device will drain &4Fluided Mana&0 from liquid tank nearby and transfer into Mana. <br>If giving a redstone signal, it will drain mana, transform it into Fluided Mana and output to nearby liquid tank.
 botania.page.manaliquefaction1=Non-Science
+botania.page.manaliquefaction2=
 botania.tagline.manaliquefaction=Liquid Mana
 
 botania.entry.cocktail=Special-made Cocktail
-botania.page.cocktail0=You can drink twice more than normal brewing and the duration of the effects will be longer. Just combine the flasks with magic cocktail, and you can get the corresponding new cocktail.  <br>And now we have some new brewing vatieties.
+botania.page.cocktail0=By crafting any flask/vial potion with a Mana Cocktail , you can make a Special-made Cocktail that can be drinked two more times than the original flask/vial and it has a longer effect. <br>Aditionaly very special potions have been added and can be crafted into Cocktails too.
 botania.page.cocktail1=Greatly improve the efficiency of mining, but overdraft your luck
 botania.page.cocktail2=
 botania.page.cocktail3=High level of resistance, but slow as turtle.
@@ -421,53 +464,96 @@ botania.page.cocktail10=
 botania.tagline.cocktail=
 
 botania.entry.infinitewine=Infinite Wine
-botania.page.infinitewine0=Infinite Wine, you can drink almost infinite times, costs mana to restore it. Just need to combine Special-made Cocktails with heroes medal. Change the effects by crafting with other varieties of Special-made Cocktails. <br>Restore 3 use time per minecraft day.
+botania.page.infinitewine0=Infinite Wine, that you can drink almost infinitly, it only costs mana to refill. To make one, you just need to combine a Special-made Cocktail with heroes medal.You can change the effects by crafting with other varieties of Special-made Cocktail. <br>Be carefull though, if you drink it all before it can refill, you will lose your relic and get a empty mana glass back, and you can only Restore 3 uses per minecraft day.
 botania.tagline.infinitewine=Baccano!
 
 botania.entry.splashgrenade=Holy Grenade
-botania.page.splashgrenade0=Craft Special-made Cocktail with Popped Chorus Fruits will get corresponding Holy Grenade. The Holy Grenade will deal massive damage after exploding, giving bad effects to other creatures and giving the rest effects to players. <br>A perfect item, but why is it a grenade?
+botania.page.splashgrenade0=When a Special-made Cocktail is crafted with Popped Chorus Fruit. You make a Holy Grenade! The Holy Grenade will deal massive damage after exploding, giving bad effects to other creatures and giving the good effects to players. <br>A perfect item, but why is it a grenade?
 botania.tagline.splashgrenade=Art is explosion
 
 botania.entry.shadowwarrior=Shadow Warrior
-botania.page.shadowwarrior0=With the magic of Gilded Mashed Potato, we can use Nightmare Fuel and Elementium Ingot to make Shadowium. It's a special king of material.
+botania.page.shadowwarrior0=With the magic of Gilded Mashed Potato, we can use Nightmare Fuel and a Elementium Ingot to make Shadowium. It's a very special kind of material.
 botania.page.shadowwarrior1=And Then There Were None.
-botania.page.shadowwarrior2=With the power of Shadowium, the armors and weapons made of it will give wearer special effects when the night comes.
+botania.page.shadowwarrior2=With the power of Shadowium, Armour crafted with it will give wearer speed, strength, and night vision when the night comes. A sword made of it also seems to call upon Shadow pixies
 botania.page.shadowwarrior3=Shadow Warrior Helmet
 botania.page.shadowwarrior4=Shadow Warrior Chestplate
 botania.page.shadowwarrior5=Shadow Warrior Leggings
 botania.page.shadowwarrior6=Shadow Warrior Boots
 botania.page.shadowwarrior7=Shadow Katana
-botania.tagline.shadowwarrior=Not Vampire
+botania.tagline.shadowwarrior=Not A Vampire
 
 botania.entry.elfjar=Livingrock Barrel
-botania.page.elfjar0=Livingrock Barrel can simply contain 16 buckets of liquid. It will supply water to the Altar next to it if it has.
+botania.page.elfjar0=A Livingrock Barrel can simply contain 16 buckets of liquid. It will also supply water to the Altar next to it if it has any.
 botania.page.elfjar1=Minecraft is too easy.
 botania.tagline.elfjar=Simple
 
 botania.entry.supercrown=Super Crown
-botania.page.supercrown0=When you are equipping Starry Idol Armor Set or Pleiades Combat Maid Armor Set, Super Crown will reduce every damage you take by 2.
+botania.page.supercrown0=When you are equipping the Starry Idol Armor Set or the Pleiades Combat Maid Armor Set, the Super Crown will reduce damage you take by 2.
 botania.page.supercrown1=You are not Toadette.
 botania.tagline.supercrown=Cat Mario
 
 botania.entry.puredaisypendant=Pure Daisy Pendant
-botania.page.puredaisypendant0=Holding a Pure Daisy Pendant and right-click a block has the same effect as Pure Daisy, but costs a little mana. After every 64 times you use, it will cool down for 2.5min, and it only cools down when it is equipped.
+botania.page.puredaisypendant0=By holding a Pure Daisy Pendant and right-clicking a block, you can instanly transform blocks like a pure daisy, at the cost of a little mana. After 64 uses, it will cool down for 2.5min, and it only cools down when it is equipped.
 botania.page.puredaisypendant1=My beauty is in position.
 botania.tagline.puredaisypendant=Now You See Me, Now You Don't
 
 botania.entry.buddhistrelics=Origin Creation - Omniscience
-botania.page.buddhistrelics0=Origin Creation - Omniscience can simulate some of the Relics, sneak and right-click to switch its form. Keeping other form will cost mana constantly.
+botania.page.buddhistrelics0=Origin Creation - The Omniscience relic can simulate some of the Relics by sneak and right-clicking to switch its form. Keeping other forms will cost &4Mana&0.
 botania.tagline.buddhistrelics=java.lang.NullPointerException
 
 botania.entry.spearsubspace=Spear of Subspace
-botania.page.spearsubspace0=Using Spear of Subspace will summon energies from subspace to attack enemies.
+botania.page.spearsubspace0=Using the Spear of Subspace will summon energies from subspace to attack enemies.
 botania.page.spearsubspace1=
 botania.page.spearsubspace3=Orichalcos Ingot
 botania.tagline.spearsubspace=
 
 botania.entry.godcore=Core of God
-botania.page.godcore0=Equip Core of God and then you will have the ability to fly. It will enhance your strength and make you fly faster.
+botania.page.godcore0=A upgrade to the Flügel tiara, the Core of God alows infinite flight at the cost of &4Mana&0. The Core of God also gives a slight strength boost and provides faster flight than the tiara
 botania.page.godcore1=
 botania.tagline.godcore=
+
+botania.entry.parkour=Ring of Parkour
+botania.page.parkour0=Ring of Wall-Run will enable you to climb any wall you want, and Ring of Wall-Jump enables you to "jump" on the wall at most 5 times until you reach the ground.
+botania.page.parkour1=
+botania.page.parkour2=
+botania.page.parkour3=While Ring of Parkour combines both.
+botania.page.parkour4=
+botania.tagline.parkour=
+
+botania.entry.elvenking=Ring of Elven King
+botania.page.elvenking0=Ring of Elven King can perform three common baubles' abilities. Just carry a Bauble Case and put the bauble you want in the first three slots. Not all the baubles can be simulated.
+botania.page.elvenking1=
+botania.tagline.elvenking=
+
+botania.entry.walkingcane=Walking Cane
+botania.page.walkingcane0=Walking Cane can increase one's speed when he is holding it. What's more, you can right-click to dash a long distance, which costs just a little mana.
+botania.page.walkingcane1=
+botania.tagline.walkingcane=
+
+botania.entry.allforone=ALL FOR ONE
+botania.page.allforone0=As the upgraded version of Elven King, ALL FOR ONE can perform all the baubles' abilities in the Bauble Case.
+botania.page.allforone1=
+botania.tagline.allforone=
+
+botania.entry.godweave=Das Rheingold
+botania.page.godweave0=Das Rheingold can empty the binding of a relic, just crafting the relic with it. If you want to bind the relic to a specific person, hold the Das Rheingold and right-click him, then the crafting will make the relic bind to him.
+botania.page.godweave1=
+botania.tagline.godweave=
+
+botania.entry.ticket=Challenge Ticket
+botania.page.ticket0=Challenge Ticket can be used as a one-shot thing to summon Gaia Guardian III.
+botania.page.ticket1=
+botania.tagline.ticket=
+
+botania.entry.goblinslayer=Goblin Slayer Armor
+botania.page.goblinslayer0=Photonium is the opposite side of Shadowium.
+botania.page.goblinslayer1=
+botania.page.goblinslayer2=It can be used to make Goblin Slayer Armor, which powers player during day time, enabling him to regenerate more quickly and deal extra damage to non-undead creatures.
+botania.page.goblinslayer3=
+botania.page.goblinslayer4=
+botania.page.goblinslayer5=
+botania.page.goblinslayer6=
+botania.tagline.goblinslayer=
 
 botania.entry.=
 botania.page.0=
@@ -489,6 +575,7 @@ extrabotany.config.enable.topsupport=Enable The One Probe Support
 extrabotany.config.enable.divinejudge=Enable Gaia Guardian III to release Sword Domain
 extrabotany.config.enable.candybag=Enable Monster to hold a Halloween Candy Night when spawning
 extrabotany.config.chance.candybag=The chance that monster will hold a Halloween Candy Night when spawning
+extrabotany.config.enable.ca=Enable Construct's Armory Compat
 
 advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
 advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)
@@ -498,7 +585,7 @@ advancement.extrabotany:pedestalCraft=CONNECT
 advancement.extrabotany:pedestalCraft.desc=Craft a Livingrock Pedestal
 advancement.extrabotany:ultimatehammerCraft=PONPONPON
 advancement.extrabotany:ultimatehammerCraft.desc=Craft an Ultimate Hammer
-advancement.extrabotany:ultimatehammerUpgrade=裏表ラバーズ
+advancement.extrabotany:ultimatehammerUpgrade=Front Lovers
 advancement.extrabotany:ultimatehammerUpgrade.desc=Use a Gilded Mashed Potato to upgrade your Ultimate Hammer
 advancement.extrabotany:fragmentForge=Gears of Love
 advancement.extrabotany:fragmentForge.desc=Forge one item on the Livingrock Pedestal
@@ -545,7 +632,7 @@ advancement.extrabotany:armorsetCombat.desc=Wear Pleiades Combat Maid Armor Set
 advancement.extrabotany:armorsetSW=Crazy ∞ nighT
 advancement.extrabotany:armorsetSW.desc=Wear Shadow Warrior Armor Set at night
 advancement.extrabotany:airshipMaxheight=Slowly sky
-advancement.extrabotany:airshipMaxheight.desc=Drive Terrasteel Airship at least 200 metres high
+advancement.extrabotany:airshipMaxheight.desc=Drive a Terrasteel Airship at least 200 metres high
 advancement.extrabotany:infinitewineCraft=shake it
 advancement.extrabotany:infinitewineCraft.desc=Obtain Infinite Wine
 advancement.extrabotany:excaliberCraft=ReAct
@@ -568,12 +655,12 @@ extrabotany.potion.blacksabbath=Black Sabbath
 extrabotany.potion.divinejustice=Divine Justice
 
 modifier.shadow.name=Shadow
-modifier.shadow.desc=§oThe Long Dark！§r\nUse Mana to repair, summon dark pixie when you hit the living creature.
+modifier.shadow.desc=§oThe Long Dark！§r\nUses Mana to repair, can also  summon dark pixies when you attack mobs.
 material.extrabotany:ingotshadowium.name=Shadowium
-
-extrabotany.versioning.flavour=
-extrabotany.versioning.outdated=
-
-cuisine.material.friedchicken=香香鸡
-cuisine.effect.diuren.name=丢人
-cuisine.effect.diuren.tip=丢人
+modifier.mind.name=Mind
+modifier.mind.desc=More Effecient
+modifier.body.name=Body
+modifier.body.desc=Higher Durability
+modifier.soul.name=Soul
+modifier.soul.desc=Extra 3 Modifiers
+material.extrabotany:ingotorichalcos.name=Orichalcos

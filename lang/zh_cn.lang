@@ -17,6 +17,9 @@ item.extrabotany:shadowium.name=暗影锭
 item.extrabotany:friedchicken.name=香香鸡
 item.extrabotany:ingotorichalcos.name=奥利哈刚锭
 item.extrabotany:goldpotato.name=镀金服务器
+item.extrabotany:godcloth.name=莱茵河的黄金
+item.extrabotany:photonium.name=光子锭
+item.extrabotany:ticket.name=挑战券
 item.extrabotany:gildedmashedpotato.name=镀金土豆泥
 item.extrabotany:manasteelhammer.name=魔力钢锤
 item.extrabotany:terrasteelhammer.name=泰拉钢锤
@@ -46,12 +49,18 @@ item.extrabotany:candy0.name=万圣节糖果Eins
 item.extrabotany:candy1.name=万圣节糖果Zwei
 item.extrabotany:candy2.name=万圣节糖果Drei
 item.extrabotany:candybag.name=万圣糖惊魂夜
+item.extrabotany:candychris0.name=圣诞节糖果Eins
+item.extrabotany:candychris1.name=圣诞节糖果Zwei
+item.extrabotany:candychris2.name=圣诞节糖果Drei
+item.extrabotany:candybagchris.name=圣诞节花环
+item.extrabotany:walkingcane.name=步行者手杖
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
 item.extrabotany:rewardbag2.name=奖励袋Zwei
 item.extrabotany:rewardbag3.name=奖励袋Drei
 item.extrabotany:rewardbag4.name=奖励袋Vier
+item.extrabotany:rewardbag943.name=九又四分之三奖励袋
 item.extrabotany:treasurebox.name=潘多拉魔盒
 item.extrabotany:failnaught.name=百中弓
 item.extrabotany:camera.name=文文的相机
@@ -62,6 +71,11 @@ item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
 
 item.extrabotany:froststar.name=霜冻之星
 item.extrabotany:deathring.name=诅咒指环
+item.extrabotany:walljumping.name=墙跳指环
+item.extrabotany:wallrunning.name=墙行指环
+item.extrabotany:parkour.name=跑酷指环
+item.extrabotany:elvenking.name=精灵王指环
+item.extrabotany:allforone.name=全能指环
 item.extrabotany:puredaisypendant.name=白雏菊项链
 item.extrabotany:supercrown.name=超级王冠
 item.extrabotany:redscarf.name=红领巾
@@ -81,6 +95,10 @@ item.extrabotany:shadowwarriorchest.name=暗影武士胸甲
 item.extrabotany:shadowwarriorlegs.name=暗影武士护腿
 item.extrabotany:shadowwarriorboots.name=暗影武士靴子
 item.extrabotany:shadowkatana.name=影刃
+item.extrabotany:goblinslayerhelm.name=哥布林杀手头盔
+item.extrabotany:goblinslayerchest.name=哥布林杀手胸甲
+item.extrabotany:goblinslayerlegs.name=哥布林杀手护腿
+item.extrabotany:goblinslayerboots.name=哥布林杀手靴子
 item.extrabotany:.name=
 
 extrabotany.armorset.cosmeticmaid.desc0=超强魔力亲和
@@ -90,6 +108,9 @@ extrabotany.armorset.combatmaid.desc2=魔力亲和
 extrabotany.armorset.shadowwarrior.desc0=黑夜给了我黑色的眼睛，
 extrabotany.armorset.shadowwarrior.desc1=我却用它寻找光明。
 extrabotany.armorset.shadowwarrior.name=暗影武士
+extrabotany.armorset.goblinslayer.desc0=我不拯救世界，只管杀哥布林。
+extrabotany.armorset.goblinslayer.desc1=想象力也是武器，没有想象力的人会先死。
+extrabotany.armorset.goblinslayer.name=哥布林杀手
 extrabotany.armorset.cosmeticmaid.name=星空歌姬
 extrabotany.armorset.combatmaid.name=昴星团战斗女仆
 
@@ -190,6 +211,15 @@ extrabotany.natureorbeffect3true=森罗的加护&2(已激活)
 extrabotany.bonusbase=开启后有概率获得以下物品
 extrabotanymisc.disabledblock=该方块已被禁用，请不要使用或合成.
 extrabotanymisc.bindingwrong=绑定失败，请确认坐标是否正确或者是否是同一次元的坐标
+extrabotanymisc.noveline0=在我看来，这是世界上最美，也最凄凉的景色。
+extrabotanymisc.noveline1=上一页跟它前一页的景色是一样的， 但我再画上一遍，是为了引起你们注意。
+extrabotanymisc.noveline2=就是小王子在地球上出现，然后又消失的地方。
+extrabotanymisc.noveline3=有一天，你们若去非洲沙漠旅行，请仔细认一认这个景色，免得当面错过了。
+extrabotanymisc.noveline4=如果你们有机会经过那里，我恳求你们，不要匆匆离去。
+extrabotanymisc.noveline5=在这颗星下守候片刻。
+extrabotanymisc.noveline6=倘若有个孩子走到你们跟前，倘若他在笑，有一头金发，不回答别人的提问，你们就可猜到他是谁了。
+extrabotanymisc.noveline7=那时，劳驾你们！不要让我总是这么忧伤。
+extrabotanymisc.noveline8=赶快写信告诉我，他回来了。
 
 botania.entry.bloodyenchantress=血腥妖姬
 botania.page.bloodyenchantress0=能够将生物的生命值转化为 &4魔力&0，一旦有生物在其附近 就会开始魔力的转化，效率 较为可观。需要注意的是通 过这种方式献祭的生物不会 有任何掉落。
@@ -482,6 +512,49 @@ botania.page.godcore0=装备律者核心可以通过消耗 魔力进行飞行，
 botania.page.godcore1=
 botania.tagline.godcore=
 
+botania.entry.parkour=跑酷指环
+botania.page.parkour0=墙行指环可使玩家获得在任 意墙壁上攀爬的能力，而墙跳 指环可使玩家在触地前在墙 上至多跳5次的能力。
+botania.page.parkour1=
+botania.page.parkour2=
+botania.page.parkour3=而跑酷指环结合的二者的能力。
+botania.page.parkour4=
+botania.tagline.parkour=
+
+botania.entry.elvenking=精灵王指环
+botania.page.elvenking0=精灵王指环可以模拟绝大多 数饰品的效果，只需要玩家 携带一个饰品盒，将想要生效 的饰品放在前三格即可。但 注意，只是绝大多数。
+botania.page.elvenking1=
+botania.tagline.elvenking=
+
+botania.entry.walkingcane=步行者手杖
+botania.page.walkingcane0=手持步行者手杖可以提升玩 家的移动速度，右键蓄力可 以消耗少量魔力进行一次突进。
+botania.page.walkingcane1=
+botania.tagline.walkingcane=
+
+botania.entry.allforone=全能指环
+botania.page.allforone0=全能指环是精灵王指环的升 级版，它可以模拟饰品盒内 的所有饰品的效果。
+botania.page.allforone1=
+botania.tagline.allforone=
+
+botania.entry.godweave=莱茵河的黄金
+botania.page.godweave0=莱茵河的黄金是一种优秀的 材料。除此之外，它可以用来 修改遗物的绑定，只需要将它 和遗物合成，就能使遗物恢复 成未绑定的状态。如果想将遗 物绑定给指定者，只需要 手持莱茵河的黄金右键那个 人，再和遗物合成即可。
+botania.page.godweave1=
+botania.tagline.godweave=
+
+botania.entry.ticket=挑战券
+botania.page.ticket0=可以用来召唤盖亚守护者III 的一次性物品。
+botania.page.ticket1=
+botania.tagline.ticket=
+
+botania.entry.goblinslayer=哥布林杀手
+botania.page.goblinslayer0=光子锭是一种优秀的材料， 它是暗影锭的对立面。
+botania.page.goblinslayer1=
+botania.page.goblinslayer2=它可以用于制作哥布林杀手 套，这套装备可以在白天提 供极强的再生和生命提升能 力，减少伤害，并对非亡灵 生物有额外伤害加成。
+botania.page.goblinslayer3=
+botania.page.goblinslayer4=
+botania.page.goblinslayer5=
+botania.page.goblinslayer6=
+botania.tagline.goblinslayer=
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
@@ -585,11 +658,11 @@ modifier.shadow.name=暗影
 modifier.shadow.desc=§o漫漫长夜！§r\n会消耗魔力自动修复，击中敌人时会召唤黑暗精灵。
 material.extrabotany:ingotshadowium.name=暗影
 modifier.mind.name=精神
-modifier.mind.desc=
+modifier.mind.desc=高效
 modifier.body.name=肉体
-modifier.body.desc=
+modifier.body.desc=耐久
 modifier.soul.name=灵魂
-modifier.soul.desc=
+modifier.soul.desc=额外3个强化槽
 material.extrabotany:ingotorichalcos.name=奥利哈刚
 
 extrabotany.versioning.flavour=额外植物学已更新

@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
@@ -41,17 +42,33 @@ public class SubTileBloodyEnchantress extends SubTileGenerating {
 			}
 			return;
 		}
+		
+		int ampall = 0;
+		for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
+			if(living.isEntityAlive()){
+				int amp = living.isPotionActive(ModPotions.bloodtemptation) ? living.getActivePotionEffect(ModPotions.bloodtemptation).getAmplifier() : 0;
+				ampall += amp;
+			}
+		}
+		if(ampall > 35)
+			return;
 
 		if(linkedCollector != null) {
 			if(burnTime == 0) {
 				if(mana < getMaxMana()) {
 					for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
 						if(living.isEntityAlive()){
+							int amp = living.isPotionActive(ModPotions.bloodtemptation) ? living.getActivePotionEffect(ModPotions.bloodtemptation).getAmplifier() : 0;
+							if(amp < 10){
+								mana += ConfigHandler.EFF_BLOODYENCHANTRESS * 25F * (1F - 0.06F * amp);
+							}else
+								break;
+							ExtraBotanyAPI.addPotionEffect(living, ModPotions.bloodtemptation, 150, 10, true);
 							if(living instanceof EntityPlayer){
 								ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.BLOODYENCHANTRESS_USE);
-								ExtraBotanyAPI.dealTrueDamage(living, 2F);
+								ExtraBotanyAPI.dealTrueDamage(living, 4F);
 							}else{
-								living.setHealth(living.getHealth() - 2F);
+								living.setHealth(living.getHealth() - 4F);
 							}
 							living.attackEntityFrom(DamageSource.MAGIC, 0.01F);
 							burnTime+=ConfigHandler.BLOOD_BURNTIME;
@@ -79,7 +96,7 @@ public class SubTileBloodyEnchantress extends SubTileGenerating {
 
 	@Override
 	public int getMaxMana() {
-		return 500;
+		return 800;
 	}
 
 	@Override
@@ -114,11 +131,6 @@ public class SubTileBloodyEnchantress extends SubTileGenerating {
 		super.readFromPacketNBT(cmp);
 
 		burnTime = cmp.getInteger(TAG_BURN_TIME);
-	}
-
-	@Override
-	public boolean canGeneratePassively() {
-		return burnTime > 0;
 	}
 
 	@Override

@@ -19,6 +19,8 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
@@ -91,6 +93,20 @@ public class ExtraBotanyAPI {
             result = health - postHealth;
         }
         return result;
+	}
+	
+	public static void addPotionEffect(EntityLivingBase entity, Potion potion, int time, int max, boolean multi){
+		if(!entity.isPotionActive(potion))
+			entity.addPotionEffect(new PotionEffect(potion, time, 0));
+		else{
+			int amp = entity.getActivePotionEffect(potion).getAmplifier();
+			int t = multi ? time + 200 * amp : time;
+			entity.addPotionEffect(new PotionEffect(potion, t, Math.min(max, amp+1)));
+		}
+	}
+	
+	public static void addPotionEffect(EntityLivingBase entity, Potion potion, int max){
+		addPotionEffect(entity, potion, 200, max, false);
 	}
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.entity.EntityThrowableCopy;
 
 import net.minecraft.block.Block;
@@ -184,7 +185,7 @@ public class EntitySkullMissile extends EntityThrowableCopy{
 					target.addPotionEffect(new PotionEffect(MobEffects.WITHER, 200, 1));
 				}
 				float m = 0.35F;
-				for(int i = 0; i < 25; i++)
+				for(int i = 0; i < (int)(16 * ConfigHandler.PARTICLE); i++)
 					Botania.proxy.wispFX(posX, posY + 1, posZ, (float)Math.random(), (float)Math.random(), (float)Math.random(), 0.5F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
 				setDead();
 			}

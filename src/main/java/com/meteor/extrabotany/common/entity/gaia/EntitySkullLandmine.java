@@ -9,6 +9,7 @@ import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.nbt.NBTTagCompound;
@@ -25,7 +26,7 @@ import vazkii.botania.common.core.handler.ModSounds;
 
 public class EntitySkullLandmine extends Entity{
 	
-	public EntityGaiaIII summoner;
+	public EntityLiving summoner;
 	
 	private static final String TAG_TYPE = "type";
 	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntitySkullLandmine.class, DataSerializers.VARINT);
@@ -49,7 +50,7 @@ public class EntitySkullLandmine extends Entity{
 		float b = 0.2F;
 
 		//Botania.proxy.wispFX(world, posX, posY, posZ, r, g, b, 0.6F, -0.2F, 1);
-		for(int i = 0; i < 6; i++)
+		for(int i = 0; i < 5; i++)
 			Botania.proxy.wispFX(posX - range + Math.random() * range * 2, posY, posZ - range + Math.random() * range * 2, r, g, b, 0.4F, -0.015F, 1);
 
 		if(ticksExisted >= 55) {
@@ -63,7 +64,7 @@ public class EntitySkullLandmine extends Entity{
 				r = 1F;
 			if(getType() == 2)
 				g = 1F;
-			for(int i = 0; i < 25; i++)
+			for(int i = 0; i < 20 * ConfigHandler.PARTICLE; i++)
 				Botania.proxy.wispFX(posX, posY + 1, posZ, r, g, b, 0.5F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
 
 			if(!world.isRemote) {

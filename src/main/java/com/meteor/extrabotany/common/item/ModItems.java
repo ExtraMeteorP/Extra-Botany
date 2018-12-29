@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.item;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.bonus.ItemCandyBag;
 import com.meteor.extrabotany.common.item.bonus.ItemRewardBag;
+import com.meteor.extrabotany.common.item.bonus.ItemRewardBag943;
 import com.meteor.extrabotany.common.item.brew.ItemBrewCocktail;
 import com.meteor.extrabotany.common.item.brew.ItemBrewInfiniteWine;
 import com.meteor.extrabotany.common.item.brew.ItemBrewSplashGrenade;
@@ -17,16 +18,26 @@ import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosme
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidHelm;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidHelmRevealing;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidLegs;
+import com.meteor.extrabotany.common.item.equipment.armor.goblinslayer.ItemGoblinSlayerBoots;
+import com.meteor.extrabotany.common.item.equipment.armor.goblinslayer.ItemGoblinSlayerChest;
+import com.meteor.extrabotany.common.item.equipment.armor.goblinslayer.ItemGoblinSlayerHelm;
+import com.meteor.extrabotany.common.item.equipment.armor.goblinslayer.ItemGoblinSlayerLegs;
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorBoots;
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorChest;
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorHelm;
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorLegs;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemAFORing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemCoreGod;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemDeathRing;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemElvenKingRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemFrostStar;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemParkourRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemPureDaisyPendant;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemRedScarf;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemSuperCrown;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemWallJumpingRing;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemWallRunningRing;
+import com.meteor.extrabotany.common.item.equipment.bauble.stone.ItemTimeStone;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemElementiumShield;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemManasteelShield;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemTerrasteelShield;
@@ -38,12 +49,14 @@ import com.meteor.extrabotany.common.item.equipment.tool.ItemManaReader;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemMasterHandbag;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemShadowKatana;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemWalkingCane;
 import com.meteor.extrabotany.common.item.record.ItemRecordA;
 import com.meteor.extrabotany.common.item.relic.ItemAchilleshield;
 import com.meteor.extrabotany.common.item.relic.ItemBuddhistRelics;
 import com.meteor.extrabotany.common.item.relic.ItemCamera;
 import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
 import com.meteor.extrabotany.common.item.relic.ItemFailnaught;
+import com.meteor.extrabotany.common.item.relic.ItemJudahOath;
 import com.meteor.extrabotany.common.item.relic.ItemMasterManaRing;
 import com.meteor.extrabotany.common.item.relic.ItemPocketWatchMoon;
 import com.meteor.extrabotany.common.item.relic.ItemSpearSubspace;
@@ -81,6 +94,11 @@ public class ModItems {
 	public static final Item supercrown = new ItemSuperCrown();
 	public static final Item redscarf = new ItemRedScarf();
 	public static final Item godcore = new ItemCoreGod();
+	public static final Item wallrunning = new ItemWallRunningRing();
+	public static final Item walljumping = new ItemWallJumpingRing();
+	public static final Item parkour = new ItemParkourRing();
+	public static final Item allforone = new ItemAFORing();
+	public static final Item elvenking = new ItemElvenKingRing();
 	
 	public static final Item hammermanasteel = new ItemHammer(LibItemsName.HAMMER_MANASTEEL, BotaniaAPI.manasteelToolMaterial);
 	public static final Item hammerelementium = new ItemHammer(LibItemsName.HAMMER_ELEMENTIUM, BotaniaAPI.elementiumToolMaterial);
@@ -93,6 +111,7 @@ public class ModItems {
 	public static final Item failnaught = new ItemFailnaught();
 	public static final Item pocketwatch = new ItemPocketWatchMoon();
 	public static final Item excaliber = new ItemExcaliber();
+	public static final Item judahoath = new ItemJudahOath();
 	
 	public static final Item splashgrenade = new ItemBrewSplashGrenade();
 	public static final Item cocktail = new ItemBrewCocktail();
@@ -106,6 +125,7 @@ public class ModItems {
 	public static final Item elementiumshield = new ItemElementiumShield();
 	public static final Item relicshield = new ItemAchilleshield();
 	public static final Item relics = new ItemBuddhistRelics();
+	public static final Item walkingcane = new ItemWalkingCane();
 	
 	public static final Item cmhelm = new ItemCombatMaidHelm();
 	public static final Item cmchest = new ItemCombatMaidChest();
@@ -126,14 +146,22 @@ public class ModItems {
 	public static final Item swboot = new ItemShadowWarriorBoots();
 	public static final Item shadowkatana = new ItemShadowKatana();
 	
+	public static final Item gshelm = new ItemGoblinSlayerHelm();
+	public static final Item gschest = new ItemGoblinSlayerChest();
+	public static final Item gsleg = new ItemGoblinSlayerLegs();
+	public static final Item gsboot = new ItemGoblinSlayerBoots();
+	
 	public static final Item flyingboat = new ItemFlyingBoat();
 	public static final Item masterhandbag = new ItemMasterHandbag();
 	public static final Item spearsubspace = new ItemSpearSubspace();
 	
 	public static final Item candy = new ItemHalloweenCandy();
+	
+	public static final Item timestone = new ItemTimeStone();
 
 	public static final Item rewardbag = new ItemRewardBag();
 	public static final Item candybag = new ItemCandyBag();
+	public static final Item rewardbag943 = new ItemRewardBag943();
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -193,16 +221,29 @@ public class ModItems {
 		r.register(masterhandbag);
 		r.register(spearsubspace);
 		r.register(godcore);
-		r.register(candy);
-		
+		r.register(candy);	
 		r.register(rewardbag);
 		r.register(candybag);
+		r.register(judahoath);
+		r.register(wallrunning);
+		r.register(walljumping);
+		r.register(parkour);
+		r.register(walkingcane);
+		r.register(allforone);
+		r.register(elvenking);
+		r.register(rewardbag943);
+		r.register(gshelm);
+		r.register(gschest);
+		r.register(gsleg);
+		r.register(gsboot);
 		registerOreDictionary();
 	}
 	
 	private static void registerOreDictionary() {
+		OreDictionary.registerOre(LibOreDicts.PHOTONIUM, new ItemStack(material, 1, 8));
 		OreDictionary.registerOre(LibOreDicts.SHADOWIUM, new ItemStack(material, 1, 5));
 		OreDictionary.registerOre(LibOreDicts.ORICHALCOS, new ItemStack(material, 1, 1));
+		OreDictionary.registerOre(LibOreDicts.GODWEAVE, new ItemStack(material, 1, 7));
 		for(int i = 0; i < 2; i++)
 			OreDictionary.registerOre(LibOreDicts.COREGOD, new ItemStack(godcore, 1, i));
 	}

@@ -30,7 +30,7 @@ public class RenderFlyCutter extends Render<EntityFlyCutter> {
 		GlStateManager.pushMatrix();
 		GlStateManager.translate((float)par2, (float)par4, (float)par6);
 		GlStateManager.rotate(weapon.getRotation(), 0F, 1F, 0F);
-
+		GlStateManager.rotate(weapon.getPitch(), 1F, 0F, 0F);
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 

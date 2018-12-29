@@ -23,6 +23,19 @@ public class LibItemsName {
 	public static final String MASTERHANDBAG = "masterhandbag";
 	public static final String SPEARSUBSPACE = "spearsubspace";
 	
+	public static final String STONETIME = "timestone";
+	public static final String STONEPOWER = "powerstone";
+	public static final String STONEMIND = "mindstone";
+	public static final String STONEREALITY = "realitystone";
+	public static final String STONESOUL = "soulstone";
+	public static final String STONESPACE = "spacestone";
+	
+	public static final String JUDAHOATH = "judahoath";
+	public static final String[] JUDAHOATHS = new String[]{
+			"judahoath",
+			"judahoathkira"
+	};
+	
 	public static final String SHIELDMANASTEEL = "manasteelshield";
 	public static final String SHIELDTERRASTEEL = "terrasteelshield";
 	public static final String SHIELDELEMENTIUM = "elementiumshield";
@@ -43,13 +56,15 @@ public class LibItemsName {
 			"rewardbag1",
 			"rewardbag2",
 			"rewardbag3",
-			"rewardbag4",
+			"rewardbag4"
 		};
+	public static final String REWARD_BAG943 = "rewardbag943";
 	
 	public static final String HAMMER_MANASTEEL = "manasteelhammer";
 	public static final String HAMMER_ELEMENTIUM = "elementiumhammer";
 	public static final String HAMMER_TERRASTEEL = "terrasteelhammer";
 	public static final String HAMMER_ULTIMATE = "ultimatehammer";
+	public static final String WALKINGCANE = "walkingcane";
 	
 	public static final String KINGGARDEN = "kinggarden";
 	
@@ -60,6 +75,11 @@ public class LibItemsName {
 	public static final String BAUBLE_SUPERCROWN = "supercrown";
 	public static final String BAUBLE_REDSCARF = "redscarf";
 	public static final String BAUBLE_COREGOD = "coregod";
+	public static final String BAUBLE_WALLRUNNING = "wallrunning";
+	public static final String BAUBLE_WALLJUMPING = "walljumping";
+	public static final String BAUBLE_PARKOUR = "parkour";
+	public static final String BAUBLE_ALLFORONE = "allforone";
+	public static final String BAUBLE_ELVENKING = "elvenking";
 	
 	public static final String CMHELM = "combatmaidhelm";
 	public static final String CMCHEST = "combatmaidchest";
@@ -85,6 +105,11 @@ public class LibItemsName {
 	public static final String SHADOWIUMSHOVEL = "shadowiumshovel";
 	public static final String SHADOWIUMHOE = "shadowiumhoe";
 	
+	public static final String GSHELM = "goblinslayerhelm";
+	public static final String GSCHEST = "goblinslayerchest";
+	public static final String GSLEGS = "goblinslayerlegs";
+	public static final String GSBOOTS = "goblinslayerboots";
+	
 	public static final String[] FLYING_BOAT_NAMES = new String[] {
 			"boat_manasteel",
 			"boat_elementium",
@@ -97,7 +122,10 @@ public class LibItemsName {
 		"goldpotato",
 		"heromedal",
 		"emptybottle",
-		"shadowium"
+		"shadowium",
+		"ticket",
+		"godcloth",
+		"photonium"
 	};
 	
 }

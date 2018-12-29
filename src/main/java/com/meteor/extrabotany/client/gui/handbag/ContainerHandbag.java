@@ -69,7 +69,7 @@ public class ContainerHandbag extends Container {
 		ItemStack itemstack = ItemStack.EMPTY;
 		Slot slot = inventorySlots.get(slotIndex);
 
-		if(slot != null && slot.getHasStack()) {
+		if(slot != null && slot.getHasStack() && canInteractWith(player)) {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 

@@ -1,9 +1,11 @@
 package com.meteor.extrabotany.common.item.relic;
 
 import java.util.Random;
+import java.util.UUID;
 
 import javax.annotation.Nonnull;
 
+import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.core.handler.ModSounds;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
@@ -11,7 +13,10 @@ import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -28,6 +33,16 @@ public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem{
 
 	public ItemSpearSubspace() {
 		super(LibItemsName.SPEARSUBSPACE);
+	}
+	
+	@Override
+	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
+		Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
+		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
+		if (slot == EntityEquipmentSlot.MAINHAND) {
+			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "spear modifier ", 8F, 0));
+		}
+		return attrib;
 	}
 	
 	@Override

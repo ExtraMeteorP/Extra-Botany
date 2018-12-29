@@ -41,6 +41,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.hammerelementium);
 		addItem(ModItems.hammerterrasteel);
 		addItem(ModItems.hammerultimate);
+		addItem(ModItems.walkingcane);
 		addItem(ModItems.manaReader);
 		addItem(ModItems.binder);
 		if(ConfigHandler.ENABLE_SHIELD){
@@ -51,6 +52,10 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.flyingboat);
 		addItem(ModItems.froststar);
 		addItem(ModItems.deathring);
+		addItem(ModItems.walljumping);
+		addItem(ModItems.wallrunning);
+		addItem(ModItems.parkour);
+		addItem(ModItems.elvenking);
 		addItem(ModItems.puredaisypendant);
 		addItem(ModItems.supercrown);
 		addItem(ModItems.redscarf);
@@ -64,6 +69,10 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.cmchest);
 		addItem(ModItems.cmleg);
 		addItem(ModItems.cmboot);
+		addItem(ModItems.gshelm);
+		addItem(ModItems.gschest);
+		addItem(ModItems.gsleg);
+		addItem(ModItems.gsboot);
 		addItem(ModItems.swhelm);
 		addItem(ModItems.swchest);
 		addItem(ModItems.swleg);
@@ -90,14 +99,17 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addBlock(ModBlocks.elfjar);
 		addBlock(ModBlocks.cocoondesire);
 		addItem(ModItems.rewardbag);
+		addItem(ModItems.rewardbag943);
 		addItem(ModItems.treasure);
 		addItem(ModItems.failnaught);
 		addItem(ModItems.camera);
 		addItem(ModItems.excaliber);
 		addItem(ModItems.relicshield);
 		addItem(ModItems.spearsubspace);
+		addItem(ModItems.judahoath);
 		addItem(ModItems.godcore);
 		addItem(ModItems.mastermanaring);
+		addItem(ModItems.allforone);
 		addItem(ModItems.relics);
 		addItem(ModItems.cocktail);
 		addItem(ModItems.infinitewine);

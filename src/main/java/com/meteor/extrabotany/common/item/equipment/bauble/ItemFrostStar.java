@@ -26,7 +26,7 @@ public class ItemFrostStar extends ItemBauble{
 		super(LibItemsName.BAUBLE_FROSTSTAR);
 	}
 	
-	private static final int RANGE = 5;
+	private static final int RANGE = 6;
 	
 	@Override
 	public void onWornTick(ItemStack stack, EntityLivingBase entity) {

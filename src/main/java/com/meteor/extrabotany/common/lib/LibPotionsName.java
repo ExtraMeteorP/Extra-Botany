@@ -8,4 +8,5 @@ public class LibPotionsName {
 	public static final String DIVINEJUSTICE = "divinejustice";
 	public static final String CONSTANTPATIN = "constantpain";
 	public static final String BLACKSABBATH = "blacksabbath";
+	public static final String BLOODTEMPTATION = "bloodtemptation";
 }

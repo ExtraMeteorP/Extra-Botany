@@ -10,14 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.IFuelHandler;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemNightmareFuel extends ItemFoodMod implements IFuelHandler{
+public class ItemNightmareFuel extends ItemFoodMod{
 
 	public ItemNightmareFuel() {
 		super(0, 0, false, LibItemsName.NIGHTMAREFUEL);
-		GameRegistry.registerFuelHandler(this);
 	}
 	
 	public void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player){
@@ -33,8 +30,8 @@ public class ItemNightmareFuel extends ItemFoodMod implements IFuelHandler{
     }
 	
 	@Override
-	public int getBurnTime(ItemStack fuel) {
-		return fuel.getItem() == ModItems.nightmareFuel ? 2000 : 0;
-	}
+    public int getItemBurnTime(ItemStack itemStack){
+        return 2000;
+    }
 
 }

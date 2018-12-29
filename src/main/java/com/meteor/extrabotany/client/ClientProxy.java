@@ -2,11 +2,13 @@ package com.meteor.extrabotany.client;
 
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.util.Map;
 
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.core.handler.ColorHandler;
 import com.meteor.extrabotany.client.core.handler.EventHandlerClient;
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
+import com.meteor.extrabotany.client.render.CosmeticItemRenderLayer;
 import com.meteor.extrabotany.client.render.entity.RenderDarkPixie;
 import com.meteor.extrabotany.client.render.entity.RenderFlowerWeapon;
 import com.meteor.extrabotany.client.render.entity.RenderFlyCutter;
@@ -21,6 +23,8 @@ import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullLandmine;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullMinion;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullMissile;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderSwordDomain;
+import com.meteor.extrabotany.client.render.entity.judah.RenderJudahOath;
+import com.meteor.extrabotany.client.render.entity.judah.RenderJudahSpear;
 import com.meteor.extrabotany.client.render.tile.RenderLivingrockBarrel;
 import com.meteor.extrabotany.client.render.tile.RenderQuantumManaBuffer;
 import com.meteor.extrabotany.client.render.tile.RenderTileCocoonDesire;
@@ -46,7 +50,11 @@ import com.meteor.extrabotany.common.entity.gaia.EntitySkullLandmine;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullMinion;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullMissile;
 import com.meteor.extrabotany.common.entity.gaia.EntitySwordDomain;
+import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
+import com.meteor.extrabotany.common.entity.judah.EntityJudahSpear;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -80,6 +88,14 @@ public class ClientProxy extends CommonProxy{
 			ExtraBotany.logger.info("Trick or treat?");
 		if(christmas)
 			ExtraBotany.logger.info("Happy Christmas!");
+		
+		Map<String, RenderPlayer> skinMap = Minecraft.getMinecraft().getRenderManager().getSkinMap();
+		RenderPlayer render;
+		render = skinMap.get("default");
+		render.addLayer(new CosmeticItemRenderLayer());
+
+		render = skinMap.get("slim");
+		render.addLayer(new CosmeticItemRenderLayer());
 	}
 	
 	@Override
@@ -107,6 +123,8 @@ public class ClientProxy extends CommonProxy{
 		RenderingRegistry.registerEntityRenderingHandler(EntityMagicArrow.class, RenderMagicArrow::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySubspace.class, RenderSubspace::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySubspaceSpear.class, RenderSubspaceSpear::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityJudahOath.class, RenderJudahOath::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityJudahSpear.class, RenderJudahSpear::new);
 	}
 	
     @Override

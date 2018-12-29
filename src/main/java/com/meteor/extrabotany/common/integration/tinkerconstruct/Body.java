@@ -34,6 +34,12 @@ public class Body extends AbstractTrait{
 	}
 	
 	@Override
+	public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
+		newDamage += damage / 2f;
+		return super.damage(tool, player, target, damage, newDamage, isCritical);
+	}
+	
+	@Override
 	public int onToolDamage(ItemStack tool, int damage, int newDamage, EntityLivingBase entity) {
 		if (!entity.getEntityWorld().isRemote
 				&& entity instanceof EntityPlayer

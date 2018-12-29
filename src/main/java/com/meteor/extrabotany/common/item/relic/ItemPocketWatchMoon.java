@@ -36,6 +36,7 @@ public class ItemPocketWatchMoon extends ItemModRelic{
 			sg.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
 			sg.setVariety(world.rand.nextInt(7));
 			sg.setDelay(true);
+			sg.setPitch(-player.rotationPitch);
 			sg.setPosition(player.posX, player.posY + 1F, player.posZ);
 	
 			if(!world.isRemote)

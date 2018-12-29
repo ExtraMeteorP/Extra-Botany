@@ -30,11 +30,11 @@ public class ItemTreasure extends ItemModRelic{
 			return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 		if(isRightPlayer(player, stack)){
 			world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (world.rand.nextFloat() * 0.4F + 0.8F));
-			player.addItemStackToInventory(new ItemStack(ModItems.rewardbag, 32));
-			player.addItemStackToInventory(new ItemStack(ModItems.rewardbag, 18, 1));
-			player.addItemStackToInventory(new ItemStack(ModItems.rewardbag, 12, 2));
-			player.addItemStackToInventory(new ItemStack(ModItems.rewardbag, 12, 3));
-			player.addItemStackToInventory(new ItemStack(ModItems.material, 1, 3));
+			player.entityDropItem(new ItemStack(ModItems.rewardbag, 32), 0).setNoPickupDelay();
+			player.entityDropItem(new ItemStack(ModItems.rewardbag, 18, 1), 0).setNoPickupDelay();
+			player.entityDropItem(new ItemStack(ModItems.rewardbag, 12, 2), 0).setNoPickupDelay();
+			player.entityDropItem(new ItemStack(ModItems.rewardbag, 12, 3), 0).setNoPickupDelay();
+			player.entityDropItem(new ItemStack(ModItems.material, 1, 3), 0).setNoPickupDelay();
 			stack.shrink(1);
 			return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 		}

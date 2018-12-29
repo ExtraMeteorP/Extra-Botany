@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.item;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.ExtraBotany;
+import com.meteor.extrabotany.client.ClientProxy;
 import com.meteor.extrabotany.client.render.IModelReg;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -21,6 +22,10 @@ public class ItemFoodMod extends ItemFood implements IModelReg{
 		setCreativeTab(ExtraBotany.tabExtraBotany);
 		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
 		setUnlocalizedName(name);
+		setAlwaysEdible();
+		addPropertyOverride(new ResourceLocation("extrabotany:chris"), (stack, worldIn, entityIn) -> {
+			return ClientProxy.christmas ? 1.0F : 0.0F;
+		});
 	}
 
 	@Nonnull

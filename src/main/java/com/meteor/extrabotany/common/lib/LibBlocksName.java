@@ -16,6 +16,7 @@ public class LibBlocksName {
 	public static final String SUBTILE_ENCHANTEDORCHID = "enchantedorchid";
 	public static final String SUBTILE_EDELWEISS = "edelweiss";
 	public static final String SUBTILE_MIRROWTUNIA = "mirrowtunia";
+	public static final String SUBTILE_GEMINIORCHID = "geminiorchid";
 	
 	public static final String TILE_PEDESTAL = "pedestal";
 	public static final String TILE_BATTERYBOX = "manabarrel";

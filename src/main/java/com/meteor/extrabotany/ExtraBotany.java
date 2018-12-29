@@ -35,7 +35,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod(modid = LibMisc.MOD_ID, 
 	name = ExtraBotany.NAME, 
 	version = ExtraBotany.VERSION, 
-	dependencies = "required-after:botania;"
+	dependencies = "required-after:botania@[r1.10-357,);"
 			+ "after:baubles@[1.5.2,);"
 			+ "after:waila;"
 			+ "after:jei;"
@@ -49,7 +49,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ExtraBotany{
     public static final String MODID = "extrabotany";
     public static final String NAME = "extrabotany";
-    public static final String VERSION = "46";
+    public static final String VERSION = "48";
 
     public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
     
@@ -88,6 +88,8 @@ public class ExtraBotany{
 	public static KeyBinding keyRight;
 	@SideOnly(Side.CLIENT)
 	public static KeyBinding keyUp;
+	@SideOnly(Side.CLIENT)
+	public static KeyBinding keyDown;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
@@ -101,6 +103,7 @@ public class ExtraBotany{
 	        keyLeft = Minecraft.getMinecraft().gameSettings.keyBindLeft;
 	        keyRight = Minecraft.getMinecraft().gameSettings.keyBindRight;
 	        keyUp = Minecraft.getMinecraft().gameSettings.keyBindJump;
+	        keyDown = Minecraft.getMinecraft().gameSettings.keyBindSneak;
     	}
     	logger.info("Welcome to the World of the supreme principle of Mana");
     }

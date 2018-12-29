@@ -13,10 +13,12 @@ public class MiscellaneousIcons {
 	
 	public TextureAtlasSprite[] kingGardenWeaponIcons;
 	public TextureAtlasSprite[] swordDomainIcons;
-	public TextureAtlasSprite[] subspaceIcons;
 	public TextureAtlasSprite[] godcoreIcons;
 	public TextureAtlasSprite puredaisyPendantIcon;
 	public TextureAtlasSprite volantoroIcon;
+	public TextureAtlasSprite[] judahIcons;
+	public TextureAtlasSprite[] judahIcons2;
+	public TextureAtlasSprite[] spearIcons;
 	
 	@SubscribeEvent
 	public void onTextureStitch(TextureStitchEvent.Pre evt) {
@@ -28,14 +30,23 @@ public class MiscellaneousIcons {
 			swordDomainIcons[i] = IconHelper.forName(evt.getMap(), "sworddomain_" + i, "items");
 		puredaisyPendantIcon = IconHelper.forName(evt.getMap(), "puredaisypendant", "items");
 		
-		subspaceIcons = new TextureAtlasSprite[6];
-		for(int i = 0; i < 6; i++)
-			subspaceIcons[i] = IconHelper.forName(evt.getMap(), "subspace_" + i, "items");
-		
 		godcoreIcons = new TextureAtlasSprite[3];
 		for(int i = 0; i < 3; i++)
 			godcoreIcons[i] = IconHelper.forName(evt.getMap(), "godcore_" + i, "items");
+		
 		volantoroIcon = IconHelper.forName(evt.getMap(), "volantoro", "items");
+		
+		judahIcons = new TextureAtlasSprite[4];
+		for(int i = 0; i < 4; i++)
+			judahIcons[i] = IconHelper.forName(evt.getMap(), "judahoath_" + i, "items");
+		
+		judahIcons2 = new TextureAtlasSprite[4];
+		for(int i = 0; i < 4; i++)
+			judahIcons2[i] = IconHelper.forName(evt.getMap(), "judah_" + i, "items");
+		
+		spearIcons = new TextureAtlasSprite[4];
+		for(int i = 0; i < 4; i++)
+			spearIcons[i] = IconHelper.forName(evt.getMap(), "spear_" + i, "items");
 	}
 
 }

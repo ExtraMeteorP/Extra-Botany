@@ -29,7 +29,7 @@ public class SubTileReikarLily extends SubTileGenerating{
 		
 		if(getWorld().isRaining() && getWorld().canSeeSky(pos) && cd == 0){
 			int baseY = ConfigHandler.RL_BASEY;
-			if(getWorld().rand.nextInt((int)(1000 * baseY / pos.getY())) == 1){
+			if(getWorld().rand.nextInt((int)(3000 * baseY / pos.getY())) == 1){
 				EntityLightningBolt bolt = new EntityLightningBolt(getWorld(), pos.getX(), pos.getY(), pos.getZ(), true);
 				getWorld().spawnEntity(bolt);
 				cd += ConfigHandler.RL_CD;

@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.google.common.base.Optional;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -64,7 +65,7 @@ public class EntitySwordDomain extends Entity{
 					|| player.getPosition().getZ() < getSource().getZ() - 2.5F || player.getPosition().getZ() > getSource().getZ() + 2.5F)
 				player.setPosition(getSource().getX() + 0.5, getSource().getY(), getSource().getZ() + 0.5);
 			
-			for(int i = 0; i < 3; i++)
+			for(int i = 0; i < (int)(3 * ConfigHandler.PARTICLE); i++)
 				Botania.proxy.wispFX(getSource().getX(), getSource().getY() + 3, getSource().getZ(), 1F, 0.9F, 0F, 0.25F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
 			
 			if(this.ticksExisted % 50 == 0)
@@ -76,7 +77,7 @@ public class EntitySwordDomain extends Entity{
 		}
 		
 		if(this.ticksExisted > 201){
-			for(int i = 0; i < 5; i++)
+			for(int i = 0; i < 5  * ConfigHandler.PARTICLE; i++)
 				Botania.proxy.wispFX(posX, posY, posZ, (float)Math.random(), (float)Math.random(), (float)Math.random(), 0.25F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
 			setDead();
 		}

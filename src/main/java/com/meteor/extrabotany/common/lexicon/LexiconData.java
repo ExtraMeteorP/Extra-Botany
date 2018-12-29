@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.lexicon;
 
 import com.meteor.extrabotany.ExtraBotany;
+import com.meteor.extrabotany.client.lib.LibResource;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
@@ -20,9 +21,11 @@ import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.common.entity.EntityDoppleganger;
+import vazkii.botania.common.lexicon.AlfheimLexiconEntry;
 import vazkii.botania.common.lexicon.BasicLexiconEntry;
 import vazkii.botania.common.lexicon.page.PageBrew;
 import vazkii.botania.common.lexicon.page.PageCraftingRecipe;
+import vazkii.botania.common.lexicon.page.PageImage;
 import vazkii.botania.common.lexicon.page.PageManaInfusionRecipe;
 import vazkii.botania.common.lexicon.page.PageMultiblock;
 import vazkii.botania.common.lexicon.page.PagePetalRecipe;
@@ -40,6 +43,7 @@ public class LexiconData {
 	public static LexiconEntry bellflower;
 	public static LexiconEntry reikarlily;
 	public static LexiconEntry edelweiss;
+	public static LexiconEntry geminiorchid;
 	
 	public static LexiconEntry annoyingflower;
 	public static LexiconEntry stardustlotus;
@@ -81,11 +85,57 @@ public class LexiconData {
 	public static LexiconEntry spearsubspace;
 	public static LexiconEntry godcore;
 	
+	public static LexiconEntry parkour;
+	public static LexiconEntry elvenking;
+	public static LexiconEntry afo;
+	public static LexiconEntry walkingcane;
+	public static LexiconEntry godweave;
+	public static LexiconEntry ticket;
+	
 	public static LexiconEntry cm;
 	public static LexiconEntry cosm;
 	public static LexiconEntry sw;
+	public static LexiconEntry gs;
 	
 	public static void init() {	
+		
+		parkour = new BasicLexiconEntry(LibLexicon.BAUBLE_PARKOUR,  BotaniaAPI.categoryBaubles);
+		parkour.setLexiconPages(new PageText("0"),
+					new PageRuneRecipe("1", ModRuneRecipe.recipeWalljumping),
+					new PageRuneRecipe("1", ModRuneRecipe.recipeWallruning),
+					new PageText("3"),
+					new PageCraftingRecipe("4", getResource("recipe_parkour")));
+		
+		elvenking = new AlfheimLexiconEntry(LibLexicon.BAUBLE_ELVENKING,  BotaniaAPI.categoryBaubles);
+		elvenking.setLexiconPages(new PageText("0"),
+					new PageRuneRecipe("1", ModRuneRecipe.recipeElvenking));
+		
+		walkingcane = new BasicLexiconEntry(LibLexicon.WALKINGCANE,  BotaniaAPI.categoryTools);
+		walkingcane.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_walkingcane")));
+		
+		afo = new DreamLexiconEntry(LibLexicon.RELIC_AFO,  BotaniaAPI.categoryBaubles);
+		afo.setLexiconPages(new PageText("0"),
+				new PageRuneRecipe("1", ModRuneRecipe.recipeAllforone));
+		
+		godweave = new DreamLexiconEntry(LibLexicon.GODWEAVE,  BotaniaAPI.categoryTools);
+		godweave.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_godweave")));
+		
+		ticket = new DreamLexiconEntry(LibLexicon.TICKET,  BotaniaAPI.categoryTools);
+		ticket.setLexiconPages(new PageText("0"),
+				new PageCraftingRecipe("1", getResource("recipe_ticket")));
+		
+		gs = new DreamLexiconEntry(LibLexicon.ARMOR_GOBLINSLAYER,  BotaniaAPI.categoryTools);
+		gs.setLexiconPages(new PageText("0"),
+					new PageRuneRecipe("1", ModRuneRecipe.recipePhotonium),
+					new PageText("2"),
+					new PageCraftingRecipe("3", getResource("recipe_gshelm")),
+					new PageCraftingRecipe("4", getResource("recipe_gschest")),
+					new PageCraftingRecipe("5", getResource("recipe_gslegs")),
+					new PageCraftingRecipe("6", getResource("recipe_gsboots")));
+		
+		
 		cocktail = new BasicLexiconEntry(LibLexicon.COCKTAIL,  BotaniaAPI.categoryDevices);
 		cocktail.setLexiconPages(new PageText("0"),
 					new PageBrew(ModBrewRecipe.revolution, "1", "2"),
@@ -135,7 +185,8 @@ public class LexiconData {
 		if(ConfigHandler.DISABLE_MANALIQUEFICATION){
 			manaliquefication = new BasicLexiconEntry(LibLexicon.MANALIQUEFICATION,  BotaniaAPI.categoryMana);
 			manaliquefication.setLexiconPages(new PageText("0"),
-						new PageCraftingRecipe("1", getResource("recipe_manaliquefaction")));
+						new PageCraftingRecipe("1", getResource("recipe_manaliquefaction")),
+						new PageImage("2", LibResource.ENTRY_MANAFLUID));
 		}
 		
 		manadrink = new BasicLexiconEntry(LibLexicon.MANADRINK,  BotaniaAPI.categoryTools);
@@ -247,6 +298,13 @@ public class LexiconData {
 						new PagePetalRecipe<>("1", ModPetalRecipe.reikarlilyRecipe));
 		}
 		
+		if(ConfigHandler.ENABLE_GO){
+			geminiorchid = new DreamLexiconEntry(LibLexicon.GFLOWER_GEMINIORCHID,  BotaniaAPI.categoryGenerationFlowers);
+			geminiorchid.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.geminiorchidRecipe),
+						new PageImage("0", LibResource.ENTRY_GEMINIORCHID));
+		}
+		
 		if(ConfigHandler.ENABLE_AF){
 			annoyingflower = new BasicLexiconEntry(LibLexicon.FFLOWER_ANNOYINGFLOWER,  BotaniaAPI.categoryFunctionalFlowers);
 			annoyingflower.setLexiconPages(new PageText("0"),
@@ -258,14 +316,16 @@ public class LexiconData {
 			manalinkium = new DreamLexiconEntry(LibLexicon.FFLOWER_MANALINKIUM,  BotaniaAPI.categoryFunctionalFlowers);
 			manalinkium.setLexiconPages(new PageText("0"),
 						new PagePetalRecipe<>("1", ModPetalRecipe.manalinkiumRecipe),
-						new PageText("2"), new PageMultiblock("3", SubTileManalinkium.makeMultiblockSet()));
+						new PageText("2"), new PageMultiblock("3", SubTileManalinkium.makeMultiblockSet()),
+						new PageImage("4", LibResource.ENTRY_MANALINKIUM));
 		}
 		
 		if(ConfigHandler.ENABLE_SL){
 			stardustlotus = new DreamLexiconEntry(LibLexicon.FFLOWER_STARDUSTLOTUS,  BotaniaAPI.categoryFunctionalFlowers);
 			stardustlotus.setLexiconPages(new PageText("0"),
 						new PagePetalRecipe<>("1", ModPetalRecipe.stardustlotusRecipe),
-						new PageText("2"), new PageMultiblock("3", SubTileStardustLotus.makeMultiblockSet()));
+						new PageText("2"), new PageMultiblock("3", SubTileStardustLotus.makeMultiblockSet()),
+						new PageImage("4", LibResource.ENTRY_STARDUSTLOTUS));
 		}
 		
 		if(ConfigHandler.ENABLE_EO){

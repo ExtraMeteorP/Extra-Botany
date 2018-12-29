@@ -10,6 +10,8 @@ import com.meteor.extrabotany.common.lib.LibMisc;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -65,8 +67,12 @@ public class ItemHalloweenCandy extends ItemFoodMod{
 	
 	@Nonnull
 	@Override
+	@SideOnly(Side.CLIENT)
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + LibItemsName.CANDY + stack.getMetadata();
+		String name = LibItemsName.CANDY;
+		if(ClientProxy.christmas)
+			name = LibItemsName.CANDY + "chris";
+		return "item." + name + stack.getMetadata();
 	}
 	
 	@Override
@@ -98,8 +104,8 @@ public class ItemHalloweenCandy extends ItemFoodMod{
 	public void onSpawn(LivingSpawnEvent.SpecialSpawn event) {
 		if(!ConfigHandler.ENABLE_CANDYBAGDROP)
 			return;
-		if(event.getEntityLiving() instanceof EntityMob) {
-			if(ClientProxy.halloween && Math.random() > 0.8F || Math.random() < ConfigHandler.CANDYBAG_DROPCHANCE)
+		if(event.getEntityLiving() instanceof EntityZombie || event.getEntityLiving() instanceof EntitySkeleton) {
+			if(Math.random() < ConfigHandler.CANDYBAG_DROPCHANCE)
 				if(event.getEntityLiving().getHeldItemOffhand() == ItemStack.EMPTY){
 					event.getEntityLiving().setHeldItem(EnumHand.OFF_HAND, new ItemStack(ModItems.candybag));
 					((EntityMob)event.getEntityLiving()).setDropChance(EntityEquipmentSlot.OFFHAND, 1F);

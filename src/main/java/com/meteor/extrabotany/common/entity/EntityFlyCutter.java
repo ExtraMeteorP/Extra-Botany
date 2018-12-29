@@ -67,7 +67,7 @@ public class EntityFlyCutter extends EntityThrowable{
 	public void onUpdate(){
 		BlockPos source = this.getPosition();
 		
-		if(this.ticksExisted < getLife() || getDelay())
+		if(this.ticksExisted < getLife() || getDelay() || this.ticksExisted > 200)
 			return;
 		
 		super.onUpdate();

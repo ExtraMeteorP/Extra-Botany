@@ -30,6 +30,9 @@ public class ConfigHandler {
 	public static int EFF_TINKLE;
 	public static int EFF_STONESIA;
 	
+	public static double EFF_GEMINIORCHID;
+	public static double EFF_ELDELWEISS;
+	
 	public static int ANNOYINGFLOWER_COST;
 	public static int TICKS;
 	public static int TIMES;
@@ -77,6 +80,7 @@ public class ConfigHandler {
 	public static boolean ENABLE_TK;
 	public static boolean ENABLE_EW;
 	public static boolean ENABLE_MT;
+	public static boolean ENABLE_GO;
 	
 	public static boolean ENABLE_TOOLTIP;
 	public static boolean ENABLE_SHIELD;
@@ -93,12 +97,15 @@ public class ConfigHandler {
 	public static boolean ENABLE_WAILAMANABUFFER = true;
 	public static boolean ENABLE_WAILAMANALIQUE = true;
 	
+	public static boolean ENABLE_CASUPPORT = false;
+	
 	public static boolean ENABLE_TOP = true;
 	
 	public static boolean ENABLE_FEATURES = true;
 	
 	public static boolean ENABLE_CANDYBAGDROP = true;
 	public static double CANDYBAG_DROPCHANCE = 0.02F;
+	public static double PARTICLE = 1F;
 	
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
@@ -133,10 +140,14 @@ public class ConfigHandler {
 		GAIA_SMASH = loadPropBool("enable.gaiasmash", desc, GAIA_SMASH);
 		desc = "Whether Gaia Guardian III will release Divine Judge. Default is true.";
 		GAIA_DIVINEJUDGE = loadPropBool("enable.divinejudge", desc, GAIA_DIVINEJUDGE);
+		desc = "Amount of Particles during Gaia Guardian III fight. Default is 100%.";
+		PARTICLE = loadPropDouble("gaia.particle", desc, PARTICLE);
 		desc = "Whether Monster will have the chance to hold a Halloween Candy Night when spawning. Default is true.";
 		ENABLE_CANDYBAGDROP = loadPropBool("enable.candybag", desc, ENABLE_CANDYBAGDROP);
 		desc = "The Chance a monster will hold a Halloween Candy Night. Default is 2%.";
 		CANDYBAG_DROPCHANCE = loadPropDouble("chance.candybag", desc, CANDYBAG_DROPCHANCE);
+		desc = "Whether to enable Construct's Armory Compat. Default is false.";
+		ENABLE_CASUPPORT = loadPropBool("enable.ca", desc, ENABLE_CASUPPORT);
 		
 		ENABLE_AF = CONFIG.get("enable flowers", "annoying flower", true).getBoolean(true);
 		ENABLE_EO = CONFIG.get("enable flowers", "enchanted orchid", true).getBoolean(true);
@@ -152,6 +163,7 @@ public class ConfigHandler {
 		ENABLE_TK = CONFIG.get("enable flowers", "tinkle flower", true).getBoolean(true);
 		ENABLE_EW = CONFIG.get("enable flowers", "edelweiss", true).getBoolean(true);
 		ENABLE_MT = CONFIG.get("enable flowers", "mirrowtunia", true).getBoolean(true);
+		ENABLE_GO = CONFIG.get("enable flowers", "geminiorchid", true).getBoolean(true);
 		
 		ENABLE_FEATURES = CONFIG.get("enable features", "easter eggs", true).getBoolean(true);
 		
@@ -172,8 +184,8 @@ public class ConfigHandler {
 		BASEY = CONFIG.getInt("base Y to work", "bell flower", 64, 1, Integer.MAX_VALUE, "");
 		LP_BELLFLOWER = CONFIG.get("bell flower", "enable catalysis", true).getBoolean(true);
 		
-		EFF_BLOODYENCHANTRESS = CONFIG.getInt("mana per tick", "bloodyenchantress", 5, 1, Integer.MAX_VALUE, "");
-		BLOOD_BURNTIME = CONFIG.getInt("blood burn time", "bloodyenchantress", 60, 1, Integer.MAX_VALUE, "");
+		EFF_BLOODYENCHANTRESS = CONFIG.getInt("mana per tick", "bloodyenchantress", 20, 1, Integer.MAX_VALUE, "");
+		BLOOD_BURNTIME = CONFIG.getInt("blood burn time", "bloodyenchantress", 20, 1, Integer.MAX_VALUE, "");
 		
 		EFF_MOONBLESS = CONFIG.getInt("mana per tick", "moonbless", 1, 1, Integer.MAX_VALUE, "");
 		
@@ -209,6 +221,9 @@ public class ConfigHandler {
 		MB_SPEED = CONFIG.getInt("mana transfer speed", "mana buffer", 400, 1, Integer.MAX_VALUE, "");
 		
 		ENABLE_TOOLTIP = CONFIG.get("Tooltips", "enable mana visualization", true).getBoolean(true);
+		
+		EFF_GEMINIORCHID = CONFIG.getFloat("efficiency", "geminiorchid", 1F, 0, Integer.MAX_VALUE, "");
+		EFF_ELDELWEISS = CONFIG.getFloat("efficiency", "edelweiss", 1F, 0, Integer.MAX_VALUE, "");
 		
 		if (CONFIG.hasChanged())
 			CONFIG.save();

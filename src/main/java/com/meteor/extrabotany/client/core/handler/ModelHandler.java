@@ -12,6 +12,7 @@ import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLot
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBellFlower;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBloodyEnchantress;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileEdelweiss;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileGeminiOrchid;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileMoonBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileOmniViolet;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
@@ -90,6 +91,8 @@ public class ModelHandler {
 			BotaniaAPIClient.registerSubtileModel(SubTileMirrortunia.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MIRROWTUNIA));
 		if(ConfigHandler.ENABLE_EW)
 			BotaniaAPIClient.registerSubtileModel(SubTileEdelweiss.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_EDELWEISS));
+		if(ConfigHandler.ENABLE_GO)
+			BotaniaAPIClient.registerSubtileModel(SubTileGeminiOrchid.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_GEMINIORCHID));
 	}
 	
 	private static final Map<IRegistryDelegate<Block>, IStateMapper> customStateMappers = ReflectionHelper.getPrivateValue(ModelLoader.class, null, "customStateMappers");

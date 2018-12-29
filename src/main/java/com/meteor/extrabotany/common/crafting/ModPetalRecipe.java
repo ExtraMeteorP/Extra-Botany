@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.crafting;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
+import com.meteor.extrabotany.common.lib.LibOreDicts;
 
 import net.minecraft.item.ItemStack;
 import vazkii.botania.api.BotaniaAPI;
@@ -27,6 +28,7 @@ public class ModPetalRecipe {
 	public static RecipePetals bellflowerRecipe;
 	public static RecipePetals reikarlilyRecipe;
 	public static RecipePetals edelweissRecipe;
+	public static RecipePetals geminiorchidRecipe;
 	
 	public static RecipePetals annoyingflowerRecipe;
 	public static RecipePetals stardustlotusRecipe;
@@ -63,6 +65,8 @@ public class ModPetalRecipe {
 			edelweissRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_EDELWEISS), runeWinter, runeMana, white, white, white, lightBlue, lightBlue, manaPowder);
 		if(ConfigHandler.ENABLE_MT)
 			mirrortuniaRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MIRROWTUNIA), runeAir, runePride, runeWrath, cyan, cyan, lightBlue, blue, manaPowder);
+		if(ConfigHandler.ENABLE_GO)
+			geminiorchidRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_GEMINIORCHID), LibOreDicts.GODWEAVE, LibOreDicts.GODWEAVE, runeFire, runeWater, orange, orange, yellow, yellow, manaPowder);
 	}
 
 }

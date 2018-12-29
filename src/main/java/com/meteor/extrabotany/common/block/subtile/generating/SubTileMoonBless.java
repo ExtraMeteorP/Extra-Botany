@@ -24,7 +24,7 @@ public class SubTileMoonBless extends SubTileSunBless{
 
 	@Override
 	public boolean canGeneratePassively() {
-		return !this.supertile.getWorld().isDaytime() && this.ticksExisted % 6 == 0;
+		return !this.supertile.getWorld().isDaytime() && this.ticksExisted % 5 == 0;
 	}
 	
 }

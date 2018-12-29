@@ -2,6 +2,7 @@ package com.meteor.extrabotany.common.block.subtile.generating;
 
 import java.util.List;
 
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -27,7 +28,7 @@ public class SubTileEdelweiss extends SubTileGenerating{
 		if(burnTime > 0)
 			burnTime--;
 		
-		int snowGolem = 920;
+		int snowGolem = 1400;
 		int ironGolem = 18000;
 		float range = 2F;
 		AxisAlignedBB axis = new AxisAlignedBB(getPos().getX()-range, getPos().getY()-range, getPos().getZ()-range, getPos().getX()+range, getPos().getY()+range, getPos().getZ()+range);
@@ -36,13 +37,13 @@ public class SubTileEdelweiss extends SubTileGenerating{
 			if(mana < getMaxMana())
 				if(entity instanceof EntitySnowman){
 					entity.setDead();
-					mana +=snowGolem;
-					burnTime+=20;
+					mana +=snowGolem * ConfigHandler.EFF_ELDELWEISS;
+					burnTime+=20 * ConfigHandler.EFF_ELDELWEISS;
 					break;
 				}else if(entity instanceof EntityIronGolem){
 					entity.setDead();
-					mana +=ironGolem;
-					burnTime+=200;
+					mana +=ironGolem * ConfigHandler.EFF_ELDELWEISS;
+					burnTime+=200 * ConfigHandler.EFF_ELDELWEISS;
 					break;
 				}
 		}

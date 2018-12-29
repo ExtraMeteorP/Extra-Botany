@@ -6,13 +6,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+import vazkii.botania.api.mana.IManaGivingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 
-public class ItemManaDrink extends ItemFoodMod{
+public class ItemManaDrink extends ItemFoodMod implements IManaGivingItem{
 
 	public ItemManaDrink() {
 		super(1, 0.4F, false, LibItemsName.MANADRINK);
@@ -30,12 +28,5 @@ public class ItemManaDrink extends ItemFoodMod{
 		ManaItemHandler.dispatchManaExact(stack, player, 10000, true);
 		player.addItemStackToInventory(new ItemStack(ModItems.material, 1, 4));
 	}
-	
-	@Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn){
-        ItemStack itemstack = playerIn.getHeldItem(handIn);
-        playerIn.setActiveHand(handIn);
-        return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
-    }
 
 }

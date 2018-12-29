@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.common.brew.ModBrew;
+import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.entity.EntityMagicArrow;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibItemsName;
@@ -18,7 +19,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Enchantments;
@@ -120,23 +120,19 @@ public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem{
 				return ActionResult.newResult(EnumActionResult.PASS, stack);
 			}else
 				if(getMode(stack) == 5){
-						if(ManaItemHandler.requestManaExactForTool(stack, player, 3000, true) && !world.isRemote){
-							for(EntityLiving living : player.getEntityWorld().getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))){
-								if(living.isSpectatedByPlayer((EntityPlayerMP) player)){
-									living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 5));
-									if(!living.isNonBoss())
-										continue;
-									if(living instanceof IMob){
-										living.setNoAI(true);
-									}			
-								}
-							}
-
-							for(Entity e : player.getEntityWorld().getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))) {
-								if(e instanceof IProjectile)
-									e.setDead();
+					if(ManaItemHandler.requestManaExactForTool(stack, player, 900, true) && !world.isRemote){
+						for(EntityLiving living : player.getEntityWorld().getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))){
+							if(living.isSpectatedByPlayer((EntityPlayerMP) player)){
+								living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 5));
+								living.addPotionEffect(new PotionEffect(ModPotions.mindcrack,300, 1));		
 							}
 						}
+
+						for(Entity e : player.getEntityWorld().getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))) {
+							if(e instanceof IProjectile)
+								e.setDead();
+						}
+					}
 				}
 		}else
 			switchMode(stack);

@@ -46,7 +46,7 @@ public class ItemBonusBase extends ItemMod{
 			ItemStack newstack = rollItem(stack).copy();
 			world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (world.rand.nextFloat() * 0.4F + 0.8F));
 			onBonusOpen(world, player, stack, newstack);
-			player.inventory.addItemStackToInventory(newstack);
+			player.entityDropItem(newstack, 0).setNoPickupDelay();
 			stack.shrink(1);
 			return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 		}
@@ -87,7 +87,11 @@ public class ItemBonusBase extends ItemMod{
 	}
 	
 	public ItemStack rollItem(ItemStack stack){
-        int n = random.nextInt(getSum(stack));
+		int weightSum = 0;
+    	for (WeightCategory wc : getWeightCategory(stack)) {  
+            weightSum += wc.getWeight();  
+        }
+        int n = random.nextInt(weightSum);
         int m = 0;  
         for (WeightCategory wc : getWeightCategory(stack)) {  
              if (m <= n && n < m + wc.getWeight()) {  

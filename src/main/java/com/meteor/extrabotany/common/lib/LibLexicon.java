@@ -11,6 +11,7 @@ public class LibLexicon {
 	public static final String GFLOWER_BELLFLOWER = "bellflower";
 	public static final String GFLOWER_REIKARLILY = "reikarlily";
 	public static final String GFLOWER_EDELWEISS = "edelweiss";
+	public static final String GFLOWER_GEMINIORCHID = "geminiorchid";
 	public static final String FFLOWER_ANNOYINGFLOWER = "annoyingflower";
 	public static final String FFLOWER_MANALINKIUM = "manalinkium";
 	public static final String FFLOWER_STARDUSTLOTUS = "stardustlotus";
@@ -34,16 +35,22 @@ public class LibLexicon {
 	public static final String INFINITEWINE = "infinitewine";
 	public static final String FLYINGBOAT = "flyingboat";
 	public static final String ELFJAR = "elfjar";
+	public static final String WALKINGCANE = "walkingcane";
+	public static final String GODWEAVE = "godweave";
+	public static final String TICKET = "ticket";
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";
 	public static final String BAUBLE_PUREDAISYPENDANT = "puredaisypendant";
 	public static final String BAUBLE_SUPERCROWN = "supercrown";
 	public static final String BAUBLE_REDSCARF = "redscarf";
+	public static final String BAUBLE_PARKOUR = "parkour";
+	public static final String BAUBLE_ELVENKING = "elvenking";
 	
 	public static final String ARMOR_COMBAT = "combatmaid";
 	public static final String ARMOR_COSMETIC = "cosmeticmaid";
 	public static final String ARMOR_SHADOW = "shadowwarrior";
+	public static final String ARMOR_GOBLINSLAYER = "goblinslayer";
 	
 	public static final String GAIA_III = "gaia3";
 	public static final String GAIA_IV = "gaia4";
@@ -56,5 +63,6 @@ public class LibLexicon {
 	public static final String RELIC_RELICS = "buddhistrelics";
 	public static final String RELIC_SPEARSUBSPACE = "spearsubspace";
 	public static final String RELIC_GODCORE = "godcore";
+	public static final String RELIC_AFO = "allforone";
 
 }

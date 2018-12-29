@@ -17,6 +17,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketRemoveEntityEffect;
 import net.minecraft.potion.Potion;
@@ -118,6 +119,7 @@ public class ItemNatureOrb extends ItemBauble implements INatureOrb, IManaGiving
 
 		List<Potion> potionsToRemove = player.getActivePotionEffects().stream()
 				.filter(effect -> effect.getPotion().isBadEffect())
+				.filter(effect -> effect.getPotion().getCurativeItems().contains(Items.MILK_BUCKET))
 				.map(PotionEffect::getPotion)
 				.distinct()
 				.collect(Collectors.toList());

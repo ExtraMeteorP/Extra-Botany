@@ -26,6 +26,9 @@ public class TConstructCompat {
 	private static final Map<String, Material> materials = new LinkedHashMap<>();
     private static final Map<String, MaterialIntegration> materialIntegrations = new LinkedHashMap<>();
     private static final Map<String, CompletionStage<?>> materialIntegrationStages = new LinkedHashMap<>();
+    
+    public static Material material = new Material(LibMisc.MOD_ID + ":" + LibOreDicts.SHADOWIUM, 0x800080);
+    public static Material orichalcos = new Material(LibMisc.MOD_ID + ":" + LibOreDicts.ORICHALCOS, 0xC71585);
 
     public static void preInit() {
     	register();
@@ -56,7 +59,6 @@ public class TConstructCompat {
     }
 
     private static void register() {
-        Material material = new Material(LibMisc.MOD_ID + ":" + LibOreDicts.SHADOWIUM, 0x800080);
         material.addTrait(Shadow.shadow);
         
         material.addTrait(Shadow.shadow, HEAD);
@@ -70,7 +72,6 @@ public class TConstructCompat {
         float meleeDamage = 7F;
         float meleeSpeed = 1F;
         int harvestLevel = 3;
-        float drawDelay = Math.max(38.4f - 1.4f * meleeSpeed * miningSpeed, 10);
 
         TinkerRegistry.addMaterialStats(material,
                 new HeadMaterialStats(600, 7.00f, 6.00f, 3),
@@ -79,6 +80,25 @@ public class TConstructCompat {
                 new BowMaterialStats(0.8F, 1.5F, 7.5F),
                 new ArrowShaftMaterialStats(1.2f, 6));
         materials.put(material.identifier, material);
+        
+        orichalcos.addTrait(Body.body);
+        orichalcos.addTrait(Mind.mind);
+        
+        orichalcos.addTrait(Body.body, HEAD);
+        orichalcos.addTrait(Mind.mind, HEAD);
+        orichalcos.addTrait(Soul.soul, HEAD);
+        
+        orichalcos.addItem(LibOreDicts.ORICHALCOS, 1, Material.VALUE_Ingot);
+        orichalcos.setCraftable(true);
+        ExtraBotany.proxy.setTinkersRenderColor(orichalcos, 0xC71585);
+
+        TinkerRegistry.addMaterialStats(orichalcos,
+                new HeadMaterialStats(3000, 10.50f, 10.00f, 5),
+                new HandleMaterialStats(2.5F, 500), 
+                new ExtraMaterialStats(150),
+                new BowMaterialStats(1.3F, 3.5F, 9.8F),
+                new ArrowShaftMaterialStats(1.5f, 12));
+        materials.put(orichalcos.identifier, orichalcos);
     }   
 
 }

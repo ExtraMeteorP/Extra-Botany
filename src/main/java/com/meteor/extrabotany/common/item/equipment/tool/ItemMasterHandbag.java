@@ -33,6 +33,7 @@ public class ItemMasterHandbag extends ItemMod{
 
 	public ItemMasterHandbag() {
 		super(LibItemsName.MASTERHANDBAG);
+		this.setMaxStackSize(1);
 	}
 	
 	@Nonnull

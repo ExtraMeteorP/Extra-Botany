@@ -7,6 +7,8 @@ import com.meteor.extrabotany.common.entity.gaia.EntitySkullLandmine;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullMinion;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullMissile;
 import com.meteor.extrabotany.common.entity.gaia.EntitySwordDomain;
+import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
+import com.meteor.extrabotany.common.entity.judah.EntityJudahSpear;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.util.ResourceLocation;
@@ -30,6 +32,8 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(makeName("flycutter"), EntityFlyCutter.class, "extrabotany:flycutter", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("subspace"), EntitySubspace.class, "extrabotany:subspace", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("subspacespear"), EntitySubspaceSpear.class, "extrabotany:subspacespear", id++, ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("judahspear"), EntityJudahSpear.class, "extrabotany:judahspear", id++, ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("judahoath"), EntityJudahOath.class, "extrabotany:judahoath", id++, ExtraBotany.instance, 64, 10, true);
 	}
 	
 	private static ResourceLocation makeName(String s) {

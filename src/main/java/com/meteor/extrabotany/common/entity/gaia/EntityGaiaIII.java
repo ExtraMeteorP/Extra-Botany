@@ -17,6 +17,7 @@ import com.google.common.base.Optional;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
+import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
@@ -214,13 +215,13 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		
 		
 		if(getRankIII()){
-			if(ticksExisted % 50 == 0){
+			if(ticksExisted % 55 == 0){
 				for(int t = 0; t< 2; t++)
 					spawnMissile(2);
 				heal(1F);
 			}
 			if(cd == 0 && skillType == 1){
-				for(int t = 0; t< 22 + getPlayerCount() * 4; t++)
+				for(int t = 0; t< 20 + getPlayerCount() * 4; t++)
 					spawnMissile(3);
 				cd = 200;
 				skillType = 2;
@@ -228,10 +229,10 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		}
 		
 		if(getRankII())
-			if(ticksExisted % 60 == 0)
+			if(ticksExisted % 65 == 0)
 				spawnMissile(1);
 			
-		if(ticksExisted > 60 && ticksExisted % 25 == 0){
+		if(ticksExisted > 60 && ticksExisted % 30 == 0){
 			spawnMissile(0);
 			if(world.rand.nextInt(10) < 4)
 				spawnMissile(1);
@@ -280,8 +281,8 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		if(cd == 0 && !world.isRemote && skillType == 0){
 			EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayerCount()));
 			player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3").setStyle(new Style().setColor(TextFormatting.RED)));
-			ExtraBotanyAPI.dealTrueDamage(player, 14);
-			cd = 320;
+			ExtraBotanyAPI.dealTrueDamage(player, 16);
+			cd = 350;
 			skillType = getRankIII() ? 1 : world.rand.nextInt(2);
 		}
 		
@@ -289,13 +290,13 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			if(ConfigHandler.GAIA_DIVINEJUDGE)
 				spawnDivineJudge();
 			else spawnMinion();
-			cd = 260;
+			cd = 300;
 			skillType = getRankIII() ? 3 : 0;
 		}
 		
 		if(cd == 0 && !world.isRemote && skillType == 3){
 			spawnMinion();
-			cd = 300;
+			cd = 340;
 			skillType = world.rand.nextInt(1);
 		}
 		
@@ -366,7 +367,8 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			EntityDomain d = new EntityDomain(this.getEntityWorld());
 			d.setPosition(x, y - 0.5F, z);
 			this.getEntityWorld().spawnEntity(d);
-			domain.setUUID(playersWhoAttacked.get(Math.min(i, Math.max(0, playersWhoAttacked.size() - 1))));
+			if(!playersWhoAttacked.isEmpty())
+				domain.setUUID(playersWhoAttacked.get(Math.min(i, Math.max(0, playersWhoAttacked.size() - 1))));
 			domain.setType(i);
 			domain.setPosition(x, y, z + 2);
 			domain.setCount((int) (y - 2));
@@ -455,6 +457,8 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				ItemNatureOrb o = (ItemNatureOrb) stack.getItem();
 				o.addXP(stack, -100000);
 			}
+			if(stack.getItem() instanceof ItemMaterial)
+				stack.shrink(1);
 			return true;
 		}
 
@@ -646,7 +650,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			if(!playersWhoAttacked.contains(player.getUniqueID()))
 				playersWhoAttacked.add(player.getUniqueID());
 
-			int cap = 15;
+			int cap = 20;
 			
 			if(getRankII())
 				teleportRandomly();

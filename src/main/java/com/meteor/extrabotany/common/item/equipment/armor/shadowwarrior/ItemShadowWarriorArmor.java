@@ -22,6 +22,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -34,6 +35,9 @@ public class ItemShadowWarriorArmor extends ItemCosmeticMaidArmor implements IDa
 	
 	public ItemShadowWarriorArmor(EntityEquipmentSlot type, String name) {
 		super(type, name, BotaniaAPI.elementiumArmorMaterial);
+		addPropertyOverride(new ResourceLocation("extrabotany:slayer"), (stack, worldIn, entityIn) -> {
+			return stack.getDisplayName().toLowerCase().indexOf("slayer") != -1 ? 1.0F : 0.0F;
+		});
 	}
 	
 	@Override

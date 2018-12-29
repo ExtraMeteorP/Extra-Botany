@@ -9,6 +9,7 @@ import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLot
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBellFlower;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBloodyEnchantress;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileEdelweiss;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileGeminiOrchid;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileMoonBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileOmniViolet;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
@@ -115,6 +116,8 @@ public class ModBlocks {
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_EDELWEISS, SubTileEdelweiss.class);
 		if(ConfigHandler.ENABLE_MT)
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_MIRROWTUNIA, SubTileMirrortunia.class);
+		if(ConfigHandler.ENABLE_GO)
+			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_GEMINIORCHID, SubTileGeminiOrchid.class);
 		registerTile(TilePedestal.class, LibBlocksName.TILE_PEDESTAL);
 		registerTile(TileManaBuffer.class, LibBlocksName.TILE_BATTERYBOX);
 		registerTile(TileCocoonDesire.class, LibBlocksName.TILE_COCOON);

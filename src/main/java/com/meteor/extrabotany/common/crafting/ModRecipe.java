@@ -22,31 +22,31 @@ public class ModRecipe {
 	public static void initStonesiaRecipe(){
 		addStonesiaRecipe(10, "stone");
 		addStonesiaRecipe(5, "cobblestone");
-		addStonesiaRecipe(290, "oreCoal");
-		addStonesiaRecipe(350, "oreIron");
-		addStonesiaRecipe(730, "oreDiamond");
-		addStonesiaRecipe(310, "oreRedstone");
-		addStonesiaRecipe(270, "oreLapis");
-		addStonesiaRecipe(550, "oreGold");
-		addStonesiaRecipe(670, "oreEmerald");
-		addStonesiaRecipe(300, "oreCopper");
-		addStonesiaRecipe(300, "oreTin");
-		addStonesiaRecipe(380, "oreAluminum");
-		addStonesiaRecipe(380, "oreLead");
-		addStonesiaRecipe(450, "oreAmber");
-		addStonesiaRecipe(450, "oreCinnabar");
-		addStonesiaRecipe(450, "oreCertusQuartz");
-		addStonesiaRecipe(1200, "oreMithril");
-		addStonesiaRecipe(450, "oreNickel");
-		addStonesiaRecipe(550, "oreSilver");
+		addStonesiaRecipe(305, "oreCoal");
+		addStonesiaRecipe(370, "oreIron");
+		addStonesiaRecipe(750, "oreDiamond");
+		addStonesiaRecipe(330, "oreRedstone");
+		addStonesiaRecipe(290, "oreLapis");
+		addStonesiaRecipe(580, "oreGold");
+		addStonesiaRecipe(690, "oreEmerald");
+		addStonesiaRecipe(320, "oreCopper");
+		addStonesiaRecipe(320, "oreTin");
+		addStonesiaRecipe(390, "oreAluminum");
+		addStonesiaRecipe(390, "oreLead");
+		addStonesiaRecipe(470, "oreAmber");
+		addStonesiaRecipe(470, "oreCinnabar");
+		addStonesiaRecipe(470, "oreCertusQuartz");
+		addStonesiaRecipe(1300, "oreMithril");
+		addStonesiaRecipe(480, "oreNickel");
+		addStonesiaRecipe(580, "oreSilver");
 		addStonesiaRecipe(290, "oreSulfur");
-		addStonesiaRecipe(550, "oreUranium");
-		addStonesiaRecipe(320, "oreZinc");
-		addStonesiaRecipe(320, "oreQuartz");
-		addStonesiaRecipe(520, "oreCobalt");
-		addStonesiaRecipe(520, "oreArdite");
-		addStonesiaRecipe(500, "oreTungsten");
-		addStonesiaRecipe(400, "oreOsmium");		
+		addStonesiaRecipe(580, "oreUranium");
+		addStonesiaRecipe(340, "oreZinc");
+		addStonesiaRecipe(340, "oreQuartz");
+		addStonesiaRecipe(540, "oreCobalt");
+		addStonesiaRecipe(540, "oreArdite");
+		addStonesiaRecipe(580, "oreTungsten");
+		addStonesiaRecipe(450, "oreOsmium");		
 	}
 	
 	public static void addStonesiaRecipe(int i, Object o){

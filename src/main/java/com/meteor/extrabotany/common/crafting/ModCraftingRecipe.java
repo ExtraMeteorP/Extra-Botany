@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.crafting;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
+import com.meteor.extrabotany.common.crafting.recipe.EmptyBoundRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.CocktailRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.HelmRevealingRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRecipe;
@@ -69,6 +70,11 @@ public class ModCraftingRecipe {
 	public static IRecipe SWLEGS;
 	public static IRecipe SWBOOTS;
 	
+	public static IRecipe GSHELM;
+	public static IRecipe GSCHEST;
+	public static IRecipe GSLEGS;
+	public static IRecipe GSBOOTS;
+	
 	public static IRecipe SKATANA;
 	public static IRecipe ELFJAR;
 	public static IRecipe EXCALIBER;
@@ -86,6 +92,13 @@ public class ModCraftingRecipe {
 	public static IRecipe MINIHANDBAG;
 	public static IRecipe COREGODRESET;
 	public static IRecipe COREGODA;
+	public static IRecipe JUDAHOATH;
+	public static IRecipe JUDAHOATHKIRA;
+	public static IRecipe GODWEAVE;
+	public static IRecipe WALKINGCANE;
+	public static IRecipe PARKOUR;
+	public static IRecipe TICKET;
+	public static IRecipe REWARDBAG943;
 	
 	public static void init() {
 		
@@ -149,16 +162,16 @@ public class ModCraftingRecipe {
 		HEROMEDAL = new ShapelessOreRecipe(getResource("recipe_heromedal"), new ItemStack(ModItems.rewardbag, 8, 2), new ItemStack(ModItems.material, 1, 3));
 		HEROMEDAL.setRegistryName(getResource("recipe_heromedal"));
 		
-		CMHELM = new ShapedOreRecipe(getResource("recipe_cmhelm"), new ItemStack(ModItems.cmhelm), "AAA", "BCB", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelHelm));
+		CMHELM = new ShapedOreRecipe(getResource("recipe_cmhelm"), new ItemStack(ModItems.cmhelm), "AAA", "BCB", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDicts.GODWEAVE, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelHelm));
 		CMHELM.setRegistryName(getResource("recipe_cmhelm"));
 		
-		CMCHEST = new ShapedOreRecipe(getResource("recipe_cmchest"), new ItemStack(ModItems.cmchest), "B B", "BCB", "AAA", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelChest));
+		CMCHEST = new ShapedOreRecipe(getResource("recipe_cmchest"), new ItemStack(ModItems.cmchest), "B B", "BCB", "AAA", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDicts.GODWEAVE, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelChest));
 		CMCHEST.setRegistryName(getResource("recipe_cmchest"));
 		
-		CMLEGS = new ShapedOreRecipe(getResource("recipe_cmlegs"), new ItemStack(ModItems.cmleg), "AAA", "BCB", "B B", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelLegs));
+		CMLEGS = new ShapedOreRecipe(getResource("recipe_cmlegs"), new ItemStack(ModItems.cmleg), "AAA", "BCB", "B B", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDicts.GODWEAVE, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelLegs));
 		CMLEGS.setRegistryName(getResource("recipe_cmlegs"));
 		
-		CMBOOTS = new ShapedOreRecipe(getResource("recipe_cmboots"), new ItemStack(ModItems.cmboot), "BCB", "AAA", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelBoots));
+		CMBOOTS = new ShapedOreRecipe(getResource("recipe_cmboots"), new ItemStack(ModItems.cmboot), "BCB", "AAA", 'A', LibOreDict.GAIA_INGOT, 'B', LibOreDicts.GODWEAVE, 'C', new ItemStack(vazkii.botania.common.item.ModItems.terrasteelBoots));
 		CMBOOTS.setRegistryName(getResource("recipe_cmboots"));
 		
 		COSMHELM = new ShapedOreRecipe(getResource("recipe_cosmhelm"), new ItemStack(ModItems.cosmhelm), "AAA", "ACA", "AAA", 'A', LibOreDict.MANAWEAVE_CLOTH, 'C', new ItemStack(vazkii.botania.common.item.ModItems.manasteelHelm));
@@ -250,6 +263,39 @@ public class ModCraftingRecipe {
 		
 		COREGODA = new ShapelessOreRecipe(getResource("recipe_coregoda"), new ItemStack(ModItems.godcore, 1, 1), LibOreDicts.COREGOD, new ItemStack(ModItems.candybag));
 		COREGODA.setRegistryName(getResource("recipe_coregoda"));
+		
+		JUDAHOATH = new ShapedOreRecipe(getResource("recipe_judahoath"), new ItemStack(ModItems.judahoath), "ABA", "ACA", "AAA", 'B', new ItemStack(ModItems.gildedmashedpotato), 'A', new ItemStack(vazkii.botania.common.item.ModItems.manaResource, 1, 14) , 'C', new ItemStack(ModItems.spiritFuel));
+		JUDAHOATH.setRegistryName(getResource("recipe_judahoath"));
+		
+		JUDAHOATHKIRA = new ShapelessOreRecipe(getResource("recipe_judahoathkira"), new ItemStack(ModItems.judahoath, 1, 1), new ItemStack(ModItems.judahoath), new ItemStack(ModItems.manadrink));
+		JUDAHOATHKIRA.setRegistryName(getResource("recipe_judahoathkira"));
+		
+		GODWEAVE = new ShapedOreRecipe(getResource("recipe_godweave"), new ItemStack(ModItems.material, 4, 7), "ABA", "BCB", "ABA", 'B', LibOreDict.MANAWEAVE_CLOTH, 'A', LibOreDict.LIFE_ESSENCE , 'C', "ingotGold");
+		GODWEAVE.setRegistryName(getResource("recipe_godweave"));
+		
+		WALKINGCANE = new ShapedOreRecipe(getResource("recipe_walkingcane"), new ItemStack(ModItems.walkingcane), " AB", " CA", "C  ", 'B', "ingotGold", 'A', LibOreDict.LIVING_ROCK , 'C', LibOreDict.LIVINGWOOD_TWIG);
+		WALKINGCANE.setRegistryName(getResource("recipe_walkingcane"));
+		
+		PARKOUR = new ShapelessOreRecipe(getResource("recipe_parkour"), new ItemStack(ModItems.parkour), new ItemStack(ModItems.walljumping), new ItemStack(ModItems.wallrunning));
+		PARKOUR.setRegistryName(getResource("recipe_parkour"));
+		
+		GSHELM = new ShapedOreRecipe(getResource("recipe_gshelm"), new ItemStack(ModItems.gshelm), "AAA", "A A", 'A', LibOreDicts.PHOTONIUM);
+		GSHELM.setRegistryName(getResource("recipe_gshelm"));
+		
+		GSCHEST = new ShapedOreRecipe(getResource("recipe_gschest"), new ItemStack(ModItems.gschest), "A A", "AAA", "AAA", 'A', LibOreDicts.PHOTONIUM);
+		GSCHEST.setRegistryName(getResource("recipe_gschest"));
+		
+		GSLEGS = new ShapedOreRecipe(getResource("recipe_gslegs"), new ItemStack(ModItems.gsleg), "AAA", "A A", "A A", 'A', LibOreDicts.PHOTONIUM);
+		GSLEGS.setRegistryName(getResource("recipe_gslegs"));
+		
+		GSBOOTS = new ShapedOreRecipe(getResource("recipe_gsboots"), new ItemStack(ModItems.gsboot), "A A", "A A", 'A', LibOreDicts.PHOTONIUM);
+		GSBOOTS.setRegistryName(getResource("recipe_gsboots"));
+		
+		TICKET = new ShapedOreRecipe(getResource("recipe_ticket"), new ItemStack(ModItems.material, 1, 6), " B ", "ACA", " B ", 'A', LibOreDicts.PHOTONIUM, 'B', LibOreDicts.SHADOWIUM, 'C', LibOreDict.GAIA_INGOT);
+		TICKET.setRegistryName(getResource("recipe_ticket"));
+		
+		REWARDBAG943 = new ShapelessOreRecipe(getResource("recipe_rewardbag943"), new ItemStack(ModItems.rewardbag943, 3), new ItemStack(vazkii.botania.common.item.ModItems.dice));
+		REWARDBAG943.setRegistryName(getResource("recipe_rewardbag943"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -315,7 +361,18 @@ public class ModCraftingRecipe {
 					CANDYC,
 					MINIHANDBAG,
 					COREGODRESET,
-					COREGODA
+					COREGODA,
+					JUDAHOATH,
+					JUDAHOATHKIRA,
+					GODWEAVE,
+					PARKOUR,
+					WALKINGCANE,
+					GSHELM,
+					GSCHEST,
+					GSLEGS,
+					GSBOOTS,
+					TICKET,
+					REWARDBAG943
 			);
 			if(ConfigHandler.ENABLE_SHIELD){
 				event.getRegistry().registerAll(
@@ -328,6 +385,7 @@ public class ModCraftingRecipe {
 			event.getRegistry().register(new InfiniteWineRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_infinitewine")));
 			event.getRegistry().register(new InfiniteWineRemakeRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_infinitewinereset")));
 			event.getRegistry().register(new SplashGrenadeRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_splashgrenade")));
+			event.getRegistry().register(new EmptyBoundRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_emptybound")));
 		}
 	}
 	

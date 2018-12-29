@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.brew;
 
 import com.meteor.extrabotany.common.brew.potion.PotionBlackSabbath;
+import com.meteor.extrabotany.common.brew.potion.PotionBloodTemptation;
 import com.meteor.extrabotany.common.brew.potion.PotionConstantPain;
 import com.meteor.extrabotany.common.brew.potion.PotionDivineJustice;
 import com.meteor.extrabotany.common.brew.potion.PotionEternity;
@@ -22,6 +23,7 @@ public class ModPotions {
 	public static final Potion constantpain = new PotionConstantPain();
 	public static final Potion divinejustice = new PotionDivineJustice();
 	public static final Potion blacksabbath = new PotionBlackSabbath();
+	public static final Potion bloodtemptation = new PotionBloodTemptation();
 	
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> evt){
@@ -31,6 +33,7 @@ public class ModPotions {
 		evt.getRegistry().register(constantpain);
 		evt.getRegistry().register(divinejustice);
 		evt.getRegistry().register(blacksabbath);
+		evt.getRegistry().register(bloodtemptation);
 	}
 
 }

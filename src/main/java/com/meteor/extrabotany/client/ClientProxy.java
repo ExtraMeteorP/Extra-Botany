@@ -1,5 +1,7 @@
 package com.meteor.extrabotany.client;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Map;
@@ -36,6 +38,7 @@ import com.meteor.extrabotany.common.block.tile.TileElfJar;
 import com.meteor.extrabotany.common.block.tile.TileInfinityCube;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.block.tile.TileQuantumManaBuffer;
+import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
 import com.meteor.extrabotany.common.entity.EntityDarkPixie;
 import com.meteor.extrabotany.common.entity.EntityFlowerWeapon;
 import com.meteor.extrabotany.common.entity.EntityFlyCutter;
@@ -70,6 +73,13 @@ public class ClientProxy extends CommonProxy{
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
+		PersistentVariableHandler.setCacheFile(new File(Minecraft.getMinecraft().mcDataDir, "ExtraBotanyVars.dat"));
+		try {
+			PersistentVariableHandler.load();
+			PersistentVariableHandler.save();
+		} catch (IOException e) {
+			ExtraBotany.logger.fatal("Persistent Variables couldn't load!!");
+		}
 		MinecraftForge.EVENT_BUS.register(MiscellaneousIcons.INSTANCE);
 		MinecraftForge.EVENT_BUS.register(EventHandlerClient.INSTANCE);
 		initRenderers();

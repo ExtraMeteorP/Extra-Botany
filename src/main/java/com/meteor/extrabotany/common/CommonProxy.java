@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common;
 
+import com.meteor.extrabotany.common.block.dispenser.DispenserBehaviors;
 import com.meteor.extrabotany.common.block.fluid.ModFluid;
 import com.meteor.extrabotany.common.brew.ModBrew;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
@@ -35,6 +36,7 @@ public class CommonProxy {
 		LexiconData.init();
 		//ModWorld.init();
 		Integration.init();
+		DispenserBehaviors.init();
 	}
 	
 	public void postInit(FMLPostInitializationEvent event) {

@@ -9,9 +9,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -22,9 +19,12 @@ import vazkii.botania.api.state.enums.PylonVariant;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.block.ModBlocks;
 
-public class TilePedestal extends TileEntity implements ITickable{
+public class TilePedestal extends TileInventoryBase implements ITickable{
 
-	private ItemStack item = ItemStack.EMPTY;
+	public TilePedestal() {
+		super(1,1);
+	}
+
 	private int rot;
 	private boolean isDirty;
 	public int strikes = 0;
@@ -32,8 +32,6 @@ public class TilePedestal extends TileEntity implements ITickable{
 	@Override
 	public void readFromNBT(NBTTagCompound nbttagcompound){
 		super.readFromNBT(nbttagcompound);
-		NBTTagCompound nbtItem = nbttagcompound.getCompoundTag("Item");
-		item = new ItemStack(nbtItem);
 		rot = nbttagcompound.getInteger("Rot");
 		strikes = nbttagcompound.getInteger("strikes");
 	}
@@ -41,29 +39,10 @@ public class TilePedestal extends TileEntity implements ITickable{
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound nbttagcompound){
 		super.writeToNBT(nbttagcompound);
-		NBTTagCompound nbtItem = new NBTTagCompound();
-		if(!item.isEmpty())
-			item.writeToNBT(nbtItem);
-		nbttagcompound.setTag("Item", nbtItem);
 		nbttagcompound.setInteger("Rot", rot);
 		nbttagcompound.setInteger("strikes", strikes);
 
 		return nbttagcompound;
-	}
-
-	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
-		return new SPacketUpdateTileEntity(pos, 1, getUpdateTag());
-	}
-
-	@Override
-	public NBTTagCompound getUpdateTag(){
-		return writeToNBT(new NBTTagCompound());
-	}
-
-	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet){
-		readFromNBT(packet.getNbtCompound());
 	}
 
 	@Override
@@ -75,7 +54,7 @@ public class TilePedestal extends TileEntity implements ITickable{
 
 		if(rot == 360)
 			rot = 0;
-		if(!item.isEmpty())
+		if(!getItem().isEmpty())
 			rot++;
 		 
 		if(getItem().getItem() instanceof INatureOrb){
@@ -193,11 +172,11 @@ public class TilePedestal extends TileEntity implements ITickable{
 	}
 
 	public ItemStack getItem(){
-		return item;
+		return stacks.getStackInSlot(0);
 	}
 
 	public void setItem(ItemStack item){
-		this.item = item;
+		stacks.setStackInSlot(0, item);;
 		isDirty = true;
 	}
 }

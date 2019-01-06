@@ -54,7 +54,7 @@ public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem{
 	
 	private static final String TAG_MODE = "mode";
 	private static final int MODE = 5;
-	private static final int MANA_PER_SECONDS = 1;
+	private static final int MANA_PER_SECONDS = 2;
 
 	public ItemBuddhistRelics() {
 		super(LibItemsName.BUDDHISTRELICS);

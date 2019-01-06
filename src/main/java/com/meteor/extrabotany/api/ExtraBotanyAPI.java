@@ -37,9 +37,9 @@ public class ExtraBotanyAPI {
 	public static final List<RecipeStonesia> stonesiaRecipes = new ArrayList<RecipeStonesia>();
 	public static final List<RecipeOmniviolet> omnivioletRecipes = new ArrayList<RecipeOmniviolet>();
 	public static final ArmorMaterial orichalcosArmorMaterial = EnumHelper.addArmorMaterial("ORICHALCOS", "orichalcos", 50,
-			new int[] { 4, 7, 9, 4 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
+			new int[] { 4, 7, 8, 3 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
 	public static final ArmorMaterial shadowiumArmorMaterial = EnumHelper.addArmorMaterial("SHADOWIUM", "shadowium", 12,
-			new int[] { 3, 6, 5, 2 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3F);
+			new int[] { 3, 6, 5, 2 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3F);
 	public static final ToolMaterial shadowiumToolMaterial = EnumHelper.addToolMaterial("SHADOWIUM", 3, 800, 6.5F, 2F, 12);
 	
 	static {

@@ -44,7 +44,6 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDisc
 		source.add(DamageSource.LAVA);
 		source.add(DamageSource.ON_FIRE);
 		source.add(DamageSource.LIGHTNING_BOLT);
-		source.add(DamageSource.WITHER);
 	}
 	
 	public ItemCombatMaidHelm(String name) {
@@ -56,7 +55,7 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDisc
 		super.onArmorTick(world, player, stack);
 		if(hasArmorSet(player)) {
 			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COMBAT);
-			if(player.shouldHeal() && player.ticksExisted % 40 == 0)
+			if(player.shouldHeal() && player.ticksExisted % 50 == 0)
 				player.heal(1F);
 			ManaItemHandler.dispatchManaExact(stack, player, 1, true);
 			if(player.ticksExisted % 40 == 0)
@@ -83,7 +82,7 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDisc
 
 	@Override
 	public float getDiscount(ItemStack stack, int slot, EntityPlayer player, @Nullable ItemStack tool) {
-		return hasArmorSet(player) ? 0.3F : 0F;
+		return hasArmorSet(player) ? 0.25F : 0F;
 	}
 	
 	@SubscribeEvent
@@ -95,7 +94,7 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDisc
 				if(player.getHeldItemMainhand() == ItemStack.EMPTY)
 					event.setAmount(event.getAmount() + 10F);
 				if(player.shouldHeal())
-					player.heal(event.getAmount()/5F);
+					player.heal(event.getAmount()/8F);
 			}	
 		}
 	}

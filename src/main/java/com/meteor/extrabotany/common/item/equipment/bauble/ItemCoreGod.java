@@ -49,7 +49,7 @@ public class ItemCoreGod extends ItemBaubleRelic implements IManaUsingItem, ICos
 	
 	public static final List<String> playersWithFlight = new ArrayList();
 	
-	private static final int COST = 15;
+	private static final int COST = 25;
 	final int types = 2;
 
 	public ItemCoreGod() {

@@ -207,9 +207,9 @@ public class ConfigHandler {
 		
 		SPEED = CONFIG.getInt("mana transfered per tick", "manalinkium", 400, 1, Integer.MAX_VALUE, "");	
 		
-		RL_BASEGEN = CONFIG.getInt("mana based generated per lightning", "reikarlily", 40000, 1, Integer.MAX_VALUE, "");	
-		RL_BURNTIME = CONFIG.getInt("burntime for each lightning", "reikarlily", 2000, 1, Integer.MAX_VALUE, "");
-		RL_EFF = CONFIG.getInt("mana pertick", "reikarlily", 30, 1, Integer.MAX_VALUE, "");
+		RL_BASEGEN = CONFIG.getInt("mana based generated per lightning", "reikarlily", 20000, 1, Integer.MAX_VALUE, "");	
+		RL_BURNTIME = CONFIG.getInt("burntime for each lightning", "reikarlily", 1800, 1, Integer.MAX_VALUE, "");
+		RL_EFF = CONFIG.getInt("mana pertick", "reikarlily", 40, 1, Integer.MAX_VALUE, "");
 		RL_COOLDOWN = CONFIG.getInt("cooldown after consuming lightning", "reikarlily", 3600, 1, Integer.MAX_VALUE, "");
 		RL_CD = CONFIG.getInt("cooldown after a lightning summoned by itself", "reikarlily", 3600, 1, Integer.MAX_VALUE, "");
 		RL_BASEY = CONFIG.getInt("the lower base y, the higher chance it will summon lightning", "reikarlily", 64, 1, Integer.MAX_VALUE, "");

@@ -99,6 +99,7 @@ public class ModCraftingRecipe {
 	public static IRecipe PARKOUR;
 	public static IRecipe TICKET;
 	public static IRecipe REWARDBAG943;
+	public static IRecipe FOXEAR;
 	
 	public static void init() {
 		
@@ -296,6 +297,9 @@ public class ModCraftingRecipe {
 		
 		REWARDBAG943 = new ShapelessOreRecipe(getResource("recipe_rewardbag943"), new ItemStack(ModItems.rewardbag943, 3), new ItemStack(vazkii.botania.common.item.ModItems.dice));
 		REWARDBAG943.setRegistryName(getResource("recipe_rewardbag943"));
+		
+		FOXEAR = new ShapedOreRecipe(getResource("recipe_foxear"), new ItemStack(ModItems.foxear), "AAA", "ABA", "AAA", 'B', new ItemStack(ModItems.material), 'A', LibOreDict.PETAL[6]);
+		FOXEAR.setRegistryName(getResource("recipe_foxear"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -372,7 +376,8 @@ public class ModCraftingRecipe {
 					GSLEGS,
 					GSBOOTS,
 					TICKET,
-					REWARDBAG943
+					REWARDBAG943,
+					FOXEAR
 			);
 			if(ConfigHandler.ENABLE_SHIELD){
 				event.getRegistry().registerAll(

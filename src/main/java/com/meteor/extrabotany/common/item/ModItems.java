@@ -30,6 +30,7 @@ import com.meteor.extrabotany.common.item.equipment.bauble.ItemAFORing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemCoreGod;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemDeathRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemElvenKingRing;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemFoxEar;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemFrostStar;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemParkourRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemPureDaisyPendant;
@@ -99,6 +100,7 @@ public class ModItems {
 	public static final Item parkour = new ItemParkourRing();
 	public static final Item allforone = new ItemAFORing();
 	public static final Item elvenking = new ItemElvenKingRing();
+	public static final Item foxear = new ItemFoxEar();
 	
 	public static final Item hammermanasteel = new ItemHammer(LibItemsName.HAMMER_MANASTEEL, BotaniaAPI.manasteelToolMaterial);
 	public static final Item hammerelementium = new ItemHammer(LibItemsName.HAMMER_ELEMENTIUM, BotaniaAPI.elementiumToolMaterial);
@@ -236,6 +238,7 @@ public class ModItems {
 		r.register(gschest);
 		r.register(gsleg);
 		r.register(gsboot);
+		r.register(foxear);
 		registerOreDictionary();
 	}
 	

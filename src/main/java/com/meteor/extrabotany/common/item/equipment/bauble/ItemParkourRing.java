@@ -1,13 +1,15 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
 import com.meteor.extrabotany.ExtraBotany;
-import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
-import baubles.api.BaublesApi;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemParkourRing extends ItemWallJumpingRing{
 
@@ -21,11 +23,16 @@ public class ItemParkourRing extends ItemWallJumpingRing{
 		if(!(entity instanceof EntityPlayer))
 			return;
 		EntityPlayer player = (EntityPlayer) entity;
-		if(BaublesApi.isBaubleEquipped(player, ModItems.wallrunning) != -1 || BaublesApi.isBaubleEquipped(player, ModItems.parkour) != -1){
-			player.fallDistance = 0F;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void clientWornTick(ItemStack stack, EntityLivingBase player) {
+		super.clientWornTick(stack, player);
+		if(player instanceof EntityPlayerSP && player == Minecraft.getMinecraft().player) {
 			if(player.collidedHorizontally){
 				if(ExtraBotany.keyUp.isKeyDown())
-					player.motionY = Math.max(player.motionY, 0.09F);
+					player.motionY = Math.max(player.motionY, 0.11F);
 			}
 		}
 	}

@@ -36,10 +36,6 @@ public class ItemWallJumpingRing extends WallJumpingShim{
 			return;
 		EntityPlayer player = (EntityPlayer) entity;
 		player.fallDistance = 0F;
-		if(player.collidedHorizontally){
-			if(ExtraBotany.keyDown.isKeyDown())
-				player.motionY = 0F;
-		}
 	}
 	
 	@Override
@@ -48,10 +44,14 @@ public class ItemWallJumpingRing extends WallJumpingShim{
 		if(player instanceof EntityPlayerSP && player == Minecraft.getMinecraft().player) {
 			EntityPlayerSP playerSp = (EntityPlayerSP) player;
 			UUID uuid = playerSp.getUniqueID();
+			
+			if(player.collidedHorizontally){
+				if(ExtraBotany.keyDown.isKeyDown())
+					player.motionY = 0F;
+			}
 
 			if(playerSp.onGround)
-				timesJumped = 0;	
-			
+				timesJumped = 0;		
 			else {
 				if(playerSp.movementInput.jump && playerSp.collidedHorizontally) {
 					if(!jumpDown && timesJumped < getMaxAllowedJumps()) {

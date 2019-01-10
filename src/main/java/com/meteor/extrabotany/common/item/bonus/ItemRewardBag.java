@@ -33,14 +33,14 @@ public class ItemRewardBag extends ItemBonusBase{
 		setHasSubtypes(true);
 		//A
 		for(int i = 0; i < 16; i++)
-			Bonus.addItem(new ItemStack(ModItems.petal, 6, i), 1, categorysA);
+			Bonus.addItem(new ItemStack(ModItems.petal, 6, i), 3, categorysA);
 		//B
 		for(int i = 0; i < 4; i++)
-			Bonus.addItem(new ItemStack(ModItems.rune, 2, i), 5, categorysB);
+			Bonus.addItem(new ItemStack(ModItems.rune, 2, i), 8, categorysB);
 		for(int i = 4; i < 8; i++)
-			Bonus.addItem(new ItemStack(ModItems.rune, 1, i), 3, categorysB);
+			Bonus.addItem(new ItemStack(ModItems.rune, 1, i), 5, categorysB);
 		for(int i = 8; i < 16; i++)
-			Bonus.addItem(new ItemStack(ModItems.rune, 1, i), 1, categorysB);
+			Bonus.addItem(new ItemStack(ModItems.rune, 1, i), 3, categorysB);
 		//C
 		for(int i = 0; i < 3; i++)
 			Bonus.addItem(new ItemStack(ModItems.manaResource, 5, i), 12, categorysC);

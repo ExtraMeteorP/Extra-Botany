@@ -6,9 +6,11 @@ import java.util.Random;
 
 import javax.annotation.Nonnull;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.item.Bonus;
 import com.meteor.extrabotany.api.item.WeightCategory;
 import com.meteor.extrabotany.common.item.ItemMod;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -42,8 +44,8 @@ public class ItemBonusBase extends ItemMod{
 		ItemStack stack = player.getHeldItem(hand);
 		if(world.isRemote)
 			return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
-		if(rollItem(stack) != null){
-			ItemStack newstack = rollItem(stack).copy();
+		if(rollItem(stack, player) != null){
+			ItemStack newstack = rollItem(stack, player).copy();
 			world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 0.5F, 0.4F / (world.rand.nextFloat() * 0.4F + 0.8F));
 			onBonusOpen(world, player, stack, newstack);
 			player.entityDropItem(newstack, 0).setNoPickupDelay();
@@ -86,15 +88,18 @@ public class ItemBonusBase extends ItemMod{
     	setSum(stack, Bonus.sum(getWeightCategory(stack)));
 	}
 	
-	public ItemStack rollItem(ItemStack stack){
+	public ItemStack rollItem(ItemStack stack, EntityPlayer player){
 		int weightSum = 0;
     	for (WeightCategory wc : getWeightCategory(stack)) {  
             weightSum += wc.getWeight();  
         }
         int n = random.nextInt(weightSum);
         int m = 0;  
-        for (WeightCategory wc : getWeightCategory(stack)) {  
-             if (m <= n && n < m + wc.getWeight()) {  
+        for	(WeightCategory wc : getWeightCategory(stack)) {  
+             if (m <= n && n < m + wc.getWeight()) {
+            	 if(wc.getWeight() <= 2){
+            		 ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.LUCKYDRAW);
+            	 }
                return wc.getCategory();  
              }  
              m += wc.getWeight();  

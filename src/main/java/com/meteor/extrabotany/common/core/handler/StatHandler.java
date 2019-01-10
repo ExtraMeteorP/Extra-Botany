@@ -67,7 +67,10 @@ public class StatHandler {
 		LibAdvancements.ARMORSET_SW,
 		LibAdvancements.INFINITEWINE,
 		LibAdvancements.EXCALIBER,
-		LibAdvancements.BUDDHISTRELICS
+		LibAdvancements.BUDDHISTRELICS,
+		LibAdvancements.LUCKYDRAW,
+		LibAdvancements.SPEARSUBSPACE,
+		LibAdvancements.ARMORSET_GS
 	};
 	
 	public static boolean hasAllStats(EntityPlayer player){

@@ -640,9 +640,13 @@ advancement.extrabotany:excaliberCraft.desc=获得王者圣剑
 advancement.extrabotany:allStats=Erase or Zero
 advancement.extrabotany:allStats.desc=解锁全部额外植物学的成就
 advancement.extrabotany:luckyDraw=Starduster
-advancement.extrabotany:luckyDraw.desc=通过奖励袋获得英雄勋章
+advancement.extrabotany:luckyDraw.desc=通过奖励袋获得超稀有物品
 advancement.extrabotany:buddhistRelics=SPiCa
 advancement.extrabotany:buddhistRelics.desc=获得源初造物丨虚空万藏
+advancement.extrabotany:spearsubspaceCraft=
+advancement.extrabotany:spearsubspaceCraft.desc=获得亚空之矛
+advancement.extrabotany:armorsetGS=
+advancement.extrabotany:armorsetGS.desc=装备一套哥布林杀手套
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=
@@ -653,6 +657,7 @@ extrabotany.potion.reflect=镜子反射
 extrabotany.potion.constantpain=痛觉残留
 extrabotany.potion.blacksabbath=黑色安息日
 extrabotany.potion.divinejustice=神圣制裁
+extrabotany.potion.bloodtemptation=血之诱惑
 
 modifier.shadow.name=暗影
 modifier.shadow.desc=§o漫漫长夜！§r\n会消耗魔力自动修复，击中敌人时会召唤黑暗精灵。

@@ -39,7 +39,7 @@ public class SubTileGeminiOrchid extends SubTileGeneratingNature{
 		}
 		float buff = isEnabled() ? 1.2F : 1.0F;
 		if(mana < getMaxMana() && ticksExisted % 5 == 0)
-			mana+= (int)(Math.abs(tempMax - tempMin)/75 * buff * ConfigHandler.EFF_GEMINIORCHID);
+			mana+= (int)(Math.abs(tempMax - tempMin)/90 * buff * ConfigHandler.EFF_GEMINIORCHID);
 		
 	}
 	
@@ -56,6 +56,11 @@ public class SubTileGeminiOrchid extends SubTileGeneratingNature{
 	@Override
 	public int getMaxMana() {
 		return 1000;
+	}
+	
+	@Override
+	public boolean isPassiveFlower() {
+		return true;
 	}
 
 }

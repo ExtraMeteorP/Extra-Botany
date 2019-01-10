@@ -35,7 +35,7 @@ public class SubTileEdelweiss extends SubTileGenerating{
 		List<EntityLivingBase> entities = getWorld().getEntitiesWithinAABB(EntityLivingBase.class, axis);
 		for(EntityLivingBase entity : entities){
 			if(mana < getMaxMana())
-				if(entity instanceof EntitySnowman){
+				if(entity instanceof EntitySnowman && entity.isEntityAlive()){
 					entity.setDead();
 					mana +=snowGolem * ConfigHandler.EFF_ELDELWEISS;
 					burnTime+=20 * ConfigHandler.EFF_ELDELWEISS;
@@ -75,7 +75,7 @@ public class SubTileEdelweiss extends SubTileGenerating{
 	
 	@Override
 	public int getValueForPassiveGeneration() {
-		return 10;
+		return 0;
 	}
 	
 	@Override

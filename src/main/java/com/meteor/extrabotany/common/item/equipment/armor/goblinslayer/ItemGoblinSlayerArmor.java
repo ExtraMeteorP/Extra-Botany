@@ -64,8 +64,8 @@ public class ItemGoblinSlayerArmor  extends ItemCosmeticMaidArmor{
 		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
 		boolean night = ItemNBTHelper.getBoolean(stack, TAG_DAY, false);
 		if (slot == armorType) {
-			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "GoblinSlayer modifier " + type, night ? 0.5F : 0,  1));
-			attrib.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(uuid, "GoblinSlayer modifier " + type, night ? 0.03F : 0, 1));
+			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "GoblinSlayer modifier " + type, night ? 0.25F : 0,  1));
+			attrib.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(uuid, "GoblinSlayer modifier " + type, night ? 0.04F : 0, 1));
 		}
 		return attrib;
 	}

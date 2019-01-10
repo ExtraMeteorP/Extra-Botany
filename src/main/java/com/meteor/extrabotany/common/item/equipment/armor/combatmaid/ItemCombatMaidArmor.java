@@ -33,7 +33,7 @@ public class ItemCombatMaidArmor extends ItemCosmeticMaidArmor{
 		boolean night = ItemNBTHelper.getBoolean(stack, "isnight", false);
 		if (slot == armorType) {
 			attrib.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, (double) getArmorDisplay(null, new ItemStack(this), type.getIndex()) / 20, 0));
-			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 25 : 5, 0));
+			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 22.5 : 2.5, 0));
 			attrib.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 0.3F : 0, 1));
 			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 1F : 0, 1));
 			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 0.2F : 0, 1));

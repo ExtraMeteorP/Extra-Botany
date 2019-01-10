@@ -80,6 +80,7 @@ public class LibItemsName {
 	public static final String BAUBLE_PARKOUR = "parkour";
 	public static final String BAUBLE_ALLFORONE = "allforone";
 	public static final String BAUBLE_ELVENKING = "elvenking";
+	public static final String BAUBLE_FOXEAR = "foxear";
 	
 	public static final String CMHELM = "combatmaidhelm";
 	public static final String CMCHEST = "combatmaidchest";

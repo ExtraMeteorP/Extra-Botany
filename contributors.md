@@ -10,3 +10,5 @@ _BRS
 Amunesia
 -huiyiguo
 hwk
+zizisama
+knight

@@ -1,0 +1,28 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+	"parent": "minecraft:block/block",
+    "textures": {
+		"1": "extrabotany:blocks/cube_1",
+		"2": "extrabotany:blocks/cube_2",
+		"3": "extrabotany:blocks/cube_3",
+		"4": "extrabotany:blocks/cube_4",
+		"5": "extrabotany:blocks/cube_5",
+		"6": "extrabotany:blocks/cube_6",
+		"particle": "extrabotany:blocks/cube_6"
+    },
+    "elements": [
+        {
+            "name": "Cube",
+            "from": [ 3.0, 3.0, 3.0 ], 
+            "to": [ 13.0, 13.0, 13.0 ], 
+            "faces": {
+                "north": { "texture": "#1", "uv": [ 0.0, 0.0, 10.0, 10.0 ] },
+                "east": { "texture": "#2", "uv": [ 0.0, 0.0, 10.0, 10.0 ] },
+                "south": { "texture": "#3", "uv": [ 0.0, 0.0, 10.0, 10.0 ] },
+                "west": { "texture": "#4", "uv": [ 0.0, 0.0, 10.0, 10.0 ] },
+                "up": { "texture": "#5", "uv": [ 0.0, 0.0, 10.0, 10.0 ] },
+                "down": { "texture": "#6", "uv": [ 0.0, 0.0, 10.0, 10.0 ] }
+            }
+        }
+    ]
+}

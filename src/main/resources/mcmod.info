@@ -1,0 +1,16 @@
+[
+{
+  "modid": "extrabotany",
+  "name": "ExtraBotany",
+  "description": "A Botania addon.",
+  "version": "r1.1-51",
+  "mcversion": "1.12.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ExtraMeteorP"],
+  "credits": "",
+  "logoFile": "assets/extrabotany/textures/logo.png",
+  "screenshots": [],
+  "dependencies": [botania]
+}
+]

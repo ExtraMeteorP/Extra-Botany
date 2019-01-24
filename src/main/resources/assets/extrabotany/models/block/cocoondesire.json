@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "bottom": "extrabotany:blocks/cocoon_top",
+    "top": "extrabotany:blocks/cocoon_top",
+    "north": "extrabotany:blocks/cocoon_side",
+    "south": "extrabotany:blocks/cocoon_side",
+    "west": "extrabotany:blocks/cocoon_side",
+    "east": "extrabotany:blocks/cocoon_side",
+    "particle": "extrabotany:blocks/cocoon_side"
+  },
+  "elements": [
+    {
+      "name": "Cube",
+      "from": [ 3.0, 0.0, 3.0 ],
+      "to": [ 13.0, 14.0, 13.0 ],
+      "faces": {
+        "west": { "texture": "#west", "uv": [ 3.0, 1.0, 13.0, 15.0 ] },
+        "north": { "texture": "#north", "uv": [ 3.0, 1.0, 13.0, 15.0 ] },
+        "south": { "texture": "#south", "uv": [ 3.0, 1.0, 13.0, 15.0 ] },
+        "east": { "texture": "#east", "uv": [ 3.0, 1.0, 13.0, 15.0 ] },
+        "up": { "texture": "#top", "uv": [ 3.0, 3.0, 13.0, 13.0 ] },
+        "down": { "texture": "#bottom", "uv": [ 3.0, 3.0, 13.0, 13.0 ]}
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+"parent": "extrabotany:item/terrasteelshield_base",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [ 0, 90, 0 ],
+			"translation": [ 3, -2, 4 ],
+			"scale": [ 1.75, 1.75, 1.75 ]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [ 0, 90, 0 ],
+			"translation": [ 3, -2, 4 ],
+			"scale": [ 1.75, 1.75, 1.75 ]
+		},
+		"firstperson_righthand": {
+			"rotation": [ 0, 180, 5 ],
+			"translation": [ 2, -10, 2 ],
+			"scale": [ 1.75, 1.75, 1.75 ]
+		},
+		"firstperson_lefthand": {
+			"rotation": [ 0, 180, 5 ],
+			"translation": [ 2, -10, 2 ],
+			"scale": [ 1.75, 1.75, 1.75 ]
+		},
+		"gui": {
+			"rotation": [ 15, -25, -5 ],
+			"translation": [ 0, 0, 0 ],
+			"scale": [ 1,1,1 ]
+		},
+		"fixed": {
+			"rotation": [ 0, 180, 0 ],
+			"translation": [ -2, 4, -5 ],
+			"scale": [ 0.5, 0.5, 0.5 ]
+		},
+		"ground": {
+			"rotation": [ 0, 0, 0 ],
+			"translation": [ 0, 0, 2 ],
+			"scale": [ 0.25, 0.25, 0.25 ]
+		}
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"blocking": 1
+			},
+			"model": "extrabotany:item/terrasteelshield_blocking"
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "extrabotany:items/shadowwarriorboots"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "extrabotany:slayer": 1.0
+      },
+      "model": "extrabotany:item/shadowwarriorboots_slayer"
+    }
+	]
+  
+}

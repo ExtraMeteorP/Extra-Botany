@@ -1,0 +1,672 @@
+botania.knowledge.dream=Знания &6Мечты&7
+
+botania.brew.revolution=Революция
+botania.brew.shell=Черепаший Панцирь
+botania.brew.oneforall=Всё Могущество
+botania.brew.deadpool=Некромант
+botania.brew.floating=Левитация
+
+extrabotany.nei.pedestal=Пьедестал из Живокамня
+
+item.extrabotany:manareader.name=Считыватель Маны
+item.extrabotany:binder.name=Считыватель Позиции
+item.extrabotany:spiritfuel.name=Топливо Духов
+item.extrabotany:spirit.name=Фрагмент Духов
+item.extrabotany:nightmarefuel.name=Топливо Кошмаров
+item.extrabotany:shadowium.name=Мракиум
+item.extrabotany:friedchicken.name=Ножка Курицы-гриль
+item.extrabotany:ingotorichalcos.name=Слиток Орихалка
+item.extrabotany:goldpotato.name=Золотой Картофель
+item.extrabotany:godcloth.name=Дас Рейнгольд
+item.extrabotany:photonium.name=Фотониум
+item.extrabotany:ticket.name=Билет на Вызов
+item.extrabotany:gildedmashedpotato.name=Толченая
+item.extrabotany:manasteelhammer.name=Молот из Манастали
+item.extrabotany:terrasteelhammer.name=Молот из Террастали
+item.extrabotany:elementiumhammer.name=Молот из Элементума
+item.extrabotany:ultimatehammer.name=Ультимативный Молот
+item.extrabotany:natureorb.name=Сфера Природы
+item.extrabotany:heromedal.name=Медаль за Отвагу
+item.extrabotany:manasteelshield.name=Щит из Манастали
+item.extrabotany:elementiumshield.name=Щит из Элементума
+item.extrabotany:terrasteelshield.name=Щит из Террастали
+item.extrabotany:emptybottle.name=Пустой Бокал из Манастекла
+item.extrabotany:manadrink.name=Мана-Коктейль
+item.extrabotany:splashgrenade.name=Святая Граната
+item.extrabotany:cocktail.name=Специальный Коктейль
+item.extrabotany:infinitewine.name=Бесконечное Вино
+item.extrabotany:boat_manasteel.name=Корабль из Манастали
+item.extrabotany:boat_elementium.name=Корабль из Элементума
+item.extrabotany:boat_terrasteel.name=Корабль из Террастали
+item.extrabotany:excaliber.name=Экскалибур
+item.extrabotany:buddhistrelics.name=Начало Создания - Всеведение
+item.extrabotany:spearsubspace.name=Копье Подпространства
+item.extrabotany:masterhandbag.name=Маленькая Сумка
+item.extrabotany:coregod.name=Ядро Бога
+item.extrabotany:judahoath.name=Клятва Иуды
+item.extrabotany:judahoathkira.name=Клятва Иуды КИРА
+item.extrabotany:candy0.name=Хэллоуинская Конфета Уан
+item.extrabotany:candy1.name=Хэллоуинская Конфета Ту
+item.extrabotany:candy2.name=Хэллоуинская Конфета Сри
+item.extrabotany:candybag.name=Halloween Candy Night
+item.extrabotany:candychris0.name=Рождественская Конфета Уан
+item.extrabotany:candychris1.name=Рождественская Конфета Ту
+item.extrabotany:candychris2.name=Рождественская Конфета Сри
+item.extrabotany:candybagchris.name=Рождественская Гирлянда
+item.extrabotany:walkingcane.name=Ходячий Леденец
+
+item.extrabotany:kinggarden.name=Сад Царского Суда
+item.extrabotany:rewardbag1.name=Сумка с Наградой Уан
+item.extrabotany:rewardbag2.name=Сумка с Наградой Ту
+item.extrabotany:rewardbag3.name=Сумка с Наградой Сри
+item.extrabotany:rewardbag4.name=Сумка с Наградой Фор
+item.extrabotany:rewardbag943.name=Сумка с Наградой 12-3/6
+item.extrabotany:treasurebox.name=Ящик Пандоры
+item.extrabotany:failnaught.name=Ничтожность
+item.extrabotany:camera.name=Камера Шамеймару
+item.extrabotany:achilleshield.name=Щит Ахиллеса
+item.extrabotany:mastermanaring.name=Повящка Маны Мастера
+item.extrabotany:recordgaia3.name=Сломанная Пластинка
+item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
+
+item.extrabotany:froststar.name=Кольцо Холода
+item.extrabotany:deathring.name=Кольцо Проклятия
+item.extrabotany:walljumping.name=Кольцо Прыжка по Стенам
+item.extrabotany:wallrunning.name=Кольцо Бега по Стенам
+item.extrabotany:parkour.name=Кольцо Паркура
+item.extrabotany:elvenking.name=Кольцо Короля Эльфов
+item.extrabotany:allforone.name=Кольцо Семи Грехов
+item.extrabotany:puredaisypendant.name=Кулон Чистой Маргаритки
+item.extrabotany:supercrown.name=Супер Корона
+item.extrabotany:redscarf.name=Красный Шарф
+item.extrabotany:combatmaidhelm.name=Шлем Боевой Служанки
+item.extrabotany:combatmaidchest.name=Платье Боевой Служанки
+item.extrabotany:combatmaidlegs.name=Юбка Боевой Служанки
+item.extrabotany:combatmaidboots.name=Каблуки Боевой Служанки
+item.extrabotany:cosmeticmaidhelm.name=Шлем Звездного Божества
+item.extrabotany:cosmeticmaidchest.name=Накидка Звездного Божества
+item.extrabotany:cosmeticmaidlegs.name=Поножи Звездного Божества
+item.extrabotany:cosmeticmaidboots.name=Ботинки Звездного Божества
+item.extrabotany:combatmaidhelmrevealing.name=Шлем Боевой Служанки Открытия
+item.extrabotany:cosmeticmaidhelmrevealing.name=Шлем Звездного Божества Открытия
+item.extrabotany:combatmaidchestdarkened.name=Шлем Плеяды Теней
+item.extrabotany:shadowwarriorhelm.name=Шлем Бойца Теней
+item.extrabotany:shadowwarriorchest.name=Нагрудник Бойца Теней
+item.extrabotany:shadowwarriorlegs.name=Поножи Бойца Теней
+item.extrabotany:shadowwarriorboots.name=Ботинки Бойца Теней
+item.extrabotany:shadowkatana.name=Теневая Катана
+item.extrabotany:goblinslayerhelm.name=Шлем Убийцы Гоблинов
+item.extrabotany:goblinslayerchest.name=Нагрудник Убийцы Гоблинов
+item.extrabotany:goblinslayerlegs.name=Поножи Убийцы Гоблинов
+item.extrabotany:goblinslayerboots.name=Ботинки Убийцы Гоблинов
+item.extrabotany:.name=
+
+extrabotany.armorset.cosmeticmaid.desc0=Супер Родство Маны 
+extrabotany.armorset.combatmaid.desc0=Супер Сила Без Оружия в Руке
+extrabotany.armorset.combatmaid.desc1=Лучшая Регенерация
+extrabotany.armorset.combatmaid.desc2=Родство Маны
+extrabotany.armorset.shadowwarrior.desc0=Эта ночь такая страшная и безграничная, что мои глаза опускаются с мрачной тьмой.
+extrabotany.armorset.shadowwarrior.desc1=Но только они. Я ищу свою чистоту.
+extrabotany.armorset.shadowwarrior.name=Боец Теней
+extrabotany.armorset.goblinslayer.desc0=
+extrabotany.armorset.goblinslayer.desc1=
+extrabotany.armorset.goblinslayer.name=Убийца Гоблинво
+extrabotany.armorset.cosmeticmaid.name=Звездное Божество
+extrabotany.armorset.combatmaid.name=Боевая Служанка
+
+tile.extrabotany:pedestal.name=Пьедестал из Живокамня
+tile.extrabotany:blockorichalcos.name=Блок Орихалка
+tile.extrabotany:manabarrel.name=Буфер Маны
+tile.extrabotany:cocoondesire.name=Кокон Желаний
+tile.extrabotany:managenerator.name=Манаполе Флакса
+tile.extrabotany:manaliquefaction.name=Сжижеватель Маны
+tile.extrabotany:elfjar.name=Бочка из Живокамня
+tile.extrabotany:trophy.name=Трофей
+tile.extrabotany:fluidedmana.name=Сжиженная Мана
+tile.extrabotany:quantummanabuffer.name=Квантовый Буфер Маны
+
+entity.extrabotany:flowerWeapon.name=Цветок
+entity.extrabotany:gaiaIII.name=Страж Гайи III
+entity.extrabotany:skullmissile.name=Череп-Снаряд
+entity.extrabotany:skulllandmine.name=Череп-Мина
+entity.extrabotany:skullminion.name=Череп-Миньон
+entity.extrabotany:magicarrow.name=Магическая Стрела
+entity.extrabotany:fb.name=Воздушный Корабль
+entity.extrabotany:.name=
+
+extrabotanymisc.hammer=Кузница
+extrabotanymisc.hammerTip=Подсказка: Используй Молот для ковки предметов
+
+tile.botania:flower.bloodyenchantress.name=Кровавая Колдунья
+tile.botania:flower.bloodyenchantress.reference=Кровная Сделка
+tile.botania:flower.sunbless.name=Солнечная Лилия
+tile.botania:flower.sunbless.reference=Пусть свет озарит тебя
+tile.botania:flower.moonbless.name=Лунная Лилия
+tile.botania:flower.moonbless.reference=Ты найдешь все что потерял
+tile.botania:flower.omniviolet.name=Омнифиолет
+tile.botania:flower.omniviolet.reference=Лучше не знать
+tile.botania:flower.stonesia.name=Камнезия
+tile.botania:flower.stonesia.reference=ТОЛЬКО КОРОЛЬ МОЖЕТ ВЗЯТЬ ЦВЕТОК ИЗ КАМНЯ
+tile.botania:flower.tinkle.name=Звонкоцвет
+tile.botania:flower.tinkle.reference=Мой выход
+tile.botania:flower.bellflower.name=Колокольчик
+tile.botania:flower.bellflower.reference=Потерянный ветер
+tile.botania:flower.geminiorchid.name=Орхидея Близнецов
+tile.botania:flower.geminiorchid.reference=
+tile.botania:flower.annoyingflower.name=Раздрожающий Цветочек
+tile.botania:flower.annoyingflower.reference=Время отдыха
+tile.botania:flower.stardustlotus.name=Лотос из Звездной Пыли
+tile.botania:flower.stardustlotus.reference=Неопознанный Лепестковый Объект
+tile.botania:flower.manalinkium.name=Маносвяз
+tile.botania:flower.manalinkium.reference=Призвание Связи
+tile.botania:flower.reikarlily.name=Лилия Рейкара
+tile.botania:flower.reikarlily.reference=Ну это просто бан
+tile.botania:flower.enchantedorchid.name=Зачарованная Орхидея
+tile.botania:flower.enchantedorchid.reference=У меня нет времени на игры
+tile.botania:flower.edelweiss.name=Эдельвейс
+tile.botania:flower.edelweiss.reference=Хочешь слепить снеговика?
+tile.botania:flower.mirrowtunia.name=Зеркалия
+tile.botania:flower.mirrowtunia.reference=Свет мой, зеркальце, скажи...
+tile.botania:flower..name=
+tile.botania:flower..reference=
+
+fluid.fluidedmana=Сжиженная Мана
+tile.fluidedmana.name=Сжиженная Мана
+
+itemGroup.extrabotany=ExtraBotany
+
+extrabotany.wings0=Крылья: Богиня
+extrabotany.wings1=Крылья: Фландре
+extrabotany.repairupgrade1=Починка I
+extrabotany.repairupgrade2=Починка II
+extrabotany.repairupgrade3=Починка III
+extrabotany.damageupgrade1=Острота I
+extrabotany.damageupgrade2=Острота II
+extrabotany.damageupgrade3=Острота III
+extrabotany.damageupgrade4=Острота IV
+extrabotany.damageupgrade5=Острота V
+extrabotany.damageupgrade6=Острота VI
+extrabotany.damageupgrade7=Острота VII
+extrabotany.damageupgrade8=Острота VIII
+extrabotany.damageupgrade9=Острота IX
+extrabotany.damageupgrade10=Острота X
+extrabotany.rangeupgrade=Дальность I
+extrabotany.bindx=X:
+extrabotany.bindy=Y:
+extrabotany.bindz=Z:
+extrabotany.binddim=Dim:
+extrabotany.kinggarden=Конфигурация: 
+extrabotanymisc.gaiaPreparing=Страж Гайи подготавливает СПЕЦИАЛЬНУЮ атаку!
+extrabotanymisc.gaiaWarning=5 секунд до СПЕЦИАЛЬНОЙ атаки!
+extrabotanymisc.gaiaWarning2=Страж Гайи нанесет огромный урон случайному игроку! Кто же будет на этот раз?
+extrabotanymisc.gaiaWarning3=Страж Гайи нанесет большой урон тебе, везунчик!
+extrabotanymisc.minionSpawn=Страж Гайи призвал своих миньонов. Тебе лучше сначала убить их ;)
+extrabotany.natureorb=Дыхание Природы: 
+extrabotany.natureorbeffect1false=Благословение Маны(Выключено)
+extrabotany.natureorbeffect1true=Благословение Маны&b(Включено)
+extrabotany.natureorbeffect2false=Благословение Регенерации(Выключено)
+extrabotany.natureorbeffect2true=Blessing of Regeneration&4(Включено)
+extrabotany.natureorbeffect3false=Благословение Сенро(Выключено)
+extrabotany.natureorbeffect3true=Благословение Сенро&2(Включено)
+extrabotany.bonusbase=Шанс получить следующие предметы:
+extrabotanymisc.disabledblock=Этот Блок был выкючен. Не создавай и не используй его.
+extrabotanymisc.bindingwrong=Привязка провалена. Проверьте правильность позиции и соответствие измерения.
+
+extrabotanymisc.noveline0=Это, по-моему, самое красивое и самое печальное место на свете.
+extrabotanymisc.noveline1=Этот же уголок пустыни нарисован и на предыдущей странице, но я нарисовал еще раз, чтобы вы получше его разглядели.
+extrabotanymisc.noveline2=Здесь Маленький принц впервые появился на Земле, а потом исчез.
+extrabotanymisc.noveline3=Всмотритесь внимательней, чтобы непременно узнать это место, если когда-нибудь вы попадете в Африку, в пустыню.
+extrabotanymisc.noveline4=Если вам случится тут проезжать, заклинаю вас, не спешите!
+extrabotanymisc.noveline5=Помедлите немного под этой звездой!
+extrabotanymisc.noveline6=И если к вам подойдет маленький мальчик с золотыми волосами, если он будет звонко смеяться и ничего не ответит на ваши вопросы, вы, уж конечно, догадаетесь, кто он такой.
+extrabotanymisc.noveline7=Тогда - очень прошу вас! - не забудьте утешить меня в моей печали.
+extrabotanymisc.noveline8=Скорей напишите мне, что он вернулся...
+
+botania.entry.bloodyenchantress=Кровавая Колдунья
+botania.page.bloodyenchantress0=Кровавая Колдунья создает &4Ману&0 поглащая жизни существ. Существа, поглощенные Кровавой Колдуньей не оставят предметов и опыта при смерти.
+botania.page.bloodyenchantress1=Одно лекарство - смерть.
+botania.tagline.bloodyenchantress=Сгорающая душа
+
+botania.entry.sunbless=Солнечная Лилия
+botania.page.sunbless0=Почти как &1Dayblooms&0 Солнечная Лилия создает &4Ману&0 из солнечного света, но чуть-чуть эффективнее. Отмечу, что она разлагается.
+botania.page.sunbless1=Лечение и тепло.
+botania.tagline.sunbless=Мана от Солнца
+
+botania.entry.moonbless=Лунная Лилия
+botania.page.moonbless0=Почти как &1Nightshade&0 Лунная Лилия создает &4Ману&0 ночьб, но чуть-чуть эффективнее. Отмечу, что она разлагается.
+botania.page.moonbless1=Зевание дурака.
+botania.tagline.moonbless=Мана от Луны
+
+botania.entry.omniviolet=Омнифиолет
+botania.page.omniviolet0=Следуя слухам, знания - это сила. Омнифиолет преобразует &4Книги&0 и &4Написанные Книги&0 в &Ману&0. &4Книжные Полки&0 могут быть поставлены вокруг Омнивиолета для увеличение производства Маны. 
+botania.page.omniviolet1=Записи Акаши.
+botania.tagline.omniviolet=Знания - сила
+
+botania.entry.stonesia=Камнезия
+botania.page.stonesia0=Камнезия может преобразовывать &4Булыжник&0,&4Камень&0 и &4Руды&0 в &4Ману&0. Редкие руды - больше маны. &4Сфера Природы&0 на &4Пьедестале из Живокамня&0 может увеличить эффективность производства Маны.
+botania.page.stonesia1=Алмаз или Жемчужина.
+botania.tagline.stonesia=Редкая ценность
+
+botania.entry.tinkle=Звонкоцвет
+botania.page.tinkle0=Звонкоцвет преобразует кинетическую энергию Игрока в &4Ману&0. &4Сфера Природы&0 на &4Пьедестале из Живокамня&0 может увеличить эффективность производства Маны.
+botania.page.tinkle1=Ding dong, here I come to find you.
+botania.tagline.tinkle=Rush!Rush!Rush!
+
+botania.entry.bellflower=Колокольчик
+botania.page.bellflower0=Колокольчик может производить &4Ману&0 из ветра под открытым небом. Сильнее ветер - больше маны. &4Сфера Природы&0 на &4Пьедестале из Живокамня&0 может увеличить эффективность производства Маны. Отмечу, что он разлагается.
+botania.page.bellflower1=Только гроза может валить деревья.
+botania.tagline.bellflower=Мана из ветра
+
+botania.entry.annoyingflower=Раздрожающий Цветочек
+botania.page.annoyingflower0=Раздрожающий Цветочек может рыбачить в &4Пьедестале из Живокамня&0, наполненного водой. Для этого он использует Ману. Подкормка &4Ножками Курицы-гриль&0 увеличивает эффективность и вероятность поимки сокровищ.
+botania.page.annoyingflower1=T900.
+botania.page.annoyingflower2=&4Жаренная Курица&0 может быть покрыта &4Маной&0. &4Ножки Курицы-гриль&0 восстанавливают больше голода и насыщения.
+botania.page.annoyingflower3=Ни ангел, ни дьявол
+botania.tagline.annoyingflower=Время рыбалки.
+
+botania.entry.manalinkium=Маносвяз
+botania.page.manalinkium0=The Manalinkium can wirelessly transfer &4Ману&0 to a Mana Pool. Right-clicking it with a Position Reader that has the position of a Mana Pool stored will start the process.
+botania.page.manalinkium1=This is too real.
+botania.page.manalinkium2=A multiblock structure is needed to function.
+botania.page.manalinkium3=The Manalinkium has to be placed one above the empty middle block.
+botania.page.manalinkium4=
+botania.tagline.manalinkium=Wireless Transmission
+
+botania.entry.stardustlotus=Лотос из Звездной Пыли
+botania.page.stardustlotus0=The Stardust Lotus uses &4Ману&0 to create a portal that teleports creatures to a specified location. Right-clicking it with a Position Reader that has a position stored will transfer that position to the Stardust Lotus. Throwing a paper onto the Stardust Lotus starts the portal creation. A circle of sparkles around the flower shows that it is ready.
+botania.page.stardustlotus1=Better than wolves.
+botania.page.stardustlotus2=A multiblock structure is needed to function.
+botania.page.stardustlotus3=The Stardust Lotus has to be placed one above the empty middle block.
+botania.page.stardustlotus4=
+botania.tagline.stardustlotus=Directional Teleport
+
+botania.entry.reikarlily=Лилия Рейкара
+botania.page.reikarlily0=The Reikar Lily turns the tremendous energy of lightning into &4Ману&0. When a lightning bolt hits nearby, it will generate a great amount of &4Ману&0 immediately and continue to produce &4Ману&0 for a long time.
+botania.page.reikarlily1=I Choose You!
+botania.tagline.reikarlily=Lightning Energy
+
+botania.entry.edelweiss=Эдельвейс
+botania.page.edelweiss0=Edelweiss will swallow the snow golem or iron golem to produce mana.
+botania.page.edelweiss1=If you are reading this, you can read.
+botania.tagline.edelweiss=A bit cruel
+
+botania.entry.geminiorchid=Орхидея Близнецов
+botania.page.geminiorchid0=A &1Gemini Orchid&0 is like a thermoelectric generator. If you place a block of lava in the corner diagonally opposite, and then place a block of water in another corner diagonally opposite, it will begin to produce mana. The higher the gap between two blocks' temperatures, the quicker mana will be generated.
+botania.page.geminiorchid1=I am power incarnate!
+botania.page.geminiorchid2=
+botania.tagline.geminiorchid=
+
+botania.entry.mirrortunia=Зеркалия
+botania.page.mirrortunia0=Mirrortunia will give players around a potion effect called "Mirror Force", and clear bad potion effects.
+botania.page.mirrortunia1=
+botania.tagline.mirrortunia=
+
+botania.entry.enchantedorchid=Зачарованная Орхидея
+botania.page.enchantedorchid0=The Enchanted Orchid can infuse grass blocks beneath it to create Enchanted Soil. It will need a Black Lotus, a large quantity of &4Ману&0 and a long time for each transformation.
+botania.page.enchantedorchid1=The truth is always one
+botania.tagline.enchantedorchid=Knowledge is power and I know a lot
+
+botania.entry.manabarrel=Mana Buffer
+botania.page.manabarrel0=The Mana Buffer can store as much &4Ману&0 as 64 Mana Pools. It will drain &4Ману&0 from adjacent mana pools and supply it to a Mana Pool placed on top of it.
+ botania.page.manabarrel1=Un...Deux...Trois...
+botania.tagline.manabarrel=Store Mana
+
+botania.entry.kinggarden=Garden of King's Law
+botania.page.kinggarden0=Garden of King's Law can summon flowers which are recorded by it to give the enemy a heavy blow. Just place it on the Livingrock Pedestal, hold a flower and right-click to record. Different flowers will have different effects.
+botania.page.kinggarden1=For example, Blood Enchantress will deal high magic damage, Sunshine Lily will set enemies on fire. But not every type of flower can be recorded.
+botania.page.kinggarden2=Enuma Elish.
+botania.page.kinggarden3=Sha Nagba Imuru.
+botania.tagline.kinggarden=Ultimate Flower Work
+
+botania.entry.nightmarefuel=Nightmare Fuel
+botania.page.nightmarefuel0=Nightmare Fuel is an advanced fuel created by Mana Infusion. It seems to be edible.
+botania.page.nightmarefuel1=The brain trembles.
+botania.tagline.nightmarefuel=
+
+botania.entry.spiritfuel=Spirit Fuel
+botania.page.spiritfuel0=Spirit Fuel is an edible material which is obtained by eating Nightmare Fuel. Holding a Lexica Botania and right-clicking a Livingrock Pedestal with Spirit Fuel in it will unlock new knowledge.
+botania.page.spiritfuel1=A believing heart is your magic.
+botania.tagline.spiritfuel=Hive mind
+
+botania.entry.manareader=Mana Reader
+botania.page.manareader0=Right-clicking a Mana Pool with the Mana Reader displays the amount of &4Ману&0 stored. 
+botania.page.manareader1=Rion.
+botania.tagline.manareader=Display Mana
+
+botania.entry.binder=Position Reader
+botania.page.binder0=Sneak right-clicking a block with the Position Reader stores its position. Right-clicking a block or flower that can store a position will transfer the stored position onto it.
+botania.page.binder1=The greatest inventions of the century
+botania.tagline.binder=Positional Advantage
+
+botania.entry.pedestal=Пьедестал из Живокамня
+botania.page.pedestal0=Right-click to place items on the Livingrock Pedestal. A hammer can be used to forge items on a Livingrock Pedestal.
+botania.page.pedestal1=What is evil? Everything that comes from weakness is evil.
+botania.page.pedestal2=Hidden is a kind of outstanding talent.
+botania.page.pedestal3=Hell is other people.
+botania.page.pedestal4=Nothing is as dangerous as an ignorant friend, better a wise enemy.
+botania.page.pedestal5=Leave all hope, you who enter.
+botania.page.pedestal6=Man is condemned to be free.
+botania.tagline.pedestal=Показ предметов
+
+botania.entry.froststar=Кольцо Холода
+botania.page.froststar0=The &1Frost Ring&0 freezes large areas of water and lava. It also applies slowness creatures looked at by the wearer.
+botania.page.froststar1=I am the frozen heart of the Scourge!
+botania.tagline.froststar=Freeze, don't move!
+
+botania.entry.deathring=Кольцо Проклятия
+botania.page.deathring0=The &1Curse Ring&0 applies the Wither and Unluck effect on creatures looked at by the wearer at the cost of some &4Ману&0.
+botania.page.deathring1=Do not fear power... fear those who wield it!
+botania.tagline.deathring=Призрачная охота началась.
+
+botania.entry.hammer=Молот
+botania.page.hammer0=Hammers are used for forging on Livingrock Pedestals. They can also be used as pickaxes and can use &4Ману&0 instead of durability.
+botania.page.hammer1=Encountered in my dream.
+botania.page.hammer2=Это было бы хорошо.
+botania.page.hammer3=Я больше ничего не боюсь.
+botania.page.hammer4=The Ultimate Hammer is a better version of the Terrasteel Hammer which can be upgraded. Place it in a Livingrock Pedestal and to apply upgrades. Gilded Mashed Potato - Repair Upgrade. Elementium Sword - Sharpness Upgrade. Terrasteel Hammer - Range Upgrade.
+botania.page.hammer5=Без сожаления.
+botania.tagline.hammer=
+
+botania.entry.goldpotato=Золотой Картофель
+botania.page.goldpotato0=Золотой Картофель может иметь много применений.
+botania.page.goldpotato1=Это чудо, что-то волшебное.
+botania.tagline.goldpotato=Золотой Легендарный
+
+botania.entry.failnaught=Failnaught
+botania.page.failnaught0=The Failnaught uses &4Ману&0 to shoot magic arrows which pierce through enemies and deal damage to the creatures in the area. The longer you draw the bow, the more damage it will deal.
+botania.page.failnaught1=A hundred shots, a hundred bullseyes.
+botania.tagline.failnaught=ARTIFACT.
+
+botania.entry.natureorb=Сфера Природы
+botania.page.natureorb0=The Nature Orb can store &1Natural Breath&0, a magical power which protects the carrier. To collect &1Natural Breath&0 it needs to be placed on a Livingrock Pedestal and a ritualistic multiblock structure around Livingrock Pedestal is needed. Additionally the Nature Orb grants boosts to certain nearby flowers.
+botania.page.natureorb1=Not a Blood Orb.
+botania.page.natureorb2=Rank I Ritual.
+botania.page.natureorb3=Rank II Ritual.
+botania.page.natureorb4=Build a multiblock structure and place it on the Livingrock Pedestal to collect &1Natural Breath&0.
+botania.tagline.natureorb=Natural Balance
+
+botania.entry.camera=Камера Шамеймару
+botania.page.camera0=Shameimaru's Camera strips nearby creatures of their abilities. Projectiles in sight will vanish. Creatures affected by this will return to normal after getting hurt.
+botania.page.camera1=Щелк!
+botania.tagline.camera=Скажи "сыр"!
+
+botania.entry.gaia3=Ритуал Гайи III
+botania.page.gaia30=100,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.
+botania.page.gaia31=For the Gaia Guardian III fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! (except if its changed in the config) 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania (except if its changed in the config). Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
+botania.page.gaia32=Естественный Отбор.
+botania.tagline.gaia3=Это ХАРДКОР
+
+botania.entry.gaia4=Ritual of Gaia IV
+botania.page.gaia40=100,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.
+botania.page.gaia41=For the Gaia Guardian IV fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! (except if its changed in the config) 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania (except if its changed in the config). Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
+botania.page.gaia42=Естественный Отбор.
+botania.tagline.gaia4=Это ХАРДКОР
+
+botania.entry.relicshield=Achilled Shield
+botania.page.relicshield0=The &4Achilled Shield&0 can reflect damage and most projectiles. Colliding with enemies while blocking will deal damage to them. 
+botania.page.relicshield1=Я остановлю человечество
+botania.tagline.relicshield=AT Field
+
+botania.entry.mastermanaring=Master Band of Mana
+botania.page.mastermanaring0=The &4Master Band of Mana&0 can store nearly a infinite amount of &4Ману&0.
+botania.page.mastermanaring1=Тортик - ложь.
+botania.tagline.mastermanaring=IMPOSSIBLE
+
+botania.entry.cocoondesire=Cocoon of Desire
+botania.page.cocoondesire0=The Cocoon of Desire will slowly evolve the rudimentary contents inside it into a creature. Giving it items via a right click or by simply dropping them on it changes the creature hatching from the Cocoon of Desire.
+botania.page.cocoondesire1=Block of Coal - Wither Skeleton. Wheat - Pig. Wool - Sheep. More are to be discovered.
+botania.page.cocoondesire2=Nerf this
+botania.tagline.cocoondesire=Incubator
+
+botania.entry.combatmaid=Pleiades Combat Maid
+botania.page.combatmaid0=An improved version of Terrasteel Armor. The wearer will gain the ability of regeneration while wearing a full set of it. It will also clear negative effects and give the wearer super powers when empty-handed.
+botania.page.combatmaid1=Pleiades Combat Maid Headgear
+botania.page.combatmaid2=Pleiades Combat Maid Suit
+botania.page.combatmaid3=Pleiades Combat Maid Skirt
+botania.page.combatmaid4=Pleiades Combat Maid Boots
+botania.tagline.combatmaid=Повелитель
+
+botania.entry.cosmeticmaid=Звездное Божество
+botania.page.cosmeticmaid0=Улучшенная версия брони из &4Манастали&0, дает носителю большую экономию Маны.
+botania.page.cosmeticmaid1=Starry Idol Headgear
+botania.page.cosmeticmaid2=Starry Idol Suit
+botania.page.cosmeticmaid3=Starry Idol Skirt
+botania.page.cosmeticmaid4=Starry Idol Boots
+botania.tagline.cosmeticmaid=Miku Miku Dance
+
+botania.entry.managenerator=Flux Manafield
+botania.page.managenerator0=By passing &4Forge Energy&0 through a field of natural energy, its state can be transformed from redstone based energy into &4Ману&0.<br>Simply attaching &4FE&0 transporters, will start the conversion from &4FE&0 to &4Ману&0. A Mana Spreader is needed to transfer the &4Ману&0.
+botania.page.managenerator1=Science Bitch!
+botania.tagline.managenerator=Converts Energy into Mana
+
+botania.entry.manadrink=Mana Cocktail
+botania.page.manadrink0=Hold an Empty Mana Glass Bottle and right-click a Mana Liquefaction Device with at least 100mb Fluided Mana will acquire a tasty drink.
+botania.page.manadrink1=Cheers!
+botania.tagline.manadrink=Tasty
+
+botania.entry.manaliquefaction=Mana Liquefaction Device
+botania.page.manaliquefaction0=Mana Liquefaction Device will drain &4Fluided Mana&0 from liquid tank nearby and transfer into Mana. <br>If giving a redstone signal, it will drain mana, transform it into Fluided Mana and output to nearby liquid tank.
+botania.page.manaliquefaction1=Non-Science
+botania.page.manaliquefaction2=
+botania.tagline.manaliquefaction=Liquid Mana
+
+botania.entry.cocktail=Special-made Cocktail
+botania.page.cocktail0=By crafting any flask/vial potion with a Mana Cocktail , you can make a Special-made Cocktail that can be drinked two more times than the original flask/vial and it has a longer effect. <br>Aditionaly very special potions have been added and can be crafted into Cocktails too.
+botania.page.cocktail1=Greatly improve the efficiency of mining, but overdraft your luck
+botania.page.cocktail2=
+botania.page.cocktail3=High level of resistance, but slow as turtle.
+botania.page.cocktail4=
+botania.page.cocktail5=Gain super strength, but what's the cost?
+botania.page.cocktail6=
+botania.page.cocktail7=Almost all positive effects! But wouldn't last long
+botania.page.cocktail8=
+botania.page.cocktail9=One can make you floating, may be better if used on enemies?
+botania.page.cocktail10=
+botania.tagline.cocktail=
+
+botania.entry.infinitewine=Infinite Wine
+botania.page.infinitewine0=Infinite Wine, that you can drink almost infinitly, it only costs mana to refill. To make one, you just need to combine a Special-made Cocktail with heroes medal.You can change the effects by crafting with other varieties of Special-made Cocktail. <br>Be carefull though, if you drink it all before it can refill, you will lose your relic and get a empty mana glass back, and you can only Restore 3 uses per minecraft day.
+botania.tagline.infinitewine=Baccano!
+
+botania.entry.splashgrenade=Holy Grenade
+botania.page.splashgrenade0=When a Special-made Cocktail is crafted with Popped Chorus Fruit. You make a Holy Grenade! The Holy Grenade will deal massive damage after exploding, giving bad effects to other creatures and giving the good effects to players. <br>A perfect item, but why is it a grenade?
+botania.tagline.splashgrenade=Art is explosion
+
+botania.entry.shadowwarrior=Shadow Warrior
+botania.page.shadowwarrior0=With the magic of Gilded Mashed Potato, we can use Nightmare Fuel and a Elementium Ingot to make Shadowium. It's a very special kind of material.
+botania.page.shadowwarrior1=And Then There Were None.
+botania.page.shadowwarrior2=With the power of Shadowium, Armour crafted with it will give wearer speed, strength, and night vision when the night comes. A sword made of it also seems to call upon Shadow pixies
+botania.page.shadowwarrior3=Shadow Warrior Helmet
+botania.page.shadowwarrior4=Shadow Warrior Chestplate
+botania.page.shadowwarrior5=Shadow Warrior Leggings
+botania.page.shadowwarrior6=Shadow Warrior Boots
+botania.page.shadowwarrior7=Shadow Katana
+botania.tagline.shadowwarrior=Not A Vampire
+
+botania.entry.elfjar=Livingrock Barrel
+botania.page.elfjar0=A Livingrock Barrel can simply contain 16 buckets of liquid. It will also supply water to the Altar next to it if it has any.
+botania.page.elfjar1=Minecraft is too easy.
+botania.tagline.elfjar=Simple
+
+botania.entry.supercrown=Super Crown
+botania.page.supercrown0=When you are equipping the Starry Idol Armor Set or the Pleiades Combat Maid Armor Set, the Super Crown will reduce damage you take by 2.
+botania.page.supercrown1=You are not Toadette.
+botania.tagline.supercrown=Cat Mario
+
+botania.entry.puredaisypendant=Pure Daisy Pendant
+botania.page.puredaisypendant0=By holding a Pure Daisy Pendant and right-clicking a block, you can instanly transform blocks like a pure daisy, at the cost of a little mana. After 64 uses, it will cool down for 2.5min, and it only cools down when it is equipped.
+botania.page.puredaisypendant1=My beauty is in position.
+botania.tagline.puredaisypendant=Now You See Me, Now You Don't
+
+botania.entry.buddhistrelics=Origin Creation - Omniscience
+botania.page.buddhistrelics0=Origin Creation - The Omniscience relic can simulate some of the Relics by sneak and right-clicking to switch its form. Keeping other forms will cost &4Ману&0.
+botania.tagline.buddhistrelics=java.lang.NullPointerException
+
+botania.entry.spearsubspace=Копье Подпространства
+botania.page.spearsubspace0=Копье Подпространства может призывать энергию из Подпространства для убийства врагов.
+botania.page.spearsubspace1=
+botania.page.spearsubspace3=Слиток Орихалка
+botania.tagline.spearsubspace=Почувствуй внеземную силу!
+
+botania.entry.godcore=Core of God
+botania.page.godcore0=A upgrade to the Flügel tiara, the Core of God alows infinite flight at the cost of &4Ману&0. The Core of God also gives a slight strength boost and provides faster flight than the tiara
+botania.page.godcore1=
+botania.tagline.godcore=
+
+botania.entry.parkour=Ring of Parkour
+botania.page.parkour0=Ring of Wall-Run will enable you to climb any wall you want, and Ring of Wall-Jump enables you to "jump" on the wall at most 5 times until you reach the ground.
+botania.page.parkour1=
+botania.page.parkour2=
+botania.page.parkour3=While Ring of Parkour combines both.
+botania.page.parkour4=
+botania.tagline.parkour=
+
+botania.entry.elvenking=Кольцо Короля Эльфов
+botania.page.elvenking0=Кольцо Короля Эльфов может использововать три обычных умения в трех первых слотах &4Bauble Case&0. Не все умения могут быть применены.
+botania.page.elvenking1=
+botania.tagline.elvenking=
+
+botania.entry.walkingcane=Walking Cane
+botania.page.walkingcane0=Walking Cane can increase one's speed when he is holding it. What's more, you can right-click to dash a long distance, which costs just a little mana.
+botania.page.walkingcane1=
+botania.tagline.walkingcane=
+
+botania.entry.allforone=Кольцо Семи Грехов
+botania.page.allforone0=Улучшенная версия &4Кольца Короля Эльфов&0, Кольцо Семи Грехов может использовать все умения в &4Bauble Case&0.
+botania.page.allforone1=
+botania.tagline.allforone=Семь Грехов, а сколько пользы!
+
+botania.entry.godweave=Das Rheingold
+botania.page.godweave0=Das Rheingold can empty the binding of a relic, just crafting the relic with it. If you want to bind the relic to a specific person, hold the Das Rheingold and right-click him, then the crafting will make the relic bind to him.
+botania.page.godweave1=
+botania.tagline.godweave=
+
+botania.entry.ticket=Билет на Вызов
+botania.page.ticket0=Билет на Вызов может быть использован для призыва Стража Гайи III.
+botania.page.ticket1=
+botania.tagline.ticket=Осмелишься ли ты?
+
+botania.entry.goblinslayer=Goblin Slayer Armor
+botania.page.goblinslayer0=Photonium is the opposite side of Shadowium.
+botania.page.goblinslayer1=
+botania.page.goblinslayer2=It can be used to make Goblin Slayer Armor, which powers player during day time, enabling him to regenerate more quickly and deal extra damage to non-undead creatures.
+botania.page.goblinslayer3=
+botania.page.goblinslayer4=
+botania.page.goblinslayer5=
+botania.page.goblinslayer6=
+botania.tagline.goblinslayer=
+
+botania.entry.=
+botania.page.0=
+botania.page.1=
+botania.tagline.=
+
+extrabotany.desc=Welcome to the World of the supreme principle of Mana
+
+extrabotany.config.waila.pool=Waila Support for Mana Pool
+extrabotany.config.waila.managenerator=Waila Support for Flux Manafield
+extrabotany.config.waila.manabuffer=Waila Support for Mana Buffer
+extrabotany.config.waila.manaliquefaction=Waila Support for Mana Liquefaction
+extrabotany.config.enable.managenerator=Enable Flux Manafield
+extrabotany.config.enable.manaliquefaction=Enable Mana Liquefaction Device
+extrabotany.config.enable.gaiaspawning=Enable Summoning Gaia Guardian III
+extrabotany.config.enable.gaiadisarm=Enable Gaia Guardian III to Disarm
+extrabotany.config.enable.gaiasmash=Enable Gaia Guardian III to destroy block
+extrabotany.config.enable.topsupport=Enable The One Probe Support
+extrabotany.config.enable.divinejudge=Enable Gaia Guardian III to release Sword Domain
+extrabotany.config.enable.candybag=Enable Monster to hold a Halloween Candy Night when spawning
+extrabotany.config.chance.candybag=The chance that monster will hold a Halloween Candy Night when spawning
+extrabotany.config.enable.ca=Enable Construct's Armory Compat
+
+advancement.extrabotany:nightmarefuelEating=Deep Dark Fantasy
+advancement.extrabotany:nightmarefuelEating.desc=Eat a Nightmare Fuel.(Unbelievable)
+advancement.extrabotany:newknowledgeUnlock=Unlock New Knowledge
+advancement.extrabotany:newknowledgeUnlock.desc=Hold a Lexicon and right-click a Livingrock Pedestal with a Spirit Fuel in it
+advancement.extrabotany:pedestalCraft=CONNECT
+advancement.extrabotany:pedestalCraft.desc=Craft a Livingrock Pedestal
+advancement.extrabotany:ultimatehammerCraft=PONPONPON
+advancement.extrabotany:ultimatehammerCraft.desc=Craft an Ultimate Hammer
+advancement.extrabotany:ultimatehammerUpgrade=Front Lovers
+advancement.extrabotany:ultimatehammerUpgrade.desc=Use a Gilded Mashed Potato to upgrade your Ultimate Hammer
+advancement.extrabotany:fragmentForge=Gears of Love
+advancement.extrabotany:fragmentForge.desc=Forge one item on the Livingrock Pedestal
+advancement.extrabotany:manareaderCraft=Satisfaction
+advancement.extrabotany:manareaderCraft.desc=Craft a Mana Reader
+advancement.extrabotany:posbinderCraft=Letter Song
+advancement.extrabotany:posbinderCraft.desc=Craft a Position Reader
+advancement.extrabotany:stardustlotusTeleport=Promise
+advancement.extrabotany:stardustlotusTeleport.desc=Use a Stardust Lotus to teleport yourself
+advancement.extrabotany:manalinkiumUse=Crystalline
+advancement.extrabotany:manalinkiumUse.desc=Bind a Mana Pool to the Manalinkium
+advancement.extrabotany:tinkleUse=Project Diva Desu
+advancement.extrabotany:tinkleUse.desc=Dance around a Tinkle Flower
+advancement.extrabotany:bloodyenchantressUse=Sweet Devil
+advancement.extrabotany:bloodyenchantressUse.desc=Use a Bloody Enchantress to generate mana
+advancement.extrabotany:manabufferCraft=ロストワンの号哭
+advancement.extrabotany:manabufferCraft.desc=Craft a Mana Buffer
+advancement.extrabotany:kinggardenCraft=Last Night, Good Night
+advancement.extrabotany:kinggardenCraft.desc=Craft a Garden of King's Law
+advancement.extrabotany:annoyingdogSummon=April Fool
+advancement.extrabotany:annoyingdogSummon.desc=The Dog absorbs the artifact
+advancement.extrabotany:failnaughtCraft=from Y to Y
+advancement.extrabotany:failnaughtCraft.desc=Craft the Failnaught
+advancement.extrabotany:cameraCraft=lukaluka night fever
+advancement.extrabotany:cameraCraft.desc=Craft a Shameimaru's Camera
+advancement.extrabotany:gaiaDefeat=KiLLER LADY
+advancement.extrabotany:gaiaDefeat.desc=Defeat Gaia Guardian III
+advancement.extrabotany:natureorbCraft=Single floor
+advancement.extrabotany:natureorbCraft.desc=Craft a Nature Orb
+advancement.extrabotany:landmineActive=WORLD'S END UMBRELLA
+advancement.extrabotany:landmineActive.desc=Take damage from a red landmine
+advancement.extrabotany:achilleshieldCraft=Mr.Wonder
+advancement.extrabotany:achilleshieldCraft.desc=Obtain Achilled Shield
+advancement.extrabotany:mastermanaringCraft=COLOR
+advancement.extrabotany:mastermanaringCraft.desc=Obtain Master Band of Mana
+advancement.extrabotany:mastermanaringFill=Fairytale
+advancement.extrabotany:mastermanaringFill.desc=Fill it to WIN the game
+advancement.extrabotany:musicAll=Senbonzakura
+advancement.extrabotany:musicAll.desc=Patient Listener
+advancement.extrabotany:armorsetCos=cat's dance
+advancement.extrabotany:armorsetCos.desc=Equip Starry Idol Armor Set
+advancement.extrabotany:armorsetCombat=Drug Of Gold
+advancement.extrabotany:armorsetCombat.desc=Equip Pleiades Combat Maid Armor Set
+advancement.extrabotany:armorsetSW=Crazy ∞ nighT
+advancement.extrabotany:armorsetSW.desc=Equip Shadow Warrior Armor Set at night
+advancement.extrabotany:airshipMaxheight=Slowly sky
+advancement.extrabotany:airshipMaxheight.desc=Drive a Terrasteel Airship at least 200 metres high
+advancement.extrabotany:infinitewineCraft=shake it
+advancement.extrabotany:infinitewineCraft.desc=Obtain Infinite Wine
+advancement.extrabotany:excaliberCraft=ReAct
+advancement.extrabotany:excaliberCraft.desc=Obtain Excaliber
+advancement.extrabotany:allStats=Erase or Zero
+advancement.extrabotany:allStats.desc=Unlock All ExtraBotany's Advancements
+advancement.extrabotany:luckyDraw=Starduster
+advancement.extrabotany:luckyDraw.desc=Obtain Super Rare Item through Reward Bag
+advancement.extrabotany:buddhistRelics=SPiCa
+advancement.extrabotany:buddhistRelics.desc=Obtain Origin Creation - Omniscience
+advancement.extrabotany:spearsubspaceCraft=
+advancement.extrabotany:spearsubspaceCraft.desc=Obtain Spear of Subspace
+advancement.extrabotany:armorsetGS=
+advancement.extrabotany:armorsetGS.desc=Equip Goblin Slayer Armor Set
+
+advancement.extrabotany:=
+advancement.extrabotany:.desc=
+
+extrabotany.potion.mindcrack=Взрыв Разума
+extrabotany.potion.eternity=Вечность
+extrabotany.potion.reflect=Сила Зеркала
+extrabotany.potion.constantpain=Постоянная Боль
+extrabotany.potion.blacksabbath=Черный Шабаш
+extrabotany.potion.divinejustice=Божественное Правосудие
+extrabotany.potion.bloodtemptation=Кровавое Искушение
+
+modifier.shadow.name=Тень
+modifier.shadow.desc=§oВ Темноту！§r\nИспользует Ману для починки, может призывать Темных Пикси для атаки монстров.
+material.extrabotany:ingotshadowium.name=Мракиум
+modifier.mind.name=Разум
+modifier.mind.desc=Эффективнее
+modifier.body.name=Тело
+modifier.body.desc=Прочнее
+modifier.soul.name=Душа
+modifier.soul.desc=На 3 Модификации больше
+material.extrabotany:ingotorichalcos.name=Орихалк

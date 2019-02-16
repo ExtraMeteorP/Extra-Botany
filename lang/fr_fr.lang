@@ -210,12 +210,10 @@ extrabotany.natureorbeffect3false=Bénédiction de Senro(Désactivée)
 extrabotany.natureorbeffect3true=Bénédiction de Senro&2(Activée)
 extrabotany.bonusbase=Vous avez une chance d'obtenir les objets suivants:
 extrabotanymisc.disabledblock=Ce bloc a été désactivé, ne le craftez pas ou ne l'utilisez pas
-// ICI
-// ICI
-// ICI
-// ICI
-// ICI
-extrabotanymisc.bindingwrong=Failed to bind. Check whether the position is right or not, or maybe it's not from the same dimension.
+extrabotanymisc.bindingwrong=Impossible d'associer. Vérifiez que les coordonnées sont correctes, ou qu'elles se situent dans la même dimension.
+// HERE
+// HERE
+// HERE
 extrabotanymisc.noveline0=This is, to me, the loveliest and saddest landscape in the world.
 extrabotanymisc.noveline1=It is the same as that on the preceding page, but I have drawn it again to impress it on your memory.
 extrabotanymisc.noveline2=It is here that the little prince appeared on Earth, and disappeared.

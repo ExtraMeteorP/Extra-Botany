@@ -278,68 +278,64 @@ botania.page.stardustlotus2=Une structure multiblock est requise pour que cela f
 botania.page.stardustlotus3=Le Lotus de Poussière d'Etoile doit être placée sur le bloc vide au centre.
 botania.page.stardustlotus4=
 botania.tagline.stardustlotus=Téléportation Directionnelle
-// ICI
-// ICI
-// ICI
-// ICI
-// ICI
-botania.entry.reikarlily=Reikar Lily
-botania.page.reikarlily0=The Reikar Lily turns the tremendous energy of lightning into &4Mana&0. When a lightning bolt hits nearby, it will generate a great amount of &4Mana&0 immediately and continue to produce &4Mana&0 for a long time.
-botania.page.reikarlily1=I Choose You!
-botania.tagline.reikarlily=Lightning Energy
+
+botania.entry.reikarlily=Lis Reikar
+botania.page.reikarlily0=Le Lis Reikar transforme l'enorme quantité d'energie des éclairs en &4Mana&0. Quand un éclair frappe aux alentours, la fleur génèrera une grande quantité de &4Mana&0 immédiatement puis continuera de produire du &4Mana&0 pendant un long moment.
+botania.page.reikarlily1=Je te choisis!
+botania.tagline.reikarlily=Energie Foudroyante
 
 botania.entry.edelweiss=Edelweiss
 botania.page.edelweiss0=Edelweiss will swallow the snow golem or iron golem to produce mana.
 botania.page.edelweiss1=If you are reading this, you can read.
 botania.tagline.edelweiss=A bit cruel
 
-botania.entry.geminiorchid=Gemini Orchid
-botania.page.geminiorchid0=A &1Gemini Orchid&0 is like a thermoelectric generator. If you place a block of lava in the corner diagonally opposite, and then place a block of water in another corner diagonally opposite, it will begin to produce mana. The higher the gap between two blocks' temperatures, the quicker mana will be generated.
-botania.page.geminiorchid1=I am power incarnate!
+botania.entry.geminiorchid=Orchidée Gemini
+botania.page.geminiorchid0=L'&1Orchidée Gemini&0 est comme un générateur thermo-electrique. Si vous placez deux blocs de lave opposés diagonalement, et que vous faites de même avec deux blocs d'eau, elle commencera à générer du mana. Plus la distance entre deux blocs de températures différentes est grande, plus le mana sera généré vite.
+botania.page.geminiorchid1=Je suis l'incarnation du pouvoir!
 botania.page.geminiorchid2=
-botania.tagline.geminiorchid=
+botania.tagline.geminiorchid=Choc thermique garanti!
 
-botania.entry.mirrortunia=Mirrortunia
-botania.page.mirrortunia0=Mirrortunia will give players around a potion effect called "Mirror Force", and clear bad potion effects.
+botania.entry.mirrortunia=Mirroirtunia
+botania.page.mirrortunia0=La Mirroirtunia donnera un effet de potion aux joueurs alentours: "Mirror Force", et elle enlèvera les effets négatifs.
 botania.page.mirrortunia1=
 botania.tagline.mirrortunia=
 
-botania.entry.enchantedorchid=Enchanted Orchid
-botania.page.enchantedorchid0=The Enchanted Orchid can infuse grass blocks beneath it to create Enchanted Soil. It will need a Black Lotus, a large quantity of &4Mana&0 and a long time for each transformation.
-botania.page.enchantedorchid1=The truth is always one
-botania.tagline.enchantedorchid=Knowledge is power and I know a lot
+botania.entry.enchantedorchid=Orchidée Enchantée
+botania.page.enchantedorchid0=L'Orchidée Enchantée peut infuser les block d'herbe en dessous pour créer une Terre Enchantée (Enchanted Soil). Elle aura besoin d'un Lotus Noir, d'une grande quantité de &4Mana&0 et d'un long moment pour chaque transformation.
+botania.page.enchantedorchid1=La vérité est toujours vraie
+botania.tagline.enchantedorchid=La Conaissance est le pouvoir, et je suis savante!
 
-botania.entry.manabarrel=Mana Buffer
-botania.page.manabarrel0=The Mana Buffer can store as much &4Mana&0 as 64 Mana Pools. It will drain &4Mana&0 from adjacent mana pools and supply it to a Mana Pool placed on top of it.
- botania.page.manabarrel1=Un...Deux...Trois...
-botania.tagline.manabarrel=Store Mana
+botania.entry.manabarrel=Buffer à Mana
+botania.page.manabarrel0=Le Buffer à Mana peut stocker autant de &4Mana&0 que 64 Piscines à Mana. Il absorbe le &4Mana&0 des piscines à mana adjacentes pour le transférer à la piscine à mana placée au dessus de lui.
+botania.page.manabarrel1=Un...Deux...Trois...
+botania.tagline.manabarrel=Stockage Massif
 
-botania.entry.kinggarden=Garden of King's Law
-botania.page.kinggarden0=Garden of King's Law can summon flowers which are recorded by it to give the enemy a heavy blow. Just place it on the Livingrock Pedestal, hold a flower and right-click to record. Different flowers will have different effects.
-botania.page.kinggarden1=For example, Blood Enchantress will deal high magic damage, Sunshine Lily will set enemies on fire. But not every type of flower can be recorded.
+botania.entry.kinggarden=Jardin du la Loi du Roi
+botania.page.kinggarden0=Le Jardin du la Loi du Roi peut invoquer des fleurs enregistrées par celui-ci pour souffler sur les enemis. Placez-le juste sur un Apothicaire en Viveroche, puis avec une fleur à la main, faites un clic droit dessus. Différentes fleurs donneront différents effets.
+botania.page.kinggarden1=Par exemple, l'Enchanteuse Sanguinaire fait de gros dégats magiques alors qu'un Lis de l'Ensoleillement mettra feu aux enemis! Toutes les fleurs ne fonctionnent pas avec le Jardin du la Loi du Roi.
 botania.page.kinggarden2=Enuma Elish.
 botania.page.kinggarden3=Sha Nagba Imuru.
-botania.tagline.kinggarden=Ultimate Flower Work
+botania.tagline.kinggarden=Travail FLoral Ultime
 
-botania.entry.nightmarefuel=Nightmare Fuel
-botania.page.nightmarefuel0=Nightmare Fuel is an advanced fuel created by Mana Infusion. It seems to be edible.
-botania.page.nightmarefuel1=The brain trembles.
+botania.entry.nightmarefuel=Essence Cauchemardesque
+botania.page.nightmarefuel0=L'Essence Cauchemardesque est un comburant avancé crée par une infusion de Mana. Elle semble commestible.
+botania.page.nightmarefuel1=Le cerveau en tremble.
 botania.tagline.nightmarefuel=
 
-botania.entry.spiritfuel=Spirit Fuel
-botania.page.spiritfuel0=Spirit Fuel is an edible material which is obtained by eating Nightmare Fuel. Holding a Lexica Botania and right-clicking a Livingrock Pedestal with Spirit Fuel in it will unlock new knowledge.
-botania.page.spiritfuel1=A believing heart is your magic.
+botania.entry.spiritfuel=Essence d'Âme
+botania.page.spiritfuel0=L'Essence d'Âme est un materiau commestible obtenu en mangeant de l'Essence Cauchemardesque. Tenir un Lexica Botania et cliquer-droit sur un Apothicaire en Viveroche permet de débloquer de nouvelles connaissances.
+botania.page.spiritfuel1=Un coeurcroyant est votre pouvoir.
 botania.tagline.spiritfuel=Hive mind
 
-botania.entry.manareader=Mana Reader
-botania.page.manareader0=Right-clicking a Mana Pool with the Mana Reader displays the amount of &4Mana&0 stored. 
+botania.entry.manareader=Lecteur de Mana
+botania.page.manareader0=Cliquer-droit sur une Piscine à Mana avec un Lecteur de Mana montre la quantité de &4Mana&0 stockée. 
 botania.page.manareader1=Rion.
-botania.tagline.manareader=Display Mana
+botania.tagline.manareader=Compter le Mana
 
-botania.entry.binder=Position Reader
-botania.page.binder0=Sneak right-clicking a block with the Position Reader stores its position. Right-clicking a block or flower that can store a position will transfer the stored position onto it.
-botania.page.binder1=The greatest inventions of the century
-botania.tagline.binder=Positional Advantage
+botania.entry.binder=Lecteur de Position
+botania.page.binder0=S'accroupir et cliquer-droit sur un bloc avec un Lecteur de Position enregistre sa position. Cliquer-droit sur un bloc ou fleur qui peut stocker une position lui transfèrera la position enregistrée.
+botania.page.binder1=L'invention du siècle
+botania.tagline.binder=Avantage de Position
 
 botania.entry.pedestal=Livingrock Pedestal
 botania.page.pedestal0=Right-click to place items on the Livingrock Pedestal. A hammer can be used to forge items on a Livingrock Pedestal.

@@ -211,77 +211,78 @@ extrabotany.natureorbeffect3true=Bénédiction de Senro&2(Activée)
 extrabotany.bonusbase=Vous avez une chance d'obtenir les objets suivants:
 extrabotanymisc.disabledblock=Ce bloc a été désactivé, ne le craftez pas ou ne l'utilisez pas
 extrabotanymisc.bindingwrong=Impossible d'associer. Vérifiez que les coordonnées sont correctes, ou qu'elles se situent dans la même dimension.
-// HERE
-// HERE
-// HERE
-extrabotanymisc.noveline0=This is, to me, the loveliest and saddest landscape in the world.
-extrabotanymisc.noveline1=It is the same as that on the preceding page, but I have drawn it again to impress it on your memory.
-extrabotanymisc.noveline2=It is here that the little prince appeared on Earth, and disappeared.
-extrabotanymisc.noveline3=Look at it carefully so that you will be sure to recognise it in case you travel some day to the African desert.
-extrabotanymisc.noveline4=And, if you should come upon this spot, please do not hurry on.
-extrabotanymisc.noveline5=Wait for a time, exactly under the star.
-extrabotanymisc.noveline6=Then, if a little man appears who laughs, who has golden hair and who refuses to answer questions, you will know who he is.
-extrabotanymisc.noveline7=If this should happen, please comfort me.
-extrabotanymisc.noveline8=Send me word that he has come back.
+extrabotanymisc.noveline0=Ceci est, pour moi, le paysage le plus triste et joyeux du monde.
+extrabotanymisc.noveline1=C'est la même chose que sur la page précédente, mais je l'ai réécrit pour que tu l'imprime dans ton cerveau.
+extrabotanymisc.noveline2=C'est ici qu'est apparu le petit prince sur Terre, et aussi où il a disparut.
+extrabotanymisc.noveline3=Regarde la soigneusement, comme ça tu seras sur de la roconnaître si un jour tu voyage dans un désert Africain.
+extrabotanymisc.noveline4=Et, si tu dois venir jusqu'ici, ne te dépêche pas.
+extrabotanymisc.noveline5=Attend un long moment, exactement en dessous de l'Etoile.
+extrabotanymisc.noveline6=Puis, si un petit homme apparaît en riant, qui a des cheveux dorés et qui refuse de répondre aux questions, tu sauras qui il est.
+extrabotanymisc.noveline7=Si ça devait arriver, s'il te plait réconforte moi.
+extrabotanymisc.noveline8=Préviens moi moi qu'il est de retour.
 
-botania.entry.bloodyenchantress=Bloody Enchantress
-botania.page.bloodyenchantress0=The Bloody Enchantress creates &4Mana&0 by consuming nearby creatures' life. Creatures sacrificed to the Bloody Enchantress will not produce any drops or experience.
-botania.page.bloodyenchantress1=The only cure is death.
-botania.tagline.bloodyenchantress=Burning soul
+botania.entry.bloodyenchantress=Enchanteuse Sanguinaire
+botania.page.bloodyenchantress0=L'Enchanteuse Sanguinaire crée du &4Mana&0 en consummant la vie des créatures. Les créatures tuées par cette fleur ne produiront pas de drops/loots.
+botania.page.bloodyenchantress1=La seule solution est la mort.
+botania.tagline.bloodyenchantress=Âme déflagrante.
 
-botania.entry.sunbless=Sunshine Lily
-botania.page.sunbless0=Like the &1Dayblooms&0 the Sunshine Lily produces &4Mana&0 from sunlight, but it is slightly more efficient. Please note that it will still decay.
-botania.page.sunbless1=Heal and heat.
-botania.tagline.sunbless=Mana from the sun
+botania.entry.sunbless=Lis de l'Ensoleillement
+botania.page.sunbless0=Comme les &1Dayblooms&0, le Lis de l'Ensoleillement produit du &4Mana&0 pendant le jour, mais elle est un peu plus efficace. Notez que le fleur se décompose toujours.
+botania.page.sunbless1=Soin et chaleur.
+botania.tagline.sunbless=Mana par le soleil
 
 botania.entry.moonbless=Moonlight Lily
-botania.page.moonbless0=Like the &1Nightshade&0 the Moonlight Lily generates &4Mana&0 at night, but it is slightly more efficient. Please note that it will still decay.
- botania.page.moonbless1=Sowing of the fool.
- botania.tagline.moonbless=Mana from the moon
+botania.page.moonbless0=Comme les &1Nightshades&0 le Lis du Clair de Lune genère du &4Mana&0 la nuit, mais elle est un peu plus efficace. Notez que le fleur se décompose toujours.
+ botania.page.moonbless1=Semée par le fou.
+ botania.tagline.moonbless=Mana par la nuit
 
-botania.entry.omniviolet=Omniviolet
-botania.page.omniviolet0=According to a saying, knowledge is power. The Omniviolet converts Books or Written Books into &4Mana&0. To increase the amount of mana generated, Bookshelves can be placed around the Omniviolet in a similar fashion to an Enchantment Table. 
-botania.page.omniviolet1=Akashic Records.
-botania.tagline.omniviolet=Knowledge is power
+botania.entry.omniviolet=Omniviolette
+botania.page.omniviolet0=D'après un proverbe, la conaissance est le pouvoir. L'Omniviolette transforme les livres écrits ou pas en &4Mana&0. Pour augmenter la quantité de mana générée, des Bibliothèques peuvent être placées de façon similaire aux tables d'enchantment autour de la fleur. 
+botania.page.omniviolet1=Records Akashiques.
+botania.tagline.omniviolet=La conaissance est le pouvoir
 
 botania.entry.stonesia=Stonesia
-botania.page.stonesia0=The Stonesia can convert stone, cobblestone or ores into &4Mana&0. Rarer ores produce more mana. A Livingrock Pedestal nearby with a Nature Orb in it can increase its mana generation efficiency.
-botania.page.stonesia1=Diamond and Pearl.
-botania.tagline.stonesia=Rare Value
+botania.page.stonesia0=La Stonesia peut transformer la pierre ou les minerais en &4Mana&0. Les minerais rares génèrent plus. Un apothicaire avec une Orbe de Nature permet d'augmenter la génération.
+botania.page.stonesia1=Diamant et perles.
+botania.tagline.stonesia=Haute valeur
 
-botania.entry.tinkle=Tinkle Flower
-botania.page.tinkle0=The Tinkle flower converts kinetic energy of nearby moving players into &4Mana&0. A Livingrock Pedestal nearby with a Nature Orb in it can increase its mana generation efficiency.
-botania.page.tinkle1=Ding dong, here I come to find you.
+botania.entry.tinkle=Fleur du Tintement
+botania.page.tinkle0=Le Fleur du Tintement convertit l'energie kinétique des joueurs aux alentours en &4Mana&0. Un apothicaire avec une Orbe de Nature permet d'augmenter la génération.
+botania.page.tinkle1=Ding dong, j'arrive pour te trouver.
 botania.tagline.tinkle=Rush!Rush!Rush!
 
-botania.entry.bellflower=Bell Flower
-botania.page.bellflower0=When placed in the open, the Bell Flower creates &4Mana&0 from wind. The higher it is, the more mana it produces. A Livingrock Pedestal nearby with a Nature Orb in it can increase its mana generation efficiency. Since it is a passive flower, it will decay.
-botania.page.bellflower1=Only the storms can knock down the trees.
-botania.tagline.bellflower=Mana from wind
+botania.entry.bellflower=Fleur-Clochette
+botania.page.bellflower0=Quand placée à l'air libre,la Fleur-Clochette crée du &4Mana&0 grâce au vent. Plus elle est haute, plus elle va produire. Un apothicaire avec une Orbe de Nature permet d'augmenter la génération.
+botania.page.bellflower1=Seuls les éclairs peuvent détruire les arbres.
+botania.tagline.bellflower=Mana renouvelable
 
-botania.entry.annoyingflower=Annoying Flower
-botania.page.annoyingflower0=The Annoying Flower can fish in nearby Livingrock Pedestal filled with water. For that process it will use mana. Feeding Fried Chicken Legs to it will significantly increase the efficiency and the chance of getting treasure.
+botania.entry.annoyingflower=Fleur Ennuyante
+botania.page.annoyingflower0=La Fleur Ennuyante peut pêcher dans les apothicaires en viveroche. Pour cela, elle utilise du mana. Donnez lui des cuisses de poulet fries et sa production augmentera beaucoup ainsi que sa chance de trouver des trésors.
 botania.page.annoyingflower1=RK800.
-botania.page.annoyingflower2=Cooked Chicken can be fried by soaking it in &4Mana&0. Fried Chicken Legs restore more hunger and give saturation.
-botania.page.annoyingflower3=Neither a angel or a devil
-botania.tagline.annoyingflower=Time to fish.
+botania.page.annoyingflower2=Le poulet rôti peut être frit en le mettant dans du &4Mana&0. Le poulet frit donne plus de nourriture et donne un effet de saturation.
+botania.page.annoyingflower3=Ni ange, ni démon
+botania.tagline.annoyingflower=L'heure de pêcher.
 
 botania.entry.manalinkium=Manalinkium
-botania.page.manalinkium0=The Manalinkium can wirelessly transfer &4Mana&0 to a Mana Pool. Right-clicking it with a Position Reader that has the position of a Mana Pool stored will start the process.
-botania.page.manalinkium1=This is too real.
-botania.page.manalinkium2=A multiblock structure is needed to function.
-botania.page.manalinkium3=The Manalinkium has to be placed one above the empty middle block.
+botania.page.manalinkium0=La Manalinkium peut transférer du &4Mana&0 à une Piscine à Mana et cela sans-fil. Cliquez droit dessus avec un lecteur de position qui a la position d'une Piscina à Mana et le processus commencera!
+botania.page.manalinkium1=C'est trop réel.
+botania.page.manalinkium2=Une structure multiblock est requise pour que cela fonctionne.
+botania.page.manalinkium3=La Manalinkium doit être placée sur le bloc vide au centre.
 botania.page.manalinkium4=
-botania.tagline.manalinkium=Wireless Transmission
+botania.tagline.manalinkium=Transmission sans-fil
 
-botania.entry.stardustlotus=Stardust Lotus
-botania.page.stardustlotus0=The Stardust Lotus uses &4Mana&0 to create a portal that teleports creatures to a specified location. Right-clicking it with a Position Reader that has a position stored will transfer that position to the Stardust Lotus. Throwing a paper onto the Stardust Lotus starts the portal creation. A circle of sparkles around the flower shows that it is ready.
-botania.page.stardustlotus1=Better than wolves.
-botania.page.stardustlotus2=A multiblock structure is needed to function.
-botania.page.stardustlotus3=The Stardust Lotus has to be placed one above the empty middle block.
+botania.entry.stardustlotus=Lotus de Poussière d'Etoile
+botania.page.stardustlotus0=Le Lotus de Poussière d'Etoile utilise du &4Mana&0 pour téléporter des entités à un endroit précis. Faîtes un clic-droit sur celle-ci avec un Lecteur de Position pour lui assosier la destination. Jeter un papier sur la fleur lancera la création du portail. Un cercle de particules autour de la fleur signifie qu'elle est prête.
+botania.page.stardustlotus1=Mieux que les loups.
+botania.page.stardustlotus2=Une structure multiblock est requise pour que cela fonctionne.
+botania.page.stardustlotus3=Le Lotus de Poussière d'Etoile doit être placée sur le bloc vide au centre.
 botania.page.stardustlotus4=
-botania.tagline.stardustlotus=Directional Teleport
-
+botania.tagline.stardustlotus=Téléportation Directionnelle
+// ICI
+// ICI
+// ICI
+// ICI
+// ICI
 botania.entry.reikarlily=Reikar Lily
 botania.page.reikarlily0=The Reikar Lily turns the tremendous energy of lightning into &4Mana&0. When a lightning bolt hits nearby, it will generate a great amount of &4Mana&0 immediately and continue to produce &4Mana&0 for a long time.
 botania.page.reikarlily1=I Choose You!

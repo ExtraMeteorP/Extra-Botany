@@ -4,7 +4,6 @@ kohlth
 Glorious_B
 xRoBoTx
 Cyberpunk909
-MalayP
 
 xiaomipe
 big_penguin_ee

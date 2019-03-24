@@ -1,0 +1,15 @@
+{
+  "pools": [
+    {
+      "name": "pandorabox",
+      "conditions": [
+        { "condition": "killed_by_player" }
+      ],
+      "rolls": 1,
+      "entries": [{
+        "type": "item",
+        "name": "extrabotany:treasurebox"
+      }]
+    }
+  ]
+}

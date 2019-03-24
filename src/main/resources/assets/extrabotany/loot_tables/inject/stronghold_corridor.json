@@ -1,0 +1,28 @@
+{
+  "__comment": "This table is injected as its own pool into minecraft:chests/stronghold_corridor",
+  "pools": [{
+    "name": "main",
+    "rolls": 1,
+    "entries": [
+      {
+        "type": "item",
+        "name": "extrabotany:bottledflame",
+        "weight": 16
+      },
+      {
+        "type": "item",
+        "name": "extrabotany:bottledstar",
+        "weight": 12
+      },
+	  {
+        "type": "item",
+        "name": "extrabotany:bottledpixie",
+        "weight": 8
+      },
+      {
+        "type": "empty",
+        "weight": 64
+      }
+    ]
+  }]
+}

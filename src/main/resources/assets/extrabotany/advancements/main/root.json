@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:terrasteelhammer"
+    },
+    "title": {
+      "translate": "itemGroup.extrabotany"
+    },
+    "description": {
+      "translate": "extrabotany.desc"
+    },
+    "background": "botania:textures/blocks/livingwood0.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:nightmarefuel"
+          }
+        ]
+      }
+    }
+  }
+}

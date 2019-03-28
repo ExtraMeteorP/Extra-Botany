@@ -1,0 +1,6 @@
+{
+  "parent": "extrabotany:item/failnaught",
+  "textures": {
+    "layer0": "extrabotany:items/relic3"
+  }
+}

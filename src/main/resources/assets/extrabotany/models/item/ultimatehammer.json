@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "extrabotany:items/ultimatehammer"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "extrabotany:enabled": 1
+      },
+      "model": "extrabotany:item/ultimatehammerenabled"
+    }
+  ]
+}

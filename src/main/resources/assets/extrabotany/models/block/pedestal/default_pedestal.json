@@ -1,0 +1,23 @@
+{
+  "parent": "extrabotany:block/shapes/pedestal",
+  "textures": {
+    "gobletbaseside": "extrabotany:model/altar/default/gobletbase_sides",
+    "gobletbasetop": "extrabotany:model/altar/default/gobletbase_top",
+    "gobletbasebottom": "extrabotany:model/altar/default/gobletbase_bottom",
+    "gobletbase2side": "extrabotany:model/altar/default/gobletbase2_sides",
+    "gobletbase2top": "extrabotany:model/altar/default/gobletbase2_top",
+    "gobletbase2bottom": "extrabotany:model/altar/default/gobletbase2_bottom",
+    "gobletbase3side": "extrabotany:model/altar/default/gobletbase3_sides",
+    "gobletbase3top": "extrabotany:model/altar/default/gobletbase3_top",
+    "gobletbase3bottom": "extrabotany:model/altar/default/gobletbase3_bottom",
+    "gobletstandside": "extrabotany:model/altar/default/gobletstand_sides",
+    "gobletstandtopbottom": "extrabotany:model/altar/default/gobletstand_top_bottom",
+    "kelkbaseside": "extrabotany:model/altar/default/kelkbase_sides",
+    "kelkbasetopbottom": "extrabotany:model/altar/default/kelkbase_top_bottom",
+    "kelkbase2side": "extrabotany:model/altar/default/kelkbase2_sides",
+    "kelkbase2top": "extrabotany:model/altar/default/kelkbase2_top",
+    "kelkbase2bottom": "extrabotany:model/altar/default/kelkbase2_bottom",
+    "kelkwall": "extrabotany:model/altar/default/kelkwall",
+    "particle": "minecraft:blocks/cobblestone"
+  }
+}

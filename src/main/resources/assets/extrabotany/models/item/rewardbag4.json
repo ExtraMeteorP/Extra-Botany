@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "extrabotany:items/rewardbag4"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "extrabotany:chris": 1.0
+      },
+      "model": "extrabotany:item/bag_chris_4"
+    }
+	]
+}

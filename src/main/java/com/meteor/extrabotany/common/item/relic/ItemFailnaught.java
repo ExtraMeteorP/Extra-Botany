@@ -102,7 +102,6 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
         		world.spawnEntity(arrow);
         
         	world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
-        	player.addStat(StatList.getObjectUseStats(this));
         }
     }
 	

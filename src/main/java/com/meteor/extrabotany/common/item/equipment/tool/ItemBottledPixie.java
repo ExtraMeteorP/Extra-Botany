@@ -19,6 +19,7 @@ public class ItemBottledPixie extends ItemMod{
 
 	public ItemBottledPixie() {
 		super(LibItemsName.BOTTLEDPIXIE);
+		this.setMaxStackSize(1);
 	}
 	
 	@Nonnull
@@ -27,7 +28,7 @@ public class ItemBottledPixie extends ItemMod{
 		ItemStack stack = playerIn.getHeldItem(hand);
 		if(ManaItemHandler.requestManaExactForTool(stack, playerIn, 300, true)){
 			EntityPetPixie p = new EntityPetPixie(worldIn);
-			p.setPosition(playerIn.posX, playerIn.posY, playerIn.posZ);
+			p.setPosition(playerIn.posX, playerIn.posY+1.5F, playerIn.posZ);
 			p.setProps(playerIn, 3.5F);
 			p.onInitialSpawn(playerIn.world.getDifficultyForLocation(new BlockPos(p)), null);
 			if(!worldIn.isRemote)

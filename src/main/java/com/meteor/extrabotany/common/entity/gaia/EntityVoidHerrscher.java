@@ -51,7 +51,6 @@ import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -156,6 +155,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 	public static int rot = -180;
 	private int supportcd = 300;
 	private List<String> contributorlist = PersistentVariableHandler.contributors;
+	private boolean quickkill = true;
 
 	public EntityVoidHerrscher(World world) {
 		super(world);
@@ -181,6 +181,9 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 			if(vec3d != null)
 				this.getNavigator().tryMoveToXYZ(vec3d.x, vec3d.y, vec3d.z, 1.2F);
 		}
+		
+		if(this.ticksExisted > 3600)
+			this.quickkill = false;
 		
 		int invul = getInvulTime();
 		if(invul > 0){
@@ -407,10 +410,6 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 		
 		if(dodgecd > 0)
 			dodgecd--;
-		
-		if(ticksExisted > 2600)
-			for(EntityPlayer p : getPlayersAround())
-				ExtraBotanyAPI.unlockAdvancement(p, LibAdvancements.MUSIC_ALL);
 
 	}
 	
@@ -871,7 +870,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 					cap *= 0.85F;
 				}
 				
-				if(par2 > 15 && !this.world.isRemote){
+				if(par2 > 20 && !this.world.isRemote){
 					setShields(getShields() - 1);
 					dodgecd=0;
 				}
@@ -970,6 +969,8 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 			posZ = player.posZ;
 			super.dropLoot(wasRecentlyHit, lootingModifier, DamageSource.causePlayerDamage(player));
 			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.HERRSCHER_DEFEAT);
+			if(this.quickkill)
+				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ENDGAME_GOAL);
 			PlayerStatHandler.setHerrscherDefeat(player, PlayerStatHandler.getVoidHerrscherDefeat(player) + 1);
 			posX = savePosX;
 			posY = savePosY;
@@ -1311,7 +1312,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 		private final EntityVoidHerrscher guardian;
 
 		public DopplegangerMusic(EntityVoidHerrscher guardian) {
-			super(com.meteor.extrabotany.common.core.handler.ModSounds.gaiaMusic3, SoundCategory.RECORDS);
+			super(com.meteor.extrabotany.common.core.handler.ModSounds.herrscherMusic, SoundCategory.RECORDS);
 			this.guardian = guardian;
 			this.xPosF = guardian.getSource().getX();
 			this.yPosF = guardian.getSource().getY();

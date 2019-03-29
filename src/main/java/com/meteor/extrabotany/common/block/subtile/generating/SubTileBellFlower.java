@@ -26,7 +26,7 @@ public class SubTileBellFlower extends SubTileGeneratingNature{
 		if(this.getWorld().canBlockSeeSky(this.supertile.getPos()) && y > baseY){
 			int rain = ConfigHandler.LP_BELLFLOWER ? this.getWorld().isRaining() ? 2 : 0 : 0;
 			int gen = (baseGen + rain + buff) * y/baseY;
-			if(this.ticksExisted % 10 == 0)
+			if(this.ticksExisted % 8 == 0)
 				mana += gen;
 		}
 		

@@ -21,10 +21,8 @@ import vazkii.botania.common.block.tile.TileAltar;
 
 public class TileLivingrockBarrel extends TileEntity implements ITickable, IFluidPacketReceiver{
 	
-	public FluidTank fluidTank = new FluidTank(16000)
-    {
-        protected void onContentsChanged()
-        {
+	public FluidTank fluidTank = new FluidTank(16000){
+        protected void onContentsChanged(){
         	TileLivingrockBarrel.this.onContentsChanged(0);
         };
     };
@@ -46,46 +44,38 @@ public class TileLivingrockBarrel extends TileEntity implements ITickable, IFlui
 	}
 
     @Override
-    public void readFromNBT(NBTTagCompound compound)
-    {
+    public void readFromNBT(NBTTagCompound compound){
         super.readFromNBT(compound);
         fluidTank.readFromNBT(compound.getCompoundTag("Fluid"));
     }
 
     @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound compound)
-    {
+    public NBTTagCompound writeToNBT(NBTTagCompound compound){
         super.writeToNBT(compound);
         compound.setTag("Fluid", fluidTank.writeToNBT(new NBTTagCompound()));
         return compound;
     }
 	
     @Override
-    public boolean hasCapability(Capability<?> capability, EnumFacing facing)
-    {
+    public boolean hasCapability(Capability<?> capability, EnumFacing facing){
         return capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
     }
 
     @Override
     @Nullable
-    public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing)
-    {
-        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
-        {
+    public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing){
+        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY){
             return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(fluidTank);
         }
         return super.getCapability(capability, facing);
     }
     
-    public void onContentsChanged(int slot)
-    {
+    public void onContentsChanged(int slot){
         refresh();
     }
 		
-    void refresh()
-    {
-        if (hasWorld() && !world.isRemote)
-        {
+    void refresh(){
+        if (hasWorld() && !world.isRemote){
             IBlockState state = world.getBlockState(pos);
             world.markAndNotifyBlock(pos, null, state, state, 11);
             world.notifyNeighborsOfStateChange(this.pos, this.getBlockType(), false);

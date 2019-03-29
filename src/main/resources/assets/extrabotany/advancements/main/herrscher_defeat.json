@@ -1,8 +1,7 @@
 {
    "display": {
     "icon": {
-      "item": "extrabotany:cosmetic",
-	  "meta": 8
+      "item": "extrabotany:cosmetic"
     },
     "title": {
       "translate": "advancement.extrabotany:herrscherDefeat"

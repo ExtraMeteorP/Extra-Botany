@@ -1,8 +1,7 @@
 {
    "display": {
     "icon": {
-      "item": "extrabotany:cosmetic",
-	  "meta": 9
+      "item": "extrabotany:coregod"
     },
     "title": {
       "translate": "advancement.extrabotany:endgameGoal"

@@ -222,7 +222,7 @@ public class ConfigHandler {
 		
 		EFF_SUNBLESS = CONFIG.getInt("mana per tick", "sunbless", 1, 1, Integer.MAX_VALUE, "");
 		
-		EFF_TINKLE = CONFIG.getInt("efficiency", "tinkle flower", 35, 1, Integer.MAX_VALUE, "");
+		EFF_TINKLE = CONFIG.getInt("efficiency", "tinkle flower", 30, 1, Integer.MAX_VALUE, "");
 		LP_TINKLE = CONFIG.get("tinkle flower", "enable catalysis", true).getBoolean(true);
 		
 		EFF_STONESIA = CONFIG.getInt("mana per tick", "stonesia", 5, 1, Integer.MAX_VALUE, "");	

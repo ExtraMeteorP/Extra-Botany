@@ -55,6 +55,7 @@ public class LibItemsName {
 	public static final String TRAVELJOURNAL = "traveljournal";
 	public static final String NATUREORB = "natureorb";
 	public static final String RECORDA = "recordgaia3";
+	public static final String RECORDB = "recordherrscher";
 	
 	public static final String FLYINGBOAT = "flyingboat";
 	

@@ -394,7 +394,7 @@ public class ModCraftingRecipe {
 		QUESTIONMARK = new ShapedOreRecipe(getResource("recipe_questionmark"), new ItemStack(ModItems.mask, 1, 7), "AAA", "ABA", "AAA", 'B', new ItemStack(ModItems.material), 'A', LibOreDict.PETAL[12]);
 		QUESTIONMARK.setRegistryName(getResource("recipe_questionmark"));
 		
-		VOIDCALLER = new ShapedOreRecipe(getResource("recipe_voidcaller"), new ItemStack(ModItems.material, 1, 9), "AAA", "CBD", "AAA", 'B', new ItemStack(ModItems.material, 1, 3), 'A', LibOreDict.LIFE_ESSENCE, 'C', LibOreDicts.PHOTONIUM, 'D', LibOreDicts.SHADOWIUM);
+		VOIDCALLER = new ShapedOreRecipe(getResource("recipe_voidcaller"), new ItemStack(ModItems.material, 3, 9), "AAA", "CBD", "AAA", 'B', new ItemStack(ModItems.material, 1, 3), 'A', LibOreDict.LIFE_ESSENCE, 'C', LibOreDicts.PHOTONIUM, 'D', LibOreDicts.SHADOWIUM);
 		VOIDCALLER.setRegistryName(getResource("recipe_voidcaller"));
 	}
 	

@@ -63,6 +63,7 @@ public class ItemKingGarden extends ItemMod implements IManaUsingItem {
 
 	public ItemKingGarden() {
 		super(LibItemsName.KINGGARDEN);
+		this.setMaxStackSize(1);
 	}
 	
 	@SideOnly(Side.CLIENT)

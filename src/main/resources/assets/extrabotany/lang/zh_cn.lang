@@ -95,6 +95,8 @@ item.extrabotany:achilleshield.name=勇士盾
 item.extrabotany:mastermanaring.name=大师魔力之戒
 item.extrabotany:recordgaia3.name=损坏的唱片
 item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
+item.extrabotany:recordherrscher.name=损坏的唱片
+item.record.extrabotany:herrscher.desc=Salvation
 
 item.extrabotany:froststar.name=霜冻之星
 item.extrabotany:deathring.name=诅咒指环
@@ -684,6 +686,20 @@ botania.page.voidherrscher6=每面护盾都会为空之律者减 少伤害，但
 botania.page.voidherrscher7=这将是一次艰难的挑战，但 是奖励也会异常的丰厚。所 以，春宵苦短，勇者，前进吧！
 botania.tagline.voidherrscher=
 
+botania.entry.cosmetic=
+botania.page.cosmetic0=
+botania.page.cosmetic1=
+botania.page.cosmetic2=
+botania.page.cosmetic3=
+botania.page.cosmetic4=
+botania.page.cosmetic5=
+botania.page.cosmetic6=
+botania.page.cosmetic7=
+botania.page.cosmetic8=
+botania.page.cosmetic9=
+botania.page.cosmetic10=
+botania.tagline.cosmetic=
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
@@ -776,6 +792,10 @@ advancement.extrabotany:spearsubspaceCraft=Nightglow
 advancement.extrabotany:spearsubspaceCraft.desc=获得亚空之矛
 advancement.extrabotany:armorsetGS=Befall
 advancement.extrabotany:armorsetGS.desc=装备一套哥布林杀手套
+advancement.extrabotany:herrscherDefeat=Salvation
+advancement.extrabotany:herrscherDefeat.desc=击败空之律者
+advancement.extrabotany:endgameGoal=End Day
+advancement.extrabotany:endgameGoal.desc=完成最终的挑战—在3分钟内击败空之律者
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=

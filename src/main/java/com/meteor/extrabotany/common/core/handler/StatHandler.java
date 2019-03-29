@@ -2,6 +2,7 @@ package com.meteor.extrabotany.common.core.handler;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.block.ModBlocks;
+import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -16,7 +17,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
-import vazkii.botania.common.item.ModItems;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class StatHandler {
@@ -29,10 +29,12 @@ public class StatHandler {
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModBlocks.trophy), 0);
 		}
 		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.HERRSCHER_DEFEAT))){
-			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.cosmetic,1,7), 0);
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.mask,1,8), 0);
 		}
 		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ENDGAME_GOAL))){
-			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.cosmetic,1,8), 0);
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.mask,1,9), 0);
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.gaiarecord), 0);
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.herrscherrecord), 0);
 		}
 	}
 	

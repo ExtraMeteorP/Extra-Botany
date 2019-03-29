@@ -103,7 +103,9 @@ public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem{
 			updateRelic(stack, (EntityPlayer) entity);
 			if(!(ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entity, MANA_PER_SECONDS, true)) && getMode(stack) != 0)
 				setMode(stack, 0);
-			if(((EntityPlayer)entity).swingProgressInt == 4)
+			PotionEffect haste = ((EntityLivingBase) entity).getActivePotionEffect(MobEffects.HASTE);
+			float check = haste == null ? 0.16666667F : haste.getAmplifier() == 1 ? 0.5F : 0.4F;
+			if(((EntityPlayer)entity).swingProgress == check)
 				trySpawnBurst((EntityPlayer) entity);
 		}
 	}
@@ -120,19 +122,8 @@ public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem{
 				return ActionResult.newResult(EnumActionResult.PASS, stack);
 			}else
 				if(getMode(stack) == 5){
-					if(ManaItemHandler.requestManaExactForTool(stack, player, 900, true) && !world.isRemote){
-						for(EntityLiving living : player.getEntityWorld().getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))){
-							if(living.isSpectatedByPlayer((EntityPlayerMP) player)){
-								living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 5));
-								living.addPotionEffect(new PotionEffect(ModPotions.mindcrack,300, 1));		
-							}
-						}
-
-						for(Entity e : player.getEntityWorld().getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))) {
-							if(e instanceof IProjectile)
-								e.setDead();
-						}
-					}
+					ItemCamera camera = new ItemCamera();
+					camera.onItemRightClick(world, player, hand);
 				}
 		}else
 			switchMode(stack);
@@ -178,23 +169,8 @@ public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem{
         EntityPlayer player = (EntityPlayer) entity;
         
         if(getMode(stack) == 3){
-	        int i = (int) ((getMaxItemUseDuration(stack) - timeLeft));
-	        int rank = i / 15;
-	        if(isRightPlayer(player, stack) && ManaItemHandler.requestManaExactForTool(stack, player, Math.min(480, 220 + rank * 50), true)){
-	        	EntityMagicArrow arrow = new EntityMagicArrow(world, player);
-	        	arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
-	        	arrow.setDamage(Math.min(50, 5 + rank * 8));
-	        	int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
-	        	if (j > 0){
-					arrow.setDamage(arrow.getDamage() + j + 1);
-				}
-	        	arrow.setLife(Math.min(150, 5 + i * 4));
-	        	if(!world.isRemote)
-	        		world.spawnEntity(arrow);
-	        
-	        	world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
-	        	player.addStat(StatList.getObjectUseStats(this));
-	        }
+        	ItemFailnaught failnaught = new ItemFailnaught();
+        	failnaught.onPlayerStoppedUsing(stack, world, entity, timeLeft);
         }
     }
 	

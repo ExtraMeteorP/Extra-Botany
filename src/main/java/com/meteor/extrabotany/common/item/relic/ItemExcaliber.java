@@ -26,10 +26,12 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
@@ -114,7 +116,9 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if(!world.isRemote && entity instanceof EntityPlayer){
 			updateRelic(stack, (EntityPlayer) entity);
-			if(((EntityPlayer)entity).swingProgressInt == 4)
+			PotionEffect haste = ((EntityLivingBase) entity).getActivePotionEffect(MobEffects.HASTE);
+			float check = haste == null ? 0.16666667F : haste.getAmplifier() == 1 ? 0.5F : 0.4F;
+			if(((EntityPlayer)entity).swingProgress == check)
 				trySpawnBurst((EntityPlayer) entity);
 		}
 		if(!world.isRemote && entity instanceof EntityPlayer && stack.getItemDamage() > 0 && ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entity, getManaPerDamage() * 2, true))

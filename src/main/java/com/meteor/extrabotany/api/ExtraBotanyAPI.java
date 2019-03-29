@@ -115,11 +115,17 @@ public class ExtraBotanyAPI {
         EntityLivingBase target = (EntityLivingBase)entity;
         target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), 0.01F);
         float health = (target).getHealth();
+        if(target instanceof EntityPlayer)
+        	if(((EntityPlayer)target).isCreative())
+        		return result;
         if(0 < health){
             float postHealth = Math.max(1,health - amount);
             target.setHealth(postHealth);
-            if(health < amount)
-            	target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), Integer.MAX_VALUE-1);
+            if(health < amount){
+            	if(target instanceof EntityPlayer)
+            		target.onKillCommand();
+            	else target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), Integer.MAX_VALUE-1F);
+            }
             result = health - postHealth;
         }
         return result;

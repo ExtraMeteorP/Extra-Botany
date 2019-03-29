@@ -57,6 +57,7 @@ import com.meteor.extrabotany.common.item.equipment.tool.ItemShadowKatana;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemWalkingCane;
 import com.meteor.extrabotany.common.item.lens.ItemLens;
 import com.meteor.extrabotany.common.item.record.ItemRecordA;
+import com.meteor.extrabotany.common.item.record.ItemRecordB;
 import com.meteor.extrabotany.common.item.relic.ItemAchilleshield;
 import com.meteor.extrabotany.common.item.relic.ItemBuddhistRelics;
 import com.meteor.extrabotany.common.item.relic.ItemCamera;
@@ -126,6 +127,7 @@ public class ModItems {
 	
 	public static final Item treasure = new ItemTreasure();
 	public static final Item gaiarecord = new ItemRecordA();
+	public static final Item herrscherrecord = new ItemRecordB();
 	
 	public static final Item manasteelshield = new ItemManasteelShield();
 	public static final Item terrasteelshield = new ItemTerrasteelShield();
@@ -256,6 +258,7 @@ public class ModItems {
 		r.register(bottledpixie);
 		r.register(mask);
 		r.register(gamewinner);
+		r.register(herrscherrecord);
 		registerOreDictionary();
 		//A
 		if(ConfigHandler.REWARDBAG1.length > 0)

@@ -61,7 +61,7 @@ public class ItemCamera extends ItemModRelic implements IManaUsingItem{
 				if(e instanceof IProjectile)
 					e.setDead();
 			}
-			player.getCooldownTracker().setCooldown(this, 120);
+			player.getCooldownTracker().setCooldown(stack.getItem(), 120);
 		}
 		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 	}

@@ -18,6 +18,7 @@ public class ItemBottledStar extends ItemMod{
 
 	public ItemBottledStar() {
 		super(LibItemsName.BOTTLEDSTAR);
+		this.setMaxStackSize(1);
 	}
 	
 	@Nonnull

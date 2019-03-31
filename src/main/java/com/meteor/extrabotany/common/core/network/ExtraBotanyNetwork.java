@@ -22,6 +22,7 @@ public class ExtraBotanyNetwork extends NetworkWrapper{
 	public void setup() {
 		registerPacketClient(FluidUpdatePacket.class);
 		registerPacketClient(SpecialParticlePacket.class);
+		registerPacketServer(PacketLeftClick.class);
 	}
 	
 	public static void sendPacket(Entity player, Packet<?> packet) {

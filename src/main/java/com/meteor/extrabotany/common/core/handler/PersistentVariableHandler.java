@@ -20,11 +20,17 @@ public class PersistentVariableHandler {
 	private static final String TAG_CONTRIBUTORS = "contributors";
 	private static final String TAG_CONTRIBUTORS_PREFIX = "contributor";
 	private static final String TAG_CONTRIBUTORS_COUNT = "contributorCount";
+	
 	private static final String TAG_CONTRIBUTORSUUID = "contributorsuuid";
 	private static final String TAG_CONTRIBUTORSUUID_PREFIX = "contributoruuid";
 	private static final String TAG_CONTRIBUTORSUUID_COUNT = "contributoruuidCount";
+	
+	private static final String TAG_ADVERTISEMENT = "advertisements";
+	private static final String TAG_ADVERTISEMENT_PREFIX = "ads";
+	private static final String TAG_ADVERTISEMENT_COUNT = "advertisementCount";
 	public static final List<String> contributors = new ArrayList<>();
 	public static final List<String> contributorsuuid = new ArrayList<>();
+	public static final List<String> advertisements = new ArrayList<>();
 	
 	public static void save() throws IOException {
 		NBTTagCompound cmp = new NBTTagCompound();
@@ -70,6 +76,26 @@ public class PersistentVariableHandler {
 		}
 		cmp.setTag(TAG_CONTRIBUTORSUUID, contributorsuuidCmp);
 
+		try {
+			URL url = new URL("https://raw.githubusercontent.com/ExtraMeteorP/RandomThings/master/advertisement.md");
+			BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
+			String str;
+			while((str=r.readLine())!=null){ 
+				advertisements.add(str);
+	        }
+			r.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		int countads = advertisements.size();
+		cmp.setInteger(TAG_ADVERTISEMENT_COUNT, countads);
+		NBTTagCompound adsCmp = new NBTTagCompound();
+		for(int i = 0; i < countads; i++) {
+			NBTTagCompound adCmp = new NBTTagCompound();
+			adCmp.setString(TAG_ADVERTISEMENT_PREFIX, advertisements.get(i));
+			adsCmp.setTag(TAG_ADVERTISEMENT_PREFIX + i, adCmp);
+		}
+		cmp.setTag(TAG_ADVERTISEMENT, adsCmp);
 	}
 	
 	public static void load() throws IOException {
@@ -94,6 +120,17 @@ public class PersistentVariableHandler {
 				NBTTagCompound contributoruuidCmp = contributorsuuidCmp.getCompoundTag(TAG_CONTRIBUTORSUUID_PREFIX + i);
 				if(contributoruuidCmp.getString(TAG_CONTRIBUTORSUUID_PREFIX) != null)
 					contributorsuuid.add(contributoruuidCmp.getString(TAG_CONTRIBUTORSUUID_PREFIX));
+			}
+		}
+		
+		int countads = cmp.getInteger(TAG_ADVERTISEMENT_COUNT);
+		advertisements.clear();
+		if(countads > 0) {
+			NBTTagCompound adsCmp = cmp.getCompoundTag(TAG_ADVERTISEMENT);
+			for(int i = 0; i < countads; i++) {
+				NBTTagCompound adCmp = adsCmp.getCompoundTag(TAG_ADVERTISEMENT_PREFIX + i);
+				if(adCmp.getString(TAG_ADVERTISEMENT_PREFIX) != null)
+					advertisements.add(adCmp.getString(TAG_ADVERTISEMENT_PREFIX));
 			}
 		}
 		

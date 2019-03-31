@@ -100,7 +100,7 @@ public class ExtraBotanyAPI {
 	
 	public static void dealBossDamage(EntityLivingBase entity, float amount){
 		if(entity instanceof EntityPlayer)
-			PlayerStatHandler.setTrueDamageTaken((EntityPlayer) entity, PlayerStatHandler.getTrueDamageTaken((EntityPlayer) entity) + amount);
+			PlayerStatHandler.setTrueDamageTaken((EntityPlayer) entity, Math.min(Integer.MAX_VALUE-1,PlayerStatHandler.getTrueDamageTaken((EntityPlayer) entity) + amount));
 		dealTrueDamage(entity, amount);
 	}
 	

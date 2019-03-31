@@ -33,6 +33,7 @@ import net.minecraft.client.audio.MovingSound;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -282,22 +283,22 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		if(cd == 250 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
-					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing").setStyle(new Style().setColor(TextFormatting.WHITE)));
+					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing", I18n.format("entity.extrabotany:gaiaIII.name")).setStyle(new Style().setColor(TextFormatting.WHITE)));
 		
 		if(cd == 100 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
-					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning").setStyle(new Style().setColor(TextFormatting.RED)));
+					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning", I18n.format("entity.extrabotany:gaiaIII.name")).setStyle(new Style().setColor(TextFormatting.RED)));
 		
 		if(cd == 100 && skillType == 0)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
-					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2").setStyle(new Style().setColor(TextFormatting.RED)));
+					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2", I18n.format("entity.extrabotany:gaiaIII.name")).setStyle(new Style().setColor(TextFormatting.RED)));
 		
 		if(cd == 0 && !world.isRemote && skillType == 0 && !getPlayersAround().isEmpty()){
 			EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayersAround().size()));
 			float amplifier = StatHandler.hasStat(player, LibAdvancements.GAIA_DEFEAT) ? 1.0F : 0.7F;
-			player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3").setStyle(new Style().setColor(TextFormatting.RED)));
+			player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", I18n.format("entity.extrabotany:gaiaIII.name")).setStyle(new Style().setColor(TextFormatting.RED)));
 			ExtraBotanyAPI.dealTrueDamage(player, (player.getMaxHealth() * 0.20F + 6) * amplifier);
 			cd = 350;
 			skillType = getRankIII() ? 1 : world.rand.nextInt(2);

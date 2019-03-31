@@ -42,13 +42,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 			+ "after:thaumcraft@[6.1.BETA25,);"
 			+ "after:tconstruct;"
 			+ "after:mtlib;"
-			+ "after:crafttweaker", 
+			+ "after:crafttweaker;"
+			+ "before:armoryexpansion", 
 	updateJSON = ExtraBotany.UPDATE_URL, 
 	guiFactory = "com.meteor.extrabotany.common.core.config.ConfigGui")
 public class ExtraBotany{
     public static final String MODID = "extrabotany";
     public static final String NAME = "extrabotany";
-    public static final String VERSION = "52";
+    public static final String VERSION = "53";
 
     public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
     

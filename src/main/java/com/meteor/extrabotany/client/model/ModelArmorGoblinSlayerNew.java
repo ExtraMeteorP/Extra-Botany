@@ -231,11 +231,11 @@ public class ModelArmorGoblinSlayerNew extends ModelArmor{
 
 		bipedHead = head;
 		bipedBody = body;
-		bipedRightArm = rightArm;
-		bipedLeftArm = leftArm;
+		bipedRightArm = leftArm;
+		bipedLeftArm = rightArm;
 		if(slot == EntityEquipmentSlot.LEGS) {
-			bipedRightLeg = rightLeg;
-			bipedLeftLeg = leftLeg;
+			bipedRightLeg = leftLeg;
+			bipedLeftLeg = rightLeg;
 		} else {
 			bipedRightLeg = bootL;
 			bipedLeftLeg = bootR;

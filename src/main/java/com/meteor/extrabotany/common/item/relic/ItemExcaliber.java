@@ -9,6 +9,8 @@ import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.client.render.IModelReg;
+import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
+import com.meteor.extrabotany.common.core.network.PacketLeftClick;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
@@ -26,12 +28,10 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
@@ -64,8 +64,6 @@ import vazkii.botania.common.entity.EntityManaBurst;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.item.relic.ItemRelic;
-import vazkii.botania.common.network.PacketHandler;
-import vazkii.botania.common.network.PacketLeftClick;
 
 public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IModelReg, IManaUsingItem{
 	
@@ -91,7 +89,7 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 	public void leftClick(PlayerInteractEvent.LeftClickEmpty evt) {
 		if (!evt.getItemStack().isEmpty()
 				&& evt.getItemStack().getItem() == this) {
-			PacketHandler.sendToServer(new PacketLeftClick());
+			ExtraBotanyNetwork.sendToServer(new PacketLeftClick());
 		}
 	}
 
@@ -104,22 +102,22 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 
 	public void trySpawnBurst(EntityPlayer player) {
 		if (!player.getHeldItemMainhand().isEmpty()
-				&& player.getHeldItemMainhand().getItem() == this) {
+				&& player.getHeldItemMainhand().getItem() == this && player.getCooledAttackStrength(0) == 1) {
 			EntityManaBurst burst = getBurst(player, player.getHeldItemMainhand());
 			player.world.spawnEntity(burst);
 			ToolCommons.damageItem(player.getHeldItemMainhand(), 1, player, MANA_PER_DAMAGE);
 			player.world.playSound(null, player.posX, player.posY, player.posZ, ModSounds.terraBlade, SoundCategory.PLAYERS, 0.4F, 1.4F);
 		}
 	}
-	
+
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if(!world.isRemote && entity instanceof EntityPlayer){
 			updateRelic(stack, (EntityPlayer) entity);
-			PotionEffect haste = ((EntityLivingBase) entity).getActivePotionEffect(MobEffects.HASTE);
-			float check = haste == null ? 0.16666667F : haste.getAmplifier() == 1 ? 0.5F : 0.4F;
-			if(((EntityPlayer)entity).swingProgress == check)
-				trySpawnBurst((EntityPlayer) entity);
+			//PotionEffect haste = ((EntityLivingBase) entity).getActivePotionEffect(MobEffects.HASTE);
+			//float check = haste == null ? 0.16666667F : haste.getAmplifier() == 1 ? 0.5F : 0.4F;
+			//if(((EntityPlayer)entity).swingProgress == check)
+				//trySpawnBurst((EntityPlayer) entity);
 		}
 		if(!world.isRemote && entity instanceof EntityPlayer && stack.getItemDamage() > 0 && ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entity, getManaPerDamage() * 2, true))
 			stack.setItemDamage(stack.getItemDamage() - 1);
@@ -320,11 +318,11 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 				int mana = burst.getMana();
 				if(mana >= cost) {
 					burst.setMana(mana - cost);
-					float damage = BotaniaAPI.terrasteelToolMaterial.getAttackDamage();
+					float damage = BotaniaAPI.terrasteelToolMaterial.getAttackDamage() + 3F;
 					if(!burst.isFake() && !entity.world.isRemote) {
 						EntityPlayer player = living.world.getPlayerEntityByName(attacker);
 						living.attackEntityFrom(player == null ? ItemRelic.damageSource() : DamageSource.causePlayerDamage(player), damage);
-						ExtraBotanyAPI.dealTrueDamage(living, 4F);
+						ExtraBotanyAPI.dealTrueDamage(living, 3F);
 						entity.setDead();
 						break;
 					}

@@ -54,6 +54,33 @@ item.extrabotany:candychris1.name=圣诞节糖果Zwei
 item.extrabotany:candychris2.name=圣诞节糖果Drei
 item.extrabotany:candybagchris.name=圣诞节花环
 item.extrabotany:walkingcane.name=步行者手杖
+item.extrabotany:foxear.name=嘤嘤耳
+item.extrabotany:lenspush.name=魔力透镜:冲击
+item.botania:lenspush.short=冲击
+item.extrabotany:lensmana.name=魔力透镜:魔力
+item.botania:lensmana.short=魔力
+item.extrabotany:lenssmelt.name=魔力透镜:冶炼
+item.botania:lenssmelt.short=冶炼
+item.extrabotany:lenspotion.name=魔力透镜:药水
+item.botania:lenspotion.short=药水
+item.extrabotany:lenscloud.name=魔力透镜:云朵
+item.botania:lenscloud.short=云朵
+item.extrabotany:lenssexpistol.name=魔力透镜:追踪
+item.botania:lenssexpistol.short=追踪
+item.extrabotany:bottledstar.name=瓶中星
+item.extrabotany:bottledflame.name=瓶中火焰
+item.extrabotany:bottledpixie.name=瓶中精灵
+item.extrabotany:voidcaller.name=来自虚空的呼唤
+item.extrabotany:mask.name=石鬼面
+item.extrabotany:pylon.name=模拟人生
+item.extrabotany:goggle_jungle.name=丛林护目镜
+item.extrabotany:goggle_ocean.name=潜水护目镜
+item.extrabotany:goggle_snowfield.name=雪地护目镜
+item.extrabotany:goggle_standard.name=护目镜
+item.extrabotany:blackglasses.name=黑框眼镜
+item.extrabotany:question.name=问号
+item.extrabotany:lemon.name=柠檬
+item.extrabotany:thuglife.name=Thug Life
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -68,6 +95,8 @@ item.extrabotany:achilleshield.name=勇士盾
 item.extrabotany:mastermanaring.name=大师魔力之戒
 item.extrabotany:recordgaia3.name=损坏的唱片
 item.record.extrabotany:gaia3.desc=TobyFox - Death by Glamour
+item.extrabotany:recordherrscher.name=损坏的唱片
+item.record.extrabotany:herrscher.desc=Salvation
 
 item.extrabotany:froststar.name=霜冻之星
 item.extrabotany:deathring.name=诅咒指环
@@ -124,6 +153,9 @@ tile.extrabotany:elfjar.name=活石桶
 tile.extrabotany:trophy.name=奖杯
 tile.extrabotany:fluidedmana.name=液态魔力
 tile.extrabotany:quantummanabuffer.name=量子魔力缓存器
+tile.extrabotany:blockshadowium.name=暗影块
+tile.extrabotany:blockphotonium.name=光子块
+tile.extrabotany:dimensioncatalyst.name=次元催化器
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -132,6 +164,19 @@ entity.extrabotany:skulllandmine.name=地雷
 entity.extrabotany:skullminion.name=仆从
 entity.extrabotany:magicarrow.name=魔法箭
 entity.extrabotany:fb.name=飞船
+entity.extrabotany:darkpixie.name=黑暗精灵
+entity.extrabotany:splashgrenade.name=圣水手雷
+entity.extrabotany:sworddomain.name=剑域
+entity.extrabotany:domain.name=剑域
+entity.extrabotany:subspace.name=虚空
+entity.extrabotany:subspacespear.name=亚空之矛
+entity.extrabotany:judahspear.name=光矛
+entity.extrabotany:judahoath.name=犹大的誓约
+entity.extrabotany:petpixie.name=小精灵
+entity.extrabotany:bottledstar.name=瓶中星
+entity.extrabotany:void.name=虚空
+entity.extrabotany:voidherrscher.name=空之律者
+entity.extrabotany:subspacelance.name=亚空之矛
 entity.extrabotany:.name=
 
 extrabotanymisc.hammer=锻造
@@ -152,7 +197,7 @@ tile.botania:flower.tinkle.reference=接下来是我的回合
 tile.botania:flower.bellflower.name=风铃花
 tile.botania:flower.bellflower.reference=迷失的风
 tile.botania:flower.geminiorchid.name=双子兰
-tile.botania:flower.geminiorchid.reference=
+tile.botania:flower.geminiorchid.reference=为什么乌鸦像写字台？
 tile.botania:flower.annoyingflower.name=神烦花
 tile.botania:flower.annoyingflower.reference=摸了
 tile.botania:flower.stardustlotus.name=星移莲
@@ -196,10 +241,10 @@ extrabotany.bindy=Y坐标:
 extrabotany.bindz=Z坐标:
 extrabotany.binddim=次元:
 extrabotany.kinggarden=已配置数:
-extrabotanymisc.gaiaPreparing=盖亚守护者正在准备一次特殊攻击
-extrabotanymisc.gaiaWarning=还有5秒盖亚守护者将发动特殊攻击
-extrabotanymisc.gaiaWarning2=盖亚守护者将抽取一位玩家造成大量伤害，究竟是谁会这么幸运呢
-extrabotanymisc.gaiaWarning3=盖亚守护者对你造成了巨额伤害
+extrabotanymisc.gaiaPreparing=%s正在准备一次特殊攻击
+extrabotanymisc.gaiaWarning=还有5秒%s将发动特殊攻击
+extrabotanymisc.gaiaWarning2=%s将抽取一位玩家造成大量伤害，究竟是谁会这么幸运呢
+extrabotanymisc.gaiaWarning3=%s对你造成了巨额伤害
 extrabotanymisc.minionSpawn=盖亚守护者召唤了仆从，建议优先击杀仆从
 extrabotany.natureorb=自然之息:
 extrabotany.natureorbeffect1false=魔力的加护(未激活)
@@ -221,18 +266,34 @@ extrabotanymisc.noveline6=倘若有个孩子走到你们跟前，倘若他在笑
 extrabotanymisc.noveline7=那时，劳驾你们！不要让我总是这么忧伤。
 extrabotanymisc.noveline8=赶快写信告诉我，他回来了。
 
+extrabotanymisc.support00=%s对你施放了初等治疗术，你的生命回复了
+extrabotanymisc.support01=感谢%s吧，Ta治疗了你
+extrabotanymisc.support10=%s为你对空之律者造成了一定伤害
+extrabotanymisc.support20=%s束缚了空之律者的行动，快乘胜追击
+extrabotanymisc.support30=%s对空之律者进行了压制，她的下次行动被延缓了
+extrabotanymisc.support31=赶紧发动攻击，%s压制了空之律者
+extrabotanymisc.support40=%s为你加油打气，下次支援会提前到来
+extrabotanymisc.support41=你听到了%s的歌声，胜利就在眼前
+extrabotanymisc.support42=%s歌赞你的勇气，你感到充满了力量
+extrabotanymisc.support50=你感到被庇护，原来%s对你施放了护盾术
+extrabotanymisc.support51=你获得了生命吸收，要问为什么，因为%s来了
+extrabotanymisc.support60=%s喂了你一颗糖果，你感觉你行动变得更加迅捷
+extrabotanymisc.support61=%s喂了你一颗糖果，你感到你变得更加轻盈
+extrabotanymisc.support62=%s喂了你一颗糖果，你感到你的挥舞速度变得更快
+
 botania.entry.bloodyenchantress=血腥妖姬
-botania.page.bloodyenchantress0=能够将生物的生命值转化为 &4魔力&0，一旦有生物在其附近 就会开始魔力的转化，效率 较为可观。需要注意的是通 过这种方式献祭的生物不会 有任何掉落。
+botania.page.bloodyenchantress0=血腥妖姬能够将生物的生命 值转化为&4魔力&0，一旦有生物 在其附近就会开始&4魔力&0的转 化，效率较为可观。需要注 意的是通过这种方式献祭的 生物不会有任何掉落。
+botania.page.bloodyenchantress2=每次噬咬都会给对方添加血 之诱惑效果并不断叠加，每 层效果都会降低花的产魔， 并且周围生物血之诱惑效果 等级总和超过一定值时会停 止工作。
 botania.page.bloodyenchantress1=死亡是唯一的解药。
 botania.tagline.bloodyenchantress=燃烧生命
 
 botania.entry.sunbless=日耀百合
-botania.page.sunbless0=拥有着和&1太阳花&0一样的能力 ，能将阳光转化为&4魔力&0，但 是比起它有着更高的&4魔力&0产 出。但过程仍然显得十分缓 慢。
+botania.page.sunbless0=拥有着和太阳花一样的能力 ，能将阳光转化为&4魔力&0，但 是比起它有着更高的&4魔力&0产 出。但过程仍然显得十分缓 慢。
 botania.page.sunbless1=光与热。
 botania.tagline.sunbless=太阳的魔力
 
 botania.entry.moonbless=月光百合
-botania.page.moonbless0=拥有着和&1紫颠茄&0一样的能力 ，能在夜晚产生&4魔力&0，但 是比起它有着更高的&4魔力&0产 出。但过程仍然显得十分缓 慢。
+botania.page.moonbless0=拥有着和紫颠茄一样的能力 ，能在夜晚产生&4魔力&0，但是 比起它有着更高的&4魔力&0产出 。但过程仍然显得十分缓慢 。
 botania.page.moonbless1=愚者的播种。
 botania.tagline.moonbless=月亮的魔力
 
@@ -242,29 +303,29 @@ botania.page.omniviolet1=阿克夏记录。
 botania.tagline.omniviolet=知识就是力量
 
 botania.entry.stonesia=石中姬
-botania.page.stonesia0=石中姬可以将圆石或石头变 为&4魔力&0的形式，但由于这两种 东西过于廉价，效果并不好。 矿石或许是更好的选择，越 是稀有的矿石其转化出的魔 力也越多.同时在其工作范围 内摆放上带有自然蕴息宝珠的活石祭坛 可以催化其效率。
+botania.page.stonesia0=石中姬可以将圆石或石头变 为&4魔力&0的形式，但由于这两 种东西过于廉价，效果并不 好。矿石或许是更好的选择 ，越是稀有的矿石其转化出 的&4魔力&0也越多.同时在其工 作范围内摆放上带有自然蕴 息宝珠的活石祭坛可以催化 其效率。
 botania.page.stonesia1=珍珠与钻石。
 botania.tagline.stonesia=珍稀价值
 
 botania.entry.tinkle=叮当舞花
-botania.page.tinkle0=叮当舞花可以将动能变为&4魔力&0，玩 家在其附近移动时会产出魔力， 如果在其周围摆放上带有自然蕴 息宝珠的活石祭坛可以提高其魔 力产出。
+botania.page.tinkle0=叮当舞花可以将动能变为魔 力，玩家在其附近移动时会 产出&4魔力&0，如果在其周围摆 放上带有自然蕴息宝珠的活 石祭坛可以提高其&4魔力&0产出 。
 botania.page.tinkle1=叮咚，我来找你了哦
 botania.tagline.tinkle=冲!冲!冲!
 
 botania.entry.bellflower=风铃花
-botania.page.bellflower0=能将风能转化为&4魔力&0的花，需 要摆放在露天的地方，海拔越 高效率越高，如果在其周围摆 放上带有自然蕴息宝珠的活石祭坛可 提高其魔力产出。但它仍会枯 萎。
+botania.page.bellflower0=能将风能转化为&4魔力&0的花， 需要摆放在露天的地方，海 拔越高效率越高，如果在其 周围摆放上带有自然蕴息宝 珠的活石祭坛可提高其&4魔力&0 产出。但它仍会枯萎。
 botania.page.bellflower1=只有风暴才能击倒大树。
 botania.tagline.bellflower=风的魔力
 
 botania.entry.annoyingflower=神烦花
-botania.page.annoyingflower0=在神烦花周围摆放上一个带 有水桶的活石祭坛，它就可以 消耗&4魔力&0来自动钓鱼。如果给 它投喂香香鸡的话，它接下 来几次的工作效率会得到大 幅提高并有更高概率钓到稀 有物品。
+botania.page.annoyingflower0=在神烦花周围摆放上一个带 有水桶的活石祭坛，它就可 以消耗&4魔力&0来自动钓鱼。如 果给它投喂香香鸡的话，它 接下来几次的工作效率会得 到大幅提高并有更高概率钓 到稀有物品。
 botania.page.annoyingflower1=RK800。
-botania.page.annoyingflower2=浸泡过魔力的香香鸡能够回 复更多的饱食度。
+botania.page.annoyingflower2=浸泡过&4魔力&0的香香鸡能够回 复更多的饱食度。
 botania.page.annoyingflower3=毕竟我也不是什么恶魔。
 botania.tagline.annoyingflower=现在是钓鱼时间
 
 botania.entry.manalinkium=魔链星
-botania.page.manalinkium0=魔链星可以将魔力无线传输 至一个绑定的魔力池中，只需 要用坐标读取器将魔力池的 坐标录入即可。
+botania.page.manalinkium0=魔链星可以将&4魔力&0无线传输 至一个绑定的&4魔力&0池中，只 需要用坐标读取器将魔力池 的坐标录入即可。
 botania.page.manalinkium1=太真实了。
 botania.page.manalinkium2=这朵花需要满足多方块结构 才能工作。
 botania.page.manalinkium3=花需要摆放在第二层正中间
@@ -272,7 +333,7 @@ botania.page.manalinkium4=
 botania.tagline.manalinkium=无线传输
 
 botania.entry.stardustlotus=星移莲
-botania.page.stardustlotus0=星移莲可以消耗魔力将生物 传送到指定坐标位置上，只需 要你用坐标读取器将坐标录 入进去即可。丢1张纸即可开 启传送门，当星移莲发出闪光 时说明传送门准备就绪。
+botania.page.stardustlotus0=星移莲可以消耗&4魔力&0将生物 传送到指定坐标位置上，只 需要你用坐标读取器将坐标 录入进去即可。丢1张纸即 可开启传送门，当星移莲发 出闪光时说明传送门准备就 绪。
 botania.page.stardustlotus1=比狼好。
 botania.page.stardustlotus2=这朵花需要满足多方块结构 才能工作。
 botania.page.stardustlotus3=花需要摆放在第二层正中间
@@ -280,28 +341,28 @@ botania.page.stardustlotus4=
 botania.tagline.stardustlotus=远程传送
 
 botania.entry.reikarlily=雷卡兰
-botania.page.reikarlily0=雷卡兰可以将闪电的巨大能 量转化为魔力，每当有闪电劈 在其附近时，就会立刻产出巨 大魔力，并且余热会使其继 续缓慢地产出魔力。
+botania.page.reikarlily0=雷卡兰可以将闪电的巨大能 量转化为&4魔力&0，每当有闪电 劈在其附近时，就会立刻产 出巨大&4魔力&0，并且余热会使 其继续缓慢地产出&4魔力&0。
 botania.page.reikarlily1=就决定是你了!
 botania.tagline.reikarlily=个!十!百!千!万丈目闪电!
 
 botania.entry.edelweiss=雪绒花
-botania.page.edelweiss0=雪绒花可以通过吞噬雪傀儡 或者铁傀儡来产出魔力。
+botania.page.edelweiss0=雪绒花可以通过吞噬雪傀儡 或者铁傀儡来产出&4魔力&0。
 botania.page.edelweiss1=If you are reading this, you can read.
 botania.tagline.edelweiss=有些残忍
 
 botania.entry.geminiorchid=双子兰
-botania.page.geminiorchid0=&1双子兰&0就像是一台温差发电 机.如果你在斜对角倒上一 桶岩浆,然后在另一个斜对 角倒上一桶水,它就会开始 产出魔力.两个方块的温度 差值越大,魔力产出也就越 快.
+botania.page.geminiorchid0=双子兰就像是一台温差发电 机。如果你在斜对角倒上一 桶岩浆，然后在另一个斜对 角倒上一桶水，它就会开始 产出&4魔力&0。两个方块的温度 差值越大，&4魔力&0产出也就越 快。<br>注意，这是一朵被动产能花。
 botania.page.geminiorchid1=我就是力量的化身!
 botania.page.geminiorchid2=
 botania.tagline.geminiorchid=
 
 botania.entry.mirrortunia=镜姬
-botania.page.mirrortunia0=镜姬会消耗魔力给周围玩家 添加镜子反射效果，并清除 负面效果。
+botania.page.mirrortunia0=镜姬会消耗&4魔力&0给周围玩家 添加镜子反射效果，并清除 负面效果。镜子反射会使受 益者在受到伤害的时候反弹 部分伤害。
 botania.page.mirrortunia1=
 botania.tagline.mirrortunia=
 
 botania.entry.enchantedorchid=蕴魔瑾
-botania.page.enchantedorchid0=蕴魔瑾可以将其地表附近的 草方块转化为蕴魔土，但这个 过程需要漫长的时间和大量 的魔力。并且每次转化都需要 消耗一个黑莲花。
+botania.page.enchantedorchid0=蕴魔瑾可以将其地表附近的 草方块转化为蕴魔土，但这 个过程需要漫长的时间和大 量的&4魔力&0。并且每次转化都 需要消耗一个黑莲花。
 botania.page.enchantedorchid1=真相只有一个!
 botania.tagline.enchantedorchid=无穷无尽的知识就是我的力量
 
@@ -311,8 +372,8 @@ botania.page.manabarrel1=un...deux...trois...
 botania.tagline.manabarrel=缓存魔力
 
 botania.entry.kinggarden=王之花园
-botania.page.kinggarden0=王之花园可以将其所记录的 花种召唤出来并对敌人进行 打击。需要将王之花园摆放在 活石祭坛上并用对应花右键 来添加配置。不同的花效果 不同。
-botania.page.kinggarden1=例如鲜血妖姬可以造成大量 魔法伤害，而日耀百合可以点 燃敌人，但不是所有种类的花 都可以配置进去。
+botania.page.kinggarden0=王之花园可以将其所记录的 花种召唤出来并对敌人进行 打击。需要将王之花园摆放 在活石祭坛上并用对应花右 键来添加配置。不同的花效 果不同。
+botania.page.kinggarden1=例如血腥妖姬可以造成大量 魔法伤害，而日耀百合可以点 燃敌人，但不是所有种类的花 都可以配置进去。
 botania.page.kinggarden2=天地乖离开辟之星。
 botania.page.kinggarden3=全知且全能之星。
 botania.tagline.kinggarden=无限花制
@@ -323,7 +384,7 @@ botania.page.nightmarefuel1=大脑在颤抖。
 botania.tagline.nightmarefuel=生前是个体面人
 
 botania.entry.spiritfuel=精神燃料
-botania.page.spiritfuel0=食用梦魇燃料后得到的产物， 可食用。通过锻造可萃取出精 神碎片，是一种常用的材料。 手持手册右键带有精神燃料 的活石祭坛可解锁新的知识。
+botania.page.spiritfuel0=食用梦魇燃料后得到的产物 ，可食用。通过锻造可萃取 出精神碎片，是一种常用的 材料。手持手册右键带有精 神燃料的活石祭坛可解锁新 的知识。如果将梦魇燃料放 置在活石祭坛中在阳光下曝 晒5分钟也可获得。
 botania.page.spiritfuel1=相信的心就是你的魔法。
 botania.tagline.spiritfuel=意识集合体
 
@@ -358,7 +419,7 @@ botania.page.deathring1=力量本身并不可怕，可怕的是它的主人。
 botania.tagline.deathring=永恒的狩猎开始了
 
 botania.entry.hammer=锤子
-botania.page.hammer0=锻造用的锤子，也可以用作 镐子来挖矿。
+botania.page.hammer0=锻造用的锤子，也可以用作 镐子来挖矿。 如果将其放入发射器中并给 予红石信号，将会自动锻造 前方一格活石祭坛里的物品。
 botania.page.hammer1=似乎在梦中见过的样子
 botania.page.hammer2=我想那还真是令人高兴啊
 botania.page.hammer3=已经没什么好害怕的了
@@ -378,6 +439,7 @@ botania.tagline.failnaught=古遗物
 
 botania.entry.natureorb=自然蕴息宝珠
 botania.page.natureorb0=自然蕴息宝珠可以储存自然 之息，利用自然的力量来守护 携带者。同时将其摆在活石祭 坛上可以使周围部分种类的 花的效率得到提升。
+botania.page.natureorb5=魔力的加护会提供魔力，再 生的加护会加快生命恢复， 森罗的加护会清除负面状态。
 botania.page.natureorb1=不是气血宝珠。
 botania.page.natureorb2=一阶祭坛。
 botania.page.natureorb3=二阶祭坛。
@@ -385,7 +447,7 @@ botania.page.natureorb4=自然蕴息宝珠需要搭建多方 块结构，放置�
 botania.tagline.natureorb=自然平衡
 
 botania.entry.camera=文文的相机
-botania.page.camera0=&4文文的相机&0在使用后能消耗 魔力使视野内的敌对生物失 去行动能力，并使视野内所有 投掷物消失。受这个效果影响 的生物会在受伤后重新恢复 行动能力。
+botania.page.camera0=&4文文的相机&0在使用后能消耗 魔力使视野内的敌对生物失 去行动能力，并使视野内所有 投掷物消失。受这个效果影响 的生物会在一段时间后重新 恢复行动能力。
 botania.page.camera1=风符「风神一扇」
 botania.tagline.camera=风符「风神少女」
 
@@ -531,7 +593,7 @@ botania.page.walkingcane1=
 botania.tagline.walkingcane=
 
 botania.entry.allforone=全能指环
-botania.page.allforone0=全能指环是精灵王指环的升 级版，它可以模拟饰品盒内 的所有饰品的效果。
+botania.page.allforone0=全能指环是精灵王指环的升 级版，它可以模拟饰品盒内 的所有饰品的效果。 <br>但仍仅仅只是绝大多数饰品的效果，一些特殊的饰品效果无法模拟。
 botania.page.allforone1=
 botania.tagline.allforone=
 
@@ -541,7 +603,7 @@ botania.page.godweave1=
 botania.tagline.godweave=
 
 botania.entry.ticket=挑战券
-botania.page.ticket0=可以用来召唤盖亚守护者III 的一次性物品。
+botania.page.ticket0=可以用来召唤盖亚守护者III 的一次性物品。 就像你如何用盖亚魂锭召唤 盖亚II那样。
 botania.page.ticket1=
 botania.tagline.ticket=
 
@@ -549,11 +611,94 @@ botania.entry.goblinslayer=哥布林杀手
 botania.page.goblinslayer0=光子锭是一种优秀的材料， 它是暗影锭的对立面。
 botania.page.goblinslayer1=
 botania.page.goblinslayer2=它可以用于制作哥布林杀手 套，这套装备可以在白天提 供极强的再生和生命提升能 力，减少伤害，并对非亡灵 生物有额外伤害加成。
-botania.page.goblinslayer3=
-botania.page.goblinslayer4=
-botania.page.goblinslayer5=
-botania.page.goblinslayer6=
+botania.page.goblinslayer3=哥布林杀手头盔
+botania.page.goblinslayer4=哥布林杀手胸甲
+botania.page.goblinslayer5=哥布林杀手护腿
+botania.page.goblinslayer6=哥布林杀手靴子
 botania.tagline.goblinslayer=
+
+botania.entry.lensextra=全新魔力透镜
+botania.page.lensextra0=冲击透镜会使魔力脉冲推动 第一个接触到的生物，强制 使它跟随着魔力脉冲移动。 
+botania.page.lensextra1=冲击
+botania.page.lensextra2=冶炼透镜会冶炼魔力脉冲所 触碰到的方块，掉落冶炼成 品和经验，这会消耗少量魔 力。
+botania.page.lensextra3=冶炼
+botania.page.lensextra4=魔力透镜能够模拟魔力池， 使魔力脉冲触碰的物品接受 魔力灌注。如果在发射器下 方放置炼金催化器或炼造催 化器也会有对应的效果。<br>魔力透镜会提高每次魔力脉 冲携带的魔力量。
+botania.page.lensextra5=魔力
+botania.page.lensextra6=药水透镜会使魔力脉冲所触 碰到的生物获得对应的药水 效果，消耗少量的魔力。<br>需要将透镜和对应的烧瓶酿 造合成来决定其效果。
+botania.page.lensextra7=药水
+botania.page.lensextra8=云朵透镜是药水透镜的改良 版，使魔力脉冲接触生物时 产生对应药水效果的药水云 。
+botania.page.lensextra9=云朵
+botania.page.lensextra10=追踪透镜会使魔力脉冲锁定 其3格以内的生物并持续追 踪，直到其中一方消失。
+botania.page.lensextra11=追踪
+botania.tagline.lensextra=
+
+botania.entry.judahoath=犹大的誓约
+botania.page.judahoath0=使用后会消耗魔力展开犹大 的誓约，禁锢范围内的敌人 并召唤光矛攻击，削减敌人 的生命上限。
+botania.page.judahoath1=犹大的誓约
+botania.page.judahoath2=犹大的誓约KIRA
+botania.tagline.judahoath=
+
+botania.entry.bottledflame=瓶中火
+botania.page.bottledflame0=将瓶中火装备在饰品栏后， 它会在光亮不足的时候自动 消耗玩家背包内的火把来点 亮周围。
+botania.page.bottledflame1=瓶中火
+botania.tagline.bottledflame=
+
+botania.entry.bottledstar=瓶中星
+botania.page.bottledstar0=使用后会消耗少量&4魔力&0展开 瓶中星，召唤出大量星星攻 击周围的生物。
+botania.page.bottledstar1=瓶中星
+botania.tagline.bottledstar=
+
+botania.entry.bottledpixie=瓶中精灵
+botania.page.bottledpixie0=使用后会消耗少量&4魔力&0召唤 出一个小精灵为你战斗，小 精灵只会攻击敌对生物，并 且小精灵的行为路径较为调 皮。
+botania.page.bottledpixie1=瓶中精灵
+botania.tagline.bottledpixie=
+
+botania.entry.dimensioncatalyst=次元催化器
+botania.page.dimensioncatalyst0=次元催化器连接了主世界与 其他两个次元，它可以消耗 &4魔力&0来将主世界的资源转化 为其他次元内的资源。
+botania.page.dimensioncatalyst1=次元催化器
+botania.page.dimensioncatalyst2=
+botania.page.dimensioncatalyst3=
+botania.page.dimensioncatalyst4=
+botania.page.dimensioncatalyst5=
+botania.page.dimensioncatalyst6=
+botania.page.dimensioncatalyst7=
+botania.page.dimensioncatalyst8=
+botania.page.dimensioncatalyst9=
+botania.page.dimensioncatalyst10=
+botania.page.dimensioncatalyst11=
+botania.tagline.dimensioncatalyst=
+
+botania.category.dream=额外学
+
+botania.entry.guide=自新世界
+botania.page.guide0=欢迎来到魔力至上主义的世 界。您是一位具有极大潜力 的人，我在您的身上看到了 未来。我相信您正渴求着更 多的知识，而我正是来改变 您，向您传授知识的人。 <br>手持手册右键带有精神燃料 的活石祭坛，您将解锁全新 的知识。去掌握这份新力量 吧！<br>食用梦魇燃料可以获得精神 燃料，或者将它放在活石祭坛晒上 5分钟。
+botania.page.guide1=
+botania.tagline.guide=新世界
+
+botania.entry.voidherrscher=空之律者—最终的挑战
+botania.page.voidherrscher0=击败盖亚守护者III之后 ，你得到了挑战空之律者的 资格。英雄勋章具有强大的 能量波动，但我们只需要借 助光与暗以及盖亚之魂的力 量就能使其稳定下来，制作 出召唤空之律者的道具。
+botania.page.voidherrscher1=来自虚空的呼唤
+botania.page.voidherrscher2=空之律者继承了盖亚守护者 III的力量，其基本规则 仍旧相同：你仍然只能携带 原版，植物魔法和额外植物 学的物品和装备。<br>但是空之律者还拥有更为可 怕的能力。
+botania.page.voidherrscher3=首先，她出场时会在场地正 中间插入一根亚空之矛，并 且所有试图在场地外攻击的 玩家都会被传送进场地内。 靠近插在地上的亚空之矛会 遭受放电攻击，并且多根矛 之间会连接形成电网持续伤 害玩家。
+botania.page.voidherrscher4=空之律者在受到攻击时会使 攻击者陷入时空减速，但这 一能力似乎有冷却时间。当 她的血量降低到一定值时会 进入二阶段，长出翅膀并腾 空而起，同时立刻释放天堂 裁决吸引玩家。
+botania.page.voidherrscher5=空之律者每次受伤都会加快 特殊攻击的蓄力，当血量再 降低到一定值时就会进入三 阶段，也正是最为恐怖的阶 段。<br>空之律者会根据攻击人数回 复生命值，并会有三面护盾 环绕。
+botania.page.voidherrscher6=每面护盾都会为空之律者减 少伤害，但是使用超重攻击 可以击破护盾，但护盾被击 破时她会复制玩家身上的所 有buff效果，并且会重置极限 闪避冷却。 <br>她拥有三面护盾时会反 射所有抛射物。
+botania.page.voidherrscher7=这将是一次艰难的挑战，但 是奖励也会异常的丰厚。所 以，春宵苦短，勇者，前进吧！
+botania.tagline.voidherrscher=
+
+botania.entry.cosmetic=装饰饰品
+botania.page.cosmetic0=这些是饰品仅仅只有装饰作 用，并没有任何实际效果。
+botania.page.cosmetic1=
+botania.page.cosmetic2=
+botania.page.cosmetic3=
+botania.page.cosmetic4=
+botania.page.cosmetic5=
+botania.page.cosmetic6=
+botania.page.cosmetic7=
+botania.page.cosmetic8=
+botania.page.cosmetic9=
+botania.page.cosmetic10=
+botania.tagline.cosmetic=
 
 botania.entry.=
 botania.page.0=
@@ -643,10 +788,14 @@ advancement.extrabotany:luckyDraw=Starduster
 advancement.extrabotany:luckyDraw.desc=通过奖励袋获得超稀有物品
 advancement.extrabotany:buddhistRelics=SPiCa
 advancement.extrabotany:buddhistRelics.desc=获得源初造物丨虚空万藏
-advancement.extrabotany:spearsubspaceCraft=
+advancement.extrabotany:spearsubspaceCraft=Nightglow
 advancement.extrabotany:spearsubspaceCraft.desc=获得亚空之矛
-advancement.extrabotany:armorsetGS=
+advancement.extrabotany:armorsetGS=Befall
 advancement.extrabotany:armorsetGS.desc=装备一套哥布林杀手套
+advancement.extrabotany:herrscherDefeat=Salvation
+advancement.extrabotany:herrscherDefeat.desc=击败空之律者
+advancement.extrabotany:endgameGoal=End Day
+advancement.extrabotany:endgameGoal.desc=完成最终的挑战—在3分钟内击败空之律者
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=
@@ -669,6 +818,3 @@ modifier.body.desc=耐久
 modifier.soul.name=灵魂
 modifier.soul.desc=额外3个强化槽
 material.extrabotany:ingotorichalcos.name=奥利哈刚
-
-extrabotany.versioning.flavour=额外植物学已更新
-extrabotany.versioning.outdated=你所使用的额外植物学版本为%s，最新版本为%s.

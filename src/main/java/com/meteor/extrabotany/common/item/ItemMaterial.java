@@ -92,7 +92,7 @@ public class ItemMaterial extends ItemMod implements IFlowerComponent{
 		}
 		
 		if(player.getHeldItem(hand).getMetadata() == 9 && player.isSneaking()){
-			if(ConfigHandler.GAIA_ENABLE){
+			if(ConfigHandler.ENABLE_HERRSCHER){
 				return EntityVoidHerrscher.spawn(player, player.getHeldItem(hand), world, pos, false) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
 			}
 		}

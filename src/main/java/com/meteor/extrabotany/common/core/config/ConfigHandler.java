@@ -102,6 +102,8 @@ public class ConfigHandler {
 	public static boolean ENABLE_TOP = false;
 	
 	public static boolean ENABLE_FEATURES = true;
+	public static boolean ENABLE_HERRSCHER = true;
+	public static boolean ENABLE_ADS = true;
 	
 	public static boolean ENABLE_CANDYBAGDROP = true;
 	public static double CANDYBAG_DROPCHANCE = 0.02F;
@@ -155,6 +157,8 @@ public class ConfigHandler {
 		CANDYBAG_DROPCHANCE = loadPropDouble("chance.candybag", desc, CANDYBAG_DROPCHANCE);
 		desc = "Whether to enable Construct's Armory Compat. Default is false.";
 		ENABLE_CASUPPORT = loadPropBool("enable.ca", desc, ENABLE_CASUPPORT);
+		desc = "Whether to enable Herrscher of The Void. Default is true.";
+		ENABLE_HERRSCHER = loadPropBool("enable.herrscher", desc, ENABLE_HERRSCHER);
 		
 		WHITELIST = CONFIG.getStringList("GaiaIII Disarm Whitelist", Configuration.CATEGORY_GENERAL, new String[]{}, "syntax: modid:name or modid:name:meta");
 		String descReward = "syntax: modid:name:weight or modid:name:weight:meta or modid:name:weight:meta:stacksize";

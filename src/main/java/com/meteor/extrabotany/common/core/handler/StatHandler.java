@@ -2,24 +2,42 @@ package com.meteor.extrabotany.common.core.handler;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.block.ModBlocks;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class StatHandler {
+	
+	@SubscribeEvent
+	public static void playerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        Minecraft mc = Minecraft.getMinecraft();
+        GameSettings gameSettings = mc.gameSettings;
+		if(PersistentVariableHandler.advertisements.size() > 0 && gameSettings.language.equals("zh_cn")){
+			for(int i = 0; i < PersistentVariableHandler.advertisements.size(); i++){
+				ITextComponent component = ITextComponent.Serializer.fromJsonLenient(PersistentVariableHandler.advertisements.get(i));
+				if(!event.player.world.isRemote)
+					event.player.sendMessage(component);
+			}
+		}
+	}
 	
 	@SubscribeEvent
 	public static void getAchievement(AdvancementEvent event) {

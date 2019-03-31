@@ -176,7 +176,7 @@ public class ModItems {
 	public static final Item bottledpixie = new ItemBottledPixie();
 	
 	public static final Item mask = new ItemCosmetic();
-	public static final Item gamewinner = new ItemGameWinner();
+	//public static final Item gamewinner = new ItemGameWinner();
 	
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -257,7 +257,7 @@ public class ModItems {
 		r.register(bottledstar);
 		r.register(bottledpixie);
 		r.register(mask);
-		r.register(gamewinner);
+		//r.register(gamewinner);
 		r.register(herrscherrecord);
 		registerOreDictionary();
 		//A

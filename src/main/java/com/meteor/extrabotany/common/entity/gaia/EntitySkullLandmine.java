@@ -1,14 +1,9 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.StatHandler;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,6 +19,9 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.handler.ModSounds;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class EntitySkullLandmine extends Entity{
 	

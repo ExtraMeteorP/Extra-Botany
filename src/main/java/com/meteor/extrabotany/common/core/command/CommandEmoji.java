@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.core.command;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;

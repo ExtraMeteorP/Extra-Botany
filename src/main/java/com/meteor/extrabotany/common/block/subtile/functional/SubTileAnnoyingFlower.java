@@ -1,13 +1,9 @@
 package com.meteor.extrabotany.common.block.subtile.functional;
 
-import java.util.List;
-import java.util.Random;
-
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.ItemFriedChicken;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
-
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -21,6 +17,9 @@ import net.minecraft.world.storage.loot.LootTableList;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 import vazkii.botania.api.subtile.SubTileFunctional;
+
+import java.util.List;
+import java.util.Random;
 
 public class SubTileAnnoyingFlower extends SubTileFunctional{
 	

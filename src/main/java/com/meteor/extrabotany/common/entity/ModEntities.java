@@ -1,20 +1,10 @@
 package com.meteor.extrabotany.common.entity;
 
 import com.meteor.extrabotany.ExtraBotany;
-import com.meteor.extrabotany.common.entity.gaia.EntityDomain;
-import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
-import com.meteor.extrabotany.common.entity.gaia.EntityHonkaiBeam;
-import com.meteor.extrabotany.common.entity.gaia.EntitySkullLandmine;
-import com.meteor.extrabotany.common.entity.gaia.EntitySkullMinion;
-import com.meteor.extrabotany.common.entity.gaia.EntitySkullMissile;
-import com.meteor.extrabotany.common.entity.gaia.EntitySubspaceLance;
-import com.meteor.extrabotany.common.entity.gaia.EntitySwordDomain;
-import com.meteor.extrabotany.common.entity.gaia.EntityVoid;
-import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
+import com.meteor.extrabotany.common.entity.gaia.*;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahSpear;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 

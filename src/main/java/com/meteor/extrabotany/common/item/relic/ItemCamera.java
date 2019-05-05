@@ -1,13 +1,10 @@
 package com.meteor.extrabotany.common.item.relic;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.entity.IBossProjectile;
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
 import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IProjectile;
@@ -26,6 +23,8 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
+
+import javax.annotation.Nonnull;
 
 public class ItemCamera extends ItemModRelic implements IManaUsingItem{
 	

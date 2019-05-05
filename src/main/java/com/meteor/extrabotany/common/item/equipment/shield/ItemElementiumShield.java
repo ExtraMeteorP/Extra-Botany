@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.item.equipment.shield;
 
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;

@@ -1,10 +1,5 @@
 package com.meteor.extrabotany.common.block;
 
-import java.util.Arrays;
-import java.util.Random;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.item.IHammer;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
@@ -15,7 +10,6 @@ import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
-
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -44,6 +38,10 @@ import vazkii.botania.common.item.ItemLexicon;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 import vazkii.botania.common.lib.LibBlockNames;
+
+import javax.annotation.Nonnull;
+import java.util.Arrays;
+import java.util.Random;
 
 public class BlockPedestal extends BlockMod implements ILexiconable{
 	

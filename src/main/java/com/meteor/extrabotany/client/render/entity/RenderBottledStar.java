@@ -1,12 +1,7 @@
 package com.meteor.extrabotany.client.render.entity;
 
-import javax.annotation.Nonnull;
-
-import org.lwjgl.opengl.GL11;
-
 import com.meteor.extrabotany.common.entity.EntityBottledStar;
 import com.meteor.extrabotany.common.item.ModItems;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -15,7 +10,10 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 import vazkii.botania.client.core.helper.ShaderHelper;
+
+import javax.annotation.Nonnull;
 
 public class RenderBottledStar extends Render<EntityBottledStar>{
 

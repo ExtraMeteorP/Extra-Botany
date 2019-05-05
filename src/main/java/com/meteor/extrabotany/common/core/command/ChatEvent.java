@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.core.command;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -13,7 +12,7 @@ public class ChatEvent {
 		String text = event.getMessage().getFormattedText();
 		for(int i = 0; i < LibMisc.EMOJI.length; i++)
 			text = text.replace("%e" + String.valueOf(i + 1), LibMisc.EMOJI[i]);
-		text = text.replace("ÄãÂè", "ÎÒÂè");
+		text = text.replace("ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½");
 		event.setMessage(new TextComponentTranslation(text));
 	}
 	

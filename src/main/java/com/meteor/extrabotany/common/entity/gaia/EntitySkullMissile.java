@@ -1,16 +1,11 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IBossProjectile;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.StatHandler;
 import com.meteor.extrabotany.common.entity.EntityThrowableCopy;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockLeaves;
@@ -30,6 +25,9 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.Vector3;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class EntitySkullMissile extends EntityThrowableCopy implements IBossProjectile{
 	

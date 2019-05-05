@@ -1,11 +1,8 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import java.util.UUID;
-
+import baubles.api.BaubleType;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
-import baubles.api.BaubleType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,6 +12,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.common.network.PacketHandler;
 import vazkii.botania.common.network.PacketJump;
+
+import java.util.UUID;
 
 public class ItemWallJumpingRing extends WallJumpingShim{
 	

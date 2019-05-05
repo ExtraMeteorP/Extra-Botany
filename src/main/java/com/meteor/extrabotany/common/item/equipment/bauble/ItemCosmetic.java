@@ -1,13 +1,8 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
+import baubles.api.BaubleType;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
-import baubles.api.BaubleType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -24,6 +19,9 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.item.ICosmeticBauble;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class ItemCosmetic extends ItemBauble implements ICosmeticBauble{
 	

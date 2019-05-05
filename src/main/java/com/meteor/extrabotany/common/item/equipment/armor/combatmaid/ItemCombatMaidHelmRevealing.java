@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.item.equipment.armor.combatmaid;
 
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Optional;

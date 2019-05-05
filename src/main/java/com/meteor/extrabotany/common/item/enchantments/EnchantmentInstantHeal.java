@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.item.enchantments;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;

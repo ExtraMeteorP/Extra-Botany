@@ -1,10 +1,5 @@
 package com.meteor.extrabotany.common.world;
 
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,6 +13,10 @@ import net.minecraft.world.gen.structure.StructureVillagePieces.Start;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.block.ModFluffBlocks;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Random;
 
 public class ComponentBotanist extends StructureVillagePieces.Village{
 	

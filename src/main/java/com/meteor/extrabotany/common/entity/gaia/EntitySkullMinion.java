@@ -1,12 +1,7 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAISwimming;
@@ -23,6 +18,9 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.handler.ModSounds;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class EntitySkullMinion extends EntityLiving implements IEntityWithShield{
 	

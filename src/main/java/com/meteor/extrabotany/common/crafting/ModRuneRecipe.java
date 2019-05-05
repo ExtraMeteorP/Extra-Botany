@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.crafting;
 
 import com.meteor.extrabotany.common.item.ModItems;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;

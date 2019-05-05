@@ -1,8 +1,7 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import baubles.api.BaubleType;
+import com.meteor.extrabotany.common.lib.LibItemsName;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

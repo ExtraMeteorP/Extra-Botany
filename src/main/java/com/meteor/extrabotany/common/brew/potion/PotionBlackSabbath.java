@@ -1,14 +1,12 @@
 package com.meteor.extrabotany.common.brew.potion;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Lists;
 import com.meteor.extrabotany.common.lib.LibPotionsName;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class PotionBlackSabbath extends PotionMod{
 

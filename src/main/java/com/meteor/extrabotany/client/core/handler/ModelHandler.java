@@ -1,29 +1,11 @@
 package com.meteor.extrabotany.client.core.handler;
 
-import java.util.Locale;
-import java.util.Map;
-import java.util.function.IntFunction;
-
 import com.meteor.extrabotany.client.render.IModelReg;
-import com.meteor.extrabotany.common.block.subtile.functional.SubTileAnnoyingFlower;
-import com.meteor.extrabotany.common.block.subtile.functional.SubTileEnchantedOrchid;
-import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
-import com.meteor.extrabotany.common.block.subtile.functional.SubTileMirrortunia;
-import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileBellFlower;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileBloodyEnchantress;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileEdelweiss;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileGeminiOrchid;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileMoonBless;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileOmniViolet;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileStonesia;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
-import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
+import com.meteor.extrabotany.common.block.subtile.functional.*;
+import com.meteor.extrabotany.common.block.subtile.generating.*;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -42,6 +24,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IRegistryDelegate;
 import vazkii.botania.api.BotaniaAPIClient;
 import vazkii.botania.client.model.SpecialFlowerModel;
+
+import java.util.Locale;
+import java.util.Map;
+import java.util.function.IntFunction;
 
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = LibMisc.MOD_ID)
 public class ModelHandler {

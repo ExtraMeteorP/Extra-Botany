@@ -1,7 +1,5 @@
 package com.meteor.extrabotany.common.item.lens;
 
-import java.util.List;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
@@ -11,6 +9,8 @@ import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.internal.IManaBurst;
 import vazkii.botania.api.mana.BurstProperties;
 import vazkii.botania.common.item.lens.Lens;
+
+import java.util.List;
 
 public class LensPotion extends Lens{
 	

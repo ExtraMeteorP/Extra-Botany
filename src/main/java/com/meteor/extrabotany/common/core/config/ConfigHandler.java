@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.core.config;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;

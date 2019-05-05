@@ -1,10 +1,6 @@
 package com.meteor.extrabotany.client.core.handler;
 
-import java.awt.Color;
-import java.util.Map;
-
 import com.meteor.extrabotany.common.item.ModItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
@@ -16,6 +12,9 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.brew.IBrewItem;
 import vazkii.botania.client.core.handler.ClientTickHandler;
+
+import java.awt.*;
+import java.util.Map;
 
 public final class ColorHandler {
 	

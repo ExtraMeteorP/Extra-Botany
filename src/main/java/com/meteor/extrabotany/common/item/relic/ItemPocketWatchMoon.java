@@ -1,10 +1,7 @@
 package com.meteor.extrabotany.common.item.relic;
 
-import java.util.List;
-
 import com.meteor.extrabotany.common.entity.EntityFlyCutter;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -16,6 +13,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class ItemPocketWatchMoon extends ItemModRelic{
 

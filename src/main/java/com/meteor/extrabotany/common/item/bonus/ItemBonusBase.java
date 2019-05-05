@@ -1,17 +1,10 @@
 package com.meteor.extrabotany.common.item.bonus;
 
-import java.text.DecimalFormat;
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.item.Bonus;
 import com.meteor.extrabotany.api.item.WeightCategory;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -28,6 +21,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
+
+import javax.annotation.Nonnull;
+import java.text.DecimalFormat;
+import java.util.List;
+import java.util.Random;
 
 public class ItemBonusBase extends ItemMod{
 	

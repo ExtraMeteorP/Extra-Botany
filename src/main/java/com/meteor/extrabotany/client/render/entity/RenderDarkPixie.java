@@ -1,23 +1,21 @@
 package com.meteor.extrabotany.client.render.entity;
 
-import javax.annotation.Nonnull;
-
-import org.lwjgl.opengl.ARBShaderObjects;
-import org.lwjgl.opengl.GL11;
-
 import com.meteor.extrabotany.client.ClientProxy;
 import com.meteor.extrabotany.client.lib.LibResource;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.entity.EntityDarkPixie;
-
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.ARBShaderObjects;
+import org.lwjgl.opengl.GL11;
 import vazkii.botania.api.internal.ShaderCallback;
 import vazkii.botania.client.core.helper.ShaderHelper;
 import vazkii.botania.client.model.ModelPixie;
+
+import javax.annotation.Nonnull;
 
 public class RenderDarkPixie extends RenderLiving<EntityDarkPixie> {
 

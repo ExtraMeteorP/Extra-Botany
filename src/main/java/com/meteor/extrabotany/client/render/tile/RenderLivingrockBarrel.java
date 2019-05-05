@@ -1,12 +1,7 @@
 package com.meteor.extrabotany.client.render.tile;
 
-import javax.annotation.Nonnull;
-
-import org.lwjgl.opengl.GL11;
-
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.block.tile.TileLivingrockBarrel;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -15,7 +10,10 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
+import org.lwjgl.opengl.GL11;
 import vazkii.botania.client.core.proxy.ClientProxy;
+
+import javax.annotation.Nonnull;
 
 public class RenderLivingrockBarrel extends TileEntitySpecialRenderer<TileLivingrockBarrel>{
 

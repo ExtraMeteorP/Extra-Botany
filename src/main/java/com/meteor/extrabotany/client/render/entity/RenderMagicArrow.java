@@ -1,15 +1,14 @@
 package com.meteor.extrabotany.client.render.entity;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.client.model.ModelDragonCopy;
 import com.meteor.extrabotany.common.entity.EntityMagicArrow;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+
+import javax.annotation.Nonnull;
 
 public class RenderMagicArrow extends Render<EntityMagicArrow>{
 	

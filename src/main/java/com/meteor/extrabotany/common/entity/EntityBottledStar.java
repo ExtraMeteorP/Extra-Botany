@@ -1,13 +1,13 @@
 package com.meteor.extrabotany.common.entity;
 
-import java.util.List;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.common.core.helper.Vector3;
 import vazkii.botania.common.entity.EntityFallingStar;
+
+import java.util.List;
 
 public class EntityBottledStar extends EntityThrowableCopy{
 

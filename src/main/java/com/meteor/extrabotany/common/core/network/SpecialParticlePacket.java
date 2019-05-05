@@ -1,11 +1,11 @@
 package com.meteor.extrabotany.common.core.network;
 
-import java.util.UUID;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.PacketBuffer;
+
+import java.util.UUID;
 
 public class SpecialParticlePacket extends AbstractPacketThreadsafe {
 

@@ -1,12 +1,7 @@
 package com.meteor.extrabotany.client.render.entity.judah;
 
-import javax.annotation.Nonnull;
-
-import org.lwjgl.opengl.GL11;
-
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -16,8 +11,11 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 import vazkii.botania.client.core.helper.IconHelper;
 import vazkii.botania.client.core.helper.ShaderHelper;
+
+import javax.annotation.Nonnull;
 
 public class RenderJudahOath extends Render<EntityJudahOath> {
 	

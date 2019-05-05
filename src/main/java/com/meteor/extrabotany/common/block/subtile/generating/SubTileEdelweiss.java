@@ -1,10 +1,7 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
-import java.util.List;
-
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntitySnowman;
@@ -13,6 +10,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 import vazkii.botania.api.subtile.SubTileGenerating;
+
+import java.util.List;
 
 public class SubTileEdelweiss extends SubTileGenerating{
 	

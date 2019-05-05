@@ -1,13 +1,12 @@
 package com.meteor.extrabotany.client.render.entity.gaia;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.client.model.ModelVoidHerrscher;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
-
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
+
+import javax.annotation.Nonnull;
 
 public class RenderVoidHerrscher extends RenderBiped<EntityVoidHerrscher> {
 

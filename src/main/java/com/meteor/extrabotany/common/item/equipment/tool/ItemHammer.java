@@ -1,12 +1,9 @@
 package com.meteor.extrabotany.common.item.equipment.tool;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.api.item.IHammer;
 import com.meteor.extrabotany.client.render.IModelReg;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +22,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
+
+import javax.annotation.Nonnull;
 
 public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer, IManaUsingItem{
 	

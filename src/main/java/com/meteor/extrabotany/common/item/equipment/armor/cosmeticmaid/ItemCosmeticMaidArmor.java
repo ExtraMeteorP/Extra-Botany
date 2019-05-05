@@ -1,20 +1,11 @@
 package com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid;
 
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Multimap;
-import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.client.model.ModelArmorCosmeticMaid;
 import com.meteor.extrabotany.client.render.IModelReg;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.model.ModelBiped;
@@ -45,6 +36,11 @@ import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.client.lib.LibResources;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
+
+import javax.annotation.Nonnull;
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
 
 public class ItemCosmeticMaidArmor extends ItemArmor implements ISpecialArmor, IManaUsingItem, IModelReg, IPhantomInkable, IManaDiscountArmor{
 

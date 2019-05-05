@@ -1,11 +1,6 @@
 package com.meteor.extrabotany.common.entity;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -19,6 +14,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class EntityFlyCutter extends EntityThrowable{
 	

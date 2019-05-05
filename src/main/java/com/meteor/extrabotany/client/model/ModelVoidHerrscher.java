@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.client.model;
 
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;

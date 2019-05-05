@@ -2,7 +2,6 @@ package com.meteor.extrabotany.api.subtile;
 
 import com.meteor.extrabotany.api.item.INatureOrb;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
-
 import net.minecraft.nbt.NBTTagCompound;
 import vazkii.botania.api.subtile.SubTileFunctional;
 import vazkii.botania.common.Botania;

@@ -2,14 +2,10 @@ package com.meteor.extrabotany.common.core.network;
 
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetHandlerPlayServer;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
-import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class PacketLeftClick extends AbstractPacketThreadsafe{
 

@@ -1,16 +1,10 @@
 package com.meteor.extrabotany.common.item.relic;
 
-import java.util.Random;
-import java.util.UUID;
-
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.core.handler.ModSounds;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -28,6 +22,10 @@ import net.minecraft.world.World;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.Vector3;
+
+import javax.annotation.Nonnull;
+import java.util.Random;
+import java.util.UUID;
 
 public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem{
 

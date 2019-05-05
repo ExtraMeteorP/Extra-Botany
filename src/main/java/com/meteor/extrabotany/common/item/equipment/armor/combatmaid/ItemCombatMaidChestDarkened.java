@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.item.equipment.armor.combatmaid;
 
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;

@@ -1,12 +1,11 @@
 package com.meteor.extrabotany.common.core.handler;
 
+import baubles.api.BaublesApi;
 import com.meteor.extrabotany.api.item.IDarkElfSpawner;
 import com.meteor.extrabotany.common.entity.EntityDarkPixie;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorHelm;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
-import baubles.api.BaublesApi;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;

@@ -1,14 +1,9 @@
 package com.meteor.extrabotany.common.block.subtile.generating;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import com.meteor.extrabotany.api.subtile.SubTileGeneratingNature;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,6 +17,10 @@ import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class SubTileStonesia extends SubTileGeneratingNature{
 	

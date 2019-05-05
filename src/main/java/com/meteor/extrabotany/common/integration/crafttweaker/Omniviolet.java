@@ -1,7 +1,5 @@
 package com.meteor.extrabotany.common.integration.crafttweaker;
 
-import java.util.LinkedList;
-
 import com.blamejared.mtlib.helpers.InputHelper;
 import com.blamejared.mtlib.helpers.StackHelper;
 import com.blamejared.mtlib.utils.BaseAction;
@@ -10,13 +8,14 @@ import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeOmniviolet;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.annotations.ModOnly;
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
+
+import java.util.LinkedList;
 
 @ZenClass("mods.extrabotany.Omniviolet")
 @ModOnly(LibMisc.MOD_ID)

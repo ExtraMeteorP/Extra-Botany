@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.brew.potion;
 
 import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.lib.LibPotionsName;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;

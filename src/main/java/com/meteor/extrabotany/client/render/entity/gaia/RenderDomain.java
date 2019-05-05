@@ -1,13 +1,6 @@
 package com.meteor.extrabotany.client.render.entity.gaia;
 
-import java.util.Random;
-
-import javax.annotation.Nonnull;
-
-import org.lwjgl.opengl.GL11;
-
 import com.meteor.extrabotany.common.entity.gaia.EntityDomain;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -17,7 +10,11 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 import vazkii.botania.client.core.helper.ShaderHelper;
+
+import javax.annotation.Nonnull;
+import java.util.Random;
 
 public class RenderDomain extends Render<EntityDomain> {
 	

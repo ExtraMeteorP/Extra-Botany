@@ -1,27 +1,5 @@
 package com.meteor.extrabotany.client.render.tile;
 
-import javax.annotation.Nonnull;
-
-import com.meteor.extrabotany.common.block.ModBlocks;
-import com.meteor.extrabotany.common.block.tile.TileGildedTinyPotato;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraftforge.common.MinecraftForge;
-import vazkii.botania.api.item.TinyPotatoRenderEvent;
-import vazkii.botania.api.state.BotaniaStateProps;
-import vazkii.botania.client.lib.LibResources;
-import vazkii.botania.client.model.ModelTinyPotato;
-
 /**
 public class RenderGildedTinyPotato extends TileEntitySpecialRenderer<TileGildedTinyPotato>{
 	

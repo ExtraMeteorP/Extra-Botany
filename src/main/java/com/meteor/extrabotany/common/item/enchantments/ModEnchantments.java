@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.item.enchantments;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;

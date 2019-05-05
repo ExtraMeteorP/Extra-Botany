@@ -3,7 +3,6 @@ package com.meteor.extrabotany.common.brew.potion;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.lib.LibPotionsName;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;

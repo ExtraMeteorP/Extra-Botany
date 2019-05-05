@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.client.gui.handbag;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;

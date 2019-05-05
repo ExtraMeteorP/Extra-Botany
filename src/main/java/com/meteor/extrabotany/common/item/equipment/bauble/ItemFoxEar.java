@@ -1,11 +1,8 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import org.lwjgl.opengl.GL11;
-
+import baubles.api.BaubleType;
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
-import baubles.api.BaubleType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -14,6 +11,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import org.lwjgl.opengl.GL11;
 import vazkii.botania.api.item.ICosmeticBauble;
 import vazkii.botania.client.core.helper.IconHelper;
 

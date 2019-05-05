@@ -1,17 +1,11 @@
 package com.meteor.extrabotany.api;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import com.meteor.extrabotany.common.core.handler.PlayerStatHandler;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeOmniviolet;
 import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.advancements.PlayerAdvancements;
@@ -36,6 +30,11 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.KnowledgeType;
 import vazkii.botania.api.lexicon.LexiconCategory;
 import vazkii.botania.api.recipe.RecipeManaInfusion;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class ExtraBotanyAPI {
 	

@@ -1,13 +1,9 @@
 package com.meteor.extrabotany.common.item.equipment.tool;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.lib.LibGui;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -26,6 +22,9 @@ import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class ItemMasterHandbag extends ItemMod{
 	

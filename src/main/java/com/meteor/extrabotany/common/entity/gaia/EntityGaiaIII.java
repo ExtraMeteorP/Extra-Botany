@@ -1,18 +1,5 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
-import javax.annotation.Nonnull;
-
-import org.lwjgl.opengl.ARBShaderObjects;
-
 import com.google.common.base.Optional;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
@@ -23,7 +10,6 @@ import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -60,23 +46,16 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.BossInfo;
-import net.minecraft.world.BossInfoServer;
-import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
+import net.minecraft.world.*;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.ARBShaderObjects;
 import vazkii.botania.api.boss.IBotaniaBoss;
 import vazkii.botania.api.internal.ShaderCallback;
 import vazkii.botania.api.state.BotaniaStateProps;
@@ -90,8 +69,18 @@ import vazkii.botania.common.lib.LibEntityNames;
 import vazkii.botania.common.network.PacketBotaniaEffect;
 import vazkii.botania.common.network.PacketHandler;
 
+import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.UUID;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntityWithShield, IEntityAdditionalSpawnData{
-	
+
 	public static final float ARENA_RANGE = 12F;
 	private static final int SPAWN_TICKS = 160;
 	private static final float MAX_HP = 450F;
@@ -122,7 +111,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			new BlockPos(-4, 1, 4),
 			new BlockPos(-4, 1, -4)
 	};
-	
+
 	private static final BlockPos[] MINION_LOCATIONS = {
 			new BlockPos(3, 1, 3),
 			new BlockPos(3, 1, -3),
@@ -134,7 +123,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			new ResourceLocation("openblocks", "beartrap"),
 			new ResourceLocation("thaumictinkerer", "magnet")
 	);
-	
+
 	private final BossInfoServer bossInfo = (BossInfoServer) new BossInfoServer(new TextComponentTranslation("entity." + LibEntityNames.DOPPLEGANGER_REGISTRY + ".name"), BossInfo.Color.PINK, BossInfo.Overlay.PROGRESS).setCreateFog(true);;
 	private UUID bossInfoUUID = bossInfo.getUniqueId();
 	private int playerCount = 0;
@@ -156,25 +145,25 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			Botania.proxy.addBoss(this);
 		}
 	}
-	
+
 	@Override
     public void setHealth(float health){
         super.setHealth(Math.max(health, getHealth()-8F));
     }
-	
+
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		
+
 		for(EntityPlayer player : getPlayersAround()){
 			this.faceEntity(player, 360F, 360F);
 			break;
 		}
-		
+
 		for(EntityPlayer player : getPlayersAround())
 			if(!playersWhoAttacked.contains(player.getUniqueID()))
 				playersWhoAttacked.add(player.getUniqueID());
-		
+
 		if(!getRankII() && (getHealth() <= getMaxHealth() * 0.75F || getHardcore())){
 			setRankII(true);
 			setShield(getHardcore() ? 10 : 5);
@@ -211,7 +200,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 		if(world.getDifficulty() == EnumDifficulty.PEACEFUL)
 			setDead();
-		
+
 		smashCheatyBlocks();
 
 		List<EntityPlayer> players = getPlayersAround();
@@ -228,8 +217,8 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 		if(isDead)
 			return;
-		
-		
+
+
 		if(getRankIII()){
 			if(ticksExisted % 65 == 0){
 				for(int t = 0; t< 2; t++)
@@ -243,17 +232,17 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				skillType = 2;
 			}
 		}
-		
+
 		if(getRankII())
 			if(ticksExisted % 55 == 0)
 				spawnMissile(1);
-			
+
 		if(ticksExisted > 60 && ticksExisted % 40 == 0){
 			spawnMissile(0);
 			if(world.rand.nextInt(10) < 4)
 				spawnMissile(1);
 		}
-		
+
 		int base = getHardcore() ? 10 + playerCount * 4 : 8 + playerCount * 3;
 		int count = getRankIII() ? base + 9 : getRankII() ? base + 5 : base;
 		if(ticksExisted > 200 && ticksExisted % (getRankIII() ? 170 : getRankII() ? 210 : 250) == 0)
@@ -261,7 +250,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				int x = source.getX() - 10 + rand.nextInt(20);
 				int z = source.getZ() - 10 + rand.nextInt(20);
 				int y = world.getTopSolidOrLiquidBlock(new BlockPos(x, -1, z)).getY();
-				
+
 				EntitySkullLandmine landmine = new EntitySkullLandmine(world);
 				if(i % 6 == 0)
 					landmine.setType(2);
@@ -271,12 +260,12 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				landmine.summoner = this;
 				world.spawnEntity(landmine);
 			}
-		
+
 		if(ConfigHandler.GAIA_DISARM)
 			for(EntityPlayer player : getPlayersAround())
 				if(!player.isCreative())
 					disarm(player);
-		
+
 		if(cd > 0 && getRankII())
 			cd--;
 
@@ -284,17 +273,17 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing", I18n.format("entity.extrabotany:gaiaIII.name")).setStyle(new Style().setColor(TextFormatting.WHITE)));
-		
+
 		if(cd == 100 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning", I18n.format("entity.extrabotany:gaiaIII.name")).setStyle(new Style().setColor(TextFormatting.RED)));
-		
+
 		if(cd == 100 && skillType == 0)
 			for(EntityPlayer player : getPlayersAround())
 				if(!world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2", I18n.format("entity.extrabotany:gaiaIII.name")).setStyle(new Style().setColor(TextFormatting.RED)));
-		
+
 		if(cd == 0 && !world.isRemote && skillType == 0 && !getPlayersAround().isEmpty()){
 			EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayersAround().size()));
 			float amplifier = StatHandler.hasStat(player, LibAdvancements.GAIA_DEFEAT) ? 1.0F : 0.7F;
@@ -303,7 +292,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			cd = 350;
 			skillType = getRankIII() ? 1 : world.rand.nextInt(2);
 		}
-		
+
 		if(cd == 0 && !world.isRemote && skillType == 2){
 			if(ConfigHandler.GAIA_DIVINEJUDGE)
 				spawnDivineJudge();
@@ -311,14 +300,14 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			cd = 300;
 			skillType = getRankIII() ? 3 : 0;
 		}
-		
+
 		if(cd == 0 && !world.isRemote && skillType == 3){
 			spawnMinion();
 			cd = 340;
 			skillType = world.rand.nextInt(1);
 		}
-		
-		if(tpDelay > 0)	
+
+		if(tpDelay > 0)
 			tpDelay--;
 
 		if(tpDelay == 0 && getHealth() > 0){
@@ -329,13 +318,13 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				teleportTo(source.getX() + 0.5, source.getY() + 1.6, source.getZ() + 0.5);
 			tpDelay = getRankIII() ? 65 : 75;
 		}
-		
+
 		if(ticksExisted > 2600)
 			for(EntityPlayer p : getPlayersAround())
 				ExtraBotanyAPI.unlockAdvancement(p, LibAdvancements.MUSIC_ALL);
 
 	}
-	
+
 	private void disarm(EntityPlayer player){
 		if(!match(player.getHeldItemMainhand())){
 			EntityItem item =  player.dropItem(true);
@@ -352,9 +341,9 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			}
 		}
 	}
-	
+
 	private ItemStack parseItems(String str){
-		String[] entry = str.replace(" ", "").split(":"); 	
+		String[] entry = str.replace(" ", "").split(":");
 		int meta = entry.length > 2 ? Integer.valueOf(entry[2]) : 0;
 		ItemStack stack = new ItemStack(Item.REGISTRY.getObject(new ResourceLocation(entry[0], entry[1])), 1, meta);
 		return stack;
@@ -374,14 +363,14 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			return true;
 		return false;
 	}
-	
+
 	private boolean match(Block block){
 		String m = Block.REGISTRY.getNameForObject(block).toString();
 		if(m.indexOf("botania") != -1 || m.indexOf("extrabotany") != -1 || m.indexOf("minecraft") != -1)
 			return true;
 		return false;
 	}
-	
+
 	private void spawnMinion(){
 		for(int c = 0; c < 4; c++){
 			EntitySkullMinion m = new EntitySkullMinion(world);
@@ -393,7 +382,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				world.spawnEntity(m);
 		}
 	}
-	
+
 	private void spawnDivineJudge(){
 		for(int i = 0; i < 8; i ++) {
 			float rad = i * 45 * (float) Math.PI / 180F;
@@ -410,10 +399,10 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			domain.setPosition(x, y, z + 2);
 			domain.setCount((int) (y - 2));
 			domain.setSource(getSource());
-			this.getEntityWorld().spawnEntity(domain);		
+			this.getEntityWorld().spawnEntity(domain);
 		}
 	}
-	
+
 	private void spawnMissile(int type) {
 		EntitySkullMissile missile = new EntitySkullMissile(this);
 		missile.setPosition(posX + (Math.random() - 0.5 * 0.1), posY + 1.8 + (Math.random() - 0.5 * 0.1), posZ + (Math.random() - 0.5 * 0.1));
@@ -436,16 +425,16 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				world.spawnEntity(missile);
 		}
 	}
-	
+
 	public static boolean spawn(EntityPlayer player, ItemStack stack, World world, BlockPos pos, boolean hard) {
 		//initial checks
 		if(
-			!(world.getTileEntity(pos) instanceof TileEntityBeacon) || 
+			!(world.getTileEntity(pos) instanceof TileEntityBeacon) ||
 			!isTruePlayer(player) ||
 			getGaiaGuardiansAround(world, pos) > 0
 		)
 			return false;
-		
+
 		//check difficulty
 		if(world.getDifficulty() == EnumDifficulty.PEACEFUL) {
 			if(!world.isRemote)
@@ -500,7 +489,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			e.playSound(SoundEvents.ENTITY_ENDERDRAGON_GROWL, 10F, 0.1F);
 			e.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(e)), null);
 			world.spawnEntity(e);
-			
+
 			if(stack.getItem() instanceof ItemNatureOrb){
 				ItemNatureOrb o = (ItemNatureOrb) stack.getItem();
 				o.addXP(stack, -100000);
@@ -509,10 +498,10 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				stack.shrink(1);
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	private static List<BlockPos> checkArena(World world, BlockPos beaconPos) {
 		List<BlockPos> trippedPositions = new ArrayList<>();
 		int range = (int) Math.ceil(ARENA_RANGE);
@@ -556,27 +545,27 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		dataManager.register(HARDCORE, false);
 		dataManager.register(SHIELD, 0);
 	}
-	
+
 	public boolean getHardcore(){
 		return dataManager.get(HARDCORE);
 	}
-	
+
 	public void setHardcore(boolean b){
 		dataManager.set(HARDCORE, b);
 	}
-	
+
 	public boolean getRankII(){
 		return dataManager.get(RANKII);
 	}
-	
+
 	public boolean getRankIII(){
 		return dataManager.get(RANKIII);
 	}
-	
+
 	public void setRankII(boolean b){
 		dataManager.set(RANKII, b);
 	}
-	
+
 	public void setRankIII(boolean b){
 		dataManager.set(RANKIII, b);
 	}
@@ -592,7 +581,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	public void setInvulTime(int time) {
 		dataManager.set(INVUL_TIME, time);
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound par1nbtTagCompound) {
 		super.writeEntityToNBT(par1nbtTagCompound);
@@ -641,7 +630,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			super.heal(amount);
 		}
 	}
-	
+
 	@Override
 	public void onKillCommand() {
 		this.setHealth(0.0F);
@@ -658,10 +647,10 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				playersWhoAttacked.add(player.getUniqueID());
 
 			int cap = 20;
-			
+
 			if(getRankII())
 				teleportRandomly();
-			
+
 			return super.attackEntityFrom(source, Math.min(cap, par2));
 		}
 
@@ -932,7 +921,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		{
 			this.world.playSound((EntityPlayer)null, this.prevPosX, this.prevPosY, this.prevPosZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, this.getSoundCategory(), 1.0F, 1.0F);
 			this.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-			
+
 		}
 
 		return flag;
@@ -1108,7 +1097,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 			return background ? null : shaderCallback;
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private static class DopplegangerMusic extends MovingSound {
 		private final EntityGaiaIII guardian;

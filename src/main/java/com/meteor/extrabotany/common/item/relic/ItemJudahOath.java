@@ -1,14 +1,11 @@
 package com.meteor.extrabotany.common.item.relic;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
 import com.meteor.extrabotany.client.render.ICosmeticItem;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -33,6 +30,8 @@ import vazkii.botania.api.item.IBaubleRender.RenderType;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.client.core.helper.IconHelper;
+
+import javax.annotation.Nonnull;
 
 public class ItemJudahOath extends ItemModRelic implements ICosmeticItem, IManaUsingItem{
 	

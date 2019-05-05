@@ -1,15 +1,7 @@
 package com.meteor.extrabotany.common.brew;
 
-import com.meteor.extrabotany.common.brew.potion.PotionAstralForce;
-import com.meteor.extrabotany.common.brew.potion.PotionBlackSabbath;
-import com.meteor.extrabotany.common.brew.potion.PotionBloodTemptation;
-import com.meteor.extrabotany.common.brew.potion.PotionConstantPain;
-import com.meteor.extrabotany.common.brew.potion.PotionDivineJustice;
-import com.meteor.extrabotany.common.brew.potion.PotionEternity;
-import com.meteor.extrabotany.common.brew.potion.PotionMindCrack;
-import com.meteor.extrabotany.common.brew.potion.PotionReflect;
+import com.meteor.extrabotany.common.brew.potion.*;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.potion.Potion;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;

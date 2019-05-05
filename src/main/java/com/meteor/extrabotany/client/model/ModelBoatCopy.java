@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.client.model;
 
 import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
-
 import net.minecraft.client.model.IMultipassModel;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

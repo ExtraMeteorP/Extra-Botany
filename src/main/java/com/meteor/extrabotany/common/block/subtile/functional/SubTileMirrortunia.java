@@ -1,17 +1,16 @@
 package com.meteor.extrabotany.common.block.subtile.functional;
 
-import java.util.List;
-
 import com.meteor.extrabotany.api.subtile.SubTileFunctionalNature;
 import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.AxisAlignedBB;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
+
+import java.util.List;
 
 public class SubTileMirrortunia extends SubTileFunctionalNature{
 	

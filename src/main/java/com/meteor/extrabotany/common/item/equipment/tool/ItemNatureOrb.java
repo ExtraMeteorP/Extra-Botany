@@ -1,17 +1,11 @@
 package com.meteor.extrabotany.common.item.equipment.tool;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.annotation.Nonnull;
-
+import baubles.api.BaubleType;
 import com.meteor.extrabotany.api.item.INatureOrb;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemBauble;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
-import baubles.api.BaubleType;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -35,6 +29,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.mana.IManaGivingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
+
+import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ItemNatureOrb extends ItemBauble implements INatureOrb, IManaGivingItem{
 	

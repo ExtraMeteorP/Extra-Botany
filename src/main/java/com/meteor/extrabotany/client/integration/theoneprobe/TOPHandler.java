@@ -1,10 +1,9 @@
 package com.meteor.extrabotany.client.integration.theoneprobe;
 
-import java.util.function.Function;
+import mcjty.theoneprobe.api.ITheOneProbe;
 
 import javax.annotation.Nullable;
-
-import mcjty.theoneprobe.api.ITheOneProbe;
+import java.util.function.Function;
 
 public class TOPHandler implements Function<ITheOneProbe, Void>{
 	

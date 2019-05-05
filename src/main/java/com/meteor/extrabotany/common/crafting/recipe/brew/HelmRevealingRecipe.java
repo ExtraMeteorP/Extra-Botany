@@ -1,9 +1,6 @@
 package com.meteor.extrabotany.common.crafting.recipe.brew;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.item.ModItems;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,6 +10,8 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
+
+import javax.annotation.Nonnull;
 
 public class HelmRevealingRecipe extends ShapelessRecipes {
 	@GameRegistry.ObjectHolder("thaumcraft:goggles")

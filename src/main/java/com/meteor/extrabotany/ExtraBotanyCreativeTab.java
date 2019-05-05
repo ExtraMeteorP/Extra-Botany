@@ -1,16 +1,15 @@
 package com.meteor.extrabotany;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.ModItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+
+import javax.annotation.Nonnull;
 
 public class ExtraBotanyCreativeTab extends CreativeTabs{
 	

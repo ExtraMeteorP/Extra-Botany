@@ -3,7 +3,6 @@ package com.meteor.extrabotany.common.lexicon;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.lexicon.LexiconCategory;
 import vazkii.botania.common.lexicon.RelicLexiconEntry;

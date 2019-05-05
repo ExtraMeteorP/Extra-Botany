@@ -1,11 +1,5 @@
 package com.meteor.extrabotany.common.world;
 
-import java.util.Random;
-import java.util.function.BiFunction;
-import java.util.function.ToIntFunction;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
@@ -18,6 +12,11 @@ import net.minecraft.village.MerchantRecipeList;
 import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerCareer;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.item.ModItems;
+
+import javax.annotation.Nullable;
+import java.util.Random;
+import java.util.function.BiFunction;
+import java.util.function.ToIntFunction;
 
 public class Trades {
 	

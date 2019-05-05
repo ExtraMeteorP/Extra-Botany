@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.crafting;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 

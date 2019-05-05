@@ -1,10 +1,5 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import java.util.List;
-import java.util.UUID;
-
-import javax.annotation.Nonnull;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -23,6 +18,10 @@ import vazkii.botania.api.item.IRelic;
 import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
+
+import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.UUID;
 
 public abstract class ItemBaubleRelic extends ItemBauble implements IRelic{
 	

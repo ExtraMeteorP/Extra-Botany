@@ -4,16 +4,10 @@ import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.EmptyBoundRecipe;
-import com.meteor.extrabotany.common.crafting.recipe.brew.CocktailRecipe;
-import com.meteor.extrabotany.common.crafting.recipe.brew.HelmRevealingRecipe;
-import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRecipe;
-import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRemakeRecipe;
-import com.meteor.extrabotany.common.crafting.recipe.brew.PotionLensRecipe;
-import com.meteor.extrabotany.common.crafting.recipe.brew.SplashGrenadeRecipe;
+import com.meteor.extrabotany.common.crafting.recipe.brew.*;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibMisc;
 import com.meteor.extrabotany.common.lib.LibOreDicts;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

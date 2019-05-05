@@ -1,11 +1,7 @@
 package com.meteor.extrabotany.common.entity.judah;
 
-import java.util.List;
-import java.util.UUID;
-
 import com.google.common.base.Optional;
 import com.meteor.extrabotany.common.entity.EntityThrowableCopy;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -21,6 +17,9 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import vazkii.botania.common.Botania;
+
+import java.util.List;
+import java.util.UUID;
 
 public class EntityJudahOath extends EntityThrowableCopy{
 	

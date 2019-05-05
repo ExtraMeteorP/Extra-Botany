@@ -1,13 +1,8 @@
 package com.meteor.extrabotany.common.item.equipment.tool;
 
-import java.util.UUID;
-
-import javax.annotation.Nonnull;
-
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -21,6 +16,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import vazkii.botania.api.mana.ManaItemHandler;
+
+import javax.annotation.Nonnull;
+import java.util.UUID;
 
 public class ItemWalkingCane extends ItemMod{
 

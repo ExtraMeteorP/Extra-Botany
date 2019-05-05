@@ -3,7 +3,6 @@ package com.meteor.extrabotany.common.integration;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.integration.constructsarmory.ConstructsArmoryCompat;
 import com.meteor.extrabotany.common.integration.tinkerconstruct.TConstructCompat;
-
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 

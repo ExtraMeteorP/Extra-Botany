@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.item.equipment.bauble;
 
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.EntityLivingBase;

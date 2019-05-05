@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.brew.potion;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;

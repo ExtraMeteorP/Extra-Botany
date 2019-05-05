@@ -1,13 +1,12 @@
 package com.meteor.extrabotany.common.core.handler;
 
-import java.lang.ref.WeakReference;
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
-
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.FakePlayerFactory;
+
+import java.lang.ref.WeakReference;
+import java.util.UUID;
 
 public class FakePlayerHandler {
 	

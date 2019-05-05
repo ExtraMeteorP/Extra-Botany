@@ -1,12 +1,11 @@
 package com.meteor.extrabotany.common.integration.constructsarmory;
 
-import com.meteor.extrabotany.common.integration.tinkerconstruct.TConstructCompat;
-
 import c4.conarm.common.armor.traits.ArmorTraits;
 import c4.conarm.lib.materials.ArmorMaterials;
 import c4.conarm.lib.materials.CoreMaterialStats;
 import c4.conarm.lib.materials.PlatesMaterialStats;
 import c4.conarm.lib.materials.TrimMaterialStats;
+import com.meteor.extrabotany.common.integration.tinkerconstruct.TConstructCompat;
 import slimeknights.tconstruct.library.TinkerRegistry;
 
 public class ConstructsArmoryCompat {

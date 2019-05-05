@@ -1,14 +1,13 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.util.List;
-
 import com.meteor.extrabotany.common.entity.EntityThrowableCopy;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class EntityVoid extends EntityThrowableCopy{
 

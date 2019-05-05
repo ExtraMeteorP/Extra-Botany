@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.client.core.handler;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

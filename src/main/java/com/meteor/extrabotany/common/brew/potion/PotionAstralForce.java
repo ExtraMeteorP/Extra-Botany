@@ -1,13 +1,12 @@
 package com.meteor.extrabotany.common.brew.potion;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.lib.LibPotionsName;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 import vazkii.botania.common.core.helper.Vector3;
 import vazkii.botania.common.entity.EntityFallingStar;
+
+import javax.annotation.Nonnull;
 
 public class PotionAstralForce extends PotionMod{
 

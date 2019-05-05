@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.item.brew;
 
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.item.ItemStack;
 
 public class ItemBrewCocktail extends ItemBrewBase{

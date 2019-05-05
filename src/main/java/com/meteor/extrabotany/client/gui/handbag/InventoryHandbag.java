@@ -1,10 +1,10 @@
 package com.meteor.extrabotany.client.gui.handbag;
 
-import javax.annotation.Nonnull;
-
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
+
+import javax.annotation.Nonnull;
 
 public class InventoryHandbag implements IItemHandlerModifiable {
 

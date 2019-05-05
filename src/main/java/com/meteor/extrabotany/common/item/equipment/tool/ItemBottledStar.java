@@ -1,11 +1,8 @@
 package com.meteor.extrabotany.common.item.equipment.tool;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.entity.EntityBottledStar;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -13,6 +10,8 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import vazkii.botania.api.mana.ManaItemHandler;
+
+import javax.annotation.Nonnull;
 
 public class ItemBottledStar extends ItemMod{
 

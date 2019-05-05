@@ -1,9 +1,6 @@
 package com.meteor.extrabotany.common.entity;
 
-import java.util.List;
-
 import com.meteor.extrabotany.common.item.ModItems;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,6 +16,8 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.brew.IBrewItem;
+
+import java.util.List;
 
 public class EntitySplashGrenade extends EntityThrowableCopy{
 	

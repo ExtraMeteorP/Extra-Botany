@@ -1,11 +1,8 @@
 package com.meteor.extrabotany.common.block;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.block.tile.TileLivingrockBarrel;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
-
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -26,6 +23,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.lexicon.ILexiconable;
 import vazkii.botania.api.lexicon.LexiconEntry;
+
+import javax.annotation.Nonnull;
 
 public class BlockLivingrockBarrel extends BlockMod implements ILexiconable{
 	

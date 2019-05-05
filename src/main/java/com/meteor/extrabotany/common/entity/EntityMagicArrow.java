@@ -1,9 +1,5 @@
 package com.meteor.extrabotany.common.entity;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,6 +11,9 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class EntityMagicArrow extends EntityThrowableCopy{
 	

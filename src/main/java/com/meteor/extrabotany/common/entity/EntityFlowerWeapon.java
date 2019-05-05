@@ -1,12 +1,7 @@
 package com.meteor.extrabotany.common.entity;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -26,6 +21,9 @@ import vazkii.botania.common.core.handler.ModSounds;
 import vazkii.botania.common.core.helper.PlayerHelper;
 import vazkii.botania.common.core.helper.Vector3;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class EntityFlowerWeapon extends EntityThrowableCopy{
 

@@ -1,17 +1,16 @@
 package com.meteor.extrabotany.common.block;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.common.block.BlockSpecialFlower;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
+
+import javax.annotation.Nonnull;
 
 public class BlockSpecial extends BlockSpecialFlower{
 

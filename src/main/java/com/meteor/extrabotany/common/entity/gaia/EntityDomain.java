@@ -1,12 +1,12 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class EntityDomain extends Entity{
 

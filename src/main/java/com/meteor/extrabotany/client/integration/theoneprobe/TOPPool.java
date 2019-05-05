@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.client.integration.theoneprobe;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;

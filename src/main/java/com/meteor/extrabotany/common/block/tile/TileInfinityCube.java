@@ -1,10 +1,7 @@
 package com.meteor.extrabotany.common.block.tile;
 
-import java.util.List;
-
 import com.google.common.base.Predicates;
 import com.meteor.extrabotany.common.block.BlockInfinityCube;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -21,6 +18,8 @@ import net.minecraftforge.fluids.BlockFluidBase;
 import vazkii.botania.api.mana.IManaReceiver;
 import vazkii.botania.api.mana.spark.ISparkAttachable;
 import vazkii.botania.api.mana.spark.ISparkEntity;
+
+import java.util.List;
 
 public class TileInfinityCube extends TileEntity implements ITickable, IManaReceiver, ISparkAttachable{
 	

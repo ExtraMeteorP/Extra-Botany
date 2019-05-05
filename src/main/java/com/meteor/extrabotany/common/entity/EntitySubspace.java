@@ -3,7 +3,6 @@ package com.meteor.extrabotany.common.entity;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

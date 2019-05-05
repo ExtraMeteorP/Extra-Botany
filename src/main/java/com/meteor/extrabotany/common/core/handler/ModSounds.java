@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.core.handler;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;

@@ -1,12 +1,9 @@
 package com.meteor.extrabotany.common.block.tile;
 
-import java.util.List;
-
-import com.google.common.base.Predicates;
-import com.meteor.extrabotany.common.core.config.ConfigHandler;
-
 import cofh.redstoneflux.api.IEnergyConnection;
 import cofh.redstoneflux.api.IEnergyReceiver;
+import com.google.common.base.Predicates;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -23,6 +20,8 @@ import vazkii.botania.api.mana.spark.ISparkAttachable;
 import vazkii.botania.api.mana.spark.ISparkEntity;
 import vazkii.botania.common.block.tile.TileMod;
 import vazkii.botania.common.block.tile.mana.TileSpreader;
+
+import java.util.List;
 
 @Optional.InterfaceList({
 	@Optional.Interface(modid = "redstoneflux", iface = "cofh.redstoneflux.api.IEnergyConnection", striprefs = true),

@@ -1,12 +1,8 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.util.List;
-import java.util.UUID;
-
 import com.google.common.base.Optional;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -21,6 +17,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.Vector3;
+
+import java.util.List;
+import java.util.UUID;
 
 public class EntitySwordDomain extends Entity{
 	

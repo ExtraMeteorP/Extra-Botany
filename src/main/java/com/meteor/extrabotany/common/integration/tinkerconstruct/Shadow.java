@@ -1,12 +1,9 @@
 package com.meteor.extrabotany.common.integration.tinkerconstruct;
 
-import java.util.List;
-
-import com.meteor.extrabotany.common.core.handler.DarkPixieHandler;
-import com.meteor.extrabotany.common.entity.EntityDarkPixie;
-
 import baubles.api.BaublesApi;
 import baubles.api.cap.IBaublesItemHandler;
+import com.meteor.extrabotany.common.core.handler.DarkPixieHandler;
+import com.meteor.extrabotany.common.entity.EntityDarkPixie;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +16,8 @@ import net.minecraftforge.items.IItemHandler;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import vazkii.botania.api.mana.ManaItemHandler;
-import vazkii.botania.common.core.helper.ItemNBTHelper;
+
+import java.util.List;
 
 public class Shadow extends AbstractTrait {	
 	public static final Shadow shadow = new Shadow();

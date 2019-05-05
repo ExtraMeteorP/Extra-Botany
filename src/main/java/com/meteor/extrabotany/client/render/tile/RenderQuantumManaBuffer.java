@@ -1,15 +1,14 @@
 package com.meteor.extrabotany.client.render.tile;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.client.model.ModelQuantumManaBuffer;
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.block.tile.TileQuantumManaBuffer;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
+
+import javax.annotation.Nonnull;
 
 public class RenderQuantumManaBuffer extends TileEntitySpecialRenderer<TileQuantumManaBuffer>{
 	

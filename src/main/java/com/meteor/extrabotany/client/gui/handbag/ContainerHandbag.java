@@ -1,11 +1,6 @@
 package com.meteor.extrabotany.client.gui.handbag;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.client.gui.SlotArmor;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -16,6 +11,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.SlotItemHandler;
 import vazkii.botania.client.gui.SlotLocked;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class ContainerHandbag extends Container {
 

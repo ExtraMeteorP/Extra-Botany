@@ -5,7 +5,6 @@ import com.meteor.extrabotany.client.gui.handbag.GuiHandbag;
 import com.meteor.extrabotany.client.gui.handbag.InventoryHandbag;
 import com.meteor.extrabotany.client.lib.LibGui;
 import com.meteor.extrabotany.common.item.ModItems;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;

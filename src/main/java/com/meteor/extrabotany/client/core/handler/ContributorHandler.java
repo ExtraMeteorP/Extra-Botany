@@ -3,7 +3,6 @@ package com.meteor.extrabotany.client.core.handler;
 import com.meteor.extrabotany.client.particle.ParticleCloudPattern;
 import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;

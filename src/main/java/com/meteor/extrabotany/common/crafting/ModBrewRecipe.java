@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.crafting;
 
 import com.meteor.extrabotany.common.brew.ModBrew;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

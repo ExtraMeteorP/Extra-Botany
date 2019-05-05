@@ -7,18 +7,12 @@ import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
-import com.meteor.extrabotany.common.crafting.ModBrewRecipe;
-import com.meteor.extrabotany.common.crafting.ModManaDimensionRecipe;
-import com.meteor.extrabotany.common.crafting.ModManaInfusionRecipe;
-import com.meteor.extrabotany.common.crafting.ModPedestalRecipe;
-import com.meteor.extrabotany.common.crafting.ModPetalRecipe;
-import com.meteor.extrabotany.common.crafting.ModRuneRecipe;
+import com.meteor.extrabotany.common.crafting.*;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lexicon.page.PagePedestalRecipe;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibLexicon;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.BotaniaAPI;
@@ -28,14 +22,7 @@ import vazkii.botania.common.entity.EntityDoppleganger;
 import vazkii.botania.common.lexicon.AlfheimLexiconEntry;
 import vazkii.botania.common.lexicon.BLexiconCategory;
 import vazkii.botania.common.lexicon.BasicLexiconEntry;
-import vazkii.botania.common.lexicon.page.PageBrew;
-import vazkii.botania.common.lexicon.page.PageCraftingRecipe;
-import vazkii.botania.common.lexicon.page.PageImage;
-import vazkii.botania.common.lexicon.page.PageManaInfusionRecipe;
-import vazkii.botania.common.lexicon.page.PageMultiblock;
-import vazkii.botania.common.lexicon.page.PagePetalRecipe;
-import vazkii.botania.common.lexicon.page.PageRuneRecipe;
-import vazkii.botania.common.lexicon.page.PageText;
+import vazkii.botania.common.lexicon.page.*;
 
 public class LexiconData {
 	

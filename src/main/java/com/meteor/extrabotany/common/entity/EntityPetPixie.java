@@ -1,9 +1,5 @@
 package com.meteor.extrabotany.common.entity;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -17,6 +13,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class EntityPetPixie extends EntityFlying{
 	

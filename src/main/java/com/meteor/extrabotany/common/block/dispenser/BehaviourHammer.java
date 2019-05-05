@@ -1,10 +1,7 @@
 package com.meteor.extrabotany.common.block.dispenser;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.item.IHammer;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
-
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
 import net.minecraft.dispenser.IBlockSource;
@@ -14,6 +11,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import javax.annotation.Nonnull;
 
 public class BehaviourHammer extends BehaviorDefaultDispenseItem{
 	

@@ -1,10 +1,5 @@
 package com.meteor.extrabotany.common.block.tile;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -17,6 +12,10 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class TileInventoryBase extends TileEntity{
     
@@ -37,7 +36,6 @@ public class TileInventoryBase extends TileEntity{
             return stacks;
         }
 
-        @Override
         public boolean isItemValid(int slot, ItemStack stack){
             return isItemValidForSlot(slot, stack);
         }

@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.block.fluid;
 
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 

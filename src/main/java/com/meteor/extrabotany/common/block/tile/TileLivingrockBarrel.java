@@ -1,11 +1,8 @@
 package com.meteor.extrabotany.common.block.tile;
 
-import javax.annotation.Nullable;
-
 import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
 import com.meteor.extrabotany.common.core.network.FluidUpdatePacket;
 import com.meteor.extrabotany.common.core.network.FluidUpdatePacket.IFluidPacketReceiver;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -18,6 +15,8 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import vazkii.botania.common.block.tile.TileAltar;
+
+import javax.annotation.Nullable;
 
 public class TileLivingrockBarrel extends TileEntity implements ITickable, IFluidPacketReceiver{
 	

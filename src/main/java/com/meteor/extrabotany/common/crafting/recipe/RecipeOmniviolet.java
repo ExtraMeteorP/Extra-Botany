@@ -1,11 +1,10 @@
 package com.meteor.extrabotany.common.crafting.recipe;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import net.minecraft.item.ItemStack;
+
 import java.util.Collections;
 import java.util.List;
-
-import com.meteor.extrabotany.api.ExtraBotanyAPI;
-
-import net.minecraft.item.ItemStack;
 
 public class RecipeOmniviolet {
 	

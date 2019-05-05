@@ -1,14 +1,8 @@
 package com.meteor.extrabotany.common.item.lens;
 
-import java.awt.Color;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.client.core.handler.ModelHandler;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -28,16 +22,14 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.brew.IBrewItem;
 import vazkii.botania.api.internal.IManaBurst;
-import vazkii.botania.api.mana.BurstProperties;
-import vazkii.botania.api.mana.ICompositableLens;
-import vazkii.botania.api.mana.ILens;
-import vazkii.botania.api.mana.ILensControl;
-import vazkii.botania.api.mana.IManaReceiver;
-import vazkii.botania.api.mana.IManaSpreader;
-import vazkii.botania.api.mana.ITinyPlanetExcempt;
+import vazkii.botania.api.mana.*;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.lens.Lens;
+
+import javax.annotation.Nonnull;
+import java.awt.*;
+import java.util.List;
 
 public class ItemLens extends ItemMod implements ILensControl, ICompositableLens, ITinyPlanetExcempt, IBrewItem{
 

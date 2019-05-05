@@ -1,14 +1,10 @@
 package com.meteor.extrabotany.common.entity;
 
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
+import com.gamerforea.eventhelper.util.EventUtils;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IBossProjectile;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,7 +17,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
-import com.gamerforea.eventhelper.util.EventUtils;
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossProjectile{
 	

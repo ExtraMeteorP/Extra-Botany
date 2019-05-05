@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.client.render.entity.gaia;
 
 import com.meteor.extrabotany.common.entity.gaia.EntityHonkaiBeam;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;

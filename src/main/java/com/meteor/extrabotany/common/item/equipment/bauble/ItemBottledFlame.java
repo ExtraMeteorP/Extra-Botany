@@ -1,10 +1,7 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import java.util.regex.Pattern;
-
-import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import baubles.api.BaubleType;
+import com.meteor.extrabotany.common.lib.LibItemsName;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,6 +12,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
+
+import java.util.regex.Pattern;
 
 public class ItemBottledFlame extends ItemBauble{
 

@@ -1,8 +1,8 @@
 package com.meteor.extrabotany.api.item;
 
-import java.util.List;
-
 import net.minecraft.item.ItemStack;
+
+import java.util.List;
 
 public class Bonus {
 	

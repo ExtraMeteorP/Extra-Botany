@@ -1,8 +1,7 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import baubles.api.BaubleType;
+import com.meteor.extrabotany.common.lib.LibItemsName;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;

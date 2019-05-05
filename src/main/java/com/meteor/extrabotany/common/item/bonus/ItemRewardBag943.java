@@ -1,14 +1,11 @@
 package com.meteor.extrabotany.common.item.bonus;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.meteor.extrabotany.api.item.Bonus;
 import com.meteor.extrabotany.api.item.WeightCategory;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.item.ItemStack;
-import vazkii.botania.common.item.ModItems;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemRewardBag943 extends ItemBonusBase{
 	

@@ -1,10 +1,7 @@
 package com.meteor.extrabotany.client.integration.waila;
 
-import java.util.List;
-
 import com.meteor.extrabotany.common.block.BlockManaBuffer;
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
-
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
 import mcp.mobius.waila.api.IWailaDataProvider;
@@ -15,6 +12,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class WailaManaBuffer implements IWailaDataProvider{
 	

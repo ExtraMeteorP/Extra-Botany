@@ -1,11 +1,11 @@
 package com.meteor.extrabotany.client.model;
 
-import javax.annotation.Nonnull;
-
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import vazkii.botania.client.model.armor.ModelArmor;
+
+import javax.annotation.Nonnull;
 
 public class ModelArmorShadowWarrior extends ModelArmor{
 	

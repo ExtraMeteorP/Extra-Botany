@@ -1,7 +1,5 @@
 package com.meteor.extrabotany.common.item.lens;
 
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -9,6 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import vazkii.botania.api.internal.IManaBurst;
 import vazkii.botania.common.item.lens.Lens;
+
+import java.util.List;
 
 public class LensPush extends Lens{
 	

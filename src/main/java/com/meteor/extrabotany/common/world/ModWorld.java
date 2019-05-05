@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.world;
 
 import com.meteor.extrabotany.client.lib.LibResource;
-
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;

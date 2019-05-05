@@ -1,9 +1,8 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
+import com.meteor.extrabotany.common.lib.LibItemsName;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

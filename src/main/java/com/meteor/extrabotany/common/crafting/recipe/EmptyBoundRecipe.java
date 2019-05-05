@@ -1,11 +1,6 @@
 package com.meteor.extrabotany.common.crafting.recipe;
 
-import java.util.UUID;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.item.ModItems;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -15,6 +10,8 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import vazkii.botania.api.item.IRelic;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.crafting.recipe.HelmRevealingRecipe;
+
+import javax.annotation.Nonnull;
 
 public class EmptyBoundRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 

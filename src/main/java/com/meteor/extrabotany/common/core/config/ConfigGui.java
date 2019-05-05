@@ -1,15 +1,14 @@
 package com.meteor.extrabotany.common.core.config;
 
-import java.util.Set;
-
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.IModGuiFactory;
 import net.minecraftforge.fml.client.config.GuiConfig;
+
+import java.util.Set;
 
 public class ConfigGui implements IModGuiFactory{
 

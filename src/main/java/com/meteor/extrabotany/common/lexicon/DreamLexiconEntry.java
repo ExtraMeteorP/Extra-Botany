@@ -1,7 +1,6 @@
 package com.meteor.extrabotany.common.lexicon;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
-
 import vazkii.botania.api.lexicon.LexiconCategory;
 import vazkii.botania.common.lexicon.BasicLexiconEntry;
 

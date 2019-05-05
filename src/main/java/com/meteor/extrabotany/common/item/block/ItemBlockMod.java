@@ -1,12 +1,11 @@
 package com.meteor.extrabotany.common.item.block;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+
+import javax.annotation.Nonnull;
 
 public class ItemBlockMod extends ItemBlock {
 

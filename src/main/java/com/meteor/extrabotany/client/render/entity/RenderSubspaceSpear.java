@@ -1,17 +1,16 @@
 package com.meteor.extrabotany.client.render.entity;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.client.model.ModelSubspaceSpear;
 import com.meteor.extrabotany.common.entity.EntitySubspaceSpear;
 import com.meteor.extrabotany.common.lib.LibMisc;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;
+
+import javax.annotation.Nonnull;
 
 public class RenderSubspaceSpear extends Render<EntitySubspaceSpear> {
 	

@@ -1,11 +1,8 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import java.util.List;
-
+import baubles.api.BaubleType;
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
-import baubles.api.BaubleType;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -34,6 +31,8 @@ import vazkii.botania.api.recipe.RecipePureDaisy;
 import vazkii.botania.api.subtile.SubTileEntity;
 import vazkii.botania.client.core.helper.IconHelper;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
+
+import java.util.List;
 
 public class ItemPureDaisyPendant extends ItemBauble implements IManaUsingItem, ICosmeticBauble{
 	

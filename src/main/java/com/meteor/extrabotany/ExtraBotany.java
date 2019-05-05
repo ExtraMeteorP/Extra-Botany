@@ -68,6 +68,15 @@ public class ExtraBotany{
 	public static boolean thaumcraftLoaded = false;
 	public static boolean naturalpledgeLoaded = false;
 	
+	public static boolean isTableclothServer = false;
+
+	static {
+		try {
+			Class.forName("ckateptbcore.server.CKATEPTbServer");
+			isTableclothServer = true;
+		} catch (ClassNotFoundException e) { }
+	}
+	
 	public static void addSubTileToCreativeMenu(String key) {
 		subtilesForCreativeMenu.add(key);
 	}

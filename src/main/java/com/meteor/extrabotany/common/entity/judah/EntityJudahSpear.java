@@ -36,6 +36,10 @@ public class EntityJudahSpear extends Entity {
     private static final DataParameter<Optional<UUID>> UUID = EntityDataManager.createKey(EntityJudahSpear.class, DataSerializers.OPTIONAL_UNIQUE_ID);
 
     private static EntityPlayer thrower;
+	
+	public EntityJudahSpear(World worldIn) {
+        super(worldIn);
+    }
 
     public EntityJudahSpear(EntityPlayer thrower, World worldIn) {
         super(worldIn);

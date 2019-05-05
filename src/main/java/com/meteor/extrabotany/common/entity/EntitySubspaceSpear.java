@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nonnull;
 
+import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IBossProjectile;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
@@ -19,6 +20,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import com.gamerforea.eventhelper.util.EventUtils;
 
 public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossProjectile{
 	
@@ -77,6 +80,9 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
 			for(EntityLivingBase living : entities) {
 				if(living == thrower)
+					continue;
+				
+				if(ExtraBotany.isTableclothServer && EventUtils.cantAttack((EntityPlayer) thrower, living))
 					continue;
 
 				if(living.hurtTime == 0) {

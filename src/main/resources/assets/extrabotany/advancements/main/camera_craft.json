@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:camera"
     },
@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancement.extrabotany:cameraCraft.desc"
     },
-	"frame": "challenge"
+    "frame": "challenge"
   },
   "parent": "extrabotany:main/gaia_defeat",
   "criteria": {

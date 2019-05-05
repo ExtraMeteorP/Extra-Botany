@@ -1,78 +1,77 @@
 package com.meteor.extrabotany.common.crafting.recipe;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import net.minecraft.item.ItemStack;
+
 import java.util.Collections;
 import java.util.List;
 
-import com.meteor.extrabotany.api.ExtraBotanyAPI;
-
-import net.minecraft.item.ItemStack;
-
 public class RecipeOmniviolet {
-	
-	public static void addRecipe(int output, ItemStack input) {
-		ExtraBotanyAPI.omnivioletRecipes.add(new RecipeOmniviolet(output, input));
-	}
 
-	public static int getOutput(ItemStack input) {
-		for (RecipeOmniviolet recipe : ExtraBotanyAPI.omnivioletRecipes)
-			if (recipe.matches(input))
-				return recipe.getOutput();
-
-		return 0;
-	}
+    private final int output;
+    private final ItemStack input;
 
 
-	public static List<RecipeOmniviolet> getRecipeList() {
-		return Collections.unmodifiableList(ExtraBotanyAPI.omnivioletRecipes);
-	}
+    public RecipeOmniviolet(int output, ItemStack input) {
+        this.output = output;
+        this.input = input.copy();
 
-	private final int output;
-	private final ItemStack input;
+        if (input instanceof ItemStack)
+            input = input.copy();
 
-	public RecipeOmniviolet(int output, ItemStack input) {
-		this.output = output;
-		this.input = input.copy();
+        else
+            throw new IllegalArgumentException("Input must be an ItemStack");
+    }
 
-			if (input instanceof ItemStack)
-				input = input.copy();
+    public static void addRecipe(int output, ItemStack input) {
+        ExtraBotanyAPI.omnivioletRecipes.add(new RecipeOmniviolet(output, input));
+    }
 
-			else
-				throw new IllegalArgumentException("Input must be an ItemStack");
-	}
+    public static int getOutput(ItemStack input) {
+        for (RecipeOmniviolet recipe : ExtraBotanyAPI.omnivioletRecipes)
+            if (recipe.matches(input))
+                return recipe.getOutput();
 
-	public ItemStack getInput() {
-		return input.copy();
-	}
+        return 0;
+    }
 
-	public int getOutput() {
-		return output;
-	}
+    public static List<RecipeOmniviolet> getRecipeList() {
+        return Collections.unmodifiableList(ExtraBotanyAPI.omnivioletRecipes);
+    }
 
-	public boolean matches(ItemStack stacks) {
-		if (!stacks.isEmpty())
-			if (areStacksTheSame(getInput(), stacks)) {
-				return true;
-			}
-		return false;
-	}
+    public static boolean areStacksTheSame(ItemStack stack1, ItemStack stack2, boolean matchSize) {
+        if (stack1.isEmpty() || stack2.isEmpty())
+            return false;
 
-	@SuppressWarnings("unchecked")
-	private boolean areStacksTheSame(ItemStack stack, ItemStack target) {
-		return areStacksTheSame(stack, target, false);
-	}
+        if (stack1.getItem() == stack2.getItem())
+            if (stack1.getItemDamage() == stack2.getItemDamage())
+                if (!matchSize || stack1.getCount() == stack2.getCount()) {
+                    if (stack1.hasTagCompound() && stack2.hasTagCompound())
+                        return stack1.getTagCompound().equals(stack2.getTagCompound());
+                    return stack1.hasTagCompound() == stack2.hasTagCompound();
+                }
+        return false;
+    }
 
-	public static boolean areStacksTheSame(ItemStack stack1, ItemStack stack2, boolean matchSize) {
-		if (stack1.isEmpty() || stack2.isEmpty())
-			return false;
+    public ItemStack getInput() {
+        return input.copy();
+    }
 
-		if (stack1.getItem() == stack2.getItem())
-			if (stack1.getItemDamage() == stack2.getItemDamage())
-				if (!matchSize || stack1.getCount() == stack2.getCount()) {
-					if (stack1.hasTagCompound() && stack2.hasTagCompound())
-						return stack1.getTagCompound().equals(stack2.getTagCompound());
-					return stack1.hasTagCompound() == stack2.hasTagCompound();
-				}
-		return false;
-	}
+    public int getOutput() {
+        return output;
+    }
+
+    public boolean matches(ItemStack stacks) {
+        if (!stacks.isEmpty())
+            if (areStacksTheSame(getInput(), stacks)) {
+                return true;
+            }
+        return false;
+    }
+
+    @SuppressWarnings("unchecked")
+    private boolean areStacksTheSame(ItemStack stack, ItemStack target) {
+        return areStacksTheSame(stack, target, false);
+    }
 
 }

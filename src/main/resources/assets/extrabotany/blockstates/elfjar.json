@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "extrabotany:elfjar" }
+    "normal": {
+      "model": "extrabotany:elfjar"
+    }
   }
 }

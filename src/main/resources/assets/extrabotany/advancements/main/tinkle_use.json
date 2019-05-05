@@ -14,7 +14,7 @@
   "parent": "extrabotany:main/newknowledge_unlock",
   "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

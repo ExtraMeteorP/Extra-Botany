@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "extrabotany:quantummanabuffer" }
+    "normal": {
+      "model": "extrabotany:quantummanabuffer"
+    }
   }
 }

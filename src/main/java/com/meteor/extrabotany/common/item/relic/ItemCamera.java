@@ -1,13 +1,10 @@
 package com.meteor.extrabotany.common.item.relic;
 
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.api.entity.IBossProjectile;
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
 import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IProjectile;
@@ -27,62 +24,64 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 
-public class ItemCamera extends ItemModRelic implements IManaUsingItem{
-	
-	int range = 20;
+import javax.annotation.Nonnull;
 
-	public ItemCamera() {
-		super(LibItemsName.CAMERA);
-		MinecraftForge.EVENT_BUS.register(this);
-	}
-	
-	@Nonnull
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
-		ItemStack stack = player.getHeldItem(hand);
-		
-		if(isRightPlayer(player, stack) && ManaItemHandler.requestManaExactForTool(stack, player, 900, true) && !world.isRemote){
-			for(EntityLiving living : player.getEntityWorld().getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))){
-				if(living.isSpectatedByPlayer((EntityPlayerMP) player)){
-					living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 5));
-					living.addPotionEffect(new PotionEffect(ModPotions.mindcrack,300, 1));		
-				}
-			}
+public class ItemCamera extends ItemModRelic implements IManaUsingItem {
 
-			for(Entity e : player.getEntityWorld().getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))) {
-				if(e instanceof EntitySubspace)
-					continue;
-				
-				if(e instanceof IBossProjectile){
-					if(((IBossProjectile)e).isBoss(e))
-						continue;
-				}
-				
-				if(e instanceof IProjectile)
-					e.setDead();
-			}
-			player.getCooldownTracker().setCooldown(stack.getItem(), 120);
-		}
-		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
-	}
-	
-	@SubscribeEvent
-	public void onEntityDamaged(LivingHurtEvent event) {
-		
-		if(event.getEntityLiving() instanceof IEntityWithShield){
-			EntityLiving living = (EntityLiving) event.getEntityLiving();
-			IEntityWithShield e = (IEntityWithShield) event.getEntityLiving();
-			if(e.getShield() > 0){
-				e.setShield(e.getShield() - 1);
-				event.setAmount(0);
-			}	
-		}
-			
-	}
+    int range = 20;
 
-	@Override
-	public boolean usesMana(ItemStack arg0) {
-		return true;
-	}
+    public ItemCamera() {
+        super(LibItemsName.CAMERA);
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @Nonnull
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+
+        if (isRightPlayer(player, stack) && ManaItemHandler.requestManaExactForTool(stack, player, 900, true) && !world.isRemote) {
+            for (EntityLiving living : player.getEntityWorld().getEntitiesWithinAABB(EntityLiving.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))) {
+                if (living.isSpectatedByPlayer((EntityPlayerMP) player)) {
+                    living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 5));
+                    living.addPotionEffect(new PotionEffect(ModPotions.mindcrack, 300, 1));
+                }
+            }
+
+            for (Entity e : player.getEntityWorld().getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(player.getPosition().add(-range, -range, -range), player.getPosition().add(range + 1, range + 1, range + 1)))) {
+                if (e instanceof EntitySubspace)
+                    continue;
+
+                if (e instanceof IBossProjectile) {
+                    if (((IBossProjectile) e).isBoss(e))
+                        continue;
+                }
+
+                if (e instanceof IProjectile)
+                    e.setDead();
+            }
+            player.getCooldownTracker().setCooldown(stack.getItem(), 120);
+        }
+        return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+    }
+
+    @SubscribeEvent
+    public void onEntityDamaged(LivingHurtEvent event) {
+
+        if (event.getEntityLiving() instanceof IEntityWithShield) {
+            EntityLiving living = (EntityLiving) event.getEntityLiving();
+            IEntityWithShield e = (IEntityWithShield) event.getEntityLiving();
+            if (e.getShield() > 0) {
+                e.setShield(e.getShield() - 1);
+                event.setAmount(0);
+            }
+        }
+
+    }
+
+    @Override
+    public boolean usesMana(ItemStack arg0) {
+        return true;
+    }
 
 }

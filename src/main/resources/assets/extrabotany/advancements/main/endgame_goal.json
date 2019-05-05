@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:coregod"
     },
@@ -9,12 +9,12 @@
     "description": {
       "translate": "advancement.extrabotany:endgameGoal.desc"
     },
-	"frame": "challenge"
+    "frame": "challenge"
   },
   "parent": "extrabotany:main/herrscher_defeat",
   "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

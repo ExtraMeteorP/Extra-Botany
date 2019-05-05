@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "extrabotany:cocoondesire" }
+    "normal": {
+      "model": "extrabotany:cocoondesire"
+    }
   }
 }

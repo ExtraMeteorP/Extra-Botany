@@ -1,12 +1,6 @@
 package com.meteor.extrabotany.common.item.relic;
 
-import java.util.List;
-import java.util.UUID;
-
-import javax.annotation.Nonnull;
-
 import com.meteor.extrabotany.common.item.ItemMod;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -26,107 +20,112 @@ import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public class ItemModRelic extends ItemMod implements IRelic{
+import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.UUID;
 
-	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
-	
-	public ItemModRelic(String name) {
-		super(name);
-		setMaxStackSize(1);
-	}
-	
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-		if(!world.isRemote && entity instanceof EntityPlayer)
-			updateRelic(stack, (EntityPlayer) entity);
-	}
+public class ItemModRelic extends ItemMod implements IRelic {
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flags) {
-		addBindInfo(tooltip, stack);
-	}
+    private static final String TAG_SOULBIND_UUID = "soulbindUUID";
 
-	@SideOnly(Side.CLIENT)
-	public void addBindInfo(List<String> list, ItemStack stack) {
-		if(GuiScreen.isShiftKeyDown()) {
-			if(!hasUUID(stack)) {
-				addStringToTooltip(I18n.format("botaniamisc.relicUnbound"), list);
-			} else {
-				if(!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
-					addStringToTooltip(I18n.format("botaniamisc.notYourSagittarius"), list);
-				else addStringToTooltip(I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()), list);
-			}
+    public ItemModRelic(String name) {
+        super(name);
+        setMaxStackSize(1);
+    }
 
-		} else addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
-	}
+    private static void addStringToTooltip(String s, List<String> tooltip) {
+        tooltip.add(s.replaceAll("&", "\u00a7"));
+    }
 
-	public boolean shouldDamageWrongPlayer() {
-		return true;
-	}
+    public static DamageSource damageSource() {
+        return new DamageSource("botania-relic");
+    }
 
-	@Override
-	public int getEntityLifespan(ItemStack itemStack, World world) {
-		return Integer.MAX_VALUE;
-	}
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (!world.isRemote && entity instanceof EntityPlayer)
+            updateRelic(stack, (EntityPlayer) entity);
+    }
 
-	private static void addStringToTooltip(String s, List<String> tooltip) {
-		tooltip.add(s.replaceAll("&", "\u00a7"));
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flags) {
+        addBindInfo(tooltip, stack);
+    }
 
-	public void updateRelic(ItemStack stack, EntityPlayer player) {
-		if(stack.isEmpty() || !(stack.getItem() instanceof IRelic))
-			return;
+    @SideOnly(Side.CLIENT)
+    public void addBindInfo(List<String> list, ItemStack stack) {
+        if (GuiScreen.isShiftKeyDown()) {
+            if (!hasUUID(stack)) {
+                addStringToTooltip(I18n.format("botaniamisc.relicUnbound"), list);
+            } else {
+                if (!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
+                    addStringToTooltip(I18n.format("botaniamisc.notYourSagittarius"), list);
+                else
+                    addStringToTooltip(I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()), list);
+            }
 
-		boolean rightPlayer = true;
+        } else addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
+    }
 
-		if(!hasUUID(stack)) {
-			bindToUUID(player.getUniqueID(), stack);
-			if(player instanceof EntityPlayerMP)
-				RelicBindTrigger.INSTANCE.trigger((EntityPlayerMP) player, stack);
-		} else if (!getSoulbindUUID(stack).equals(player.getUniqueID())) {
-			rightPlayer = false;
-		}
+    public boolean shouldDamageWrongPlayer() {
+        return true;
+    }
 
-		if(!rightPlayer && player.ticksExisted % 10 == 0 && (!(stack.getItem() instanceof ItemRelic) || ((ItemRelic) stack.getItem()).shouldDamageWrongPlayer()))
-			player.attackEntityFrom(damageSource(), 2);
-	}
+    @Override
+    public int getEntityLifespan(ItemStack itemStack, World world) {
+        return Integer.MAX_VALUE;
+    }
 
-	public boolean isRightPlayer(EntityPlayer player, ItemStack stack) {
-		return hasUUID(stack) && getSoulbindUUID(stack).equals(player.getUniqueID());
-	}
+    public void updateRelic(ItemStack stack, EntityPlayer player) {
+        if (stack.isEmpty() || !(stack.getItem() instanceof IRelic))
+            return;
 
-	public static DamageSource damageSource() {
-		return new DamageSource("botania-relic");
-	}
+        boolean rightPlayer = true;
 
-	@Override
-	public void bindToUUID(UUID uuid, ItemStack stack) {
-		ItemNBTHelper.setString(stack, TAG_SOULBIND_UUID, uuid.toString());
-	}
+        if (!hasUUID(stack)) {
+            bindToUUID(player.getUniqueID(), stack);
+            if (player instanceof EntityPlayerMP)
+                RelicBindTrigger.INSTANCE.trigger((EntityPlayerMP) player, stack);
+        } else if (!getSoulbindUUID(stack).equals(player.getUniqueID())) {
+            rightPlayer = false;
+        }
 
-	@Override
-	public UUID getSoulbindUUID(ItemStack stack) {
-		if(ItemNBTHelper.verifyExistance(stack, TAG_SOULBIND_UUID)) {
-			try {
-				return UUID.fromString(ItemNBTHelper.getString(stack, TAG_SOULBIND_UUID, ""));
-			} catch (IllegalArgumentException ex) { // Bad UUID in tag
-				ItemNBTHelper.removeEntry(stack, TAG_SOULBIND_UUID);
-			}
-		}
+        if (!rightPlayer && player.ticksExisted % 10 == 0 && (!(stack.getItem() instanceof ItemRelic) || ((ItemRelic) stack.getItem()).shouldDamageWrongPlayer()))
+            player.attackEntityFrom(damageSource(), 2);
+    }
 
-		return null;
-	}
+    public boolean isRightPlayer(EntityPlayer player, ItemStack stack) {
+        return hasUUID(stack) && getSoulbindUUID(stack).equals(player.getUniqueID());
+    }
 
-	@Override
-	public boolean hasUUID(ItemStack stack) {
-		return getSoulbindUUID(stack) != null;
-	}
+    @Override
+    public void bindToUUID(UUID uuid, ItemStack stack) {
+        ItemNBTHelper.setString(stack, TAG_SOULBIND_UUID, uuid.toString());
+    }
 
-	@Nonnull
-	@Override
-	public EnumRarity getRarity(ItemStack stack) {
-		return BotaniaAPI.rarityRelic;
-	}
+    @Override
+    public UUID getSoulbindUUID(ItemStack stack) {
+        if (ItemNBTHelper.verifyExistance(stack, TAG_SOULBIND_UUID)) {
+            try {
+                return UUID.fromString(ItemNBTHelper.getString(stack, TAG_SOULBIND_UUID, ""));
+            } catch (IllegalArgumentException ex) { // Bad UUID in tag
+                ItemNBTHelper.removeEntry(stack, TAG_SOULBIND_UUID);
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean hasUUID(ItemStack stack) {
+        return getSoulbindUUID(stack) != null;
+    }
+
+    @Nonnull
+    @Override
+    public EnumRarity getRarity(ItemStack stack) {
+        return BotaniaAPI.rarityRelic;
+    }
 
 }

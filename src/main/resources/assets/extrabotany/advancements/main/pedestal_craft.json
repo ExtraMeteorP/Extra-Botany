@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:pedestal"
     },
@@ -11,7 +11,7 @@
     }
   },
   "parent": "extrabotany:main/newknowledge_unlock",
- "criteria": {
+  "criteria": {
     "ebt_trigger": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {

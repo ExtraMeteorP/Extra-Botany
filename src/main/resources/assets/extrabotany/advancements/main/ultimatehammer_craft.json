@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:ultimatehammer"
     },
@@ -11,7 +11,7 @@
     }
   },
   "parent": "extrabotany:main/pedestal_craft",
- "criteria": {
+  "criteria": {
     "ebt_trigger": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {

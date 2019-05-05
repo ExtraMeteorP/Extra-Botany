@@ -1,13 +1,9 @@
 package com.meteor.extrabotany.common.item.equipment.tool;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.lib.LibGui;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -27,74 +23,77 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class ItemMasterHandbag extends ItemMod{
-	
-	private static final String TAG_ITEMS = "InvItems";
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-	public ItemMasterHandbag() {
-		super(LibItemsName.MASTERHANDBAG);
-		this.setMaxStackSize(1);
-	}
-	
-	@Nonnull
-	@Override
-	public ICapabilityProvider initCapabilities(ItemStack stack, NBTTagCompound oldCapNbt) {
-		return new InvProvider();
-	}
+public class ItemMasterHandbag extends ItemMod {
 
-	private static class InvProvider implements ICapabilitySerializable<NBTBase> {
+    private static final String TAG_ITEMS = "InvItems";
 
-		private final IItemHandler inv = new ItemStackHandler(24) {
-			@Nonnull
-			@Override
-			public ItemStack insertItem(int slot, @Nonnull ItemStack toInsert, boolean simulate) {
-				return super.insertItem(slot, toInsert, simulate);
-			}
-		};
+    public ItemMasterHandbag() {
+        super(LibItemsName.MASTERHANDBAG);
+        this.setMaxStackSize(1);
+    }
 
-		@Override
-		public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing) {
-			return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
-		}
+    @Nonnull
+    @Override
+    public ICapabilityProvider initCapabilities(ItemStack stack, NBTTagCompound oldCapNbt) {
+        return new InvProvider();
+    }
 
-		@Override
-		public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing facing) {
-			if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-				return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(inv);
-			else return null;
-		}
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (stack.getTagCompound() != null && stack.getTagCompound().hasKey(TAG_ITEMS)) {
+            NBTTagList oldData = stack.getTagCompound().getTagList(TAG_ITEMS, Constants.NBT.TAG_COMPOUND);
+            IItemHandler newInv = stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 
-		@Override
-		public NBTBase serializeNBT() {
-			return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.writeNBT(inv, null);
-		}
+            CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.readNBT(newInv, null, oldData);
 
-		@Override
-		public void deserializeNBT(NBTBase nbt) {
-			CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.readNBT(inv, null, nbt);
-		}
-	}
+            stack.getTagCompound().removeTag(TAG_ITEMS);
 
-	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-		if(stack.getTagCompound() != null && stack.getTagCompound().hasKey(TAG_ITEMS)) {
-			NBTTagList oldData = stack.getTagCompound().getTagList(TAG_ITEMS, Constants.NBT.TAG_COMPOUND);
-			IItemHandler newInv = stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+            if (stack.getTagCompound().getSize() == 0)
+                stack.setTagCompound(null);
+        }
+    }
 
-			CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.readNBT(newInv, null, oldData);
+    @Nonnull
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+        player.openGui(ExtraBotany.instance, LibGui.MASTERHANDBAG, world, hand == EnumHand.OFF_HAND ? 1 : 0, 0, 0);
+        return ActionResult.newResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+    }
 
-			stack.getTagCompound().removeTag(TAG_ITEMS);
+    private static class InvProvider implements ICapabilitySerializable<NBTBase> {
 
-			if(stack.getTagCompound().getSize() == 0)
-				stack.setTagCompound(null);
-		}
-	}
+        private final IItemHandler inv = new ItemStackHandler(24) {
+            @Nonnull
+            @Override
+            public ItemStack insertItem(int slot, @Nonnull ItemStack toInsert, boolean simulate) {
+                return super.insertItem(slot, toInsert, simulate);
+            }
+        };
 
-	@Nonnull
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
-		player.openGui(ExtraBotany.instance, LibGui.MASTERHANDBAG, world, hand == EnumHand.OFF_HAND ? 1 : 0, 0, 0);
-		return ActionResult.newResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
-	}
+        @Override
+        public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing) {
+            return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
+        }
+
+        @Override
+        public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing facing) {
+            if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+                return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(inv);
+            else return null;
+        }
+
+        @Override
+        public NBTBase serializeNBT() {
+            return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.writeNBT(inv, null);
+        }
+
+        @Override
+        public void deserializeNBT(NBTBase nbt) {
+            CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.readNBT(inv, null, nbt);
+        }
+    }
 
 }

@@ -1,22 +1,22 @@
 package com.meteor.extrabotany.client.model;
 
-import javax.annotation.Nonnull;
-
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import vazkii.botania.client.model.armor.ModelArmor;
 
-public class ModelArmorShadowWarrior extends ModelArmor{
-	
-	private final ModelRenderer helmAnchor;  
-	private final ModelRenderer bodyAnchor;
-	private final ModelRenderer body;	
-	private final ModelRenderer armLAnchor;
+import javax.annotation.Nonnull;
+
+public class ModelArmorShadowWarrior extends ModelArmor {
+
+    private final ModelRenderer helmAnchor;
+    private final ModelRenderer bodyAnchor;
+    private final ModelRenderer body;
+    private final ModelRenderer armLAnchor;
     private final ModelRenderer armRAnchor;
-	private final ModelRenderer pantsAnchor;
+    private final ModelRenderer pantsAnchor;
     private final ModelRenderer legL;
-    private final ModelRenderer legR; 
+    private final ModelRenderer legR;
     private final ModelRenderer bootL;
     private final ModelRenderer bootR;
 
@@ -69,19 +69,19 @@ public class ModelArmorShadowWarrior extends ModelArmor{
     ModelRenderer boot2;
     ModelRenderer fb1;
     ModelRenderer fb2;
-	
-	public ModelArmorShadowWarrior(EntityEquipmentSlot slot) {
-		super(slot);
 
-		this.textureWidth = 128;
+    public ModelArmorShadowWarrior(EntityEquipmentSlot slot) {
+        super(slot);
+
+        this.textureWidth = 128;
         this.textureHeight = 128;
-		float s = 0.01F;
-		
-		//helm
+        float s = 0.01F;
+
+        //helm
         this.helmAnchor = new ModelRenderer(this, 0, 0);
         this.helmAnchor.setRotationPoint(0.0F, 0.0F, 0.0F);
         this.helmAnchor.addBox(-1.0F, -2.0F, 0.0F, 2, 2, 2, s);
-        
+
         //body
         this.bodyAnchor = new ModelRenderer(this, 0, 0);
         this.bodyAnchor.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -92,23 +92,23 @@ public class ModelArmorShadowWarrior extends ModelArmor{
         this.body.setTextureSize(64, 32);
         this.body.mirror = true;
         this.setRotateAngle(body, 0F, 0F, 0F);
-                
-     	//armL
+
+        //armL
         this.armLAnchor = new ModelRenderer(this, 0, 0);
         this.armLAnchor.mirror = true;
         this.armLAnchor.setRotationPoint(4.0F, 2.0F, 0.0F);
         this.armLAnchor.addBox(0.0F, -1.0F, -1.0F, 2, 2, 2, s);
-        
+
         //armR
         this.armRAnchor = new ModelRenderer(this, 0, 0);
         this.armRAnchor.mirror = true;
         this.armRAnchor.setRotationPoint(-4.0F, 2.0F, 0.0F);
         this.armRAnchor.addBox(-2.0F, -1.0F, -1.0F, 2, 2, 2, s);
-        
+
         //pants
         this.pantsAnchor = new ModelRenderer(this, 0, 0);
         this.pantsAnchor.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.pantsAnchor.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, s);           
+        this.pantsAnchor.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, s);
         this.legR = new ModelRenderer(this, 0, 16);
         this.legR.addBox(-2F, 0F, -2F, 4, 12, 4, s);
         this.legR.setRotationPoint(-2F, 12F, 0F);
@@ -121,16 +121,16 @@ public class ModelArmorShadowWarrior extends ModelArmor{
         this.legL.setTextureSize(64, 32);
         this.legL.mirror = true;
         this.setRotateAngle(legL, 0F, 0F, 0F);
-        
+
         //boots
         this.bootL = new ModelRenderer(this, 0, 0);
         this.bootL.mirror = true;
         this.bootL.setRotationPoint(1.9F, 12.0F, 0.0F);
-        this.bootL.addBox(-2.39F, 8.5F, -2.49F, 2,2,2, s);
+        this.bootL.addBox(-2.39F, 8.5F, -2.49F, 2, 2, 2, s);
         this.bootR = new ModelRenderer(this, 0, 0);
         this.bootR.setRotationPoint(-2.0F, 12.0F, 0.0F);
-        this.bootR.addBox(-2.5F, 8.5F, -2.51F, 2,2,2, s);
-        
+        this.bootR.addBox(-2.5F, 8.5F, -2.51F, 2, 2, 2, s);
+
         rightarm = new ModelRenderer(this, 40, 16);
         rightarm.addBox(-3F, -2F, -2F, 4, 12, 4);
         rightarm.setRotationPoint(-5F, 2F, 0F);
@@ -425,7 +425,7 @@ public class ModelArmorShadowWarrior extends ModelArmor{
         fb2.setTextureSize(128, 128);
         fb2.mirror = true;
         this.setRotateAngle(fb2, 0F, 0F, 0F);
-		
+
         this.helmAnchor.addChild(this.top);
         this.helmAnchor.addChild(this.back);
         this.helmAnchor.addChild(this.front1);
@@ -438,22 +438,22 @@ public class ModelArmorShadowWarrior extends ModelArmor{
         this.helmAnchor.addChild(this.left3);
         this.helmAnchor.addChild(this.medal);
         this.helmAnchor.addChild(this.front);
-        
+
         this.bodyAnchor.addChild(this.body);
         this.body.addChild(this.fronter);
         this.body.addChild(this.backer);
         this.body.addChild(this.book);
-        
+
         this.armLAnchor.addChild(this.larm1);
         this.armLAnchor.addChild(this.larm2);
         this.armLAnchor.addChild(this.larm3);
         this.armLAnchor.addChild(this.larm4);
-        
+
         this.armRAnchor.addChild(this.rarm1);
         this.armRAnchor.addChild(this.rarm2);
         this.armRAnchor.addChild(this.rarm3);
         this.armRAnchor.addChild(this.rarm4);
-        
+
         this.pantsAnchor.addChild(this.f1);
         this.pantsAnchor.addChild(this.f2);
         this.pantsAnchor.addChild(this.f3);
@@ -466,7 +466,7 @@ public class ModelArmorShadowWarrior extends ModelArmor{
         this.pantsAnchor.addChild(this.a1);
         this.pantsAnchor.addChild(this.a2);
         this.pantsAnchor.addChild(this.a3);
-        
+
         this.legR.addChild(this.b1);
         this.legR.addChild(this.b2);
         this.legR.addChild(this.b3);
@@ -474,40 +474,40 @@ public class ModelArmorShadowWarrior extends ModelArmor{
         this.legL.addChild(this.c1);
         this.legL.addChild(this.c2);
         this.legL.addChild(this.c3);
-        
+
         this.bootL.addChild(this.boot2);
         this.bootL.addChild(this.fb2);
         this.bootR.addChild(this.boot1);
         this.bootR.addChild(this.fb1);
-	}
-	
-	@Override
-	public void render(@Nonnull Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+    }
 
-		helmAnchor.showModel = slot == EntityEquipmentSlot.HEAD;
-		bodyAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
-		armRAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
-		armLAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
-		legR.showModel = slot == EntityEquipmentSlot.LEGS;
-		legL.showModel = slot == EntityEquipmentSlot.LEGS;
-		bootL.showModel = slot == EntityEquipmentSlot.FEET;
-		bootR.showModel = slot == EntityEquipmentSlot.FEET;
-		bipedHeadwear.showModel = false;
+    @Override
+    public void render(@Nonnull Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 
-		bipedHead = helmAnchor;
-		bipedBody = bodyAnchor;
-		bipedRightArm = armRAnchor;
-		bipedLeftArm = armLAnchor;
-		if(slot == EntityEquipmentSlot.LEGS) {
-			bipedBody = pantsAnchor;
-			bipedRightLeg = legR;
-			bipedLeftLeg = legL;
-		} else {
-			bipedRightLeg = bootR;
-			bipedLeftLeg = bootL;
-		}
-		
-		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-	}
-	
+        helmAnchor.showModel = slot == EntityEquipmentSlot.HEAD;
+        bodyAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
+        armRAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
+        armLAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
+        legR.showModel = slot == EntityEquipmentSlot.LEGS;
+        legL.showModel = slot == EntityEquipmentSlot.LEGS;
+        bootL.showModel = slot == EntityEquipmentSlot.FEET;
+        bootR.showModel = slot == EntityEquipmentSlot.FEET;
+        bipedHeadwear.showModel = false;
+
+        bipedHead = helmAnchor;
+        bipedBody = bodyAnchor;
+        bipedRightArm = armRAnchor;
+        bipedLeftArm = armLAnchor;
+        if (slot == EntityEquipmentSlot.LEGS) {
+            bipedBody = pantsAnchor;
+            bipedRightLeg = legR;
+            bipedLeftLeg = legL;
+        } else {
+            bipedRightLeg = bootR;
+            bipedLeftLeg = bootL;
+        }
+
+        super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+    }
+
 }

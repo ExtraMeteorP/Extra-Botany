@@ -14,7 +14,7 @@
   "parent": "extrabotany:main/kinggarden_craft",
   "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "extrabotany:blockorichalcos" }
+    "normal": {
+      "model": "extrabotany:blockorichalcos"
+    }
   }
 }

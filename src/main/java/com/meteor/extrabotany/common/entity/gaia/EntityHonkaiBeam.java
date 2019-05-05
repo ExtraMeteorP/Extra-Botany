@@ -1,8 +1,5 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,29 +15,29 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class EntityHonkaiBeam extends Entity{
-    
-	private final double RADIUS = 20;
-    public EntityLivingBase caster;
-    public double endPosX, endPosY, endPosZ;
-    public double collidePosX, collidePosY, collidePosZ;
+import java.util.ArrayList;
+import java.util.List;
 
-    public boolean on = true;
-
-    public EnumFacing blockSide = null;
+public class EntityHonkaiBeam extends Entity {
 
     private static final DataParameter<Float> YAW = EntityDataManager.createKey(EntityHonkaiBeam.class, DataSerializers.FLOAT);
     private static final DataParameter<Float> PITCH = EntityDataManager.createKey(EntityHonkaiBeam.class, DataSerializers.FLOAT);
     private static final DataParameter<Integer> DURATION = EntityDataManager.createKey(EntityHonkaiBeam.class, DataSerializers.VARINT);
     private static final DataParameter<Boolean> HAS_PLAYER = EntityDataManager.createKey(EntityHonkaiBeam.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Integer> CASTER = EntityDataManager.createKey(EntityHonkaiBeam.class, DataSerializers.VARINT);
+    private final double RADIUS = 20;
+    public EntityLivingBase caster;
+    public double endPosX, endPosY, endPosZ;
+    public double collidePosX, collidePosY, collidePosZ;
+    public boolean on = true;
+    public EnumFacing blockSide = null;
 
     public EntityHonkaiBeam(World world) {
         super(world);
         setSize(0.1F, 0.1F);
         ignoreFrustumCheck = true;
     }
-    
+
     public EntityHonkaiBeam(World world, EntityLivingBase caster, int duration) {
         this(world);
         this.caster = caster;
@@ -77,12 +74,12 @@ public class EntityHonkaiBeam extends Entity{
         if (!on) {
             this.setDead();
         }
-        
-        AxisAlignedBB axis = new AxisAlignedBB(posX-15F, posY-15F, posZ-15F, lastTickPosX+15F, lastTickPosY+15F, lastTickPosZ+15F);
-		List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
-        
-        if (caster == null) 
-        	setDead();
+
+        AxisAlignedBB axis = new AxisAlignedBB(posX - 15F, posY - 15F, posZ - 15F, lastTickPosX + 15F, lastTickPosY + 15F, lastTickPosZ + 15F);
+        List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
+
+        if (caster == null)
+            setDead();
 
         if (ticksExisted > 20) {
             this.calculateEndPos();
@@ -173,10 +170,12 @@ public class EntityHonkaiBeam extends Entity{
     }
 
     @Override
-    protected void readEntityFromNBT(NBTTagCompound nbt) {}
+    protected void readEntityFromNBT(NBTTagCompound nbt) {
+    }
 
     @Override
-    protected void writeEntityToNBT(NBTTagCompound nbt) {}
+    protected void writeEntityToNBT(NBTTagCompound nbt) {
+    }
 
     private void calculateEndPos() {
         endPosX = posX + RADIUS * Math.cos(getYaw()) * Math.cos(getPitch());

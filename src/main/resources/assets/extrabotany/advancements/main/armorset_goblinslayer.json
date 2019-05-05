@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:goblinslayerhelm"
     },
@@ -11,9 +11,9 @@
     }
   },
   "parent": "extrabotany:main/newknowledge_unlock",
- "criteria": {
-        "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:impossible"
+    }
   }
 }

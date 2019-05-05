@@ -129,7 +129,7 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
                     if (this.ticksExisted % 8 == 0 && player.getHealth() > 12) {
                         player.attackEntityFrom(DamageSource.GENERIC, 1);
                         player.attackEntityFrom(DamageSource.LIGHTNING_BOLT, 1);
-                        ExtraBotanyAPI.dealTrueDamage(player, 0.3F);
+                        ExtraBotanyAPI.dealTrueDamage(thrower, player, 0.3F);
                         player.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 100, 1));
                     }
                 }

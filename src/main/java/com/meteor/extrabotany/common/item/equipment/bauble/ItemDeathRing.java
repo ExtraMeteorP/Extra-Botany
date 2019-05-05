@@ -24,11 +24,12 @@ public class ItemDeathRing extends ItemBauble {
     public void onWornTick(ItemStack stack, EntityLivingBase entity) {
         super.onWornTick(stack, entity);
         if (!entity.world.isRemote) {
+            EntityPlayerMP player = (EntityPlayerMP) entity;
             for (EntityLivingBase living : entity.getEntityWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(entity.getPosition().add(-RANGE, -RANGE, -RANGE), entity.getPosition().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
-                if (living.isSpectatedByPlayer((EntityPlayerMP) entity) && living != entity && entity.getEntityWorld().getWorldTime() % 30 == 0 && ManaItemHandler.requestManaExact(stack, (EntityPlayer) entity, 50, true)) {
+                if (living.isSpectatedByPlayer(player) && living != entity && entity.getEntityWorld().getWorldTime() % 30 == 0 && ManaItemHandler.requestManaExact(stack, (EntityPlayer) entity, 50, true)) {
                     living.addPotionEffect(new PotionEffect(MobEffects.WITHER, 60, 1));
                     living.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 60, 1));
-                    ExtraBotanyAPI.dealTrueDamage(living, 0.5F);
+                    ExtraBotanyAPI.dealTrueDamage(player, living, 0.5F);
                 }
             }
         }

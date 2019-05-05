@@ -259,6 +259,7 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
         EntityThrowable entity = (EntityThrowable) burst;
         AxisAlignedBB axis = new AxisAlignedBB(entity.posX, entity.posY, entity.posZ, entity.lastTickPosX, entity.lastTickPosY, entity.lastTickPosZ).grow(1);
         String attacker = ItemNBTHelper.getString(burst.getSourceLens(), TAG_ATTACKER_USERNAME, "");
+        EntityPlayer player = entity.world.getPlayerEntityByName(attacker);
 
         if (burst.getColor() == 0XFFAF00 || burst.getColor() == 0XFFD700) {
             AxisAlignedBB axis1 = new AxisAlignedBB(entity.posX - 2.5F, entity.posY - 2.5F, entity.posZ - 2.5F, entity.lastTickPosX + 2.5F, entity.lastTickPosY + 2.5F, entity.lastTickPosZ + 2.5F);
@@ -266,14 +267,17 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
                 axis1.grow(1.5F);
             List<EntityLivingBase> entities = entity.world.getEntitiesWithinAABB(EntityLivingBase.class, axis1);
             for (EntityLivingBase living : entities) {
+                if (living instanceof EntityPlayer && living.getName().equals(attacker))
+                    player = (EntityPlayer) living;
                 if ((living instanceof EntityPlayer
                         && (living.getName().equals(attacker) || FMLCommonHandler.instance().getMinecraftServerInstance() != null
                         && !FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled())) && burst.getColor() == 0XFFAF00)
                     continue;
                 if (burst.getColor() == 0XFFD700 && living instanceof EntityVoidHerrscher)
                     continue;
-                if (entity.ticksExisted % 3 == 0)
-                    ExtraBotanyAPI.dealTrueDamage(living, burst.getColor() == 0XFFD700 ? 1.8F : 2.2F);
+                if (entity.ticksExisted % 3 == 0) {
+                    ExtraBotanyAPI.dealTrueDamage(player, living, burst.getColor() == 0XFFD700 ? 1.8F : 2.2F);
+                }
                 if (living.hurtTime == 0)
                     living.attackEntityFrom(ItemRelic.damageSource(), burst.getColor() == 0XFFD700 ? 7F : 8F);
             }
@@ -316,9 +320,8 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
                     burst.setMana(mana - cost);
                     float damage = BotaniaAPI.terrasteelToolMaterial.getAttackDamage() + 3F;
                     if (!burst.isFake() && !entity.world.isRemote) {
-                        EntityPlayer player = living.world.getPlayerEntityByName(attacker);
                         living.attackEntityFrom(player == null ? ItemRelic.damageSource() : DamageSource.causePlayerDamage(player), damage);
-                        ExtraBotanyAPI.dealTrueDamage(living, 3F);
+                        ExtraBotanyAPI.dealTrueDamage(player, living, 3F);
                         entity.setDead();
                         break;
                     }

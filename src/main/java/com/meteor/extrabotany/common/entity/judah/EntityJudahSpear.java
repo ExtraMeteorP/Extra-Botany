@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.entity.judah;
 
 import com.google.common.base.Optional;
+import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.brew.ModPotions;
 import net.minecraft.entity.Entity;
@@ -34,8 +35,11 @@ public class EntityJudahSpear extends Entity {
     private static final DataParameter<Float> ROTATION = EntityDataManager.createKey(EntityJudahSpear.class, DataSerializers.FLOAT);
     private static final DataParameter<Optional<UUID>> UUID = EntityDataManager.createKey(EntityJudahSpear.class, DataSerializers.OPTIONAL_UNIQUE_ID);
 
-    public EntityJudahSpear(World worldIn) {
+    private static EntityPlayer thrower;
+
+    public EntityJudahSpear(EntityPlayer thrower, World worldIn) {
         super(worldIn);
+        this.thrower = thrower;
     }
 
     @Override
@@ -89,9 +93,12 @@ public class EntityJudahSpear extends Entity {
                 if (getFlag() == false) {
                     for (int i = 0; i < 4; i++)
                         Botania.proxy.wispFX(living.posX, living.posY + 0.5F, living.posZ, r, g, b, 0.45F, (float) (Math.random() - 0.5F) * 0.5F, (float) (Math.random() - 0.5F) * 0.5F, (float) (Math.random() - 0.5F) * 0.5F);
-                    living.attackEntityFrom(DamageSource.LIGHTNING_BOLT, getDamage());
+                    if (ExtraBotany.isTableclothServer && thrower != null)
+                        living.attackEntityFrom(DamageSource.causePlayerDamage(thrower), getDamage());
+                    else
+                        living.attackEntityFrom(DamageSource.LIGHTNING_BOLT, getDamage());
                     ExtraBotanyAPI.addPotionEffect(living, ModPotions.divinejustice, 4);
-                    ExtraBotanyAPI.dealTrueDamage(living, getDamage() * 0.5F);
+                    ExtraBotanyAPI.dealTrueDamage(thrower, living, getDamage() * 0.5F);
                     setFlag(true);
                 }
 

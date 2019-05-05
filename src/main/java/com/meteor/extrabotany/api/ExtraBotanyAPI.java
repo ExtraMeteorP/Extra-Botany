@@ -1,5 +1,7 @@
 package com.meteor.extrabotany.api;
 
+import com.gamerforea.eventhelper.util.EventUtils;
+import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.core.handler.PlayerStatHandler;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeOmniviolet;
 import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
@@ -97,27 +99,33 @@ public class ExtraBotanyAPI {
     public static void dealBossDamage(EntityLivingBase entity, float amount) {
         if (entity instanceof EntityPlayer)
             PlayerStatHandler.setTrueDamageTaken((EntityPlayer) entity, Math.min(Integer.MAX_VALUE - 1, PlayerStatHandler.getTrueDamageTaken((EntityPlayer) entity) + amount));
-        dealTrueDamage(entity, amount);
+        dealTrueDamage(null, entity, amount);
     }
 
-    public static float dealTrueDamage(EntityLivingBase entity, float amount) {
+
+    public static float dealTrueDamage(EntityLivingBase target, float amount) {
+        return dealTrueDamage(null, target, amount);
+    }
+
+    public static float dealTrueDamage(EntityLivingBase player, EntityLivingBase target, float amount) {
         float result = 0;
 
-        if (entity == null) return result;
-        if (!(entity instanceof EntityLivingBase)) return result;
-        if (!entity.isEntityAlive()) return result;
+        if (target == null) return result;
+        if (!(target instanceof EntityLivingBase)) return result;
+        if (!target.isEntityAlive()) return result;
         if (amount < 0) return result;
+        if (player != null && ExtraBotany.isTableclothServer && player instanceof EntityPlayer && EventUtils.cantAttack((EntityPlayer) player, target))
+            return result;
 
-        EntityLivingBase target = (EntityLivingBase) entity;
         target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), 0.01F);
-        float health = (target).getHealth();
+        float health = target.getHealth();
         if (target instanceof EntityPlayer)
             if (((EntityPlayer) target).isCreative())
                 return result;
-        if (0 < health) {
+        if (health > 0) {
             float postHealth = Math.max(1, health - amount);
             target.setHealth(postHealth);
-            if (health < amount) {
+            if (health <= amount) {
                 if (target instanceof EntityPlayer)
                     target.onKillCommand();
                 else

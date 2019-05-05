@@ -182,7 +182,7 @@ public class EntitySkullMissile extends EntityThrowableCopy implements IBossProj
             if (targetList.contains(target)) {
                 float amplifier = StatHandler.hasStat(target, LibAdvancements.GAIA_DEFEAT) ? 1.0F : 0.7F;
                 target.attackEntityFrom(DamageSource.GENERIC, getDamage() * amplifier);
-                ExtraBotanyAPI.dealTrueDamage(target, getTrueDamage() * amplifier);
+                ExtraBotanyAPI.dealTrueDamage(thrower, target, getTrueDamage() * amplifier);
                 if (getFire())
                     target.setFire(5);
                 if (getEffect()) {

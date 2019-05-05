@@ -78,7 +78,6 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
             setDead();
             return;
         }
-        EntityLivingBase player = thrower;
         if (!world.isRemote) {
             AxisAlignedBB axis = new AxisAlignedBB(posX - 1F, posY - 0.45F, posZ - 1F, lastTickPosX + 1F, lastTickPosY + 0.45F, lastTickPosZ + 1F);
             List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
@@ -93,8 +92,8 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
                     if (thrower instanceof EntityVoidHerrscher)
                         ExtraBotanyAPI.dealBossDamage(living, getDamage());
                     else
-                        ExtraBotanyAPI.dealTrueDamage(living, getDamage());
-                    attackedFrom(living, player, getDamage());
+                        ExtraBotanyAPI.dealTrueDamage(thrower, living, getDamage());
+                    attackedFrom(living, thrower, getDamage());
                 }
 
             }

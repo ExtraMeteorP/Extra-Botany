@@ -7,18 +7,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemGildedMashedPotato extends ItemFoodMod{
+public class ItemGildedMashedPotato extends ItemFoodMod {
 
-	public ItemGildedMashedPotato() {
-		super(4, 0.2F, false, LibItemsName.GILDEDMASHEDPOTATO);
-	}
-	
-	@Override
-	public void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player){
-		super.onFoodEaten(stack, worldIn, player);
-		player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 600, 3));
-		player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 600, 3));
-		player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 600, 1));
-	}
+    public ItemGildedMashedPotato() {
+        super(4, 0.2F, false, LibItemsName.GILDEDMASHEDPOTATO);
+    }
+
+    @Override
+    public void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
+        super.onFoodEaten(stack, worldIn, player);
+        player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 600, 3));
+        player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 600, 3));
+        player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 600, 1));
+    }
 
 }

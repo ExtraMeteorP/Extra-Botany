@@ -17,27 +17,27 @@ import vazkii.botania.api.lexicon.LexiconEntry;
 import javax.annotation.Nonnull;
 
 public class BlockManaLiquefaction extends BlockMod implements ILexiconable {
-	
-	public BlockManaLiquefaction() {
-		super(Material.ROCK, LibBlocksName.TILE_MANALIQUEFYING);
-		setHardness(2.0F);
-		setResistance(10.0F);
-		setSoundType(SoundType.STONE);
-	}
 
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
+    public BlockManaLiquefaction() {
+        super(Material.ROCK, LibBlocksName.TILE_MANALIQUEFYING);
+        setHardness(2.0F);
+        setResistance(10.0F);
+        setSoundType(SoundType.STONE);
+    }
 
-	@Nonnull
-	@Override
-	public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
-		return new TileManaLiquefaction();
-	}
+    @Override
+    public boolean hasTileEntity(IBlockState state) {
+        return true;
+    }
 
-	@Override
-	public LexiconEntry getEntry(World world, BlockPos pos, EntityPlayer player, ItemStack lexicon) {
-		return LexiconData.managenerator;
-	}
+    @Nonnull
+    @Override
+    public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
+        return new TileManaLiquefaction();
+    }
+
+    @Override
+    public LexiconEntry getEntry(World world, BlockPos pos, EntityPlayer player, ItemStack lexicon) {
+        return LexiconData.managenerator;
+    }
 }

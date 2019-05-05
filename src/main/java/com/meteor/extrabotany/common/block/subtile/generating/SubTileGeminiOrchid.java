@@ -10,64 +10,64 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.FluidRegistry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 
-public class SubTileGeminiOrchid extends SubTileGeneratingNature{
+public class SubTileGeminiOrchid extends SubTileGeneratingNature {
 
-	private static final BlockPos[] OFFSETS = { new BlockPos(0, 0, 1), new BlockPos(0, 0, -1), new BlockPos(1, 0, 0), new BlockPos(-1, 0, 0), new BlockPos(-1, 0, 1), new BlockPos(-1, 0, -1), new BlockPos(1, 0, 1), new BlockPos(1, 0, -1) };
+    private static final BlockPos[] OFFSETS = {new BlockPos(0, 0, 1), new BlockPos(0, 0, -1), new BlockPos(1, 0, 0), new BlockPos(-1, 0, 0), new BlockPos(-1, 0, 1), new BlockPos(-1, 0, -1), new BlockPos(1, 0, 1), new BlockPos(1, 0, -1)};
 
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		if(redstoneSignal > 0)
-			return;
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (redstoneSignal > 0)
+            return;
 
-		int tempMax = 700;
-		int tempMin = 700;
-		for(int i = 0; i < OFFSETS.length; i++){
-			BlockPos pos = this.getPos().add(OFFSETS[i]);
-			World world = this.getWorld();
-			Block block = world.getBlockState(pos).getBlock();
-			if(block != null){
-				if(block == Blocks.LAVA){
-					tempMax = Math.max(tempMax, FluidRegistry.LAVA.getTemperature());
-					tempMin = Math.min(tempMin, FluidRegistry.LAVA.getTemperature());
-				}else if(block == Blocks.WATER){
-					tempMax = Math.max(tempMax, FluidRegistry.WATER.getTemperature());
-					tempMin = Math.min(tempMin, FluidRegistry.WATER.getTemperature());
-				}else if(block instanceof BlockFluidClassic){
-					tempMax = Math.max(tempMax, BlockFluidClassic.getTemperature(world, pos));
-					tempMin = Math.min(tempMin, BlockFluidClassic.getTemperature(world, pos));
-				}
-			}
-		}
-		float buff = isEnabled() ? 1.2F : 1.0F;
-		if(mana < getMaxMana() && ticksExisted % 8 == 0)
-			mana+= (int)(Math.abs(tempMax - tempMin)/100 * buff * ConfigHandler.EFF_GEMINIORCHID);
+        int tempMax = 700;
+        int tempMin = 700;
+        for (int i = 0; i < OFFSETS.length; i++) {
+            BlockPos pos = this.getPos().add(OFFSETS[i]);
+            World world = this.getWorld();
+            Block block = world.getBlockState(pos).getBlock();
+            if (block != null) {
+                if (block == Blocks.LAVA) {
+                    tempMax = Math.max(tempMax, FluidRegistry.LAVA.getTemperature());
+                    tempMin = Math.min(tempMin, FluidRegistry.LAVA.getTemperature());
+                } else if (block == Blocks.WATER) {
+                    tempMax = Math.max(tempMax, FluidRegistry.WATER.getTemperature());
+                    tempMin = Math.min(tempMin, FluidRegistry.WATER.getTemperature());
+                } else if (block instanceof BlockFluidClassic) {
+                    tempMax = Math.max(tempMax, BlockFluidClassic.getTemperature(world, pos));
+                    tempMin = Math.min(tempMin, BlockFluidClassic.getTemperature(world, pos));
+                }
+            }
+        }
+        float buff = isEnabled() ? 1.2F : 1.0F;
+        if (mana < getMaxMana() && ticksExisted % 8 == 0)
+            mana += (int) (Math.abs(tempMax - tempMin) / 100 * buff * ConfigHandler.EFF_GEMINIORCHID);
 
-	}
+    }
 
-	@Override
-	public int getRate(){
-		return 6;
-	}
+    @Override
+    public int getRate() {
+        return 6;
+    }
 
-	@Override
-	public boolean willConsume(){
-		return true;
-	}
+    @Override
+    public boolean willConsume() {
+        return true;
+    }
 
-	@Override
-	public int getMaxMana() {
-		return 1000;
-	}
+    @Override
+    public int getMaxMana() {
+        return 1000;
+    }
 
-	@Override
-	public boolean isPassiveFlower() {
-		return true;
-	}
+    @Override
+    public boolean isPassiveFlower() {
+        return true;
+    }
 
-	@Override
-	public RadiusDescriptor getRadius() {
-		return new RadiusDescriptor.Square(toBlockPos(), 1);
-	}
+    @Override
+    public RadiusDescriptor getRadius() {
+        return new RadiusDescriptor.Square(toBlockPos(), 1);
+    }
 
 }

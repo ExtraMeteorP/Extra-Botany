@@ -17,31 +17,31 @@ import net.minecraftforge.oredict.OreDictionary;
 import javax.annotation.Nonnull;
 
 @JEIPlugin
-public class JEIExtraBotanyPlugin implements IModPlugin{
+public class JEIExtraBotanyPlugin implements IModPlugin {
 
-	@Override
-	public void registerCategories(IRecipeCategoryRegistration registry) {
-		registry.addRecipeCategories(
-				new HammerRecipeCategory(registry.getJeiHelpers().getGuiHelper())
-			);
-	}
+    public static boolean doesOreExist(String key) {
+        return OreDictionary.doesOreNameExist(key)
+                && OreDictionary.getOres(key).stream()
+                .anyMatch(s -> s.getItem() instanceof ItemBlock);
+    }
 
-	public static boolean doesOreExist(String key) {
-		return OreDictionary.doesOreNameExist(key)
-				&& OreDictionary.getOres(key).stream()
-				.anyMatch(s -> s.getItem() instanceof ItemBlock);
-	}
+    @Override
+    public void registerCategories(IRecipeCategoryRegistration registry) {
+        registry.addRecipeCategories(
+                new HammerRecipeCategory(registry.getJeiHelpers().getGuiHelper())
+        );
+    }
 
-	@Override
-	public void register(@Nonnull IModRegistry registry) {
-		registry.handleRecipes(RecipePedestal.class, HammerRecipeWrapper::new, HammerRecipeCategory.UID);
-		registry.addRecipes(ExtraBotanyAPI.pedestalRecipes, HammerRecipeCategory.UID);
-		registry.addRecipeCatalyst(new ItemStack(ModBlocks.pedestal), HammerRecipeCategory.UID);
-		registry.addRecipeCatalyst(new ItemStack(ModItems.hammerelementium), HammerRecipeCategory.UID);
-		registry.addRecipeCatalyst(new ItemStack(ModItems.hammermanasteel), HammerRecipeCategory.UID);
-		registry.addRecipeCatalyst(new ItemStack(ModItems.hammerterrasteel), HammerRecipeCategory.UID);
-		registry.addRecipeCatalyst(new ItemStack(ModItems.hammerultimate), HammerRecipeCategory.UID);
-	
-	}
-	
+    @Override
+    public void register(@Nonnull IModRegistry registry) {
+        registry.handleRecipes(RecipePedestal.class, HammerRecipeWrapper::new, HammerRecipeCategory.UID);
+        registry.addRecipes(ExtraBotanyAPI.pedestalRecipes, HammerRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModBlocks.pedestal), HammerRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModItems.hammerelementium), HammerRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModItems.hammermanasteel), HammerRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModItems.hammerterrasteel), HammerRecipeCategory.UID);
+        registry.addRecipeCatalyst(new ItemStack(ModItems.hammerultimate), HammerRecipeCategory.UID);
+
+    }
+
 }

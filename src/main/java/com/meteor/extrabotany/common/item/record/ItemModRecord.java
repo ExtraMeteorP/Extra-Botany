@@ -16,24 +16,24 @@ import javax.annotation.Nonnull;
 
 public class ItemModRecord extends ItemRecord implements IModelReg {
 
-	private final String file;
+    private final String file;
 
-	public ItemModRecord(String record, SoundEvent sound, String name) {
-		super("extrabotany:" + record, sound);
-		setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
-		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
-		setUnlocalizedName(name);
-		file = "extrabotany:music." + record;
-	}
+    public ItemModRecord(String record, SoundEvent sound, String name) {
+        super("extrabotany:" + record, sound);
+        setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
+        setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+        setUnlocalizedName(name);
+        file = "extrabotany:music." + record;
+    }
 
-	@Override
-	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
-	}
+    @Override
+    public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
+        return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerModels() {
-		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerModels() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
 }

@@ -9,15 +9,15 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class ModEnchantments {
-	
-	public static final Enchantment pixiebless = new EnchantmentPixieBless();
-	public static final Enchantment instantheal = new EnchantmentInstantHeal();
-	
-	@SubscribeEvent
-	public static void registerEnchantments(RegistryEvent.Register<Enchantment> evt) {
-		IForgeRegistry<Enchantment> r = evt.getRegistry();
-		//r.register(pixiebless);
-		//r.register(instantheal);
-	}
+
+    public static final Enchantment pixiebless = new EnchantmentPixieBless();
+    public static final Enchantment instantheal = new EnchantmentInstantHeal();
+
+    @SubscribeEvent
+    public static void registerEnchantments(RegistryEvent.Register<Enchantment> evt) {
+        IForgeRegistry<Enchantment> r = evt.getRegistry();
+        //r.register(pixiebless);
+        //r.register(instantheal);
+    }
 
 }

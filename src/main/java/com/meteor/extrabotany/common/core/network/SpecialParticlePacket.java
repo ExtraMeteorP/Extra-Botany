@@ -30,14 +30,14 @@ public class SpecialParticlePacket extends AbstractPacketThreadsafe {
         buffer.writeUniqueId(uuid);
     }
 
-	@Override
-	public void handleClientSafe(NetHandlerPlayClient netHandler) {
-		
-	}
+    @Override
+    public void handleClientSafe(NetHandlerPlayClient netHandler) {
 
-	@Override
-	public void handleServerSafe(NetHandlerPlayServer netHandler) {
-		// clientside only
-		throw new UnsupportedOperationException("Serverside only");
-	}
+    }
+
+    @Override
+    public void handleServerSafe(NetHandlerPlayServer netHandler) {
+        // clientside only
+        throw new UnsupportedOperationException("Serverside only");
+    }
 }

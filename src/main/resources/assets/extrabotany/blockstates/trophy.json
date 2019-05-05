@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "extrabotany:trophy" }
+    "normal": {
+      "model": "extrabotany:trophy"
+    }
   }
 }

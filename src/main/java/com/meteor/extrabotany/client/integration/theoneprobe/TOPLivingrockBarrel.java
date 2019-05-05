@@ -10,20 +10,20 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class TOPLivingrockBarrel implements IProbeInfoProvider{
-	   
-	@Override
-	public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data){
-		if(world.getTileEntity(data.getPos()) instanceof TileLivingrockBarrel){
-			TileLivingrockBarrel tile = (TileLivingrockBarrel) world.getTileEntity(data.getPos());
-			if(tile.fluidTank.getFluid() != null)
-				probeInfo.text(tile.fluidTank.getFluid().getLocalizedName() + ":" + tile.fluidTank.getFluidAmount() + "/" + "16000");
-		}
-	}
-		
-	@Override
-	public String getID(){
-		return LibMisc.MOD_ID + ".livingrockbarrel";
-	}
-		
+public class TOPLivingrockBarrel implements IProbeInfoProvider {
+
+    @Override
+    public void addProbeInfo(ProbeMode mode, IProbeInfo probeInfo, EntityPlayer player, World world, IBlockState blockState, IProbeHitData data) {
+        if (world.getTileEntity(data.getPos()) instanceof TileLivingrockBarrel) {
+            TileLivingrockBarrel tile = (TileLivingrockBarrel) world.getTileEntity(data.getPos());
+            if (tile.fluidTank.getFluid() != null)
+                probeInfo.text(tile.fluidTank.getFluid().getLocalizedName() + ":" + tile.fluidTank.getFluidAmount() + "/" + "16000");
+        }
+    }
+
+    @Override
+    public String getID() {
+        return LibMisc.MOD_ID + ".livingrockbarrel";
+    }
+
 }

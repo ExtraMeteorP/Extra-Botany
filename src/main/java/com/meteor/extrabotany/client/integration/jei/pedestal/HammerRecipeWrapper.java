@@ -10,22 +10,22 @@ import net.minecraft.item.ItemStack;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public class HammerRecipeWrapper implements IRecipeWrapper{
+public class HammerRecipeWrapper implements IRecipeWrapper {
 
-	private final List<List<ItemStack>> input;
-	private final ItemStack outputs;
+    private final List<List<ItemStack>> input;
+    private final ItemStack outputs;
 
-	public HammerRecipeWrapper(RecipePedestal recipe) {
-		ImmutableList.Builder<List<ItemStack>> builder = ImmutableList.builder();
-		builder.add(ImmutableList.of((ItemStack) recipe.getInput()));
-		input = builder.build();
-		outputs = recipe.getOutput();
-	}
+    public HammerRecipeWrapper(RecipePedestal recipe) {
+        ImmutableList.Builder<List<ItemStack>> builder = ImmutableList.builder();
+        builder.add(ImmutableList.of((ItemStack) recipe.getInput()));
+        input = builder.build();
+        outputs = recipe.getOutput();
+    }
 
-	@Override
-	public void getIngredients(@Nonnull IIngredients ingredients) {
-		ingredients.setInputLists(VanillaTypes.ITEM, input);
-		ingredients.setOutput(VanillaTypes.ITEM, outputs);
-	}
+    @Override
+    public void getIngredients(@Nonnull IIngredients ingredients) {
+        ingredients.setInputLists(VanillaTypes.ITEM, input);
+        ingredients.setOutput(VanillaTypes.ITEM, outputs);
+    }
 
 }

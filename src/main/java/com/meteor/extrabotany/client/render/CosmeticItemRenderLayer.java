@@ -16,55 +16,55 @@ import javax.annotation.Nonnull;
 
 public class CosmeticItemRenderLayer implements LayerRenderer<EntityPlayer> {
 
-	@Override
-	public void doRenderLayer(@Nonnull EntityPlayer player, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		
-		if(player.getActivePotionEffect(MobEffects.INVISIBILITY) != null)
-			return;
+    @Override
+    public void doRenderLayer(@Nonnull EntityPlayer player, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 
-		dispatchRenders(player, RenderType.BODY, partialTicks);
+        if (player.getActivePotionEffect(MobEffects.INVISIBILITY) != null)
+            return;
 
-		float yaw = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * partialTicks;
-		float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * partialTicks;
-		float pitch = player.prevRotationPitch + (player.rotationPitch - player.prevRotationPitch) * partialTicks;
+        dispatchRenders(player, RenderType.BODY, partialTicks);
 
-		GlStateManager.pushMatrix();
-		GlStateManager.rotate(yawOffset, 0, -1, 0);
-		GlStateManager.rotate(yaw - 270, 0, 1, 0);
-		GlStateManager.rotate(pitch, 0, 0, 1);
-		dispatchRenders(player, RenderType.HEAD, partialTicks);
-		GlStateManager.popMatrix();
-	}
+        float yaw = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * partialTicks;
+        float yawOffset = player.prevRenderYawOffset + (player.renderYawOffset - player.prevRenderYawOffset) * partialTicks;
+        float pitch = player.prevRotationPitch + (player.rotationPitch - player.prevRotationPitch) * partialTicks;
 
-	private void dispatchRenders(EntityPlayer player, RenderType type, float partialTicks) {
-		
-		for(int i = 0; i < player.inventory.getSizeInventory(); i++){
-			ItemStack stack = player.inventory.getStackInSlot(i);
-			if(stack.getItem() instanceof ICosmeticItem && player.inventory.hasItemStack(stack) && !player.getHeldItemMainhand().isItemEqual(stack)){
-				GlStateManager.pushMatrix();
-				GL11.glColor3ub((byte) 255, (byte) 255, (byte) 255); 
-				GlStateManager.color(1F, 1F, 1F, 1F);
-				((ICosmeticItem)stack.getItem()).onItemRender(stack, player, type, partialTicks);
-				GlStateManager.popMatrix();
-			}
-			
-			if(stack.getItem() instanceof ItemBaubleBox && player.inventory.hasItemStack(stack) && player.getName() == "ExtraMeteorP"){
-				IItemHandler newInv = stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-				for(int s = 0; s < newInv.getSlots(); s++){
-					if(newInv.getStackInSlot(s).getItem() instanceof IBaubleRender){
-						GlStateManager.pushMatrix();
-						GL11.glColor3ub((byte) 255, (byte) 255, (byte) 255); 
-						GlStateManager.color(1F, 1F, 1F, 1F);
-						((IBaubleRender)newInv.getStackInSlot(s).getItem()).onPlayerBaubleRender(newInv.getStackInSlot(s), player, type, partialTicks);
-						GlStateManager.popMatrix();
-					}
-				}
-			}
-		}
-	}
+        GlStateManager.pushMatrix();
+        GlStateManager.rotate(yawOffset, 0, -1, 0);
+        GlStateManager.rotate(yaw - 270, 0, 1, 0);
+        GlStateManager.rotate(pitch, 0, 0, 1);
+        dispatchRenders(player, RenderType.HEAD, partialTicks);
+        GlStateManager.popMatrix();
+    }
 
-	@Override
-	public boolean shouldCombineTextures() {
-		return false;
-	}
+    private void dispatchRenders(EntityPlayer player, RenderType type, float partialTicks) {
+
+        for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+            ItemStack stack = player.inventory.getStackInSlot(i);
+            if (stack.getItem() instanceof ICosmeticItem && player.inventory.hasItemStack(stack) && !player.getHeldItemMainhand().isItemEqual(stack)) {
+                GlStateManager.pushMatrix();
+                GL11.glColor3ub((byte) 255, (byte) 255, (byte) 255);
+                GlStateManager.color(1F, 1F, 1F, 1F);
+                ((ICosmeticItem) stack.getItem()).onItemRender(stack, player, type, partialTicks);
+                GlStateManager.popMatrix();
+            }
+
+            if (stack.getItem() instanceof ItemBaubleBox && player.inventory.hasItemStack(stack) && player.getName() == "ExtraMeteorP") {
+                IItemHandler newInv = stack.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+                for (int s = 0; s < newInv.getSlots(); s++) {
+                    if (newInv.getStackInSlot(s).getItem() instanceof IBaubleRender) {
+                        GlStateManager.pushMatrix();
+                        GL11.glColor3ub((byte) 255, (byte) 255, (byte) 255);
+                        GlStateManager.color(1F, 1F, 1F, 1F);
+                        ((IBaubleRender) newInv.getStackInSlot(s).getItem()).onPlayerBaubleRender(newInv.getStackInSlot(s), player, type, partialTicks);
+                        GlStateManager.popMatrix();
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean shouldCombineTextures() {
+        return false;
+    }
 }

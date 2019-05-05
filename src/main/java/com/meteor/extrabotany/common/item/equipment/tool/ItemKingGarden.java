@@ -32,152 +32,150 @@ import java.util.Random;
 
 public class ItemKingGarden extends ItemMod implements IManaUsingItem {
 
-	private static final String TAG_WEAPONS_SPAWNED = "weaponsSpawned";
-	private static final String TAG_CHARGING = "charging";
-	private static final String TAG_TYPE = "type";
+    public static final int WEAPON_TYPES = 17;
+    private static final String TAG_WEAPONS_SPAWNED = "weaponsSpawned";
+    private static final String TAG_CHARGING = "charging";
+    private static final String TAG_TYPE = "type";
+    public static String typename[] = new String[]{
+            LibBlocksName.SUBTILE_BLOODYENCHANTRESS,
+            LibBlocksName.SUBTILE_SUNBLESS,
+            LibBlocksName.SUBTILE_MOONBLESS,
+            LibBlocksName.SUBTILE_STARDUSTLOTUS,
+            LibBlocksName.SUBTILE_STONESIA,
+            LibBlockNames.SUBTILE_ENTROPINNYUM,
+            LibBlockNames.SUBTILE_DREADTHORN,
+            LibBlockNames.SUBTILE_MEDUMONE,
+            LibBlockNames.SUBTILE_THERMALILY,
+            LibBlockNames.SUBTILE_TIGERSEYE,
+            LibBlockNames.SUBTILE_BELLETHORN,
+            LibBlockNames.SUBTILE_HEISEI_DREAM,
+            LibBlocksName.SUBTILE_ANNOYINGFLOWER,
+            LibBlocksName.SUBTILE_MANALINKIUM,
+            LibBlocksName.SUBTILE_OMINIVIOLET,
+            LibBlocksName.SUBTILE_BELLFLOWER,
+            LibBlocksName.SUBTILE_TINKLE,
 
-	public static final int WEAPON_TYPES = 17;
-	
-	public static String typename[] = new String[] {
-		LibBlocksName.SUBTILE_BLOODYENCHANTRESS,
-		LibBlocksName.SUBTILE_SUNBLESS,
-		LibBlocksName.SUBTILE_MOONBLESS,
-		LibBlocksName.SUBTILE_STARDUSTLOTUS,
-		LibBlocksName.SUBTILE_STONESIA,
-		LibBlockNames.SUBTILE_ENTROPINNYUM,
-		LibBlockNames.SUBTILE_DREADTHORN,
-		LibBlockNames.SUBTILE_MEDUMONE,
-		LibBlockNames.SUBTILE_THERMALILY,
-		LibBlockNames.SUBTILE_TIGERSEYE,
-		LibBlockNames.SUBTILE_BELLETHORN,
-		LibBlockNames.SUBTILE_HEISEI_DREAM,
-		LibBlocksName.SUBTILE_ANNOYINGFLOWER,
-		LibBlocksName.SUBTILE_MANALINKIUM,
-		LibBlocksName.SUBTILE_OMINIVIOLET,
-		LibBlocksName.SUBTILE_BELLFLOWER,
-		LibBlocksName.SUBTILE_TINKLE,
+    };
 
-	};
+    public ItemKingGarden() {
+        super(LibItemsName.KINGGARDEN);
+        this.setMaxStackSize(1);
+    }
 
-	public ItemKingGarden() {
-		super(LibItemsName.KINGGARDEN);
-		this.setMaxStackSize(1);
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack par1ItemStack, World world, List<String> stacks, ITooltipFlag flags) {
-		String i = I18n.format("extrabotany.kinggarden");
-		String ci = i + getType(par1ItemStack).length;
-		stacks.add(ci);
-	}
+    public static boolean isCharging(ItemStack stack) {
+        return ItemNBTHelper.getBoolean(stack, TAG_CHARGING, false);
+    }
 
-	@Nonnull
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
-		player.setActiveHand(hand);
-		ItemStack stack = player.getHeldItem(hand);
-		setCharging(stack, true);
-		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
-	}
+    public static int getWeaponsSpawned(ItemStack stack) {
+        return ItemNBTHelper.getInt(stack, TAG_WEAPONS_SPAWNED, 0);
+    }
 
-	@Override
-	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase living, int time) {
-		int spawned = getWeaponsSpawned(stack);
-		if(spawned == getType(stack).length) {
-			setCharging(stack, false);
-			setWeaponsSpawned(stack, 0);
-		}
-	}
+    public static int[] getType(ItemStack stack) {
+        return ItemNBTHelper.getIntArray(stack, TAG_TYPE);
+    }
 
-	@Override
-	public void onUsingTick(ItemStack stack, EntityLivingBase living, int count) {
-		int spawned = getWeaponsSpawned(stack);
+    public static void setCharging(ItemStack stack, boolean charging) {
+        ItemNBTHelper.setBoolean(stack, TAG_CHARGING, charging);
+    }
 
-		if(count != getMaxItemUseDuration(stack) && spawned < getType(stack).length && !living.world.isRemote && (!(living instanceof EntityPlayer) || ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) living, 100, true))) {
-			Vector3 look = new Vector3(living.getLookVec()).multiply(1, 0, 1);
-			
-			double playerRot = Math.toRadians(living.rotationYaw + 90);
-			if(look.x == 0 && look.z == 0)
-				look = new Vector3(Math.cos(playerRot), 0, Math.sin(playerRot));
-				
-			look = look.normalize().multiply(-2);
+    public static void setWeaponsSpawned(ItemStack stack, int count) {
+        ItemNBTHelper.setInt(stack, TAG_WEAPONS_SPAWNED, count);
+    }
 
-			int div = spawned / 5;
-			int mod = spawned % 5;
+    public static void setType(ItemStack stack, int[] type) {
+        ItemNBTHelper.setIntArray(stack, TAG_TYPE, type);
+        ;
+    }
 
-			Vector3 pl = look.add(Vector3.fromEntityCenter(living)).add(0, 1.6, div * 0.1);
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack par1ItemStack, World world, List<String> stacks, ITooltipFlag flags) {
+        String i = I18n.format("extrabotany.kinggarden");
+        String ci = i + getType(par1ItemStack).length;
+        stacks.add(ci);
+    }
 
-			Random rand = living.world.rand;
-			Vector3 axis = look.normalize().crossProduct(new Vector3(-1, 0, -1)).normalize();
+    @Nonnull
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+        player.setActiveHand(hand);
+        ItemStack stack = player.getHeldItem(hand);
+        setCharging(stack, true);
+        return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+    }
 
-			double rot = mod * Math.PI / 4 - Math.PI / 2;
+    @Override
+    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase living, int time) {
+        int spawned = getWeaponsSpawned(stack);
+        if (spawned == getType(stack).length) {
+            setCharging(stack, false);
+            setWeaponsSpawned(stack, 0);
+        }
+    }
 
-			Vector3 axis1 = axis.multiply(div * 3.5 + 5).rotate(rot, look);
-			if(axis1.y < 0)
-				axis1 = axis1.multiply(1, -1, 1);
+    @Override
+    public void onUsingTick(ItemStack stack, EntityLivingBase living, int count) {
+        int spawned = getWeaponsSpawned(stack);
 
-			Vector3 end = pl.add(axis1);
+        if (count != getMaxItemUseDuration(stack) && spawned < getType(stack).length && !living.world.isRemote && (!(living instanceof EntityPlayer) || ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) living, 100, true))) {
+            Vector3 look = new Vector3(living.getLookVec()).multiply(1, 0, 1);
 
-			EntityFlowerWeapon weapon = new EntityFlowerWeapon(living.world, living);
-			weapon.posX = end.x;
-			weapon.posY = end.y;
-			weapon.posZ = end.z;
-			weapon.rotationYaw = living.rotationYaw;
-			weapon.setVariety(getType(stack)[spawned]);
-			weapon.setDelay(spawned);
-			weapon.setRotation(MathHelper.wrapDegrees(-living.rotationYaw + 180));
+            double playerRot = Math.toRadians(living.rotationYaw + 90);
+            if (look.x == 0 && look.z == 0)
+                look = new Vector3(Math.cos(playerRot), 0, Math.sin(playerRot));
 
-			living.world.spawnEntity(weapon);
-			weapon.playSound(ModSounds.babylonSpawn, 1F, 1F + living.world.rand.nextFloat() * 3F);
-			if(weapon.getVariety() == 12){
-				weapon.playSound(com.meteor.extrabotany.common.core.handler.ModSounds.annoyingflower, 1F, 1F);
-				if(living instanceof EntityPlayer)
-					ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.ANNOYINGDOG_SUMMON);
-			}
-			setWeaponsSpawned(stack, spawned + 1);
-		}
-	}
+            look = look.normalize().multiply(-2);
 
-	@Nonnull
-	@Override
-	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.BOW;
-	}
+            int div = spawned / 5;
+            int mod = spawned % 5;
 
-	@Override
-	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
-		return 72000;
-	}
+            Vector3 pl = look.add(Vector3.fromEntityCenter(living)).add(0, 1.6, div * 0.1);
 
+            Random rand = living.world.rand;
+            Vector3 axis = look.normalize().crossProduct(new Vector3(-1, 0, -1)).normalize();
 
-	public static boolean isCharging(ItemStack stack) {
-		return ItemNBTHelper.getBoolean(stack, TAG_CHARGING, false);
-	}
+            double rot = mod * Math.PI / 4 - Math.PI / 2;
 
-	public static int getWeaponsSpawned(ItemStack stack) {
-		return ItemNBTHelper.getInt(stack, TAG_WEAPONS_SPAWNED, 0);
-	}
-	
-	public static int[] getType(ItemStack stack) {
-		return ItemNBTHelper.getIntArray(stack, TAG_TYPE);
-	}
+            Vector3 axis1 = axis.multiply(div * 3.5 + 5).rotate(rot, look);
+            if (axis1.y < 0)
+                axis1 = axis1.multiply(1, -1, 1);
 
-	public static void setCharging(ItemStack stack, boolean charging) {
-		ItemNBTHelper.setBoolean(stack, TAG_CHARGING, charging);
-	}
+            Vector3 end = pl.add(axis1);
 
-	public static void setWeaponsSpawned(ItemStack stack, int count) {
-		ItemNBTHelper.setInt(stack, TAG_WEAPONS_SPAWNED, count);
-	}
-	
-	public static void setType(ItemStack stack, int[] type) {
-		ItemNBTHelper.setIntArray(stack, TAG_TYPE, type);;
-	}
+            EntityFlowerWeapon weapon = new EntityFlowerWeapon(living.world, living);
+            weapon.posX = end.x;
+            weapon.posY = end.y;
+            weapon.posZ = end.z;
+            weapon.rotationYaw = living.rotationYaw;
+            weapon.setVariety(getType(stack)[spawned]);
+            weapon.setDelay(spawned);
+            weapon.setRotation(MathHelper.wrapDegrees(-living.rotationYaw + 180));
 
-	@Override
-	public boolean usesMana(ItemStack stack) {
-		return true;
-	}
+            living.world.spawnEntity(weapon);
+            weapon.playSound(ModSounds.babylonSpawn, 1F, 1F + living.world.rand.nextFloat() * 3F);
+            if (weapon.getVariety() == 12) {
+                weapon.playSound(com.meteor.extrabotany.common.core.handler.ModSounds.annoyingflower, 1F, 1F);
+                if (living instanceof EntityPlayer)
+                    ExtraBotanyAPI.unlockAdvancement((EntityPlayer) living, LibAdvancements.ANNOYINGDOG_SUMMON);
+            }
+            setWeaponsSpawned(stack, spawned + 1);
+        }
+    }
+
+    @Nonnull
+    @Override
+    public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+        return EnumAction.BOW;
+    }
+
+    @Override
+    public int getMaxItemUseDuration(ItemStack par1ItemStack) {
+        return 72000;
+    }
+
+    @Override
+    public boolean usesMana(ItemStack stack) {
+        return true;
+    }
 
 }

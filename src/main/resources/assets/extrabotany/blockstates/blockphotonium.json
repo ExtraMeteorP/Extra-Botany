@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "extrabotany:blockphotonium" }
+    "normal": {
+      "model": "extrabotany:blockphotonium"
+    }
   }
 }

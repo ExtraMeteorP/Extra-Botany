@@ -26,72 +26,72 @@ import vazkii.botania.api.lexicon.LexiconEntry;
 
 import javax.annotation.Nonnull;
 
-public class BlockLivingrockBarrel extends BlockMod implements ILexiconable{
-	
-	private static final AxisAlignedBB AABB = new AxisAlignedBB(0, 0, 0, 1, 0.875, 1);
+public class BlockLivingrockBarrel extends BlockMod implements ILexiconable {
 
-	public BlockLivingrockBarrel() {
-		super(Material.ROCK, LibBlocksName.TILE_ELFJAR);
-		setHardness(1.5F);
-		setResistance(10.0F);
-		setSoundType(SoundType.GLASS);
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Nonnull
-	@Override
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState state){
-		return false;
-	}
+    private static final AxisAlignedBB AABB = new AxisAlignedBB(0, 0, 0, 1, 0.875, 1);
 
-	@Override
-	public boolean isFullCube(IBlockState state){
-		return false;
-	}
-	
-	@Nonnull
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
-		return AABB;
-	}
-	
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
+    public BlockLivingrockBarrel() {
+        super(Material.ROCK, LibBlocksName.TILE_ELFJAR);
+        setHardness(1.5F);
+        setResistance(10.0F);
+        setSoundType(SoundType.GLASS);
+    }
 
-	@Nonnull
-	@Override
-	public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
-		return new TileLivingrockBarrel();
-	}
-	
-	  @Override
-	  public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-	    TileEntity te = worldIn.getTileEntity(pos);
-	    if(te == null || !te.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, facing)) {
-	      return false;
-	    }
+    @SideOnly(Side.CLIENT)
+    @Nonnull
+    @Override
+    public BlockRenderLayer getBlockLayer() {
+        return BlockRenderLayer.CUTOUT;
+    }
 
-	    IFluidHandler fluidHandler = te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, facing);
-	    ItemStack heldItem = playerIn.getHeldItem(hand);
-	    if(FluidUtil.interactWithFluidHandler(playerIn, hand, fluidHandler)) {
-	      return true; // return true as we did something
-	    }
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
 
-	    // prevent interaction so stuff like buckets and other things don't place the liquid block
-	    return FluidUtil.getFluidHandler(heldItem) != null;
-	  }
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
 
-	@Override
-	public LexiconEntry getEntry(World arg0, BlockPos arg1, EntityPlayer arg2, ItemStack arg3) {
-		return LexiconData.elfjar;
-	}
+    @Nonnull
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return AABB;
+    }
+
+    @Override
+    public boolean hasTileEntity(IBlockState state) {
+        return true;
+    }
+
+    @Nonnull
+    @Override
+    public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
+        return new TileLivingrockBarrel();
+    }
+
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        TileEntity te = worldIn.getTileEntity(pos);
+        if (te == null || !te.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, facing)) {
+            return false;
+        }
+
+        IFluidHandler fluidHandler = te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, facing);
+        ItemStack heldItem = playerIn.getHeldItem(hand);
+        if (FluidUtil.interactWithFluidHandler(playerIn, hand, fluidHandler)) {
+            return true; // return true as we did something
+        }
+
+        // prevent interaction so stuff like buckets and other things don't place the liquid block
+        return FluidUtil.getFluidHandler(heldItem) != null;
+    }
+
+    @Override
+    public LexiconEntry getEntry(World arg0, BlockPos arg1, EntityPlayer arg2, ItemStack arg3) {
+        return LexiconData.elfjar;
+    }
 
 
 }

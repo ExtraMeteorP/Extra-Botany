@@ -19,85 +19,89 @@ import vazkii.botania.common.core.helper.ItemNBTHelper;
 import java.util.List;
 import java.util.UUID;
 
-public class ItemCombatMaidArmor extends ItemCosmeticMaidArmor{
+public class ItemCombatMaidArmor extends ItemCosmeticMaidArmor {
 
-	public ItemCombatMaidArmor(EntityEquipmentSlot type, String name) {
-		super(type, name, ExtraBotanyAPI.orichalcosArmorMaterial);
-	}
-	
-	@Override
-	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
-		Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
-		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
-		boolean night = ItemNBTHelper.getBoolean(stack, "isnight", false);
-		if (slot == armorType) {
-			attrib.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, (double) getArmorDisplay(null, new ItemStack(this), type.getIndex()) / 20, 0));
-			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 15 : 5, 0));
-			attrib.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 0.3F : 0, 1));
-			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 1F : 0, 1));
-			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 0.2F : 0, 1));
-		}
-		return attrib;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ModelBiped provideArmorModelForSlot(ItemStack stack, EntityEquipmentSlot slot) {
-		models.put(slot, new ModelArmorCombatMaid(slot));
-		return models.get(slot);
-	}
-	
-	public String getArmorTextureAfterInk(ItemStack stack, EntityEquipmentSlot slot) {
-		return "extrabotany:textures/model/armor_combatmaid.png";
-	}
+    static ItemStack[] armorset;
 
-	static ItemStack[] armorset;
+    public ItemCombatMaidArmor(EntityEquipmentSlot type, String name) {
+        super(type, name, ExtraBotanyAPI.orichalcosArmorMaterial);
+    }
 
-	@Override
-	public ItemStack[] getArmorSetStacks() {
-		if(armorset == null)
-			armorset = new ItemStack[] {
-					new ItemStack(ModItems.cmhelm),
-					new ItemStack(ModItems.cmchest),
-					new ItemStack(ModItems.cmleg),
-					new ItemStack(ModItems.cmboot)
-		};
+    @Override
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
+        Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
+        UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
+        boolean night = ItemNBTHelper.getBoolean(stack, "isnight", false);
+        if (slot == armorType) {
+            attrib.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, (double) getArmorDisplay(null, new ItemStack(this), type.getIndex()) / 20, 0));
+            attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 15 : 5, 0));
+            attrib.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 0.3F : 0, 1));
+            attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 1F : 0, 1));
+            attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(uuid, "Combatmaid modifier " + type, night ? 0.2F : 0, 1));
+        }
+        return attrib;
+    }
 
-		return armorset;
-	}
-	
-	@Override
-	public boolean hasArmorSetItem(EntityPlayer player, int i) {
-		if(player == null || player.inventory == null || player.inventory.armorInventory == null)
-			return false;
-		
-		ItemStack stack = player.inventory.armorInventory.get(3 - i);
-		if(stack.isEmpty())
-			return false;
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ModelBiped provideArmorModelForSlot(ItemStack stack, EntityEquipmentSlot slot) {
+        models.put(slot, new ModelArmorCombatMaid(slot));
+        return models.get(slot);
+    }
 
-		switch(i) {
-		case 0: return stack.getItem() == ModItems.cmhelm || stack.getItem() == ModItems.cmhelmrevealing;
-		case 1: return stack.getItem() == ModItems.cmchest || stack.getItem() == ModItems.cmchestdarkened;
-		case 2: return stack.getItem() == ModItems.cmleg;
-		case 3: return stack.getItem() == ModItems.cmboot;
-		}
+    public String getArmorTextureAfterInk(ItemStack stack, EntityEquipmentSlot slot) {
+        return "extrabotany:textures/model/armor_combatmaid.png";
+    }
 
-		return false;
-	}
+    @Override
+    public ItemStack[] getArmorSetStacks() {
+        if (armorset == null)
+            armorset = new ItemStack[]{
+                    new ItemStack(ModItems.cmhelm),
+                    new ItemStack(ModItems.cmchest),
+                    new ItemStack(ModItems.cmleg),
+                    new ItemStack(ModItems.cmboot)
+            };
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public String getArmorSetName() {
-		return I18n.format("extrabotany.armorset.combatmaid.name");
-	}
+        return armorset;
+    }
+
+    @Override
+    public boolean hasArmorSetItem(EntityPlayer player, int i) {
+        if (player == null || player.inventory == null || player.inventory.armorInventory == null)
+            return false;
+
+        ItemStack stack = player.inventory.armorInventory.get(3 - i);
+        if (stack.isEmpty())
+            return false;
+
+        switch (i) {
+            case 0:
+                return stack.getItem() == ModItems.cmhelm || stack.getItem() == ModItems.cmhelmrevealing;
+            case 1:
+                return stack.getItem() == ModItems.cmchest || stack.getItem() == ModItems.cmchestdarkened;
+            case 2:
+                return stack.getItem() == ModItems.cmleg;
+            case 3:
+                return stack.getItem() == ModItems.cmboot;
+        }
+
+        return false;
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public String getArmorSetName() {
+        return I18n.format("extrabotany.armorset.combatmaid.name");
+    }
 
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addArmorSetDescription(ItemStack stack, List<String> list) {
-		addStringToTooltip(I18n.format("extrabotany.armorset.combatmaid.desc0"), list);
-		addStringToTooltip(I18n.format("extrabotany.armorset.combatmaid.desc1"), list);
-		addStringToTooltip(I18n.format("extrabotany.armorset.combatmaid.desc2"), list);
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addArmorSetDescription(ItemStack stack, List<String> list) {
+        addStringToTooltip(I18n.format("extrabotany.armorset.combatmaid.desc0"), list);
+        addStringToTooltip(I18n.format("extrabotany.armorset.combatmaid.desc1"), list);
+        addStringToTooltip(I18n.format("extrabotany.armorset.combatmaid.desc2"), list);
+    }
 
 }

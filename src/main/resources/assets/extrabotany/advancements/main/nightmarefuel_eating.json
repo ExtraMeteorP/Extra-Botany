@@ -13,7 +13,7 @@
   "parent": "extrabotany:main/root",
   "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:recordgaia3"
     },
@@ -13,7 +13,7 @@
   "parent": "extrabotany:main/gaia_defeat",
   "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

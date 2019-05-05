@@ -16,40 +16,40 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class WailaManaGenerator implements IWailaDataProvider{
-	
-	public static void register(IWailaRegistrar registrar){
+public class WailaManaGenerator implements IWailaDataProvider {
+
+    public static void register(IWailaRegistrar registrar) {
         registrar.registerBodyProvider(new WailaManaGenerator(), BlockManaGenerator.class);
     }
 
-	@Override
-	public ItemStack getWailaStack(IWailaDataAccessor accessor, IWailaConfigHandler config){
-		return null;
-	}
+    @Override
+    public ItemStack getWailaStack(IWailaDataAccessor accessor, IWailaConfigHandler config) {
+        return null;
+    }
 
-	@Override
-	public List<String> getWailaHead(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
-		return currenttip;
-	}
+    @Override
+    public List<String> getWailaHead(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config) {
+        return currenttip;
+    }
 
-	@Override
-	public List<String> getWailaBody(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
-		if(accessor.getTileEntity() instanceof TileManaGenerator){
-			TileManaGenerator pool = (TileManaGenerator) accessor.getTileEntity();
-			currenttip.add("Mana:" + pool.getCurrentMana() + "/" + "1000000");
-			currenttip.add("FE:" + pool.energy + "/" + ConfigHandler.MG_MAXENERGY);
-			return currenttip;
-		}
-		return currenttip;
-	}
+    @Override
+    public List<String> getWailaBody(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config) {
+        if (accessor.getTileEntity() instanceof TileManaGenerator) {
+            TileManaGenerator pool = (TileManaGenerator) accessor.getTileEntity();
+            currenttip.add("Mana:" + pool.getCurrentMana() + "/" + "1000000");
+            currenttip.add("FE:" + pool.energy + "/" + ConfigHandler.MG_MAXENERGY);
+            return currenttip;
+        }
+        return currenttip;
+    }
 
-	@Override
-	public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config){
-		return currenttip;
-	}
+    @Override
+    public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor, IWailaConfigHandler config) {
+        return currenttip;
+    }
 
-	@Override
-	public NBTTagCompound getNBTData(EntityPlayerMP player, TileEntity te, NBTTagCompound tag, World world, BlockPos pos){
-		return tag;
-	}
+    @Override
+    public NBTTagCompound getNBTData(EntityPlayerMP player, TileEntity te, NBTTagCompound tag, World world, BlockPos pos) {
+        return tag;
+    }
 }

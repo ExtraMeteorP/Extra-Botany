@@ -18,11 +18,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class ComponentBotanist extends StructureVillagePieces.Village{
-	
-	private static VillagerRegistry.VillagerProfession botanist;
-	private final Random random;
-	private int averageGroundLevel = -1;
+public class ComponentBotanist extends StructureVillagePieces.Village {
+
+    private static VillagerRegistry.VillagerProfession botanist;
+    private final Random random;
+    private int averageGroundLevel = -1;
 
     public ComponentBotanist() {
         random = new Random();
@@ -34,15 +34,14 @@ public class ComponentBotanist extends StructureVillagePieces.Village{
         this.random = rand;
         setCoordBaseMode(facing);
     }
-    
+
     @Nullable
     public static ComponentBotanist buildComponent(Start villagePiece, List<StructureComponent> pieces, Random random, int x, int y, int z, EnumFacing facing, int type) {
         StructureBoundingBox box = StructureBoundingBox.getComponentToAddBoundingBox(x, y, z, 0, 0, 0, 11, 6, 11, facing);
         return canVillageGoDeeper(box) && StructureComponent.findIntersecting(pieces, box) == null ? new ComponentBotanist(villagePiece, type, random, box, facing) : null;
     }
 
-    public boolean addComponentParts(World worldIn, Random randomIn, StructureBoundingBox structureBoundingBoxIn)
-    {
+    public boolean addComponentParts(World worldIn, Random randomIn, StructureBoundingBox structureBoundingBoxIn) {
         if (averageGroundLevel < 0) {
             this.averageGroundLevel = getAverageGroundLevel(worldIn, structureBoundingBoxIn);
 
@@ -62,11 +61,11 @@ public class ComponentBotanist extends StructureVillagePieces.Village{
         this.fillWithBlocks(worldIn, structureBoundingBoxIn, 1, 1, 1, 7, 4, 4, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
         this.fillWithBlocks(worldIn, structureBoundingBoxIn, 2, 1, 6, 8, 4, 10, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), false);
         this.fillWithBlocks(worldIn, structureBoundingBoxIn, 2, 0, 6, 8, 0, 10, Blocks.GRASS.getDefaultState(), Blocks.GRASS.getDefaultState(), false);
-        for(int x = 1; x < 5; x++)
-        	for(int z = 1; z < 3; z++){
-        		if(Math.random() < 0.55F)
-        			this.setBlockState(worldIn, ModBlocks.flower.getStateFromMeta(random.nextInt(16)), 2+x, 1, 6+x, structureBoundingBoxIn);
-        	}
+        for (int x = 1; x < 5; x++)
+            for (int z = 1; z < 3; z++) {
+                if (Math.random() < 0.55F)
+                    this.setBlockState(worldIn, ModBlocks.flower.getStateFromMeta(random.nextInt(16)), 2 + x, 1, 6 + x, structureBoundingBoxIn);
+            }
         this.setBlockState(worldIn, iblockstate, 6, 0, 6, structureBoundingBoxIn);
         this.fillWithBlocks(worldIn, structureBoundingBoxIn, 2, 1, 6, 2, 1, 10, iblockstate6, iblockstate6, false);
         this.fillWithBlocks(worldIn, structureBoundingBoxIn, 8, 1, 6, 8, 1, 10, iblockstate6, iblockstate6, false);
@@ -88,10 +87,8 @@ public class ComponentBotanist extends StructureVillagePieces.Village{
         IBlockState iblockstate7 = iblockstate1;
         IBlockState iblockstate8 = iblockstate2;
 
-        for (int i = -1; i <= 2; ++i)
-        {
-            for (int j = 0; j <= 8; ++j)
-            {
+        for (int i = -1; i <= 2; ++i) {
+            for (int j = 0; j <= 8; ++j) {
                 this.setBlockState(worldIn, iblockstate7, j, 4 + i, i, structureBoundingBoxIn);
                 this.setBlockState(worldIn, iblockstate8, j, 4 + i, 5 - i, structureBoundingBoxIn);
             }
@@ -122,14 +119,12 @@ public class ComponentBotanist extends StructureVillagePieces.Village{
         this.placeTorch(worldIn, EnumFacing.NORTH, 2, 3, 1, structureBoundingBoxIn);
         this.createVillageDoor(worldIn, structureBoundingBoxIn, randomIn, 2, 1, 0, EnumFacing.NORTH);
 
-        if (this.getBlockStateFromPos(worldIn, 2, 0, -1, structureBoundingBoxIn).getMaterial() == Material.AIR && this.getBlockStateFromPos(worldIn, 2, -1, -1, structureBoundingBoxIn).getMaterial() != Material.AIR)
-        {
+        if (this.getBlockStateFromPos(worldIn, 2, 0, -1, structureBoundingBoxIn).getMaterial() == Material.AIR && this.getBlockStateFromPos(worldIn, 2, -1, -1, structureBoundingBoxIn).getMaterial() != Material.AIR) {
             this.setBlockState(worldIn, iblockstate7, 2, 0, -1, structureBoundingBoxIn);
 
-            if (this.getBlockStateFromPos(worldIn, 2, -1, -1, structureBoundingBoxIn).getBlock() == Blocks.GRASS_PATH)
-            {
+            if (this.getBlockStateFromPos(worldIn, 2, -1, -1, structureBoundingBoxIn).getBlock() == Blocks.GRASS_PATH) {
                 this.setBlockState(worldIn, Blocks.GRASS.getDefaultState(), 2, -1, -1, structureBoundingBoxIn);
-          
+
             }
         }
 
@@ -138,10 +133,8 @@ public class ComponentBotanist extends StructureVillagePieces.Village{
         this.placeTorch(worldIn, EnumFacing.SOUTH, 6, 3, 4, structureBoundingBoxIn);
         this.createVillageDoor(worldIn, structureBoundingBoxIn, randomIn, 6, 1, 5, EnumFacing.SOUTH);
 
-        for (int k = 0; k < 5; ++k)
-        {
-            for (int l = 0; l < 9; ++l)
-            {
+        for (int k = 0; k < 5; ++k) {
+            for (int l = 0; l < 9; ++l) {
                 this.clearCurrentPositionBlocksUpwards(worldIn, l, 7, k, structureBoundingBoxIn);
                 this.replaceAirAndLiquidDownwards(worldIn, iblockstate, l, -1, k, structureBoundingBoxIn);
             }
@@ -150,7 +143,7 @@ public class ComponentBotanist extends StructureVillagePieces.Village{
         this.spawnVillagers(worldIn, structureBoundingBoxIn, 4, 1, 2, 1);
         return true;
     }
-    
+
     @Override
     protected VillagerRegistry.VillagerProfession chooseForgeProfession(int count, VillagerRegistry.VillagerProfession prof) {
         return ModWorld.villagerBotanist;

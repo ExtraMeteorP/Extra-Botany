@@ -10,14 +10,14 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 ext {
-	modid = "extrabotany"
-	modname = "ExtraBotany"
-	moddesc = "A Botania Addon adds some new flowers and miscs."
+    modid = "extrabotany"
+    modname = "ExtraBotany"
+    moddesc = "A Botania Addon adds some new flowers and miscs."
 }
-group= "com.meteor.extrabotany"
+group = "com.meteor.extrabotany"
 version = "r1.1-55"
 
-archivesBaseName = modname+"-"+version
+archivesBaseName = modname + "-" + version
 
 sourceCompatibility = targetCompatibility = "1.8"
 compileJava {
@@ -29,7 +29,7 @@ compileJava.options.encoding = 'UTF-8'
 minecraft {
     version = "1.12.2-14.23.4.2705"
     runDir = "../run"
-    
+
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
     // stable_#            stables are built at the discretion of the MCP team.
@@ -44,9 +44,9 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-      
-	//compile fileTree(dir: '../libs', include: '*.jar')
-	  
+
+    //compile fileTree(dir: '../libs', include: '*.jar')
+
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
@@ -73,11 +73,11 @@ processResources {
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version, 'modid':modid, 'modname':modname, 'moddesc':moddesc
+        expand 'version': project.version, 'mcversion': project.minecraft.version, 'modid': modid, 'modname': modname, 'moddesc': moddesc
     }
-        
+
     // copy everything else except the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'

@@ -6,17 +6,17 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockShadowium extends BlockMod{
+public class BlockShadowium extends BlockMod {
 
-	public BlockShadowium() {
-		super(Material.IRON, LibBlocksName.BLOCKSHADOWIUM);
-		setHardness(5.5F);
-		setResistance(10.0F);
-		setSoundType(SoundType.STONE);
-	}
-	
-	@Override
-    public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon){
+    public BlockShadowium() {
+        super(Material.IRON, LibBlocksName.BLOCKSHADOWIUM);
+        setHardness(5.5F);
+        setResistance(10.0F);
+        setSoundType(SoundType.STONE);
+    }
+
+    @Override
+    public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
         return true;
     }
 

@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:rewardbag"
     },
@@ -13,7 +13,7 @@
   "parent": "extrabotany:main/natureorb_craft",
   "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

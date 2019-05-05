@@ -4,13 +4,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class PlayerStatHandler {
-	
-	private static final String TAG_EXTRABOTANY = "extrabotany_data";
-	private static final String TAG_GAIADEFEAT = "gaiadefeat";
-	private static final String TAG_VOIDHERRSCHERDEFEAT = "voidherrscher";
-	private static final String TAG_TRUEDAMAGE = "truedamagetaken";
-	
-	public static NBTTagCompound getPlayerPersistentNBT(EntityPlayer player) {
+
+    private static final String TAG_EXTRABOTANY = "extrabotany_data";
+    private static final String TAG_GAIADEFEAT = "gaiadefeat";
+    private static final String TAG_VOIDHERRSCHERDEFEAT = "voidherrscher";
+    private static final String TAG_TRUEDAMAGE = "truedamagetaken";
+
+    public static NBTTagCompound getPlayerPersistentNBT(EntityPlayer player) {
         NBTTagCompound nbt = player.getEntityData().getCompoundTag("PlayerPersisted");
         if (!nbt.hasKey(TAG_EXTRABOTANY)) {
             nbt.setTag(TAG_EXTRABOTANY, new NBTTagCompound());
@@ -21,50 +21,53 @@ public class PlayerStatHandler {
         }
         return nbt;
     }
-	
-	public static int getGaiaDefeat(EntityPlayer player){
-		NBTTagCompound nbt = getPlayerPersistentNBT(player);
-		if (nbt.hasKey(TAG_EXTRABOTANY)) {
+
+    public static int getGaiaDefeat(EntityPlayer player) {
+        NBTTagCompound nbt = getPlayerPersistentNBT(player);
+        if (nbt.hasKey(TAG_EXTRABOTANY)) {
             return ((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).getInteger(TAG_GAIADEFEAT);
         }
-		return 0;
-	}
-	
-	public static int getVoidHerrscherDefeat(EntityPlayer player){
-		NBTTagCompound nbt = getPlayerPersistentNBT(player);
-		if (nbt.hasKey(TAG_EXTRABOTANY)) {
+        return 0;
+    }
+
+    public static int getVoidHerrscherDefeat(EntityPlayer player) {
+        NBTTagCompound nbt = getPlayerPersistentNBT(player);
+        if (nbt.hasKey(TAG_EXTRABOTANY)) {
             return ((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).getInteger(TAG_VOIDHERRSCHERDEFEAT);
         }
-		return 0;
-	}
-	
-	public static void setGaiaDefeat(EntityPlayer player, int d){
-		NBTTagCompound nbt = getPlayerPersistentNBT(player);
-		if (nbt.hasKey(TAG_EXTRABOTANY)) {
-			((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).setInteger(TAG_GAIADEFEAT, d);;
+        return 0;
+    }
+
+    public static void setGaiaDefeat(EntityPlayer player, int d) {
+        NBTTagCompound nbt = getPlayerPersistentNBT(player);
+        if (nbt.hasKey(TAG_EXTRABOTANY)) {
+            ((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).setInteger(TAG_GAIADEFEAT, d);
+            ;
         }
-	}
-	
-	public static void setHerrscherDefeat(EntityPlayer player, int d){
-		NBTTagCompound nbt = getPlayerPersistentNBT(player);
-		if (nbt.hasKey(TAG_EXTRABOTANY)) {
-			((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).setInteger(TAG_VOIDHERRSCHERDEFEAT, d);;
+    }
+
+    public static void setHerrscherDefeat(EntityPlayer player, int d) {
+        NBTTagCompound nbt = getPlayerPersistentNBT(player);
+        if (nbt.hasKey(TAG_EXTRABOTANY)) {
+            ((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).setInteger(TAG_VOIDHERRSCHERDEFEAT, d);
+            ;
         }
-	}
-	
-	public static float getTrueDamageTaken(EntityPlayer player){
-		NBTTagCompound nbt = getPlayerPersistentNBT(player);
-		if (nbt.hasKey(TAG_EXTRABOTANY)) {
+    }
+
+    public static float getTrueDamageTaken(EntityPlayer player) {
+        NBTTagCompound nbt = getPlayerPersistentNBT(player);
+        if (nbt.hasKey(TAG_EXTRABOTANY)) {
             return ((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).getFloat(TAG_TRUEDAMAGE);
         }
-		return 0;
-	}
-	
-	public static void setTrueDamageTaken(EntityPlayer player, float d){
-		NBTTagCompound nbt = getPlayerPersistentNBT(player);
-		if (nbt.hasKey(TAG_EXTRABOTANY)) {
-			((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).setFloat(TAG_TRUEDAMAGE, d);;
+        return 0;
+    }
+
+    public static void setTrueDamageTaken(EntityPlayer player, float d) {
+        NBTTagCompound nbt = getPlayerPersistentNBT(player);
+        if (nbt.hasKey(TAG_EXTRABOTANY)) {
+            ((NBTTagCompound) nbt.getTag(TAG_EXTRABOTANY)).setFloat(TAG_TRUEDAMAGE, d);
+            ;
         }
-	}
+    }
 
 }

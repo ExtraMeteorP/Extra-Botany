@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:gildedmashedpotato"
     },
@@ -11,9 +11,9 @@
     }
   },
   "parent": "extrabotany:main/ultimatehammer_craft",
-   "criteria": {
+  "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

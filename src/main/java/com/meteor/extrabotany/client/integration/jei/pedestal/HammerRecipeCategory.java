@@ -18,75 +18,75 @@ import javax.annotation.Nonnull;
 
 public class HammerRecipeCategory implements IRecipeCategory {
 
-	public static final String UID = "extrabotany.pedestal";
-	private final String localizedName;
-	private final IDrawable background;
-	private final IDrawable overlay;
-	private final ItemStack renderStack = new ItemStack(ModItems.hammermanasteel);
-	
-	public HammerRecipeCategory(IGuiHelper guiHelper) {
-		localizedName = I18n.format("extrabotany.nei.pedestal");
-		background = guiHelper.createBlankDrawable(145, 95);
-		overlay = guiHelper.createDrawable(new ResourceLocation("botania", "textures/gui/pureDaisyOverlay.png"), 0, 0, 64, 46);
-	}
+    public static final String UID = "extrabotany.pedestal";
+    private final String localizedName;
+    private final IDrawable background;
+    private final IDrawable overlay;
+    private final ItemStack renderStack = new ItemStack(ModItems.hammermanasteel);
 
-	@Nonnull
-	@Override
-	public String getUid() {
-		return UID;
-	}
+    public HammerRecipeCategory(IGuiHelper guiHelper) {
+        localizedName = I18n.format("extrabotany.nei.pedestal");
+        background = guiHelper.createBlankDrawable(145, 95);
+        overlay = guiHelper.createDrawable(new ResourceLocation("botania", "textures/gui/pureDaisyOverlay.png"), 0, 0, 64, 46);
+    }
 
-	@Nonnull
-	@Override
-	public String getTitle() {
-		return localizedName;
-	}
+    @Nonnull
+    @Override
+    public String getUid() {
+        return UID;
+    }
 
-	@Nonnull
-	@Override
-	public IDrawable getBackground() {
-		return background;
-	}
+    @Nonnull
+    @Override
+    public String getTitle() {
+        return localizedName;
+    }
 
-	@Override
-	public void drawExtras(@Nonnull Minecraft minecraft) {
-		GlStateManager.enableAlpha();
-		GlStateManager.enableBlend();
-		overlay.draw(minecraft, 48, 0);
-		GlStateManager.disableBlend();
-		GlStateManager.disableAlpha();
-	}
+    @Nonnull
+    @Override
+    public IDrawable getBackground() {
+        return background;
+    }
 
-	@Override
-	public void setRecipe(@Nonnull IRecipeLayout recipeLayout, @Nonnull IRecipeWrapper recipeWrapper, @Nonnull IIngredients ingredients) {
-		if(!(recipeWrapper instanceof HammerRecipeWrapper))
-			return;
+    @Override
+    public void drawExtras(@Nonnull Minecraft minecraft) {
+        GlStateManager.enableAlpha();
+        GlStateManager.enableBlend();
+        overlay.draw(minecraft, 48, 0);
+        GlStateManager.disableBlend();
+        GlStateManager.disableAlpha();
+    }
 
-		int index = 0;
+    @Override
+    public void setRecipe(@Nonnull IRecipeLayout recipeLayout, @Nonnull IRecipeWrapper recipeWrapper, @Nonnull IIngredients ingredients) {
+        if (!(recipeWrapper instanceof HammerRecipeWrapper))
+            return;
 
-		recipeLayout.getItemStacks().init(index, true, 40, 12);
-		recipeLayout.getItemStacks().set(index, ingredients.getInputs(ItemStack.class).get(0));
+        int index = 0;
 
-		index++;
+        recipeLayout.getItemStacks().init(index, true, 40, 12);
+        recipeLayout.getItemStacks().set(index, ingredients.getInputs(ItemStack.class).get(0));
 
-		if(ingredients.getInputs(ItemStack.class).size() > 1) {
-			// Has catalyst
-			recipeLayout.getItemStacks().init(index, true, 20, 12);
-			recipeLayout.getItemStacks().set(index, ingredients.getInputs(ItemStack.class).get(1));
-			index++;
-		}
+        index++;
 
-		recipeLayout.getItemStacks().init(index, true, 70, 12);
-		recipeLayout.getItemStacks().set(index, renderStack);
-		index++;
+        if (ingredients.getInputs(ItemStack.class).size() > 1) {
+            // Has catalyst
+            recipeLayout.getItemStacks().init(index, true, 20, 12);
+            recipeLayout.getItemStacks().set(index, ingredients.getInputs(ItemStack.class).get(1));
+            index++;
+        }
 
-		recipeLayout.getItemStacks().init(index, false, 99, 12);
-		recipeLayout.getItemStacks().set(index, ingredients.getOutputs(ItemStack.class).get(0));
-	}
+        recipeLayout.getItemStacks().init(index, true, 70, 12);
+        recipeLayout.getItemStacks().set(index, renderStack);
+        index++;
 
-	@Nonnull
-	@Override
-	public String getModName() {
-		return LibMisc.MOD_ID;
-	}
+        recipeLayout.getItemStacks().init(index, false, 99, 12);
+        recipeLayout.getItemStacks().set(index, ingredients.getOutputs(ItemStack.class).get(0));
+    }
+
+    @Nonnull
+    @Override
+    public String getModName() {
+        return LibMisc.MOD_ID;
+    }
 }

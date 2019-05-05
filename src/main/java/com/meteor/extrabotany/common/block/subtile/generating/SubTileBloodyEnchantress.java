@@ -18,124 +18,124 @@ import vazkii.botania.api.subtile.RadiusDescriptor;
 import vazkii.botania.api.subtile.SubTileGenerating;
 
 public class SubTileBloodyEnchantress extends SubTileGenerating {
-	
-	private static final String TAG_BURN_TIME = "burnTime";
-	private static final int RANGE = 1;
-	private static final int START_BURN_EVENT = 0;
 
-	private int burnTime = 0;
+    private static final String TAG_BURN_TIME = "burnTime";
+    private static final int RANGE = 1;
+    private static final int START_BURN_EVENT = 0;
 
-	@Override
-	public void onUpdate() {
-		super.onUpdate();
-		if(redstoneSignal > 0)
-			return;
+    private int burnTime = 0;
 
-		if(burnTime > 0)
-			burnTime--;
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (redstoneSignal > 0)
+            return;
 
-		if(getWorld().isRemote) {
-			if(burnTime > 0 && supertile.getWorld().rand.nextInt(10) == 0) {
-				Vec3d offset = getWorld().getBlockState(getPos()).getOffset(getWorld(), getPos()).addVector(0.4, 0.7, 0.4);
-				supertile.getWorld().spawnParticle(EnumParticleTypes.FLAME, supertile.getPos().getX() + offset.x + Math.random() * 0.2, supertile.getPos().getY() + offset.y, supertile.getPos().getZ() + offset.z + Math.random() * 0.2, 0.0D, 0.0D, 0.0D);
-			}
-			return;
-		}
-		
-		int ampall = 0;
-		for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
-			if(living.isEntityAlive()){
-				int amp = living.isPotionActive(ModPotions.bloodtemptation) ? living.getActivePotionEffect(ModPotions.bloodtemptation).getAmplifier() : 0;
-				ampall += amp;
-			}
-		}
-		if(ampall > 35)
-			return;
+        if (burnTime > 0)
+            burnTime--;
 
-		if(linkedCollector != null) {
-			if(burnTime == 0) {
-				if(mana < getMaxMana()) {
-					for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
-						if(living.isEntityAlive()){
-							int amp = living.isPotionActive(ModPotions.bloodtemptation) ? living.getActivePotionEffect(ModPotions.bloodtemptation).getAmplifier() : 0;
-							if(amp > 4 && Math.random() > 0.5F)
-								continue;
-							if(amp < 10){
-								mana += ConfigHandler.EFF_BLOODYENCHANTRESS * 10F * (1F - 0.07F * amp - 0.02F * ampall);
-							}else
-								break;
-							ExtraBotanyAPI.addPotionEffect(living, ModPotions.bloodtemptation, 150, 10, true);
-							if(living instanceof EntityPlayer){
-								ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.BLOODYENCHANTRESS_USE);
-								ExtraBotanyAPI.dealTrueDamage(living, 3F);
-							}else{
-								living.setHealth(living.getHealth() - 3F);
-							}
-							living.attackEntityFrom(DamageSource.MAGIC, 0.01F);
-							burnTime+=ConfigHandler.BLOOD_BURNTIME;
-							return;
-						}
-					}	
-				}
-			}
-		}
-	}
+        if (getWorld().isRemote) {
+            if (burnTime > 0 && supertile.getWorld().rand.nextInt(10) == 0) {
+                Vec3d offset = getWorld().getBlockState(getPos()).getOffset(getWorld(), getPos()).addVector(0.4, 0.7, 0.4);
+                supertile.getWorld().spawnParticle(EnumParticleTypes.FLAME, supertile.getPos().getX() + offset.x + Math.random() * 0.2, supertile.getPos().getY() + offset.y, supertile.getPos().getZ() + offset.z + Math.random() * 0.2, 0.0D, 0.0D, 0.0D);
+            }
+            return;
+        }
 
-	@Override
-	public boolean receiveClientEvent(int event, int param) {
-		if(event == START_BURN_EVENT) {
-			Entity e = getWorld().getEntityByID(param);
-			if(e != null) {
-				e.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, e.posX, e.posY + 0.1, e.posZ, 0.0D, 0.0D, 0.0D);
-				e.world.spawnParticle(EnumParticleTypes.FLAME, e.posX, e.posY, e.posZ, 0.0D, 0.0D, 0.0D);
-			}
-			return true;
-		} else {
-			return super.receiveClientEvent(event, param);
-		}
-	}
+        int ampall = 0;
+        for (EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
+            if (living.isEntityAlive()) {
+                int amp = living.isPotionActive(ModPotions.bloodtemptation) ? living.getActivePotionEffect(ModPotions.bloodtemptation).getAmplifier() : 0;
+                ampall += amp;
+            }
+        }
+        if (ampall > 35)
+            return;
 
-	@Override
-	public int getMaxMana() {
-		return 800;
-	}
+        if (linkedCollector != null) {
+            if (burnTime == 0) {
+                if (mana < getMaxMana()) {
+                    for (EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
+                        if (living.isEntityAlive()) {
+                            int amp = living.isPotionActive(ModPotions.bloodtemptation) ? living.getActivePotionEffect(ModPotions.bloodtemptation).getAmplifier() : 0;
+                            if (amp > 4 && Math.random() > 0.5F)
+                                continue;
+                            if (amp < 10) {
+                                mana += ConfigHandler.EFF_BLOODYENCHANTRESS * 10F * (1F - 0.07F * amp - 0.02F * ampall);
+                            } else
+                                break;
+                            ExtraBotanyAPI.addPotionEffect(living, ModPotions.bloodtemptation, 150, 10, true);
+                            if (living instanceof EntityPlayer) {
+                                ExtraBotanyAPI.unlockAdvancement((EntityPlayer) living, LibAdvancements.BLOODYENCHANTRESS_USE);
+                                ExtraBotanyAPI.dealTrueDamage(living, 3F);
+                            } else {
+                                living.setHealth(living.getHealth() - 3F);
+                            }
+                            living.attackEntityFrom(DamageSource.MAGIC, 0.01F);
+                            burnTime += ConfigHandler.BLOOD_BURNTIME;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-	@Override
-	public int getValueForPassiveGeneration() {
-		return ConfigHandler.EFF_BLOODYENCHANTRESS;
-	}
+    @Override
+    public boolean receiveClientEvent(int event, int param) {
+        if (event == START_BURN_EVENT) {
+            Entity e = getWorld().getEntityByID(param);
+            if (e != null) {
+                e.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, e.posX, e.posY + 0.1, e.posZ, 0.0D, 0.0D, 0.0D);
+                e.world.spawnParticle(EnumParticleTypes.FLAME, e.posX, e.posY, e.posZ, 0.0D, 0.0D, 0.0D);
+            }
+            return true;
+        } else {
+            return super.receiveClientEvent(event, param);
+        }
+    }
 
-	@Override
-	public int getColor() {
-		return 0x8B0000;
-	}
+    @Override
+    public int getMaxMana() {
+        return 800;
+    }
 
-	@Override
-	public RadiusDescriptor getRadius() {
-		return new RadiusDescriptor.Square(toBlockPos(), RANGE);
-	}
+    @Override
+    public int getValueForPassiveGeneration() {
+        return ConfigHandler.EFF_BLOODYENCHANTRESS;
+    }
 
-	@Override
-	public LexiconEntry getEntry() {
-		return LexiconData.bloodyenchantress;
-	}
+    @Override
+    public int getColor() {
+        return 0x8B0000;
+    }
 
-	@Override
-	public void writeToPacketNBT(NBTTagCompound cmp) {
-		super.writeToPacketNBT(cmp);
+    @Override
+    public RadiusDescriptor getRadius() {
+        return new RadiusDescriptor.Square(toBlockPos(), RANGE);
+    }
 
-		cmp.setInteger(TAG_BURN_TIME, burnTime);
-	}
+    @Override
+    public LexiconEntry getEntry() {
+        return LexiconData.bloodyenchantress;
+    }
 
-	@Override
-	public void readFromPacketNBT(NBTTagCompound cmp) {
-		super.readFromPacketNBT(cmp);
+    @Override
+    public void writeToPacketNBT(NBTTagCompound cmp) {
+        super.writeToPacketNBT(cmp);
 
-		burnTime = cmp.getInteger(TAG_BURN_TIME);
-	}
+        cmp.setInteger(TAG_BURN_TIME, burnTime);
+    }
 
-	@Override
-	public int getDelayBetweenPassiveGeneration() {
-		return 2;
-	}
+    @Override
+    public void readFromPacketNBT(NBTTagCompound cmp) {
+        super.readFromPacketNBT(cmp);
+
+        burnTime = cmp.getInteger(TAG_BURN_TIME);
+    }
+
+    @Override
+    public int getDelayBetweenPassiveGeneration() {
+        return 2;
+    }
 }

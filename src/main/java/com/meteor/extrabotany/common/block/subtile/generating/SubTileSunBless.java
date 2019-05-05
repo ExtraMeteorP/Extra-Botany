@@ -6,48 +6,48 @@ import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 import vazkii.botania.api.subtile.SubTileGenerating;
 
-public class SubTileSunBless extends SubTileGenerating{
-	
-	private static final int RANGE = 2;
-	
-	@Override
-	public int getMaxMana() {
-		return 200;
-	}
+public class SubTileSunBless extends SubTileGenerating {
 
-	@Override
-	public int getValueForPassiveGeneration() {
-		return ConfigHandler.EFF_SUNBLESS;
-	}
+    private static final int RANGE = 2;
 
-	@Override
-	public int getColor() {
-		return 0xFFA500;
-	}
+    @Override
+    public int getMaxMana() {
+        return 200;
+    }
 
-	@Override
-	public RadiusDescriptor getRadius() {
-		return new RadiusDescriptor.Square(toBlockPos(), RANGE);
-	}
+    @Override
+    public int getValueForPassiveGeneration() {
+        return ConfigHandler.EFF_SUNBLESS;
+    }
 
-	@Override
-	public LexiconEntry getEntry() {
-		return LexiconData.sunbless;
-	}
+    @Override
+    public int getColor() {
+        return 0xFFA500;
+    }
 
-	@Override
-	public boolean canGeneratePassively() {
-		return this.supertile.getWorld().isDaytime() && this.ticksExisted % 3 == 0;
-	}
+    @Override
+    public RadiusDescriptor getRadius() {
+        return new RadiusDescriptor.Square(toBlockPos(), RANGE);
+    }
 
-	@Override
-	public int getDelayBetweenPassiveGeneration() {
-		return 2;
-	}
-	
-	@Override
-	public boolean isPassiveFlower() {
-		return true;
-	}
-	
+    @Override
+    public LexiconEntry getEntry() {
+        return LexiconData.sunbless;
+    }
+
+    @Override
+    public boolean canGeneratePassively() {
+        return this.supertile.getWorld().isDaytime() && this.ticksExisted % 3 == 0;
+    }
+
+    @Override
+    public int getDelayBetweenPassiveGeneration() {
+        return 2;
+    }
+
+    @Override
+    public boolean isPassiveFlower() {
+        return true;
+    }
+
 }

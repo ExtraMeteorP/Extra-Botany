@@ -29,19 +29,19 @@
       },
       "model": "extrabotany:item/cocktail_4"
     },
-	{
+    {
       "predicate": {
         "extrabotany:swigs_taken": 5
       },
       "model": "extrabotany:item/cocktail_5"
-    },    
-	{
+    },
+    {
       "predicate": {
         "extrabotany:swigs_taken": 6
       },
       "model": "extrabotany:item/cocktail_6"
-    },    
-	{
+    },
+    {
       "predicate": {
         "extrabotany:swigs_taken": 7
       },

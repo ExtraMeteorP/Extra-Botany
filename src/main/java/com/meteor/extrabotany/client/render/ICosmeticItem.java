@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import vazkii.botania.api.item.IBaubleRender.RenderType;
 
 public interface ICosmeticItem {
-	
-	public void onItemRender(ItemStack stack, EntityPlayer player, RenderType type, float partialTicks);
+
+    public void onItemRender(ItemStack stack, EntityPlayer player, RenderType type, float partialTicks);
 
 }

@@ -9,12 +9,12 @@
     "description": {
       "translate": "advancement.extrabotany:allStats.desc"
     },
-	"frame": "challenge"
+    "frame": "challenge"
   },
   "parent": "extrabotany:main/nightmarefuel_eating",
   "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "extrabotany:excaliber"
     },
@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancement.extrabotany:excaliberCraft.desc"
     },
-	"frame": "challenge"
+    "frame": "challenge"
   },
   "parent": "extrabotany:main/gaia_defeat",
   "criteria": {

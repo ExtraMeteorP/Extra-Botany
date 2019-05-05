@@ -1,5 +1,5 @@
 {
-   "display": {
+  "display": {
     "icon": {
       "item": "minecraft:cake"
     },
@@ -9,12 +9,12 @@
     "description": {
       "translate": "advancement.extrabotany:mastermanaringFill.desc"
     },
-	"frame": "challenge"
+    "frame": "challenge"
   },
   "parent": "extrabotany:main/mastermanaring_craft",
   "criteria": {
     "ebt_trigger": {
-		"trigger": "minecraft:impossible"
-	}
+      "trigger": "minecraft:impossible"
+    }
   }
 }

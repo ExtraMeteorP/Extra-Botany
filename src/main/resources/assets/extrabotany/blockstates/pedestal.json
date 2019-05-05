@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "extrabotany:pedestal_default" }
+    "normal": {
+      "model": "extrabotany:pedestal_default"
+    }
   }
 }

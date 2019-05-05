@@ -8,23 +8,23 @@ import java.util.List;
 
 public class OrbItemsEvent extends Event {
 
-	private final EntityPlayer entityPlayer;
-	private List<ItemStack> items;
+    private final EntityPlayer entityPlayer;
+    private List<ItemStack> items;
 
-	public OrbItemsEvent(EntityPlayer entityPlayer, List<ItemStack> items) {
-		this.entityPlayer = entityPlayer;
-		this.items = items;
-	}
+    public OrbItemsEvent(EntityPlayer entityPlayer, List<ItemStack> items) {
+        this.entityPlayer = entityPlayer;
+        this.items = items;
+    }
 
-	public EntityPlayer getEntityPlayer() {
-		return entityPlayer;
-	}
+    public EntityPlayer getEntityPlayer() {
+        return entityPlayer;
+    }
 
-	public List<ItemStack> getItems() {
-		return items;
-	}
+    public List<ItemStack> getItems() {
+        return items;
+    }
 
-	public void add(ItemStack item) {
-		items.add(item);
-	}
+    public void add(ItemStack item) {
+        items.add(item);
+    }
 }

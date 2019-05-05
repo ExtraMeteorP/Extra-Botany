@@ -16,24 +16,24 @@ import javax.annotation.Nonnull;
 
 public class ItemMod extends Item implements IModelReg {
 
-	public ItemMod(String name) {
-		setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
-		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
-		setUnlocalizedName(name);
-		addPropertyOverride(new ResourceLocation("extrabotany:chris"), (stack, worldIn, entityIn) -> {
-			return ClientProxy.christmas ? 1.0F : 0.0F;
-		});
-	}
+    public ItemMod(String name) {
+        setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
+        setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+        setUnlocalizedName(name);
+        addPropertyOverride(new ResourceLocation("extrabotany:chris"), (stack, worldIn, entityIn) -> {
+            return ClientProxy.christmas ? 1.0F : 0.0F;
+        });
+    }
 
-	@Nonnull
-	@Override
-	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
-	}
+    @Nonnull
+    @Override
+    public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
+        return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerModels() {
-		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerModels() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
 }

@@ -41,238 +41,237 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ItemHammerUltimate extends ItemHammer implements IManaItem, ISequentialBreaker{
-	
-	private static final List<Material> MATERIALS = Arrays.asList(Material.ROCK, Material.IRON, Material.ICE, Material.GLASS, Material.PISTON, Material.ANVIL, Material.GRASS, Material.GROUND, Material.SAND, Material.SNOW, Material.CRAFTED_SNOW, Material.CLAY);
+public class ItemHammerUltimate extends ItemHammer implements IManaItem, ISequentialBreaker {
 
-	private static final String TAG_ENABLED = "enabled";
-	private static final String TAG_MANA = "mana";
-	private static final String TAG_REPAIRUPGRADE = "repair";
-	private static final String TAG_DAMAGEUPGRADE = "damage";
-	private static final String TAG_RANGE = "range";
-	
-	private static final int MAX_MANA = 50000;
-	private static final int MANA_PER_DAMAGE = 80;
-	
-	public ItemHammerUltimate() {
-		super(LibItemsName.HAMMER_ULTIMATE, BotaniaAPI.terrasteelToolMaterial);
-		setMaxDamage(3000);
-		addPropertyOverride(new ResourceLocation(LibMisc.MOD_ID, "enabled"), (itemStack, world, entityLivingBase) -> isEnabled(itemStack) ? 1 : 0);
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack par1ItemStack, World world, List<String> stacks, ITooltipFlag flags) {
-		String repair = I18n.format("extrabotany.repairupgrade" + getRepair(par1ItemStack));
-		String attack = I18n.format("extrabotany.damageupgrade" + getAttack(par1ItemStack));
-		String range = I18n.format("extrabotany.rangeupgrade");
-		if(getAttack(par1ItemStack)>0)
-			stacks.add(attack);
-		if(getRepair(par1ItemStack)>0)
-			stacks.add(repair);
-		if(hasRange(par1ItemStack))
-			stacks.add(range);
-	}
-	
-	@Nonnull
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
-		ItemStack stack = player.getHeldItem(hand);
-		if(hasRange(stack)){
-			setEnabled(stack, !isEnabled(stack));
-			if(!world.isRemote)
-				world.playSound(null, player.posX, player.posY, player.posZ, ModSounds.terraPickMode, SoundCategory.PLAYERS, 0.5F, 0.4F);
-		}
-		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
-	}
+    private static final List<Material> MATERIALS = Arrays.asList(Material.ROCK, Material.IRON, Material.ICE, Material.GLASS, Material.PISTON, Material.ANVIL, Material.GRASS, Material.GROUND, Material.SAND, Material.SNOW, Material.CRAFTED_SNOW, Material.CLAY);
 
-	@Nonnull
-	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float sx, float sy, float sz) {
-		return player.isSneaking() ? super.onItemUse(player, world, pos, hand, side, sx, sy, sz)
-				: EnumActionResult.PASS;
-	}
-	
-	@Override
-	public int getEntityLifespan(ItemStack itemStack, World world) {
-		return Integer.MAX_VALUE;
-	}
-	
-	public static void setRepair(ItemStack stack, int mana) {
-		ItemNBTHelper.setInt(stack, TAG_REPAIRUPGRADE, mana);
-	}
+    private static final String TAG_ENABLED = "enabled";
+    private static final String TAG_MANA = "mana";
+    private static final String TAG_REPAIRUPGRADE = "repair";
+    private static final String TAG_DAMAGEUPGRADE = "damage";
+    private static final String TAG_RANGE = "range";
 
-	public int getRepair(ItemStack stack) {
-		return ItemNBTHelper.getInt(stack, TAG_REPAIRUPGRADE, 0);
-	}
-	
-	public static void setAttack(ItemStack stack, int mana) {
-		ItemNBTHelper.setInt(stack, TAG_DAMAGEUPGRADE, mana);
-	}
+    private static final int MAX_MANA = 50000;
+    private static final int MANA_PER_DAMAGE = 80;
+    private static HashSet<Block> effectiveAgainst = Sets.newHashSet(new Block[]{
+            Blocks.PLANKS, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST,
+            Blocks.PUMPKIN, Blocks.LIT_PUMPKIN, Blocks.MELON_BLOCK, Blocks.LADDER,
+            Blocks.WOODEN_BUTTON, Blocks.WOODEN_PRESSURE_PLATE, Blocks.ACTIVATOR_RAIL,
+            Blocks.COAL_ORE, Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK,
+            Blocks.DIAMOND_ORE, Blocks.DOUBLE_STONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK,
+            Blocks.GOLD_ORE, Blocks.ICE, Blocks.IRON_BLOCK, Blocks.IRON_ORE, Blocks.LAPIS_BLOCK,
+            Blocks.LAPIS_ORE, Blocks.LIT_REDSTONE_ORE, Blocks.MOSSY_COBBLESTONE, Blocks.NETHERRACK,
+            Blocks.PACKED_ICE, Blocks.RAIL, Blocks.REDSTONE_ORE, Blocks.SANDSTONE, Blocks.RED_SANDSTONE,
+            Blocks.STONE, Blocks.STONE_SLAB, Blocks.STONE_BUTTON, Blocks.STONE_PRESSURE_PLATE, Blocks.CLAY,
+            Blocks.DIRT, Blocks.FARMLAND, Blocks.GRASS, Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND,
+            Blocks.SNOW, Blocks.SNOW_LAYER, Blocks.SOUL_SAND, Blocks.GRASS_PATH}
+    );
 
-	public int getAttack(ItemStack stack) {
-		return ItemNBTHelper.getInt(stack, TAG_DAMAGEUPGRADE, 0);
-	}
-	
-	@Override
-    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker){
-		if(getAttack(stack) > 0 && ManaItemHandler.requestManaExact(stack, (EntityPlayer)attacker, (80 * getAttack(stack) - getRepair(stack) * 15), true)){
-			if(getAttack(stack) > 1)
-				target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 1));
-			if(getAttack(stack) > 3)
-				target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100, 1));
-			if(getAttack(stack) > 5)
-				target.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 100, 2));
-			if(getAttack(stack) > 7)
-				target.addPotionEffect(new PotionEffect(MobEffects.WITHER, 100, 2));
-			if(getAttack(stack) > 9)
-				attacker.heal(4F);
-			target.attackEntityFrom(DamageSource.MAGIC, 2F * getAttack(stack));
-		}
+    public ItemHammerUltimate() {
+        super(LibItemsName.HAMMER_ULTIMATE, BotaniaAPI.terrasteelToolMaterial);
+        setMaxDamage(3000);
+        addPropertyOverride(new ResourceLocation(LibMisc.MOD_ID, "enabled"), (itemStack, world, entityLivingBase) -> isEnabled(itemStack) ? 1 : 0);
+    }
+
+    public static void setRepair(ItemStack stack, int mana) {
+        ItemNBTHelper.setInt(stack, TAG_REPAIRUPGRADE, mana);
+    }
+
+    public static void setAttack(ItemStack stack, int mana) {
+        ItemNBTHelper.setInt(stack, TAG_DAMAGEUPGRADE, mana);
+    }
+
+    public static void setMana(ItemStack stack, int mana) {
+        ItemNBTHelper.setInt(stack, TAG_MANA, mana);
+    }
+
+    public static int getMana_(ItemStack stack) {
+        return ItemNBTHelper.getInt(stack, TAG_MANA, 0);
+    }
+
+    public static boolean hasRange(ItemStack stack) {
+        return ItemNBTHelper.getBoolean(stack, TAG_RANGE, false);
+    }
+
+    public static boolean isEnabled(ItemStack stack) {
+        return ItemNBTHelper.getBoolean(stack, TAG_ENABLED, false);
+    }
+
+    public static int getManaPerDamage() {
+        return MANA_PER_DAMAGE;
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack par1ItemStack, World world, List<String> stacks, ITooltipFlag flags) {
+        String repair = I18n.format("extrabotany.repairupgrade" + getRepair(par1ItemStack));
+        String attack = I18n.format("extrabotany.damageupgrade" + getAttack(par1ItemStack));
+        String range = I18n.format("extrabotany.rangeupgrade");
+        if (getAttack(par1ItemStack) > 0)
+            stacks.add(attack);
+        if (getRepair(par1ItemStack) > 0)
+            stacks.add(repair);
+        if (hasRange(par1ItemStack))
+            stacks.add(range);
+    }
+
+    @Nonnull
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+        if (hasRange(stack)) {
+            setEnabled(stack, !isEnabled(stack));
+            if (!world.isRemote)
+                world.playSound(null, player.posX, player.posY, player.posZ, ModSounds.terraPickMode, SoundCategory.PLAYERS, 0.5F, 0.4F);
+        }
+        return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+    }
+
+    @Nonnull
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing side, float sx, float sy, float sz) {
+        return player.isSneaking() ? super.onItemUse(player, world, pos, hand, side, sx, sy, sz)
+                : EnumActionResult.PASS;
+    }
+
+    @Override
+    public int getEntityLifespan(ItemStack itemStack, World world) {
+        return Integer.MAX_VALUE;
+    }
+
+    public int getRepair(ItemStack stack) {
+        return ItemNBTHelper.getInt(stack, TAG_REPAIRUPGRADE, 0);
+    }
+
+    public int getAttack(ItemStack stack) {
+        return ItemNBTHelper.getInt(stack, TAG_DAMAGEUPGRADE, 0);
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+        if (getAttack(stack) > 0 && ManaItemHandler.requestManaExact(stack, (EntityPlayer) attacker, (80 * getAttack(stack) - getRepair(stack) * 15), true)) {
+            if (getAttack(stack) > 1)
+                target.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 1));
+            if (getAttack(stack) > 3)
+                target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 100, 1));
+            if (getAttack(stack) > 5)
+                target.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 100, 2));
+            if (getAttack(stack) > 7)
+                target.addPotionEffect(new PotionEffect(MobEffects.WITHER, 100, 2));
+            if (getAttack(stack) > 9)
+                attacker.heal(4F);
+            target.attackEntityFrom(DamageSource.MAGIC, 2F * getAttack(stack));
+        }
         return true;
     }
-	
-	public static void setMana(ItemStack stack, int mana) {
-		ItemNBTHelper.setInt(stack, TAG_MANA, mana);
-	}
 
-	@Override
-	public int getMana(ItemStack stack) {
-		return getMana_(stack);
-	}
+    @Override
+    public int getMana(ItemStack stack) {
+        return getMana_(stack);
+    }
 
-	public static int getMana_(ItemStack stack) {
-		return ItemNBTHelper.getInt(stack, TAG_MANA, 0);
-	}
-	
-	@Override
-	public int getMaxMana(ItemStack stack) {
-		return MAX_MANA;
-	}
-	public static boolean hasRange(ItemStack stack) {
-		return ItemNBTHelper.getBoolean(stack, TAG_RANGE, false);
-	}
+    @Override
+    public int getMaxMana(ItemStack stack) {
+        return MAX_MANA;
+    }
 
-	public void setRange(ItemStack stack, boolean enabled) {
-		ItemNBTHelper.setBoolean(stack, TAG_RANGE, enabled);
-	}
-	
-	public static boolean isEnabled(ItemStack stack) {
-		return ItemNBTHelper.getBoolean(stack, TAG_ENABLED, false);
-	}
+    public void setRange(ItemStack stack, boolean enabled) {
+        ItemNBTHelper.setBoolean(stack, TAG_RANGE, enabled);
+    }
 
-	void setEnabled(ItemStack stack, boolean enabled) {
-		ItemNBTHelper.setBoolean(stack, TAG_ENABLED, enabled);
-	}
+    void setEnabled(ItemStack stack, boolean enabled) {
+        ItemNBTHelper.setBoolean(stack, TAG_ENABLED, enabled);
+    }
 
-	@Override
-	public void addMana(ItemStack stack, int mana) {
-		setMana(stack, Math.min(getMana(stack) + mana, MAX_MANA));
-	}
-	
-	@Override
-	public boolean canReceiveManaFromPool(ItemStack stack, TileEntity pool) {
-		return true;
-	}
+    @Override
+    public void addMana(ItemStack stack, int mana) {
+        setMana(stack, Math.min(getMana(stack) + mana, MAX_MANA));
+    }
 
-	@Override
-	public boolean canReceiveManaFromItem(ItemStack stack, ItemStack otherStack) {
-		return !(otherStack.getItem() instanceof IManaGivingItem);
-	}
+    @Override
+    public boolean canReceiveManaFromPool(ItemStack stack, TileEntity pool) {
+        return true;
+    }
 
-	@Override
-	public boolean canExportManaToPool(ItemStack stack, TileEntity pool) {
-		return false;
-	}
+    @Override
+    public boolean canReceiveManaFromItem(ItemStack stack, ItemStack otherStack) {
+        return !(otherStack.getItem() instanceof IManaGivingItem);
+    }
 
-	@Override
-	public boolean canExportManaToItem(ItemStack stack, ItemStack otherStack) {
-		return false;
-	}
+    @Override
+    public boolean canExportManaToPool(ItemStack stack, TileEntity pool) {
+        return false;
+    }
 
-	@Override
-	public boolean isNoExport(ItemStack stack) {
-		return true;
-	}
+    @Override
+    public boolean canExportManaToItem(ItemStack stack, ItemStack otherStack) {
+        return false;
+    }
 
+    @Override
+    public boolean isNoExport(ItemStack stack) {
+        return true;
+    }
 
-	@Override
-	public void onUpdate(ItemStack par1ItemStack, World world, Entity par3Entity, int par4, boolean par5) {
-		if(!world.isRemote && par3Entity.ticksExisted % (40 - getRepair(par1ItemStack) * 10) == 0 && ManaItemHandler.requestManaExact(par1ItemStack, (EntityPlayer)par3Entity, (getManaPerDamage() - getRepair(par1ItemStack) * 5), true) && par1ItemStack.getItemDamage() > 0){
-			par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() - 1);
-		}
-	}
-	
-	public static int getManaPerDamage(){
-		return MANA_PER_DAMAGE;
-	}
+    @Override
+    public void onUpdate(ItemStack par1ItemStack, World world, Entity par3Entity, int par4, boolean par5) {
+        if (!world.isRemote && par3Entity.ticksExisted % (40 - getRepair(par1ItemStack) * 10) == 0 && ManaItemHandler.requestManaExact(par1ItemStack, (EntityPlayer) par3Entity, (getManaPerDamage() - getRepair(par1ItemStack) * 5), true) && par1ItemStack.getItemDamage() > 0) {
+            par1ItemStack.setItemDamage(par1ItemStack.getItemDamage() - 1);
+        }
+    }
 
-	public Set<String> getToolClasses(ItemStack stack) {
-		return ImmutableSet.of("pickaxe", "spade", "axe");
-	}
-	
-	@Override
-	public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player) {
-		RayTraceResult raycast = ToolCommons.raytraceFromEntity(player.world, player, true, 10);
-		if(!player.world.isRemote && raycast != null) {
-			breakOtherBlock(player, stack, pos, pos, raycast.sideHit);
-		}
+    public Set<String> getToolClasses(ItemStack stack) {
+        return ImmutableSet.of("pickaxe", "spade", "axe");
+    }
 
-		return false;
-	}
+    @Override
+    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, EntityPlayer player) {
+        RayTraceResult raycast = ToolCommons.raytraceFromEntity(player.world, player, true, 10);
+        if (!player.world.isRemote && raycast != null) {
+            breakOtherBlock(player, stack, pos, pos, raycast.sideHit);
+        }
 
-	@Override
-	public void breakOtherBlock(EntityPlayer player, ItemStack stack, BlockPos pos, BlockPos originPos, EnumFacing side) {
-		if(!isEnabled(stack))
-			return;
-		
-		World world = player.world;
-		Material mat = world.getBlockState(pos).getMaterial();
-		if(!MATERIALS.contains(mat))
-			return;
+        return false;
+    }
 
-		if(world.isAirBlock(pos))
-			return;
+    @Override
+    public void breakOtherBlock(EntityPlayer player, ItemStack stack, BlockPos pos, BlockPos originPos, EnumFacing side) {
+        if (!isEnabled(stack))
+            return;
 
-		int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
-		boolean silk = EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0;
-		boolean doX = side.getFrontOffsetX() == 0;
-		boolean doY = side.getFrontOffsetY() == 0;
-		boolean doZ = side.getFrontOffsetZ() == 0;
+        World world = player.world;
+        Material mat = world.getBlockState(pos).getMaterial();
+        if (!MATERIALS.contains(mat))
+            return;
 
-		int level = 2;
-		int range = level - 1;
-		int rangeY = Math.max(1, range);
+        if (world.isAirBlock(pos))
+            return;
 
-		Vec3i beginDiff = new Vec3i(doX ? -range : 0, doY ? -1 : 0, doZ ? -range : 0);
-		Vec3i endDiff = new Vec3i(doX ? range : 0, doY ? rangeY * 2 - 1 : 0, doZ ? range : 0);
-		ToolCommons.removeBlocksInIteration(player, stack, world, pos, beginDiff, endDiff, null, MATERIALS, silk, fortune, false);
-		stack.damageItem(8, player);
+        int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
+        boolean silk = EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0;
+        boolean doX = side.getFrontOffsetX() == 0;
+        boolean doY = side.getFrontOffsetY() == 0;
+        boolean doZ = side.getFrontOffsetZ() == 0;
 
-	}
-	
-	private static HashSet<Block> effectiveAgainst = Sets.newHashSet(new Block[] {
-			Blocks.PLANKS, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST, 
-			Blocks.PUMPKIN, Blocks.LIT_PUMPKIN, Blocks.MELON_BLOCK, Blocks.LADDER, 
-			Blocks.WOODEN_BUTTON, Blocks.WOODEN_PRESSURE_PLATE,Blocks.ACTIVATOR_RAIL, 
-			Blocks.COAL_ORE, Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, 
-			Blocks.DIAMOND_ORE, Blocks.DOUBLE_STONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, 
-			Blocks.GOLD_ORE, Blocks.ICE, Blocks.IRON_BLOCK, Blocks.IRON_ORE, Blocks.LAPIS_BLOCK, 
-			Blocks.LAPIS_ORE, Blocks.LIT_REDSTONE_ORE, Blocks.MOSSY_COBBLESTONE, Blocks.NETHERRACK, 
-			Blocks.PACKED_ICE, Blocks.RAIL, Blocks.REDSTONE_ORE, Blocks.SANDSTONE, Blocks.RED_SANDSTONE, 
-			Blocks.STONE, Blocks.STONE_SLAB, Blocks.STONE_BUTTON, Blocks.STONE_PRESSURE_PLATE, Blocks.CLAY, 
-			Blocks.DIRT, Blocks.FARMLAND, Blocks.GRASS, Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND, 
-			Blocks.SNOW, Blocks.SNOW_LAYER, Blocks.SOUL_SAND, Blocks.GRASS_PATH}
-	);
+        int level = 2;
+        int range = level - 1;
+        int rangeY = Math.max(1, range);
 
-	@Override
-	public boolean canHarvestBlock(IBlockState blockIn) {
-			return effectiveAgainst.contains(blockIn) ? true : super.canHarvestBlock(blockIn);
-	}
+        Vec3i beginDiff = new Vec3i(doX ? -range : 0, doY ? -1 : 0, doZ ? -range : 0);
+        Vec3i endDiff = new Vec3i(doX ? range : 0, doY ? rangeY * 2 - 1 : 0, doZ ? range : 0);
+        ToolCommons.removeBlocksInIteration(player, stack, world, pos, beginDiff, endDiff, null, MATERIALS, silk, fortune, false);
+        stack.damageItem(8, player);
 
-	@Override
-	public boolean disposeOfTrashBlocks(ItemStack arg0) {
-		return false;
-	}
+    }
+
+    @Override
+    public boolean canHarvestBlock(IBlockState blockIn) {
+        return effectiveAgainst.contains(blockIn) ? true : super.canHarvestBlock(blockIn);
+    }
+
+    @Override
+    public boolean disposeOfTrashBlocks(ItemStack arg0) {
+        return false;
+    }
 
 }

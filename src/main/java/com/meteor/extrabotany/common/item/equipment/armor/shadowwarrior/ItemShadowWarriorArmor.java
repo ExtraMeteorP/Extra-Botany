@@ -27,107 +27,110 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class ItemShadowWarriorArmor extends ItemCosmeticMaidArmor implements IDarkElfSpawner{
-	
-	public static final String TAG_NIGHT = "isnight";
-	
-	public ItemShadowWarriorArmor(EntityEquipmentSlot type, String name) {
-		super(type, name, BotaniaAPI.elementiumArmorMaterial);
-		addPropertyOverride(new ResourceLocation("extrabotany:slayer"), (stack, worldIn, entityIn) -> {
-			return stack.getDisplayName().toLowerCase().indexOf("slayer") != -1 ? 1.0F : 0.0F;
-		});
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public ModelBiped provideArmorModelForSlot(ItemStack stack, EntityEquipmentSlot slot) {
-		models.put(slot, new ModelArmorShadowWarrior(slot));
-		return models.get(slot);
-	}
-	
-	@Override
-	public float getDiscount(ItemStack stack, int slot, EntityPlayer player, @Nullable ItemStack tool) {
-		return hasArmorSet(player) ? 0.1F : 0F;
-	}
-	
-	@Override
-	public String getArmorTextureAfterInk(ItemStack stack, EntityEquipmentSlot slot) {
-		return "extrabotany:textures/model/armor_shadowwarrior.png";
-	}
-	
-	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
-		super.onArmorTick(world, player, stack);
-		if(hasArmorSet(player) && !world.isDaytime()) {
-			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_SW);
-			ItemNBTHelper.setBoolean(stack, TAG_NIGHT, true);
-			player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 1));
-		}else
-			ItemNBTHelper.setBoolean(stack, TAG_NIGHT, false);
-	}
-	
-	@Override
-	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
-		Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
-		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
-		boolean night = ItemNBTHelper.getBoolean(stack, TAG_NIGHT, false);
-		if (slot == armorType) {
-			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.25F : 0,  1));
-			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.125F : 0, 1));
-			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.04F : 0, 1));
-		}
-		return attrib;
-	}
-	
-	private static ItemStack[] armorset;
+public class ItemShadowWarriorArmor extends ItemCosmeticMaidArmor implements IDarkElfSpawner {
 
-	@Override
-	public ItemStack[] getArmorSetStacks() {
-		if(armorset == null)
-			armorset = new ItemStack[] {
-					new ItemStack(ModItems.swhelm),
-					new ItemStack(ModItems.swchest),
-					new ItemStack(ModItems.swleg),
-					new ItemStack(ModItems.swboot)
-		};
+    public static final String TAG_NIGHT = "isnight";
+    private static ItemStack[] armorset;
 
-		return armorset;
-	}
+    public ItemShadowWarriorArmor(EntityEquipmentSlot type, String name) {
+        super(type, name, BotaniaAPI.elementiumArmorMaterial);
+        addPropertyOverride(new ResourceLocation("extrabotany:slayer"), (stack, worldIn, entityIn) -> {
+            return stack.getDisplayName().toLowerCase().indexOf("slayer") != -1 ? 1.0F : 0.0F;
+        });
+    }
 
-	@Override
-	public boolean hasArmorSetItem(EntityPlayer player, int i) {
-		if(player == null || player.inventory == null || player.inventory.armorInventory == null)
-			return false;
-		
-		ItemStack stack = player.inventory.armorInventory.get(3 - i);
-		if(stack.isEmpty())
-			return false;
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ModelBiped provideArmorModelForSlot(ItemStack stack, EntityEquipmentSlot slot) {
+        models.put(slot, new ModelArmorShadowWarrior(slot));
+        return models.get(slot);
+    }
 
-		switch(i) {
-		case 0: return stack.getItem() == ModItems.swhelm;
-		case 1: return stack.getItem() == ModItems.swchest;
-		case 2: return stack.getItem() == ModItems.swleg;
-		case 3: return stack.getItem() == ModItems.swboot;
-		}
+    @Override
+    public float getDiscount(ItemStack stack, int slot, EntityPlayer player, @Nullable ItemStack tool) {
+        return hasArmorSet(player) ? 0.1F : 0F;
+    }
 
-		return false;
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addArmorSetDescription(ItemStack stack, List<String> list) {
-		addStringToTooltip(I18n.format("extrabotany.armorset.shadowwarrior.desc0"), list);
-		addStringToTooltip(I18n.format("extrabotany.armorset.shadowwarrior.desc1"), list);
-	}
+    @Override
+    public String getArmorTextureAfterInk(ItemStack stack, EntityEquipmentSlot slot) {
+        return "extrabotany:textures/model/armor_shadowwarrior.png";
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public String getArmorSetName() {
-		return I18n.format("extrabotany.armorset.shadowwarrior.name");
-	}
+    @Override
+    public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
+        super.onArmorTick(world, player, stack);
+        if (hasArmorSet(player) && !world.isDaytime()) {
+            ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_SW);
+            ItemNBTHelper.setBoolean(stack, TAG_NIGHT, true);
+            player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 1));
+        } else
+            ItemNBTHelper.setBoolean(stack, TAG_NIGHT, false);
+    }
 
-	@Override
-	public float getSpawnChance(ItemStack stack) {
-		return 0.1F;
-	}
+    @Override
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
+        Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
+        UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
+        boolean night = ItemNBTHelper.getBoolean(stack, TAG_NIGHT, false);
+        if (slot == armorType) {
+            attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.25F : 0, 1));
+            attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.125F : 0, 1));
+            attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.04F : 0, 1));
+        }
+        return attrib;
+    }
+
+    @Override
+    public ItemStack[] getArmorSetStacks() {
+        if (armorset == null)
+            armorset = new ItemStack[]{
+                    new ItemStack(ModItems.swhelm),
+                    new ItemStack(ModItems.swchest),
+                    new ItemStack(ModItems.swleg),
+                    new ItemStack(ModItems.swboot)
+            };
+
+        return armorset;
+    }
+
+    @Override
+    public boolean hasArmorSetItem(EntityPlayer player, int i) {
+        if (player == null || player.inventory == null || player.inventory.armorInventory == null)
+            return false;
+
+        ItemStack stack = player.inventory.armorInventory.get(3 - i);
+        if (stack.isEmpty())
+            return false;
+
+        switch (i) {
+            case 0:
+                return stack.getItem() == ModItems.swhelm;
+            case 1:
+                return stack.getItem() == ModItems.swchest;
+            case 2:
+                return stack.getItem() == ModItems.swleg;
+            case 3:
+                return stack.getItem() == ModItems.swboot;
+        }
+
+        return false;
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addArmorSetDescription(ItemStack stack, List<String> list) {
+        addStringToTooltip(I18n.format("extrabotany.armorset.shadowwarrior.desc0"), list);
+        addStringToTooltip(I18n.format("extrabotany.armorset.shadowwarrior.desc1"), list);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public String getArmorSetName() {
+        return I18n.format("extrabotany.armorset.shadowwarrior.name");
+    }
+
+    @Override
+    public float getSpawnChance(ItemStack stack) {
+        return 0.1F;
+    }
 }

@@ -7,17 +7,17 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemRewardBag943 extends ItemBonusBase{
-	
-	public static List<WeightCategory> categorysE = new ArrayList<WeightCategory>();
+public class ItemRewardBag943 extends ItemBonusBase {
 
-	public ItemRewardBag943() {
-		super(LibItemsName.REWARD_BAG943);
-	}
-	
-	@Override
-	public List<WeightCategory> getWeightCategory(ItemStack stack){
-		return categorysE;
-	}
+    public static List<WeightCategory> categorysE = new ArrayList<WeightCategory>();
+
+    public ItemRewardBag943() {
+        super(LibItemsName.REWARD_BAG943);
+    }
+
+    @Override
+    public List<WeightCategory> getWeightCategory(ItemStack stack) {
+        return categorysE;
+    }
 
 }

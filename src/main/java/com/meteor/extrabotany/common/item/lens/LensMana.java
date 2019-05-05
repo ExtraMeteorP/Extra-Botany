@@ -14,43 +14,43 @@ import vazkii.botania.common.item.lens.Lens;
 
 import java.util.List;
 
-public class LensMana extends Lens{
-	
-	@Override
-	public void apply(ItemStack stack, BurstProperties props) {
-		props.maxMana = 1000;
-		props.motionModifier *= 0.5F;
-		props.manaLossPerTick *= 2F;
-	}
-	
-	@Override
-	public void updateBurst(IManaBurst burst, EntityThrowable entity, ItemStack stack) {
-		if (entity.world.isRemote)
-			return;
-		
-		World world = entity.world;
-		int mana = burst.getMana();
-		IBlockState state = world.getBlockState(burst.getBurstSourceBlockPos().add(0, -1, 0));
-		AxisAlignedBB axis = new AxisAlignedBB(entity.posX, entity.posY, entity.posZ, entity.lastTickPosX, entity.lastTickPosY, entity.lastTickPosZ).grow(1);
-		List<EntityItem> entities = entity.world.getEntitiesWithinAABB(EntityItem.class, axis);
-		for(EntityItem items : entities) {
-			if(items.cannotPickup() || burst.isFake())
-				continue;
-			ItemStack itemstack = items.getItem();
-			RecipeManaInfusion recipe = TilePool.getMatchingRecipe(itemstack, state);
-			if(recipe != null) {
-				int manaToConsume = recipe.getManaToConsume();
-				if(mana >= manaToConsume) {
-					burst.setMana((int) (mana - manaToConsume));
-					itemstack.shrink(1);
+public class LensMana extends Lens {
 
-					ItemStack output = recipe.getOutput().copy();
-					EntityItem outputItem = new EntityItem(world, items.posX + 0.5, items.posY + 0.5, items.posZ + 0.5, output);
-					outputItem.setPickupDelay(30);
-					world.spawnEntity(outputItem);
-				}
-			}
-		}
-	}
+    @Override
+    public void apply(ItemStack stack, BurstProperties props) {
+        props.maxMana = 1000;
+        props.motionModifier *= 0.5F;
+        props.manaLossPerTick *= 2F;
+    }
+
+    @Override
+    public void updateBurst(IManaBurst burst, EntityThrowable entity, ItemStack stack) {
+        if (entity.world.isRemote)
+            return;
+
+        World world = entity.world;
+        int mana = burst.getMana();
+        IBlockState state = world.getBlockState(burst.getBurstSourceBlockPos().add(0, -1, 0));
+        AxisAlignedBB axis = new AxisAlignedBB(entity.posX, entity.posY, entity.posZ, entity.lastTickPosX, entity.lastTickPosY, entity.lastTickPosZ).grow(1);
+        List<EntityItem> entities = entity.world.getEntitiesWithinAABB(EntityItem.class, axis);
+        for (EntityItem items : entities) {
+            if (items.cannotPickup() || burst.isFake())
+                continue;
+            ItemStack itemstack = items.getItem();
+            RecipeManaInfusion recipe = TilePool.getMatchingRecipe(itemstack, state);
+            if (recipe != null) {
+                int manaToConsume = recipe.getManaToConsume();
+                if (mana >= manaToConsume) {
+                    burst.setMana((int) (mana - manaToConsume));
+                    itemstack.shrink(1);
+
+                    ItemStack output = recipe.getOutput().copy();
+                    EntityItem outputItem = new EntityItem(world, items.posX + 0.5, items.posY + 0.5, items.posZ + 0.5, output);
+                    outputItem.setPickupDelay(30);
+                    world.spawnEntity(outputItem);
+                }
+            }
+        }
+    }
 
 }

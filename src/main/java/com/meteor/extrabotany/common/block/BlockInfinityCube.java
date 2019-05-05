@@ -19,61 +19,61 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 
-public class BlockInfinityCube extends BlockMod{
-	
-	private static final AxisAlignedBB AABB = new AxisAlignedBB(0.1875, 0.1875, 0.1875, 0.8125, 0.8125, 0.8125);
+public class BlockInfinityCube extends BlockMod {
 
-	public BlockInfinityCube() {
-		super(Material.IRON, LibBlocksName.TILE_INFINITYCUBE);
-		setHardness(3.0F);
-		setResistance(55.0F);
-		setSoundType(SoundType.ANVIL);
-	}
-	
-	@SideOnly(Side.CLIENT)
-	@Nonnull
-	@Override
-	public BlockRenderLayer getBlockLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
-	
-	@Nonnull
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state) {
-		return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
-	}
-	
-	@Nonnull
-	@Override
-	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {
-		return side.getAxis() == EnumFacing.Axis.Y ? BlockFaceShape.CENTER_BIG : BlockFaceShape.MIDDLE_POLE_THICK;
-	}
-	
-	@Override
-	public boolean isOpaqueCube(IBlockState state){
-		return false;
-	}
+    private static final AxisAlignedBB AABB = new AxisAlignedBB(0.1875, 0.1875, 0.1875, 0.8125, 0.8125, 0.8125);
 
-	@Override
-	public boolean isFullCube(IBlockState state){
-		return false;
-	}
-	
-	@Nonnull
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
-		return AABB;
-	}
-	
-	@Override
-	public boolean hasTileEntity(IBlockState state) {
-		return true;
-	}
+    public BlockInfinityCube() {
+        super(Material.IRON, LibBlocksName.TILE_INFINITYCUBE);
+        setHardness(3.0F);
+        setResistance(55.0F);
+        setSoundType(SoundType.ANVIL);
+    }
 
-	@Nonnull
-	@Override
-	public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
-		return new TileInfinityCube();
-	}
+    @SideOnly(Side.CLIENT)
+    @Nonnull
+    @Override
+    public BlockRenderLayer getBlockLayer() {
+        return BlockRenderLayer.CUTOUT;
+    }
+
+    @Nonnull
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state) {
+        return EnumBlockRenderType.ENTITYBLOCK_ANIMATED;
+    }
+
+    @Nonnull
+    @Override
+    public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing side) {
+        return side.getAxis() == EnumFacing.Axis.Y ? BlockFaceShape.CENTER_BIG : BlockFaceShape.MIDDLE_POLE_THICK;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
+        return false;
+    }
+
+    @Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
+
+    @Nonnull
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+        return AABB;
+    }
+
+    @Override
+    public boolean hasTileEntity(IBlockState state) {
+        return true;
+    }
+
+    @Nonnull
+    @Override
+    public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
+        return new TileInfinityCube();
+    }
 
 }

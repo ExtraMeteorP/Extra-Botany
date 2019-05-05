@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "extrabotany:manaliquefaction" }
+    "normal": {
+      "model": "extrabotany:manaliquefaction"
+    }
   }
 }

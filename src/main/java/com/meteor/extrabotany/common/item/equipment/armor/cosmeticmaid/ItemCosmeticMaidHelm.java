@@ -11,27 +11,27 @@ import vazkii.botania.api.mana.IManaDiscountArmor;
 
 import javax.annotation.Nullable;
 
-public class ItemCosmeticMaidHelm  extends ItemCosmeticMaidArmor implements IManaDiscountArmor{
-	
-	public ItemCosmeticMaidHelm(){
-		this(LibItemsName.COSMHELM);
-	}
-	
-	public ItemCosmeticMaidHelm(String name) {
-		super(EntityEquipmentSlot.HEAD, name);
-	}
-	
-	@Override
-	public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
-		super.onArmorTick(world, player, stack);
-		if(hasArmorSet(player)) {
-			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COS);
-		}
-	}
-	
-	@Override
-	public float getDiscount(ItemStack stack, int slot, EntityPlayer player, @Nullable ItemStack tool) {
-		return hasArmorSet(player) ? 0.6F : 0F;
-	}
-	
+public class ItemCosmeticMaidHelm extends ItemCosmeticMaidArmor implements IManaDiscountArmor {
+
+    public ItemCosmeticMaidHelm() {
+        this(LibItemsName.COSMHELM);
+    }
+
+    public ItemCosmeticMaidHelm(String name) {
+        super(EntityEquipmentSlot.HEAD, name);
+    }
+
+    @Override
+    public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
+        super.onArmorTick(world, player, stack);
+        if (hasArmorSet(player)) {
+            ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COS);
+        }
+    }
+
+    @Override
+    public float getDiscount(ItemStack stack, int slot, EntityPlayer player, @Nullable ItemStack tool) {
+        return hasArmorSet(player) ? 0.6F : 0F;
+    }
+
 }

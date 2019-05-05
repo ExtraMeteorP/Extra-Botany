@@ -17,25 +17,25 @@ import javax.annotation.Nonnull;
 @SideOnly(Side.CLIENT)
 public class RenderGaiaIII extends RenderBiped<EntityGaiaIII> {
 
-	private static final ResourceLocation GAIA_TEXTURES = new ResourceLocation("extrabotany:textures/entity/gaia3.png");
+    private static final ResourceLocation GAIA_TEXTURES = new ResourceLocation("extrabotany:textures/entity/gaia3.png");
 
-	public RenderGaiaIII(RenderManager renderManager) {
-		super(renderManager, new ModelPlayer(0.0F, false), 0F);
-	}
+    public RenderGaiaIII(RenderManager renderManager) {
+        super(renderManager, new ModelPlayer(0.0F, false), 0F);
+    }
 
-	@Override
-	public void doRender(@Nonnull EntityGaiaIII dopple, double par2, double par4, double par6, float par8, float par9) {
-		super.doRender(dopple, par2, par4, par6, par8, par9);
-	}
+    @Override
+    public void doRender(@Nonnull EntityGaiaIII dopple, double par2, double par4, double par6, float par8, float par9) {
+        super.doRender(dopple, par2, par4, par6, par8, par9);
+    }
 
-	@Nonnull
-	@Override
-	public ResourceLocation getEntityTexture(@Nonnull EntityGaiaIII entity) {
-		ResourceLocation skin = Minecraft.getMinecraft().getConnection().getPlayerInfo(entity.getCustomNameTag()).getLocationSkin();
-		if(ClientProxy.halloween && ConfigHandler.ENABLE_FEATURES)
-			return new ResourceLocation(LibResource.GAIAIII_PUMPKIN);
-		if(Minecraft.getMinecraft().getConnection() != null)
-			return skin;
-		return GAIA_TEXTURES;
-	}
+    @Nonnull
+    @Override
+    public ResourceLocation getEntityTexture(@Nonnull EntityGaiaIII entity) {
+        ResourceLocation skin = Minecraft.getMinecraft().getConnection().getPlayerInfo(entity.getCustomNameTag()).getLocationSkin();
+        if (ClientProxy.halloween && ConfigHandler.ENABLE_FEATURES)
+            return new ResourceLocation(LibResource.GAIAIII_PUMPKIN);
+        if (Minecraft.getMinecraft().getConnection() != null)
+            return skin;
+        return GAIA_TEXTURES;
+    }
 }

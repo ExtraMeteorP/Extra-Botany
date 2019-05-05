@@ -16,58 +16,58 @@ import javax.annotation.Nonnull;
 
 public class CocktailRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
-	@Override
-	public boolean isDynamic() {
-		return true;
-	}
+    @Override
+    public boolean isDynamic() {
+        return true;
+    }
 
-	@Override
-	public boolean matches(@Nonnull InventoryCrafting var1, @Nonnull World var2) {
-		boolean foundManadrink = false;
-		boolean foundItem = false;
+    @Override
+    public boolean matches(@Nonnull InventoryCrafting var1, @Nonnull World var2) {
+        boolean foundManadrink = false;
+        boolean foundItem = false;
 
-		for(int i = 0; i < var1.getSizeInventory(); i++) {
-			ItemStack stack = var1.getStackInSlot(i);
-			if(!stack.isEmpty()) {
-				if(stack.getItem() == ModItems.manadrink && !foundManadrink)
-					foundManadrink = true;
-				else if(!foundItem) {
-					if(stack.getItem() instanceof ItemBrewFlask)
-						foundItem = true;
-					else return false;
-				}
-			}
-		}
+        for (int i = 0; i < var1.getSizeInventory(); i++) {
+            ItemStack stack = var1.getStackInSlot(i);
+            if (!stack.isEmpty()) {
+                if (stack.getItem() == ModItems.manadrink && !foundManadrink)
+                    foundManadrink = true;
+                else if (!foundItem) {
+                    if (stack.getItem() instanceof ItemBrewFlask)
+                        foundItem = true;
+                    else return false;
+                }
+            }
+        }
 
-		return foundManadrink && foundItem;
-	}
+        return foundManadrink && foundItem;
+    }
 
-	@Nonnull
-	@Override
-	public ItemStack getCraftingResult(@Nonnull InventoryCrafting var1) {
-		ItemStack item = ItemStack.EMPTY;
+    @Nonnull
+    @Override
+    public ItemStack getCraftingResult(@Nonnull InventoryCrafting var1) {
+        ItemStack item = ItemStack.EMPTY;
 
-		for(int i = 0; i < var1.getSizeInventory(); i++) {
-			ItemStack stack = var1.getStackInSlot(i);
-			if(!stack.isEmpty() && stack.getItem() instanceof ItemBrewFlask && item.isEmpty())
-				item = stack;
-		}
+        for (int i = 0; i < var1.getSizeInventory(); i++) {
+            ItemStack stack = var1.getStackInSlot(i);
+            if (!stack.isEmpty() && stack.getItem() instanceof ItemBrewFlask && item.isEmpty())
+                item = stack;
+        }
 
-		Brew brew = BotaniaAPI.getBrewFromKey(ItemNBTHelper.getString(item, "brewKey", ""));
-		ItemStack copy = new ItemStack(ModItems.cocktail);
-		ItemBrewBase bb = (ItemBrewBase) copy.getItem();
-		bb.setBrew(copy, brew.getKey());
-		return copy;
-	}
+        Brew brew = BotaniaAPI.getBrewFromKey(ItemNBTHelper.getString(item, "brewKey", ""));
+        ItemStack copy = new ItemStack(ModItems.cocktail);
+        ItemBrewBase bb = (ItemBrewBase) copy.getItem();
+        bb.setBrew(copy, brew.getKey());
+        return copy;
+    }
 
-	@Override
-	public boolean canFit(int width, int height) {
-		return width * height >= 2;
-	}
+    @Override
+    public boolean canFit(int width, int height) {
+        return width * height >= 2;
+    }
 
-	@Nonnull
-	@Override
-	public ItemStack getRecipeOutput() {
-		return ItemStack.EMPTY;
-	}
+    @Nonnull
+    @Override
+    public ItemStack getRecipeOutput() {
+        return ItemStack.EMPTY;
+    }
 }

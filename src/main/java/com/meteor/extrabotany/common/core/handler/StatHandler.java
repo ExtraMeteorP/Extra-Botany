@@ -20,6 +20,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class StatHandler {
@@ -61,6 +63,7 @@ public class StatHandler {
     };
 
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public static void playerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
         GameSettings gameSettings = mc.gameSettings;

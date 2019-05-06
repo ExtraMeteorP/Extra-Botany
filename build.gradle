@@ -15,9 +15,9 @@ ext {
     moddesc = "A Botania Addon adds some new flowers and miscs."
 }
 group = "com.meteor.extrabotany"
-version = "r1.1-55"
+version = "r1.1-57"
 
-archivesBaseName = modname + "-" + version
+archivesBaseName = modname
 
 sourceCompatibility = targetCompatibility = "1.8"
 compileJava {

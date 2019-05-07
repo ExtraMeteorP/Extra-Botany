@@ -1,5 +1,9 @@
 package com.meteor.extrabotany.common.entity;
 
+import com.gamerforea.eventhelper.util.EventUtils;
+import com.meteor.extrabotany.ExtraBotany;
+import com.meteor.extrabotany.ExtraBotanyCreativeTab;
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
@@ -69,6 +73,10 @@ public class EntitySubspace extends EntityThrowableCopy {
                     if (!(thrower instanceof EntityPlayer))
                         setDead();
                     EntityPlayer player = (EntityPlayer) getThrower();
+                    if(ExtraBotanyAPI.cantAttack(player, player)){
+                        setDead();
+                        return;
+                    }
                     EntityManaBurst burst = ItemExcaliber.getBurst(player, new ItemStack(ModItems.excaliber));
                     burst.setPosition(posX, posY, posZ);
                     burst.setColor(0XFFAF00);
@@ -97,6 +105,10 @@ public class EntitySubspace extends EntityThrowableCopy {
                     EntityVoidHerrscher herr = (EntityVoidHerrscher) getThrower();
                     if (herr.getPlayersAround().isEmpty())
                         setDead();
+                    if(ExtraBotanyAPI.cantAttack(thrower, herr.getPlayersAround().get(0))){
+                        setDead();
+                        return;
+                    }
                     EntityManaBurst burst = ItemExcaliber.getBurst(herr.getPlayersAround().get(0), new ItemStack(ModItems.excaliber));
                     burst.setPosition(posX, posY, posZ);
                     burst.setColor(0XFFD700);

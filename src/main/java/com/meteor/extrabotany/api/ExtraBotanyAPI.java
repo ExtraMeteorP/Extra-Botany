@@ -96,12 +96,15 @@ public class ExtraBotanyAPI {
         }
     }
 
+    public static boolean cantAttack(EntityLivingBase attacker, EntityLivingBase target) {
+        return ExtraBotany.isTableclothServer && attacker instanceof EntityPlayer && EventUtils.cantAttack((EntityPlayer) attacker, target);
+    }
+
     public static void dealBossDamage(EntityLivingBase entity, float amount) {
         if (entity instanceof EntityPlayer)
             PlayerStatHandler.setTrueDamageTaken((EntityPlayer) entity, Math.min(Integer.MAX_VALUE - 1, PlayerStatHandler.getTrueDamageTaken((EntityPlayer) entity) + amount));
         dealTrueDamage(null, entity, amount);
     }
-
 
     public static float dealTrueDamage(EntityLivingBase target, float amount) {
         return dealTrueDamage(null, target, amount);
@@ -114,7 +117,7 @@ public class ExtraBotanyAPI {
         if (!(target instanceof EntityLivingBase)) return result;
         if (!target.isEntityAlive()) return result;
         if (amount < 0) return result;
-        if (player != null && ExtraBotany.isTableclothServer && player instanceof EntityPlayer && EventUtils.cantAttack((EntityPlayer) player, target))
+        if (player != null && cantAttack(player, target))
             return result;
 
         target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), 0.01F);

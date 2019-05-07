@@ -1,7 +1,5 @@
 package com.meteor.extrabotany.common.entity;
 
-import com.gamerforea.eventhelper.util.EventUtils;
-import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IBossProjectile;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
@@ -85,7 +83,7 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
                 if (living == thrower)
                     continue;
 
-                if (ExtraBotany.isTableclothServer && EventUtils.cantAttack((EntityPlayer) thrower, living))
+                if (ExtraBotanyAPI.cantAttack(thrower, living))
                     continue;
 
                 if (living.hurtTime == 0) {

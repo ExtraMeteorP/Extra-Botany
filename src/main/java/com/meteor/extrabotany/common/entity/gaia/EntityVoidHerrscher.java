@@ -483,17 +483,17 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
         if (cd == 250 && skillType == 1)
             for (EntityPlayer player : getPlayersAround())
-                if (!world.isRemote)
+                if (world.isRemote)
                     player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing", I18n.format("entity.extrabotany:voidherrscher.name")).setStyle(new Style().setColor(TextFormatting.WHITE)));
 
         if (cd == 100 && skillType == 1)
             for (EntityPlayer player : getPlayersAround())
-                if (!world.isRemote)
+                if (world.isRemote)
                     player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning", I18n.format("entity.extrabotany:voidherrscher.name")).setStyle(new Style().setColor(TextFormatting.RED)));
 
         if (cd == 100 && skillType == 0)
             for (EntityPlayer player : getPlayersAround())
-                if (!world.isRemote)
+                if (world.isRemote)
                     player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2", I18n.format("entity.extrabotany:voidherrscher.name")).setStyle(new Style().setColor(TextFormatting.RED)));
 
         if (cd == 0 && !world.isRemote && skillType == 0 && !getPlayersAround().isEmpty()) {

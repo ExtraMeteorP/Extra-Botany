@@ -483,22 +483,23 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
         if (cd == 250 && skillType == 1)
             for (EntityPlayer player : getPlayersAround())
-                if (!world.isRemote)
+                if (world.isRemote)
                     player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing", I18n.format("entity.extrabotany:voidherrscher.name")).setStyle(new Style().setColor(TextFormatting.WHITE)));
 
         if (cd == 100 && skillType == 1)
             for (EntityPlayer player : getPlayersAround())
-                if (!world.isRemote)
+                if (world.isRemote)
                     player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning", I18n.format("entity.extrabotany:voidherrscher.name")).setStyle(new Style().setColor(TextFormatting.RED)));
 
         if (cd == 100 && skillType == 0)
             for (EntityPlayer player : getPlayersAround())
-                if (!world.isRemote)
+                if (world.isRemote)
                     player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2", I18n.format("entity.extrabotany:voidherrscher.name")).setStyle(new Style().setColor(TextFormatting.RED)));
 
-        if (cd == 0 && !world.isRemote && skillType == 0 && !getPlayersAround().isEmpty()) {
+        if (cd == 0 && skillType == 0 && !getPlayersAround().isEmpty()) {
             EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayersAround().size()));
-            player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", I18n.format("entity.extrabotany:voidherrscher.name")).setStyle(new Style().setColor(TextFormatting.RED)));
+            if (world.isRemote)
+                player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", I18n.format("entity.extrabotany:voidherrscher.name")).setStyle(new Style().setColor(TextFormatting.RED)));
             ExtraBotanyAPI.dealTrueDamage(player, player.getMaxHealth() * 0.20F + 6);
             spawnSubspaceLance(player.getPosition());
             cd = 290;

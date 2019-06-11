@@ -79,7 +79,7 @@ public class EntityFlyCutter extends EntityThrowable{
 			if(living == summoner)
 				continue;
 			attackedFrom(living, summoner, getDamage());
-			ExtraBotanyAPI.dealTrueDamage(living, 6F);
+			
 			setDead();
 		}
 		

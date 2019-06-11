@@ -124,7 +124,7 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 					if(this.ticksExisted % 8 == 0 && player.getHealth() > 12){
 						player.attackEntityFrom(DamageSource.GENERIC, 1);
 						player.attackEntityFrom(DamageSource.LIGHTNING_BOLT, 1);
-						ExtraBotanyAPI.dealTrueDamage(player, 0.3F);
+						ExtraBotanyAPI.dealTrueDamage(this.getThrower(), player, 0.3F);
 						player.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 100, 1));
 					}
 				}
@@ -160,7 +160,7 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 			EntityLivingBase target = (EntityLivingBase) entities.get(rand.nextInt(entities.size()));
 			if(!(target instanceof EntityVoidHerrscher)){
 				if(target.getHealth() > 15)
-					ExtraBotanyAPI.dealBossDamage(target, dmg + target.getMaxHealth() * 0.1F);
+					ExtraBotanyAPI.dealTrueDamage(this.getThrower(), target, dmg + target.getMaxHealth() * 0.1F);
 				target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 100, 1));
 			}
 

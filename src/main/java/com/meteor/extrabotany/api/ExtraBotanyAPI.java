@@ -103,36 +103,34 @@ public class ExtraBotanyAPI {
         return ExtraBotany.isTableclothServer && attacker instanceof EntityPlayer && EventUtils.cantAttack((EntityPlayer) attacker, target);
     }
 	
-	public static void dealBossDamage(EntityLivingBase entity, float amount){
-		dealTrueDamage(entity, amount);
-	}
-	
-	public static float dealTrueDamage(EntityLivingBase entity, float amount){
-		float result = 0;
+	public static float dealTrueDamage(EntityLivingBase player, EntityLivingBase target, float amount) {
+        float result = 0;
 
-        if(entity == null) return result;
-        if(!(entity instanceof EntityLivingBase)) return result;
-        if(!entity.isEntityAlive()) return result;
-        if(amount < 0) return result;
+        if (target == null) return result;
+        if (!(target instanceof EntityLivingBase)) return result;
+        if (!target.isEntityAlive()) return result;
+        if (amount < 0) return result;
+        if (player != null && cantAttack(player, target))
+            return result;
 
-        EntityLivingBase target = (EntityLivingBase)entity;
         target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), 0.01F);
-        float health = (target).getHealth();
-        if(target instanceof EntityPlayer)
-        	if(((EntityPlayer)target).isCreative())
-        		return result;
-        if(0 < health){
-            float postHealth = Math.max(1,health - amount);
+        float health = target.getHealth();
+        if (target instanceof EntityPlayer)
+            if (((EntityPlayer) target).isCreative())
+                return result;
+        if (health > 0) {
+            float postHealth = Math.max(1, health - amount);
             target.setHealth(postHealth);
-            if(health < amount){
-            	if(target instanceof EntityPlayer)
-            		target.onKillCommand();
-            	else target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), Integer.MAX_VALUE-1F);
+            if (health <= amount) {
+                if (target instanceof EntityPlayer)
+                    target.onKillCommand();
+                else
+                    target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), Integer.MAX_VALUE - 1F);
             }
             result = health - postHealth;
         }
         return result;
-	}
+    }
 	
 	public static void addPotionEffect(EntityLivingBase entity, Potion potion, int time, int max, boolean multi){
 		if(!entity.isPotionActive(potion))

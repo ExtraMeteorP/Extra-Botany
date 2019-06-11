@@ -74,7 +74,7 @@ public class ExtraBotany{
 
 	static {
 		try {
-			Class.forName("ckateptbcore.server.CKATEPTbServer");
+			Class.forName("com.gamerforea.eventhelper.EventHelperMod");
 			isTableclothServer = true;
 		} catch (ClassNotFoundException e) { }
 	}

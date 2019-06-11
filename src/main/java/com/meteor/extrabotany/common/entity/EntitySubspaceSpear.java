@@ -8,7 +8,6 @@ import com.gamerforea.eventhelper.util.EventUtils;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IBossProjectile;
-import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -85,10 +84,7 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 					continue;
 
 				if(living.hurtTime == 0) {
-					if(thrower instanceof EntityVoidHerrscher)
-						ExtraBotanyAPI.dealBossDamage(living, getDamage());
-					else
-						ExtraBotanyAPI.dealTrueDamage(living, getDamage() * 0.2F);
+					ExtraBotanyAPI.dealTrueDamage(this.getThrower(), living, getDamage() * 0.2F);
 					attackedFrom(living, player, (int) (getDamage() * 1.6F));
 				}
 				

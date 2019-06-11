@@ -30,7 +30,7 @@ public class ItemDeathRing extends ItemBauble{
 				if(living.isSpectatedByPlayer((EntityPlayerMP) entity) && living != entity && entity.getEntityWorld().getWorldTime() % 30 == 0 && ManaItemHandler.requestManaExact(stack, (EntityPlayer)entity, 50, true)){
 					living.addPotionEffect(new PotionEffect(MobEffects.WITHER, 60, 1));
 					living.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 60, 1));
-					ExtraBotanyAPI.dealTrueDamage(living, 0.5F);
+					ExtraBotanyAPI.dealTrueDamage(entity, living, 0.5F);
 				}
 			}
 		}

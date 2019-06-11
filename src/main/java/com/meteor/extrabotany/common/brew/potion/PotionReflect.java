@@ -27,7 +27,7 @@ public class PotionReflect extends PotionMod{
 			float dmg = event.getAmount() / Math.max(1, 6-level);
 			source.getImmediateSource().attackEntityFrom(DamageSource.CACTUS, dmg);
 			if(source.getImmediateSource() instanceof EntityLivingBase)
-				ExtraBotanyAPI.dealTrueDamage((EntityLivingBase) source.getImmediateSource(), level/4);
+				ExtraBotanyAPI.dealTrueDamage(attacked, (EntityLivingBase) source.getImmediateSource(), level/4);
 		}
 	}
 

@@ -92,7 +92,7 @@ public class EntityJudahOath extends EntityThrowableCopy{
 				this.range += 0.5F;
 			
 			if(this.ticksExisted % 4 == 0 && this.fakecount < 13){
-				EntityJudahSpear spear = new EntityJudahSpear(this.world);
+				EntityJudahSpear spear = new EntityJudahSpear(player, this.world);
 				spear.setUUID(getUniqueID());
 				spear.setRotation(180F);
 				spear.setPosition(this.posX, this.posY, this.posZ);

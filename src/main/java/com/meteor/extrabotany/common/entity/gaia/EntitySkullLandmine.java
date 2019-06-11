@@ -77,7 +77,7 @@ public class EntitySkullLandmine extends Entity{
 					for(int i = 0; i < 3; i++)
 						ExtraBotanyAPI.addPotionEffect(player, ModPotions.witchcurse, 20);
 					if(getType() == 1){
-						ExtraBotanyAPI.dealBossDamage(player, (player.getMaxHealth() * 0.35F + 8) * amplifier);
+						ExtraBotanyAPI.dealTrueDamage(this.summoner, player, (player.getMaxHealth() * 0.35F + 8) * amplifier);
 						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.LANDMINE_ACTIVE);
 					}
 					if(getType() == 2 && ConfigHandler.GAIA_DISARM)

@@ -17,7 +17,6 @@ import com.google.common.base.Optional;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
-import com.meteor.extrabotany.common.core.handler.PlayerStatHandler;
 import com.meteor.extrabotany.common.core.handler.StatHandler;
 import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
@@ -179,7 +178,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			spawnMinion();
 			spawnDivineJudge();
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.minionSpawn").setStyle(new Style().setColor(TextFormatting.WHITE)));
 		}
 		if(!getRankIII() && (getHealth() <= getMaxHealth() * 0.4F || getHardcore() && getHealth() <= getMaxHealth() * 0.6F)){
@@ -188,7 +187,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			spawnMinion();
 			spawnDivineJudge();
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.minionSpawn").setStyle(new Style().setColor(TextFormatting.WHITE)));
 		}
 
@@ -280,24 +279,25 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 		if(cd == 250 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing", "Boss").setStyle(new Style().setColor(TextFormatting.WHITE)));
 
 		if(cd == 100 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
 		
 		if(cd == 100 && skillType == 0)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
 		
-		if(cd == 0 && !world.isRemote && skillType == 0 && !getPlayersAround().isEmpty()){
+		if(cd == 0 && skillType == 0 && !getPlayersAround().isEmpty()){
 			EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayersAround().size()));
 			float amplifier = StatHandler.hasStat(player, LibAdvancements.GAIA_DEFEAT) ? 1.0F : 0.7F;
-			player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
-			ExtraBotanyAPI.dealTrueDamage(player, (player.getMaxHealth() * 0.20F + 6) * amplifier);
+			if(world.isRemote)
+				player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
+			ExtraBotanyAPI.dealTrueDamage(this, player, (player.getMaxHealth() * 0.20F + 6) * amplifier);
 			cd = 380;
 			skillType = getRankIII() ? 1 : world.rand.nextInt(2);
 		}
@@ -447,7 +447,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		
 		//check difficulty
 		if(world.getDifficulty() == EnumDifficulty.PEACEFUL) {
-			if(!world.isRemote)
+			if(world.isRemote)
 				player.sendMessage(new TextComponentTranslation("botaniamisc.peacefulNoob").setStyle(new Style().setColor(TextFormatting.RED)));
 			return false;
 		}
@@ -458,7 +458,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 			IBlockState state = world.getBlockState(pos_);
 			if(state.getBlock() != ModBlocks.pylon || state.getValue(BotaniaStateProps.PYLON_VARIANT) != PylonVariant.GAIA) {
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("botaniamisc.needsCatalysts").setStyle(new Style().setColor(TextFormatting.RED)));
 				return false;
 			}

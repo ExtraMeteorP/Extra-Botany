@@ -23,7 +23,7 @@ public class PotionConstantPain extends PotionMod{
 	public void onTakenDamage(LivingHurtEvent event) {
 		if(event.getEntityLiving().isPotionActive(ModPotions.constantpain)){
 			int level = event.getEntityLiving().getActivePotionEffect(ModPotions.constantpain).getAmplifier();
-			ExtraBotanyAPI.dealTrueDamage(event.getEntityLiving(), level);
+			ExtraBotanyAPI.dealTrueDamage(event.getEntityLiving(), event.getEntityLiving(), level);
 		}
 	}
 	

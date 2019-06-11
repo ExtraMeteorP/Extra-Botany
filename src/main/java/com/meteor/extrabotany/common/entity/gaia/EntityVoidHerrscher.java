@@ -20,9 +20,6 @@ import com.meteor.extrabotany.api.entity.IEntityWithShield;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.ModSounds;
 import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
-import com.meteor.extrabotany.common.core.handler.PlayerStatHandler;
-import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
-import com.meteor.extrabotany.common.core.network.PacketMessage;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.ModItems;
@@ -39,7 +36,6 @@ import net.minecraft.client.audio.MovingSound;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.IProjectile;
@@ -367,23 +363,24 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
 		if(cd == 250 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing", "Boss").setStyle(new Style().setColor(TextFormatting.WHITE)));
 		
 		if(cd == 100 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
 		
 		if(cd == 100 && skillType == 0)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
 		
-		if(cd == 0 && !world.isRemote && skillType == 0 && !getPlayersAround().isEmpty()){
+		if(cd == 0 && skillType == 0 && !getPlayersAround().isEmpty()){
 			EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayersAround().size()));
-			player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
-			ExtraBotanyAPI.dealTrueDamage(player, player.getMaxHealth() * 0.20F + 6);
+			if(world.isRemote)
+				player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
+			ExtraBotanyAPI.dealTrueDamage(this, player, player.getMaxHealth() * 0.20F + 6);
 			spawnSubspaceLance(player.getPosition());
 			cd = 290;
 			skillType = getRankIII() ? 1 : world.rand.nextInt(2);
@@ -612,7 +609,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 		
 		//check difficulty
 		if(world.getDifficulty() == EnumDifficulty.PEACEFUL) {
-			if(!world.isRemote)
+			if(world.isRemote)
 				player.sendMessage(new TextComponentTranslation("botaniamisc.peacefulNoob").setStyle(new Style().setColor(TextFormatting.RED)));
 			return false;
 		}
@@ -623,7 +620,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
 			IBlockState state = world.getBlockState(pos_);
 			if(state.getBlock() != ModBlocks.pylon || state.getValue(BotaniaStateProps.PYLON_VARIANT) != PylonVariant.GAIA) {
-				if(!world.isRemote)
+				if(world.isRemote)
 					player.sendMessage(new TextComponentTranslation("botaniamisc.needsCatalysts").setStyle(new Style().setColor(TextFormatting.RED)));
 				return false;
 			}

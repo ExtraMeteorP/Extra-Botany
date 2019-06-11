@@ -287,7 +287,7 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 				if(burst.getColor() == 0XFFD700 && living instanceof EntityVoidHerrscher)
 					continue;
 				if(entity.ticksExisted % 3 == 0)
-					ExtraBotanyAPI.dealTrueDamage(living, burst.getColor() == 0XFFD700 ? 1.8F : 2.2F);
+					ExtraBotanyAPI.dealTrueDamage(living, living, burst.getColor() == 0XFFD700 ? 1.8F : 2.2F);
 				if(living.hurtTime == 0)
 					living.attackEntityFrom(ItemRelic.damageSource(), burst.getColor() == 0XFFD700 ? 7F : 8F);
 			}
@@ -332,7 +332,7 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 					if(!burst.isFake() && !entity.world.isRemote) {
 						EntityPlayer player = living.world.getPlayerEntityByName(attacker);
 						living.attackEntityFrom(player == null ? ItemRelic.damageSource() : DamageSource.causePlayerDamage(player), damage);
-						ExtraBotanyAPI.dealTrueDamage(living, 3F);
+						ExtraBotanyAPI.dealTrueDamage(player, living, 3F);
 						entity.setDead();
 						break;
 					}

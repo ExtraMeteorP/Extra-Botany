@@ -1,7 +1,18 @@
 package com.meteor.extrabotany.common.item.relic;
 
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import com.google.common.collect.Multimap;
+import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemManasteelShield;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -10,10 +21,13 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Enchantments;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -29,43 +43,48 @@ import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-import javax.annotation.Nonnull;
-import java.util.List;
-import java.util.UUID;
+public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IPixieSpawner, IAdvancementReward{
+	
+	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
 
-public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IPixieSpawner {
-
-    private static final String TAG_SOULBIND_UUID = "soulbindUUID";
-
-    public ItemAchilleshield() {
-        super(BotaniaAPI.terrasteelToolMaterial, LibItemsName.ACHILLESHIELD);
+	public ItemAchilleshield() {
+		super(BotaniaAPI.terrasteelToolMaterial, LibItemsName.ACHILLESHIELD);
+	}
+	
+	@Override
+	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
+		Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
+		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
+		if (slot == slot.MAINHAND) {
+			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Weapon modifier", 6, 0));
+			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", -2.6, 0));
+		}
+		return attrib;
+	}
+	
+	@Override
+    @Nullable
+    public Entity createEntity(World world, Entity location, ItemStack itemstack){
+        return new EntityItemUnbreakable(world, location.posX, location.posY, location.posZ, itemstack);
     }
-
-    private static void addStringToTooltip(String s, List<String> tooltip) {
-        tooltip.add(s.replaceAll("&", "\u00a7"));
-    }
-
-    public static DamageSource damageSource() {
-        return new DamageSource("botania-relic");
-    }
-
-    public void onEnemyRammed(ItemStack stack, EntityLivingBase user, EntityLivingBase enemy, Vec3d rammingDir) {
-        int knockback = EnchantmentHelper.getEnchantmentLevel(Enchantments.KNOCKBACK, stack);
-        int power = EnchantmentHelper.getEnchantmentLevel(Enchantments.SHARPNESS, stack);
-        enemy.knockBack(user, 1.5F * (1 + knockback), -rammingDir.x, -rammingDir.z);
-        if (user instanceof EntityPlayer) {
-            enemy.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) user), 13.0F + 1.5F * power);
-        } else {
-            enemy.attackEntityFrom(DamageSource.causeMobDamage(user), 13.0F + 1.5F * power);
-        }
-    }
-
-    @Override
-    public void onAttackBlocked(ItemStack stack, EntityLivingBase attacked, float damage, DamageSource source) {
-        if (source.getImmediateSource() != null) {
-            if (attacked instanceof EntityPlayer) {
-                EntityPlayer player = (EntityPlayer) attacked;
-                source.getImmediateSource().attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
+	
+	public void onEnemyRammed(ItemStack stack, EntityLivingBase user, EntityLivingBase enemy, Vec3d rammingDir) {
+		int knockback = EnchantmentHelper.getEnchantmentLevel(Enchantments.KNOCKBACK, stack);
+		int power = EnchantmentHelper.getEnchantmentLevel(Enchantments.SHARPNESS, stack);
+		enemy.knockBack(user, 1.5F * (1 + knockback), -rammingDir.x, -rammingDir.z);
+		if(user instanceof EntityPlayer) {
+			enemy.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer)user), 13.0F + 1.5F * power);
+		} else {
+			enemy.attackEntityFrom(DamageSource.causeMobDamage(user), 13.0F + 1.5F * power);
+		}
+	}
+	
+	@Override
+	public void onAttackBlocked(ItemStack stack, EntityLivingBase attacked, float damage, DamageSource source) {
+		if(source.getImmediateSource() != null) {
+			if(attacked instanceof EntityPlayer) {
+				EntityPlayer player = (EntityPlayer) attacked;
+				source.getImmediateSource().attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
 				/*
 				EntityPixie pixie = new EntityPixie(player.world);
 				pixie.setPosition(player.posX, player.posY + 2, player.posZ);
@@ -76,143 +95,155 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 				pixie.setProps((EntityLivingBase) source.getImmediateSource(), player, 0, dmg);
 				pixie.onInitialSpawn(player.world.getDifficultyForLocation(new BlockPos(pixie)), null);
 				player.world.spawnEntity(pixie);
-
+				
 				 */
 
-            } else {
-                source.getImmediateSource().attackEntityFrom(DamageSource.causeMobDamage(attacked), damage);
-            }
+			} else {
+				source.getImmediateSource().attackEntityFrom(DamageSource.causeMobDamage(attacked), damage);
+			}
+		
+		}
 
-        }
+		if(source instanceof EntityDamageSourceIndirect) {
+			EntityDamageSourceIndirect indirectSource = (EntityDamageSourceIndirect) source;
+			if(indirectSource.getImmediateSource() != null && indirectSource.getTrueSource() != null && indirectSource.getImmediateSource() instanceof IProjectile) {
+				Vec3d dir = indirectSource.getImmediateSource().getPositionEyes(1).subtract(indirectSource.getTrueSource().getPositionEyes(1)).normalize();
+				((IProjectile)indirectSource.getImmediateSource()).shoot(dir.x, dir.y, dir.z, 15, 2);
+				if(indirectSource.getImmediateSource() instanceof EntityArrow) {
+					((EntityArrow)indirectSource.getImmediateSource()).shootingEntity = attacked;
+				}
+			}
+		}
+		super.onAttackBlocked(stack, attacked, damage, source);
+	}
+	
+	@Override
+	public int getRepairSpeed(){
+		return 5;
+	}
+	
+	@Override
+	public float getAttackerKnockbackMultiplier(ItemStack stack, EntityLivingBase attacked, float damage, DamageSource source) {
+		return 1.5F;
+	}
+	
+	@Override
+	public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
+		super.onUsingTick(stack, player, count);
+		if((player.motionX > 0 || player.motionZ > 0) && player.isHandActive()){
+			Vec3d moveDir = new Vec3d(player.motionX, player.motionY, player.motionZ).normalize();
+			List<EntityLivingBase> targets = player.world.getEntitiesWithinAABB(EntityLivingBase.class, player.getEntityBoundingBox().grow(1), e -> e != player);
+			for(EntityLivingBase target : targets) {
+				this.onEnemyRammed(stack, player, target, moveDir);
+			}
+		}
+	}
 
-        if (source instanceof EntityDamageSourceIndirect) {
-            EntityDamageSourceIndirect indirectSource = (EntityDamageSourceIndirect) source;
-            if (indirectSource.getImmediateSource() != null && indirectSource.getTrueSource() != null && indirectSource.getImmediateSource() instanceof IProjectile) {
-                Vec3d dir = indirectSource.getImmediateSource().getPositionEyes(1).subtract(indirectSource.getTrueSource().getPositionEyes(1)).normalize();
-                ((IProjectile) indirectSource.getImmediateSource()).shoot(dir.x, dir.y, dir.z, 15, 2);
-                if (indirectSource.getImmediateSource() instanceof EntityArrow) {
-                    ((EntityArrow) indirectSource.getImmediateSource()).shootingEntity = attacked;
-                }
-            }
-        }
-        super.onAttackBlocked(stack, attacked, damage, source);
-    }
+	@Override
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+		super.onUpdate(stack, world, entity, slot, selected);
+		if(!world.isRemote && entity instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer) entity;
+			updateRelic(stack, player);
+		}
+	}
 
-    @Override
-    public int getRepairSpeed() {
-        return 5;
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flags) {
+		addBindInfo(tooltip, stack);
+	}
 
-    @Override
-    public float getAttackerKnockbackMultiplier(ItemStack stack, EntityLivingBase attacked, float damage, DamageSource source) {
-        return 1.5F;
-    }
+	@SideOnly(Side.CLIENT)
+	public void addBindInfo(List<String> list, ItemStack stack) {
+		if(GuiScreen.isShiftKeyDown()) {
+			if(!hasUUID(stack)) {
+				addStringToTooltip(I18n.format("botaniamisc.relicUnbound"), list);
+			} else {
+				if(!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
+					addStringToTooltip(I18n.format("botaniamisc.notYourSagittarius"), list);
+				else addStringToTooltip(I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()), list);
+			}
 
-    @Override
-    public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
-        super.onUsingTick(stack, player, count);
-        if ((player.motionX > 0 || player.motionZ > 0) && player.isHandActive()) {
-            Vec3d moveDir = new Vec3d(player.motionX, player.motionY, player.motionZ).normalize();
-            List<EntityLivingBase> targets = player.world.getEntitiesWithinAABB(EntityLivingBase.class, player.getEntityBoundingBox().grow(1), e -> e != player);
-            for (EntityLivingBase target : targets) {
-                this.onEnemyRammed(stack, player, target, moveDir);
-            }
-        }
-    }
+		} else addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
+	}
 
-    @Override
-    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        super.onUpdate(stack, world, entity, slot, selected);
-        if (!world.isRemote && entity instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entity;
-            updateRelic(stack, player);
-        }
-    }
+	public boolean shouldDamageWrongPlayer() {
+		return true;
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flags) {
-        addBindInfo(tooltip, stack);
-    }
+	@Override
+	public int getEntityLifespan(ItemStack itemStack, World world) {
+		return Integer.MAX_VALUE;
+	}
 
-    @SideOnly(Side.CLIENT)
-    public void addBindInfo(List<String> list, ItemStack stack) {
-        if (GuiScreen.isShiftKeyDown()) {
-            if (!hasUUID(stack)) {
-                addStringToTooltip(I18n.format("botaniamisc.relicUnbound"), list);
-            } else {
-                if (!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
-                    addStringToTooltip(I18n.format("botaniamisc.notYourSagittarius"), list);
-                else
-                    addStringToTooltip(I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()), list);
-            }
+	private static void addStringToTooltip(String s, List<String> tooltip) {
+		tooltip.add(s.replaceAll("&", "\u00a7"));
+	}
 
-        } else addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
-    }
+	public void updateRelic(ItemStack stack, EntityPlayer player) {
+		if(stack.isEmpty() || !(stack.getItem() instanceof IRelic))
+			return;
 
-    public boolean shouldDamageWrongPlayer() {
-        return true;
-    }
+		boolean rightPlayer = true;
 
-    @Override
-    public int getEntityLifespan(ItemStack itemStack, World world) {
-        return Integer.MAX_VALUE;
-    }
+		if(!hasUUID(stack)) {
+			bindToUUID(player.getUniqueID(), stack);
+			if(player instanceof EntityPlayerMP)
+				RelicBindTrigger.INSTANCE.trigger((EntityPlayerMP) player, stack);
+		} else if (!getSoulbindUUID(stack).equals(player.getUniqueID())) {
+			rightPlayer = false;
+		}
 
-    public void updateRelic(ItemStack stack, EntityPlayer player) {
-        if (stack.isEmpty() || !(stack.getItem() instanceof IRelic))
-            return;
+		if(!rightPlayer && player.ticksExisted % 10 == 0 && (!(stack.getItem() instanceof ItemRelic) || ((ItemRelic) stack.getItem()).shouldDamageWrongPlayer()))
+			player.attackEntityFrom(damageSource(), 2);
+	}
 
-        boolean rightPlayer = true;
+	public boolean isRightPlayer(EntityPlayer player, ItemStack stack) {
+		return hasUUID(stack) && getSoulbindUUID(stack).equals(player.getUniqueID());
+	}
 
-        if (!hasUUID(stack)) {
-            bindToUUID(player.getUniqueID(), stack);
-            if (player instanceof EntityPlayerMP)
-                RelicBindTrigger.INSTANCE.trigger((EntityPlayerMP) player, stack);
-        } else if (!getSoulbindUUID(stack).equals(player.getUniqueID())) {
-            rightPlayer = false;
-        }
+	public static DamageSource damageSource() {
+		return new DamageSource("botania-relic");
+	}
 
-        if (!rightPlayer && player.ticksExisted % 10 == 0 && (!(stack.getItem() instanceof ItemRelic) || ((ItemRelic) stack.getItem()).shouldDamageWrongPlayer()))
-            player.attackEntityFrom(damageSource(), 2);
-    }
+	@Override
+	public void bindToUUID(UUID uuid, ItemStack stack) {
+		ItemNBTHelper.setString(stack, TAG_SOULBIND_UUID, uuid.toString());
+	}
 
-    public boolean isRightPlayer(EntityPlayer player, ItemStack stack) {
-        return hasUUID(stack) && getSoulbindUUID(stack).equals(player.getUniqueID());
-    }
+	@Override
+	public UUID getSoulbindUUID(ItemStack stack) {
+		if(ItemNBTHelper.verifyExistance(stack, TAG_SOULBIND_UUID)) {
+			try {
+				return UUID.fromString(ItemNBTHelper.getString(stack, TAG_SOULBIND_UUID, ""));
+			} catch (IllegalArgumentException ex) { // Bad UUID in tag
+				ItemNBTHelper.removeEntry(stack, TAG_SOULBIND_UUID);
+			}
+		}
 
-    @Override
-    public void bindToUUID(UUID uuid, ItemStack stack) {
-        ItemNBTHelper.setString(stack, TAG_SOULBIND_UUID, uuid.toString());
-    }
+		return null;
+	}
 
-    @Override
-    public UUID getSoulbindUUID(ItemStack stack) {
-        if (ItemNBTHelper.verifyExistance(stack, TAG_SOULBIND_UUID)) {
-            try {
-                return UUID.fromString(ItemNBTHelper.getString(stack, TAG_SOULBIND_UUID, ""));
-            } catch (IllegalArgumentException ex) { // Bad UUID in tag
-                ItemNBTHelper.removeEntry(stack, TAG_SOULBIND_UUID);
-            }
-        }
+	@Override
+	public boolean hasUUID(ItemStack stack) {
+		return getSoulbindUUID(stack) != null;
+	}
 
-        return null;
-    }
+	@Nonnull
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+		return BotaniaAPI.rarityRelic;
+	}
 
-    @Override
-    public boolean hasUUID(ItemStack stack) {
-        return getSoulbindUUID(stack) != null;
-    }
+	@Override
+	public float getPixieChance(ItemStack arg0) {
+		return 1F;
+	}
 
-    @Nonnull
-    @Override
-    public EnumRarity getRarity(ItemStack stack) {
-        return BotaniaAPI.rarityRelic;
-    }
-
-    @Override
-    public float getPixieChance(ItemStack arg0) {
-        return 1F;
-    }
+	@Override
+	public String getAdvancementName(ItemStack stack) {
+		return LibAdvancements.GAIA_DEFEAT;
+	}
 
 }

@@ -1,23 +1,23 @@
 package com.meteor.extrabotany.client.model;
 
+import javax.annotation.Nonnull;
+
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import vazkii.botania.client.model.armor.ModelArmor;
 
-import javax.annotation.Nonnull;
-
-public class ModelArmorGoblinSlayer extends ModelArmor {
-
-    private final ModelRenderer helmAnchor;
-    private final ModelRenderer bodyAnchor;
-    private final ModelRenderer body;
-    private final ModelRenderer armLAnchor;
+public class ModelArmorGoblinSlayer extends ModelArmor{
+	
+	private final ModelRenderer helmAnchor;  
+	private final ModelRenderer bodyAnchor;
+	private final ModelRenderer body;	
+	private final ModelRenderer armLAnchor;
     private final ModelRenderer armRAnchor;
-    private final ModelRenderer pantsAnchor;
+	private final ModelRenderer pantsAnchor;
     private final ModelRenderer legL;
-    private final ModelRenderer legR;
-
+    private final ModelRenderer legR; 
+    
     ModelRenderer head;
     ModelRenderer rightarm;
     ModelRenderer leftarm;
@@ -76,39 +76,39 @@ public class ModelArmorGoblinSlayer extends ModelArmor {
     ModelRenderer LR2;
     ModelRenderer LR3;
 
-    public ModelArmorGoblinSlayer(EntityEquipmentSlot slot) {
-        super(slot);
-
-        this.textureWidth = 128;
+	public ModelArmorGoblinSlayer(EntityEquipmentSlot slot) {
+		super(slot);
+		
+		this.textureWidth = 128;
         this.textureHeight = 128;
-        float s = 0.01F;
-
-        //helm
+		float s = 0.01F;
+		
+		//helm
         this.helmAnchor = new ModelRenderer(this, 0, 0);
         this.helmAnchor.setRotationPoint(0.0F, 0.0F, 0.0F);
         this.helmAnchor.addBox(-1.0F, -2.0F, 0.0F, 2, 2, 2, s);
-
+        
         //body
         this.bodyAnchor = new ModelRenderer(this, 0, 0);
         this.bodyAnchor.setRotationPoint(0.0F, 0.0F, 0.0F);
         this.bodyAnchor.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, s);
-
-        //armL
+                
+     	//armL
         this.armLAnchor = new ModelRenderer(this, 0, 0);
         this.armLAnchor.mirror = true;
         this.armLAnchor.setRotationPoint(4.0F, 2.0F, 0.0F);
         this.armLAnchor.addBox(0.0F, -1.0F, -1.0F, 2, 2, 2, s);
-
+        
         //armR
         this.armRAnchor = new ModelRenderer(this, 0, 0);
         this.armRAnchor.mirror = true;
         this.armRAnchor.setRotationPoint(-4.0F, 2.0F, 0.0F);
         this.armRAnchor.addBox(-2.0F, -1.0F, -1.0F, 2, 2, 2, s);
-
+        
         //pants
         this.pantsAnchor = new ModelRenderer(this, 0, 0);
         this.pantsAnchor.setRotationPoint(0.0F, 0.0F, 0.0F);
-        this.pantsAnchor.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, s);
+        this.pantsAnchor.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, s);           
         this.legR = new ModelRenderer(this, 0, 16);
         this.legR.addBox(-2F, 0F, -2F, 4, 12, 4, s);
         this.legR.setRotationPoint(-2F, 12F, 0F);
@@ -121,39 +121,39 @@ public class ModelArmorGoblinSlayer extends ModelArmor {
         this.legL.setTextureSize(64, 32);
         this.legL.mirror = true;
         this.setRotateAngle(legL, 0F, 0F, 0F);
-
+        
         head = new ModelRenderer(this, 0, 50);
-        head.addBox(-4F, -8F, -4F, 8, 8, 8, s);
+        head.addBox(-4F, -8F, -4F, 8, 8, 8,s);
         head.setRotationPoint(0F, 0F, 0F);
         head.setTextureSize(64, 32);
         head.mirror = true;
-        setRotateAngle(head, 0F, 0F, 0F);
+        setRotateAngle(head, 0F, 0F, 0F);     
         body = new ModelRenderer(this, 16, 66);
-        body.addBox(-4F, 0F, -2F, 8, 12, 4, s);
+        body.addBox(-4F, 0F, -2F, 8, 12, 4,s);
         body.setRotationPoint(0F, 0F, 0F);
         body.setTextureSize(64, 32);
         body.mirror = true;
         setRotateAngle(body, 0F, 0F, 0F);
         rightarm = new ModelRenderer(this, 40, 66);
-        rightarm.addBox(-3F, -2F, -2F, 4, 12, 4, s);
+        rightarm.addBox(-3F, -2F, -2F, 4, 12, 4,s);
         rightarm.setRotationPoint(0F, 0F, 0F);
         rightarm.setTextureSize(64, 32);
         rightarm.mirror = true;
         setRotateAngle(rightarm, 0F, 0F, 0F);
         leftarm = new ModelRenderer(this, 40, 66);
-        leftarm.addBox(-1F, -2F, -2F, 4, 12, 4, s);
+        leftarm.addBox(-1F, -2F, -2F, 4, 12, 4,s);
         leftarm.setRotationPoint(0F, 0F, 0F);
         leftarm.setTextureSize(64, 32);
         leftarm.mirror = true;
         setRotateAngle(leftarm, 0F, 0F, 0F);
         rightleg = new ModelRenderer(this, 0, 66);
-        rightleg.addBox(-2F, 0F, -2F, 4, 12, 4, s);
+        rightleg.addBox(-2F, 0F, -2F, 4, 12, 4,s);
         rightleg.setRotationPoint(0F, 0F, 0F);
         rightleg.setTextureSize(64, 32);
         rightleg.mirror = true;
         setRotateAngle(rightleg, 0F, 0F, 0F);
         leftleg = new ModelRenderer(this, 0, 66);
-        leftleg.addBox(-2F, 0F, -2F, 4, 12, 4, s);
+        leftleg.addBox(-2F, 0F, -2F, 4, 12, 4,s);
         leftleg.setRotationPoint(0F, 0F, 0F);
         leftleg.setTextureSize(64, 32);
         leftleg.mirror = true;
@@ -315,25 +315,25 @@ public class ModelArmorGoblinSlayer extends ModelArmor {
         BodyBigPack.mirror = true;
         setRotateAngle(BodyBigPack, -0.1745329F, -0.0174533F, 0F);
         BBB = new ModelRenderer(this, 0, 0);
-        BBB.addBox(0F, 0F, 0F, 6, 3, 1, s);
+        BBB.addBox(0F, 0F, 0F, 6, 3, 1,s);
         BBB.setRotationPoint(-3F, 10.5F, 1.6F);
         BBB.setTextureSize(64, 32);
         BBB.mirror = true;
         setRotateAngle(BBB, 0.122173F, 0F, 0F);
         BDT = new ModelRenderer(this, 0, 0);
-        BDT.addBox(0F, 0F, 0F, 9, 1, 5, s);
+        BDT.addBox(0F, 0F, 0F, 9, 1, 5,s);
         BDT.setRotationPoint(-4.5F, 10.6F, -2.4F);
         BDT.setTextureSize(64, 32);
         BDT.mirror = true;
         setRotateAngle(BDT, 0F, 0F, 0F);
         BT3 = new ModelRenderer(this, 0, 0);
-        BT3.addBox(-1F, 0F, 0F, 1, 1, 5, s);
+        BT3.addBox(-1F, 0F, 0F, 1, 1, 5,s);
         BT3.setRotationPoint(4.1F, 2F, -2.5F);
         BT3.setTextureSize(64, 32);
         BT3.mirror = true;
         setRotateAngle(BT3, 0F, 0F, -0.3490659F);
         BT2 = new ModelRenderer(this, 0, 0);
-        BT2.addBox(0F, 0F, 0F, 1, 1, 5, s);
+        BT2.addBox(0F, 0F, 0F, 1, 1, 5,s);
         BT2.setRotationPoint(-4.1F, 7F, -2.5F);
         BT2.setTextureSize(64, 32);
         BT2.mirror = true;
@@ -351,13 +351,13 @@ public class ModelArmorGoblinSlayer extends ModelArmor {
         BFront4.mirror = true;
         setRotateAngle(BFront4, 0.0174533F, 0F, 0.7853982F);
         BFront3 = new ModelRenderer(this, 0, 0);
-        BFront3.addBox(0F, 0F, 0F, 5, 5, 1, s);
+        BFront3.addBox(0F, 0F, 0F, 5, 5, 1,s);
         BFront3.setRotationPoint(0F, 1.7F, -2.5F);
         BFront3.setTextureSize(64, 32);
         BFront3.mirror = true;
         setRotateAngle(BFront3, -0.0872665F, 0.0872665F, 0.7853982F);
         BFront2 = new ModelRenderer(this, 0, 0);
-        BFront2.addBox(-4F, 0F, 0F, 4, 3, 1, s);
+        BFront2.addBox(-4F, 0F, 0F, 4, 3, 1,s);
         BFront2.setRotationPoint(-1F, 1F, -2.5F);
         BFront2.setTextureSize(64, 32);
         BFront2.mirror = true;
@@ -423,54 +423,54 @@ public class ModelArmorGoblinSlayer extends ModelArmor {
         ARightT2.mirror = true;
         setRotateAngle(ARightT2, 0F, 0F, 0F);
         LL1 = new ModelRenderer(this, 0, 0);
-        LL1.addBox(0F, 0F, 0F, 4, 3, 2, s);
+        LL1.addBox(0F, 0F, 0F, 4, 3, 2,s);
         LL1.setRotationPoint(-1.7F, 0.3F, -2.5F);
         LL1.setTextureSize(64, 32);
         LL1.mirror = true;
         setRotateAngle(LL1, 0F, 0.0174533F, 0F);
         LLT = new ModelRenderer(this, 0, 0);
-        LLT.addBox(0F, 0F, 0F, 5, 1, 5, s);
+        LLT.addBox(0F, 0F, 0F, 5, 1, 5,s);
         LLT.setRotationPoint(-2.5F, 4.5F, -2.4F);
         LLT.setTextureSize(64, 32);
         LLT.mirror = true;
         setRotateAngle(LLT, 0F, -0.0174533F, 0F);
         LL2 = new ModelRenderer(this, 0, 0);
-        LL2.addBox(-4F, 0F, 0F, 3, 2, 1, s);
+        LL2.addBox(-4F, 0F, 0F, 3, 2, 1,s);
         LL2.setRotationPoint(2.5F, 4F, -2.5F);
         LL2.setTextureSize(64, 32);
         LL2.mirror = true;
         setRotateAngle(LL2, 0F, -0.0174533F, 0F);
         LL3 = new ModelRenderer(this, 0, 0);
-        LL3.addBox(-4F, 0F, 0F, 4, 4, 5, s);
+        LL3.addBox(-4F, 0F, 0F, 4, 4, 5,s);
         LL3.setRotationPoint(2.3F, 6.5F, -2.5F);
         LL3.setTextureSize(64, 32);
         LL3.mirror = true;
         setRotateAngle(LL3, 0F, 0F, 0F);
         LR1 = new ModelRenderer(this, 0, 0);
-        LR1.addBox(-4F, 0F, 0F, 4, 3, 2, s);
+        LR1.addBox(-4F, 0F, 0F, 4, 3, 2,s);
         LR1.setRotationPoint(1.7F, 0.3F, -2.5F);
         LR1.setTextureSize(64, 32);
         LR1.mirror = true;
         setRotateAngle(LR1, 0F, 0F, 0F);
         LRT = new ModelRenderer(this, 0, 0);
-        LRT.addBox(0F, 0F, 0F, 5, 1, 5, s);
+        LRT.addBox(0F, 0F, 0F, 5, 1, 5,s);
         LRT.setRotationPoint(-2.5F, 4.5F, -2.4F);
         LRT.setTextureSize(64, 32);
         LRT.mirror = true;
         setRotateAngle(LRT, 0F, 0F, 0F);
         LR2 = new ModelRenderer(this, 0, 0);
-        LR2.addBox(-4F, 0F, 0F, 3, 2, 1, s);
+        LR2.addBox(-4F, 0F, 0F, 3, 2, 1,s);
         LR2.setRotationPoint(2.5F, 4F, -2.5F);
         LR2.setTextureSize(64, 32);
         LR2.mirror = true;
         setRotateAngle(LR2, 0F, 0.0174533F, 0F);
         LR3 = new ModelRenderer(this, 0, 0);
-        LR3.addBox(-4F, 0F, 0F, 4, 4, 5, s);
+        LR3.addBox(-4F, 0F, 0F, 4, 4, 5,s);
         LR3.setRotationPoint(1.7F, 6.5F, -2.5F);
         LR3.setTextureSize(64, 32);
         LR3.mirror = true;
         setRotateAngle(LR3, 0F, 0F, 0F);
-
+        
         this.helmAnchor.addChild(this.FBack);
         this.helmAnchor.addChild(this.FFace1);
         this.helmAnchor.addChild(this.FFace2);
@@ -493,7 +493,7 @@ public class ModelArmorGoblinSlayer extends ModelArmor {
         this.helmAnchor.addChild(this.FtopF);
         this.helmAnchor.addChild(this.head);
         this.head.addChild(this.FTop);
-
+        
         this.bodyAnchor.addChild(this.body);
         this.body.addChild(this.BBack);
         this.body.addChild(this.BBB);
@@ -508,54 +508,54 @@ public class ModelArmorGoblinSlayer extends ModelArmor {
         this.body.addChild(this.BT2);
         this.body.addChild(this.BT3);
         this.body.addChild(this.BT4);
-
+        
         this.armLAnchor.addChild(this.ALA);
         this.armLAnchor.addChild(this.ALeftT1);
         this.armLAnchor.addChild(this.ALeftT2);
         this.armLAnchor.addChild(this.ALUp1);
         this.armLAnchor.addChild(this.ALUp2);
-
+        
         this.armRAnchor.addChild(this.ARA);
         this.armRAnchor.addChild(this.ARightT1);
         this.armRAnchor.addChild(this.ARightT2);
         this.armRAnchor.addChild(this.ARUp1);
         this.armRAnchor.addChild(this.ARUp2);
-
+        
         this.legR.addChild(this.LR1);
         this.legR.addChild(this.LR2);
         this.legR.addChild(this.LR3);
         this.legR.addChild(this.LRT);
-
+        
         this.legL.addChild(this.LL1);
         this.legL.addChild(this.LL2);
         this.legL.addChild(this.LL3);
         this.legL.addChild(this.LLT);
-    }
+	}
+	
+	@Override
+	public void render(@Nonnull Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 
-    @Override
-    public void render(@Nonnull Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+		helmAnchor.showModel = slot == EntityEquipmentSlot.HEAD;
+		bodyAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
+		armRAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
+		armLAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
+		legR.showModel = slot == EntityEquipmentSlot.LEGS;
+		legL.showModel = slot == EntityEquipmentSlot.LEGS;
+		bipedHeadwear.showModel = false;
 
-        helmAnchor.showModel = slot == EntityEquipmentSlot.HEAD;
-        bodyAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
-        armRAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
-        armLAnchor.showModel = slot == EntityEquipmentSlot.CHEST;
-        legR.showModel = slot == EntityEquipmentSlot.LEGS;
-        legL.showModel = slot == EntityEquipmentSlot.LEGS;
-        bipedHeadwear.showModel = false;
+		bipedHead = helmAnchor;
+		bipedBody = bodyAnchor;
+		bipedRightArm = armRAnchor;
+		bipedLeftArm = armLAnchor;
+		if(slot == EntityEquipmentSlot.LEGS) {
+			bipedBody = pantsAnchor;
+			bipedRightLeg = legR;
+			bipedLeftLeg = legL;
+		} else {
 
-        bipedHead = helmAnchor;
-        bipedBody = bodyAnchor;
-        bipedRightArm = armRAnchor;
-        bipedLeftArm = armLAnchor;
-        if (slot == EntityEquipmentSlot.LEGS) {
-            bipedBody = pantsAnchor;
-            bipedRightLeg = legR;
-            bipedLeftLeg = legL;
-        } else {
-
-        }
-
-        super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-    }
+		}
+		
+		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+	}
 
 }

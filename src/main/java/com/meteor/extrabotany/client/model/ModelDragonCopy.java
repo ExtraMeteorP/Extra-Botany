@@ -1,16 +1,18 @@
 package com.meteor.extrabotany.client.model;
 
 import com.meteor.extrabotany.common.entity.EntityMagicArrow;
+
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 
-public class ModelDragonCopy extends ModelBase {
-
-    private final ModelRenderer head;
+public class ModelDragonCopy extends ModelBase{
+	
+	private final ModelRenderer head;
     private final ModelRenderer jaw;
 
-    public ModelDragonCopy(float p_i46588_1_) {
+    public ModelDragonCopy(float p_i46588_1_)
+    {
         this.textureWidth = 256;
         this.textureHeight = 256;
         this.setTextureOffset("body.body", 0, 0);
@@ -47,10 +49,11 @@ public class ModelDragonCopy extends ModelBase {
         this.jaw.addBox("jaw", -6.0F, 0.0F, -16.0F, 12, 4, 16);
         this.head.addChild(this.jaw);
     }
-
-    public void render(EntityMagicArrow arrow, float netHeadYaw, float headPitch, float scale) {
-        this.jaw.rotateAngleX = (float) (Math.sin((double) (1F * (float) Math.PI * 0.2F)) + 1.0D) * 0.2F;
-        this.head.rotateAngleY = (float) (360F * Math.random());
+    
+    public void render(EntityMagicArrow arrow, float netHeadYaw, float headPitch, float scale)
+    {
+    	this.jaw.rotateAngleX = (float)(Math.sin((double)(1F * (float)Math.PI * 0.2F)) + 1.0D) * 0.2F;
+    	this.head.rotateAngleY = (float) (360F * Math.random());
         this.head.rotateAngleX = headPitch * 0.017453292F;
         GlStateManager.translate(0.0F, -0.374375F, 0.0F);
         GlStateManager.scale(0.75F, 0.75F, 0.75F);

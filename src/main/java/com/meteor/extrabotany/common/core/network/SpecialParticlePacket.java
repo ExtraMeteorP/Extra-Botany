@@ -1,11 +1,11 @@
 package com.meteor.extrabotany.common.core.network;
 
+import java.util.UUID;
+
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.PacketBuffer;
-
-import java.util.UUID;
 
 public class SpecialParticlePacket extends AbstractPacketThreadsafe {
 
@@ -30,14 +30,14 @@ public class SpecialParticlePacket extends AbstractPacketThreadsafe {
         buffer.writeUniqueId(uuid);
     }
 
-    @Override
-    public void handleClientSafe(NetHandlerPlayClient netHandler) {
+	@Override
+	public void handleClientSafe(NetHandlerPlayClient netHandler) {
+		
+	}
 
-    }
-
-    @Override
-    public void handleServerSafe(NetHandlerPlayServer netHandler) {
-        // clientside only
-        throw new UnsupportedOperationException("Serverside only");
-    }
+	@Override
+	public void handleServerSafe(NetHandlerPlayServer netHandler) {
+		// clientside only
+		throw new UnsupportedOperationException("Serverside only");
+	}
 }

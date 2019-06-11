@@ -4,6 +4,7 @@ import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.client.core.handler.ModelHandler;
 import com.meteor.extrabotany.client.render.IModelReg;
 import com.meteor.extrabotany.common.lib.LibMisc;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,29 +19,29 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockMod extends Block implements IModelReg {
 
-    public BlockMod(Material par2Material, String name) {
-        super(par2Material);
-        setUnlocalizedName(name);
-        setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
-        if (registerInCreative())
-            setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
-    }
+	public BlockMod(Material par2Material, String name) {
+		super(par2Material);
+		setUnlocalizedName(name);
+		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+		if(registerInCreative())
+			setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
+	}
 
-    protected boolean registerInCreative() {
-        return true;
-    }
+	protected boolean registerInCreative() {
+		return true;
+	}
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerModels() {
-        if (Item.getItemFromBlock(this) != Items.AIR)
-            ModelHandler.registerBlockToState(this, 0, getDefaultState());
-    }
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerModels() {
+		if(Item.getItemFromBlock(this) != Items.AIR)
+			ModelHandler.registerBlockToState(this, 0, getDefaultState());
+	}
 
-    @Override
-    public boolean eventReceived(IBlockState state, World world, BlockPos pos, int id, int param) {
-        super.eventReceived(state, world, pos, id, param);
-        TileEntity tileentity = world.getTileEntity(pos);
-        return tileentity != null && tileentity.receiveClientEvent(id, param);
-    }
+	@Override
+	public boolean eventReceived(IBlockState state, World world, BlockPos pos, int id, int param) {
+		super.eventReceived(state, world, pos, id, param);
+		TileEntity tileentity = world.getTileEntity(pos);
+		return tileentity != null && tileentity.receiveClientEvent(id, param);
+	}
 }

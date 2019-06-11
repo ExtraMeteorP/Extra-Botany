@@ -1,8 +1,11 @@
 package com.meteor.extrabotany.common.crafting.recipe.brew;
 
+import javax.annotation.Nonnull;
+
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.brew.ItemBrewBase;
 import com.meteor.extrabotany.common.item.brew.ItemBrewCocktail;
+
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -12,62 +15,60 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 
-import javax.annotation.Nonnull;
-
 public class InfiniteWineRecipe extends IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 
-    @Override
-    public boolean isDynamic() {
-        return true;
-    }
+	@Override
+	public boolean isDynamic() {
+		return true;
+	}
 
-    @Override
-    public boolean matches(@Nonnull InventoryCrafting var1, @Nonnull World var2) {
-        boolean foundManadrink = false;
-        boolean foundItem = false;
+	@Override
+	public boolean matches(@Nonnull InventoryCrafting var1, @Nonnull World var2) {
+		boolean foundManadrink = false;
+		boolean foundItem = false;
 
-        for (int i = 0; i < var1.getSizeInventory(); i++) {
-            ItemStack stack = var1.getStackInSlot(i);
-            if (!stack.isEmpty()) {
-                if (stack.getItem() == ModItems.material && !foundManadrink && stack.getMetadata() == 3)
-                    foundManadrink = true;
-                else if (!foundItem) {
-                    if (stack.getItem() instanceof ItemBrewCocktail)
-                        foundItem = true;
-                    else return false;
-                }
-            }
-        }
+		for(int i = 0; i < var1.getSizeInventory(); i++) {
+			ItemStack stack = var1.getStackInSlot(i);
+			if(!stack.isEmpty()) {
+				if(stack.getItem() == ModItems.material && !foundManadrink && stack.getMetadata() == 3)
+					foundManadrink = true;
+				else if(!foundItem) {
+					if(stack.getItem() instanceof ItemBrewCocktail)
+						foundItem = true;
+					else return false;
+				}
+			}
+		}
 
-        return foundManadrink && foundItem;
-    }
+		return foundManadrink && foundItem;
+	}
 
-    @Nonnull
-    @Override
-    public ItemStack getCraftingResult(@Nonnull InventoryCrafting var1) {
-        ItemStack item = ItemStack.EMPTY;
+	@Nonnull
+	@Override
+	public ItemStack getCraftingResult(@Nonnull InventoryCrafting var1) {
+		ItemStack item = ItemStack.EMPTY;
 
-        for (int i = 0; i < var1.getSizeInventory(); i++) {
-            ItemStack stack = var1.getStackInSlot(i);
-            if (!stack.isEmpty() && stack.getItem() instanceof ItemBrewCocktail)
-                item = stack;
-        }
+		for(int i = 0; i < var1.getSizeInventory(); i++) {
+			ItemStack stack = var1.getStackInSlot(i);
+			if(!stack.isEmpty() && stack.getItem() instanceof ItemBrewCocktail)
+				item = stack;
+		}
 
-        Brew brew = BotaniaAPI.getBrewFromKey(ItemNBTHelper.getString(item, "brewKey", ""));
-        ItemStack copy = new ItemStack(ModItems.infinitewine);
-        ItemBrewBase bb = (ItemBrewBase) copy.getItem();
-        bb.setBrew(copy, brew.getKey());
-        return copy;
-    }
+		Brew brew = BotaniaAPI.getBrewFromKey(ItemNBTHelper.getString(item, "brewKey", ""));
+		ItemStack copy = new ItemStack(ModItems.infinitewine);
+		ItemBrewBase bb = (ItemBrewBase) copy.getItem();
+		bb.setBrew(copy, brew.getKey());
+		return copy;
+	}
 
-    @Override
-    public boolean canFit(int width, int height) {
-        return width * height >= 2;
-    }
+	@Override
+	public boolean canFit(int width, int height) {
+		return width * height >= 2;
+	}
 
-    @Nonnull
-    @Override
-    public ItemStack getRecipeOutput() {
-        return ItemStack.EMPTY;
-    }
+	@Nonnull
+	@Override
+	public ItemStack getRecipeOutput() {
+		return ItemStack.EMPTY;
+	}
 }

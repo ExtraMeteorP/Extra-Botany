@@ -1,11 +1,29 @@
 package com.meteor.extrabotany.client.core.handler;
 
+import java.util.Locale;
+import java.util.Map;
+import java.util.function.IntFunction;
+
 import com.meteor.extrabotany.client.render.IModelReg;
-import com.meteor.extrabotany.common.block.subtile.functional.*;
-import com.meteor.extrabotany.common.block.subtile.generating.*;
+import com.meteor.extrabotany.common.block.subtile.functional.SubTileAnnoyingFlower;
+import com.meteor.extrabotany.common.block.subtile.functional.SubTileEnchantedOrchid;
+import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
+import com.meteor.extrabotany.common.block.subtile.functional.SubTileMirrortunia;
+import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileBellFlower;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileBloodyEnchantress;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileEdelweiss;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileGeminiOrchid;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileMoonBless;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileOmniViolet;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileStonesia;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
+import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
 import com.meteor.extrabotany.common.lib.LibMisc;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -25,98 +43,95 @@ import net.minecraftforge.registries.IRegistryDelegate;
 import vazkii.botania.api.BotaniaAPIClient;
 import vazkii.botania.client.model.SpecialFlowerModel;
 
-import java.util.Locale;
-import java.util.Map;
-import java.util.function.IntFunction;
-
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = LibMisc.MOD_ID)
 public class ModelHandler {
+	
+	public static boolean isClient = false;
+	
+	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
+	public static void registerModels(ModelRegistryEvent evt) {
+		ModelLoaderRegistry.registerLoader(SpecialFlowerModel.Loader.INSTANCE);
+		OBJLoader.INSTANCE.addDomain(LibMisc.MOD_ID.toLowerCase(Locale.ROOT));
 
-    private static final Map<IRegistryDelegate<Block>, IStateMapper> customStateMappers = ReflectionHelper.getPrivateValue(ModelLoader.class, null, "customStateMappers");
-    private static final DefaultStateMapper fallbackMapper = new DefaultStateMapper();
-    public static boolean isClient = false;
+		registerSubtiles();
 
-    @SubscribeEvent
-    @SideOnly(Side.CLIENT)
-    public static void registerModels(ModelRegistryEvent evt) {
-        ModelLoaderRegistry.registerLoader(SpecialFlowerModel.Loader.INSTANCE);
-        OBJLoader.INSTANCE.addDomain(LibMisc.MOD_ID.toLowerCase(Locale.ROOT));
+		for(Block block : Block.REGISTRY) {
+			if(block instanceof IModelReg)
+				((IModelReg) block).registerModels();
+		}
 
-        registerSubtiles();
+		for(Item item : Item.REGISTRY) {
+			if(item instanceof IModelReg)
+				((IModelReg) item).registerModels();
+		}
+		isClient = true;
+	}
 
-        for (Block block : Block.REGISTRY) {
-            if (block instanceof IModelReg)
-                ((IModelReg) block).registerModels();
-        }
+	private static void registerSubtiles() {
+		if(ConfigHandler.ENABLE_BE)
+			BotaniaAPIClient.registerSubtileModel(SubTileBloodyEnchantress.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_BLOODYENCHANTRESS));
+		if(ConfigHandler.ENABLE_SB)
+			BotaniaAPIClient.registerSubtileModel(SubTileSunBless.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_SUNBLESS));
+		if(ConfigHandler.ENABLE_MB)
+			BotaniaAPIClient.registerSubtileModel(SubTileMoonBless.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MOONBLESS));
+		if(ConfigHandler.ENABLE_OV)
+			BotaniaAPIClient.registerSubtileModel(SubTileOmniViolet.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_OMINIVIOLET));
+		if(ConfigHandler.ENABLE_SS)
+			BotaniaAPIClient.registerSubtileModel(SubTileStonesia.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_STONESIA));
+		if(ConfigHandler.ENABLE_TK)
+			BotaniaAPIClient.registerSubtileModel(SubTileTinkle.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_TINKLE));
+		if(ConfigHandler.ENABLE_BF)
+			BotaniaAPIClient.registerSubtileModel(SubTileBellFlower.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_BELLFLOWER));
+		if(ConfigHandler.ENABLE_AF)
+			BotaniaAPIClient.registerSubtileModel(SubTileAnnoyingFlower.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_ANNOYINGFLOWER));
+		if(ConfigHandler.ENABLE_SL)
+			BotaniaAPIClient.registerSubtileModel(SubTileStardustLotus.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_STARDUSTLOTUS));
+		if(ConfigHandler.ENABLE_ML)
+			BotaniaAPIClient.registerSubtileModel(SubTileManalinkium.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MANALINKIUM));
+		if(ConfigHandler.ENABLE_RL)
+			BotaniaAPIClient.registerSubtileModel(SubTileReikarLily.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_REIKARLILY));
+		if(ConfigHandler.ENABLE_EO)
+			BotaniaAPIClient.registerSubtileModel(SubTileEnchantedOrchid.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_ENCHANTEDORCHID));
+		if(ConfigHandler.ENABLE_MT)
+			BotaniaAPIClient.registerSubtileModel(SubTileMirrortunia.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MIRROWTUNIA));
+		if(ConfigHandler.ENABLE_EW)
+			BotaniaAPIClient.registerSubtileModel(SubTileEdelweiss.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_EDELWEISS));
+		if(ConfigHandler.ENABLE_GO)
+			BotaniaAPIClient.registerSubtileModel(SubTileGeminiOrchid.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_GEMINIORCHID));
+	}
+	
+	private static final Map<IRegistryDelegate<Block>, IStateMapper> customStateMappers = ReflectionHelper.getPrivateValue(ModelLoader.class, null, "customStateMappers");
+	private static final DefaultStateMapper fallbackMapper = new DefaultStateMapper();
+	
+	private static ModelResourceLocation getMrlForState(IBlockState state) {
+		return customStateMappers
+				.getOrDefault(state.getBlock().delegate, fallbackMapper)
+				.putStateModelLocations(state.getBlock())
+				.get(state);
+	}
+	
+	public static void registerBlockToState(Block b, int meta, IBlockState state) {
+		ModelLoader.setCustomModelResourceLocation(
+				Item.getItemFromBlock(b),
+				meta,
+				getMrlForState(state)
+				);
+	}
 
-        for (Item item : Item.REGISTRY) {
-            if (item instanceof IModelReg)
-                ((IModelReg) item).registerModels();
-        }
-        isClient = true;
-    }
-
-    private static void registerSubtiles() {
-        if (ConfigHandler.ENABLE_BE)
-            BotaniaAPIClient.registerSubtileModel(SubTileBloodyEnchantress.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_BLOODYENCHANTRESS));
-        if (ConfigHandler.ENABLE_SB)
-            BotaniaAPIClient.registerSubtileModel(SubTileSunBless.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_SUNBLESS));
-        if (ConfigHandler.ENABLE_MB)
-            BotaniaAPIClient.registerSubtileModel(SubTileMoonBless.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MOONBLESS));
-        if (ConfigHandler.ENABLE_OV)
-            BotaniaAPIClient.registerSubtileModel(SubTileOmniViolet.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_OMINIVIOLET));
-        if (ConfigHandler.ENABLE_SS)
-            BotaniaAPIClient.registerSubtileModel(SubTileStonesia.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_STONESIA));
-        if (ConfigHandler.ENABLE_TK)
-            BotaniaAPIClient.registerSubtileModel(SubTileTinkle.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_TINKLE));
-        if (ConfigHandler.ENABLE_BF)
-            BotaniaAPIClient.registerSubtileModel(SubTileBellFlower.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_BELLFLOWER));
-        if (ConfigHandler.ENABLE_AF)
-            BotaniaAPIClient.registerSubtileModel(SubTileAnnoyingFlower.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_ANNOYINGFLOWER));
-        if (ConfigHandler.ENABLE_SL)
-            BotaniaAPIClient.registerSubtileModel(SubTileStardustLotus.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_STARDUSTLOTUS));
-        if (ConfigHandler.ENABLE_ML)
-            BotaniaAPIClient.registerSubtileModel(SubTileManalinkium.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MANALINKIUM));
-        if (ConfigHandler.ENABLE_RL)
-            BotaniaAPIClient.registerSubtileModel(SubTileReikarLily.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_REIKARLILY));
-        if (ConfigHandler.ENABLE_EO)
-            BotaniaAPIClient.registerSubtileModel(SubTileEnchantedOrchid.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_ENCHANTEDORCHID));
-        if (ConfigHandler.ENABLE_MT)
-            BotaniaAPIClient.registerSubtileModel(SubTileMirrortunia.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_MIRROWTUNIA));
-        if (ConfigHandler.ENABLE_EW)
-            BotaniaAPIClient.registerSubtileModel(SubTileEdelweiss.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_EDELWEISS));
-        if (ConfigHandler.ENABLE_GO)
-            BotaniaAPIClient.registerSubtileModel(SubTileGeminiOrchid.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_GEMINIORCHID));
-    }
-
-    private static ModelResourceLocation getMrlForState(IBlockState state) {
-        return customStateMappers
-                .getOrDefault(state.getBlock().delegate, fallbackMapper)
-                .putStateModelLocations(state.getBlock())
-                .get(state);
-    }
-
-    public static void registerBlockToState(Block b, int meta, IBlockState state) {
-        ModelLoader.setCustomModelResourceLocation(
-                Item.getItemFromBlock(b),
-                meta,
-                getMrlForState(state)
-        );
-    }
-
-    public static void registerBlockToState(Block b, int maxExclusive) {
-        for (int i = 0; i < maxExclusive; i++)
-            registerBlockToState(b, i, b.getStateFromMeta(i));
-    }
-
-    public static void registerItemMetas(Item item, int maxExclusive, IntFunction<String> metaToName) {
-        for (int i = 0; i < maxExclusive; i++) {
-            ModelLoader.setCustomModelResourceLocation(
-                    item, i,
-                    new ModelResourceLocation(LibMisc.MOD_ID + ":" + metaToName.apply(i), "inventory")
-            );
-        }
-    }
+	public static void registerBlockToState(Block b, int maxExclusive) {
+		for(int i = 0; i < maxExclusive; i++)
+			registerBlockToState(b, i, b.getStateFromMeta(i));
+	}
+	
+	public static void registerItemMetas(Item item, int maxExclusive, IntFunction<String> metaToName) {
+		for (int i = 0; i < maxExclusive; i++) {
+			ModelLoader.setCustomModelResourceLocation(
+					item, i,
+					new ModelResourceLocation(LibMisc.MOD_ID + ":" + metaToName.apply(i), "inventory")
+					);
+		}
+	}
 
 
 }

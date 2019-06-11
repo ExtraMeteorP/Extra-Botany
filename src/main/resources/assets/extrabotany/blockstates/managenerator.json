@@ -1,7 +1,5 @@
 {
   "variants": {
-    "normal": {
-      "model": "extrabotany:managenerator"
-    }
+    "normal": { "model": "extrabotany:managenerator" }
   }
 }

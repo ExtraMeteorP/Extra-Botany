@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.core.handler;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
 import com.meteor.extrabotany.common.lib.LibMisc;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

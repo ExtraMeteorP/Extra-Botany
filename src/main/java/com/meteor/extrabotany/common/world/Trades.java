@@ -1,5 +1,11 @@
 package com.meteor.extrabotany.common.world;
 
+import java.util.Random;
+import java.util.function.BiFunction;
+import java.util.function.ToIntFunction;
+
+import javax.annotation.Nullable;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
@@ -13,26 +19,21 @@ import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerCareer;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.item.ModItems;
 
-import javax.annotation.Nullable;
-import java.util.Random;
-import java.util.function.BiFunction;
-import java.util.function.ToIntFunction;
-
 public class Trades {
-
-    public static void addTradeForBotanist(VillagerCareer career) {
-        career.addTrade(1, new GenericTrade(offer(Items.EMERALD), offer(new ItemStack(ModItems.manaResource, 1, 16), 14, 28)));
-        career.addTrade(1, new GenericTrade(offer(Items.EMERALD), offer(ModBlocks.livingrock, 18, 24)));
-        career.addTrade(1, new GenericTrade(offer(Items.EMERALD), offer(com.meteor.extrabotany.common.item.ModItems.candybag, 2)));
-
-        career.addTrade(1, new GenericTrade(offer(ModItems.manaResource, 8, 12), offer(Items.EMERALD, 3, 5)));
-        career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.manaResource, 1, 2)), offer(Items.EMERALD, 4, 7)));
-        career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.manaResource, 1, 1)), offer(Items.EMERALD, 3, 5)));
-        career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.blackLotus, 1, 1), 1, 2), offer(Items.EMERALD, 2)));
-        career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.spark), 6, 9), offer(Items.EMERALD, 2), offer(Items.GOLD_NUGGET, 3, 5)));
-        career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.manaResource, 1, 4)), offer(Items.EMERALD, 15, 22)));
-    }
-
+	
+	public static void addTradeForBotanist(VillagerCareer career) {
+		career.addTrade(1, new GenericTrade(offer(Items.EMERALD), offer(new ItemStack(ModItems.manaResource, 1, 16), 14, 28)));
+		career.addTrade(1, new GenericTrade(offer(Items.EMERALD), offer(ModBlocks.livingrock, 18, 24)));
+		career.addTrade(1, new GenericTrade(offer(Items.EMERALD), offer(com.meteor.extrabotany.common.item.ModItems.candybag, 2)));
+		
+		career.addTrade(1, new GenericTrade(offer(ModItems.manaResource, 8, 12), offer(Items.EMERALD, 3, 5)));
+		career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.manaResource, 1, 2)), offer(Items.EMERALD, 4, 7)));
+		career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.manaResource, 1, 1)), offer(Items.EMERALD, 3, 5)));
+		career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.blackLotus, 1, 1), 1, 2), offer(Items.EMERALD, 2)));
+		career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.spark), 6, 9), offer(Items.EMERALD, 2), offer(Items.GOLD_NUGGET, 3, 5)));
+		career.addTrade(1, new GenericTrade(offer(new ItemStack(ModItems.manaResource, 1, 4)), offer(Items.EMERALD, 15, 22)));
+	}
+	
     public static Offer offer(@Nullable Object obj) {
         return offer(obj, 1);
     }
@@ -57,7 +58,7 @@ public class Trades {
             this.max = max;
         }
     }
-
+	
     private static class GenericTrade implements EntityVillager.ITradeList {
 
         private static final BiFunction<ItemStack, Random, ItemStack> DEFAULT_ENCHANTER = (stack, rand) -> stack;

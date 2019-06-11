@@ -81,6 +81,9 @@ item.extrabotany:blackglasses.name=黑框眼镜
 item.extrabotany:question.name=问号
 item.extrabotany:lemon.name=柠檬
 item.extrabotany:thuglife.name=Thug Life
+item.extrabotany:magicfinger.name=魔术手指
+item.extrabotany:manadriverring.name=驭魔之戒
+item.extrabotany:jingweifeather.name=精卫之羽
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -700,6 +703,21 @@ botania.page.cosmetic9=
 botania.page.cosmetic10=
 botania.tagline.cosmetic=
 
+botania.entry.jingweifeather=精卫之羽
+botania.page.jingweifeather0=装备上精卫之羽后，玩家空 手攻击时可以消耗一定魔力 打出拳气造成伤害。拳气命 中时会为玩家回复少量生命 吸收。
+botania.page.jingweifeather1=
+botania.tagline.jingweifeather=
+
+botania.entry.magicfinger=魔术手指
+botania.page.magicfinger0=使用魔术手指右键魔力池可 以将自身身上一定魔力传输 到池子中，而被它击中的目 标会在接下来3秒内治疗反 转。
+botania.page.magicfinger1=
+botania.tagline.magicfinger=
+
+botania.entry.manadriverring=驭魔之戒
+botania.page.manadriverring0=装备上驭魔之戒后它会将你 所拥有的魔力扩散到空气中 ，来为周围的功能花提供魔 力。
+botania.page.manadriverring1=
+botania.tagline.manadriverring=
+
 botania.entry.=
 botania.page.0=
 botania.page.1=
@@ -796,6 +814,20 @@ advancement.extrabotany:herrscherDefeat=Salvation
 advancement.extrabotany:herrscherDefeat.desc=击败空之律者
 advancement.extrabotany:endgameGoal=End Day
 advancement.extrabotany:endgameGoal.desc=完成最终的挑战—在3分钟内击败空之律者
+advancement.extrabotany:manadriverGet=新生
+advancement.extrabotany:manadriverGet.desc=完成6个额外植物学进度来获得一个免费的驭魔之戒
+advancement.extrabotany:magicfingerGet=双倍的快乐
+advancement.extrabotany:magicfingerGet.desc=完成12个额外植物学进度来获得一个免费的魔术手指
+advancement.extrabotany:jingweifeatherGet=半人半妖
+advancement.extrabotany:jingweifeatherGet.desc=完成18个额外植物学进度来获得一个免费的精卫之羽
+advancement.extrabotany:onepunchMan=One Punch
+advancement.extrabotany:onepunchMan.desc=打出一发超过40伤害的拳风
+advancement.extrabotany:coregodCraft=All Hail The Queen
+advancement.extrabotany:coregodCraft.desc=获得律者核心
+advancement.extrabotany:ringSet=Rings, Rings, and More Rings
+advancement.extrabotany:ringSet.desc=收集绝大多数种类的戒指
+advancement.extrabotany:bottleSet=Inside Out
+advancement.extrabotany:bottleSet.desc=收集所有种类的瓶子
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=

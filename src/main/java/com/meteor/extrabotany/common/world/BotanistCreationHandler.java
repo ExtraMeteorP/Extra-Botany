@@ -1,5 +1,10 @@
 package com.meteor.extrabotany.common.world;
 
+import java.util.List;
+import java.util.Random;
+
+import javax.annotation.Nullable;
+
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.gen.structure.StructureComponent;
@@ -8,21 +13,17 @@ import net.minecraft.world.gen.structure.StructureVillagePieces.PieceWeight;
 import net.minecraft.world.gen.structure.StructureVillagePieces.Start;
 import net.minecraftforge.fml.common.registry.VillagerRegistry.IVillageCreationHandler;
 
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.Random;
+public class BotanistCreationHandler implements IVillageCreationHandler{
 
-public class BotanistCreationHandler implements IVillageCreationHandler {
+	@Override
+	public PieceWeight getVillagePieceWeight(Random random, int size) {
+		return new PieceWeight(ComponentBotanist.class, 3, MathHelper.getInt(random, size, 1 + size));
+	}
 
-    @Override
-    public PieceWeight getVillagePieceWeight(Random random, int size) {
-        return new PieceWeight(ComponentBotanist.class, 3, MathHelper.getInt(random, size, 1 + size));
-    }
-
-    @Override
-    public Class<?> getComponentClass() {
-        return ComponentBotanist.class;
-    }
+	@Override
+	public Class<?> getComponentClass() {
+		return ComponentBotanist.class;
+	}
 
     @Nullable
     @Override

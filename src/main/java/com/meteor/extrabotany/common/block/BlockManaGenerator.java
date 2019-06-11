@@ -1,8 +1,11 @@
 package com.meteor.extrabotany.common.block;
 
+import javax.annotation.Nonnull;
+
 import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
+
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,30 +17,28 @@ import net.minecraft.world.World;
 import vazkii.botania.api.lexicon.ILexiconable;
 import vazkii.botania.api.lexicon.LexiconEntry;
 
-import javax.annotation.Nonnull;
-
 public class BlockManaGenerator extends BlockMod implements ILexiconable {
+	
+	public BlockManaGenerator() {
+		super(Material.ROCK, LibBlocksName.TILE_MANAGENERATOR);
+		setHardness(2.0F);
+		setResistance(10.0F);
+		setSoundType(SoundType.STONE);
+	}
 
-    public BlockManaGenerator() {
-        super(Material.ROCK, LibBlocksName.TILE_MANAGENERATOR);
-        setHardness(2.0F);
-        setResistance(10.0F);
-        setSoundType(SoundType.STONE);
-    }
+	@Override
+	public boolean hasTileEntity(IBlockState state) {
+		return true;
+	}
 
-    @Override
-    public boolean hasTileEntity(IBlockState state) {
-        return true;
-    }
+	@Nonnull
+	@Override
+	public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
+		return new TileManaGenerator();
+	}
 
-    @Nonnull
-    @Override
-    public TileEntity createTileEntity(@Nonnull World world, @Nonnull IBlockState state) {
-        return new TileManaGenerator();
-    }
-
-    @Override
-    public LexiconEntry getEntry(World world, BlockPos pos, EntityPlayer player, ItemStack lexicon) {
-        return LexiconData.managenerator;
-    }
+	@Override
+	public LexiconEntry getEntry(World world, BlockPos pos, EntityPlayer player, ItemStack lexicon) {
+		return LexiconData.managenerator;
+	}
 }

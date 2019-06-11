@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:kinggarden"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:kinggardenCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:kinggardenCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/pedestalCraft",
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventoryChanged",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:kinggarden"
+          }
+        ]
+      }
+    }
+  }
+}

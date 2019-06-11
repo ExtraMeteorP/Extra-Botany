@@ -1,0 +1,56 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:bottledflame"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:bottleSet"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:bottleSet.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+      "criteria": {
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:bottledflame"
+                    }
+                ]
+            }
+        },
+        "iron_chestplate": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:bottledpixie"
+                    }
+                ]
+            }
+        },
+        "iron_leggings": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:bottledstar"
+                    }
+                ]
+            }
+        },
+        "iron_boots": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:kinggarden"
+                    }
+                ]
+            }
+        }
+    }
+}

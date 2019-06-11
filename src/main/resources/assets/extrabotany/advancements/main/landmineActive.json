@@ -1,0 +1,19 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:rewardbag"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:landmineActive"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:landmineActive.desc"
+    }
+  },
+  "parent": "extrabotany:main/natureorbCraft",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

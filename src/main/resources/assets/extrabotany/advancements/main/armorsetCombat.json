@@ -1,0 +1,20 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:combatmaidchest"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:armorsetCombat"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:armorsetCombat.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+ "criteria": {
+        "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

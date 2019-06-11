@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "botania:specialFlower",
+      "nbt": "{\"type\": \"stardustlotus\"}"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:stardustlotusTeleport"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:stardustlotusTeleport.desc"
+    }
+  },
+  "parent": "extrabotany:main/posbinderCraft",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

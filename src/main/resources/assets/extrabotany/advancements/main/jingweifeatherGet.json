@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:jingweifeather"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:jingweifeatherGet"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:jingweifeatherGet.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/magicfingerGet",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

@@ -1,0 +1,19 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:goblinslayerhelm"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:armorsetGS"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:armorsetGS.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+ "criteria": {
+        "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

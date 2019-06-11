@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:manabarrel"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:manabufferCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:manabufferCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:manabarrel"
+          }
+        ]
+      }
+    }
+  }
+}

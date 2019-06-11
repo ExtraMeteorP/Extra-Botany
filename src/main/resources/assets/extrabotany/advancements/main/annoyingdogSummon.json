@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "botania:specialFlower",
+      "nbt": "{\"type\": \"annoyingflower\"}"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:annoyingdogSummon"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:annoyingdogSummon.desc"
+    }
+  },
+  "parent": "extrabotany:main/kinggardenCraft",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

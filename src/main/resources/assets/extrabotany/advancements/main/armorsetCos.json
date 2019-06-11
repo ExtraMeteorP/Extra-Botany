@@ -1,0 +1,19 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:cosmeticmaidchest"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:armorsetCos"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:armorsetCos.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+ "criteria": {
+        "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

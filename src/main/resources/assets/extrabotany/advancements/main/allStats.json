@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:trophy"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:allStats"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:allStats.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/nightmarefuelEating",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

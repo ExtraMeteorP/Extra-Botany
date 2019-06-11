@@ -1,0 +1,27 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:infinitewine"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:infinitewineCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:infinitewineCraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/gaiaDefeat",
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:infinitewine"
+          }
+        ]
+      }
+    }
+  }
+}

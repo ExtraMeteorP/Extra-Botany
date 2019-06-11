@@ -1,0 +1,20 @@
+{
+   "display": {
+    "icon": {
+      "item": "minecraft:cake"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:mastermanaringFill"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:mastermanaringFill.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/mastermanaringCraft",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

@@ -1,0 +1,21 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:rewardbag",
+	  "meta": 4
+    },
+    "title": {
+      "translate": "advancement.extrabotany:luckyDraw"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:luckyDraw.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/natureorbCraft",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

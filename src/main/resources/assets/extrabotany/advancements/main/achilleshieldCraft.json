@@ -1,0 +1,27 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:achilleshield"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:achilleshieldCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:achilleshieldCraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/gaiaDefeat",
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:achilleshield"
+          }
+        ]
+      }
+    }
+  }
+}

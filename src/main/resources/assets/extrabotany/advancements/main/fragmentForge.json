@@ -1,0 +1,19 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:material"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:fragmentForge"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:fragmentForge.desc"
+    }
+  },
+  "parent": "extrabotany:main/pedestalCraft",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

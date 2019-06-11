@@ -1,0 +1,27 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:buddhistrelics"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:buddhistRelics"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:buddhistRelics.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/gaiaDefeat",
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:buddhistrelics"
+          }
+        ]
+      }
+    }
+  }
+}

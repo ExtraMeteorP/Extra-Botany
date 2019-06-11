@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:manareader"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:manareaderCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:manareaderCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+ "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:manareader"
+          }
+        ]
+      }
+    }
+  }
+}

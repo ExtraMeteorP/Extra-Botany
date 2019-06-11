@@ -1,0 +1,19 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:recordgaia3"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:musicAll"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:musicAll.desc"
+    }
+  },
+  "parent": "extrabotany:main/gaiaDefeat",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:clock"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:onepunchMan"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:onepunchMan.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/jingweifeatherGet",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

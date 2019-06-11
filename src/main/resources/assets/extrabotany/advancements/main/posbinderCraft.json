@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:binder"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:posbinderCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:posbinderCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+ "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:binder"
+          }
+        ]
+      }
+    }
+  }
+}

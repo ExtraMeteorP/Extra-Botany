@@ -1,0 +1,246 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:elvenking"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:ringSet"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:ringSet.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+      "criteria": {
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:deathring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:allforone"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:mastermanaring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:froststar"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:parkour"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:wallrunning"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:walljumping"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "extrabotany:elvenking"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:auraring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:thorring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:manaringgreater"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:odinring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:lokiring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:auraringgreater"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:miningring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:magnetring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:magnetringgreater"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:swapring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:dodgering"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:reachring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:waterring"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:pixiering"
+                    }
+                ]
+            }
+        },
+        "iron_helmet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "botania:manaring"
+                    }
+                ]
+            }
+        }
+    }
+}

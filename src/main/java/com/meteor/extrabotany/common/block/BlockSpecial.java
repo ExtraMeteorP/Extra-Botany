@@ -46,6 +46,7 @@ public class BlockSpecial extends BlockSpecialFlower{
 			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_MIRROWTUNIA);
 		if(ConfigHandler.ENABLE_GO)
 			ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_GEMINIORCHID);
+		ExtraBotany.subtilesForCreativeMenu.add(LibBlocksName.SUBTILE_NECROFLEUR);
 	}
 	
 	@Override

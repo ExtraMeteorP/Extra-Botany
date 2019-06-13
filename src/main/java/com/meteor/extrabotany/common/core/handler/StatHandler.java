@@ -14,11 +14,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.relauncher.Side;
@@ -127,7 +125,10 @@ public class StatHandler {
 	}
 	
 	public static boolean hasAllStats(EntityPlayer player){
-		return statsAmount(player) == stats.length;
+		for(int i = 0; i < stats.length; i++)
+			if(!hasStat(player, stats[i]))
+				return false;
+		return true;
 	}
 	
 	public static boolean hasStat(EntityPlayer player, String name){

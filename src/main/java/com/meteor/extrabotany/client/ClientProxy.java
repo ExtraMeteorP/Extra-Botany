@@ -32,14 +32,14 @@ import com.meteor.extrabotany.client.render.entity.gaia.RenderSwordDomain;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderVoidHerrscher;
 import com.meteor.extrabotany.client.render.entity.judah.RenderJudahOath;
 import com.meteor.extrabotany.client.render.entity.judah.RenderJudahSpear;
+import com.meteor.extrabotany.client.render.tile.RenderChargePad;
+import com.meteor.extrabotany.client.render.tile.RenderCocoonDesire;
 import com.meteor.extrabotany.client.render.tile.RenderLivingrockBarrel;
+import com.meteor.extrabotany.client.render.tile.RenderPedestal;
 import com.meteor.extrabotany.client.render.tile.RenderQuantumManaBuffer;
-import com.meteor.extrabotany.client.render.tile.RenderTileCocoonDesire;
-import com.meteor.extrabotany.client.render.tile.RenderTileInfinityCube;
-import com.meteor.extrabotany.client.render.tile.RenderTilePedestal;
 import com.meteor.extrabotany.common.CommonProxy;
+import com.meteor.extrabotany.common.block.tile.TileChargePad;
 import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
-import com.meteor.extrabotany.common.block.tile.TileInfinityCube;
 import com.meteor.extrabotany.common.block.tile.TileLivingrockBarrel;
 import com.meteor.extrabotany.common.block.tile.TilePedestal;
 import com.meteor.extrabotany.common.block.tile.TileQuantumManaBuffer;
@@ -125,11 +125,11 @@ public class ClientProxy extends CommonProxy{
 	
 	private void initRenderers() {
 		//ClientRegistry.bindTileEntitySpecialRenderer(TileGildedTinyPotato.class, new RenderGildedTinyPotato());
-		ClientRegistry.bindTileEntitySpecialRenderer(TilePedestal.class, new RenderTilePedestal());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileCocoonDesire.class, new RenderTileCocoonDesire());
+		ClientRegistry.bindTileEntitySpecialRenderer(TilePedestal.class, new RenderPedestal());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileCocoonDesire.class, new RenderCocoonDesire());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileLivingrockBarrel.class, new RenderLivingrockBarrel());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileInfinityCube.class, new RenderTileInfinityCube());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileQuantumManaBuffer.class, new RenderQuantumManaBuffer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileChargePad.class, new RenderChargePad());
 		RenderingRegistry.registerEntityRenderingHandler(EntityDarkPixie.class, RenderDarkPixie::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlyingBoat.class, RenderFlyingBoat::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlowerWeapon.class, RenderFlowerWeapon::new);

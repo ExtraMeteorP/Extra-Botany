@@ -450,7 +450,7 @@ botania.page.natureorb4=自然蕴息宝珠需要搭建多方 块结构，放置�
 botania.tagline.natureorb=自然平衡
 
 botania.entry.camera=文文的相机
-botania.page.camera0=&4文文的相机&0在使用后能消耗 魔力使视野内的敌对生物失 去行动能力，并使视野内所有 投掷物消失。受这个效果影响 的生物会在一段时间后重新 恢复行动能力。
+botania.page.camera0=&4文文的相机&0在使用后能消耗 魔力使视野内的敌对生物失 去行动能力，并使视野内所有 投掷物消失。受这个效果影响 的生物会在一段时间后重新 恢复行动能力。 <br>该效果对Boss的控制时 间会大大缩短，并且所有生 物被控制一定次数后会具有 抗性。
 botania.page.camera1=风符「风神一扇」
 botania.tagline.camera=风符「风神少女」
 
@@ -467,7 +467,7 @@ botania.page.gaia42=我得到了!
 botania.tagline.gaia3=硬核难度
 
 botania.entry.relicshield=勇士盾
-botania.page.relicshield0=&4勇士盾&0可以说是最强之盾也 是最强之矛，能在格挡伤害的 同时将伤害反射，并能够反弹 绝大多数的投掷物。盾牌开启 期间碰撞敌人能对其造成高 额伤害。
+botania.page.relicshield0=&4勇士盾&0可以说是最强之盾也 是最强之矛，能在格挡伤害的 同时将伤害反射，并能够反弹 绝大多数的投掷物。盾牌开启 期间碰撞敌人能对其造成高 额伤害。 <br>吸收超过12点时蹲下右击可 以切换超解模式，此时攻击力 和移动速度都会大幅提升， 并且每次击中会释放连锁闪 电。超解模式每秒会消耗一 颗吸收直到耗尽。
 botania.page.relicshield1=你要说的下一句话是
 botania.tagline.relicshield=AT力场
 

@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.crafting;
 
-import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.core.handler.StatHandler;
 
 import net.minecraft.advancements.Advancement;
@@ -19,13 +19,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ModStageCrafting {
+public class ModStageLock {
 	
 	@SubscribeEvent
     public void onPlayerInteract (PlayerInteractEvent event) {
 		if(event.isCancelable() && !event.getEntityPlayer().isCreative()) {
-			if(event.getItemStack().getItem() instanceof IAdvancementReward) {
-				IAdvancementReward r = (IAdvancementReward) event.getItemStack().getItem();
+			if(event.getItemStack().getItem() instanceof IAdvancementRequired) {
+				IAdvancementRequired r = (IAdvancementRequired) event.getItemStack().getItem();
 				if(!StatHandler.hasStat(event.getEntityPlayer(), r.getAdvancementName(event.getItemStack())))
 					event.setCanceled(true);
 			}
@@ -35,8 +35,8 @@ public class ModStageCrafting {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent(priority = EventPriority.LOWEST)
     public void onTooltip (ItemTooltipEvent event) {
-		if(event.getItemStack().getItem() instanceof IAdvancementReward) {
-			IAdvancementReward r = (IAdvancementReward) event.getItemStack().getItem();
+		if(event.getItemStack().getItem() instanceof IAdvancementRequired) {
+			IAdvancementRequired r = (IAdvancementRequired) event.getItemStack().getItem();
 			EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
 			if(playerSP != null) {
 				Advancement adv = StatHandler.getSideAdvancement(r.getAdvancementName(event.getItemStack()));
@@ -55,8 +55,8 @@ public class ModStageCrafting {
             }
             for (final EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {
             	final ItemStack stack = player.getItemStackFromSlot(slot);
-            	if(stack.getItem() instanceof IAdvancementReward) {
-            		IAdvancementReward r = (IAdvancementReward) stack.getItem();
+            	if(stack.getItem() instanceof IAdvancementRequired) {
+            		IAdvancementRequired r = (IAdvancementRequired) stack.getItem();
             		if(!StatHandler.hasStat(player, r.getAdvancementName(stack))) {
 	            		player.setItemStackToSlot(slot, ItemStack.EMPTY);
 	                    player.dropItem(stack, false);

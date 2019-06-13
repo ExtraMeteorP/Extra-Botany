@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 
@@ -29,7 +29,7 @@ import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public abstract class ItemBaubleRelic extends ItemBauble implements IRelic, IAdvancementReward{
+public abstract class ItemBaubleRelic extends ItemBauble implements IRelic, IAdvancementRequired{
 	
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
 

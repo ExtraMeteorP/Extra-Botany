@@ -103,6 +103,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.candybag);
 		addItem(ModItems.lens);
 		addItem(ModItems.orb);
+		addBlock(ModBlocks.chargepad);
 		addBlock(ModBlocks.batterybox);
 		addBlock(ModBlocks.managenerator);
 		addBlock(ModBlocks.manaliquefying);

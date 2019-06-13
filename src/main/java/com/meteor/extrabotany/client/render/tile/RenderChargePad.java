@@ -1,7 +1,7 @@
 package com.meteor.extrabotany.client.render.tile;
 
 import com.meteor.extrabotany.common.block.ModBlocks;
-import com.meteor.extrabotany.common.block.tile.TilePedestal;
+import com.meteor.extrabotany.common.block.tile.TileChargePad;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,12 +10,12 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 
-public class RenderTilePedestal extends TileEntitySpecialRenderer {
+public class RenderChargePad extends TileEntitySpecialRenderer {
 
 	@Override
 	public void render(TileEntity te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
 		if(te != null && (!te.getWorld().isBlockLoaded(te.getPos(), false)
-				|| te.getWorld().getBlockState(te.getPos()).getBlock() != ModBlocks.pedestal))
+				|| te.getWorld().getBlockState(te.getPos()).getBlock() != ModBlocks.chargepad))
 			return;
 		
 		GlStateManager.pushMatrix();
@@ -23,7 +23,7 @@ public class RenderTilePedestal extends TileEntitySpecialRenderer {
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(180F, 0.0F, 0.0F, 1.0F);
 
-		TilePedestal ped = (TilePedestal)te;
+		TileChargePad ped = (TileChargePad)te;
 
 		if (ped != null && !ped.getItem().isEmpty()){
 			GlStateManager.pushMatrix();
@@ -31,7 +31,7 @@ public class RenderTilePedestal extends TileEntitySpecialRenderer {
 			boolean flag = ped.getItem().getItem() instanceof ItemBlock;
 
 			GlStateManager.rotate(180F, 1F, 0F, 0F);
-			GlStateManager.translate(0.0F, flag ? -0.56F : -0.37F, 0F);
+			GlStateManager.translate(0.0F, flag ? -1.21F : -1.02F, 0F);
 			GlStateManager.rotate(ped.getRotation(), 0F, 1F, 0F);
 
 			Minecraft.getMinecraft().getRenderItem().renderItem(ped.getItem(), ItemCameraTransforms.TransformType.GROUND);

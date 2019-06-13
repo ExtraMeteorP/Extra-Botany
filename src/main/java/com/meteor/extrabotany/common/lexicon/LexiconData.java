@@ -117,6 +117,7 @@ public class LexiconData {
 	public static LexiconEntry jingweifeather;
 	public static LexiconEntry manadriverring;
 	public static LexiconEntry magicfinger;
+	public static LexiconEntry chargepad;
 	
 	public static void init() {	
 		
@@ -188,6 +189,10 @@ public class LexiconData {
 		bottledflame = new BasicLexiconEntry(LibLexicon.BOTTLED_FLAME,  BotaniaAPI.categoryBaubles);
 		bottledflame.setLexiconPages(new PageText("0"),
 					new PageCraftingRecipe("1", getResource("recipe_bottledflame")));
+		
+		chargepad = new AlfheimLexiconEntry(LibLexicon.CHARGEPAD,  BotaniaAPI.categoryMana);
+		chargepad.setLexiconPages(new PageText("0"),
+					new PageCraftingRecipe("1", getResource("recipe_chargepad")));
 		
 		walkingcane = new DreamLexiconEntry(LibLexicon.WALKINGCANE,  ExtraBotanyAPI.dreamCategory);
 		walkingcane.setLexiconPages(new PageText("0"),

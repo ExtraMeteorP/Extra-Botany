@@ -22,7 +22,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "zombie_villager": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -32,7 +32,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "zombie": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -42,7 +42,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "wither_skeleton": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -52,7 +52,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "1": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -62,7 +62,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "2": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -72,7 +72,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "3": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -82,7 +82,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "4": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -92,7 +92,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "5": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -102,7 +102,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "6": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -112,7 +112,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "7": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -122,7 +122,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "8": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -132,7 +132,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "9": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -142,7 +142,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "10": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -152,7 +152,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "11": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -162,7 +162,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "12": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -172,7 +172,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "13": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -182,7 +182,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "14": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -192,7 +192,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "15": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -202,7 +202,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "16": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -212,7 +212,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "17": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -222,7 +222,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "18": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
@@ -232,7 +232,7 @@
                 ]
             }
         },
-        "iron_helmet": {
+        "19": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [

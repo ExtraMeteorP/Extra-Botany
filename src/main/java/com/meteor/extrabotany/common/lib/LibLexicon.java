@@ -46,6 +46,7 @@ public class LibLexicon {
 	public static final String JINGWEIFEATHER = "jingweifeather";
 	public static final String MANADRIVERRING = "manadriverring";
 	public static final String MAGICFINGER = "magicfinger";
+	public static final String CHARGEPAD = "chargepad";
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";

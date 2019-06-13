@@ -5,6 +5,7 @@ import com.meteor.extrabotany.common.brew.potion.PotionBloodTemptation;
 import com.meteor.extrabotany.common.brew.potion.PotionConstantPain;
 import com.meteor.extrabotany.common.brew.potion.PotionDivineJustice;
 import com.meteor.extrabotany.common.brew.potion.PotionEternity;
+import com.meteor.extrabotany.common.brew.potion.PotionHealReverse;
 import com.meteor.extrabotany.common.brew.potion.PotionMindCrack;
 import com.meteor.extrabotany.common.brew.potion.PotionReflect;
 import com.meteor.extrabotany.common.brew.potion.PotionTemptation;
@@ -30,6 +31,7 @@ public class ModPotions {
 	public static final Potion temptation = new PotionTemptation();
 	public static final Potion witchcurse = new PotionWitchCurse();
 	public static final Potion vegetable = new PotionVegetable();
+	public static final Potion healreverse = new PotionHealReverse();
 	
 	@SubscribeEvent
 	public static void registerPotions(RegistryEvent.Register<Potion> evt){
@@ -43,6 +45,7 @@ public class ModPotions {
 		evt.getRegistry().register(temptation);
 		evt.getRegistry().register(witchcurse);
 		evt.getRegistry().register(vegetable);
+		evt.getRegistry().register(healreverse);
 	}
 
 }

@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
-import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.client.render.IModelReg;
 import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
 import com.meteor.extrabotany.common.core.network.PacketLeftClick;
@@ -69,7 +69,7 @@ import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.equipment.tool.ToolCommons;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IModelReg, IManaUsingItem, IAdvancementReward{
+public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IModelReg, IManaUsingItem, IAdvancementRequired{
 	
 	private static final String TAG_ATTACKER_USERNAME = "attackerUsername";
 	private static final String TAG_HOME_ID = "homeID";
@@ -240,7 +240,7 @@ public class ItemExcaliber extends ItemSword implements IRelic, ILensEffect, IMo
 		Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
 		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
 		if (slot == slot.MAINHAND) {
-			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Weapon modifier", 5, 0));
+			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Weapon modifier", 2, 0));
 			attrib.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(uuid, "Weapon modifier" , 0.3, 1));
 		}
 		return attrib;

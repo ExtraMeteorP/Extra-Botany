@@ -5,7 +5,7 @@ import java.util.UUID;
 import javax.annotation.Nonnull;
 
 import com.google.common.collect.Multimap;
-import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.brew.ModBrew;
 import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
 import com.meteor.extrabotany.common.core.network.PacketLeftClickCopy;
@@ -42,7 +42,7 @@ import vazkii.botania.common.core.handler.ModSounds;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.entity.EntityManaBurst;
 
-public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem, IAdvancementReward{
+public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem, IAdvancementRequired{
 	
 	private static final String TAG_MODE = "mode";
 	private static final int MODE = 5;

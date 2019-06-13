@@ -31,7 +31,7 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 	
 	private static final DataParameter<Integer> LIVE_TICKS = EntityDataManager.createKey(EntitySubspaceSpear.class, DataSerializers.VARINT);
 	private static final DataParameter<Float> ROTATION = EntityDataManager.createKey(EntitySubspaceSpear.class, DataSerializers.FLOAT);
-	private static final DataParameter<Integer> DAMAGE = EntityDataManager.createKey(EntitySubspaceSpear.class, DataSerializers.VARINT);
+	private static final DataParameter<Float> DAMAGE = EntityDataManager.createKey(EntitySubspaceSpear.class, DataSerializers.FLOAT);
 	private static final DataParameter<Integer> LIFE = EntityDataManager.createKey(EntitySubspaceSpear.class, DataSerializers.VARINT);
 	private static final DataParameter<Float> PITCH = EntityDataManager.createKey(EntitySubspaceSpear.class, DataSerializers.FLOAT);
 	
@@ -49,7 +49,7 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 		setSize(0F, 0F);
 		dataManager.register(LIVE_TICKS, 0);
 		dataManager.register(ROTATION, 0F);
-		dataManager.register(DAMAGE, 0);
+		dataManager.register(DAMAGE, 0F);
 		dataManager.register(LIFE, 0);
 		dataManager.register(PITCH, 0F);
 	}
@@ -84,8 +84,8 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 					continue;
 
 				if(living.hurtTime == 0) {
-					ExtraBotanyAPI.dealTrueDamage(this.getThrower(), living, getDamage() * 0.2F);
-					attackedFrom(living, player, (int) (getDamage() * 1.6F));
+					ExtraBotanyAPI.dealTrueDamage(this.getThrower(), living, getDamage() * 0.4F);
+					attackedFrom(living, player, (int) (getDamage() * 1.5F));
 				}
 				
 			}
@@ -117,7 +117,7 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 		cmp.setInteger(TAG_LIVE_TICKS, getLiveTicks());
 		cmp.setFloat(TAG_ROTATION, getRotation());
 		cmp.setInteger(TAG_LIFE, getLife());
-		cmp.setInteger(TAG_DAMAGE, getDamage());
+		cmp.setFloat(TAG_DAMAGE, getDamage());
 		cmp.setFloat(TAG_PITCH, getPitch());
 	}
 	
@@ -127,7 +127,7 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 		setLiveTicks(cmp.getInteger(TAG_LIVE_TICKS));
 		setRotation(cmp.getFloat(TAG_ROTATION));
 		setLife(cmp.getInteger(TAG_LIFE));
-		setDamage(cmp.getInteger(TAG_DAMAGE));
+		setDamage(cmp.getFloat(TAG_DAMAGE));
 		setPitch(cmp.getFloat(TAG_PITCH));
 	}
 	
@@ -163,11 +163,11 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 		dataManager.set(LIFE, delay);
 	}
 	
-	public int getDamage() {
+	public float getDamage() {
 		return dataManager.get(DAMAGE);
 	}
 
-	public void setDamage(int delay) {
+	public void setDamage(float delay) {
 		dataManager.set(DAMAGE, delay);
 	}
 

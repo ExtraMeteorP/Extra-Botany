@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
-import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.client.render.IModelReg;
 import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.entity.EntityMagicArrow;
@@ -55,7 +55,7 @@ import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, IModelReg, IAdvancementReward{
+public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, IModelReg, IAdvancementRequired{
 	
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
 

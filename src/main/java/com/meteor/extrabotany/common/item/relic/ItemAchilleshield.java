@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Multimap;
-import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemManasteelShield;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
@@ -29,9 +29,14 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Enchantments;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -41,14 +46,46 @@ import vazkii.botania.api.item.IPixieSpawner;
 import vazkii.botania.api.item.IRelic;
 import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
+import vazkii.botania.common.item.equipment.tool.ItemThunderSword;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IPixieSpawner, IAdvancementReward{
+public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IPixieSpawner, IAdvancementRequired{
 	
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
+	private static final String TAG_LIGHTNING_SEED = "lightningSeed";
+	private static final String TAG_MODE = "mode";
 
 	public ItemAchilleshield() {
 		super(BotaniaAPI.terrasteelToolMaterial, LibItemsName.ACHILLESHIELD);
+        this.addPropertyOverride(new ResourceLocation("release"), new IItemPropertyGetter()
+        {
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
+            {
+                return entityIn != null && isReleased(stack) ? 1.0F : 0.0F;
+            }
+        });
+	}
+	
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		if(playerIn.isSneaking() && playerIn.getAbsorptionAmount() >= 12F) {
+			setReleased(playerIn.getHeldItem(hand), !isReleased(playerIn.getHeldItem(hand)));
+			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
+		}
+		if(!isReleased(playerIn.getHeldItem(hand)))
+			playerIn.setActiveHand(hand);
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(hand));
+	}
+	
+	@Override
+	public boolean hitEntity(ItemStack stack, EntityLivingBase entity, @Nonnull EntityLivingBase attacker) {
+		ItemThunderSword sword = new ItemThunderSword();
+		if(isReleased(stack)) {
+			sword.hitEntity(stack, entity, attacker);
+		}else
+			attacker.setAbsorptionAmount(Math.min(20, attacker.getAbsorptionAmount() + 2F));
+		return super.hitEntity(stack, entity, attacker);
 	}
 	
 	@Override
@@ -56,10 +93,19 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 		Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
 		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
 		if (slot == slot.MAINHAND) {
-			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Weapon modifier", 6, 0));
+			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "Weapon modifier", isReleased(stack) ? 15 : 6, 0));
 			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", -2.6, 0));
+			attrib.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(uuid, "Tool modifier", isReleased(stack) ? 0.4F : 0, 1));
 		}
 		return attrib;
+	}
+	
+	public boolean isReleased(ItemStack stack) {
+		return ItemNBTHelper.getBoolean(stack, TAG_MODE, false);
+	}
+	
+	public void setReleased(ItemStack stack, boolean mode) {
+		ItemNBTHelper.setBoolean(stack, TAG_MODE, mode);
 	}
 	
 	@Override
@@ -85,19 +131,6 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 			if(attacked instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) attacked;
 				source.getImmediateSource().attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
-				/*
-				EntityPixie pixie = new EntityPixie(player.world);
-				pixie.setPosition(player.posX, player.posY + 2, player.posZ);
-
-				pixie.setApplyPotionEffect(new PotionEffect(potions[source.getImmediateSource().world.rand.nextInt(potions.length)], 40, 0));
-				float dmg = 6;
-
-				pixie.setProps((EntityLivingBase) source.getImmediateSource(), player, 0, dmg);
-				pixie.onInitialSpawn(player.world.getDifficultyForLocation(new BlockPos(pixie)), null);
-				player.world.spawnEntity(pixie);
-				
-				 */
-
 			} else {
 				source.getImmediateSource().attackEntityFrom(DamageSource.causeMobDamage(attacked), damage);
 			}
@@ -130,6 +163,8 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 	@Override
 	public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
 		super.onUsingTick(stack, player, count);
+		if(isReleased(stack))
+			player.stopActiveHand();
 		if((player.motionX > 0 || player.motionZ > 0) && player.isHandActive()){
 			Vec3d moveDir = new Vec3d(player.motionX, player.motionY, player.motionZ).normalize();
 			List<EntityLivingBase> targets = player.world.getEntitiesWithinAABB(EntityLivingBase.class, player.getEntityBoundingBox().grow(1), e -> e != player);
@@ -144,6 +179,11 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 		super.onUpdate(stack, world, entity, slot, selected);
 		if(!world.isRemote && entity instanceof EntityPlayer){
 			EntityPlayer player = (EntityPlayer) entity;
+			if(isReleased(stack) && player.ticksExisted % 10 == 0)
+				if(player.getAbsorptionAmount() > 0F)
+					player.setAbsorptionAmount(player.getAbsorptionAmount() - 1F);
+				else
+					setReleased(stack, false);
 			updateRelic(stack, player);
 		}
 	}

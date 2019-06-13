@@ -131,6 +131,7 @@ public class ModCraftingRecipe {
 	public static IRecipe JINGWEIFEATHER;
 	public static IRecipe MANADRIVERRING;
 	public static IRecipe MAGICFINGER;
+	public static IRecipe CHARGEPAD;
 	
 	public static void init() {
 		
@@ -409,6 +410,9 @@ public class ModCraftingRecipe {
 		
 		MAGICFINGER = new ShapelessOreRecipe(getResource("recipe_magicfinger"), new ItemStack(ModItems.magicfinger), new ItemStack(Items.CARROT), new ItemStack(ModItems.material, 1, 3), LibOreDict.MANA_POWDER);
 		MAGICFINGER.setRegistryName(getResource("recipe_magicfinger"));
+		
+		CHARGEPAD = new ShapedOreRecipe(getResource("recipe_chargepad"), new ItemStack(ModBlocks.chargepad), "AAA", "CBC", "AAA", 'B', LibOreDict.LIVING_ROCK, 'A', LibOreDict.MANA_STEEL, 'C', LibOreDict.PIXIE_DUST);
+		CHARGEPAD.setRegistryName(getResource("recipe_chargepad"));
 	}
 	
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -512,7 +516,8 @@ public class ModCraftingRecipe {
 					VOIDCALLER,
 					JINGWEIFEATHER,
 					MAGICFINGER,
-					MANADRIVERRING
+					MANADRIVERRING,
+					CHARGEPAD
 			);
 			if(ConfigHandler.ENABLE_SHIELD){
 				event.getRegistry().registerAll(

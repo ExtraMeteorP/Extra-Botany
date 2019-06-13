@@ -4,7 +4,6 @@ import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.entity.IBossProjectile;
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
-import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
@@ -48,7 +47,10 @@ public class ItemCamera extends ItemModRelic implements IManaUsingItem{
 					int time = 200;
 					if(!living.isNonBoss())
 						time = 30;
-					living.addPotionEffect(new PotionEffect(ModPotions.mindcrack, time, 1));		
+					if(living.getEntityData().getInteger("freezeTimes") > 10)
+						time = 0;
+					living.getEntityData().setInteger("freezeTime", time);	
+					living.getEntityData().setInteger("freezeTimes", living.getEntityData().getInteger("freezeTimes") + 1);	
 				}
 			}
 

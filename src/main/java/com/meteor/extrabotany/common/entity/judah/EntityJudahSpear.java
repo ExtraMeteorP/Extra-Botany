@@ -29,7 +29,7 @@ public class EntityJudahSpear extends Entity{
     private static final String TAG_ROTATION = "rotation";
     private static final String TAG_PLAYERLIST = "playerlist";
 
-    private static final DataParameter<Integer> DAMAGE = EntityDataManager.createKey(EntityJudahSpear.class, DataSerializers.VARINT);
+    private static final DataParameter<Float> DAMAGE = EntityDataManager.createKey(EntityJudahSpear.class, DataSerializers.FLOAT);
     private static final DataParameter<Boolean> FAKE = EntityDataManager.createKey(EntityJudahSpear.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> FLAG = EntityDataManager.createKey(EntityJudahSpear.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Integer> TYPE = EntityDataManager.<Integer>createKey(EntityJudahSpear.class, DataSerializers.VARINT);
@@ -52,7 +52,7 @@ public class EntityJudahSpear extends Entity{
         dataManager.register(ROTATION, 0F);
         dataManager.register(FAKE, false);
         dataManager.register(FLAG, false);
-        dataManager.register(DAMAGE, 0);
+        dataManager.register(DAMAGE, 0F);
         dataManager.register(TYPE, Integer.valueOf(EntityJudahSpear.Type.JUDAH.ordinal()));
         dataManager.register(UUID, Optional.absent());
     }
@@ -101,9 +101,9 @@ public class EntityJudahSpear extends Entity{
                     if (ExtraBotany.isTableclothServer && thrower != null)
                         living.attackEntityFrom(DamageSource.causePlayerDamage(thrower), getDamage() * 1.25F);
                     else
-                        living.attackEntityFrom(DamageSource.LIGHTNING_BOLT, getDamage());
+                        living.attackEntityFrom(DamageSource.LIGHTNING_BOLT, getDamage() * 1.25F);
                     ExtraBotanyAPI.addPotionEffect(living, ModPotions.divinejustice, 4);
-                    ExtraBotanyAPI.dealTrueDamage(thrower, living, getDamage() * 0.25F);
+                    ExtraBotanyAPI.dealTrueDamage(thrower, living, getDamage() * 0.35F);
                     setFlag(true);
                 }
 
@@ -117,7 +117,7 @@ public class EntityJudahSpear extends Entity{
     @Override
     public void writeEntityToNBT(NBTTagCompound cmp) {
         cmp.setString("Type", this.getType().getName());
-        cmp.setInteger(TAG_DAMAGE, getDamage());
+        cmp.setFloat(TAG_DAMAGE, getDamage());
         cmp.setBoolean(TAG_FAKE, getFake());
         cmp.setBoolean(TAG_FLAG, getFlag());
         cmp.setFloat(TAG_ROTATION, getRotation());
@@ -129,7 +129,7 @@ public class EntityJudahSpear extends Entity{
         if (cmp.hasKey("Type", 8)) {
             this.setType(EntityJudahSpear.Type.getTypeFromString(cmp.getString("Type")));
         }
-        setDamage(cmp.getInteger(TAG_DAMAGE));
+        setDamage(cmp.getFloat(TAG_DAMAGE));
         setFake(cmp.getBoolean(TAG_FAKE));
         setFlag(cmp.getBoolean(TAG_FLAG));
         setRotation(cmp.getFloat(TAG_ROTATION));
@@ -152,11 +152,11 @@ public class EntityJudahSpear extends Entity{
         this.dataManager.set(TYPE, Integer.valueOf(raftType.ordinal()));
     }
 
-    public int getDamage() {
+    public float getDamage() {
         return dataManager.get(DAMAGE);
     }
 
-    public void setDamage(int delay) {
+    public void setDamage(float delay) {
         dataManager.set(DAMAGE, delay);
     }
 
@@ -187,7 +187,6 @@ public class EntityJudahSpear extends Entity{
     public static enum Type {
         JUDAH(0, "judah"),
         KIRA(1, "kira"),
-        ETERNITY(2, "eternity"),
         SAKURA(2, "sakura");
 
         private final String name;

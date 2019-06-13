@@ -257,7 +257,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 				spawnSubspaceLanceRandomly();
 			}
 			if(playersWhoAttacked.size() > 0){
-				this.heal(playersWhoAttacked.size() * 150F);
+				this.setHealth(this.getMaxHealth());
 			}
 		}
 
@@ -463,6 +463,8 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 			EntityItem item =  player.dropItem(true);
 			item.setPickupDelay(90);
 		}
+		if(player.inventory.isEmpty())
+			return;
 		for(int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack stackAt = player.inventory.getStackInSlot(i);
 			if(!match(stackAt)) {
@@ -991,12 +993,12 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
 	public List<EntityPlayer> getPlayersAround() {
 		BlockPos source = getSource();
-		float range = 15F;
+		float range = 16F;
 		return world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
 	}
 
 	private static int getGaiaGuardiansAround(World world, BlockPos source) {
-		float range = 15F;
+		float range = 16F;
 		List l = world.getEntitiesWithinAABB(EntityVoidHerrscher.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
 		return l.size();
 	}

@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
@@ -15,7 +15,7 @@ import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.api.subtile.SubTileFunctional;
 import vazkii.botania.common.block.tile.TileSpecialFlower;
 
-public class ItemManaDriverRing extends ItemBauble implements IManaUsingItem, IAdvancementReward{
+public class ItemManaDriverRing extends ItemBauble implements IManaUsingItem, IAdvancementRequired{
 
 	public ItemManaDriverRing() {
 		super(LibItemsName.BAUBLE_MANADRIVERRING);

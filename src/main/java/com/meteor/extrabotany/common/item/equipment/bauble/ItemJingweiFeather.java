@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
-import com.meteor.extrabotany.api.item.IAdvancementReward;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
 import com.meteor.extrabotany.common.core.network.PacketLeftClickJingwei;
 import com.meteor.extrabotany.common.entity.EntityAuraFire;
@@ -18,7 +18,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vazkii.botania.api.mana.ManaItemHandler;
 
-public class ItemJingweiFeather extends ItemBauble implements IAdvancementReward{
+public class ItemJingweiFeather extends ItemBauble implements IAdvancementRequired{
 
 	public ItemJingweiFeather() {
 		super(LibItemsName.BAUBLE_FEATHER);

@@ -160,6 +160,7 @@ tile.extrabotany:quantummanabuffer.name=Quantum Mana Buffer
 tile.extrabotany:blockshadowium.name=Block of Shadowium
 tile.extrabotany:blockphotonium.name=Block of Photonium
 tile.extrabotany:dimensioncatalyst.name=Dimension Catalyst
+tile.extrabotany:chargepad.name=Power Frame
 
 entity.extrabotany:flowerWeapon.name=Flower
 entity.extrabotany:gaiaIII.name=Gaia Guardian III
@@ -216,6 +217,10 @@ tile.botania:flower.edelweiss.name=Edelweiss
 tile.botania:flower.edelweiss.reference=Do you want to build a snowman?
 tile.botania:flower.mirrowtunia.name=Mirrortunia
 tile.botania:flower.mirrowtunia.reference=Mirror,mirror,on the wall
+tile.botania:flower.necrofleur.name=Necrofleur
+tile.botania:flower.necrofleurChibi.name=Necrofleur Petite
+tile.botania:flower.necrofleur.reference=The only cure is Dying
+tile.botania:flower.necrofleurChibi.reference=The only cure is Dying
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
@@ -370,6 +375,11 @@ botania.page.enchantedorchid0=The Enchanted Orchid can infuse grass blocks benea
 botania.page.enchantedorchid1=The truth is always one
 botania.tagline.enchantedorchid=Knowledge is power and I know a lot
 
+botania.entry.necrofleur=Necrofleur
+botania.page.necrofleur0=Necrofleur will only target those non-player creatures with lower than 50% health. It will spread despair and strike them a heavy blow, reducing the following healings they will receive.
+botania.page.necrofleur1=Meteor Strike
+botania.tagline.necrofleur=I will mourn your death
+
 botania.entry.manabarrel=Mana Buffer
 botania.page.manabarrel0=The Mana Buffer can store as much &4Mana&0 as 64 Mana Pools. It will drain &4Mana&0 from adjacent mana pools and supply it to a Mana Pool placed on top of it.
  botania.page.manabarrel1=Un...Deux...Trois...
@@ -451,7 +461,7 @@ botania.page.natureorb4=Build a multiblock structure and place it on the Livingr
 botania.tagline.natureorb=Natural Balance
 
 botania.entry.camera=Shameimaru's Camera
-botania.page.camera0=Shameimaru's Camera strips nearby creatures of their abilities. Projectiles in sight will vanish. Creatures affected by this will return to normal after a period of time.
+botania.page.camera0=Shameimaru's Camera strips nearby creatures of their abilities. Projectiles in sight will vanish. Creatures affected by this will return to normal after a period of time. The camera can affect boss for a very short period.
 botania.page.camera1=Snapshot
 botania.tagline.camera=Say "cheese"!
 
@@ -462,13 +472,13 @@ botania.page.gaia32=Natural Selection.
 botania.tagline.gaia3=It's HARDCORE
 
 botania.entry.gaia4=Ritual of Gaia IV
-botania.page.gaia40=100,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.
+botania.page.gaia40=100,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared. All liquid blocks in the arene will be destroyed.
 botania.page.gaia41=For the Gaia Guardian IV fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! (except if its changed in the config) 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania (except if its changed in the config). Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
 botania.page.gaia42=Natural Selection.
 botania.tagline.gaia4=It's HARDCORE
 
 botania.entry.relicshield=Achilled Shield
-botania.page.relicshield0=The &4Achilled Shield&0 can reflect damage and most projectiles. Colliding with enemies while blocking will deal damage to them. 
+botania.page.relicshield0=The &4Achilled Shield&0 can reflect damage and most projectiles. Colliding with enemies while blocking will deal damage to them. Sneak and right-click with over 12 absorption and you will release its true power. To maintain its new form will cost you 2 absoprtion every second.
 botania.page.relicshield1=I will stop humans
 botania.tagline.relicshield=AT Field
 
@@ -675,8 +685,8 @@ botania.tagline.dimensioncatalyst=
 botania.category.dream=ExtraBotany
 
 botania.entry.guide=From The New World
-botania.page.guide0=Welcome to the World of the supreme principle of Mana! You are the one who has great potential and I believe you will have a shiny, bright future. I am sure you are hunger for more knowledge. Follow me, I will pass on my knowledge and experience to you.<br>Hold the lexicon and right-click a Livingrock Pedestal with a Spirit Fuel, and you will unlock the new knowledge type. <br>To obtain Spirit Fuel, you have to eat one Nightmare Fuel or put it in a Livingrock Pedestal under Sun for 5 mins.
-botania.page.guide1=
+botania.page.guide0=Welcome to the World of the supreme principle of Mana! You are the one who has great potential and I believe you will have a shiny, bright future. I am sure you are hunger for more knowledge. Follow me, I will pass on my knowledge and experience to you.
+botania.page.guide1=Hold the lexicon and right-click a Livingrock Pedestal with a Spirit Fuel, and you will unlock the new knowledge type. <br>To obtain Spirit Fuel, you have to eat one Nightmare Fuel or put it in a Livingrock Pedestal under Sun for 5 mins.
 botania.tagline.guide=The New World
 
 botania.entry.voidherrscher=Herrscher of the Void—The Final Combat
@@ -718,6 +728,11 @@ botania.entry.manadriverring=Ring of Mana Drive
 botania.page.manadriverring0=装备上驭魔之戒后它会将你 所拥有的魔力扩散到空气中 ，来为周围的功能花提供魔 力。
 botania.page.manadriverring1=
 botania.tagline.manadriverring=
+
+botania.entry.chargepad=Power Frame
+botania.page.chargepad0=Place a mana item in the Power Frame, and the Power Frame will extract mana from the mana pool above and transfer to the mana item. Giving a redstone signal will make the process reverse.
+botania.page.chargepad1=
+botania.tagline.chargepad=
 
 botania.entry.=
 botania.page.0=

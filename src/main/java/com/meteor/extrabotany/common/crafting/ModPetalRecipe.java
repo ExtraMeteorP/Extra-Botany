@@ -34,6 +34,7 @@ public class ModPetalRecipe {
 	public static RecipePetals manalinkiumRecipe;
 	public static RecipePetals enchantedorchidRecipe;
 	public static RecipePetals mirrortuniaRecipe;
+	public static RecipePetals necrofleurRecipe;
 	
 	public static void init() {
 		if(ConfigHandler.ENABLE_BE)
@@ -66,6 +67,8 @@ public class ModPetalRecipe {
 			mirrortuniaRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_MIRROWTUNIA), runeAir, runePride, runeWrath, cyan, cyan, lightBlue, blue, manaPowder);
 		if(ConfigHandler.ENABLE_GO)
 			geminiorchidRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_GEMINIORCHID), orange, orange, yellow, yellow, orange, yellow, manaPowder, manaPowder);
+		if(ConfigHandler.ENABLE_NF)
+			necrofleurRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_NECROFLEUR), gray, gray, red, pink, pink, manaPowder, runeWrath);
 	}
 
 }

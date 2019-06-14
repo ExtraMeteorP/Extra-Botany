@@ -159,6 +159,7 @@ tile.extrabotany:quantummanabuffer.name=量子魔力缓存器
 tile.extrabotany:blockshadowium.name=暗影块
 tile.extrabotany:blockphotonium.name=光子块
 tile.extrabotany:dimensioncatalyst.name=次元催化器
+tile.extrabotany:chargepad.name=力量框架
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -215,6 +216,10 @@ tile.botania:flower.edelweiss.name=雪绒花
 tile.botania:flower.edelweiss.reference=你想堆个雪人吗
 tile.botania:flower.mirrowtunia.name=镜姬
 tile.botania:flower.mirrowtunia.reference=魔镜啊魔镜
+tile.botania:flower.necrofleur.name=死之花
+tile.botania:flower.necrofleurChibi.name=小死之花
+tile.botania:flower.necrofleur.reference=死亡是唯一的解药
+tile.botania:flower.necrofleurChibi.reference=死亡是唯一的解药
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
@@ -368,6 +373,11 @@ botania.entry.enchantedorchid=蕴魔瑾
 botania.page.enchantedorchid0=蕴魔瑾可以将其地表附近的 草方块转化为蕴魔土，但这 个过程需要漫长的时间和大 量的&4魔力&0。并且每次转化都 需要消耗一个黑莲花。
 botania.page.enchantedorchid1=真相只有一个!
 botania.tagline.enchantedorchid=无穷无尽的知识就是我的力量
+
+botania.entry.necrofleur=死之花
+botania.page.necrofleur0=死之花只会以血量低于一半 的非生物玩家为目标，对其 造成大量的伤害，并使其接 下来一段时间获得的治疗量 减少。
+botania.page.necrofleur1=毁天灭地
+botania.tagline.necrofleur=我会为你的死亡哀悼
 
 botania.entry.manabarrel=魔力缓存器
 botania.page.manabarrel0=魔力缓存器可以缓存大量的 魔力，约等于64个魔力池。它可 以从相邻四面的魔力池中吸 取魔力，并向上方的魔力池输 出魔力。
@@ -674,8 +684,8 @@ botania.tagline.dimensioncatalyst=
 botania.category.dream=额外学
 
 botania.entry.guide=自新世界
-botania.page.guide0=欢迎来到魔力至上主义的世 界。您是一位具有极大潜力 的人，我在您的身上看到了 未来。我相信您正渴求着更 多的知识，而我正是来改变 您，向您传授知识的人。 <br>手持手册右键带有精神燃料 的活石祭坛，您将解锁全新 的知识。去掌握这份新力量 吧！<br>食用梦魇燃料可以获得精神 燃料，或者将它放在活石祭坛晒上 5分钟。
-botania.page.guide1=
+botania.page.guide0=欢迎来到魔力至上主义的世 界。您是一位具有极大潜力 的人，我在您的身上看到了 未来。我相信您正渴求着更 多的知识，而我正是来改变 您，向您传授知识的人。<br>欢迎加群799481464讨论。
+botania.page.guide1=手持手册右键带有精神燃料 的活石祭坛，您将解锁全新 的知识。去掌握这份新力量 吧！<br>食用梦魇燃料可以获得精神 燃料，或者将它放在活石祭坛晒上 5分钟。
 botania.tagline.guide=新世界
 
 botania.entry.voidherrscher=空之律者—最终的挑战
@@ -717,6 +727,11 @@ botania.entry.manadriverring=驭魔之戒
 botania.page.manadriverring0=装备上驭魔之戒后它会将你 所拥有的魔力扩散到空气中 ，来为周围的功能花提供魔 力。
 botania.page.manadriverring1=
 botania.tagline.manadriverring=
+
+botania.entry.chargepad=力量框架
+botania.page.chargepad0=将魔力物品放入力量框架中 ，力量框架会抽取上方魔力 池的魔力来为其充能。如果 给予一个红石信号则会使该 过程反向进行。
+botania.page.chargepad1=
+botania.tagline.chargepad=
 
 botania.entry.=
 botania.page.0=

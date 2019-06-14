@@ -41,7 +41,7 @@ public class SubTileNecrofleur extends SubTileFunctional{
 		List<EntityLivingBase> entities = getWorld().getEntitiesWithinAABB(EntityLivingBase.class, axis);
 		for(int i = 0; i < entities.size(); i++) {
 			EntityLivingBase entity = entities.get(i);
-			if(entity != null && entity.getHealth() < entity.getMaxHealth() * 0.5F && this.ticksExisted % 20 == 0 && this.mana >= 500) {
+			if(entity != null && entity.getHealth() < entity.getMaxHealth() * 0.5F && this.ticksExisted % 20 == 0 && this.mana >= 200) {
 				entity.attackEntityFrom(DamageSource.causeIndirectMagicDamage(entity, entity), getDamage());
 				entity.addPotionEffect(new PotionEffect(ModPotions.witchcurse, 300, 4));
 				this.mana = 0;
@@ -51,7 +51,7 @@ public class SubTileNecrofleur extends SubTileFunctional{
 
 	@Override
 	public int getMaxMana() {
-		return 500;
+		return 200;
 	}
 	
 	public int getRange() {

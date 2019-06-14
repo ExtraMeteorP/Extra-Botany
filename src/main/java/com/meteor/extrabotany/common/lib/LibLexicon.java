@@ -17,6 +17,7 @@ public class LibLexicon {
 	public static final String FFLOWER_STARDUSTLOTUS = "stardustlotus";
 	public static final String FFLOWER_ENCHANTEDORCHID = "enchantedorchid";
 	public static final String FFLOWER_MIRROWTUNIA = "mirrortunia";
+	public static final String FFLOWER_NECROFLEUR = "necrofleur";
 	
 	public static final String BOTTLED_FLAME = "bottledflame";
 	public static final String BOTTLED_STAR = "bottledstar";

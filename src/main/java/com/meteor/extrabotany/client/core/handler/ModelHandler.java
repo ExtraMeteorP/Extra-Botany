@@ -9,6 +9,7 @@ import com.meteor.extrabotany.common.block.subtile.functional.SubTileAnnoyingFlo
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileEnchantedOrchid;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileMirrortunia;
+import com.meteor.extrabotany.common.block.subtile.functional.SubTileNecrofleur;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBellFlower;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBloodyEnchantress;
@@ -99,6 +100,10 @@ public class ModelHandler {
 			BotaniaAPIClient.registerSubtileModel(SubTileEdelweiss.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_EDELWEISS));
 		if(ConfigHandler.ENABLE_GO)
 			BotaniaAPIClient.registerSubtileModel(SubTileGeminiOrchid.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_GEMINIORCHID));
+		if(ConfigHandler.ENABLE_NF){
+			BotaniaAPIClient.registerSubtileModel(SubTileNecrofleur.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_NECROFLEUR));
+			BotaniaAPIClient.registerSubtileModel(SubTileNecrofleur.Mini.class, new ModelResourceLocation("botania:" + LibBlocksName.SUBTILE_NECROFLEUR+"Chibi"));	
+		}
 	}
 	
 	private static final Map<IRegistryDelegate<Block>, IStateMapper> customStateMappers = ReflectionHelper.getPrivateValue(ModelLoader.class, null, "customStateMappers");

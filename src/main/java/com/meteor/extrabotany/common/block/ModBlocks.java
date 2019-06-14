@@ -133,7 +133,8 @@ public class ModBlocks {
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_MIRROWTUNIA, SubTileMirrortunia.class);
 		if(ConfigHandler.ENABLE_GO)
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_GEMINIORCHID, SubTileGeminiOrchid.class);
-		registerSubTileWithMini(LibBlocksName.SUBTILE_NECROFLEUR, SubTileNecrofleur.class);
+		if(ConfigHandler.ENABLE_NF)
+			registerSubTileWithMini(LibBlocksName.SUBTILE_NECROFLEUR, SubTileNecrofleur.class);
 		registerTile(TilePedestal.class, LibBlocksName.TILE_PEDESTAL);
 		registerTile(TileManaBuffer.class, LibBlocksName.TILE_BATTERYBOX);
 		registerTile(TileCocoonDesire.class, LibBlocksName.TILE_COCOON);

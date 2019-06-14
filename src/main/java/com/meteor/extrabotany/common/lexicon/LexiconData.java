@@ -118,6 +118,7 @@ public class LexiconData {
 	public static LexiconEntry manadriverring;
 	public static LexiconEntry magicfinger;
 	public static LexiconEntry chargepad;
+	public static LexiconEntry necrofleur;
 	
 	public static void init() {	
 		
@@ -135,7 +136,7 @@ public class LexiconData {
 		herrscher.setPriority();
 		
 		start = new BasicLexiconEntry(LibLexicon.STARTGUIDE, ExtraBotanyAPI.dreamCategory);
-		start.setLexiconPages(new PageText("0"));
+		start.setLexiconPages(new PageText("0"),new PageText("1"));
 		start.setPriority();
 		start.setIcon(new ItemStack(ModBlocks.tinyPotato));
 		
@@ -449,6 +450,12 @@ public class LexiconData {
 			edelweiss = new DreamLexiconEntry(LibLexicon.GFLOWER_EDELWEISS,  BotaniaAPI.categoryGenerationFlowers);
 			edelweiss.setLexiconPages(new PageText("0"),
 						new PagePetalRecipe<>("1", ModPetalRecipe.edelweissRecipe));
+		}
+		
+		if(ConfigHandler.ENABLE_NF){
+			necrofleur = new DreamLexiconEntry(LibLexicon.FFLOWER_NECROFLEUR,  BotaniaAPI.categoryFunctionalFlowers);
+			necrofleur.setLexiconPages(new PageText("0"),
+						new PagePetalRecipe<>("1", ModPetalRecipe.necrofleurRecipe));
 		}
 		
 		pedestal = new BasicLexiconEntry(LibLexicon.PEDESTAL,  ExtraBotanyAPI.dreamCategory);

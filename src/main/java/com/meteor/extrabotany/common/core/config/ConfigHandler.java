@@ -81,6 +81,7 @@ public class ConfigHandler {
 	public static boolean ENABLE_EW;
 	public static boolean ENABLE_MT;
 	public static boolean ENABLE_GO;
+	public static boolean ENABLE_NF;
 	
 	public static boolean ENABLE_TOOLTIP;
 	public static boolean ENABLE_SHIELD;
@@ -201,6 +202,7 @@ public class ConfigHandler {
 		ENABLE_EW = CONFIG.get("enable flowers", "edelweiss", true).getBoolean(true);
 		ENABLE_MT = CONFIG.get("enable flowers", "mirrowtunia", true).getBoolean(true);
 		ENABLE_GO = CONFIG.get("enable flowers", "geminiorchid", true).getBoolean(true);
+		ENABLE_NF = CONFIG.get("enable flowers", "necrofleur", true).getBoolean(true);
 		
 		ENABLE_FEATURES = CONFIG.get("enable features", "easter eggs", true).getBoolean(true);
 		

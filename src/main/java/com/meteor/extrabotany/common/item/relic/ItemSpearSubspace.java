@@ -80,59 +80,59 @@ public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem{
 	}
 	
 	 @Override
-	  public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase player, int timeLeft) {
-		 player.setSprinting(true);
-		 player.setJumping(true);
-		 player.motionY +=2.5F;
-		 
-		 if(!world.isRemote && isRightPlayer((EntityPlayer) player, stack)){
+	  public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase player, int timeLeft) {	 
+		 if(isRightPlayer((EntityPlayer) player, stack)){
 			 if(ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) player, 10000, true))
 				 ((EntityPlayer)player).getCooldownTracker().setCooldown(this, 600);
 			 else
 				 ((EntityPlayer)player).getCooldownTracker().setCooldown(this, 1200);
-			 for(int i = 0; i < 24; i++){
-				 
-					Vector3 look = new Vector3(player.getLookVec()).multiply(1, 0, 1);
-					
-					double playerRot = Math.toRadians(player.rotationYaw + 90);
-					if(look.x == 0 && look.z == 0)
-						look = new Vector3(Math.cos(playerRot), 0, Math.sin(playerRot));
+			 player.setSprinting(true);
+			 player.setJumping(true);
+			 player.motionY+=1.5F;
+			 if(!world.isRemote)
+				 for(int i = 0; i < 24; i++){
+					 
+						Vector3 look = new Vector3(player.getLookVec()).multiply(1, 0, 1);
 						
-					look = look.normalize().multiply(-2);
-
-					int div = i / 8;
-					int mod = i % 8;
-
-					Vector3 pl = look.add(Vector3.fromEntityCenter(player)).add(0, 1.6, div * 0.1);
-
-					Random rand = player.world.rand;
-					Vector3 axis = look.normalize().crossProduct(new Vector3(-1, 0, -1)).normalize();
-
-					double rot = mod * Math.PI / 7 - Math.PI / 2;
-
-					Vector3 axis1 = axis.multiply(div * 3.5 + 5).rotate(rot, look);
-					if(axis1.y < 0)
-						axis1 = axis1.multiply(1, -1, 1);
-
-					Vector3 end = pl.add(axis1);
-					
-				 EntitySubspace sub = new EntitySubspace(world, (EntityPlayer) player);
-				 sub.setLiveTicks(120);
-				 sub.setDelay(15 + world.rand.nextInt(12));
-				 sub.posX = end.x;
-				 sub.posY = end.y - 0.5F + world.rand.nextFloat();
-				 sub.posZ = end.z;
-				 sub.rotationYaw = player.rotationYaw;
-				 sub.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
-				 sub.setInterval(10 + world.rand.nextInt(10));
-				 sub.setSize(1.0F + world.rand.nextFloat());
-				 sub.setType(0);
-				 if(!world.isRemote)
-					 world.spawnEntity(sub);
-				 if(i==1)
-					 sub.playSound(ModSounds.spearsubspace, 1F, 1F);
-				 
-			 }
+						double playerRot = Math.toRadians(player.rotationYaw + 90);
+						if(look.x == 0 && look.z == 0)
+							look = new Vector3(Math.cos(playerRot), 0, Math.sin(playerRot));
+							
+						look = look.normalize().multiply(-2);
+	
+						int div = i / 8;
+						int mod = i % 8;
+	
+						Vector3 pl = look.add(Vector3.fromEntityCenter(player)).add(0, 1.6, div * 0.1);
+	
+						Random rand = player.world.rand;
+						Vector3 axis = look.normalize().crossProduct(new Vector3(-1, 0, -1)).normalize();
+	
+						double rot = mod * Math.PI / 7 - Math.PI / 2;
+	
+						Vector3 axis1 = axis.multiply(div * 3.5 + 5).rotate(rot, look);
+						if(axis1.y < 0)
+							axis1 = axis1.multiply(1, -1, 1);
+	
+						Vector3 end = pl.add(axis1);
+						
+					 EntitySubspace sub = new EntitySubspace(world, (EntityPlayer) player);
+					 sub.setLiveTicks(120);
+					 sub.setDelay(15 + world.rand.nextInt(12));
+					 sub.posX = end.x;
+					 sub.posY = end.y - 0.5F + world.rand.nextFloat();
+					 sub.posZ = end.z;
+					 sub.rotationYaw = player.rotationYaw;
+					 sub.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
+					 sub.setInterval(10 + world.rand.nextInt(10));
+					 sub.setSize(1.0F + world.rand.nextFloat());
+					 sub.setType(0);
+					 if(!world.isRemote)
+						 world.spawnEntity(sub);
+					 if(i==1)
+						 sub.playSound(ModSounds.spearsubspace, 1F, 1F);
+					 
+				 }
 			 player.addPotionEffect(new PotionEffect(ModPotions.eternity, 120, 0));
 		 }
 		 

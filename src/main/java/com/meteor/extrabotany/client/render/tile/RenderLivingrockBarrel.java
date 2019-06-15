@@ -17,11 +17,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import vazkii.botania.client.core.proxy.ClientProxy;
 
-public class RenderLivingrockBarrel extends TileEntitySpecialRenderer<TileLivingrockBarrel>{
+public class RenderLivingrockBarrel extends TileEntitySpecialRenderer<TileLivingrockBarrel> {
 
 	@Override
-	public void render(@Nonnull TileLivingrockBarrel pool, double d0, double d1, double d2, float f, int digProgress, float unused) {
-		if(pool != null && (!pool.getWorld().isBlockLoaded(pool.getPos(), false)
+	public void render(@Nonnull TileLivingrockBarrel pool, double d0, double d1, double d2, float f, int digProgress,
+			float unused) {
+		if (pool != null && (!pool.getWorld().isBlockLoaded(pool.getPos(), false)
 				|| pool.getWorld().getBlockState(pool.getPos()).getBlock() != ModBlocks.elfjar))
 			return;
 
@@ -32,7 +33,8 @@ public class RenderLivingrockBarrel extends TileEntitySpecialRenderer<TileLiving
 		float a = 1F;
 
 		GlStateManager.color(1F, 1F, 1F, a);
-		if (pool == null) { // A null pool means we are calling the TESR without a pool (on a minecart). Adjust accordingly
+		if (pool == null) { // A null pool means we are calling the TESR without a pool (on a minecart).
+							// Adjust accordingly
 			GlStateManager.translate(0, 0, -1);
 		} else {
 			GlStateManager.translate(d0, d1, d2);
@@ -55,7 +57,7 @@ public class RenderLivingrockBarrel extends TileEntitySpecialRenderer<TileLiving
 		float v = 1F / 8F;
 		float w = -v * 3.5F;
 
-		if(waterLevel > 0 && pool.fluidTank.getFluid() != null) {
+		if (waterLevel > 0 && pool.fluidTank.getFluid() != null) {
 			s = 1F / 256F * 14F;
 			GlStateManager.pushMatrix();
 			GlStateManager.enableBlend();
@@ -66,7 +68,7 @@ public class RenderLivingrockBarrel extends TileEntitySpecialRenderer<TileLiving
 			GlStateManager.rotate(90F, 1F, 0F, 0F);
 			GlStateManager.scale(s, s, s);
 			renderIcon(0, 0, getFluidTexture(pool.fluidTank.getFluid().getFluid()), 16, 16, 240);
-			
+
 			GlStateManager.enableAlpha();
 			GlStateManager.disableBlend();
 			GlStateManager.popMatrix();
@@ -86,10 +88,14 @@ public class RenderLivingrockBarrel extends TileEntitySpecialRenderer<TileLiving
 	public void renderIcon(int par1, int par2, TextureAtlasSprite par3Icon, int par4, int par5, int brightness) {
 		Tessellator tessellator = Tessellator.getInstance();
 		tessellator.getBuffer().begin(GL11.GL_QUADS, ClientProxy.POSITION_TEX_LMAP);
-		tessellator.getBuffer().pos(par1 + 0, par2 + par5, 0).tex(par3Icon.getMinU(), par3Icon.getMaxV()).lightmap(brightness, brightness).endVertex();
-		tessellator.getBuffer().pos(par1 + par4, par2 + par5, 0).tex(par3Icon.getMaxU(), par3Icon.getMaxV()).lightmap(brightness, brightness).endVertex();
-		tessellator.getBuffer().pos(par1 + par4, par2 + 0, 0).tex(par3Icon.getMaxU(), par3Icon.getMinV()).lightmap(brightness, brightness).endVertex();
-		tessellator.getBuffer().pos(par1 + 0, par2 + 0, 0).tex(par3Icon.getMinU(), par3Icon.getMinV()).lightmap(brightness, brightness).endVertex();
+		tessellator.getBuffer().pos(par1 + 0, par2 + par5, 0).tex(par3Icon.getMinU(), par3Icon.getMaxV())
+				.lightmap(brightness, brightness).endVertex();
+		tessellator.getBuffer().pos(par1 + par4, par2 + par5, 0).tex(par3Icon.getMaxU(), par3Icon.getMaxV())
+				.lightmap(brightness, brightness).endVertex();
+		tessellator.getBuffer().pos(par1 + par4, par2 + 0, 0).tex(par3Icon.getMaxU(), par3Icon.getMinV())
+				.lightmap(brightness, brightness).endVertex();
+		tessellator.getBuffer().pos(par1 + 0, par2 + 0, 0).tex(par3Icon.getMinU(), par3Icon.getMinV())
+				.lightmap(brightness, brightness).endVertex();
 		tessellator.draw();
 	}
 

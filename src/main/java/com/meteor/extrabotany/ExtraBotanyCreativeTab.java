@@ -12,11 +12,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ExtraBotanyCreativeTab extends CreativeTabs{
-	
+public class ExtraBotanyCreativeTab extends CreativeTabs {
+
 	public static final ExtraBotanyCreativeTab INSTANCE = new ExtraBotanyCreativeTab();
 	NonNullList<ItemStack> list;
-	
+
 	public ExtraBotanyCreativeTab() {
 		super("extrabotany");
 		setNoTitle();
@@ -27,12 +27,12 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 	public ItemStack getTabIconItem() {
 		return new ItemStack(ModItems.kinggarden);
 	}
-	
+
 	@Override
 	public boolean hasSearchBar() {
 		return true;
 	}
-	
+
 	@Override
 	public void displayAllRelevantItems(@Nonnull NonNullList<ItemStack> list) {
 		this.list = list;
@@ -47,7 +47,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.manaReader);
 		addItem(ModItems.binder);
 		addItem(ModItems.magicfinger);
-		if(ConfigHandler.ENABLE_SHIELD){
+		if (ConfigHandler.ENABLE_SHIELD) {
 			addItem(ModItems.manasteelshield);
 			addItem(ModItems.elementiumshield);
 			addItem(ModItems.terrasteelshield);
@@ -86,7 +86,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.swboot);
 		addItem(ModItems.shadowkatana);
 		addItem(ModItems.cmchestdarkened);
-		if(ExtraBotany.thaumcraftLoaded){
+		if (ExtraBotany.thaumcraftLoaded) {
 			addItem(ModItems.coshelmrevealing);
 			addItem(ModItems.cmhelmrevealing);
 		}
@@ -129,7 +129,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		addItem(ModItems.foxear);
 		addItem(ModItems.mask);
 	}
-	
+
 	private void addItem(Item item) {
 		item.getSubItems(this, list);
 	}
@@ -138,5 +138,5 @@ public class ExtraBotanyCreativeTab extends CreativeTabs{
 		ItemStack stack = new ItemStack(block);
 		block.getSubBlocks(this, list);
 	}
-	
+
 }

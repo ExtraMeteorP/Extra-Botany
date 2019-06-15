@@ -160,7 +160,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 		super(world);
 		setSize(0.6F, 1.8F);
 		isImmuneToFire = true;
-		experienceValue = 1225;
+		experienceValue = 1725;
 		if(world.isRemote) {
 			Botania.proxy.addBoss(this);
 		}

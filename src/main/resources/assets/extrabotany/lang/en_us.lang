@@ -715,17 +715,17 @@ botania.page.cosmetic10=
 botania.tagline.cosmetic=
 
 botania.entry.jingweifeather=Feather of JingWei
-botania.page.jingweifeather0=装备上精卫之羽后，玩家空 手攻击时可以消耗一定魔力 打出拳气造成伤害。拳气命 中时会为玩家回复少量生命 吸收。
+botania.page.jingweifeather0=After equipping Feather of JingWei, player can use mana to shoot Aura Fire with empty hands. The Aura Fire can restore player's absoprtion.
 botania.page.jingweifeather1=
 botania.tagline.jingweifeather=
 
 botania.entry.magicfinger=Magic Finger
-botania.page.magicfinger0=使用魔术手指右键魔力池可 以将自身身上一定魔力传输 到池子中，而被它击中的目 标会在接下来3秒内治疗反 转。
+botania.page.magicfinger0=Right-clicking the mana pool with Magic Finger will extract some mana from you to the pool. Use Magic Finger to hit creatures will make its following 3 seconds' healing reversed.
 botania.page.magicfinger1=
 botania.tagline.magicfinger=
 
 botania.entry.manadriverring=Ring of Mana Drive
-botania.page.manadriverring0=装备上驭魔之戒后它会将你 所拥有的魔力扩散到空气中 ，来为周围的功能花提供魔 力。
+botania.page.manadriverring0=After equipping Ring of Mana Drive, your mana will spread into air, supplying the functional flowers nearby.
 botania.page.manadriverring1=
 botania.tagline.manadriverring=
 
@@ -855,6 +855,9 @@ extrabotany.potion.constantpain=Constant Pain
 extrabotany.potion.blacksabbath=Black Sabbath
 extrabotany.potion.divinejustice=Divine Justice
 extrabotany.potion.bloodtemptation=Blood Temptation
+extrabotany.potion.witchcurse=Witch Curse
+extrabotany.potion.vegetable=Green
+extrabotany.potion.healreverse=Reversed Healing
 
 modifier.shadow.name=Shadow
 modifier.shadow.desc=§oThe Long Dark！§r\nUses Mana to repair, can also  summon dark pixies when you attack mobs.

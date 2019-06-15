@@ -8,8 +8,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import vazkii.botania.client.model.armor.ModelArmor;
 
-public class ModelArmorGoblinSlayerNew extends ModelArmor{
-	
+public class ModelArmorGoblinSlayerNew extends ModelArmor {
+
 	private final ModelRenderer plates;
 	private final ModelRenderer bang2;
 	private final ModelRenderer bang1;
@@ -39,7 +39,7 @@ public class ModelArmorGoblinSlayerNew extends ModelArmor{
 		super(slot);
 		textureWidth = 128;
 		textureHeight = 128;
-		float s = 0.01F;    
+		float s = 0.01F;
 
 		head = new ModelRenderer(this);
 		head.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -217,7 +217,8 @@ public class ModelArmorGoblinSlayerNew extends ModelArmor{
 	}
 
 	@Override
-	public void render(@Nonnull Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor) {
+	public void render(@Nonnull Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
+			float netHeadYaw, float headPitch, float scaleFactor) {
 
 		head.showModel = slot == EntityEquipmentSlot.HEAD;
 		body.showModel = slot == EntityEquipmentSlot.CHEST;
@@ -233,7 +234,7 @@ public class ModelArmorGoblinSlayerNew extends ModelArmor{
 		bipedBody = body;
 		bipedRightArm = leftArm;
 		bipedLeftArm = rightArm;
-		if(slot == EntityEquipmentSlot.LEGS) {
+		if (slot == EntityEquipmentSlot.LEGS) {
 			bipedRightLeg = leftLeg;
 			bipedLeftLeg = rightLeg;
 		} else {
@@ -242,7 +243,7 @@ public class ModelArmorGoblinSlayerNew extends ModelArmor{
 		}
 		super.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor);
 	}
-	
+
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;

@@ -14,18 +14,18 @@ public class RenderChargePad extends TileEntitySpecialRenderer {
 
 	@Override
 	public void render(TileEntity te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
-		if(te != null && (!te.getWorld().isBlockLoaded(te.getPos(), false)
+		if (te != null && (!te.getWorld().isBlockLoaded(te.getPos(), false)
 				|| te.getWorld().getBlockState(te.getPos()).getBlock() != ModBlocks.chargepad))
 			return;
-		
+
 		GlStateManager.pushMatrix();
 		GlStateManager.translate((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 		GlStateManager.pushMatrix();
 		GlStateManager.rotate(180F, 0.0F, 0.0F, 1.0F);
 
-		TileChargePad ped = (TileChargePad)te;
+		TileChargePad ped = (TileChargePad) te;
 
-		if (ped != null && !ped.getItem().isEmpty()){
+		if (ped != null && !ped.getItem().isEmpty()) {
 			GlStateManager.pushMatrix();
 
 			boolean flag = ped.getItem().getItem() instanceof ItemBlock;
@@ -34,7 +34,8 @@ public class RenderChargePad extends TileEntitySpecialRenderer {
 			GlStateManager.translate(0.0F, flag ? -1.21F : -1.02F, 0F);
 			GlStateManager.rotate(ped.getRotation(), 0F, 1F, 0F);
 
-			Minecraft.getMinecraft().getRenderItem().renderItem(ped.getItem(), ItemCameraTransforms.TransformType.GROUND);
+			Minecraft.getMinecraft().getRenderItem().renderItem(ped.getItem(),
+					ItemCameraTransforms.TransformType.GROUND);
 
 			GlStateManager.popMatrix();
 		}

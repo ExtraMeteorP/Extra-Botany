@@ -7,6 +7,7 @@ botania.brew.deadpool=死灵
 botania.brew.floating=漂浮
 
 extrabotany.nei.pedestal=活石祭坛
+tooltip.extrabotany.description=你无法使用该物品直到你完成进度" %s ".
 
 item.extrabotany:manareader.name=魔力读取器
 item.extrabotany:binder.name=坐标读取器
@@ -81,6 +82,9 @@ item.extrabotany:blackglasses.name=黑框眼镜
 item.extrabotany:question.name=问号
 item.extrabotany:lemon.name=柠檬
 item.extrabotany:thuglife.name=Thug Life
+item.extrabotany:magicfinger.name=魔术手指
+item.extrabotany:manadriverring.name=驭魔之戒
+item.extrabotany:jingweifeather.name=精卫之羽
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -156,6 +160,7 @@ tile.extrabotany:quantummanabuffer.name=量子魔力缓存器
 tile.extrabotany:blockshadowium.name=暗影块
 tile.extrabotany:blockphotonium.name=光子块
 tile.extrabotany:dimensioncatalyst.name=次元催化器
+tile.extrabotany:chargepad.name=力量框架
 
 entity.extrabotany:flowerWeapon.name=花
 entity.extrabotany:gaiaIII.name=盖亚守护者III
@@ -212,6 +217,10 @@ tile.botania:flower.edelweiss.name=雪绒花
 tile.botania:flower.edelweiss.reference=你想堆个雪人吗
 tile.botania:flower.mirrowtunia.name=镜姬
 tile.botania:flower.mirrowtunia.reference=魔镜啊魔镜
+tile.botania:flower.necrofleur.name=死之花
+tile.botania:flower.necrofleurChibi.name=小死之花
+tile.botania:flower.necrofleur.reference=死亡是唯一的解药
+tile.botania:flower.necrofleurChibi.reference=死亡是唯一的解药
 tile.botania:flower..name=
 tile.botania:flower..reference=
 
@@ -366,6 +375,11 @@ botania.page.enchantedorchid0=蕴魔瑾可以将其地表附近的 草方块转�
 botania.page.enchantedorchid1=真相只有一个!
 botania.tagline.enchantedorchid=无穷无尽的知识就是我的力量
 
+botania.entry.necrofleur=死之花
+botania.page.necrofleur0=死之花只会以血量低于一半 的非生物玩家为目标，对其 造成大量的伤害，并使其接 下来一段时间获得的治疗量 减少。
+botania.page.necrofleur1=毁天灭地
+botania.tagline.necrofleur=我会为你的死亡哀悼
+
 botania.entry.manabarrel=魔力缓存器
 botania.page.manabarrel0=魔力缓存器可以缓存大量的 魔力，约等于64个魔力池。它可 以从相邻四面的魔力池中吸 取魔力，并向上方的魔力池输 出魔力。
 botania.page.manabarrel1=un...deux...trois...
@@ -447,7 +461,7 @@ botania.page.natureorb4=自然蕴息宝珠需要搭建多方 块结构，放置�
 botania.tagline.natureorb=自然平衡
 
 botania.entry.camera=文文的相机
-botania.page.camera0=&4文文的相机&0在使用后能消耗 魔力使视野内的敌对生物失 去行动能力，并使视野内所有 投掷物消失。受这个效果影响 的生物会在一段时间后重新 恢复行动能力。
+botania.page.camera0=&4文文的相机&0在使用后能消耗 魔力使视野内的敌对生物失 去行动能力，并使视野内所有 投掷物消失。受这个效果影响 的生物会在一段时间后重新 恢复行动能力。 <br>该效果对Boss的控制时 间会大大缩短，并且所有生 物被控制一定次数后会具有 抗性。
 botania.page.camera1=风符「风神一扇」
 botania.tagline.camera=风符「风神少女」
 
@@ -464,7 +478,7 @@ botania.page.gaia42=我得到了!
 botania.tagline.gaia3=硬核难度
 
 botania.entry.relicshield=勇士盾
-botania.page.relicshield0=&4勇士盾&0可以说是最强之盾也 是最强之矛，能在格挡伤害的 同时将伤害反射，并能够反弹 绝大多数的投掷物。盾牌开启 期间碰撞敌人能对其造成高 额伤害。
+botania.page.relicshield0=&4勇士盾&0可以说是最强之盾也 是最强之矛，能在格挡伤害的 同时将伤害反射，并能够反弹 绝大多数的投掷物。盾牌开启 期间碰撞敌人能对其造成高 额伤害。 <br>吸收超过12点时蹲下右击可 以切换超解模式，此时攻击力 和移动速度都会大幅提升， 并且每次击中会释放连锁闪 电。超解模式每秒会消耗一 颗吸收直到耗尽。
 botania.page.relicshield1=你要说的下一句话是
 botania.tagline.relicshield=AT力场
 
@@ -671,8 +685,8 @@ botania.tagline.dimensioncatalyst=
 botania.category.dream=额外学
 
 botania.entry.guide=自新世界
-botania.page.guide0=欢迎来到魔力至上主义的世 界。您是一位具有极大潜力 的人，我在您的身上看到了 未来。我相信您正渴求着更 多的知识，而我正是来改变 您，向您传授知识的人。 <br>手持手册右键带有精神燃料 的活石祭坛，您将解锁全新 的知识。去掌握这份新力量 吧！<br>食用梦魇燃料可以获得精神 燃料，或者将它放在活石祭坛晒上 5分钟。
-botania.page.guide1=
+botania.page.guide0=欢迎来到魔力至上主义的世 界。您是一位具有极大潜力 的人，我在您的身上看到了 未来。我相信您正渴求着更 多的知识，而我正是来改变 您，向您传授知识的人。<br>欢迎加群799481464讨论。
+botania.page.guide1=手持手册右键带有精神燃料 的活石祭坛，您将解锁全新 的知识。去掌握这份新力量 吧！<br>食用梦魇燃料可以获得精神 燃料，或者将它放在活石祭坛晒上 5分钟。
 botania.tagline.guide=新世界
 
 botania.entry.voidherrscher=空之律者—最终的挑战
@@ -699,6 +713,26 @@ botania.page.cosmetic8=
 botania.page.cosmetic9=
 botania.page.cosmetic10=
 botania.tagline.cosmetic=
+
+botania.entry.jingweifeather=精卫之羽
+botania.page.jingweifeather0=装备上精卫之羽后，玩家空 手攻击时可以消耗一定魔力 打出拳气造成伤害。拳气命 中时会为玩家回复少量生命 吸收。
+botania.page.jingweifeather1=
+botania.tagline.jingweifeather=
+
+botania.entry.magicfinger=魔术手指
+botania.page.magicfinger0=使用魔术手指右键魔力池可 以将自身身上一定魔力传输 到池子中，而被它击中的目 标会在接下来3秒内治疗反 转。
+botania.page.magicfinger1=
+botania.tagline.magicfinger=
+
+botania.entry.manadriverring=驭魔之戒
+botania.page.manadriverring0=装备上驭魔之戒后它会将你 所拥有的魔力扩散到空气中 ，来为周围的功能花提供魔 力。
+botania.page.manadriverring1=
+botania.tagline.manadriverring=
+
+botania.entry.chargepad=力量框架
+botania.page.chargepad0=将魔力物品放入力量框架中 ，力量框架会抽取上方魔力 池的魔力来为其充能。如果 给予一个红石信号则会使该 过程反向进行。
+botania.page.chargepad1=
+botania.tagline.chargepad=
 
 botania.entry.=
 botania.page.0=
@@ -796,6 +830,20 @@ advancement.extrabotany:herrscherDefeat=Salvation
 advancement.extrabotany:herrscherDefeat.desc=击败空之律者
 advancement.extrabotany:endgameGoal=End Day
 advancement.extrabotany:endgameGoal.desc=完成最终的挑战—在3分钟内击败空之律者
+advancement.extrabotany:manadriverGet=新生
+advancement.extrabotany:manadriverGet.desc=完成6个额外植物学进度来获得一个免费的驭魔之戒
+advancement.extrabotany:magicfingerGet=双倍的快乐
+advancement.extrabotany:magicfingerGet.desc=完成12个额外植物学进度来获得一个免费的魔术手指
+advancement.extrabotany:jingweifeatherGet=半人半妖
+advancement.extrabotany:jingweifeatherGet.desc=完成18个额外植物学进度来获得一个免费的精卫之羽
+advancement.extrabotany:onepunchMan=One Punch
+advancement.extrabotany:onepunchMan.desc=打出一发超过40伤害的拳风
+advancement.extrabotany:coregodCraft=All Hail The Queen
+advancement.extrabotany:coregodCraft.desc=获得律者核心
+advancement.extrabotany:ringSet=Rings, Rings, and More Rings
+advancement.extrabotany:ringSet.desc=收集绝大多数种类的戒指
+advancement.extrabotany:bottleSet=Inside Out
+advancement.extrabotany:bottleSet.desc=收集所有种类的瓶子
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=
@@ -807,6 +855,9 @@ extrabotany.potion.constantpain=痛觉残留
 extrabotany.potion.blacksabbath=黑色安息日
 extrabotany.potion.divinejustice=神圣制裁
 extrabotany.potion.bloodtemptation=血之诱惑
+extrabotany.potion.witchcurse=巫毒诅咒
+extrabotany.potion.vegetable=绿意盎然
+extrabotany.potion.healreverse=反转治疗
 
 modifier.shadow.name=暗影
 modifier.shadow.desc=§o漫漫长夜！§r\n会消耗魔力自动修复，击中敌人时会召唤黑暗精灵。

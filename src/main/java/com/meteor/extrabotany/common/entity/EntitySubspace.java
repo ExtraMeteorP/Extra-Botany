@@ -73,7 +73,6 @@ public class EntitySubspace extends EntityThrowableCopy{
                     EntityPlayer player = (EntityPlayer) getThrower();
                     if(ExtraBotanyAPI.cantAttack(player, player)){
                         setDead();
-                        return;
                     }
                     EntityManaBurst burst = ItemExcaliber.getBurst(player, new ItemStack(ModItems.excaliber));
                     burst.setPosition(posX, posY, posZ);
@@ -105,7 +104,6 @@ public class EntitySubspace extends EntityThrowableCopy{
                         setDead();
                     if(ExtraBotanyAPI.cantAttack(thrower, herr.getPlayersAround().get(0))){
                         setDead();
-                        return;
                     }
                     EntityManaBurst burst = ItemExcaliber.getBurst(herr.getPlayersAround().get(0), new ItemStack(ModItems.excaliber));
                     burst.setPosition(posX, posY, posZ);

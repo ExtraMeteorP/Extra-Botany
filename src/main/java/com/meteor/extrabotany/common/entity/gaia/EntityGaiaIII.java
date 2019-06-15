@@ -163,6 +163,9 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		
+		if(this.ticksExisted < 60)
+			return;
+		
 		for(EntityPlayer player : getPlayersAround()){
 			this.faceEntity(player, 360F, 360F);
 			break;

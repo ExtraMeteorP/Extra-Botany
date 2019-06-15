@@ -100,7 +100,10 @@ public class ExtraBotanyAPI {
 	}
 	
     public static boolean cantAttack(EntityLivingBase attacker, EntityLivingBase target) {
-        return ExtraBotany.isTableclothServer && attacker instanceof EntityPlayer && EventUtils.cantAttack((EntityPlayer) attacker, target);
+    	if(ExtraBotany.isTableclothServer)
+    		return attacker instanceof EntityPlayer && EventUtils.cantAttack((EntityPlayer) attacker, target);
+    	else 
+    		return false;
     }
 	
 	public static float dealTrueDamage(EntityLivingBase player, EntityLivingBase target, float amount) {

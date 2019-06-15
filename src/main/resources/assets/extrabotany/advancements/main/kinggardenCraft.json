@@ -13,7 +13,7 @@
   "parent": "extrabotany:main/pedestalCraft",
   "criteria": {
     "ebt_trigger": {
-      "trigger": "minecraft:inventoryChanged",
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {

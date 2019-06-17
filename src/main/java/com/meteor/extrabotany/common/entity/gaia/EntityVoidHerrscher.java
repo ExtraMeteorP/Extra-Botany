@@ -23,7 +23,6 @@ import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -611,31 +610,28 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 		
 		//check difficulty
 		if(world.getDifficulty() == EnumDifficulty.PEACEFUL) {
-			if(world.isRemote)
+			if(!world.isRemote)
 				player.sendMessage(new TextComponentTranslation("botaniamisc.peacefulNoob").setStyle(new Style().setColor(TextFormatting.RED)));
 			return false;
 		}
 
 		//check pylons
-		for(BlockPos coords : PYLON_LOCATIONS) {
-			BlockPos pos_ = pos.add(coords);
-
-			IBlockState state = world.getBlockState(pos_);
-			if(state.getBlock() != ModBlocks.pylon || state.getValue(BotaniaStateProps.PYLON_VARIANT) != PylonVariant.GAIA) {
-				if(world.isRemote)
-					player.sendMessage(new TextComponentTranslation("botaniamisc.needsCatalysts").setStyle(new Style().setColor(TextFormatting.RED)));
-				return false;
+		List<BlockPos> invalidPylonBlocks = checkPylons(world, pos);
+		if(!invalidPylonBlocks.isEmpty()) {
+			if(world.isRemote) {
+				warnInvalidBlocks(invalidPylonBlocks);
+			} else {
+				player.sendMessage(new TextComponentTranslation("botaniamisc.needsCatalysts").setStyle(new Style().setColor(TextFormatting.RED)));
 			}
+
+			return false;
 		}
 
 		//check arena shape
 		List<BlockPos> invalidArenaBlocks = checkArena(world, pos);
 		if(!invalidArenaBlocks.isEmpty()) {
 			if(world.isRemote) {
-				Botania.proxy.setWispFXDepthTest(false);
-				for(BlockPos pos_ : invalidArenaBlocks)
-					Botania.proxy.wispFX(pos_.getX() + 0.5, pos_.getY() + 0.5, pos_.getZ() + 0.5, 1F, 0.2F, 0.2F, 0.5F, 0F, 8);
-				Botania.proxy.setWispFXDepthTest(true);
+				warnInvalidBlocks(invalidArenaBlocks);
 			} else {
 				PacketHandler.sendTo((EntityPlayerMP) player,
 					new PacketBotaniaEffect(PacketBotaniaEffect.EffectType.ARENA_INDICATOR, pos.getX(), pos.getY(), pos.getZ()));
@@ -648,32 +644,50 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
 		//all checks ok, spawn the boss
 		if(!world.isRemote) {
+			if(stack.getItem() instanceof ItemMaterial){
+				stack.shrink(1);
+			}
 
 			EntityVoidHerrscher e = new EntityVoidHerrscher(world);
 			e.setPosition(pos.getX() + 0.5, pos.getY() + 3, pos.getZ() + 0.5);
 			e.source = pos;
-			e.setShield(5);
 			e.hardMode = hard;
-
+			e.setShield(5);
 			int playerCount = e.getPlayersAround().size();
 			e.playerCount = playerCount;
 			e.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MAX_HP * playerCount);
-			e.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.ARMOR).setBaseValue(15);
-
+			if(hard)
+				e.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.ARMOR).setBaseValue(15);
+			e.setHealth(e.getMaxHealth());
 			e.playSound(SoundEvents.ENTITY_ENDERDRAGON_GROWL, 10F, 0.1F);
 			e.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(e)), null);
 			world.spawnEntity(e);
-			
-			if(stack.getItem() instanceof ItemNatureOrb){
-				ItemNatureOrb o = (ItemNatureOrb) stack.getItem();
-				o.addXP(stack, -100000);
-			}
-			if(stack.getItem() instanceof ItemMaterial){
-				stack.shrink(1);
-			}
 		}
 		
 		return true;
+	}
+	
+	private static void warnInvalidBlocks(Iterable<BlockPos> invalidPositions) {
+		Botania.proxy.setWispFXDepthTest(false);
+		for(BlockPos pos_ : invalidPositions) {
+			Botania.proxy.wispFX(pos_.getX() + 0.5, pos_.getY() + 0.5, pos_.getZ() + 0.5, 1F, 0.2F, 0.2F, 0.5F, 0F, 8);
+		}
+		Botania.proxy.setWispFXDepthTest(true);
+	}
+	
+	private static List<BlockPos> checkPylons(World world, BlockPos beaconPos) {
+		List<BlockPos> invalidPylonBlocks = new ArrayList<>();
+
+		for(BlockPos coords : PYLON_LOCATIONS) {
+			BlockPos pos_ = beaconPos.add(coords);
+			
+			IBlockState state = world.getBlockState(pos_);
+			if(state.getBlock() != ModBlocks.pylon || state.getValue(BotaniaStateProps.PYLON_VARIANT) != PylonVariant.GAIA) {
+				invalidPylonBlocks.add(pos_);
+			}
+		}
+
+		return invalidPylonBlocks;
 	}
 	
 	private static List<BlockPos> checkArena(World world, BlockPos beaconPos) {

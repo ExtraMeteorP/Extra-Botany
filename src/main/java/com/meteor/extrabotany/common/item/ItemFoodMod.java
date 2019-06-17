@@ -15,7 +15,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemFoodMod extends ItemFood implements IModelReg{
+public class ItemFoodMod extends ItemFood implements IModelReg {
 
 	public ItemFoodMod(int amount, float saturation, boolean isWolfFood, String name) {
 		super(amount, saturation, isWolfFood);
@@ -31,7 +31,8 @@ public class ItemFoodMod extends ItemFood implements IModelReg{
 	@Nonnull
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
+		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.",
+				"item." + LibMisc.MOD_ID + ":");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -39,5 +40,5 @@ public class ItemFoodMod extends ItemFood implements IModelReg{
 	public void registerModels() {
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
-	
+
 }

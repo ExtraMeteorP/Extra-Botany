@@ -17,7 +17,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import vazkii.botania.common.entity.EntityManaBurst;
 
-public class EntitySubspace extends EntityThrowableCopy{
+public class EntitySubspace extends EntityThrowableCopy {
 
 	private static final String TAG_LIVE_TICKS = "liveTicks";
 	private static final String TAG_DELAY = "delay";
@@ -28,96 +28,107 @@ public class EntitySubspace extends EntityThrowableCopy{
 	private static final String TAG_TYPE = "type";
 	private static final String TAG_EVIL = "isevil";
 
-	private static final DataParameter<Integer> LIVE_TICKS = EntityDataManager.createKey(EntitySubspace.class, DataSerializers.VARINT);
-	private static final DataParameter<Integer> DELAY = EntityDataManager.createKey(EntitySubspace.class, DataSerializers.VARINT);
-	private static final DataParameter<Float> ROTATION = EntityDataManager.createKey(EntitySubspace.class, DataSerializers.FLOAT);
-	private static final DataParameter<Integer> INTERVAL = EntityDataManager.createKey(EntitySubspace.class, DataSerializers.VARINT);
-	private static final DataParameter<Float> SIZE = EntityDataManager.createKey(EntitySubspace.class, DataSerializers.FLOAT);
-	private static final DataParameter<Integer> COUNT = EntityDataManager.createKey(EntitySubspace.class, DataSerializers.VARINT);
-	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntitySubspace.class, DataSerializers.VARINT);
-	private static final DataParameter<Boolean> EVIL = EntityDataManager.createKey(EntitySubspace.class, DataSerializers.BOOLEAN);
-	
+	private static final DataParameter<Integer> LIVE_TICKS = EntityDataManager.createKey(EntitySubspace.class,
+			DataSerializers.VARINT);
+	private static final DataParameter<Integer> DELAY = EntityDataManager.createKey(EntitySubspace.class,
+			DataSerializers.VARINT);
+	private static final DataParameter<Float> ROTATION = EntityDataManager.createKey(EntitySubspace.class,
+			DataSerializers.FLOAT);
+	private static final DataParameter<Integer> INTERVAL = EntityDataManager.createKey(EntitySubspace.class,
+			DataSerializers.VARINT);
+	private static final DataParameter<Float> SIZE = EntityDataManager.createKey(EntitySubspace.class,
+			DataSerializers.FLOAT);
+	private static final DataParameter<Integer> COUNT = EntityDataManager.createKey(EntitySubspace.class,
+			DataSerializers.VARINT);
+	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntitySubspace.class,
+			DataSerializers.VARINT);
+	private static final DataParameter<Boolean> EVIL = EntityDataManager.createKey(EntitySubspace.class,
+			DataSerializers.BOOLEAN);
+
 	public EntitySubspace(World world) {
-		super(world);	
+		super(world);
 	}
-	
+
 	public EntitySubspace(World world, EntityLivingBase thrower) {
 		super(world, thrower);
 	}
-	
+
 	@Override
-    public void onUpdate() {
+	public void onUpdate() {
 
-        motionX = 0;
-        motionY = 0;
-        motionZ = 0;
+		motionX = 0;
+		motionY = 0;
+		motionZ = 0;
 
-        super.onUpdate();
+		super.onUpdate();
 
-        if (ticksExisted < getDelay())
-            return;
+		if (ticksExisted < getDelay())
+			return;
 
-        if (ticksExisted > getLiveTicks() + getDelay())
-            setDead();
-        EntityLivingBase thrower = getThrower();
-        if (!world.isRemote && (thrower == null || thrower.isDead)) {
-            setDead();
-            return;
-        }
+		if (ticksExisted > getLiveTicks() + getDelay())
+			setDead();
+		EntityLivingBase thrower = getThrower();
+		if (!world.isRemote && (thrower == null || thrower.isDead)) {
+			setDead();
+			return;
+		}
 
-        if (!world.isRemote)
-            if (getType() == 0) {
-                if (ticksExisted % getInterval() == 0 && getCount() < 6 && ticksExisted > getDelay() + 5 && ticksExisted < getLiveTicks() - getDelay() - 10) {
-                    if (!(thrower instanceof EntityPlayer))
-                        setDead();
-                    EntityPlayer player = (EntityPlayer) getThrower();
-                    if(ExtraBotanyAPI.cantAttack(player, player)){
-                        setDead();
-                    }
-                    EntityManaBurst burst = ItemExcaliber.getBurst(player, new ItemStack(ModItems.excaliber));
-                    burst.setPosition(posX, posY, posZ);
-                    burst.setColor(0XFFAF00);
-                    player.world.spawnEntity(burst);
-                    setCount(getCount() + 1);
-                }
-            } else if (getType() == 1) {
-                if (ticksExisted > getDelay() + 8 && getCount() < 1) {
-                    EntitySubspaceSpear spear = new EntitySubspaceSpear(world, thrower);
-                    if (thrower instanceof EntityVoidHerrscher)
-                        spear.setLiveTicks(1);
-                    spear.setDamage(8);
-                    spear.setLife(100);
-                    spear.rotationYaw = thrower.rotationYaw;
-                    spear.setPitch(-thrower.rotationPitch);
-                    spear.setRotation(MathHelper.wrapDegrees(-thrower.rotationYaw + 180));
-                    spear.shoot(thrower, thrower.rotationPitch, thrower.rotationYaw, 0.0F, 1.45F, 1.0F);
-                    spear.setPosition(posX, posY - 0.75F, posZ);
-                    thrower.world.spawnEntity(spear);
-                    setCount(getCount() + 1);
-                }
-            } else if (getType() == 2) {
-                if (ticksExisted % getInterval() == 0 && getCount() < 6 && ticksExisted > getDelay() + 5 && ticksExisted < getLiveTicks() - getDelay() - 10) {
-                    if (!(thrower instanceof EntityVoidHerrscher))
-                        setDead();
-                    EntityVoidHerrscher herr = (EntityVoidHerrscher) getThrower();
-                    if (herr.getPlayersAround().isEmpty())
-                        setDead();
-                    if(ExtraBotanyAPI.cantAttack(thrower, herr.getPlayersAround().get(0))){
-                        setDead();
-                    }
-                    EntityManaBurst burst = ItemExcaliber.getBurst(herr.getPlayersAround().get(0), new ItemStack(ModItems.excaliber));
-                    burst.setPosition(posX, posY, posZ);
-                    burst.setColor(0XFFD700);
-                    burst.shoot(thrower, thrower.rotationPitch + 15F, thrower.rotationYaw, 0F, 1F, 0F);
-                    thrower.world.spawnEntity(burst);
-                    setCount(getCount() + 1);
-                }
-            }
-    }
+		if (!world.isRemote)
+			if (getType() == 0) {
+				if (ticksExisted % getInterval() == 0 && getCount() < 6 && ticksExisted > getDelay() + 5
+						&& ticksExisted < getLiveTicks() - getDelay() - 10) {
+					if (!(thrower instanceof EntityPlayer))
+						setDead();
+					EntityPlayer player = (EntityPlayer) getThrower();
+					if (ExtraBotanyAPI.cantAttack(player, player)) {
+						setDead();
+					}
+					EntityManaBurst burst = ItemExcaliber.getBurst(player, new ItemStack(ModItems.excaliber));
+					burst.setPosition(posX, posY, posZ);
+					burst.setColor(0XFFAF00);
+					player.world.spawnEntity(burst);
+					setCount(getCount() + 1);
+				}
+			} else if (getType() == 1) {
+				if (ticksExisted > getDelay() + 8 && getCount() < 1) {
+					EntitySubspaceSpear spear = new EntitySubspaceSpear(world, thrower);
+					if (thrower instanceof EntityVoidHerrscher)
+						spear.setLiveTicks(1);
+					spear.setDamage(8);
+					spear.setLife(100);
+					spear.rotationYaw = thrower.rotationYaw;
+					spear.setPitch(-thrower.rotationPitch);
+					spear.setRotation(MathHelper.wrapDegrees(-thrower.rotationYaw + 180));
+					spear.shoot(thrower, thrower.rotationPitch, thrower.rotationYaw, 0.0F, 1.45F, 1.0F);
+					spear.setPosition(posX, posY - 0.75F, posZ);
+					thrower.world.spawnEntity(spear);
+					setCount(getCount() + 1);
+				}
+			} else if (getType() == 2) {
+				if (ticksExisted % getInterval() == 0 && getCount() < 6 && ticksExisted > getDelay() + 5
+						&& ticksExisted < getLiveTicks() - getDelay() - 10) {
+					if (!(thrower instanceof EntityVoidHerrscher))
+						setDead();
+					EntityVoidHerrscher herr = (EntityVoidHerrscher) getThrower();
+					if (herr.getPlayersAround().isEmpty())
+						setDead();
+					if (ExtraBotanyAPI.cantAttack(thrower, herr.getPlayersAround().get(0))) {
+						setDead();
+					}
+					EntityManaBurst burst = ItemExcaliber.getBurst(herr.getPlayersAround().get(0),
+							new ItemStack(ModItems.excaliber));
+					burst.setPosition(posX, posY, posZ);
+					burst.setColor(0XFFD700);
+					burst.shoot(thrower, thrower.rotationPitch + 15F, thrower.rotationYaw, 0F, 1F, 0F);
+					thrower.world.spawnEntity(burst);
+					setCount(getCount() + 1);
+				}
+			}
+	}
 
 	@Override
 	protected void entityInit() {
-		setSize(0F,0F);
+		setSize(0F, 0F);
 		dataManager.register(LIVE_TICKS, 0);
 		dataManager.register(DELAY, 0);
 		dataManager.register(ROTATION, 0F);
@@ -164,7 +175,7 @@ public class EntitySubspace extends EntityThrowableCopy{
 	public void setDelay(int delay) {
 		dataManager.set(DELAY, delay);
 	}
-	
+
 	public int getCount() {
 		return dataManager.get(COUNT);
 	}
@@ -172,7 +183,7 @@ public class EntitySubspace extends EntityThrowableCopy{
 	public void setCount(int delay) {
 		dataManager.set(COUNT, delay);
 	}
-	
+
 	public int getType() {
 		return dataManager.get(TYPE);
 	}
@@ -180,7 +191,7 @@ public class EntitySubspace extends EntityThrowableCopy{
 	public void setType(int delay) {
 		dataManager.set(TYPE, delay);
 	}
-	
+
 	public int getInterval() {
 		return dataManager.get(INTERVAL);
 	}
@@ -196,7 +207,7 @@ public class EntitySubspace extends EntityThrowableCopy{
 	public void setRotation(float rot) {
 		dataManager.set(ROTATION, rot);
 	}
-	
+
 	public float getSize() {
 		return dataManager.get(SIZE);
 	}
@@ -208,7 +219,6 @@ public class EntitySubspace extends EntityThrowableCopy{
 	@Override
 	protected void onImpact(RayTraceResult result) {
 
-		
 	}
 
 }

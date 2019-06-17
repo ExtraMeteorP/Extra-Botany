@@ -11,10 +11,11 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class PacketLeftClick extends AbstractPacketThreadsafe{
+public class PacketLeftClick extends AbstractPacketThreadsafe {
 
 	@Override
-	public void handleClientSafe(NetHandlerPlayClient netHandler) {}
+	public void handleClientSafe(NetHandlerPlayClient netHandler) {
+	}
 
 	@Override
 	public void handleServerSafe(NetHandlerPlayServer netHandler) {
@@ -23,9 +24,11 @@ public class PacketLeftClick extends AbstractPacketThreadsafe{
 	}
 
 	@Override
-	public void fromBytes(ByteBuf buf) {}
+	public void fromBytes(ByteBuf buf) {
+	}
 
 	@Override
-	public void toBytes(ByteBuf buf) {}
-	
+	public void toBytes(ByteBuf buf) {
+	}
+
 }

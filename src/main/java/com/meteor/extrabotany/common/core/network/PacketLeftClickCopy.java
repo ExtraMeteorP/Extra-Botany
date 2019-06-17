@@ -8,10 +8,11 @@ import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetHandlerPlayServer;
 
-public class PacketLeftClickCopy extends AbstractPacketThreadsafe{
+public class PacketLeftClickCopy extends AbstractPacketThreadsafe {
 
 	@Override
-	public void handleClientSafe(NetHandlerPlayClient netHandler) {}
+	public void handleClientSafe(NetHandlerPlayClient netHandler) {
+	}
 
 	@Override
 	public void handleServerSafe(NetHandlerPlayServer netHandler) {
@@ -20,8 +21,10 @@ public class PacketLeftClickCopy extends AbstractPacketThreadsafe{
 	}
 
 	@Override
-	public void fromBytes(ByteBuf buf) {}
+	public void fromBytes(ByteBuf buf) {
+	}
 
 	@Override
-	public void toBytes(ByteBuf buf) {}
+	public void toBytes(ByteBuf buf) {
+	}
 }

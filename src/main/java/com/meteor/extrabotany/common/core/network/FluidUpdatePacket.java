@@ -12,53 +12,54 @@ import net.minecraftforge.fml.common.network.ByteBufUtils;
 
 public class FluidUpdatePacket extends AbstractPacketThreadsafe {
 
-	  public BlockPos pos;
-	  public FluidStack fluid;
+	public BlockPos pos;
+	public FluidStack fluid;
 
-	  public FluidUpdatePacket() {
-	  }
+	public FluidUpdatePacket() {
+	}
 
-	  public FluidUpdatePacket(BlockPos pos, FluidStack fluid) {
-	    this.pos = pos;
-	    this.fluid = fluid;
-	  }
+	public FluidUpdatePacket(BlockPos pos, FluidStack fluid) {
+		this.pos = pos;
+		this.fluid = fluid;
+	}
 
-	  @Override
-	  public void handleClientSafe(NetHandlerPlayClient netHandler) {
-	    TileEntity te = Minecraft.getMinecraft().world.getTileEntity(pos);
-	    if(te instanceof IFluidPacketReceiver) {
-	      ((IFluidPacketReceiver) te).updateFluidTo(fluid);
-	    }
-	  }
+	@Override
+	public void handleClientSafe(NetHandlerPlayClient netHandler) {
+		TileEntity te = Minecraft.getMinecraft().world.getTileEntity(pos);
+		if (te instanceof IFluidPacketReceiver) {
+			((IFluidPacketReceiver) te).updateFluidTo(fluid);
+		}
+	}
 
-	  @Override
-	  public void handleServerSafe(NetHandlerPlayServer netHandler) {
-	    // clientside only
-	    throw new UnsupportedOperationException("Serverside only");
-	  }
+	@Override
+	public void handleServerSafe(NetHandlerPlayServer netHandler) {
+		// clientside only
+		throw new UnsupportedOperationException("Serverside only");
+	}
 
-	  @Override
-	  public void fromBytes(ByteBuf buf) {
-	    pos = readPos(buf);
-	    NBTTagCompound tag = ByteBufUtils.readTag(buf);
-	    fluid = FluidStack.loadFluidStackFromNBT(tag);
-	  }
+	@Override
+	public void fromBytes(ByteBuf buf) {
+		pos = readPos(buf);
+		NBTTagCompound tag = ByteBufUtils.readTag(buf);
+		fluid = FluidStack.loadFluidStackFromNBT(tag);
+	}
 
-	  @Override
-	  public void toBytes(ByteBuf buf) {
-	    writePos(pos, buf);
-	    NBTTagCompound tag = new NBTTagCompound();
-	    if(fluid != null) {
-	      fluid.writeToNBT(tag);
-	    }
-	    ByteBufUtils.writeTag(buf, tag);
-	  }
+	@Override
+	public void toBytes(ByteBuf buf) {
+		writePos(pos, buf);
+		NBTTagCompound tag = new NBTTagCompound();
+		if (fluid != null) {
+			fluid.writeToNBT(tag);
+		}
+		ByteBufUtils.writeTag(buf, tag);
+	}
 
-	  public static interface IFluidPacketReceiver {
-	    /**
-	     * Updates the current fluid to the specified value
-	     * @param fluid  New fluidstack
-	     */
-	    void updateFluidTo(FluidStack fluid);
-	  }
+	public static interface IFluidPacketReceiver {
+		/**
+		 * Updates the current fluid to the specified value
+		 * 
+		 * @param fluid New fluidstack
+		 */
+		void updateFluidTo(FluidStack fluid);
+	}
 }

@@ -31,7 +31,8 @@ import vazkii.botania.common.lexicon.page.PageRecipe;
 
 public class PagePedestalRecipe extends PageRecipe {
 
-	private static final ResourceLocation hammerOverlay = new ResourceLocation("extrabotany:textures/gui/pedestalOverlay.png");
+	private static final ResourceLocation hammerOverlay = new ResourceLocation(
+			"extrabotany:textures/gui/pedestalOverlay.png");
 
 	private final List<RecipePedestal> recipes;
 	private int ticksElapsed = 0;
@@ -51,7 +52,7 @@ public class PagePedestalRecipe extends PageRecipe {
 
 	@Override
 	public void onPageAdded(LexiconEntry entry, int index) {
-		for(RecipePedestal recipe : recipes)
+		for (RecipePedestal recipe : recipes)
 			LexiconRecipeMappings.map(recipe.getOutput(), entry, index);
 	}
 
@@ -72,7 +73,7 @@ public class PagePedestalRecipe extends PageRecipe {
 
 		int x = gui.getLeft() + gui.getWidth() / 2 - 50;
 		int y = gui.getTop() + 115;
-		
+
 		String dropString = I18n.format("extrabotanymisc.hammer") + " " + TextFormatting.BOLD + "(?)";
 		boolean hoveringOverDrop = false;
 		boolean unicode = font.getUnicodeFlag();
@@ -80,10 +81,10 @@ public class PagePedestalRecipe extends PageRecipe {
 		int dw = font.getStringWidth(dropString);
 		int dx = x + 35 - dw / 2;
 		int dy = gui.getTop() + 30;
-		
-		if(mx > dx && mx <= dx + dw && my > dy && my <= dy + 10)
+
+		if (mx > dx && mx <= dx + dw && my > dy && my <= dy + 10)
 			hoveringOverDrop = true;
-		
+
 		font.drawString(dropString, dx, dy, 0x77000000);
 		font.setUnicodeFlag(unicode);
 
@@ -96,8 +97,8 @@ public class PagePedestalRecipe extends PageRecipe {
 		GlStateManager.color(1F, 1F, 1F, 1F);
 		((GuiScreen) gui).drawTexturedModalRect(gui.getLeft(), gui.getTop(), 0, 0, gui.getWidth(), gui.getHeight());
 		GlStateManager.disableBlend();
-		
-		if(hoveringOverDrop) {
+
+		if (hoveringOverDrop) {
 			String tip0 = I18n.format("extrabotanymisc.hammerTip");
 			RenderHelper.renderTooltip(mx, my, Arrays.asList(tip0));
 		}
@@ -106,13 +107,13 @@ public class PagePedestalRecipe extends PageRecipe {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void updateScreen() {
-		if(GuiScreen.isShiftKeyDown())
+		if (GuiScreen.isShiftKeyDown())
 			return;
 
-		if(ticksElapsed % 20 == 0) {
+		if (ticksElapsed % 20 == 0) {
 			recipeAt++;
 
-			if(recipeAt == recipes.size())
+			if (recipeAt == recipes.size())
 				recipeAt = 0;
 		}
 		++ticksElapsed;
@@ -121,7 +122,7 @@ public class PagePedestalRecipe extends PageRecipe {
 	@Override
 	public List<ItemStack> getDisplayedRecipes() {
 		ArrayList<ItemStack> list = new ArrayList<>();
-		for(RecipePedestal r : recipes)
+		for (RecipePedestal r : recipes)
 			list.add(r.getOutput());
 
 		return list;

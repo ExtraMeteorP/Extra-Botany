@@ -42,7 +42,7 @@ public class ItemBrewBase extends ItemMod implements IBrewItem {
 	private final ItemStack baseItem;
 	private final float mutilplier;
 	private final int amplifier;
-	
+
 	public ItemBrewBase(String name, int swigs, int drinkSpeed, int amplifier, float mutilplier, ItemStack baseItem) {
 		super(name);
 		this.swigs = swigs;
@@ -51,7 +51,8 @@ public class ItemBrewBase extends ItemMod implements IBrewItem {
 		this.mutilplier = mutilplier;
 		this.amplifier = amplifier;
 		setMaxStackSize(1);
-		addPropertyOverride(new ResourceLocation(LibMisc.MOD_ID, "swigs_taken"), (stack, world, entity) -> swigs - getSwigsLeft(stack));
+		addPropertyOverride(new ResourceLocation(LibMisc.MOD_ID, "swigs_taken"),
+				(stack, world, entity) -> swigs - getSwigsLeft(stack));
 	}
 
 	@Override
@@ -75,21 +76,25 @@ public class ItemBrewBase extends ItemMod implements IBrewItem {
 	@Nonnull
 	@Override
 	public ItemStack onItemUseFinish(@Nonnull ItemStack stack, World world, EntityLivingBase living) {
-		if(!world.isRemote) {
-			for(PotionEffect effect : getBrew(stack).getPotionEffects(stack)) {
-				PotionEffect newEffect = new PotionEffect(effect.getPotion(), (int)((float)effect.getDuration() * mutilplier), effect.getAmplifier() + amplifier, true, true);
-				if(effect.getPotion().isInstant())
+		if (!world.isRemote) {
+			for (PotionEffect effect : getBrew(stack).getPotionEffects(stack)) {
+				PotionEffect newEffect = new PotionEffect(effect.getPotion(),
+						(int) ((float) effect.getDuration() * mutilplier), effect.getAmplifier() + amplifier, true,
+						true);
+				if (effect.getPotion().isInstant())
 					effect.getPotion().affectEntity(living, living, living, newEffect.getAmplifier(), 1F);
-				else living.addPotionEffect(newEffect);
+				else
+					living.addPotionEffect(newEffect);
 			}
 
-			if(world.rand.nextBoolean())
-				world.playSound(null, living.posX, living.posY, living.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 1F, 1F);
+			if (world.rand.nextBoolean())
+				world.playSound(null, living.posX, living.posY, living.posZ, SoundEvents.ENTITY_PLAYER_BURP,
+						SoundCategory.PLAYERS, 1F, 1F);
 
 			int swigs = getSwigsLeft(stack);
-			if(living instanceof EntityPlayer && !((EntityPlayer) living).capabilities.isCreativeMode) {
-				if(swigs == 1) {
-					if(!((EntityPlayer) living).inventory.addItemStackToInventory(baseItem.copy()))
+			if (living instanceof EntityPlayer && !((EntityPlayer) living).capabilities.isCreativeMode) {
+				if (swigs == 1) {
+					if (!((EntityPlayer) living).inventory.addItemStackToInventory(baseItem.copy()))
 						return baseItem.copy();
 					else {
 						return ItemStack.EMPTY;
@@ -104,8 +109,8 @@ public class ItemBrewBase extends ItemMod implements IBrewItem {
 
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
-		if(isInCreativeTab(tab)) {
-			for(String s : BotaniaAPI.brewMap.keySet()) {
+		if (isInCreativeTab(tab)) {
+			for (String s : BotaniaAPI.brewMap.keySet()) {
 				ItemStack stack = new ItemStack(this);
 				setBrew(stack, s);
 				list.add(stack);
@@ -116,16 +121,24 @@ public class ItemBrewBase extends ItemMod implements IBrewItem {
 	@Nonnull
 	@Override
 	public String getItemStackDisplayName(@Nonnull ItemStack stack) {
-		return String.format(net.minecraft.util.text.translation.I18n.translateToLocal(getUnlocalizedNameInefficiently(stack) + ".name"), net.minecraft.util.text.translation.I18n.translateToLocal(getBrew(stack).getUnlocalizedName(stack)), "" + getSwigsLeft(stack));
+		return String.format(
+				net.minecraft.util.text.translation.I18n
+						.translateToLocal(getUnlocalizedNameInefficiently(stack) + ".name"),
+				net.minecraft.util.text.translation.I18n.translateToLocal(getBrew(stack).getUnlocalizedName(stack)),
+				"" + getSwigsLeft(stack));
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flags) {
 		Brew brew = getBrew(stack);
-		for(PotionEffect effect : brew.getPotionEffects(stack)) {
+		for (PotionEffect effect : brew.getPotionEffects(stack)) {
 			TextFormatting format = effect.getPotion().isBadEffect() ? TextFormatting.RED : TextFormatting.GRAY;
-			list.add(format + I18n.format(effect.getEffectName()) + (effect.getAmplifier() == 0 ? "" : " " + I18n.format("botania.roman" + (effect.getAmplifier() + 1 + amplifier))) + TextFormatting.GRAY + (effect.getPotion().isInstant() ? "" : " (" + Potion.getPotionDurationString(effect, mutilplier) + ")"));
+			list.add(format + I18n.format(effect.getEffectName())
+					+ (effect.getAmplifier() == 0 ? ""
+							: " " + I18n.format("botania.roman" + (effect.getAmplifier() + 1 + amplifier)))
+					+ TextFormatting.GRAY + (effect.getPotion().isInstant() ? ""
+							: " (" + Potion.getPotionDurationString(effect, mutilplier) + ")"));
 		}
 	}
 

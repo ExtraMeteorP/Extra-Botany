@@ -4,10 +4,10 @@ import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class ItemCombatMaidChest extends ItemCombatMaidArmor{
-	
+public class ItemCombatMaidChest extends ItemCombatMaidArmor {
+
 	public ItemCombatMaidChest() {
-		this(LibItemsName.CMCHEST);	
+		this(LibItemsName.CMCHEST);
 	}
 
 	public ItemCombatMaidChest(String name) {

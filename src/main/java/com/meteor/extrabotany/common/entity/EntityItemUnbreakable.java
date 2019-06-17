@@ -4,8 +4,8 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class EntityItemUnbreakable extends EntityItem{
-	
+public class EntityItemUnbreakable extends EntityItem {
+
 	public EntityItemUnbreakable(World worldIn) {
 		super(worldIn);
 	}
@@ -15,10 +15,10 @@ public class EntityItemUnbreakable extends EntityItem{
 		this.isImmuneToFire = true;
 		this.setNoDespawn();
 	}
-	
+
 	@Override
-    public boolean isImmuneToExplosions(){
-        return true;
-    }
+	public boolean isImmuneToExplosions() {
+		return true;
+	}
 
 }

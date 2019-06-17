@@ -10,16 +10,16 @@ import com.meteor.extrabotany.common.lib.LibItemsName;
 import net.minecraft.item.ItemStack;
 import vazkii.botania.common.item.ModItems;
 
-public class ItemRewardBag943 extends ItemBonusBase{
-	
+public class ItemRewardBag943 extends ItemBonusBase {
+
 	public static List<WeightCategory> categorysE = new ArrayList<WeightCategory>();
 
 	public ItemRewardBag943() {
 		super(LibItemsName.REWARD_BAG943);
 	}
-	
+
 	@Override
-	public List<WeightCategory> getWeightCategory(ItemStack stack){
+	public List<WeightCategory> getWeightCategory(ItemStack stack) {
 		return categorysE;
 	}
 

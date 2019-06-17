@@ -29,7 +29,8 @@ public class ItemModRecord extends ItemRecord implements IModelReg {
 
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
+		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.",
+				"item." + LibMisc.MOD_ID + ":");
 	}
 
 	@SideOnly(Side.CLIENT)

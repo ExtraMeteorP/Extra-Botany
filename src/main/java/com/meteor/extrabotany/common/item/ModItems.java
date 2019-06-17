@@ -85,7 +85,7 @@ import vazkii.botania.api.BotaniaAPI;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class ModItems {
-	
+
 	public static final Item manaReader = new ItemManaReader();
 	public static final Item spiritFuel = new ItemSpiritFuel();
 	public static final Item nightmareFuel = new ItemNightmareFuel();
@@ -93,9 +93,9 @@ public class ModItems {
 	public static final Item friedchicken = new ItemFriedChicken();
 	public static final Item gildedmashedpotato = new ItemGildedMashedPotato();
 	public static final Item manadrink = new ItemManaDrink();
-	
+
 	public static final Item binder = new ItemBinder();
-	
+
 	public static final Item froststar = new ItemFrostStar();
 	public static final Item deathring = new ItemDeathRing();
 	public static final Item mastermanaring = new ItemMasterManaRing();
@@ -111,12 +111,15 @@ public class ModItems {
 	public static final Item foxear = new ItemFoxEar();
 	public static final Item jingweifeather = new ItemJingweiFeather();
 	public static final Item manadriverring = new ItemManaDriverRing();
-	
-	public static final Item hammermanasteel = new ItemHammer(LibItemsName.HAMMER_MANASTEEL, BotaniaAPI.manasteelToolMaterial);
-	public static final Item hammerelementium = new ItemHammer(LibItemsName.HAMMER_ELEMENTIUM, BotaniaAPI.elementiumToolMaterial);
-	public static final Item hammerterrasteel = new ItemHammer(LibItemsName.HAMMER_TERRASTEEL, BotaniaAPI.terrasteelToolMaterial);
+
+	public static final Item hammermanasteel = new ItemHammer(LibItemsName.HAMMER_MANASTEEL,
+			BotaniaAPI.manasteelToolMaterial);
+	public static final Item hammerelementium = new ItemHammer(LibItemsName.HAMMER_ELEMENTIUM,
+			BotaniaAPI.elementiumToolMaterial);
+	public static final Item hammerterrasteel = new ItemHammer(LibItemsName.HAMMER_TERRASTEEL,
+			BotaniaAPI.terrasteelToolMaterial);
 	public static final Item hammerultimate = new ItemHammerUltimate();
-	
+
 	public static final Item kinggarden = new ItemKingGarden();
 	public static final Item camera = new ItemCamera();
 	public static final Item orb = new ItemNatureOrb();
@@ -124,15 +127,15 @@ public class ModItems {
 	public static final Item pocketwatch = new ItemPocketWatchMoon();
 	public static final Item excaliber = new ItemExcaliber();
 	public static final Item judahoath = new ItemJudahOath();
-	
+
 	public static final Item splashgrenade = new ItemBrewSplashGrenade();
 	public static final Item cocktail = new ItemBrewCocktail();
 	public static final Item infinitewine = new ItemBrewInfiniteWine();
-	
+
 	public static final Item treasure = new ItemTreasure();
 	public static final Item gaiarecord = new ItemRecordA();
 	public static final Item herrscherrecord = new ItemRecordB();
-	
+
 	public static final Item manasteelshield = new ItemManasteelShield();
 	public static final Item terrasteelshield = new ItemTerrasteelShield();
 	public static final Item elementiumshield = new ItemElementiumShield();
@@ -140,49 +143,49 @@ public class ModItems {
 	public static final Item relics = new ItemBuddhistRelics();
 	public static final Item walkingcane = new ItemWalkingCane();
 	public static final Item magicfinger = new ItemMagicFinger();
-	
+
 	public static final Item cmhelm = new ItemCombatMaidHelm();
 	public static final Item cmchest = new ItemCombatMaidChest();
 	public static final Item cmleg = new ItemCombatMaidLegs();
 	public static final Item cmboot = new ItemCombatMaidBoots();
 	public static final Item cmhelmrevealing = new ItemCombatMaidHelmRevealing();
 	public static final Item cmchestdarkened = new ItemCombatMaidChestDarkened();
-	
+
 	public static final Item cosmhelm = new ItemCosmeticMaidHelm();
 	public static final Item cosmchest = new ItemCosmeticMaidChest();
 	public static final Item cosmleg = new ItemCosmeticMaidLegs();
 	public static final Item cosmboot = new ItemCosmeticMaidBoots();
 	public static final Item coshelmrevealing = new ItemCosmeticMaidHelmRevealing();
-	
+
 	public static final Item swhelm = new ItemShadowWarriorHelm();
 	public static final Item swchest = new ItemShadowWarriorChest();
 	public static final Item swleg = new ItemShadowWarriorLegs();
 	public static final Item swboot = new ItemShadowWarriorBoots();
 	public static final Item shadowkatana = new ItemShadowKatana();
-	
+
 	public static final Item gshelm = new ItemGoblinSlayerHelm();
 	public static final Item gschest = new ItemGoblinSlayerChest();
 	public static final Item gsleg = new ItemGoblinSlayerLegs();
 	public static final Item gsboot = new ItemGoblinSlayerBoots();
-	
+
 	public static final Item flyingboat = new ItemFlyingBoat();
 	public static final Item masterhandbag = new ItemMasterHandbag();
 	public static final Item spearsubspace = new ItemSpearSubspace();
-	
+
 	public static final Item candy = new ItemHalloweenCandy();
 
 	public static final Item rewardbag = new ItemRewardBag();
 	public static final Item candybag = new ItemCandyBag();
 	public static final Item rewardbag943 = new ItemRewardBag943();
-	
+
 	public static final Item lens = new ItemLens();
 	public static final Item bottledflame = new ItemBottledFlame();
 	public static final Item bottledstar = new ItemBottledStar();
 	public static final Item bottledpixie = new ItemBottledPixie();
-	
+
 	public static final Item mask = new ItemCosmetic();
-	//public static final Item gamewinner = new ItemGameWinner();
-	
+	// public static final Item gamewinner = new ItemGameWinner();
+
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
 		IForgeRegistry<Item> r = evt.getRegistry();
@@ -206,7 +209,7 @@ public class ModItems {
 		r.register(relics);
 		r.register(treasure);
 		r.register(gaiarecord);
-		if(ConfigHandler.ENABLE_SHIELD){
+		if (ConfigHandler.ENABLE_SHIELD) {
 			r.register(manasteelshield);
 			r.register(terrasteelshield);
 			r.register(elementiumshield);
@@ -241,7 +244,7 @@ public class ModItems {
 		r.register(masterhandbag);
 		r.register(spearsubspace);
 		r.register(godcore);
-		r.register(candy);	
+		r.register(candy);
 		r.register(rewardbag);
 		r.register(candybag);
 		r.register(judahoath);
@@ -262,44 +265,44 @@ public class ModItems {
 		r.register(bottledstar);
 		r.register(bottledpixie);
 		r.register(mask);
-		//r.register(gamewinner);
+		// r.register(gamewinner);
 		r.register(herrscherrecord);
 		r.register(jingweifeather);
 		r.register(manadriverring);
 		r.register(magicfinger);
 		registerOreDictionary();
-		//A
-		if(ConfigHandler.REWARDBAG1.length > 0)
-			for(int i = 0; i < ConfigHandler.REWARDBAG1.length; i++)
-				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG1[i],ItemRewardBag.categoryA);
-		//B
-		if(ConfigHandler.REWARDBAG2.length > 0)
-			for(int i = 0; i < ConfigHandler.REWARDBAG2.length; i++)
-				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG2[i],ItemRewardBag.categoryB);
-		//C
-		if(ConfigHandler.REWARDBAG3.length > 0)
-			for(int i = 0; i < ConfigHandler.REWARDBAG3.length; i++)
-				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG3[i],ItemRewardBag.categoryC);
-		//D
-		if(ConfigHandler.REWARDBAG4.length > 0)
-			for(int i = 0; i < ConfigHandler.REWARDBAG4.length; i++)
-				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG4[i],ItemRewardBag.categoryD);
-		
-		if(ConfigHandler.REWARDBAG5.length > 0)
-			for(int i = 0; i < ConfigHandler.REWARDBAG5.length; i++)
-				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG5[i],ItemRewardBag943.categorysE);
-		
-		if(ConfigHandler.REWARDBAG6.length > 0)
-			for(int i = 0; i < ConfigHandler.REWARDBAG6.length; i++)
-				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG6[i],ItemCandyBag.category);
+		// A
+		if (ConfigHandler.REWARDBAG1.length > 0)
+			for (int i = 0; i < ConfigHandler.REWARDBAG1.length; i++)
+				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG1[i], ItemRewardBag.categoryA);
+		// B
+		if (ConfigHandler.REWARDBAG2.length > 0)
+			for (int i = 0; i < ConfigHandler.REWARDBAG2.length; i++)
+				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG2[i], ItemRewardBag.categoryB);
+		// C
+		if (ConfigHandler.REWARDBAG3.length > 0)
+			for (int i = 0; i < ConfigHandler.REWARDBAG3.length; i++)
+				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG3[i], ItemRewardBag.categoryC);
+		// D
+		if (ConfigHandler.REWARDBAG4.length > 0)
+			for (int i = 0; i < ConfigHandler.REWARDBAG4.length; i++)
+				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG4[i], ItemRewardBag.categoryD);
+
+		if (ConfigHandler.REWARDBAG5.length > 0)
+			for (int i = 0; i < ConfigHandler.REWARDBAG5.length; i++)
+				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG5[i], ItemRewardBag943.categorysE);
+
+		if (ConfigHandler.REWARDBAG6.length > 0)
+			for (int i = 0; i < ConfigHandler.REWARDBAG6.length; i++)
+				ItemRewardBag.parseItems(ConfigHandler.REWARDBAG6[i], ItemCandyBag.category);
 	}
-	
+
 	private static void registerOreDictionary() {
 		OreDictionary.registerOre(LibOreDicts.PHOTONIUM, new ItemStack(material, 1, 8));
 		OreDictionary.registerOre(LibOreDicts.SHADOWIUM, new ItemStack(material, 1, 5));
 		OreDictionary.registerOre(LibOreDicts.ORICHALCOS, new ItemStack(material, 1, 1));
 		OreDictionary.registerOre(LibOreDicts.GODWEAVE, new ItemStack(material, 1, 7));
-		for(int i = 0; i < 2; i++)
+		for (int i = 0; i < 2; i++)
 			OreDictionary.registerOre(LibOreDicts.COREGOD, new ItemStack(godcore, 1, i));
 	}
 }

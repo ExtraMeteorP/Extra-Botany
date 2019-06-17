@@ -17,16 +17,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class ItemPocketWatchMoon extends ItemModRelic{
+public class ItemPocketWatchMoon extends ItemModRelic {
 
 	public ItemPocketWatchMoon() {
 		super(LibItemsName.POCKETWATCHMOON);
 	}
-	
+
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand handIn){
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand handIn) {
 		ItemStack stack = player.getHeldItem(handIn);
-		if(!player.isSneaking()){
+		if (!player.isSneaking()) {
 			EntityFlyCutter sg = new EntityFlyCutter(world);
 			sg.setDamage(6);
 			sg.setProps(player);
@@ -38,20 +38,23 @@ public class ItemPocketWatchMoon extends ItemModRelic{
 			sg.setDelay(true);
 			sg.setPitch(-player.rotationPitch);
 			sg.setPosition(player.posX, player.posY + 1F, player.posZ);
-	
-			if(!world.isRemote)
+
+			if (!world.isRemote)
 				world.spawnEntity(sg);
-		}else{
+		} else {
 			BlockPos source = player.getPosition();
 			float range = 30F;
-			List<EntityFlyCutter> cutters = world.getEntitiesWithinAABB(EntityFlyCutter.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
-			for(EntityFlyCutter cutter : cutters)
+			List<EntityFlyCutter> cutters = world.getEntitiesWithinAABB(EntityFlyCutter.class,
+					new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range,
+							source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range,
+							source.getZ() + 0.5 + range));
+			for (EntityFlyCutter cutter : cutters)
 				cutter.setDelay(false);
-			
-			if(!player.isPotionActive(MobEffects.ABSORPTION))
+
+			if (!player.isPotionActive(MobEffects.ABSORPTION))
 				player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 300, 3));
 		}
-	    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
 	}
 
 }

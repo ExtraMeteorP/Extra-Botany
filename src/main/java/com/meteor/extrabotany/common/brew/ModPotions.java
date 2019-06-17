@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class ModPotions {
-	
+
 	public static final Potion mindcrack = new PotionMindCrack();
 	public static final Potion eternity = new PotionEternity();
 	public static final Potion reflect = new PotionReflect();
@@ -32,9 +32,9 @@ public class ModPotions {
 	public static final Potion witchcurse = new PotionWitchCurse();
 	public static final Potion vegetable = new PotionVegetable();
 	public static final Potion healreverse = new PotionHealReverse();
-	
+
 	@SubscribeEvent
-	public static void registerPotions(RegistryEvent.Register<Potion> evt){
+	public static void registerPotions(RegistryEvent.Register<Potion> evt) {
 		evt.getRegistry().register(mindcrack);
 		evt.getRegistry().register(eternity);
 		evt.getRegistry().register(reflect);

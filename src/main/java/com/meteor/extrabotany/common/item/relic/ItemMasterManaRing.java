@@ -22,7 +22,7 @@ import vazkii.botania.api.mana.IManaItem;
 import vazkii.botania.api.mana.IManaTooltipDisplay;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 
-public class ItemMasterManaRing extends ItemBaubleRelic implements IManaItem, IManaTooltipDisplay{
+public class ItemMasterManaRing extends ItemBaubleRelic implements IManaItem, IManaTooltipDisplay {
 
 	protected static final int MAX_MANA = Integer.MAX_VALUE;
 
@@ -43,7 +43,7 @@ public class ItemMasterManaRing extends ItemBaubleRelic implements IManaItem, IM
 
 	@Override
 	public void getSubItems(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> stacks) {
-		if(isInCreativeTab(tab)) {
+		if (isInCreativeTab(tab)) {
 			stacks.add(new ItemStack(this));
 
 			ItemStack full = new ItemStack(this);
@@ -63,7 +63,7 @@ public class ItemMasterManaRing extends ItemBaubleRelic implements IManaItem, IM
 
 	@Override
 	public int getMaxMana(ItemStack stack) {
-		return MAX_MANA -1;
+		return MAX_MANA - 1;
 	}
 
 	@Override
@@ -115,13 +115,13 @@ public class ItemMasterManaRing extends ItemBaubleRelic implements IManaItem, IM
 	public int getRGBDurabilityForDisplay(ItemStack stack) {
 		return MathHelper.hsvToRGB(1.0F, 1.0F, 1.0F);
 	}
-	
+
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-		if(!world.isRemote && entity instanceof EntityPlayer){
+		if (!world.isRemote && entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
 			updateRelic(stack, player);
-			if(getMana(stack) == Integer.MAX_VALUE - 1 && !world.isRemote)
+			if (getMana(stack) == Integer.MAX_VALUE - 1 && !world.isRemote)
 				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.MASTERMANARING_FILL);
 		}
 	}

@@ -634,7 +634,7 @@ botania.tagline.goblinslayer=
 botania.entry.lensextra=New Mana Lens
 botania.page.lensextra0=Mana Lens: Push will enable Mana Burst to force the first entity it collide to move with it.
 botania.page.lensextra1=Push
-botania.page.lensextra2=Mana Lens: Smelt is like a furnace, it will enable Mana Burst to smelt the block it collides with.
+botania.page.lensextra2=Mana Lens: Smelt is like a furnace, it will enable a Mana Burst to smelt the block it collides with.
 botania.page.lensextra3=Smelt
 botania.page.lensextra4=Mana Lens: Mana is like a Mana Pool, it will infuse the item with mana. If you place a Alchemy Catalyst or a Conjuration Catalyst under the spreader, it will do the cocorresponding work.
 botania.page.lensextra5=Mana
@@ -715,7 +715,7 @@ botania.page.cosmetic10=
 botania.tagline.cosmetic=
 
 botania.entry.jingweifeather=Feather of JingWei
-botania.page.jingweifeather0=After equipping Feather of JingWei, the player can use mana to shoot fire arua with a empty hand. Killing a mob with Aura Fire gives the player a heart of absoprtion. stacks up to 5 hearts of abosrption.
+botania.page.jingweifeather0=After equipping a Feather of JingWei, the player can use mana to shoot fire arua with a empty hand. Killing a mob with Aura Fire gives the player a heart of absoprtion. stacks up to 5 hearts of abosrption.
 botania.page.jingweifeather1=
 botania.tagline.jingweifeather=
 
@@ -730,7 +730,7 @@ botania.page.manadriverring1=
 botania.tagline.manadriverring=
 
 botania.entry.chargepad=Power Frame
-botania.page.chargepad0=Place a mana item in the Power Frame, and the Power Frame will extract mana from the mana pool above and transfer to the mana item. Giving a redstone signal will make the process reverse.
+botania.page.chargepad0=By placing a mana storing item in the Power Frame, you can fill it from a mana pool on top of the powerframe, giving the frame a redstone signal reverses the prosses
 botania.page.chargepad1=
 botania.tagline.chargepad=
 

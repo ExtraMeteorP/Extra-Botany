@@ -7,6 +7,7 @@ botania.brew.deadpool=Некроманта
 botania.brew.floating=Левитации
 
 extrabotany.nei.pedestal=Пьедестал из жизнекамня
+tooltip.extrabotany.description=Вы не можете использовать это, пока не получите достижение " %s ".
 
 item.extrabotany:manareader.name=Считыватель маны
 item.extrabotany:binder.name=Считыватель позиции
@@ -38,7 +39,7 @@ item.extrabotany:infinitewine.name=Бесконечное вино
 item.extrabotany:boat_manasteel.name=Летающая лодка из манастали
 item.extrabotany:boat_elementium.name=Летающая лодка из элементия
 item.extrabotany:boat_terrasteel.name=Летающая лодка из террастали
-item.extrabotany:excaliber.name=Экскалибер
+item.extrabotany:excaliber.name=Экскалибур
 item.extrabotany:buddhistrelics.name=Происхождение созидания - Всеведение
 item.extrabotany:spearsubspace.name=Копьё подпространства
 item.extrabotany:masterhandbag.name=Мини-сумка

@@ -11,6 +11,6 @@
   "credits": "",
   "logoFile": "assets/extrabotany/textures/logo.png",
   "screenshots": [],
-  "dependencies": [botania]
+  "dependencies": ["botania"]
 }
 ]

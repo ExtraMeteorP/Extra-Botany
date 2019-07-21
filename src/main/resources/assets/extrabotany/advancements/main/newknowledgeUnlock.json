@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:spiritfuel"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:newknowledgeUnlock"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:newknowledgeUnlock.desc"
+    }
+  },
+  "parent": "extrabotany:main/nightmarefuelEating",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

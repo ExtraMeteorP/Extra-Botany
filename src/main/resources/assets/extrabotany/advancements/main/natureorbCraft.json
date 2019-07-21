@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:natureorb"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:natureorbCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:natureorbCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+  "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:natureorb"
+          }
+        ]
+      }
+    }
+  }
+}

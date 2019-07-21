@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Multimap;
-import com.meteor.extrabotany.client.model.ModelArmorGoblinSlayer;
+import com.meteor.extrabotany.client.model.ModelArmorGoblinSlayerNew;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidArmor;
 
@@ -34,7 +34,7 @@ public class ItemGoblinSlayerArmor  extends ItemCosmeticMaidArmor{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ModelBiped provideArmorModelForSlot(ItemStack stack, EntityEquipmentSlot slot) {
-		models.put(slot, new ModelArmorGoblinSlayer(slot));
+		models.put(slot, new ModelArmorGoblinSlayerNew(slot));
 		return models.get(slot);
 	}
 	
@@ -45,7 +45,7 @@ public class ItemGoblinSlayerArmor  extends ItemCosmeticMaidArmor{
 	
 	@Override
 	public String getArmorTextureAfterInk(ItemStack stack, EntityEquipmentSlot slot) {
-		return "extrabotany:textures/model/armor_goblinslayer.png";
+		return "extrabotany:textures/model/armor_goblinslayernew.png";
 	}
 	
 	@Override

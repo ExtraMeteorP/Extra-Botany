@@ -10,4 +10,8 @@ public class LibPotionsName {
 	public static final String BLACKSABBATH = "blacksabbath";
 	public static final String BLOODTEMPTATION = "bloodtemptation";
 	public static final String ASTRALFORCE = "astralforce";
+	public static final String TEMPTATION = "temptation";
+	public static final String WITCHCURSE = "witchcurse";
+	public static final String VEGETABLE = "vegetable";
+	public static final String HEALREVERSE = "healreverse";
 }

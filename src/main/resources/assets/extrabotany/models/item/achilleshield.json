@@ -43,6 +43,12 @@
 				"blocking": 1
 			},
 			"model": "extrabotany:item/achilleshield_blocking"
+		},
+				{
+			"predicate": {
+				"release": 1
+			},
+			"model": "extrabotany:item/achilleshield_released"
 		}
 	]
 }

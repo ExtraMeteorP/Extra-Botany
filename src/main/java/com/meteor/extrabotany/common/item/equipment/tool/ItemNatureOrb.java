@@ -73,7 +73,7 @@ public class ItemNatureOrb extends ItemBauble implements INatureOrb, IManaGiving
 	@Nonnull
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
-		if(player.isSneaking() && getXP(player.getHeldItem(hand)) >= 100000 && ConfigHandler.GAIA_ENABLE){
+		if(player.isSneaking() && getXP(player.getHeldItem(hand)) >= 200000 && ConfigHandler.GAIA_ENABLE){
 			return EntityGaiaIII.spawn(player, player.getHeldItem(hand), worldIn, pos, false) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
 		}
 		return EnumActionResult.SUCCESS;
@@ -119,7 +119,7 @@ public class ItemNatureOrb extends ItemBauble implements INatureOrb, IManaGiving
 
 		List<Potion> potionsToRemove = player.getActivePotionEffects().stream()
 				.filter(effect -> effect.getPotion().isBadEffect())
-				.filter(effect -> effect.getPotion().getCurativeItems().contains(Items.MILK_BUCKET))
+				.filter(effect -> effect.getPotion().getCurativeItems().contains(new ItemStack(Items.MILK_BUCKET)))
 				.map(PotionEffect::getPotion)
 				.distinct()
 				.collect(Collectors.toList());

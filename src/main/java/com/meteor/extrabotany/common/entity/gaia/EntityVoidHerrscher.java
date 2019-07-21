@@ -20,11 +20,9 @@ import com.meteor.extrabotany.api.entity.IEntityWithShield;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.ModSounds;
 import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
-import com.meteor.extrabotany.common.core.handler.PlayerStatHandler;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -51,7 +49,6 @@ import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -156,12 +153,13 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 	public static int rot = -180;
 	private int supportcd = 300;
 	private List<String> contributorlist = PersistentVariableHandler.contributors;
+	private boolean quickkill = true;
 
 	public EntityVoidHerrscher(World world) {
 		super(world);
 		setSize(0.6F, 1.8F);
 		isImmuneToFire = true;
-		experienceValue = 1225;
+		experienceValue = 1725;
 		if(world.isRemote) {
 			Botania.proxy.addBoss(this);
 		}
@@ -181,6 +179,9 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 			if(vec3d != null)
 				this.getNavigator().tryMoveToXYZ(vec3d.x, vec3d.y, vec3d.z, 1.2F);
 		}
+		
+		if(this.ticksExisted > 3600)
+			this.quickkill = false;
 		
 		int invul = getInvulTime();
 		if(invul > 0){
@@ -255,7 +256,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 				spawnSubspaceLanceRandomly();
 			}
 			if(playersWhoAttacked.size() > 0){
-				this.heal(playersWhoAttacked.size() * 150F);
+				this.setHealth(this.getMaxHealth());
 			}
 		}
 
@@ -361,23 +362,24 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
 		if(cd == 250 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
-					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing").setStyle(new Style().setColor(TextFormatting.WHITE)));
+				if(world.isRemote)
+					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaPreparing", "Boss").setStyle(new Style().setColor(TextFormatting.WHITE)));
 		
 		if(cd == 100 && skillType == 1)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
-					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning").setStyle(new Style().setColor(TextFormatting.RED)));
+				if(world.isRemote)
+					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
 		
 		if(cd == 100 && skillType == 0)
 			for(EntityPlayer player : getPlayersAround())
-				if(!world.isRemote)
-					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2").setStyle(new Style().setColor(TextFormatting.RED)));
+				if(world.isRemote)
+					player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning2", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
 		
-		if(cd == 0 && !world.isRemote && skillType == 0 && !getPlayersAround().isEmpty()){
+		if(cd == 0 && skillType == 0 && !getPlayersAround().isEmpty()){
 			EntityPlayer player = getPlayersAround().get(world.rand.nextInt(getPlayersAround().size()));
-			player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3").setStyle(new Style().setColor(TextFormatting.RED)));
-			ExtraBotanyAPI.dealTrueDamage(player, player.getMaxHealth() * 0.20F + 6);
+			if(world.isRemote)
+				player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", "Boss").setStyle(new Style().setColor(TextFormatting.RED)));
+			ExtraBotanyAPI.dealTrueDamage(this, player, player.getMaxHealth() * 0.20F + 6);
 			spawnSubspaceLance(player.getPosition());
 			cd = 290;
 			skillType = getRankIII() ? 1 : world.rand.nextInt(2);
@@ -407,10 +409,6 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 		
 		if(dodgecd > 0)
 			dodgecd--;
-		
-		if(ticksExisted > 2600)
-			for(EntityPlayer p : getPlayersAround())
-				ExtraBotanyAPI.unlockAdvancement(p, LibAdvancements.MUSIC_ALL);
 
 	}
 	
@@ -464,6 +462,8 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 			EntityItem item =  player.dropItem(true);
 			item.setPickupDelay(90);
 		}
+		if(player.inventory.isEmpty())
+			return;
 		for(int i = 0; i < player.inventory.getSizeInventory(); i++) {
 			ItemStack stackAt = player.inventory.getStackInSlot(i);
 			if(!match(stackAt)) {
@@ -616,25 +616,22 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 		}
 
 		//check pylons
-		for(BlockPos coords : PYLON_LOCATIONS) {
-			BlockPos pos_ = pos.add(coords);
-
-			IBlockState state = world.getBlockState(pos_);
-			if(state.getBlock() != ModBlocks.pylon || state.getValue(BotaniaStateProps.PYLON_VARIANT) != PylonVariant.GAIA) {
-				if(!world.isRemote)
-					player.sendMessage(new TextComponentTranslation("botaniamisc.needsCatalysts").setStyle(new Style().setColor(TextFormatting.RED)));
-				return false;
+		List<BlockPos> invalidPylonBlocks = checkPylons(world, pos);
+		if(!invalidPylonBlocks.isEmpty()) {
+			if(world.isRemote) {
+				warnInvalidBlocks(invalidPylonBlocks);
+			} else {
+				player.sendMessage(new TextComponentTranslation("botaniamisc.needsCatalysts").setStyle(new Style().setColor(TextFormatting.RED)));
 			}
+
+			return false;
 		}
 
 		//check arena shape
 		List<BlockPos> invalidArenaBlocks = checkArena(world, pos);
 		if(!invalidArenaBlocks.isEmpty()) {
 			if(world.isRemote) {
-				Botania.proxy.setWispFXDepthTest(false);
-				for(BlockPos pos_ : invalidArenaBlocks)
-					Botania.proxy.wispFX(pos_.getX() + 0.5, pos_.getY() + 0.5, pos_.getZ() + 0.5, 1F, 0.2F, 0.2F, 0.5F, 0F, 8);
-				Botania.proxy.setWispFXDepthTest(true);
+				warnInvalidBlocks(invalidArenaBlocks);
 			} else {
 				PacketHandler.sendTo((EntityPlayerMP) player,
 					new PacketBotaniaEffect(PacketBotaniaEffect.EffectType.ARENA_INDICATOR, pos.getX(), pos.getY(), pos.getZ()));
@@ -647,32 +644,50 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
 		//all checks ok, spawn the boss
 		if(!world.isRemote) {
+			if(stack.getItem() instanceof ItemMaterial){
+				stack.shrink(1);
+			}
 
 			EntityVoidHerrscher e = new EntityVoidHerrscher(world);
 			e.setPosition(pos.getX() + 0.5, pos.getY() + 3, pos.getZ() + 0.5);
 			e.source = pos;
-			e.setShield(5);
 			e.hardMode = hard;
-
+			e.setShield(5);
 			int playerCount = e.getPlayersAround().size();
 			e.playerCount = playerCount;
 			e.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MAX_HP * playerCount);
-			e.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.ARMOR).setBaseValue(15);
-
+			if(hard)
+				e.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.ARMOR).setBaseValue(15);
+			e.setHealth(e.getMaxHealth());
 			e.playSound(SoundEvents.ENTITY_ENDERDRAGON_GROWL, 10F, 0.1F);
 			e.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(e)), null);
 			world.spawnEntity(e);
-			
-			if(stack.getItem() instanceof ItemNatureOrb){
-				ItemNatureOrb o = (ItemNatureOrb) stack.getItem();
-				o.addXP(stack, -100000);
-			}
-			if(stack.getItem() instanceof ItemMaterial){
-				stack.shrink(1);
-			}
 		}
 		
 		return true;
+	}
+	
+	private static void warnInvalidBlocks(Iterable<BlockPos> invalidPositions) {
+		Botania.proxy.setWispFXDepthTest(false);
+		for(BlockPos pos_ : invalidPositions) {
+			Botania.proxy.wispFX(pos_.getX() + 0.5, pos_.getY() + 0.5, pos_.getZ() + 0.5, 1F, 0.2F, 0.2F, 0.5F, 0F, 8);
+		}
+		Botania.proxy.setWispFXDepthTest(true);
+	}
+	
+	private static List<BlockPos> checkPylons(World world, BlockPos beaconPos) {
+		List<BlockPos> invalidPylonBlocks = new ArrayList<>();
+
+		for(BlockPos coords : PYLON_LOCATIONS) {
+			BlockPos pos_ = beaconPos.add(coords);
+			
+			IBlockState state = world.getBlockState(pos_);
+			if(state.getBlock() != ModBlocks.pylon || state.getValue(BotaniaStateProps.PYLON_VARIANT) != PylonVariant.GAIA) {
+				invalidPylonBlocks.add(pos_);
+			}
+		}
+
+		return invalidPylonBlocks;
 	}
 	
 	private static List<BlockPos> checkArena(World world, BlockPos beaconPos) {
@@ -871,7 +886,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 					cap *= 0.85F;
 				}
 				
-				if(par2 > 15 && !this.world.isRemote){
+				if(par2 > 20 && !this.world.isRemote){
 					setShields(getShields() - 1);
 					dodgecd=0;
 				}
@@ -970,7 +985,8 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 			posZ = player.posZ;
 			super.dropLoot(wasRecentlyHit, lootingModifier, DamageSource.causePlayerDamage(player));
 			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.HERRSCHER_DEFEAT);
-			PlayerStatHandler.setHerrscherDefeat(player, PlayerStatHandler.getVoidHerrscherDefeat(player) + 1);
+			if(this.quickkill)
+				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ENDGAME_GOAL);
 			posX = savePosX;
 			posY = savePosY;
 			posZ = savePosZ;
@@ -991,12 +1007,12 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 
 	public List<EntityPlayer> getPlayersAround() {
 		BlockPos source = getSource();
-		float range = 15F;
+		float range = 16F;
 		return world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
 	}
 
 	private static int getGaiaGuardiansAround(World world, BlockPos source) {
-		float range = 15F;
+		float range = 16F;
 		List l = world.getEntitiesWithinAABB(EntityVoidHerrscher.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
 		return l.size();
 	}
@@ -1311,7 +1327,7 @@ public class EntityVoidHerrscher extends EntityCreature implements IBotaniaBoss,
 		private final EntityVoidHerrscher guardian;
 
 		public DopplegangerMusic(EntityVoidHerrscher guardian) {
-			super(com.meteor.extrabotany.common.core.handler.ModSounds.gaiaMusic3, SoundCategory.RECORDS);
+			super(com.meteor.extrabotany.common.core.handler.ModSounds.herrscherMusic, SoundCategory.RECORDS);
 			this.guardian = guardian;
 			this.xPosF = guardian.getSource().getX();
 			this.yPosF = guardian.getSource().getY();

@@ -1,0 +1,19 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:shadowwarriorchest"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:armorsetSW"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:armorsetSW.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+ "criteria": {
+        "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

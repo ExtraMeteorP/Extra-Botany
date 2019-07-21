@@ -36,7 +36,7 @@ public class BehaviourHammer extends BehaviorDefaultDispenseItem{
 			world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BLOCK_ANVIL_HIT, SoundCategory.PLAYERS, 0.5F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1, false);
 			return stack;
 		}
-		return super.dispense(par1IBlockSource, stack);	
+		return super.dispenseStack(par1IBlockSource, stack);	
 	}
 
 }

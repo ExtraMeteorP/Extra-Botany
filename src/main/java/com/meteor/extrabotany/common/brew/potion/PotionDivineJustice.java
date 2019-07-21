@@ -26,7 +26,7 @@ public class PotionDivineJustice extends PotionMod{
 
 	@Override
 	public void performEffect(@Nonnull EntityLivingBase living, int amplified) {
-		ExtraBotanyAPI.dealTrueDamage(living, amplified*2);
+		ExtraBotanyAPI.dealTrueDamage(living, living, amplified*2);
 	}
 	
 	@Override

@@ -17,6 +17,7 @@ public class LibBlocksName {
 	public static final String SUBTILE_EDELWEISS = "edelweiss";
 	public static final String SUBTILE_MIRROWTUNIA = "mirrowtunia";
 	public static final String SUBTILE_GEMINIORCHID = "geminiorchid";
+	public static final String SUBTILE_NECROFLEUR = "necrofleur";
 	
 	public static final String TILE_PEDESTAL = "pedestal";
 	public static final String TILE_BATTERYBOX = "manabarrel";
@@ -27,10 +28,7 @@ public class LibBlocksName {
 	public static final String TILE_ELFJAR = "elfjar";
 	public static final String TILE_TROPHY = "trophy";
 	public static final String TILE_GILDEDTINYPOTATO = "gildedtinypotato";
-	
-	public static final String TILE_INFINITYCUBE = "infinitycube";
-	public static final String TILE_SCREEN = "screen";
-	public static final String TILE_CRYSTALIZER = "crystallizer";
+	public static final String TILE_CHARGEPAD = "chargepad";
 	
 	public static final String BLOCKORICHALCOS = "blockorichalcos";
 	public static final String LIGHTSOURCE = "lightsource";

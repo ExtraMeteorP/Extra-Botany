@@ -35,8 +35,12 @@ public class SubTileOmniViolet extends SubTileGenerating{
 		if(redstoneSignal > 0)
 			return;
 		
-		if(burnTime > 0)
+		float buff = ConfigHandler.LP_OMNIVIOLET ? 1+bookCases() * 0.05F : 1;
+		
+		if(burnTime > 0){
 			burnTime--;
+			mana+=ConfigHandler.EFF_OMNIVIOLET * Math.min(5, buff);
+		}
 		
 		if(linkedCollector != null) {
 			if(burnTime == 0) {
@@ -52,10 +56,8 @@ public class SubTileOmniViolet extends SubTileGenerating{
 							int output = RecipeOmniviolet.getOutput(stack);
 							int burnTime = stack.getItem() == Item.getItemFromBlock(ModBlocks.spreader) ? 0 : output;
 							if(burnTime > 0 && stack.getCount() > 0) {
-								float buff = ConfigHandler.LP_OMNIVIOLET ? 1+bookCases() * 0.05F : 1;
+								this.burnTime = Math.min(FUEL_CAP, burnTime);
 								
-								this.burnTime = (int) (Math.min(FUEL_CAP, burnTime)* Math.min(5, buff));
-
 								stack.shrink(1);
 								supertile.getWorld().playSound(null, supertile.getPos(), ModSounds.endoflame, SoundCategory.BLOCKS, 0.2F, 1F);
 								sync();
@@ -94,7 +96,7 @@ public class SubTileOmniViolet extends SubTileGenerating{
 	
 	@Override
 	public int getMaxMana() {
-		return 1000;
+		return 1500;
 	}
 
 	@Override

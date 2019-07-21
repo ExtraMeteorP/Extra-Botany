@@ -65,10 +65,10 @@ public class SubTileBloodyEnchantress extends SubTileGenerating {
 								mana += ConfigHandler.EFF_BLOODYENCHANTRESS * 10F * (1F - 0.07F * amp - 0.02F * ampall);
 							}else
 								break;
-							ExtraBotanyAPI.addPotionEffect(living, ModPotions.bloodtemptation, 150, 10, true);
+							ExtraBotanyAPI.addPotionEffect(living, ModPotions.bloodtemptation, 100, 10, true);
 							if(living instanceof EntityPlayer){
 								ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.BLOODYENCHANTRESS_USE);
-								ExtraBotanyAPI.dealTrueDamage(living, 3F);
+								ExtraBotanyAPI.dealTrueDamage(living, living, 3F);
 							}else{
 								living.setHealth(living.getHealth() - 3F);
 							}

@@ -55,6 +55,7 @@ public class LibItemsName {
 	public static final String TRAVELJOURNAL = "traveljournal";
 	public static final String NATUREORB = "natureorb";
 	public static final String RECORDA = "recordgaia3";
+	public static final String RECORDB = "recordherrscher";
 	
 	public static final String FLYINGBOAT = "flyingboat";
 	
@@ -77,6 +78,7 @@ public class LibItemsName {
 	public static final String HAMMER_TERRASTEEL = "terrasteelhammer";
 	public static final String HAMMER_ULTIMATE = "ultimatehammer";
 	public static final String WALKINGCANE = "walkingcane";
+	public static final String MAGICFINGER = "magicfinger";
 	
 	public static final String KINGGARDEN = "kinggarden";
 	public static final String BOTTLEDSTAR = "bottledstar";
@@ -97,6 +99,8 @@ public class LibItemsName {
 	public static final String BAUBLE_FOXEAR = "foxear";
 	public static final String BAUBLE_BOTTLEDFLAME = "bottledflame";
 	public static final String BAUBLE_GAMEWINNER = "gamewinner";
+	public static final String BAUBLE_FEATHER  = "jingweifeather";
+	public static final String BAUBLE_MANADRIVERRING = "manadriverring";
 	
 	public static final String BAUBLE_COSMETIC = "cosmetic";
 	public static final String[] COSMETIC_NAMES = {

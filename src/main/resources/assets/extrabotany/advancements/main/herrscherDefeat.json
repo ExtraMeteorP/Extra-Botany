@@ -1,0 +1,20 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:cosmetic"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:herrscherDefeat"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:herrscherDefeat.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/gaiaDefeat",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

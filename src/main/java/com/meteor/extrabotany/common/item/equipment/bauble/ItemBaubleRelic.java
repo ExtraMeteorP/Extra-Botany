@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
+import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -24,7 +29,7 @@ import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public abstract class ItemBaubleRelic extends ItemBauble implements IRelic{
+public abstract class ItemBaubleRelic extends ItemBauble implements IRelic, IAdvancementRequired{
 	
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
 
@@ -37,6 +42,12 @@ public abstract class ItemBaubleRelic extends ItemBauble implements IRelic{
 		if(!world.isRemote && entity instanceof EntityPlayer)
 			updateRelic(stack, (EntityPlayer) entity);
 	}
+	
+	@Override
+    @Nullable
+    public Entity createEntity(World world, Entity location, ItemStack itemstack){
+        return new EntityItemUnbreakable(world, location.posX, location.posY, location.posZ, itemstack);
+    }
 
 	@SideOnly(Side.CLIENT)
 	@Override
@@ -120,6 +131,11 @@ public abstract class ItemBaubleRelic extends ItemBauble implements IRelic{
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 		return BotaniaAPI.rarityRelic;
+	}
+	
+	@Override
+	public String getAdvancementName(ItemStack stack) {
+		return LibAdvancements.GAIA_DEFEAT;
 	}
 
 }

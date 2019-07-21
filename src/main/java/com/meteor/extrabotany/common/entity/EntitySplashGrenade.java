@@ -20,11 +20,12 @@ import net.minecraft.world.World;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.brew.IBrewItem;
 
-public class EntitySplashGrenade extends EntityThrowableCopy{
-	
+public class EntitySplashGrenade extends EntityThrowableCopy {
+
 	private static final String TAG_EFFECT = "effect";
-	private static final DataParameter<ItemStack> ITEM = EntityDataManager.<ItemStack>createKey(EntitySplashGrenade.class, DataSerializers.ITEM_STACK);
-	
+	private static final DataParameter<ItemStack> ITEM = EntityDataManager
+			.<ItemStack>createKey(EntitySplashGrenade.class, DataSerializers.ITEM_STACK);
+
 	public EntitySplashGrenade(World world) {
 		super(world);
 	}
@@ -32,65 +33,68 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
 	public EntitySplashGrenade(World world, EntityLivingBase thrower) {
 		super(world, thrower);
 	}
-	
+
 	@Override
-    public float getGravityVelocity(){
-        return 0.04F;
-    }
-	
+	public float getGravityVelocity() {
+		return 0.04F;
+	}
+
 	@Override
 	protected void entityInit() {
 		super.entityInit();
 		dataManager.register(ITEM, new ItemStack(ModItems.infinitewine));
 	}
-	
+
 	@Override
 	public void onUpdate() {
-		
+
 		EntityLivingBase thrower = getThrower();
-		if(!world.isRemote && (thrower == null || !(thrower instanceof EntityPlayer) || thrower.isDead)) {
+		if (!world.isRemote && (thrower == null || !(thrower instanceof EntityPlayer) || thrower.isDead)) {
 			setDead();
 			return;
 		}
 		EntityPlayer player = (EntityPlayer) thrower;
-		if(!world.isRemote) {
-			AxisAlignedBB axis = new AxisAlignedBB(posX-0.2F, posY-0.2F, posZ-0.2F, lastTickPosX+0.2F, lastTickPosY+0.2F, lastTickPosZ+0.2F);
+		if (!world.isRemote) {
+			AxisAlignedBB axis = new AxisAlignedBB(posX - 0.2F, posY - 0.2F, posZ - 0.2F, lastTickPosX + 0.2F,
+					lastTickPosY + 0.2F, lastTickPosZ + 0.2F);
 			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
-			for(EntityLivingBase living : entities) {
-				if(living == thrower)
+			for (EntityLivingBase living : entities) {
+				if (living == thrower)
 					continue;
 				onImpact();
 				break;
 			}
-			if(this.collided)
+			if (this.collided)
 				onImpact();
 		}
-		
-		super.onUpdate();	
+
+		super.onUpdate();
 	}
-	
-	public void onImpact(){
-		if(getPotion().getItem() instanceof IBrewItem){
-	    	IBrewItem bi = (IBrewItem) getPotion().getItem();	
-	    	Brew brew = bi.getBrew(getPotion());
+
+	public void onImpact() {
+		if (getPotion().getItem() instanceof IBrewItem) {
+			IBrewItem bi = (IBrewItem) getPotion().getItem();
+			Brew brew = bi.getBrew(getPotion());
 			double range = 5;
-			AxisAlignedBB bounds = new AxisAlignedBB(posX - range, posY - range, posZ - range, posX + range, posY + range, posZ + range);
+			AxisAlignedBB bounds = new AxisAlignedBB(posX - range, posY - range, posZ - range, posX + range,
+					posY + range, posZ + range);
 			List<EntityLivingBase> entitiess;
 			entitiess = world.getEntitiesWithinAABB(EntityLivingBase.class, bounds);
-			for(EntityLivingBase living2 : entitiess){
-				if(!(living2 instanceof EntityPlayer))
+			for (EntityLivingBase living2 : entitiess) {
+				if (!(living2 instanceof EntityPlayer))
 					living2.attackEntityFrom(DamageSource.MAGIC, 10F);
-				for(PotionEffect effect : brew.getPotionEffects(getPotion())) {
-					PotionEffect newEffect = new PotionEffect(effect.getPotion(), (int)((float)effect.getDuration() * 0.6F), effect.getAmplifier()+1, true, true);
-					if(!(living2 instanceof EntityPlayer) && effect.getPotion().isBadEffect()){
-						if(effect.getPotion().isInstant())
+				for (PotionEffect effect : brew.getPotionEffects(getPotion())) {
+					PotionEffect newEffect = new PotionEffect(effect.getPotion(),
+							(int) ((float) effect.getDuration() * 0.6F), effect.getAmplifier(), true, true);
+					if (!(living2 instanceof EntityPlayer) && effect.getPotion().isBadEffect()) {
+						if (effect.getPotion().isInstant())
 							effect.getPotion().affectEntity(living2, living2, living2, newEffect.getAmplifier(), 1F);
-						else 
+						else
 							living2.addPotionEffect(newEffect);
-					}else if(living2 instanceof EntityPlayer && !effect.getPotion().isBadEffect()){
-						if(effect.getPotion().isInstant())
+					} else if (living2 instanceof EntityPlayer && !effect.getPotion().isBadEffect()) {
+						if (effect.getPotion().isInstant())
 							effect.getPotion().affectEntity(living2, living2, living2, newEffect.getAmplifier(), 1F);
-						else 
+						else
 							living2.addPotionEffect(newEffect);
 					}
 					int i = effect.getPotion().isInstant() ? 2007 : 2002;
@@ -98,55 +102,51 @@ public class EntitySplashGrenade extends EntityThrowableCopy{
 				}
 			}
 		}
-        this.setDead();
+		this.setDead();
 	}
 
 	@Override
 	protected void onImpact(RayTraceResult result) {
-        if (result.entityHit != null){
-            result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 5.0F);
-        }
+		if (result.entityHit != null) {
+			result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 5.0F);
+		}
 
-        if (!this.world.isRemote){
-        	onImpact();
-        }
+		if (!this.world.isRemote) {
+			onImpact();
+		}
 	}
-	
-    public void setItem(ItemStack stack){
-        this.getDataManager().set(ITEM, stack);
-        this.getDataManager().setDirty(ITEM);
-    }
-    
-    public ItemStack getPotion(){
-        ItemStack itemstack = (ItemStack)this.getDataManager().get(ITEM);
-        return itemstack;
-    }
-	
+
+	public void setItem(ItemStack stack) {
+		this.getDataManager().set(ITEM, stack);
+		this.getDataManager().setDirty(ITEM);
+	}
+
+	public ItemStack getPotion() {
+		ItemStack itemstack = (ItemStack) this.getDataManager().get(ITEM);
+		return itemstack;
+	}
+
 	@Override
-    public void writeEntityToNBT(NBTTagCompound cmp){
+	public void writeEntityToNBT(NBTTagCompound cmp) {
 		super.writeEntityToNBT(cmp);
-        
-        ItemStack itemstack = this.getPotion();
 
-        if (!itemstack.isEmpty())
-        {
-            cmp.setTag("Potion", itemstack.writeToNBT(new NBTTagCompound()));
-        }
+		ItemStack itemstack = this.getPotion();
+
+		if (!itemstack.isEmpty()) {
+			cmp.setTag("Potion", itemstack.writeToNBT(new NBTTagCompound()));
+		}
 	}
-	
-	@Override
-	public void readEntityFromNBT(NBTTagCompound cmp){
-		super.readEntityFromNBT(cmp);
-        ItemStack itemstack = new ItemStack(cmp.getCompoundTag("Potion"));
 
-        if (itemstack.isEmpty())
-        {
-            this.setDead();
-        }
-        else
-        {
-            this.setItem(itemstack);
-        }
+	@Override
+	public void readEntityFromNBT(NBTTagCompound cmp) {
+		super.readEntityFromNBT(cmp);
+		ItemStack itemstack = new ItemStack(cmp.getCompoundTag("Potion"));
+
+		if (itemstack.isEmpty()) {
+			this.setDead();
+		} else {
+			this.setItem(itemstack);
+		}
 	}
 
 }

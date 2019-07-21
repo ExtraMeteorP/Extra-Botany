@@ -58,7 +58,6 @@ public class RecipeStonesia {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
 	private boolean areStacksTheSame(Object stack, ItemStack target) {
 		return areStacksTheSame(stack, target, false);
 	}

@@ -39,24 +39,14 @@ import vazkii.botania.common.Botania;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.lens.Lens;
 
-public class ItemLens extends ItemMod implements ILensControl, ICompositableLens, ITinyPlanetExcempt, IBrewItem{
+public class ItemLens extends ItemMod implements ILensControl, ICompositableLens, ITinyPlanetExcempt, IBrewItem {
 
 	public static final int SUBTYPES = 6;
 
-	public static final int PUSH = 0,
-			SMELT = 1,
-			MANA = 2,
-			POTION = 3,
-			CLOUD = 4,
-			SEXPISTOL = 5;
+	public static final int PUSH = 0, SMELT = 1, MANA = 2, POTION = 3, CLOUD = 4, SEXPISTOL = 5;
 
-	private static final int PROP_NONE = 0,
-			PROP_POWER = 1,
-			PROP_ORIENTATION = 1 << 1,
-			PROP_TOUCH = 1 << 2,
-			PROP_INTERACTION = 1 << 3,
-			PROP_DAMAGE = 1 << 4,
-			PROP_CONTROL = 1 << 5;
+	private static final int PROP_NONE = 0, PROP_POWER = 1, PROP_ORIENTATION = 1 << 1, PROP_TOUCH = 1 << 2,
+			PROP_INTERACTION = 1 << 3, PROP_DAMAGE = 1 << 4, PROP_CONTROL = 1 << 5;
 
 	private static final int[] props = new int[SUBTYPES];
 	private static final Lens[] lenses = new Lens[SUBTYPES];
@@ -81,7 +71,7 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 	private static final String TAG_COLOR = "color";
 	private static final String TAG_COMPOSITE_LENS = "compositeLens";
 	private static final String TAG_BREW_KEY = "brewKey";
-	
+
 	public ItemLens() {
 		super(LibItemsName.LENS);
 		setMaxStackSize(1);
@@ -90,8 +80,8 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 
 	@Override
 	public void getSubItems(@Nonnull CreativeTabs tab, @Nonnull NonNullList<ItemStack> stacks) {
-		if(isInCreativeTab(tab)) {
-			for(int i = 0; i < SUBTYPES; i++)
+		if (isInCreativeTab(tab)) {
+			for (int i = 0; i < SUBTYPES; i++)
 				stacks.add(new ItemStack(this, 1, i));
 		}
 	}
@@ -106,16 +96,19 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 	@Override
 	public void addInformation(ItemStack stack, World world, List<String> stacks, ITooltipFlag flags) {
 		int storedColor = getStoredColor(stack);
-		if(storedColor != -1)
+		if (storedColor != -1)
 			stacks.add(I18n.format("botaniamisc.color", I18n.format("botania.color" + storedColor)));
 		Brew brew = getBrew(stack);
-		if(brew != null)
-			for(PotionEffect effect : brew.getPotionEffects(stack)) {
+		if (brew != null)
+			for (PotionEffect effect : brew.getPotionEffects(stack)) {
 				TextFormatting format = effect.getPotion().isBadEffect() ? TextFormatting.RED : TextFormatting.GRAY;
-				stacks.add(format + I18n.format(effect.getEffectName()) + (effect.getAmplifier() == 0 ? "" : " " + I18n.format("botania.roman" + (effect.getAmplifier() + 1))) + TextFormatting.GRAY + (effect.getPotion().isInstant() ? "" : " (" + Potion.getPotionDurationString(effect, 1) + ")"));
+				stacks.add(format + I18n.format(effect.getEffectName())
+						+ (effect.getAmplifier() == 0 ? ""
+								: " " + I18n.format("botania.roman" + (effect.getAmplifier() + 1)))
+						+ TextFormatting.GRAY + (effect.getPotion().isInstant() ? ""
+								: " (" + Potion.getPotionDurationString(effect, 1) + ")"));
 			}
 	}
-
 
 	private String getItemShortTermName(ItemStack stack) {
 		return I18n.format(stack.getUnlocalizedName().replaceAll("item.", "item.botania:") + ".short");
@@ -125,32 +118,34 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 	@Override
 	public String getItemStackDisplayName(@Nonnull ItemStack stack) {
 		ItemStack compositeLens = getCompositeLens(stack);
-		if(compositeLens.isEmpty())
+		if (compositeLens.isEmpty())
 			return super.getItemStackDisplayName(stack);
-		return String.format(I18n.format("item.botania:compositeLens.name", getItemShortTermName(stack), getItemShortTermName(compositeLens)));
+		return String.format(I18n.format("item.botania:compositeLens.name", getItemShortTermName(stack),
+				getItemShortTermName(compositeLens)));
 	}
 
 	@Override
 	public void apply(ItemStack stack, BurstProperties props) {
 		int storedColor = getStoredColor(stack);
-		if(storedColor != -1)
+		if (storedColor != -1)
 			props.color = getLensColor(stack);
 
 		getLens(stack.getItemDamage()).apply(stack, props);
 
 		ItemStack compositeLens = getCompositeLens(stack);
-		if(!compositeLens.isEmpty() && compositeLens.getItem() instanceof ILens)
+		if (!compositeLens.isEmpty() && compositeLens.getItem() instanceof ILens)
 			((ILens) compositeLens.getItem()).apply(compositeLens, props);
 	}
 
 	@Override
-	public boolean collideBurst(IManaBurst burst, RayTraceResult pos, boolean isManaBlock, boolean dead, ItemStack stack) {
+	public boolean collideBurst(IManaBurst burst, RayTraceResult pos, boolean isManaBlock, boolean dead,
+			ItemStack stack) {
 		EntityThrowable entity = (EntityThrowable) burst;
 
 		dead = getLens(stack.getItemDamage()).collideBurst(burst, entity, pos, isManaBlock, dead, stack);
 
 		ItemStack compositeLens = getCompositeLens(stack);
-		if(!compositeLens.isEmpty() && compositeLens.getItem() instanceof ILens)
+		if (!compositeLens.isEmpty() && compositeLens.getItem() instanceof ILens)
 			dead = ((ILens) compositeLens.getItem()).collideBurst(burst, pos, isManaBlock, dead, compositeLens);
 
 		return dead;
@@ -161,13 +156,13 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 		EntityThrowable entity = (EntityThrowable) burst;
 		int storedColor = getStoredColor(stack);
 
-		if(storedColor == 16 && entity.world.isRemote)
+		if (storedColor == 16 && entity.world.isRemote)
 			burst.setColor(getLensColor(stack));
 
 		getLens(stack.getItemDamage()).updateBurst(burst, entity, stack);
 
 		ItemStack compositeLens = getCompositeLens(stack);
-		if(!compositeLens.isEmpty() && compositeLens.getItem() instanceof ILens)
+		if (!compositeLens.isEmpty() && compositeLens.getItem() instanceof ILens)
 			((ILens) compositeLens.getItem()).updateBurst(burst, compositeLens);
 	}
 
@@ -175,10 +170,10 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 	public int getLensColor(ItemStack stack) {
 		int storedColor = getStoredColor(stack);
 
-		if(storedColor == -1)
+		if (storedColor == -1)
 			return 0xFFFFFF;
 
-		if(storedColor == 16)
+		if (storedColor == 16)
 			return Color.HSBtoRGB(Botania.proxy.getWorldElapsedTicks() * 2 % 360 / 360F, 1F, 1F);
 
 		return EnumDyeColor.byMetadata(storedColor).getColorValue();
@@ -213,7 +208,7 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 
 	public static Lens getLens(int index) {
 
-		if(index < 0 || index >= lenses.length)
+		if (index < 0 || index >= lenses.length)
 			return fallbackLens;
 
 		Lens lens = lenses[index];
@@ -224,13 +219,13 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 	public boolean canCombineLenses(ItemStack sourceLens, ItemStack compositeLens) {
 		ICompositableLens sourceItem = (ICompositableLens) sourceLens.getItem();
 		ICompositableLens compositeItem = (ICompositableLens) compositeLens.getItem();
-		if(sourceItem == compositeItem && sourceLens.getItemDamage() == compositeLens.getItemDamage())
+		if (sourceItem == compositeItem && sourceLens.getItemDamage() == compositeLens.getItemDamage())
 			return false;
 
-		if(!sourceItem.isCombinable(sourceLens) || !compositeItem.isCombinable(compositeLens))
+		if (!sourceItem.isCombinable(sourceLens) || !compositeItem.isCombinable(compositeLens))
 			return false;
 
-		if(isBlacklisted(sourceLens, compositeLens))
+		if (isBlacklisted(sourceLens, compositeLens))
 			return false;
 
 		return true;
@@ -239,14 +234,15 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 	@Override
 	public ItemStack getCompositeLens(ItemStack stack) {
 		NBTTagCompound cmp = ItemNBTHelper.getCompound(stack, TAG_COMPOSITE_LENS, true);
-		if(cmp == null)
+		if (cmp == null)
 			return ItemStack.EMPTY;
-		else return new ItemStack(cmp);
+		else
+			return new ItemStack(cmp);
 	}
 
 	@Override
 	public ItemStack setCompositeLens(ItemStack sourceLens, ItemStack compositeLens) {
-		if(!compositeLens.isEmpty()) {
+		if (!compositeLens.isEmpty()) {
 			NBTTagCompound cmp = compositeLens.writeToNBT(new NBTTagCompound());
 			ItemNBTHelper.setCompound(sourceLens, TAG_COMPOSITE_LENS, cmp);
 		}
@@ -257,7 +253,7 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 	public int getManaToTransfer(IManaBurst burst, EntityThrowable entity, ItemStack stack, IManaReceiver receiver) {
 		return getLens(stack.getItemDamage()).getManaToTransfer(burst, entity, stack, receiver);
 	}
-	
+
 	@Override
 	public boolean shouldPull(ItemStack stack) {
 		return true;

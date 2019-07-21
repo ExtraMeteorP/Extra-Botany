@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "botania:specialFlower",
+      "nbt": "{\"type\": \"tinkle\"}"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:tinkleUse"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:tinkleUse.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

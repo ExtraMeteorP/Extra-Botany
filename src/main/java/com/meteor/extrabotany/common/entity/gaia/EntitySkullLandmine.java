@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
+import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.StatHandler;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
@@ -69,12 +70,14 @@ public class EntitySkullLandmine extends Entity{
 				Botania.proxy.wispFX(posX, posY + 1, posZ, r, g, b, 0.5F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
 
 			if(!world.isRemote) {
-				List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(posX - range, posY - range, posZ - range, posX + range, posY + range, posZ + range));
+				List<EntityPlayer> players = world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(posX - range, posY - range*20, posZ - range, posX + range, posY + range*20, posZ + range));
 				for(EntityPlayer player : players) {
 					float amplifier = StatHandler.hasStat(player, LibAdvancements.GAIA_DEFEAT) ? 1.0F : 0.7F;
 					player.attackEntityFrom(DamageSource.causeIndirectMagicDamage(this, summoner), 6 * amplifier);
+					for(int i = 0; i < 3; i++)
+						ExtraBotanyAPI.addPotionEffect(player, ModPotions.witchcurse, 20);
 					if(getType() == 1){
-						ExtraBotanyAPI.dealBossDamage(player, (player.getMaxHealth() * 0.35F + 8) * amplifier);
+						ExtraBotanyAPI.dealTrueDamage(this.summoner, player, (player.getMaxHealth() * 0.35F + 8) * amplifier);
 						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.LANDMINE_ACTIVE);
 					}
 					if(getType() == 2 && ConfigHandler.GAIA_DISARM)

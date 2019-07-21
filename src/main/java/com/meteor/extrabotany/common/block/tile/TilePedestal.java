@@ -65,11 +65,11 @@ public class TilePedestal extends TileInventoryBase implements ITickable{
 			INatureOrb o = (INatureOrb) getItem().getItem();
 			if(canInfuse2(world, pos)){
 				if (!getWorld().isRemote)
-					o.addXP(getItem(), 6);
+					o.addXP(getItem(), 9);
 				Botania.proxy.sparkleFX(pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.1F, 1F, 0.1F, 4F, 10);
 			}else if(canInfuse(world, pos)){
 				if (!getWorld().isRemote)
-					o.addXP(getItem(), 2);
+					o.addXP(getItem(), 4);
 				Botania.proxy.sparkleFX(pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.15F, 0.8F, 0.15F, 3F, 10);
 			}
 		}

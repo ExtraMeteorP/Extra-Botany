@@ -1,6 +1,5 @@
 package com.meteor.extrabotany.common.brew.potion;
 
-import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.lib.LibPotionsName;
 
 import net.minecraft.entity.EntityLiving;
@@ -23,12 +22,9 @@ public class PotionMindCrack extends PotionMod{
 			return;
 		if(event.getEntityLiving() instanceof EntityLiving){
 			EntityLiving mob = (EntityLiving) event.getEntityLiving();
-			
-			if(mob.isNonBoss() && mob.isPotionActive(ModPotions.mindcrack)){
-				if(mob.getActivePotionEffect(ModPotions.mindcrack).getDuration() > 5)
-					mob.setNoAI(true);
-				else 
-					mob.setNoAI(false);
+			if(mob.getEntityData().getInteger("freezeTime") > 0) {
+				mob.getEntityData().setInteger("freezeTime", mob.getEntityData().getInteger("freezeTime") - 1);
+				event.setCanceled(true);
 			}
 		}
 	}

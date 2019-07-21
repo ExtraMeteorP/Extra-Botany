@@ -90,7 +90,7 @@ public class EntitySwordDomain extends Entity{
 				player.attackEntityFrom(DamageSource.MAGIC, 1F);
 			
 			if(this.ticksExisted == 200)
-				ExtraBotanyAPI.dealTrueDamage(player, 1F);
+				ExtraBotanyAPI.dealTrueDamage(player, player, 1F);
 
 		}
 		

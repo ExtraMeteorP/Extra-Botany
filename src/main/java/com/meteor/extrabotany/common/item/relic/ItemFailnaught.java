@@ -4,11 +4,16 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
+import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
+import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.client.render.IModelReg;
+import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.entity.EntityMagicArrow;
+import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -20,10 +25,13 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -47,8 +55,8 @@ import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, IModelReg{
-	
+public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, IModelReg, IAdvancementRequired {
+
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
 
 	public ItemFailnaught() {
@@ -57,18 +65,37 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, LibItemsName.FAILNAUGHT));
 		setUnlocalizedName(LibItemsName.FAILNAUGHT);
 		addPropertyOverride(new ResourceLocation("minecraft:pull"), (stack, worldIn, entityIn) -> {
-			if (entityIn == null)
-			{
+			if (entityIn == null) {
 				return 0.0F;
-			}
-			else
-			{
+			} else {
 				ItemStack itemstack = entityIn.getActiveItemStack();
-				return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemFailnaught ? (stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) * chargeVelocityMultiplier() / 20.0F : 0.0F;
+				return !itemstack.isEmpty() && itemstack.getItem() instanceof ItemFailnaught
+						? (stack.getMaxItemUseDuration() - entityIn.getItemInUseCount()) * chargeVelocityMultiplier()
+								/ 20.0F
+						: 0.0F;
 			}
 		});
 	}
-	
+
+	@Override
+	@Nullable
+	public Entity createEntity(World world, Entity location, ItemStack itemstack) {
+		return new EntityItemUnbreakable(world, location.posX, location.posY, location.posZ, itemstack);
+	}
+
+	@Override
+	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
+		Multimap<String, AttributeModifier> attrib = super.getAttributeModifiers(slot, stack);
+		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
+		if (slot == slot.MAINHAND) {
+			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
+					new AttributeModifier(uuid, "Weapon modifier", 5, 0));
+			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(),
+					new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", -2.6, 0));
+		}
+		return attrib;
+	}
+
 	@Nonnull
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(@Nonnull World world, EntityPlayer player, @Nonnull EnumHand hand) {
@@ -76,59 +103,61 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 		player.setActiveHand(hand);
 		return new ActionResult<>(EnumActionResult.SUCCESS, stack);
 	}
-	
+
 	@Override
-    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entity, int timeLeft){
-		if(!(entity instanceof EntityPlayer))
-            return;
-        EntityPlayer player = (EntityPlayer) entity;
-        int i = (int) ((getMaxItemUseDuration(stack) - timeLeft) * chargeVelocityMultiplier());
-        if(i < 12)
-        	return;
-        int rank = i / 15;
-        if(isRightPlayer(player, stack) && ManaItemHandler.requestManaExactForTool(stack, player, Math.min(480, 220 + rank * 50), true)){
-        	EntityMagicArrow arrow = new EntityMagicArrow(world, player);
-        	arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
-        	arrow.setDamage(Math.min(40, 8 + rank * 7));
-        	arrow.rotationYaw = player.rotationYaw;
-        	arrow.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
-        	int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
-        	if (j > 0){
+	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entity, int timeLeft) {
+		if (!(entity instanceof EntityPlayer))
+			return;
+		EntityPlayer player = (EntityPlayer) entity;
+		int i = (int) ((getMaxItemUseDuration(stack) - timeLeft) * chargeVelocityMultiplier());
+		if (i < 8)
+			return;
+		int rank = (i - 8) / 5;
+		if (isRightPlayer(player, stack)
+				&& ManaItemHandler.requestManaExactForTool(stack, player, Math.min(600, 250 + rank * 20), true)) {
+			EntityMagicArrow arrow = new EntityMagicArrow(world, player);
+			arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
+			arrow.setDamage(Math.min(80, 8 + rank * 2));
+			arrow.rotationYaw = player.rotationYaw;
+			arrow.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
+			int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
+			if (j > 0) {
 				arrow.setDamage(arrow.getDamage() + j * 2);
 			}
-        	arrow.setLife(Math.min(150, 5 + i * 4));
-        	
-        	if(!world.isRemote)
-        		world.spawnEntity(arrow);
-        
-        	world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
-        	player.addStat(StatList.getObjectUseStats(this));
-        }
-    }
-	
+			arrow.setLife(Math.min(150, 5 + i * 4));
+
+			if (!world.isRemote)
+				world.spawnEntity(arrow);
+
+			world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT,
+					SoundCategory.NEUTRAL, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
+		}
+	}
+
 	@Override
 	public boolean usesMana(ItemStack stack) {
 		return true;
 	}
-	
+
 	@Override
 	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 72000;
 	}
-	
+
 	float chargeVelocityMultiplier() {
 		return 1F;
 	}
-	
-    @Override
-    public int getItemEnchantability(){
-        return 10;
-    }
-    
+
+	@Override
+	public int getItemEnchantability() {
+		return 10;
+	}
+
 	@Nonnull
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
+		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.",
+				"item." + LibMisc.MOD_ID + ":");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -136,11 +165,11 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 	public void registerModels() {
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
-	
+
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		super.onUpdate(stack, world, entity, slot, selected);
-		if(!world.isRemote && entity instanceof EntityPlayer)
+		if (!world.isRemote && entity instanceof EntityPlayer)
 			updateRelic(stack, (EntityPlayer) entity);
 	}
 
@@ -148,21 +177,26 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 	@Override
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flags) {
 		addBindInfo(tooltip, stack);
-		addStringToTooltip("DMG:" + String.valueOf(8 + 2*EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack)), tooltip);
+		addStringToTooltip(
+				"DMG:" + String.valueOf(8 + 2 * EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack)),
+				tooltip);
 	}
 
 	@SideOnly(Side.CLIENT)
 	public void addBindInfo(List<String> list, ItemStack stack) {
-		if(GuiScreen.isShiftKeyDown()) {
-			if(!hasUUID(stack)) {
+		if (GuiScreen.isShiftKeyDown()) {
+			if (!hasUUID(stack)) {
 				addStringToTooltip(I18n.format("botaniamisc.relicUnbound"), list);
 			} else {
-				if(!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
+				if (!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
 					addStringToTooltip(I18n.format("botaniamisc.notYourSagittarius"), list);
-				else addStringToTooltip(I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()), list);
+				else
+					addStringToTooltip(
+							I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()), list);
 			}
 
-		} else addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
+		} else
+			addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
 	}
 
 	public boolean shouldDamageWrongPlayer() {
@@ -179,20 +213,21 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 	}
 
 	public void updateRelic(ItemStack stack, EntityPlayer player) {
-		if(stack.isEmpty() || !(stack.getItem() instanceof IRelic))
+		if (stack.isEmpty() || !(stack.getItem() instanceof IRelic))
 			return;
 
 		boolean rightPlayer = true;
 
-		if(!hasUUID(stack)) {
+		if (!hasUUID(stack)) {
 			bindToUUID(player.getUniqueID(), stack);
-			if(player instanceof EntityPlayerMP)
+			if (player instanceof EntityPlayerMP)
 				RelicBindTrigger.INSTANCE.trigger((EntityPlayerMP) player, stack);
 		} else if (!getSoulbindUUID(stack).equals(player.getUniqueID())) {
 			rightPlayer = false;
 		}
 
-		if(!rightPlayer && player.ticksExisted % 10 == 0 && (!(stack.getItem() instanceof ItemRelic) || ((ItemRelic) stack.getItem()).shouldDamageWrongPlayer()))
+		if (!rightPlayer && player.ticksExisted % 10 == 0
+				&& (!(stack.getItem() instanceof ItemRelic) || ((ItemRelic) stack.getItem()).shouldDamageWrongPlayer()))
 			player.attackEntityFrom(damageSource(), 2);
 	}
 
@@ -211,7 +246,7 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 
 	@Override
 	public UUID getSoulbindUUID(ItemStack stack) {
-		if(ItemNBTHelper.verifyExistance(stack, TAG_SOULBIND_UUID)) {
+		if (ItemNBTHelper.verifyExistance(stack, TAG_SOULBIND_UUID)) {
 			try {
 				return UUID.fromString(ItemNBTHelper.getString(stack, TAG_SOULBIND_UUID, ""));
 			} catch (IllegalArgumentException ex) { // Bad UUID in tag
@@ -231,6 +266,11 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 	@Override
 	public EnumRarity getRarity(ItemStack stack) {
 		return BotaniaAPI.rarityRelic;
+	}
+
+	@Override
+	public String getAdvancementName(ItemStack stack) {
+		return LibAdvancements.GAIA_DEFEAT;
 	}
 
 }

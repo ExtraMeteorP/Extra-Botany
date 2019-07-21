@@ -2,11 +2,14 @@ package com.meteor.extrabotany.common.core.handler;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.block.ModBlocks;
+import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -16,32 +19,55 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
-import vazkii.botania.common.item.ModItems;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class StatHandler {
+	/**
+	@SubscribeEvent
+	public static void playerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+		if(PersistentVariableHandler.advertisements.size() > 0){
+			for(int i = 0; i < PersistentVariableHandler.advertisements.size(); i++){
+				ITextComponent component = ITextComponent.Serializer.fromJsonLenient(PersistentVariableHandler.advertisements.get(i));			
+				event.player.sendMessage(component);
+			}
+		}
+	}
+	**/
 	
 	@SubscribeEvent
 	public static void getAchievement(AdvancementEvent event) {
 		if(!(event.getEntityLiving() instanceof EntityPlayer))
 			return;
-		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ALLSTATS))){
-			event.getEntityPlayer().entityDropItem(new ItemStack(ModBlocks.trophy), 0);
-		}
-		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.HERRSCHER_DEFEAT))){
-			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.cosmetic,1,7), 0);
-		}
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ALLSTATS)))
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModBlocks.trophy), 0).setNoPickupDelay();		
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.HERRSCHER_DEFEAT)))
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.mask,1,8), 0).setNoPickupDelay();
 		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ENDGAME_GOAL))){
-			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.cosmetic,1,8), 0);
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.mask,1,9), 0).setNoPickupDelay();
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.gaiarecord), 0).setNoPickupDelay();
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.herrscherrecord), 0).setNoPickupDelay();
 		}
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.JINGWEIFEATHER)))
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.jingweifeather), 0).setNoPickupDelay();
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.MANADRIVERRING)))
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.manadriverring), 0).setNoPickupDelay();
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.MAGICFINGERGET)))
+			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.magicfinger), 0).setNoPickupDelay();
 	}
 	
 	@SubscribeEvent
 	public static void checkAdvancements(TickEvent.PlayerTickEvent event) {
 		if(event.phase == Phase.END){
-			if(hasAllStats(event.player)){
+			if(statsAmount(event.player) >= 18)
+				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.JINGWEIFEATHER);
+			if(statsAmount(event.player) >= 12)
+				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.MAGICFINGERGET);
+			if(statsAmount(event.player) >= 6)
+				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.MANADRIVERRING);
+			if(hasAllStats(event.player))
 				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.ALLSTATS);
-			}
 		}
 	}
 	
@@ -58,6 +84,7 @@ public class StatHandler {
 		LibAdvancements.MANALINKIUM_USE,
 		LibAdvancements.MANAREADER_CRAFT,
 		LibAdvancements.MASTERMANARING_FILL,
+		LibAdvancements.MASTERMANARING_CRAFT,
 		LibAdvancements.MUSIC_ALL,
 		LibAdvancements.NATUREORB_CRAFT,
 		LibAdvancements.NEWKNOWLEDGE_UNLOCK,
@@ -78,8 +105,24 @@ public class StatHandler {
 		LibAdvancements.LUCKYDRAW,
 		LibAdvancements.SPEARSUBSPACE,
 		LibAdvancements.ARMORSET_GS,
-		LibAdvancements.HERRSCHER_DEFEAT
+		LibAdvancements.HERRSCHER_DEFEAT,
+		LibAdvancements.ENDGAME_GOAL,
+		LibAdvancements.JINGWEIFEATHER,
+		LibAdvancements.ONEPUCHMAN,
+		LibAdvancements.BOTTLESET,
+		LibAdvancements.RINGSET,
+		LibAdvancements.COREGOD,
+		LibAdvancements.MANADRIVERRING,
+		LibAdvancements.MAGICFINGERGET
 	};
+	
+	public static int statsAmount(EntityPlayer player){
+		int a = 0;
+		for(int i = 0; i < stats.length; i++)
+			if(hasStat(player, stats[i]))
+				a++;
+		return a;
+	}
 	
 	public static boolean hasAllStats(EntityPlayer player){
 		for(int i = 0; i < stats.length; i++)
@@ -97,5 +140,17 @@ public class StatHandler {
 		}
 		return false;
 	}
+    
+    @SideOnly(Side.CLIENT)
+    public static Advancement getSideAdvancement(String name) {
+    	return Minecraft.getMinecraft().player.connection.getAdvancementManager().getAdvancementList().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+name));
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public static boolean hasAdvancement(String name) {
+    	Advancement adv = getSideAdvancement(name);
+		AdvancementProgress progress = Minecraft.getMinecraft().player.connection.getAdvancementManager().advancementToProgress.get(adv);
+		return progress != null && progress.isDone();
+    }
 
 }

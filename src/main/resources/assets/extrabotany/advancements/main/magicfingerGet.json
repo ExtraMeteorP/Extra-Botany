@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:magicfinger"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:magicfingerGet"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:magicfingerGet.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/manadriverGet",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

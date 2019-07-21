@@ -1,0 +1,19 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:gildedmashedpotato"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:ultimatehammerUpgrade"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:ultimatehammerUpgrade.desc"
+    }
+  },
+  "parent": "extrabotany:main/ultimatehammerCraft",
+   "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

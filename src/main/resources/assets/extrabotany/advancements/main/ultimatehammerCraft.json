@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:ultimatehammer"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:ultimatehammerCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:ultimatehammerCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/pedestalCraft",
+ "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:ultimatehammer"
+          }
+        ]
+      }
+    }
+  }
+}

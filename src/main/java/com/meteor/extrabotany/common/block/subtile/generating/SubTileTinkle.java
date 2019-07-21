@@ -17,7 +17,7 @@ import vazkii.botania.api.subtile.RadiusDescriptor;
 
 public class SubTileTinkle extends SubTileGeneratingNature{
 	
-	private static final int RANGE = 9;
+	private static final int RANGE = 8;
 	private static final String TAG_TIME = "time";
 	private int time = 0;
 	

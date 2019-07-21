@@ -14,9 +14,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import vazkii.botania.common.Botania;
 
-public class EntityDarkPixie extends EntityFlying{
+public class EntityDarkPixie extends EntityFlying {
 
-	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntityDarkPixie.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> TYPE = EntityDataManager.createKey(EntityDarkPixie.class,
+			DataSerializers.VARINT);
 
 	private EntityLivingBase summoner = null;
 	private float damage = 0;
@@ -61,40 +62,42 @@ public class EntityDarkPixie extends EntityFlying{
 	@Override
 	protected void updateAITasks() {
 		EntityLivingBase target = getAttackTarget();
-		if(target != null) {
+		if (target != null) {
 			double d0 = target.posX + target.width / 2 - posX;
 			double d1 = target.posY + target.height / 2 - posY;
 			double d2 = target.posZ + target.width / 2 - posZ;
 			double d3 = d0 * d0 + d1 * d1 + d2 * d2;
 
 			float mod = 0.45F;
-			if(getType() == 1)
+			if (getType() == 1)
 				mod = 0.1F;
 
 			motionX += d0 / d3 * mod;
 			motionY += d1 / d3 * mod;
 			motionZ += d2 / d3 * mod;
 
-			if(Math.sqrt(d3) < 1F) {
-				if(summoner != null) {
-					if(summoner instanceof EntityPlayer)
+			if (Math.sqrt(d3) < 1F) {
+				if (summoner != null) {
+					if (summoner instanceof EntityPlayer)
 						target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) summoner), damage);
 					else {
 						target.attackEntityFrom(DamageSource.causeMobDamage(summoner), damage);
 					}
-				} else target.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
-				if(effect != null && !(target instanceof EntityPlayer))
+				} else
+					target.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
+				if (effect != null && !(target instanceof EntityPlayer))
 					target.addPotionEffect(effect);
 				setDead();
 			}
 		}
 
-		renderYawOffset = rotationYaw = -((float)Math.atan2(motionX, motionZ)) * 180.0F / (float)Math.PI;
+		renderYawOffset = rotationYaw = -((float) Math.atan2(motionX, motionZ)) * 180.0F / (float) Math.PI;
 	}
 
 	@Override
 	public boolean attackEntityFrom(@Nonnull DamageSource par1DamageSource, float par2) {
-		if(getType() == 0 && par1DamageSource.getTrueSource() != summoner || getType() == 1 && par1DamageSource.getTrueSource() instanceof EntityPlayer)
+		if (getType() == 0 && par1DamageSource.getTrueSource() != summoner
+				|| getType() == 1 && par1DamageSource.getTrueSource() instanceof EntityPlayer)
 			return super.attackEntityFrom(par1DamageSource, par2);
 		return false;
 	}
@@ -103,21 +106,23 @@ public class EntityDarkPixie extends EntityFlying{
 	public void onEntityUpdate() {
 		super.onEntityUpdate();
 
-		if(!world.isRemote
-				&& (getAttackTarget() == null || ticksExisted > 200))
+		if (!world.isRemote && (getAttackTarget() == null || ticksExisted > 200))
 			setDead();
 
 		boolean dark = true;
-		if(world.isRemote)
-			for(int i = 0; i < 4; i++)
-				Botania.proxy.sparkleFX(posX + (Math.random() - 0.5) * 0.25, posY + 0.5  + (Math.random() - 0.5) * 0.25, posZ + (Math.random() - 0.5) * 0.25, dark ? 0.1F : 1F, dark ? 0.025F : 0.25F, dark ? 0.09F : 0.9F, 0.1F + (float) Math.random() * 0.25F, 12);
+		if (world.isRemote)
+			for (int i = 0; i < 4; i++)
+				Botania.proxy.sparkleFX(posX + (Math.random() - 0.5) * 0.25, posY + 0.5 + (Math.random() - 0.5) * 0.25,
+						posZ + (Math.random() - 0.5) * 0.25, dark ? 0.1F : 1F, dark ? 0.025F : 0.25F,
+						dark ? 0.09F : 0.9F, 0.1F + (float) Math.random() * 0.25F, 12);
 	}
 
 	@Override
 	public void setDead() {
-		if(world != null && world.isRemote && getType() == 0)
-			for(int i = 0; i < 12; i++)
-				Botania.proxy.sparkleFX(posX + (Math.random() - 0.5) * 0.25, posY + 0.5  + (Math.random() - 0.5) * 0.25, posZ + (Math.random() - 0.5) * 0.25, 1F, 0.25F, 0.9F, 1F + (float) Math.random() * 0.25F, 5);
+		if (world != null && world.isRemote && getType() == 0)
+			for (int i = 0; i < 12; i++)
+				Botania.proxy.sparkleFX(posX + (Math.random() - 0.5) * 0.25, posY + 0.5 + (Math.random() - 0.5) * 0.25,
+						posZ + (Math.random() - 0.5) * 0.25, 1F, 0.25F, 0.9F, 1F + (float) Math.random() * 0.25F, 5);
 		super.setDead();
 	}
 

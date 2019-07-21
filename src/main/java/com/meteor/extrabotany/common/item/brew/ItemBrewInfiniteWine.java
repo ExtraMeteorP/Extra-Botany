@@ -29,22 +29,24 @@ import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic, IManaUsingItem{
-	
+public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic, IManaUsingItem {
+
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
-	private static final int MANA_PER_DAMAGE = 2500;
-	
+	private static final int MANA_PER_DAMAGE = 3500;
+
 	public ItemBrewInfiniteWine() {
 		super(LibItemsName.BREW_INFINITEWINE, 12, 18, 1, 1.5F, new ItemStack(ModItems.material, 1, 4));
 	}
-	
+
 	@Override
-	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected){
-		if(!world.isRemote && entity instanceof EntityPlayer){
+	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+		if (!world.isRemote && entity instanceof EntityPlayer) {
 			updateRelic(stack, (EntityPlayer) entity);
 		}
-		
-		if(!world.isRemote && world.getWorldTime() % 4000 == 0 && entity instanceof EntityPlayer && getSwigsLeft(stack) < 12 && ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entity, MANA_PER_DAMAGE * 2, true))
+
+		if (!world.isRemote && world.getWorldTime() % 4000 == 0 && entity instanceof EntityPlayer
+				&& getSwigsLeft(stack) < 12
+				&& ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entity, MANA_PER_DAMAGE * 2, true))
 			setSwigsLeft(stack, getSwigsLeft(stack) + 1);
 	}
 
@@ -57,16 +59,19 @@ public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic, IManaU
 
 	@SideOnly(Side.CLIENT)
 	public void addBindInfo(List<String> list, ItemStack stack) {
-		if(GuiScreen.isShiftKeyDown()) {
-			if(!hasUUID(stack)) {
+		if (GuiScreen.isShiftKeyDown()) {
+			if (!hasUUID(stack)) {
 				addStringToTooltip(I18n.format("botaniamisc.relicUnbound"), list);
 			} else {
-				if(!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
+				if (!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
 					addStringToTooltip(I18n.format("botaniamisc.notYourSagittarius"), list);
-				else addStringToTooltip(I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()), list);
+				else
+					addStringToTooltip(
+							I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()), list);
 			}
 
-		} else addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
+		} else
+			addStringToTooltip(I18n.format("botaniamisc.shiftinfo"), list);
 	}
 
 	public boolean shouldDamageWrongPlayer() {
@@ -83,20 +88,21 @@ public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic, IManaU
 	}
 
 	public void updateRelic(ItemStack stack, EntityPlayer player) {
-		if(stack.isEmpty() || !(stack.getItem() instanceof IRelic))
+		if (stack.isEmpty() || !(stack.getItem() instanceof IRelic))
 			return;
 
 		boolean rightPlayer = true;
 
-		if(!hasUUID(stack)) {
+		if (!hasUUID(stack)) {
 			bindToUUID(player.getUniqueID(), stack);
-			if(player instanceof EntityPlayerMP)
+			if (player instanceof EntityPlayerMP)
 				RelicBindTrigger.INSTANCE.trigger((EntityPlayerMP) player, stack);
 		} else if (!getSoulbindUUID(stack).equals(player.getUniqueID())) {
 			rightPlayer = false;
 		}
 
-		if(!rightPlayer && player.ticksExisted % 10 == 0 && (!(stack.getItem() instanceof ItemRelic) || ((ItemRelic) stack.getItem()).shouldDamageWrongPlayer()))
+		if (!rightPlayer && player.ticksExisted % 10 == 0
+				&& (!(stack.getItem() instanceof ItemRelic) || ((ItemRelic) stack.getItem()).shouldDamageWrongPlayer()))
 			player.attackEntityFrom(damageSource(), 2);
 	}
 
@@ -115,7 +121,7 @@ public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic, IManaU
 
 	@Override
 	public UUID getSoulbindUUID(ItemStack stack) {
-		if(ItemNBTHelper.verifyExistance(stack, TAG_SOULBIND_UUID)) {
+		if (ItemNBTHelper.verifyExistance(stack, TAG_SOULBIND_UUID)) {
 			try {
 				return UUID.fromString(ItemNBTHelper.getString(stack, TAG_SOULBIND_UUID, ""));
 			} catch (IllegalArgumentException ex) { // Bad UUID in tag
@@ -141,5 +147,5 @@ public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic, IManaU
 	public boolean usesMana(ItemStack stack) {
 		return true;
 	}
-	
+
 }

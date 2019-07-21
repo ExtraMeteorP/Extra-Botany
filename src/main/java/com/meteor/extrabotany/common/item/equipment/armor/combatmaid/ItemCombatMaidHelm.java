@@ -12,6 +12,7 @@ import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.server.SPacketRemoveEntityEffect;
@@ -26,10 +27,12 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vazkii.botania.api.mana.IManaDiscountArmor;
 import vazkii.botania.api.mana.IManaGivingItem;
+import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 
-public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDiscountArmor, IManaGivingItem{
-	
+public class ItemCombatMaidHelm extends ItemCombatMaidArmor
+		implements IManaDiscountArmor, IManaGivingItem, IManaUsingItem {
+
 	public List<DamageSource> source = new ArrayList();
 
 	public ItemCombatMaidHelm() {
@@ -45,38 +48,38 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDisc
 		source.add(DamageSource.ON_FIRE);
 		source.add(DamageSource.LIGHTNING_BOLT);
 	}
-	
+
 	public ItemCombatMaidHelm(String name) {
 		super(EntityEquipmentSlot.HEAD, name);
 	}
-	
+
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
 		super.onArmorTick(world, player, stack);
-		if(hasArmorSet(player)) {
+		if (hasArmorSet(player)) {
 			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COMBAT);
-			if(player.shouldHeal() && player.ticksExisted % 50 == 0)
+			if (player.shouldHeal() && player.ticksExisted % 50 == 0
+					&& ManaItemHandler.requestManaExactForTool(stack, player, 20, true))
 				player.heal(1F);
 			ManaItemHandler.dispatchManaExact(stack, player, 1, true);
-			if(player.ticksExisted % 40 == 0)
+			if (player.ticksExisted % 40 == 0)
 				clearPotions(player);
 		}
 	}
-	
+
 	private void clearPotions(EntityPlayer player) {
 		int posXInt = MathHelper.floor(player.getPosition().getX());
 		int posZInt = MathHelper.floor(player.getPosition().getZ());
 
 		List<Potion> potionsToRemove = player.getActivePotionEffects().stream()
-				.filter(effect -> effect.getPotion().isBadEffect())
-				.map(PotionEffect::getPotion)
-				.distinct()
+				.filter(effect -> effect.getPotion().isBadEffect()).map(PotionEffect::getPotion).distinct()
 				.collect(Collectors.toList());
 
 		potionsToRemove.forEach(potion -> {
 			player.removePotionEffect(potion);
-			if(!player.getEntityWorld().isRemote)
-				((WorldServer) player.getEntityWorld()).getPlayerChunkMap().getEntry(posXInt >> 4, posZInt >> 4).sendPacket(new SPacketRemoveEntityEffect(player.getEntityId(), potion));
+			if (!player.getEntityWorld().isRemote)
+				((WorldServer) player.getEntityWorld()).getPlayerChunkMap().getEntry(posXInt >> 4, posZInt >> 4)
+						.sendPacket(new SPacketRemoveEntityEffect(player.getEntityId(), potion));
 		});
 	}
 
@@ -84,30 +87,32 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor implements IManaDisc
 	public float getDiscount(ItemStack stack, int slot, EntityPlayer player, @Nullable ItemStack tool) {
 		return hasArmorSet(player) ? 0.25F : 0F;
 	}
-	
+
 	@SubscribeEvent
 	public void onEntityAttacked(LivingHurtEvent event) {
 		Entity attacker = event.getSource().getImmediateSource();
-		if(attacker instanceof EntityPlayer) {
+		if (attacker instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) attacker;
-			if(hasArmorSet(player)) {
-				if(player.getHeldItemMainhand() == ItemStack.EMPTY)
+			if (hasArmorSet(player)) {
+				if (player.getHeldItemMainhand() == ItemStack.EMPTY
+						&& ManaItemHandler.requestManaExactForTool(new ItemStack(Items.APPLE), player, 250, true))
 					event.setAmount(event.getAmount() + 10F);
-				if(player.shouldHeal())
-					player.heal(event.getAmount()/8F);
-			}	
+				if (player.shouldHeal()
+						&& ManaItemHandler.requestManaExactForTool(new ItemStack(Items.APPLE), player, 100, true))
+					player.heal(event.getAmount() / 8F);
+			}
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void onPlayerAttacked(LivingHurtEvent event) {
 		Entity target = event.getEntityLiving();
-		if(target instanceof EntityPlayer) {
+		if (target instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) target;
-			if(hasArmorSet(player)) {
-				if(source.contains(event.getSource()))
+			if (hasArmorSet(player)) {
+				if (source.contains(event.getSource()))
 					event.setAmount(0);
-			}	
+			}
 		}
 	}
 }

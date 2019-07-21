@@ -184,7 +184,7 @@ public class ItemCosmetic extends ItemBauble implements ICosmeticBauble{
 
 	@Override
 	public BaubleType getBaubleType(ItemStack stack) {
-		return BaubleType.HEAD;
+		return BaubleType.TRINKET;
 	}
 
 }

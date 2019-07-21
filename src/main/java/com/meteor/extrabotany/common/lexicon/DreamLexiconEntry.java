@@ -11,5 +11,5 @@ public class DreamLexiconEntry extends BasicLexiconEntry {
 		super(unlocalizedName, category);
 		setKnowledgeType(ExtraBotanyAPI.dreamKnowledge);
 	}
-	
+
 }

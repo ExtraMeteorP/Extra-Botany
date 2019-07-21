@@ -4,7 +4,7 @@ import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.inventory.EntityEquipmentSlot;
 
-public class ItemCombatMaidLegs extends ItemCombatMaidArmor{
+public class ItemCombatMaidLegs extends ItemCombatMaidArmor {
 
 	public ItemCombatMaidLegs() {
 		super(EntityEquipmentSlot.LEGS, LibItemsName.CMLEGS);

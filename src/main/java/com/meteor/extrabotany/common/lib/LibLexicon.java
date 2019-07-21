@@ -17,6 +17,7 @@ public class LibLexicon {
 	public static final String FFLOWER_STARDUSTLOTUS = "stardustlotus";
 	public static final String FFLOWER_ENCHANTEDORCHID = "enchantedorchid";
 	public static final String FFLOWER_MIRROWTUNIA = "mirrortunia";
+	public static final String FFLOWER_NECROFLEUR = "necrofleur";
 	
 	public static final String BOTTLED_FLAME = "bottledflame";
 	public static final String BOTTLED_STAR = "bottledstar";
@@ -43,6 +44,10 @@ public class LibLexicon {
 	public static final String GODWEAVE = "godweave";
 	public static final String TICKET = "ticket";
 	public static final String DIMENSIONCATALYST = "dimensioncatalyst";
+	public static final String JINGWEIFEATHER = "jingweifeather";
+	public static final String MANADRIVERRING = "manadriverring";
+	public static final String MAGICFINGER = "magicfinger";
+	public static final String CHARGEPAD = "chargepad";
 	
 	public static final String BAUBLE_FROSTSTAR = "froststar";
 	public static final String BAUBLE_DEATHRING = "deathring";

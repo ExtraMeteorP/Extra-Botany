@@ -29,7 +29,7 @@ public class SubTileEdelweiss extends SubTileGenerating{
 		if(burnTime > 0)
 			burnTime--;
 		
-		int snowGolem = 1400;
+		int snowGolem = 1600;
 		int ironGolem = 18000;
 		float range = 2F;
 		AxisAlignedBB axis = new AxisAlignedBB(getPos().getX()-range, getPos().getY()-range, getPos().getZ()-range, getPos().getX()+range, getPos().getY()+range, getPos().getZ()+range);

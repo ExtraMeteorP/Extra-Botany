@@ -9,8 +9,8 @@ import thaumcraft.api.items.IGoggles;
 import thaumcraft.api.items.IRevealer;
 
 @Optional.InterfaceList({
-	@Optional.Interface(modid = "thaumcraft", iface = "thaumcraft.api.items.IGoggles", striprefs = true),
-	@Optional.Interface(modid = "thaumcraft", iface = "thaumcraft.api.items.IRevealer", striprefs = true)})
+		@Optional.Interface(modid = "thaumcraft", iface = "thaumcraft.api.items.IGoggles", striprefs = true),
+		@Optional.Interface(modid = "thaumcraft", iface = "thaumcraft.api.items.IRevealer", striprefs = true) })
 public class ItemCombatMaidHelmRevealing extends ItemCombatMaidHelm implements IGoggles, IRevealer {
 
 	public ItemCombatMaidHelmRevealing() {

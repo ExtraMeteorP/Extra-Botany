@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "botania:specialFlower",
+      "nbt": "{\"type\": \"bloodyenchantress\"}"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:bloodyenchantressUse"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:bloodyenchantressUse.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+  "criteria": {
+    "ebt_trigger": {
+		"trigger": "minecraft:impossible"
+	}
+  }
+}

@@ -7,7 +7,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class ModRecipe {
-	
+
 	public static void init() {
 		ModPetalRecipe.init();
 		ModManaInfusionRecipe.init();
@@ -19,8 +19,8 @@ public class ModRecipe {
 		initStonesiaRecipe();
 		initOmnivioletRecipe();
 	}
-	
-	public static void initStonesiaRecipe(){
+
+	public static void initStonesiaRecipe() {
 		addStonesiaRecipe(10, "stone");
 		addStonesiaRecipe(5, "cobblestone");
 		addStonesiaRecipe(305, "oreCoal");
@@ -47,14 +47,14 @@ public class ModRecipe {
 		addStonesiaRecipe(540, "oreCobalt");
 		addStonesiaRecipe(540, "oreArdite");
 		addStonesiaRecipe(580, "oreTungsten");
-		addStonesiaRecipe(450, "oreOsmium");		
+		addStonesiaRecipe(450, "oreOsmium");
 	}
-	
-	public static void addStonesiaRecipe(int i, Object o){
+
+	public static void addStonesiaRecipe(int i, Object o) {
 		ExtraBotanyAPI.registerStonesiaRecipe(i, o);
 	}
-	
-	public static void initOmnivioletRecipe(){
+
+	public static void initOmnivioletRecipe() {
 		ExtraBotanyAPI.registerOmnivioletRecipe(ConfigHandler.BOOK_BURNTIME, new ItemStack(Items.BOOK));
 		ExtraBotanyAPI.registerOmnivioletRecipe(ConfigHandler.WRITTENBOOK_BURNTIME, new ItemStack(Items.WRITTEN_BOOK));
 	}

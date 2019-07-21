@@ -17,7 +17,6 @@ public class HammerRecipeWrapper implements IRecipeWrapper{
 	private final List<List<ItemStack>> input;
 	private final ItemStack outputs;
 
-	@SuppressWarnings("unchecked")
 	public HammerRecipeWrapper(RecipePedestal recipe) {
 		ImmutableList.Builder<List<ItemStack>> builder = ImmutableList.builder();
 		builder.add(ImmutableList.of((ItemStack) recipe.getInput()));

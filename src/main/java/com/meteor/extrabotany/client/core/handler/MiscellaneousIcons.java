@@ -20,6 +20,7 @@ public class MiscellaneousIcons {
 	public TextureAtlasSprite[] judahIcons2;
 	public TextureAtlasSprite[] spearIcons;
 	public TextureAtlasSprite foxearIcon;
+	public TextureAtlasSprite greenhatIcon;
 	
 	@SubscribeEvent
 	public void onTextureStitch(TextureStitchEvent.Pre evt) {
@@ -49,6 +50,7 @@ public class MiscellaneousIcons {
 		for(int i = 0; i < 4; i++)
 			spearIcons[i] = IconHelper.forName(evt.getMap(), "spear_" + i, "items");
 		foxearIcon = IconHelper.forName(evt.getMap(), "foxear", "items");
+		greenhatIcon = IconHelper.forName(evt.getMap(), "greenhat", "items");
 	}
 
 }

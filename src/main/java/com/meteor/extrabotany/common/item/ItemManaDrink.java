@@ -10,16 +10,16 @@ import net.minecraft.world.World;
 import vazkii.botania.api.mana.IManaGivingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 
-public class ItemManaDrink extends ItemFoodMod implements IManaGivingItem{
+public class ItemManaDrink extends ItemFoodMod implements IManaGivingItem {
 
 	public ItemManaDrink() {
 		super(1, 0.1F, false, LibItemsName.MANADRINK);
 	}
-	
+
 	@Override
-	public void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player){
-		super.onFoodEaten(stack, worldIn, player);	
-		if(player.shouldHeal())
+	public void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
+		super.onFoodEaten(stack, worldIn, player);
+		if (player.shouldHeal())
 			player.heal(5F);
 		player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 1200, 0));
 		player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 1200, 0));

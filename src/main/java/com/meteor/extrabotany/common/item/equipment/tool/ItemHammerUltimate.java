@@ -275,7 +275,7 @@ public class ItemHammerUltimate extends ItemHammer implements IManaItem, ISequen
 
 	@Override
 	public boolean canHarvestBlock(IBlockState blockIn) {
-			return effectiveAgainst.contains(blockIn) ? true : super.canHarvestBlock(blockIn);
+			return effectiveAgainst.contains(blockIn.getBlock()) ? true : super.canHarvestBlock(blockIn);
 	}
 
 	@Override

@@ -107,7 +107,7 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 				continue;
 
 			if(living.hurtTime == 0 && this.ticksExisted % 35 == 0 && living.getHealth() > 20F) {
-				if(!world.isRemote)
+				if(!world.isRemote && living.isEntityAlive())
 					lightning(living);
 			}
 				
@@ -121,10 +121,10 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 			for(EntityPlayer player : getPlayersAround()) {
 				RayTraceResult rtr = player.getEntityBoundingBox().grow(0.4).calculateIntercept(oldPosVec, newPosVec);
 				if(rtr != null){
-					if(this.ticksExisted % 8 == 0 && player.getHealth() > 15){
-						player.attackEntityFrom(DamageSource.causeMobDamage(thrower), 1);
+					if(this.ticksExisted % 8 == 0 && player.getHealth() > 12){
+						player.attackEntityFrom(DamageSource.GENERIC, 1);
 						player.attackEntityFrom(DamageSource.LIGHTNING_BOLT, 1);
-						ExtraBotanyAPI.dealTrueDamage(player, 0.3F);
+						ExtraBotanyAPI.dealTrueDamage(this.getThrower(), player, 0.3F);
 						player.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 100, 1));
 					}
 				}
@@ -149,6 +149,8 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 
 		Random rand = new Random();
 		EntityLivingBase lightningSource = entity;
+		if(lightningSource == null)
+			return;
 		int hops = entity.world.isThundering() ? 10 : 4;
 		for(int i = 0; i < hops; i++) {
 			List<Entity> entities = entity.world.getEntitiesInAABBexcluding(lightningSource, new AxisAlignedBB(lightningSource.posX - range, lightningSource.posY - range, lightningSource.posZ - range, lightningSource.posX + range, lightningSource.posY + range, lightningSource.posZ + range), selector::test);
@@ -158,7 +160,7 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 			EntityLivingBase target = (EntityLivingBase) entities.get(rand.nextInt(entities.size()));
 			if(!(target instanceof EntityVoidHerrscher)){
 				if(target.getHealth() > 15)
-					ExtraBotanyAPI.dealBossDamage(target, dmg + target.getMaxHealth() * 0.1F);
+					ExtraBotanyAPI.dealTrueDamage(this.getThrower(), target, dmg + target.getMaxHealth() * 0.1F);
 				target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 100, 1));
 			}
 

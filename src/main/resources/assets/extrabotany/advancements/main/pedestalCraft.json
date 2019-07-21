@@ -1,0 +1,26 @@
+{
+   "display": {
+    "icon": {
+      "item": "extrabotany:pedestal"
+    },
+    "title": {
+      "translate": "advancement.extrabotany:pedestalCraft"
+    },
+    "description": {
+      "translate": "advancement.extrabotany:pedestalCraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/newknowledgeUnlock",
+ "criteria": {
+    "ebt_trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:pedestal"
+          }
+        ]
+      }
+    }
+  }
+}

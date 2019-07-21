@@ -127,7 +127,7 @@ public class SubTileStardustLotus extends SubTileFunctionalNature{
 		if(consumed >= shouldCost){
 			Botania.proxy.sparkleFX(posx + 0.5F, posy + 1F, posz + 0.5F, 1F, 0.1F, 1F, 5F, 10);
 			for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
-				living.setPosition(x,y + 0.5,z);
+				living.attemptTeleport(x,y + 0.5,z);
 				if(living instanceof EntityPlayer)
 					ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.STARDUSTLOTUS_TELEPORT);
 			}

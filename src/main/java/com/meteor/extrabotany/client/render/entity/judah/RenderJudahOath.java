@@ -36,7 +36,7 @@ public class RenderJudahOath extends Render<EntityJudahOath> {
 		GlStateManager.enableBlend();
 		GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		GlStateManager.rotate(weapon.getRotation(), 0F, 1F, 0F);
-		float s = 1.95F;
+		float s = 1.65F;
 
 		GlStateManager.pushMatrix();
 		Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);

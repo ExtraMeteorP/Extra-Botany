@@ -6,6 +6,7 @@ import com.meteor.extrabotany.common.block.subtile.functional.SubTileAnnoyingFlo
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileEnchantedOrchid;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileManalinkium;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileMirrortunia;
+import com.meteor.extrabotany.common.block.subtile.functional.SubTileNecrofleur;
 import com.meteor.extrabotany.common.block.subtile.functional.SubTileStardustLotus;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBellFlower;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileBloodyEnchantress;
@@ -17,6 +18,7 @@ import com.meteor.extrabotany.common.block.subtile.generating.SubTileReikarLily;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileStonesia;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
+import com.meteor.extrabotany.common.block.tile.TileChargePad;
 import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
 import com.meteor.extrabotany.common.block.tile.TileLivingrockBarrel;
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
@@ -38,6 +40,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import vazkii.botania.api.BotaniaAPI;
+import vazkii.botania.api.subtile.SubTileEntity;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class ModBlocks {
@@ -53,13 +56,10 @@ public class ModBlocks {
 	public static final Block elfjar = new BlockLivingrockBarrel();
 	public static final Block trophy = new BlockTrophy();
 	public static final Block quantummanabuffer = new BlockQuantumManaBuffer();
-	public static final Block lightsource = new BlockLightSource();
 	public static final Block dimensioncatalyst = new BlockDimensionCatalyst();
 	public static final Block photonium = new BlockPhotonium();
 	public static final Block shadowium = new BlockShadowium();
-	
-	//public static final Block gildedtinypotato = new BlockGildedTinyPotato();
-	//public static final Block infinitycube = new BlockInfinityCube();
+	public static final Block chargepad = new BlockChargePad();
 	
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> evt) {
@@ -77,12 +77,9 @@ public class ModBlocks {
 		r.register(shadowium);
 		r.register(photonium);
 		r.register(dimensioncatalyst);
+		r.register(chargepad);
 		
 		ExtraBotanyAPI.dimensionState = dimensioncatalyst.getDefaultState();
-		
-		//r.register(gildedtinypotato);
-		r.register(lightsource);
-		//r.register(infinitycube);
 	}
 	
 	@SubscribeEvent
@@ -101,9 +98,7 @@ public class ModBlocks {
 		r.register(new ItemBlockMod(dimensioncatalyst).setRegistryName(dimensioncatalyst.getRegistryName()));
 		r.register(new ItemBlockMod(shadowium).setRegistryName(shadowium.getRegistryName()));
 		r.register(new ItemBlockMod(photonium).setRegistryName(photonium.getRegistryName()));
-		//r.register(new ItemBlockMod(gildedtinypotato).setRegistryName(gildedtinypotato.getRegistryName()));
-		r.register(new ItemBlockMod(lightsource).setRegistryName(lightsource.getRegistryName()));
-		//r.register(new ItemBlockMod(infinitycube).setRegistryName(infinitycube.getRegistryName()));
+		r.register(new ItemBlockMod(chargepad).setRegistryName(chargepad.getRegistryName()));
 		initTileEntities();
 	}
 	
@@ -138,6 +133,8 @@ public class ModBlocks {
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_MIRROWTUNIA, SubTileMirrortunia.class);
 		if(ConfigHandler.ENABLE_GO)
 			BotaniaAPI.registerSubTile(LibBlocksName.SUBTILE_GEMINIORCHID, SubTileGeminiOrchid.class);
+		if(ConfigHandler.ENABLE_NF)
+			registerSubTileWithMini(LibBlocksName.SUBTILE_NECROFLEUR, SubTileNecrofleur.class);
 		registerTile(TilePedestal.class, LibBlocksName.TILE_PEDESTAL);
 		registerTile(TileManaBuffer.class, LibBlocksName.TILE_BATTERYBOX);
 		registerTile(TileCocoonDesire.class, LibBlocksName.TILE_COCOON);
@@ -145,9 +142,15 @@ public class ModBlocks {
 		registerTile(TileManaLiquefaction.class, LibBlocksName.TILE_MANALIQUEFYING);
 		registerTile(TileLivingrockBarrel.class, LibBlocksName.TILE_ELFJAR);
 		registerTile(TileQuantumManaBuffer.class, LibBlocksName.TILE_QUANTUMMANABUFFER);
-		
-		//registerTile(TileGildedTinyPotato.class, LibBlocksName.TILE_GILDEDTINYPOTATO);
-		//registerTile(TileInfinityCube.class, LibBlocksName.TILE_INFINITYCUBE);
+		registerTile(TileChargePad.class, LibBlocksName.TILE_CHARGEPAD);
+	}
+	
+	private static void registerSubTileWithMini(String key, Class<? extends SubTileEntity> clazz) {
+		BotaniaAPI.registerSubTile(key, clazz);
+
+		for(Class innerClazz : clazz.getDeclaredClasses())
+			if(innerClazz.getSimpleName().equals("Mini"))
+				BotaniaAPI.registerMiniSubTile(key + "Chibi", innerClazz, key);
 	}
 	
 	private static void registerTile(Class<? extends TileEntity> clazz, String key) {

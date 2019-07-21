@@ -55,7 +55,6 @@ public class RecipePedestal {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
 	private boolean areStacksTheSame(ItemStack stack, ItemStack target) {
 		return areStacksTheSame(stack, target, false);
 	}

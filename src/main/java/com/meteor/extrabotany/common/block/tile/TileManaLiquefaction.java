@@ -67,8 +67,8 @@ public class TileManaLiquefaction extends TileMod implements ITickable, IManaRec
 							energy += 1;
 					}
 				}else{
-					if(energy >=100)
-						energy -= storage.fill(new FluidStack(ModFluid.fluidMana, 100), true);
+					if(energy >=25)
+						energy -= storage.fill(new FluidStack(ModFluid.fluidMana, 25), true);
 				}
 			}
 			
@@ -85,14 +85,14 @@ public class TileManaLiquefaction extends TileMod implements ITickable, IManaRec
 		}
 		
 		if(redstoneSignal == 0){
-			if(energy > 0 && getCurrentMana() <= 999000){
-				recieveMana(1000);
-				energy -=1;
+			if(energy > 0 && getCurrentMana() <= 998000){
+				recieveMana(2000);
+				energy -=2;
 			}
 		}else{
-			if(getCurrentMana() >= 1000){
-				recieveMana(-1000);
-				energy +=1;
+			if(getCurrentMana() >= 2000){
+				recieveMana(-2000);
+				energy +=2;
 			}
 		}
 		
@@ -105,7 +105,7 @@ public class TileManaLiquefaction extends TileMod implements ITickable, IManaRec
 
 	@Override
 	public boolean isFull() {
-		return energy >= MAX_ENERGY;
+		return this.mana >= 1000000;
 	}
 
 	@Override

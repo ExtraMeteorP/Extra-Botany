@@ -194,7 +194,7 @@ public class LexiconData {
 		godweave.setLexiconPages(new PageText("0"), new PageCraftingRecipe("1", getResource("recipe_godweave")));
 
 		ticket = new DreamAdvancementEntry(LibLexicon.TICKET, ExtraBotanyAPI.dreamCategory,
-				LibAdvancements.NATUREORB_CRAFT);
+				LibAdvancements.NIGHTMAREFUEL_EATING);
 		ticket.setLexiconPages(new PageText("0"), new PageCraftingRecipe("1", getResource("recipe_ticket")));
 
 		magicfinger = new DreamAdvancementEntry(LibLexicon.MAGICFINGER, ExtraBotanyAPI.dreamCategory,
@@ -235,7 +235,7 @@ public class LexiconData {
 		infinitewine.setIcon(new ItemStack(ModItems.infinitewine));
 
 		gaia3 = new DreamAdvancementEntry(ExtraBotany.naturalpledgeLoaded ? LibLexicon.GAIA_IV : LibLexicon.GAIA_III,
-				ExtraBotanyAPI.dreamCategory, LibAdvancements.NATUREORB_CRAFT);
+				ExtraBotanyAPI.dreamCategory, LibAdvancements.NIGHTMAREFUEL_EATING);
 		gaia3.setLexiconPages(new PageText("0"), new PageText("1"),
 				new PageMultiblock("2", EntityDoppleganger.makeMultiblockSet()));
 		gaia3.setIcon(new ItemStack(ModItems.material, 1, 3));

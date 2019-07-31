@@ -32,7 +32,7 @@ import vazkii.botania.common.item.relic.ItemRelic;
 public class ItemBrewInfiniteWine extends ItemBrewBase implements IRelic, IManaUsingItem {
 
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
-	private static final int MANA_PER_DAMAGE = 3500;
+	private static final int MANA_PER_DAMAGE = 6000;
 
 	public ItemBrewInfiniteWine() {
 		super(LibItemsName.BREW_INFINITEWINE, 12, 18, 1, 1.5F, new ItemStack(ModItems.material, 1, 4));

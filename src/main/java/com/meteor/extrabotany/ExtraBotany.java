@@ -40,7 +40,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ExtraBotany {
 	public static final String MODID = "extrabotany";
 	public static final String NAME = "extrabotany";
-	public static final String VERSION = "54";
+	public static final String VERSION = "55";
 
 	public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
 

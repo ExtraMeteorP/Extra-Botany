@@ -116,6 +116,7 @@ public class ConfigHandler {
 	public static String[] REWARDBAG4 = new String[] {};
 	public static String[] REWARDBAG5 = new String[] {};
 	public static String[] REWARDBAG6 = new String[] {};
+	public static boolean ENABLE_TRUEDAMAGE = true;
 
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
@@ -162,6 +163,8 @@ public class ConfigHandler {
 		ENABLE_HERRSCHER = loadPropBool("enable.herrscher", desc, ENABLE_HERRSCHER);
 		desc = "Whether to enable Advertisement Message. Default is true.";
 		ENABLE_ADS = loadPropBool("enable.advertisement", desc, ENABLE_ADS);
+		desc = "Whether to enable True Damage. Set false to make all true damage become normal one.Default is true.";
+		ENABLE_TRUEDAMAGE = loadPropBool("enable.truedamage", desc, ENABLE_TRUEDAMAGE);
 
 		WHITELIST = CONFIG.getStringList("GaiaIII Disarm Whitelist", Configuration.CATEGORY_GENERAL, new String[] {},
 				"syntax: modid:name or modid:name:meta");

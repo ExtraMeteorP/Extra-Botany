@@ -53,7 +53,7 @@ public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem {
 			updateRelic(stack, (EntityPlayer) entity);
 			if (((EntityPlayer) entity).swingProgressInt == 1) {
 				EntityPlayer player = (EntityPlayer) entity;
-				if (!player.getHeldItemMainhand().isEmpty() && player.getHeldItemMainhand().getItem() == this) {
+				if (!player.getHeldItemMainhand().isEmpty() && player.getHeldItemMainhand().getItem() == this && ManaItemHandler.requestManaExact(stack, player, 500, true)) {
 					EntitySubspace sub = new EntitySubspace(world, (EntityPlayer) player);
 					sub.setLiveTicks(24);
 					sub.setDelay(6);

@@ -67,7 +67,6 @@ import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
 import com.meteor.extrabotany.common.item.relic.ItemFailnaught;
 import com.meteor.extrabotany.common.item.relic.ItemJudahOath;
 import com.meteor.extrabotany.common.item.relic.ItemMasterManaRing;
-import com.meteor.extrabotany.common.item.relic.ItemPocketWatchMoon;
 import com.meteor.extrabotany.common.item.relic.ItemSpearSubspace;
 import com.meteor.extrabotany.common.item.relic.ItemTreasure;
 import com.meteor.extrabotany.common.lib.LibItemsName;
@@ -124,7 +123,6 @@ public class ModItems {
 	public static final Item camera = new ItemCamera();
 	public static final Item orb = new ItemNatureOrb();
 	public static final Item failnaught = new ItemFailnaught();
-	public static final Item pocketwatch = new ItemPocketWatchMoon();
 	public static final Item excaliber = new ItemExcaliber();
 	public static final Item judahoath = new ItemJudahOath();
 

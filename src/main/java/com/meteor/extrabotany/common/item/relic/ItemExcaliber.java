@@ -76,7 +76,7 @@ public class ItemExcaliber extends ItemSword
 	private static final String TAG_HOME_ID = "homeID";
 	private static final String TAG_SOULBIND_UUID = "soulbindUUID";
 	public static ToolMaterial toolMaterial = EnumHelper.addToolMaterial("B_EXCALIBER", 3, -1, 6.2F, 6F, 40);
-	private static final int MANA_PER_DAMAGE = 100;
+	private static final int MANA_PER_DAMAGE = 160;
 
 	public ItemExcaliber() {
 		this(LibItemsName.EXCALIBER);

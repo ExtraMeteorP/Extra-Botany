@@ -1,15 +1,22 @@
 package com.meteor.extrabotany.common.crafting;
 
+import java.util.List;
+
 import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.core.handler.StatHandler;
+import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
+import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -28,6 +35,15 @@ public class ModStageLock {
 				IAdvancementRequired r = (IAdvancementRequired) event.getItemStack().getItem();
 				if (!StatHandler.hasStat(event.getEntityPlayer(), r.getAdvancementName(event.getItemStack())))
 					event.setCanceled(true);
+			}
+			
+			BlockPos source = event.getEntityPlayer().getPosition();
+			float range = 12F;
+			List<EntityLivingBase> livings = event.getEntityPlayer().world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));		
+			for(EntityLivingBase living : livings) {
+				if(living instanceof EntityGaiaIII || living instanceof EntityVoidHerrscher)
+					if(!EntityGaiaIII.match(event.getItemStack()))
+						event.setCanceled(true);
 			}
 		}
 	}

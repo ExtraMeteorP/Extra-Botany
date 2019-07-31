@@ -57,6 +57,31 @@ public class ItemMaterial extends ItemMod implements IFlowerComponent {
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing,
 			float hitX, float hitY, float hitZ) {
 		TileEntity te = world.getTileEntity(pos);
+		if (player.getHeldItem(hand).getMetadata() == 6 && player.isSneaking()) {
+			if (ConfigHandler.GAIA_ENABLE) {
+				return EntityGaiaIII.spawn(player, player.getHeldItem(hand), world, pos, false)
+						? EnumActionResult.SUCCESS
+						: EnumActionResult.FAIL;
+			}
+			if (world.getBlockState(pos).getBlock() == ModBlocks.trophy) {
+				for (int i = 0; i < 9; i++)
+					player.sendMessage(new TextComponentTranslation("extrabotanymisc.noveline" + i)
+							.setStyle(new Style().setColor(TextFormatting.WHITE)));
+				if (!world.isRemote)
+					player.entityDropItem(new ItemStack(ModItems.gaiarecord), 0);
+				player.getHeldItem(hand).shrink(1);
+				return EnumActionResult.PASS;
+			}
+		}
+
+		if (player.getHeldItem(hand).getMetadata() == 9 && player.isSneaking()) {
+			if (ConfigHandler.ENABLE_HERRSCHER) {
+				return EntityVoidHerrscher.spawn(player, player.getHeldItem(hand), world, pos, false)
+						? EnumActionResult.SUCCESS
+						: EnumActionResult.FAIL;
+			}
+		}
+
 		if (player.getHeldItem(hand).getMetadata() == 4) {
 			if (te == null)
 				return EnumActionResult.PASS;
@@ -78,32 +103,7 @@ public class ItemMaterial extends ItemMod implements IFlowerComponent {
 			}
 		}
 
-		if (player.getHeldItem(hand).getMetadata() == 6 && player.isSneaking()) {
-			if (world.getBlockState(pos).getBlock() == ModBlocks.trophy) {
-				for (int i = 0; i < 9; i++)
-					player.sendMessage(new TextComponentTranslation("extrabotanymisc.noveline" + i)
-							.setStyle(new Style().setColor(TextFormatting.WHITE)));
-				if (!world.isRemote)
-					player.entityDropItem(new ItemStack(ModItems.gaiarecord), 0);
-				player.getHeldItem(hand).shrink(1);
-				return EnumActionResult.PASS;
-			}
-			if (ConfigHandler.GAIA_ENABLE) {
-				return EntityGaiaIII.spawn(player, player.getHeldItem(hand), world, pos, false)
-						? EnumActionResult.SUCCESS
-						: EnumActionResult.FAIL;
-			}
-		}
-
-		if (player.getHeldItem(hand).getMetadata() == 9 && player.isSneaking()) {
-			if (ConfigHandler.ENABLE_HERRSCHER) {
-				return EntityVoidHerrscher.spawn(player, player.getHeldItem(hand), world, pos, false)
-						? EnumActionResult.SUCCESS
-						: EnumActionResult.FAIL;
-			}
-		}
-
-		return EnumActionResult.PASS;
+		return super.onItemUse(player, world, pos, hand, facing, hitX, hitY, hitZ);
 	}
 
 	@Override
@@ -113,17 +113,6 @@ public class ItemMaterial extends ItemMod implements IFlowerComponent {
 				stacks.add(new ItemStack(this, 1, i));
 			}
 		}
-	}
-
-	@Nonnull
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
-		ItemStack stack = player.getHeldItem(hand);
-		/**
-		 * if(stack.getMetadata() == 7){ ItemNBTHelper.setString(stack, TAG_UUID,
-		 * player.getUniqueID().toString()); }
-		 **/
-		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 	}
 
 	@Override

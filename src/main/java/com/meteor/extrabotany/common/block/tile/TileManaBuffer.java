@@ -17,22 +17,18 @@ import vazkii.botania.api.mana.spark.ISparkEntity;
 import vazkii.botania.common.block.tile.TileMod;
 import vazkii.botania.common.block.tile.mana.TilePool;
 
-public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAttachable, ITickable{
-	
-	private static final BlockPos[] POOL_LOCATIONS = {
-			new BlockPos(1, 0, 0), new BlockPos(0, 0, 1), new BlockPos(-1, 0, 0), new BlockPos(0, 0, -1), new BlockPos(0, -1, 0)
-	};
-	
-	private static final BlockPos[] POOL_LOCATIONS2 = {
-			new BlockPos(0, 1, 0)
-	};
-	
+public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAttachable, ITickable {
+
+	private static final BlockPos[] POOL_LOCATIONS = { new BlockPos(1, 0, 0), new BlockPos(0, 0, 1),
+			new BlockPos(-1, 0, 0), new BlockPos(0, 0, -1), new BlockPos(0, -1, 0) };
+
+	private static final BlockPos[] POOL_LOCATIONS2 = { new BlockPos(0, 1, 0) };
+
 	private static final String TAG_MANA = "mana";
-	private static final String TAG_KNOWN_MANA = "knownMana";
 	private static final String TAG_MANA_CAP = "manaCap";
-	
+
 	int mana;
-	
+
 	public int manaCap = 64000000;
 
 	@Override
@@ -44,12 +40,12 @@ public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAtta
 	public boolean isFull() {
 		return mana >= manaCap;
 	}
-	
-	public int getMaxMana(){
+
+	public int getMaxMana() {
 		return manaCap;
 	}
-	
-	public int getTransferSpeed(){
+
+	public int getTransferSpeed() {
 		return ConfigHandler.MB_SPEED;
 	}
 
@@ -57,10 +53,10 @@ public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAtta
 	public void recieveMana(int mana) {
 		this.mana = Math.min(getMaxMana(), this.mana + mana);
 	}
-	
+
 	public static int calculateComparatorLevel(int mana, int max) {
 		int val = (int) ((double) mana / (double) max * 15.0);
-		if(mana > 0)
+		if (mana > 0)
 			val = Math.max(val, 1);
 		return val;
 	}
@@ -72,44 +68,44 @@ public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAtta
 
 	@Override
 	public void update() {
-		
+
 		int speed = getTransferSpeed();
-		
-		for(BlockPos o : POOL_LOCATIONS)//input
-			if(world.getTileEntity(pos.add(o)) instanceof TilePool){
+
+		for (BlockPos o : POOL_LOCATIONS)// input
+			if (world.getTileEntity(pos.add(o)) instanceof TilePool) {
 				TilePool p = (TilePool) world.getTileEntity(pos.add(o));
-				if(p.getCurrentMana() >= speed && getCurrentMana() < getMaxMana()){
-					int current = Math.min(speed, getMaxMana() - getCurrentMana());
-					p.recieveMana(-current);
-					recieveMana(current);
-				}
-			}else if(world.getTileEntity(pos.add(o)) instanceof TileManaBuffer){
+				int manaToGet = Math.min(speed, p.getCurrentMana());
+				int space = Math.max(0, getMaxMana() - getCurrentMana());
+				int current = Math.min(space, manaToGet);
+				p.recieveMana(-current);
+				recieveMana(current);			
+			} else if (world.getTileEntity(pos.add(o)) instanceof TileManaBuffer) {
 				TileManaBuffer p = (TileManaBuffer) world.getTileEntity(pos.add(o));
-				if(p.getCurrentMana() >= speed && getCurrentMana() < getMaxMana()){
-					int current = Math.min(speed, getMaxMana() - getCurrentMana());
-					p.recieveMana(-current);
-					recieveMana(current);
-				}
+				int manaToGet = Math.min(speed, p.getCurrentMana());
+				int space = Math.max(0, getMaxMana() - getCurrentMana());
+				int current = Math.min(space, manaToGet);
+				p.recieveMana(-current);
+				recieveMana(current);		
 			}
-		
-		for(BlockPos o : POOL_LOCATIONS2)//output
-			if(world.getTileEntity(pos.add(o)) instanceof TilePool){
+
+		for (BlockPos o : POOL_LOCATIONS2)// output
+			if (world.getTileEntity(pos.add(o)) instanceof TilePool) {
 				TilePool p = (TilePool) world.getTileEntity(pos.add(0, 1, 0));
-				if(getCurrentMana() >= speed && p.getCurrentMana() < p.manaCap){
-					int current = Math.min(speed, p.manaCap - p.getCurrentMana());
-					p.recieveMana(current);
-					recieveMana(-current);
-				}
-			}else if(world.getTileEntity(pos.add(o)) instanceof TileManaBuffer){
+				int manaToGet = Math.min(speed, getCurrentMana());
+				int space = Math.max(0, p.manaCap - p.getCurrentMana());
+				int current = Math.min(space, manaToGet);
+				p.recieveMana(current);
+				recieveMana(-current);		
+			} else if (world.getTileEntity(pos.add(o)) instanceof TileManaBuffer) {
 				TileManaBuffer p = (TileManaBuffer) world.getTileEntity(pos.add(o));
-				if(getCurrentMana() >= speed && p.getCurrentMana() < p.manaCap){
-					int current = Math.min(speed, p.manaCap - p.getCurrentMana());
-					p.recieveMana(current);
-					recieveMana(-current);
-				}
+				int manaToGet = Math.min(speed, getCurrentMana());
+				int space = Math.max(0, p.manaCap - p.getCurrentMana());
+				int current = Math.min(space, manaToGet);
+				p.recieveMana(current);
+				recieveMana(-current);		
 			}
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound cmp) {
 		super.writeToNBT(cmp);
@@ -117,7 +113,7 @@ public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAtta
 		cmp.setInteger(TAG_MANA_CAP, getMaxMana());
 		return cmp;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound cmp) {
 		super.readFromNBT(cmp);
@@ -131,7 +127,8 @@ public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAtta
 	}
 
 	@Override
-	public void attachSpark(ISparkEntity arg0) {}
+	public void attachSpark(ISparkEntity arg0) {
+	}
 
 	@Override
 	public boolean canAttachSpark(ItemStack arg0) {
@@ -140,8 +137,9 @@ public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAtta
 
 	@Override
 	public ISparkEntity getAttachedSpark() {
-		List sparks = world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.up(), pos.up().add(1, 1, 1)), Predicates.instanceOf(ISparkEntity.class));
-		if(sparks.size() == 1) {
+		List sparks = world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(pos.up(), pos.up().add(1, 1, 1)),
+				Predicates.instanceOf(ISparkEntity.class));
+		if (sparks.size() == 1) {
 			Entity e = (Entity) sparks.get(0);
 			return (ISparkEntity) e;
 		}
@@ -151,9 +149,10 @@ public class TileManaBuffer extends TileMod implements IManaReceiver, ISparkAtta
 	@Override
 	public int getAvailableSpaceForMana() {
 		int space = Math.max(0, getMaxMana() - getCurrentMana());
-		if(space > 0)
+		if (space > 0)
 			return space;
-		else return 0;
+		else
+			return 0;
 	}
-	
+
 }

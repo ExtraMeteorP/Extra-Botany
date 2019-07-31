@@ -161,7 +161,7 @@ public class EntityJudahOath extends EntityThrowableCopy{
 			}
 		}
 		
-		if(this.standby > 140)
+		if(this.standby > 140 || this.ticksExisted > 300)
 			this.setDead();
 	}
 	

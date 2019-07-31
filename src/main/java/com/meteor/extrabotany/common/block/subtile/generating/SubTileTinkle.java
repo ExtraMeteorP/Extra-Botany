@@ -59,6 +59,7 @@ public class SubTileTinkle extends SubTileGeneratingNature{
 	            	if(mana < getMaxMana())
 	            		mana += Math.min(ConfigHandler.EFF_TINKLE + buff, getMaxMana() - mana);
 	                ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.TINKLE_USE);
+	                player.addExhaustion(0.02F);
 	                time %= limit;
 	            }
 	

@@ -6,6 +6,7 @@ import com.meteor.extrabotany.common.block.fluid.ModFluid;
 import com.meteor.extrabotany.common.brew.ModBrew;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.FakePlayerHandler;
+import com.meteor.extrabotany.common.core.handler.LootHandler;
 import com.meteor.extrabotany.common.core.handler.ToolTipHandler;
 import com.meteor.extrabotany.common.crafting.ModRecipe;
 import com.meteor.extrabotany.common.crafting.ModStageLock;
@@ -43,6 +44,7 @@ public class CommonProxy {
 		DispenserBehaviors.init();
 		MinecraftForge.EVENT_BUS.register(new ModStageLock());
 		MinecraftForge.EVENT_BUS.register(new ContributorHandler());
+		MinecraftForge.EVENT_BUS.register(new LootHandler());
 		new FakePlayerHandler();
 	}
 

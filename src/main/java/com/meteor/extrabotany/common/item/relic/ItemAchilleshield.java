@@ -44,6 +44,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.item.IPixieSpawner;
 import vazkii.botania.api.item.IRelic;
+import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.equipment.tool.ItemThunderSword;
@@ -120,9 +121,7 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 		int power = EnchantmentHelper.getEnchantmentLevel(Enchantments.SHARPNESS, stack);
 		enemy.knockBack(user, 1.5F * (1 + knockback), -rammingDir.x, -rammingDir.z);
 		if (user instanceof EntityPlayer) {
-			enemy.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) user), 13.0F + 1.5F * power);
-		} else {
-			enemy.attackEntityFrom(DamageSource.causeMobDamage(user), 13.0F + 1.5F * power);
+			enemy.attackEntityFrom(DamageSource.MAGIC, 13.0F + 1.5F * power);
 		}
 	}
 
@@ -131,11 +130,9 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 		if (source.getImmediateSource() != null) {
 			if (attacked instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) attacked;
-				source.getImmediateSource().attackEntityFrom(DamageSource.causePlayerDamage(player), damage);
-			} else {
-				source.getImmediateSource().attackEntityFrom(DamageSource.causeMobDamage(attacked), damage);
+				if(ManaItemHandler.requestManaExactForTool(stack, player, 500, true))
+					source.getImmediateSource().attackEntityFrom(DamageSource.MAGIC, damage);
 			}
-
 		}
 
 		if (source instanceof EntityDamageSourceIndirect) {
@@ -161,7 +158,7 @@ public class ItemAchilleshield extends ItemManasteelShield implements IRelic, IP
 	@Override
 	public float getAttackerKnockbackMultiplier(ItemStack stack, EntityLivingBase attacked, float damage,
 			DamageSource source) {
-		return 1.5F;
+		return 1.75F;
 	}
 
 	@Override

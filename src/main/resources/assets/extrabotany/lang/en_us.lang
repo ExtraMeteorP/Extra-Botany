@@ -366,7 +366,7 @@ botania.page.geminiorchid2=
 botania.tagline.geminiorchid=
 
 botania.entry.mirrortunia=Mirrortunia
-botania.page.mirrortunia0=Mirrortunia will give players around a potion effect called "Mirror Force", and clear bad potion effects.
+botania.page.mirrortunia0=Mirrortunia will give players around a potion effect called "Mirror Force", and clear bad potion effects. <br> But it can't clear those bad effects which can't be removed with milk bucket.
 botania.page.mirrortunia1=
 botania.tagline.mirrortunia=
 
@@ -466,19 +466,19 @@ botania.page.camera1=Snapshot
 botania.tagline.camera=Say "cheese"!
 
 botania.entry.gaia3=Ritual of Gaia III
-botania.page.gaia30=100,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.For the Gaia Guardian III fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania or ExtraBotany. Any other blocks will be destroyed! (except if its changed in the config)
+botania.page.gaia30=200,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared.For the Gaia Guardian III fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania or ExtraBotany. Any other blocks will be destroyed! (except if its changed in the config)
 botania.page.gaia31=2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania or ExtraBotany(except if its changed in the config). Any others will be disarmed and dropped on the ground. 3.During the fight red landmines should be avoided as they will deal massive damage to you.
 botania.page.gaia32=Natural Selection.
 botania.tagline.gaia3=It's HARDCORE
 
 botania.entry.gaia4=Ritual of Gaia IV
-botania.page.gaia40=100,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared. All liquid blocks in the arene will be destroyed.
+botania.page.gaia40=200,000 Natural breath from a Nature Orb can be used to summon an even more powerful Gaia Guardian. Its great powers and new abilties should be feared. All liquid blocks in the arene will be destroyed.
 botania.page.gaia41=For the Gaia Guardian IV fight, you need to learn some new rules. 1. Blocks in the Gaia Guardian arena have to belong to Vanilla Minecraft or Botania. Any other blocks will be destroyed! (except if its changed in the config) 2. Equipped armor and weapons have to be from Vanilla Minecraft or Botania (except if its changed in the config). Any others will be disarmed and dropped on the ground. During the fight red landmines should be avoided as they will deal massive damage to you.
 botania.page.gaia42=Natural Selection.
 botania.tagline.gaia4=It's HARDCORE
 
 botania.entry.relicshield=Achilled Shield
-botania.page.relicshield0=The &4Achilled Shield&0 can reflect damage and most projectiles. Colliding with enemies while blocking will deal damage to them. Sneak and right-click with over 12 absorption and you will release its true power. To maintain its new form will cost you 2 absoprtion every second.
+botania.page.relicshield0=The &4Achilled Shield&0 can reflect damage and most projectiles. Colliding with enemies while blocking will deal damage to them. <br> Sneak and right-click with over 12 absorption and you will release its true power. To maintain its new form will cost you 2 absoprtion every second.
 botania.page.relicshield1=I will stop humans
 botania.tagline.relicshield=AT Field
 

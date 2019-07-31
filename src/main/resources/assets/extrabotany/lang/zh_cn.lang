@@ -366,7 +366,7 @@ botania.page.geminiorchid2=
 botania.tagline.geminiorchid=
 
 botania.entry.mirrortunia=镜姬
-botania.page.mirrortunia0=镜姬会消耗&4魔力&0给周围玩家 添加镜子反射效果，并清除 负面效果。镜子反射会使受 益者在受到伤害的时候反弹 部分伤害。
+botania.page.mirrortunia0=镜姬会消耗&4魔力&0给周围玩家 添加镜子反射效果，并清除 负面效果。镜子反射会使受 益者在受到伤害的时候反弹 部分伤害。 <br>但镜姬无法清除牛奶也清不 了的负面效果。
 botania.page.mirrortunia1=
 botania.tagline.mirrortunia=
 
@@ -466,13 +466,13 @@ botania.page.camera1=风符「风神一扇」
 botania.tagline.camera=风符「风神少女」
 
 botania.entry.gaia3=盖亚仪式III
-botania.page.gaia30=可以消耗自然蕴息宝珠中储 存的自然之息，通过自然之力 来召唤出更为强大的盖亚守 护者，其各项能力将得到的大 幅度的提升。这一过程需要消 耗10w自然之息。
+botania.page.gaia30=可以消耗自然蕴息宝珠中储 存的自然之息，通过自然之力 来召唤出更为强大的盖亚守 护者，其各项能力将得到的大 幅度的提升。这一过程需要消 耗20w自然之息。
 botania.page.gaia31=挑战盖亚守护者III需要遵守 一些新的规则，首先场地内的 非原版或非植物魔法的方块， 以及所有液体都将被破坏。其 次玩家身上也不能携带，持有， 装备任何非原版或非植物魔 法的物品，一旦违反都将被缴 械在地上。与盖亚守护者III 战斗的时候要注意地上的地 雷的颜色，尤其是红色的地雷 要小心。
 botania.page.gaia32=我得到了!
 botania.tagline.gaia3=硬核难度
 
 botania.entry.gaia4=盖亚仪式IV
-botania.page.gaia40=可以消耗自然蕴息宝珠中储 存的自然之息，通过自然之力 来召唤出更为强大的盖亚守 护者，其各项能力将得到的大 幅度的提升。这一过程需要消 耗10w自然之息。
+botania.page.gaia40=可以消耗自然蕴息宝珠中储 存的自然之息，通过自然之力 来召唤出更为强大的盖亚守 护者，其各项能力将得到的大 幅度的提升。这一过程需要消 耗20w自然之息。
 botania.page.gaia41=挑战盖亚守护者IV需要遵守 一些新的规则，首先场地内的 非原版或非植物魔法的方块， 以及所有液体都将被破坏。其 次玩家身上也不能携带，持有， 装备任何非原版或非植物魔 法的物品，一旦违反都将被缴 械在地上。与盖亚守护者III 战斗的时候要注意地上的地 雷的颜色，尤其是红色的地雷 要小心。
 botania.page.gaia42=我得到了!
 botania.tagline.gaia3=硬核难度

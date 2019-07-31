@@ -44,8 +44,6 @@ public class ModEntities {
 				id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("domain"), EntityDomain.class, "extrabotany:domain", id++,
 				ExtraBotany.instance, 64, 10, true);
-		EntityRegistry.registerModEntity(makeName("flycutter"), EntityFlyCutter.class, "extrabotany:flycutter", id++,
-				ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("subspace"), EntitySubspace.class, "extrabotany:subspace", id++,
 				ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("subspacespear"), EntitySubspaceSpear.class,

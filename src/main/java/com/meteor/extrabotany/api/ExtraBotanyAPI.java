@@ -7,6 +7,7 @@ import java.util.Set;
 
 import com.gamerforea.eventhelper.util.EventUtils;
 import com.meteor.extrabotany.ExtraBotany;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeOmniviolet;
 import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
@@ -127,17 +128,22 @@ public class ExtraBotanyAPI {
 		if (target instanceof EntityPlayer)
 			if (((EntityPlayer) target).isCreative())
 				return result;
-		if (health > 0) {
-			float postHealth = Math.max(1, health - amount);
-			target.setHealth(postHealth);
-			if (health <= amount) {
-				if (target instanceof EntityPlayer)
-					target.onKillCommand();
-				else
-					target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(),
-							Integer.MAX_VALUE - 1F);
+		
+		if(ConfigHandler.ENABLE_TRUEDAMAGE) {
+			if (health > 0) {
+				float postHealth = Math.max(1, health - amount);
+				target.setHealth(postHealth);
+				if (health <= amount) {
+					if (target instanceof EntityPlayer)
+						target.onKillCommand();
+					else
+						target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(),
+								Integer.MAX_VALUE - 1F);
+				}
+				result = health - postHealth;
 			}
-			result = health - postHealth;
+		}else {
+			target.attackEntityFrom(DamageSource.causeIndirectMagicDamage(player, target), amount);
 		}
 		return result;
 	}

@@ -376,7 +376,7 @@ botania.page.enchantedorchid1=The truth is always one
 botania.tagline.enchantedorchid=Knowledge is power and I know a lot
 
 botania.entry.necrofleur=Necrofleur
-botania.page.necrofleur0=Necrofleur will only target those non-player creatures with lower than 50% health. It will spread despair and strike them a heavy blow, reducing the following healings they will receive.
+botania.page.necrofleur0=Necrofleur will only target those non-player creatures with lower than half health. It will spread despair and strike them a heavy blow, reducing the following healings they will receive.
 botania.page.necrofleur1=Meteor Strike
 botania.tagline.necrofleur=I will mourn your death
 
@@ -515,7 +515,7 @@ botania.page.managenerator1=Science Bitch!
 botania.tagline.managenerator=Converts Energy into Mana
 
 botania.entry.manadrink=Mana Cocktail
-botania.page.manadrink0=Hold an Empty Mana Glass Bottle and right-click a Mana Liquefaction Device with at least 100mb Fluided Mana will acquire a tasty drink.
+botania.page.manadrink0=Hold an Empty Mana Glass Bottle and right-click a Mana Liquefaction Device with at least 25mb Fluided Mana or a Mana Pool with enough mana, and you will acquire a tasty drink.
 botania.page.manadrink1=Cheers!
 botania.tagline.manadrink=Tasty
 

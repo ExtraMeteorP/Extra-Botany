@@ -171,6 +171,17 @@ public class EntityVoidHerrscher extends EntityCreature
 	public void setHealth(float health) {
 		super.setHealth(Math.max(health, getHealth() - 8F));
 	}
+	
+	private void punish() {
+		if(this.getPlayersAround().size() > this.playerCount) {
+			if(this.world.isRemote)
+				for(EntityPlayer player : this.getPlayersAround())
+					if(player != null && !player.isDead)
+						player.sendMessage(new TextComponentTranslation("botaniamisc.illegalBattle")
+								.setStyle(new Style().setColor(TextFormatting.RED)));
+			this.setDead();
+		}
+	}
 
 	@Override
 	public void onLivingUpdate() {
@@ -183,7 +194,7 @@ public class EntityVoidHerrscher extends EntityCreature
 			if (vec3d != null)
 				this.getNavigator().tryMoveToXYZ(vec3d.x, vec3d.y, vec3d.z, 1.2F);
 		}
-
+		punish();
 		if (this.ticksExisted > 3600)
 			this.quickkill = false;
 
@@ -470,6 +481,20 @@ public class EntityVoidHerrscher extends EntityCreature
 			contributorlist.remove(index);
 		}
 	}
+	
+	private static boolean check(EntityPlayer player) {
+		if(player.isCreative())
+			return true;
+		if (!match(player.getHeldItemMainhand()))
+			return false;
+		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+			ItemStack stackAt = player.inventory.getStackInSlot(i);
+			if (!match(stackAt)) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	private void disarm(EntityPlayer player) {
 		if (!match(player.getHeldItemMainhand())) {
@@ -490,7 +515,7 @@ public class EntityVoidHerrscher extends EntityCreature
 		}
 	}
 
-	private boolean match(ItemStack stack) {
+	private static boolean match(ItemStack stack) {
 		String m = stack.getItem().getRegistryName().toString();
 		if (m.indexOf("botania") != -1 || m.indexOf("extrabotany") != -1 || m.indexOf("minecraft") != -1)
 			return true;
@@ -654,6 +679,14 @@ public class EntityVoidHerrscher extends EntityCreature
 						.setStyle(new Style().setColor(TextFormatting.RED)));
 			}
 
+			return false;
+		}
+
+		// check inventory
+		if (!check(player)) {
+			if (world.isRemote)
+				player.sendMessage(new TextComponentTranslation("botaniamisc.illegalInventory")
+						.setStyle(new Style().setColor(TextFormatting.RED)));
 			return false;
 		}
 
@@ -1031,7 +1064,7 @@ public class EntityVoidHerrscher extends EntityCreature
 		float range = 16F;
 		return world.getEntitiesWithinAABB(EntityPlayer.class,
 				new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range,
-						source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
+						source.getX() + 0.5 + range, source.getY() + 0.5 + range * 2, source.getZ() + 0.5 + range));
 	}
 
 	private static int getGaiaGuardiansAround(World world, BlockPos source) {
@@ -1248,8 +1281,7 @@ public class EntityVoidHerrscher extends EntityCreature
 					int breakY = MathHelper.floor(oldY + (newY - oldY) * progress);
 					int breakZ = MathHelper.floor(oldZ + (newZ - oldZ) * progress);
 
-					if (ConfigHandler.GAIA_SMASH)
-						smashBlocksAround(breakX, breakY, breakZ, 1);
+					smashBlocksAround(breakX, breakY, breakZ, 1);
 				}
 			}
 		}

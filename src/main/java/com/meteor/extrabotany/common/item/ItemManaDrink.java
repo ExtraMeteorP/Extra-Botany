@@ -1,9 +1,12 @@
 package com.meteor.extrabotany.common.item;
 
+import javax.annotation.Nonnull;
+
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -27,6 +30,12 @@ public class ItemManaDrink extends ItemFoodMod implements IManaGivingItem {
 		player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 1200, 0));
 		ManaItemHandler.dispatchManaExact(stack, player, 10000, true);
 		player.addItemStackToInventory(new ItemStack(ModItems.material, 1, 4));
+	}
+	
+	@Nonnull
+	@Override
+	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
+		return EnumAction.DRINK;
 	}
 
 }

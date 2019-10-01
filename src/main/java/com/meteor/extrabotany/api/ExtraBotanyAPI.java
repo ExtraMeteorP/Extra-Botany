@@ -55,6 +55,15 @@ public class ExtraBotanyAPI {
 			new int[] { 3, 6, 5, 2 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3F);
 	public static final ToolMaterial shadowiumToolMaterial = EnumHelper.addToolMaterial("SHADOWIUM", 3, 800, 6.5F, 2F,
 			12);
+	
+	public static final ToolMaterial manasteelHammer = EnumHelper.addToolMaterial("MANASTEELHAMMER", 3, 400, 6.8F, 2F, 20);
+	
+	public static final ToolMaterial elementiumHammer = EnumHelper.addToolMaterial("ELEMENTIUMHAMMER", 3, 900, 6.8F, 2F, 20);
+	
+	public static final ToolMaterial terrasteelHammer = EnumHelper.addToolMaterial("TERRASTEELHAMMER", 4, 3000, 9.8F, 3F, 26);
+	
+	public static final ToolMaterial ultimateHammer = EnumHelper.addToolMaterial("ULTIMATEHAMMER", 4, 3000, 10.5F, 3F, 40);
+
 
 	public static final Set<Block> gaiaBreakBlacklist = new HashSet<>();
 

@@ -143,4 +143,19 @@ public class EntityMagicArrow extends EntityThrowableCopy {
 		dataManager.set(DAMAGE, delay);
 	}
 
+	@Override
+	public boolean canBeCollidedWith() {
+		return false;
+	}
+
+	@Override
+	public boolean canBePushed() {
+		return false;
+	}
+
+	@Override
+	public boolean isPushedByWater() {
+		return false;
+	}
+
 }

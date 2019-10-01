@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.crafting;
 import java.util.List;
 
 import com.meteor.extrabotany.api.item.IAdvancementRequired;
+import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.StatHandler;
 import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
@@ -30,6 +31,8 @@ public class ModStageLock {
 
 	@SubscribeEvent
 	public void onPlayerInteract(PlayerInteractEvent event) {
+		if(ConfigHandler.DISABLE_ADVANCEMENTREQUIREMENT)
+			return;
 		if (event.isCancelable() && !event.getEntityPlayer().isCreative()) {
 			if (event.getItemStack().getItem() instanceof IAdvancementRequired) {
 				IAdvancementRequired r = (IAdvancementRequired) event.getItemStack().getItem();
@@ -51,6 +54,8 @@ public class ModStageLock {
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onTooltip(ItemTooltipEvent event) {
+		if(ConfigHandler.DISABLE_ADVANCEMENTREQUIREMENT)
+			return;
 		if (event.getItemStack().getItem() instanceof IAdvancementRequired) {
 			IAdvancementRequired r = (IAdvancementRequired) event.getItemStack().getItem();
 			EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
@@ -66,6 +71,8 @@ public class ModStageLock {
 
 	@SubscribeEvent
 	public void onLivingUpdate(LivingUpdateEvent event) {
+		if(ConfigHandler.DISABLE_ADVANCEMENTREQUIREMENT)
+			return;
 		if (event.getEntity() instanceof EntityPlayer && !event.getEntityLiving().world.isRemote) {
 			final EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 			if (player.isCreative()) {

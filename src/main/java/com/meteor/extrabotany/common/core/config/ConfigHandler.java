@@ -107,6 +107,7 @@ public class ConfigHandler {
 	public static boolean ENABLE_ADS = true;
 
 	public static boolean ENABLE_CANDYBAGDROP = true;
+	public static boolean DISABLE_ADVANCEMENTREQUIREMENT = false;
 	public static double CANDYBAG_DROPCHANCE = 0.02F;
 	public static double PARTICLE = 1F;
 	public static String[] WHITELIST = new String[] {};
@@ -165,6 +166,8 @@ public class ConfigHandler {
 		ENABLE_ADS = loadPropBool("enable.advertisement", desc, ENABLE_ADS);
 		desc = "Whether to enable True Damage. Set false to make all true damage become normal one.Default is true.";
 		ENABLE_TRUEDAMAGE = loadPropBool("enable.truedamage", desc, ENABLE_TRUEDAMAGE);
+		desc = "Whether to disable advancement requirement for relics. Set true to make all relics no longer require advancements.Default is false.";
+		DISABLE_ADVANCEMENTREQUIREMENT = loadPropBool("disable.advancementrequirement", desc, DISABLE_ADVANCEMENTREQUIREMENT);
 
 		WHITELIST = CONFIG.getStringList("GaiaIII Disarm Whitelist", Configuration.CATEGORY_GENERAL, new String[] {},
 				"syntax: modid:name or modid:name:meta");

@@ -94,7 +94,7 @@ public class EntitySubspace extends EntityThrowableCopy {
 					EntitySubspaceSpear spear = new EntitySubspaceSpear(world, thrower);
 					if (thrower instanceof EntityVoidHerrscher)
 						spear.setLiveTicks(1);
-					spear.setDamage(8);
+					spear.setDamage(11);
 					spear.setLife(100);
 					spear.rotationYaw = thrower.rotationYaw;
 					spear.setPitch(-thrower.rotationPitch);

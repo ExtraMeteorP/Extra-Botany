@@ -3,7 +3,6 @@ package com.meteor.extrabotany.common.entity;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.entity.gaia.EntityDomain;
 import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
-import com.meteor.extrabotany.common.entity.gaia.EntityHonkaiBeam;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullLandmine;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullMinion;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullMissile;
@@ -62,8 +61,6 @@ public class ModEntities {
 				"extrabotany:voidherrscher", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("subspacelance"), EntitySubspaceLance.class,
 				"extrabotany:subspacelance", id++, ExtraBotany.instance, 64, 10, true);
-		EntityRegistry.registerModEntity(makeName("honkaibeam"), EntityHonkaiBeam.class, "extrabotany:honkaibeam", id++,
-				ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("aurafire"), EntityAuraFire.class, "extrabotany:aurafire", id++,
 				ExtraBotany.instance, 64, 10, true);
 	}

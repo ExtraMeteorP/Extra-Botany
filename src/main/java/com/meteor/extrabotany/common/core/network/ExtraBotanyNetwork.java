@@ -25,6 +25,7 @@ public class ExtraBotanyNetwork extends NetworkWrapper {
 		registerPacketServer(PacketLeftClick.class);
 		registerPacketServer(PacketLeftClickCopy.class);
 		registerPacketServer(PacketLeftClickJingwei.class);
+		registerPacketServer(PacketLeftClickSpear.class);
 		registerPacketClient(PacketMessage.class);
 		registerPacketClient(PacketAdvertisement.class);
 	}

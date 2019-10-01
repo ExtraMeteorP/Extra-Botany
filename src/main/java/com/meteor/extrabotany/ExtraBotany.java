@@ -33,7 +33,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = LibMisc.MOD_ID, name = ExtraBotany.NAME, version = ExtraBotany.VERSION, dependencies = "required-after:botania@[r1.10-357,);"
+@Mod(modid = LibMisc.MOD_ID, name = ExtraBotany.NAME, version = ExtraBotany.VERSION, dependencies = "required-after:botania@[r1.10-361,);"
 		+ "after:baubles@[1.5.2,);" + "after:waila;" + "after:theoneprobe;" + "after:thaumcraft@[6.1.BETA25,);"
 		+ "after:tconstruct;" + "after:mtlib;" + "after:crafttweaker;"
 		+ "before:armoryexpansion", updateJSON = ExtraBotany.UPDATE_URL, guiFactory = "com.meteor.extrabotany.common.core.config.ConfigGui")
@@ -66,7 +66,7 @@ public class ExtraBotany {
 	static {
 		try {
 			Class.forName("com.gamerforea.eventhelper.EventHelperMod");
-			isTableclothServer = true;
+			isTableclothServer = false;
 		} catch (ClassNotFoundException e) {
 		}
 	}

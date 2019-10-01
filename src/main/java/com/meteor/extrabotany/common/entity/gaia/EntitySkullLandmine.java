@@ -77,8 +77,8 @@ public class EntitySkullLandmine extends Entity{
 					for(int i = 0; i < 3; i++)
 						ExtraBotanyAPI.addPotionEffect(player, ModPotions.witchcurse, 20);
 					if(getType() == 1){
-						ExtraBotanyAPI.dealTrueDamage(this.summoner, player, (player.getMaxHealth() * 0.35F + 8) * amplifier);
 						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.LANDMINE_ACTIVE);
+						ExtraBotanyAPI.dealTrueDamage(this.summoner, player, (player.getMaxHealth() * 0.35F + 8) * amplifier);
 					}
 					if(getType() == 2 && ConfigHandler.GAIA_DISARM)
 						player.dropItem(true);
@@ -115,6 +115,22 @@ public class EntitySkullLandmine extends Entity{
 	@Override
 	protected void writeEntityToNBT(@Nonnull NBTTagCompound var1) {
 		var1.setInteger(TAG_TYPE, getType());
+	}
+	
+
+	@Override
+	public boolean canBeCollidedWith() {
+		return false;
+	}
+
+	@Override
+	public boolean canBePushed() {
+		return false;
+	}
+
+	@Override
+	public boolean isPushedByWater() {
+		return false;
 	}
 
 }

@@ -62,7 +62,7 @@ public class SubTileBloodyEnchantress extends SubTileGenerating {
 							if(amp > 4 && Math.random() > 0.5F)
 								continue;
 							if(amp < 10){
-								mana += ConfigHandler.EFF_BLOODYENCHANTRESS * 10F * (1F - 0.07F * amp - 0.02F * ampall);
+								mana += ConfigHandler.EFF_BLOODYENCHANTRESS * 12F * (1F - 0.05F * amp - 0.02F * ampall);
 							}else
 								break;
 							ExtraBotanyAPI.addPotionEffect(living, ModPotions.bloodtemptation, 100, 10, true);

@@ -80,9 +80,13 @@ public class EntitySwordDomain extends Entity{
 			setDead();
 		
 		EntityPlayer player = world.getPlayerEntityByUUID(getUUID());
+		if(player == null || player.isDead)
+			return;
 		if (player != null && this.ticksExisted > 70){
 			keepInsideArena(player);
-			
+			if (vazkii.botania.common.core.helper.MathHelper.pointDistancePlane(player.posX, player.posZ,
+					getSource().getX(), getSource().getZ()) > 20F)
+				player.attemptTeleport(getSource().getX(), getSource().getY(), getSource().getZ());
 			for(int i = 0; i < (int)(2 * ConfigHandler.PARTICLE); i++)
 				Botania.proxy.wispFX(getSource().getX(), getSource().getY() + 3, getSource().getZ(), 1F, 0.9F, 0F, 0.25F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
 			
@@ -161,6 +165,22 @@ public class EntitySwordDomain extends Entity{
 	
 	public void setCount(int t) {
 		dataManager.set(COUNT, t);;
+	}
+	
+
+	@Override
+	public boolean canBeCollidedWith() {
+		return false;
+	}
+
+	@Override
+	public boolean canBePushed() {
+		return false;
+	}
+
+	@Override
+	public boolean isPushedByWater() {
+		return false;
 	}
 
 }

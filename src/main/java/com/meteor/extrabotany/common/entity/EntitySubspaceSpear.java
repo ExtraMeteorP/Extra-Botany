@@ -181,4 +181,19 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 	public boolean isBoss(Entity p) {
 		return this.getLiveTicks() > 0;
 	}
+
+	@Override
+	public boolean canBeCollidedWith() {
+		return false;
+	}
+
+	@Override
+	public boolean canBePushed() {
+		return false;
+	}
+
+	@Override
+	public boolean isPushedByWater() {
+		return false;
+	}
 }

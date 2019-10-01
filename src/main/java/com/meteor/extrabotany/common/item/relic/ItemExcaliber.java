@@ -125,12 +125,6 @@ public class ItemExcaliber extends ItemSword
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if (!world.isRemote && entity instanceof EntityPlayer) {
 			updateRelic(stack, (EntityPlayer) entity);
-			// PotionEffect haste = ((EntityLivingBase)
-			// entity).getActivePotionEffect(MobEffects.HASTE);
-			// float check = haste == null ? 0.16666667F : haste.getAmplifier() == 1 ? 0.5F
-			// : 0.4F;
-			// if(((EntityPlayer)entity).swingProgress == check)
-			// trySpawnBurst((EntityPlayer) entity);
 		}
 		if (!world.isRemote && entity instanceof EntityPlayer && stack.getItemDamage() > 0
 				&& ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entity, getManaPerDamage() * 2, true))
@@ -301,9 +295,9 @@ public class ItemExcaliber extends ItemSword
 				if (burst.getColor() == 0XFFD700 && living instanceof EntityVoidHerrscher)
 					continue;
 				if (entity.ticksExisted % 3 == 0)
-					ExtraBotanyAPI.dealTrueDamage(living, living, burst.getColor() == 0XFFD700 ? 1.8F : 2.2F);
+					ExtraBotanyAPI.dealTrueDamage(living, living, burst.getColor() == 0XFFD700 ? 1.2F : 2.2F);
 				if (living.hurtTime == 0)
-					living.attackEntityFrom(ItemRelic.damageSource(), burst.getColor() == 0XFFD700 ? 7F : 8F);
+					living.attackEntityFrom(ItemRelic.damageSource(), burst.getColor() == 0XFFD700 ? 8F : 8F);
 			}
 			return;
 		}

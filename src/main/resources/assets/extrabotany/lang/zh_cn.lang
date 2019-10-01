@@ -376,7 +376,7 @@ botania.page.enchantedorchid1=真相只有一个!
 botania.tagline.enchantedorchid=无穷无尽的知识就是我的力量
 
 botania.entry.necrofleur=死之花
-botania.page.necrofleur0=死之花只会以血量低于一半 的非生物玩家为目标，对其 造成大量的伤害，并使其接 下来一段时间获得的治疗量 减少。
+botania.page.necrofleur0=死之花只会以血量低于一半 的非玩家生物为目标，对其 造成大量的伤害，并使其接 下来一段时间获得的治疗量 减少。
 botania.page.necrofleur1=毁天灭地
 botania.tagline.necrofleur=我会为你的死亡哀悼
 
@@ -515,7 +515,7 @@ botania.page.managenerator1=超科学
 botania.tagline.managenerator=RF转换
 
 botania.entry.manadrink=魔力鸡尾酒
-botania.page.manadrink0=使用魔法玻璃空瓶对着至少 存有25mb液态魔力的魔力液 化器右键可以获得新鲜的魔 力鸡尾酒。
+botania.page.manadrink0=使用魔法玻璃空瓶对着至少 存有25mb液态魔力的魔力液 化器或是有足够魔力的魔力 池右键可以获得新鲜的魔力 鸡尾酒。
 botania.page.manadrink1=干杯
 botania.tagline.manadrink=美味又易燃
 

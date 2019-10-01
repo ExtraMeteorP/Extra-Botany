@@ -23,6 +23,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
+import vazkii.botania.api.lexicon.LexiconRecipeMappings;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.entity.EntityDoppleganger;
 import vazkii.botania.common.lexicon.AlfheimLexiconEntry;
@@ -484,6 +485,21 @@ public class LexiconData {
 		judahoath = new DreamLexiconEntry(LibLexicon.RELIC_JUDAH, ExtraBotanyAPI.dreamCategory);
 		judahoath.setLexiconPages(new PageText("0"), new PageCraftingRecipe("1", getResource("recipe_judahoath")),
 				new PageCraftingRecipe("2", getResource("recipe_judahoathkira")));
+		
+		LexiconRecipeMappings.map(new ItemStack(ModItems.spiritFuel), spiritfuel, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.cocktail), manadrink, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.relics), relics, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.material, 1, 3), gaia3, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.rewardbag, 1, 0), gaia3, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.rewardbag, 1, 1), gaia3, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.rewardbag, 1, 2), gaia3, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.rewardbag, 1, 3), gaia3, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.godcore, 1, 1), godcore, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.infinitewine), infinitewine, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.splashgrenade), splashgrenade, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.splashgrenade), splashgrenade, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.mask, 1, 8), herrscher, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.mask, 1, 9), herrscher, 0);
 	}
 
 	private static ResourceLocation getResource(String inName) {

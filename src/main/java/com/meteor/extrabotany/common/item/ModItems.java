@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.item;
 
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.bonus.ItemCandyBag;
 import com.meteor.extrabotany.common.item.bonus.ItemRewardBag;
@@ -112,11 +113,11 @@ public class ModItems {
 	public static final Item manadriverring = new ItemManaDriverRing();
 
 	public static final Item hammermanasteel = new ItemHammer(LibItemsName.HAMMER_MANASTEEL,
-			BotaniaAPI.manasteelToolMaterial);
+			ExtraBotanyAPI.manasteelHammer);
 	public static final Item hammerelementium = new ItemHammer(LibItemsName.HAMMER_ELEMENTIUM,
-			BotaniaAPI.elementiumToolMaterial);
+			ExtraBotanyAPI.elementiumHammer);
 	public static final Item hammerterrasteel = new ItemHammer(LibItemsName.HAMMER_TERRASTEEL,
-			BotaniaAPI.terrasteelToolMaterial);
+			ExtraBotanyAPI.terrasteelHammer);
 	public static final Item hammerultimate = new ItemHammerUltimate();
 
 	public static final Item kinggarden = new ItemKingGarden();

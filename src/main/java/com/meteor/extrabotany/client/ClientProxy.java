@@ -22,7 +22,6 @@ import com.meteor.extrabotany.client.render.entity.RenderSubspaceSpear;
 import com.meteor.extrabotany.client.render.entity.RenderVoid;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderDomain;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderGaiaIII;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderHonkaiBeam;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullLandmine;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullMinion;
 import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullMissile;
@@ -53,7 +52,6 @@ import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.entity.EntitySubspaceSpear;
 import com.meteor.extrabotany.common.entity.gaia.EntityDomain;
 import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
-import com.meteor.extrabotany.common.entity.gaia.EntityHonkaiBeam;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullLandmine;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullMinion;
 import com.meteor.extrabotany.common.entity.gaia.EntitySkullMissile;
@@ -147,7 +145,6 @@ public class ClientProxy extends CommonProxy{
 		RenderingRegistry.registerEntityRenderingHandler(EntityVoid.class, RenderVoid::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityVoidHerrscher.class, RenderVoidHerrscher::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntitySubspaceLance.class, RenderSubspaceLance::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityHonkaiBeam.class, RenderHonkaiBeam::new);
 	}
 	
     @Override

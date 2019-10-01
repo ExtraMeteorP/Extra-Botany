@@ -261,5 +261,21 @@ public class EntitySkullMissile extends EntityThrowableCopy implements IBossProj
 	public boolean isBoss(Entity p) {
 		return true;
 	}
+	
+
+	@Override
+	public boolean canBeCollidedWith() {
+		return false;
+	}
+
+	@Override
+	public boolean canBePushed() {
+		return false;
+	}
+
+	@Override
+	public boolean isPushedByWater() {
+		return false;
+	}
 
 }

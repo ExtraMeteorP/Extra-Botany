@@ -158,6 +158,17 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	public void setHealth(float health) {
 		super.setHealth(Math.max(health, getHealth() - 8F));
 	}
+	
+	private void punish() {
+		if(this.getPlayersAround().size() > this.playerCount) {
+			if(this.world.isRemote)
+				for(EntityPlayer player : this.getPlayersAround())
+					if(player != null && !player.isDead)
+						player.sendMessage(new TextComponentTranslation("botaniamisc.illegalBattle")
+								.setStyle(new Style().setColor(TextFormatting.RED)));
+			this.setDead();
+		}
+	}
 
 	@Override
 	public void onLivingUpdate() {
@@ -165,6 +176,8 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 		if (this.ticksExisted < 60)
 			return;
+		
+		punish();
 
 		for (EntityPlayer player : getPlayersAround()) {
 			this.faceEntity(player, 360F, 360F);
@@ -339,6 +352,20 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				ExtraBotanyAPI.unlockAdvancement(p, LibAdvancements.MUSIC_ALL);
 
 	}
+	
+	private static boolean check(EntityPlayer player) {
+		if(player.isCreative())
+			return true;
+		if (!match(player.getHeldItemMainhand()))
+			return false;
+		for (int i = 0; i < player.inventory.getSizeInventory(); i++) {
+			ItemStack stackAt = player.inventory.getStackInSlot(i);
+			if (!match(stackAt)) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	private void disarm(EntityPlayer player) {
 		if (!match(player.getHeldItemMainhand())) {
@@ -485,6 +512,14 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 			return false;
 		}
+		
+		//check inventory
+		if(!check(player)) {
+			if (world.isRemote)
+				player.sendMessage(new TextComponentTranslation("botaniamisc.illegalInventory")
+						.setStyle(new Style().setColor(TextFormatting.RED)));
+			return false;
+		}
 
 		// all checks ok, spawn the boss
 		if (!world.isRemote) {
@@ -508,6 +543,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			if (hard)
 				e.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.ARMOR).setBaseValue(15);
 			e.setHealth(e.getMaxHealth());
+			e.setCustomNameTag(player.getGameProfile().getName());
 			e.playSound(SoundEvents.ENTITY_ENDERDRAGON_GROWL, 10F, 0.1F);
 			e.onInitialSpawn(world.getDifficultyForLocation(new BlockPos(e)), null);
 			world.spawnEntity(e);
@@ -685,6 +721,10 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 			if (!playersWhoAttacked.contains(player.getUniqueID()))
 				playersWhoAttacked.add(player.getUniqueID());
+			
+			if (vazkii.botania.common.core.helper.MathHelper.pointDistancePlane(player.posX, player.posZ,
+					getSource().getX(), getSource().getZ()) > ARENA_RANGE)
+				player.attemptTeleport(getSource().getX(), getSource().getY(), getSource().getZ());
 
 			int cap = 20;
 
@@ -808,7 +848,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 		float range = 15F;
 		return world.getEntitiesWithinAABB(EntityPlayer.class,
 				new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range,
-						source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
+						source.getX() + 0.5 + range, source.getY() + 0.5 + range * 2, source.getZ() + 0.5 + range));
 	}
 
 	private static int getGaiaGuardiansAround(World world, BlockPos source) {

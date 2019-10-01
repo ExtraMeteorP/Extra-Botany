@@ -138,5 +138,21 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 	public void setShield(int shield) {
 		dataManager.set(SHIELD, shield);
 	}
+	
+
+	@Override
+	public boolean canBeCollidedWith() {
+		return false;
+	}
+
+	@Override
+	public boolean canBePushed() {
+		return false;
+	}
+
+	@Override
+	public boolean isPushedByWater() {
+		return false;
+	}
 
 }

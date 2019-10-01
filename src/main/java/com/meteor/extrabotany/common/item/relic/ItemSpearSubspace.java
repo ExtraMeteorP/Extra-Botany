@@ -8,6 +8,8 @@ import javax.annotation.Nonnull;
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.core.handler.ModSounds;
+import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
+import com.meteor.extrabotany.common.core.network.PacketLeftClickSpear;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
@@ -26,6 +28,10 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.Vector3;
@@ -34,6 +40,7 @@ public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem {
 
 	public ItemSpearSubspace() {
 		super(LibItemsName.SPEARSUBSPACE);
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override
@@ -43,31 +50,51 @@ public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem {
 		if (slot == EntityEquipmentSlot.MAINHAND) {
 			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(),
 					new AttributeModifier(uuid, "spear modifier ", 8F, 0));
+			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(),
+					new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", -1.6, 0));
+			attrib.put(EntityPlayer.REACH_DISTANCE.getName(),
+					new AttributeModifier(uuid, "Weapon modifier", 2, 0));
 		}
 		return attrib;
+	}
+	
+	@SubscribeEvent
+	public void leftClick(PlayerInteractEvent.LeftClickEmpty evt) {
+		if (!evt.getItemStack().isEmpty() && evt.getItemStack().getItem() == this) {
+			ExtraBotanyNetwork.sendToServer(new PacketLeftClickSpear());
+		}
+	}
+
+	@SubscribeEvent
+	public void attackEntity(AttackEntityEvent evt) {
+		if (!evt.getEntityPlayer().world.isRemote) {
+			trySpawnSpear(evt.getEntityPlayer());
+		}
+	}
+	
+	public void trySpawnSpear(EntityPlayer player) {
+		if (!player.getHeldItemMainhand().isEmpty() && player.getHeldItemMainhand().getItem() == this
+				&& player.getCooledAttackStrength(0) == 1 && ManaItemHandler.requestManaExact(player.getHeldItemMainhand(), player, 600, true)) {
+			World world = player.getEntityWorld();
+			EntitySubspace sub = new EntitySubspace(world, player);
+			sub.setLiveTicks(24);
+			sub.setDelay(6);
+			sub.posX = player.posX;
+			sub.posY = player.posY + 2.5F + world.rand.nextFloat() * 0.2F;
+			sub.posZ = player.posZ;
+			sub.rotationYaw = player.rotationYaw;
+			sub.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
+			sub.setType(1);
+			sub.setSize(0.40F + world.rand.nextFloat() * 0.15F);
+			if (!world.isRemote)
+				world.spawnEntity(sub);
+		}
 	}
 
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if (!world.isRemote && entity instanceof EntityPlayer) {
 			updateRelic(stack, (EntityPlayer) entity);
-			if (((EntityPlayer) entity).swingProgressInt == 1) {
-				EntityPlayer player = (EntityPlayer) entity;
-				if (!player.getHeldItemMainhand().isEmpty() && player.getHeldItemMainhand().getItem() == this && ManaItemHandler.requestManaExact(stack, player, 500, true)) {
-					EntitySubspace sub = new EntitySubspace(world, (EntityPlayer) player);
-					sub.setLiveTicks(24);
-					sub.setDelay(6);
-					sub.posX = entity.posX;
-					sub.posY = entity.posY + 2.5F + world.rand.nextFloat() * 0.2F;
-					sub.posZ = entity.posZ;
-					sub.rotationYaw = player.rotationYaw;
-					sub.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
-					sub.setType(1);
-					sub.setSize(0.40F + world.rand.nextFloat() * 0.15F);
-					if (!world.isRemote && ManaItemHandler.requestManaExactForTool(stack, player, 400, true))
-						world.spawnEntity(sub);
-				}
-			}
 		}
 	}
 
@@ -130,7 +157,7 @@ public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem {
 					if (!world.isRemote)
 						world.spawnEntity(sub);
 					if (i == 1)
-						sub.playSound(ModSounds.spearsubspace, 1F, 1F);
+						sub.playSound(ModSounds.spearsubspace, 1.6F, 1F);
 
 				}
 			player.addPotionEffect(new PotionEffect(ModPotions.eternity, 120, 0));

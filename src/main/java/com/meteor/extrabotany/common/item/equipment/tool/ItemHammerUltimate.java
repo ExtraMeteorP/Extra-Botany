@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -63,7 +64,7 @@ public class ItemHammerUltimate extends ItemHammer implements IManaItem, ISequen
 	private static final int MANA_PER_DAMAGE = 80;
 	
 	public ItemHammerUltimate() {
-		super(LibItemsName.HAMMER_ULTIMATE, BotaniaAPI.terrasteelToolMaterial);
+		super(LibItemsName.HAMMER_ULTIMATE, ExtraBotanyAPI.ultimateHammer);
 		setMaxDamage(3000);
 		addPropertyOverride(new ResourceLocation(LibMisc.MOD_ID, "enabled"), (itemStack, world, entityLivingBase) -> isEnabled(itemStack) ? 1 : 0);
 	}

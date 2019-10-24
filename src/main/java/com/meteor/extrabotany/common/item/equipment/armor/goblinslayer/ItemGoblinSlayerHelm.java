@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -17,6 +18,7 @@ public class ItemGoblinSlayerHelm extends ItemGoblinSlayerArmor{
 
 	public ItemGoblinSlayerHelm() {
 		super(EntityEquipmentSlot.HEAD, LibItemsName.GSHELM);
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 	
 	@Override
@@ -37,7 +39,7 @@ public class ItemGoblinSlayerHelm extends ItemGoblinSlayerArmor{
 		if(target instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) target;
 			if(hasArmorSet(player) && player.getEntityWorld().isDaytime()) {
-				event.setAmount(event.getAmount() * 0.75F);
+				event.setAmount(event.getAmount() * 0.65F);
 			}	
 		}
 	}
@@ -49,7 +51,7 @@ public class ItemGoblinSlayerHelm extends ItemGoblinSlayerArmor{
 			EntityPlayer player = (EntityPlayer) attacker;
 			if(hasArmorSet(player) && player.getEntityWorld().isDaytime()) {
 				if(event.getEntityLiving().getCreatureAttribute() != EnumCreatureAttribute.UNDEAD){
-					event.setAmount(event.getAmount() * 1.25F);
+					event.setAmount(event.getAmount() * 1.35F);
 				}
 			}	
 		}

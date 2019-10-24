@@ -22,11 +22,9 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 
 public class ItemShadowWarriorArmor extends ItemCosmeticMaidArmor implements IDarkElfSpawner{
@@ -34,10 +32,7 @@ public class ItemShadowWarriorArmor extends ItemCosmeticMaidArmor implements IDa
 	public static final String TAG_NIGHT = "isnight";
 	
 	public ItemShadowWarriorArmor(EntityEquipmentSlot type, String name) {
-		super(type, name, BotaniaAPI.elementiumArmorMaterial);
-		addPropertyOverride(new ResourceLocation("extrabotany:slayer"), (stack, worldIn, entityIn) -> {
-			return stack.getDisplayName().toLowerCase().indexOf("slayer") != -1 ? 1.0F : 0.0F;
-		});
+		super(type, name, ExtraBotanyAPI.shadowiumArmorMaterial);
 	}
 	
 	@Override
@@ -76,7 +71,7 @@ public class ItemShadowWarriorArmor extends ItemCosmeticMaidArmor implements IDa
 		if (slot == armorType) {
 			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.25F : 0,  1));
 			attrib.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.125F : 0, 1));
-			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.04F : 0, 1));
+			attrib.put(SharedMonsterAttributes.ATTACK_SPEED.getName(), new AttributeModifier(uuid, "ShadowWarrior modifier " + type, night ? 0.05F : 0, 1));
 		}
 		return attrib;
 	}

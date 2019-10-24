@@ -158,16 +158,17 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 	public void setHealth(float health) {
 		super.setHealth(Math.max(health, getHealth() - 8F));
 	}
-	
+
 	private void punish() {
-		if(this.getPlayersAround().size() > this.playerCount) {
-			if(this.world.isRemote)
-				for(EntityPlayer player : this.getPlayersAround())
-					if(player != null && !player.isDead)
-						player.sendMessage(new TextComponentTranslation("botaniamisc.illegalBattle")
-								.setStyle(new Style().setColor(TextFormatting.RED)));
-			this.setDead();
-		}
+		if (!ConfigHandler.ENABLE_ILLEGALACTION)
+			if (this.getPlayersAround().size() > this.playerCount) {
+				if (this.world.isRemote)
+					for (EntityPlayer player : this.getPlayersAround())
+						if (player != null && !player.isDead)
+							player.sendMessage(new TextComponentTranslation("botaniamisc.illegalBattle")
+									.setStyle(new Style().setColor(TextFormatting.RED)));
+				this.setDead();
+			}
 	}
 
 	@Override
@@ -176,7 +177,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 		if (this.ticksExisted < 60)
 			return;
-		
+
 		punish();
 
 		for (EntityPlayer player : getPlayersAround()) {
@@ -352,9 +353,9 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 				ExtraBotanyAPI.unlockAdvancement(p, LibAdvancements.MUSIC_ALL);
 
 	}
-	
+
 	private static boolean check(EntityPlayer player) {
-		if(player.isCreative())
+		if (player.isCreative())
 			return true;
 		if (!match(player.getHeldItemMainhand()))
 			return false;
@@ -512,9 +513,9 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 			return false;
 		}
-		
-		//check inventory
-		if(!check(player)) {
+
+		// check inventory
+		if (!check(player)) {
 			if (world.isRemote)
 				player.sendMessage(new TextComponentTranslation("botaniamisc.illegalInventory")
 						.setStyle(new Style().setColor(TextFormatting.RED)));
@@ -721,7 +722,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 			if (!playersWhoAttacked.contains(player.getUniqueID()))
 				playersWhoAttacked.add(player.getUniqueID());
-			
+
 			if (vazkii.botania.common.core.helper.MathHelper.pointDistancePlane(player.posX, player.posZ,
 					getSource().getX(), getSource().getZ()) > ARENA_RANGE)
 				player.attemptTeleport(getSource().getX(), getSource().getY(), getSource().getZ());
@@ -917,7 +918,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 					int yp = posYInt + j;
 					int zp = posZInt + k;
 					BlockPos posp = new BlockPos(xp, yp, zp);
-					if (isCheatyBlock(world, posp) 
+					if (isCheatyBlock(world, posp)
 							|| (ConfigHandler.GAIA_SMASH && !match(world.getBlockState(posp).getBlock()))) {
 						world.destroyBlock(posp, true);
 					}

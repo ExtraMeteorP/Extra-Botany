@@ -1,9 +1,7 @@
 package com.meteor.extrabotany.client.core.handler;
 
-import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.particle.ParticleCloudPattern;
 import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
-import com.meteor.extrabotany.common.core.handler.PlayerStatHandler;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -12,11 +10,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 

@@ -6,6 +6,7 @@ import java.util.UUID;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Multimap;
+import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.client.model.ModelArmorGoblinSlayerNew;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidArmor;
@@ -20,7 +21,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 
 public class ItemGoblinSlayerArmor  extends ItemCosmeticMaidArmor{
@@ -28,7 +28,7 @@ public class ItemGoblinSlayerArmor  extends ItemCosmeticMaidArmor{
 	public static final String TAG_DAY = "isday";
 
 	public ItemGoblinSlayerArmor(EntityEquipmentSlot type, String name) {
-		super(type, name, BotaniaAPI.elementiumArmorMaterial);
+		super(type, name, ExtraBotanyAPI.goblinslayerArmorMaterial);
 	}
 	
 	@Override
@@ -64,7 +64,7 @@ public class ItemGoblinSlayerArmor  extends ItemCosmeticMaidArmor{
 		UUID uuid = new UUID((getUnlocalizedName() + slot.toString()).hashCode(), 0);
 		boolean night = ItemNBTHelper.getBoolean(stack, TAG_DAY, false);
 		if (slot == armorType) {
-			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "GoblinSlayer modifier " + type, night ? 0.25F : 0,  1));
+			attrib.put(SharedMonsterAttributes.MAX_HEALTH.getName(), new AttributeModifier(uuid, "GoblinSlayer modifier " + type, night ? 0.5F : 0,  1));
 			attrib.put(SharedMonsterAttributes.MOVEMENT_SPEED.getName(), new AttributeModifier(uuid, "GoblinSlayer modifier " + type, night ? 0.04F : 0, 1));
 		}
 		return attrib;

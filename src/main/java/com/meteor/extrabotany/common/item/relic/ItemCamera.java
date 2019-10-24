@@ -49,7 +49,7 @@ public class ItemCamera extends ItemModRelic implements IManaUsingItem {
 					living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 100, 5));
 					int time = 200;
 					if (!living.isNonBoss())
-						time = 30;
+						time = 40;
 					if (living.getEntityData().getInteger("freezeTimes") > 10)
 						time = 0;
 					living.getEntityData().setInteger("freezeTime", time);

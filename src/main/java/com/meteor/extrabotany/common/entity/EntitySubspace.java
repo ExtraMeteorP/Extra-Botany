@@ -75,7 +75,7 @@ public class EntitySubspace extends EntityThrowableCopy {
 
 		if (!world.isRemote)
 			if (getType() == 0) {
-				if (ticksExisted % getInterval() == 0 && getCount() < 6 && ticksExisted > getDelay() + 5
+				if (ticksExisted % getInterval() == 0 && getCount() < 5 && ticksExisted > getDelay() + 5
 						&& ticksExisted < getLiveTicks() - getDelay() - 10) {
 					if (!(thrower instanceof EntityPlayer))
 						setDead();
@@ -99,7 +99,7 @@ public class EntitySubspace extends EntityThrowableCopy {
 					spear.rotationYaw = thrower.rotationYaw;
 					spear.setPitch(-thrower.rotationPitch);
 					spear.setRotation(MathHelper.wrapDegrees(-thrower.rotationYaw + 180));
-					spear.shoot(thrower, thrower.rotationPitch, thrower.rotationYaw, 0.0F, 1.45F, 1.0F);
+					spear.shoot(thrower, thrower.rotationPitch, thrower.rotationYaw, 0.0F, 2.45F, 1.0F);
 					spear.setPosition(posX, posY - 0.75F, posZ);
 					thrower.world.spawnEntity(spear);
 					setCount(getCount() + 1);

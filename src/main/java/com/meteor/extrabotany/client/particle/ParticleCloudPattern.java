@@ -1,7 +1,5 @@
 package com.meteor.extrabotany.client.particle;
 
-import org.lwjgl.opengl.GL11;
-
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.client.Minecraft;
@@ -15,7 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vazkii.botania.client.core.helper.ShaderHelper;
 
 @SideOnly(Side.CLIENT)
 public class ParticleCloudPattern extends Particle{

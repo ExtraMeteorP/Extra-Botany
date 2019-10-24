@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -21,6 +22,7 @@ import vazkii.botania.api.state.BotaniaStateProps;
 import vazkii.botania.api.state.enums.PylonVariant;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.block.ModBlocks;
+import vazkii.botania.common.block.tile.mana.TilePool;
 
 public class TilePedestal extends TileInventoryBase implements ITickable{
 
@@ -67,6 +69,16 @@ public class TilePedestal extends TileInventoryBase implements ITickable{
 				if (!getWorld().isRemote)
 					o.addXP(getItem(), 9);
 				Botania.proxy.sparkleFX(pos.getX() + 0.5F, pos.getY() + 1.3F, pos.getZ() + 0.5F, 0.1F, 1F, 0.1F, 4F, 10);
+				for(BlockPos pos : POOL_LOCATIONS) {
+					TileEntity te = this.world.getTileEntity(this.pos.add(pos));
+					if(te != null && te instanceof TilePool) {
+						TilePool pool = (TilePool) te;
+						if(!world.isRemote && pool.getCurrentMana() >=10) {
+							pool.recieveMana(-10);
+							o.addXP(getItem(), 2);
+						}
+					}
+				}
 			}else if(canInfuse(world, pos)){
 				if (!getWorld().isRemote)
 					o.addXP(getItem(), 4);
@@ -77,8 +89,10 @@ public class TilePedestal extends TileInventoryBase implements ITickable{
 		if(getItem().getItem() == ModItems.nightmareFuel){
 			if(world.isDaytime()){
 				solar++;
-				if(solar >= 6000)
+				if(solar >= 6000) {
 					setItem(new ItemStack(ModItems.spiritFuel));
+					markForUpdate();
+				}
 			}
 		}else
 			solar = 0;

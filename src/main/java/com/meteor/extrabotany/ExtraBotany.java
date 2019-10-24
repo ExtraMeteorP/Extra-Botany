@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.meteor.extrabotany.client.core.handler.GuiHandler;
 import com.meteor.extrabotany.common.CommonProxy;
-import com.meteor.extrabotany.common.core.config.ConfigHandler;
+import com.meteor.extrabotany.common.core.handler.Meme;
 import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
@@ -33,14 +33,14 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = LibMisc.MOD_ID, name = ExtraBotany.NAME, version = ExtraBotany.VERSION, dependencies = "required-after:botania@[r1.10-361,);"
+@Mod(modid = LibMisc.MOD_ID, name = ExtraBotany.NAME, version = ExtraBotany.VERSION, dependencies = "required-after:botania@[r1.10-357,);"
 		+ "after:baubles@[1.5.2,);" + "after:waila;" + "after:theoneprobe;" + "after:thaumcraft@[6.1.BETA25,);"
 		+ "after:tconstruct;" + "after:mtlib;" + "after:crafttweaker;"
 		+ "before:armoryexpansion", updateJSON = ExtraBotany.UPDATE_URL, guiFactory = "com.meteor.extrabotany.common.core.config.ConfigGui")
 public class ExtraBotany {
 	public static final String MODID = "extrabotany";
 	public static final String NAME = "extrabotany";
-	public static final String VERSION = "55";
+	public static final String VERSION = "56";
 
 	public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
 
@@ -66,7 +66,7 @@ public class ExtraBotany {
 	static {
 		try {
 			Class.forName("com.gamerforea.eventhelper.EventHelperMod");
-			isTableclothServer = false;
+			isTableclothServer = true;
 		} catch (ClassNotFoundException e) {
 		}
 	}
@@ -130,96 +130,12 @@ public class ExtraBotany {
 				CraftTweakerAPI.logError("Error while applying actions", e);
 			}
 		}
-		if (ConfigHandler.ENABLE_FEATURES) {
-			logger.info(
-					"o****************ooooooooooooooo$$$$$$$$$&&&$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&&&&&&&&&&&&&ooooooooo");
-			logger.info(
-					"****$$**************ooooooooo!$$$$$$$$$$$$&$$$$$$$$$$$&$$$$$$$$$$$$$$$$$$$$$$$$&&&&&&&&&&&*ooooooooo");
-			logger.info(
-					"*$****$$***************ooooo$$$$$$$$$$$$$&&$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&&&&&&&&oooooooooo");
-			logger.info(
-					"o*$*oo*******************o$$$$$$$$$$$$$$$&$$$$$$$$$$$$$&$$$$$$$$$$$$$$$$$$$$$$$$$$&&&&&&&&oooooooooo");
-			logger.info(
-					"oo$*$oo*****************$$$$$$$$$$$$$$$$$&$$$$$$$$$$$$$$&$$$$$$$$$$$$$$$$$$$$$$$$$$&&&&&&&!ooooooooo");
-			logger.info(
-					"ooo**$****o*o**********$$$$$$$!$$$$$$$$$$&$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&&&&&oooooooooo");
-			logger.info(
-					"!ooo**$oooo*ooo*******$$$$$$$$$$$o!$$$$$$$$$$$$$$$$$o$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&&&$oooooooooo");
-			logger.info(
-					"!oooo****ooooo**oo***$$$$$$$$$$$$$$$$$$o!$$$$$$$$$$$o;*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&&$o!oooooooo");
-			logger.info(
-					"!ooooo****oooooooooo$$$$$$$$$$$$$$$$$$!;;$$$$$$$$$$$;;;!$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&&o!!!oooo!oo");
-			logger.info(
-					"!!oooooo*!!o**oooo$$$$$$$$o$$$$$$$$$o;;;;$$$$$$$$$$$;;;!**$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&&!o!!!!!!!!!");
-			logger.info(
-					"!!ooooooo****oo$$$$$$$$$$$$$!o$$$$o;;;;*o$$$$$$$$$$$oo;;;;;$$$$$$$$$$$$$$$$$$$$$$$$$$$$$&!!!!!!!!!!!");
-			logger.info(
-					"!!ooooo*$$$$$$$$*$$$$$$$$$$$$$$!$;;;;;;;;!$$$$$$$$$$;;;;;;;;!$$$$$$$$$$$$$$$$$$$$$$$$$$$&!!!!!!!!!!!");
-			logger.info(
-					"!!ooo!ooo*;;;!!o$$$$$$$$$$$$$$$$;;;;;;;;;;$$$$$$$$$$;;;o!;!o!;!$$$$$$$$$$$$$$$$$$$$$$$$$$*!!!!!!!!!!");
-			logger.info(
-					";!!!!oooo*;..;;!$$$$$$$$$$$$$$$;;;;$&$;;;;;$$;o$$$$$;;;;888888$;o$$$$$$$$$$$$$$$$$$$$$$$$$$!!!!oo!!!");
-			logger.info(
-					"....;!!!oo;...o$$$$$$$$$$$$$$$;;*88$o$8**;;!$;;;$$$$;;!$!&8&!!$8$;$$$$$$$$&$$$$$$$$$$$$$$!!*$!!o*!!!");
-			logger.info(
-					"........;o;..;*$$$$$$$$$$$$$$;;&8!!*8$.&!;;;o!;;;!$$o;;;8&8..$!!8&;$$$$$$$$$$$$$$$$$$$$$$!!!!!!$*!!!");
-			logger.info(
-					".........o;...o$$$$$$$$$$$$$$;$8!;&8o8.**;;;;;;;;;;*$;;8888888$;!8$o$$$$$$$$$$$$$$$$$$$$$$!!!!ooo!!!");
-			logger.info(
-					".........o!;;.!$$$$$$$$$$$$$o;&8.;88&888&;;;;;;;;;;;;!o8&88888&.;8$;$$$$$$$$$$$$$$$$$$$$$$o!!!!o*!!!");
-			logger.info(
-					".........o!;;.!$$$$$$$$$$$&$;;;&.!8&$$&&$;;;;;;;;;;;;;!o.**$&8;.*!;;$$$$$$$$$$$$$$$$$$$$$$;!ooo*$o*o");
-			logger.info(
-					".........!;...!$$$$$$$$$$$&$;;;;..&;**$$;;;;;;;;;;;;;;;$&$$&8..;;;;$$$$$$$$$$$$$$$$$$$$$$$$;!!!o*!!!");
-			logger.info(
-					".........!;...$$$$$$$$$$$$&&!;;;;;;!*!;;;;;;;;;;;;;;;;;;;;;;;;;;;;;$$$$$$$$$$$$*&$&$$$$$$$$;!!!!*!!!");
-			logger.info(
-					"*o!;.....!!...$$$$$$$$$$$$&&$;;;;;!;!;;;;;;;;!!;;;;;;;;;;;;;;;;;;;$$$$$$$$$$$$$;$&$$$$$$$$$$!!;!*!;!");
-			logger.info(
-					"$*$$$$*o;!;...$$$$$$$$$$$$$&&;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;o$$$$$$$$$$$$$;&$$$$$$$$$$$!;;!*;;;");
-			logger.info(
-					"$oooooooo*;.;$$$$$$$$$$$$$$&&;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;$$$$$$$$$$$$*;o$$$$$$$$$$$$$;;!*;;;");
-			logger.info(
-					"*oooooo*$$$$$$$$$$$$$$$$$$$&$;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;$$$$$$$$$$$$$;$$$$$$$$$$$$$$o$!;*;;;");
-			logger.info(
-					"*;;;!$$$$$$$$$&$$$$$$$$$$$$$$;;;;;;;;;;;;;;;;o.;;;;;;;;;;;;;;;;$$$$$$$$$$$$$$$$$$$$$&$$$$$$$!;;$o;;;");
-			logger.info(
-					"*....$&$$$$$$$$$$$$$$$$$$$$$$*;;;;;;;;o;;;;;;$$*;;;;;;;;;;;;;;$$$$$$&$$$$$$$$$$$$$&&$$$$$$$$;;;;*!;;");
-			logger.info(
-					"*....$$$$$$$$$$$$$$$$$$$$$$$$$$;;;;;;;;;;;;;;$***;;;;;;;;;;;;$$$$$$!!!!!!!!!!!!!!!!*$$$$*$$;;;;;*!..");
-			logger.info(
-					"*....o$$$$$$$$$$&$$$$$$*!!!!!*$$$;;;;;;;;;;;;****;;;;;;;;;;$o!!!!!!!!!!!!!!!!!!!!!!!!oooo$o!;..;*!..");
-			logger.info(
-					"*.....$$$$$$$$$$$$$$$$!!!!!!!!!!!*$*;;;;;;;;;;;;;;;;;;;*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!o!$oooo!;;*;..");
-			logger.info(
-					"o.....$&$$$$$$$$$$$$o!!!!!!!!!!!!!!!*!!!!!!o*!;;;;;*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*o!;;;..;o!..");
-			logger.info(
-					"o.....!$$$$$$$$$$$$$!!!!!!!!!!!!!!!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*!*o;;*****o;.");
-			logger.info(
-					"o...;!!$&$$$$$$$$$$!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!oooo*ooo;;**o;o*o;");
-			logger.info(
-					"o...;o*$$$$$$$!!!!!!o!!!!!!!!!!!!!!!!!!!!!o!!!!!!!!!!!!!!!!!!!!!!!!!!o*o!!!!!!!!!!!!!!!!!!!!o*;;***o");
-			logger.info(
-					"o..!***$$&$$$!!!!!!!!!o!!!!!!!!!!!!!!!!!!!!!*!!!!!!!!!!!!!!!!*o!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!**oo*");
-			logger.info(
-					"o...;.!$*$$$$!!!!!!!!!!!!o!!!!!!!!!!!!!!!!!!!!**$o!!!!;!*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!o!o");
-			logger.info(
-					"o.....;*$$&$$!!!!!!!!!!!!!!!!o!!!!!!!!!!!!!!!!!ooooooo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!o!!");
-			logger.info(
-					"*;;.;o$$$$$&$!!!!!!!!!!!!!!!!!!!$!!!!!!!!!!!!!!!!$oooo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$o!!");
-			logger.info(
-					"$**$*!*$$$$$$!!!!!!!!!!!!!!!!!!!!o*$!!!!!!!!!!!!!!!*ooooo!!!!!!!!!!!!!!!!!!!!!!!!!!o**$*!!!!!!!$$***");
-		}
+		Meme.init();
 	}
 
 	@EventHandler
 	public void serverStarting(FMLServerStartingEvent event) {
 		proxy.serverStarting(event);
-	}
-
-	@Mod.EventHandler
-	public void loadComplete(FMLLoadCompleteEvent event) {
-
 	}
 
 }

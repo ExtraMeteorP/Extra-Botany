@@ -8,6 +8,8 @@ botania.brew.floating=漂浮
 
 extrabotany.nei.pedestal=活石祭坛
 tooltip.extrabotany.description=你无法使用该物品直到你完成进度" %s ".
+botaniamisc.illegalBattle=在场人数比召唤时的人数还多！这是弟弟行为。
+botaniamisc.illegalInventory=你携带了一些违禁物品！请再次检查你的背包，需要更多提示请查阅手册。
 
 item.extrabotany:manareader.name=魔力读取器
 item.extrabotany:binder.name=坐标读取器

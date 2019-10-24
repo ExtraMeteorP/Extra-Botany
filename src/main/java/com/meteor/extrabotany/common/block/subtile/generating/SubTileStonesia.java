@@ -34,9 +34,9 @@ public class SubTileStonesia extends SubTileGeneratingNature{
 
 	@Override
 	public void onUpdate() {
-		super.onUpdate();
 		if(redstoneSignal > 0)
 			return;
+		super.onUpdate();
 
 		if(cooldown > 0) {
 			cooldown--;

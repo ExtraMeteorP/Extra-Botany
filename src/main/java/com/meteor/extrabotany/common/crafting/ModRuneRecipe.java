@@ -47,7 +47,7 @@ public class ModRuneRecipe {
 				new ItemStack(ModItems.hammerterrasteel), new ItemStack(ModItems.gildedmashedpotato),
 				new ItemStack(ModItems.gildedmashedpotato), new ItemStack(ModItems.gildedmashedpotato),
 				new ItemStack(Blocks.GOLD_BLOCK));
-		recipeShadowium = BotaniaAPI.registerRuneAltarRecipe(new ItemStack(ModItems.material, 1, 5), 2200,
+		recipeShadowium = BotaniaAPI.registerRuneAltarRecipe(new ItemStack(ModItems.material, 1, 5), 4200,
 				LibOreDict.ELEMENTIUM, new ItemStack(ModItems.nightmareFuel), new ItemStack(ModItems.nightmareFuel),
 				new ItemStack(ModItems.gildedmashedpotato), new ItemStack(ModItems.nightmareFuel));
 		recipeDarkened = BotaniaAPI.registerRuneAltarRecipe(new ItemStack(ModItems.cmchestdarkened), 50000,
@@ -73,7 +73,7 @@ public class ModRuneRecipe {
 				new ItemStack(ModItems.elvenking), new ItemStack(ModItems.material, 1, 3), LibOreDict.RUNE[9],
 				LibOreDict.RUNE[10], LibOreDict.RUNE[11], LibOreDict.RUNE[12], LibOreDict.RUNE[13], LibOreDict.RUNE[14],
 				LibOreDict.RUNE[15]);
-		recipePhotonium = BotaniaAPI.registerRuneAltarRecipe(new ItemStack(ModItems.material, 1, 8), 2200,
+		recipePhotonium = BotaniaAPI.registerRuneAltarRecipe(new ItemStack(ModItems.material, 1, 8), 4200,
 				LibOreDict.ELEMENTIUM, new ItemStack(ModItems.material), new ItemStack(ModItems.material),
 				new ItemStack(ModItems.gildedmashedpotato), new ItemStack(ModItems.material));
 	}

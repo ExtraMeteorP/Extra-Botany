@@ -7,7 +7,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Multimap;
-import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.client.render.IModelReg;
@@ -35,7 +34,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;

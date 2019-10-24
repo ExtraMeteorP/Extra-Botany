@@ -429,8 +429,8 @@ public class ModCraftingRecipe {
 				LibOreDicts.PHOTONIUM);
 		GSBOOTS.setRegistryName(getResource("recipe_gsboots"));
 
-		TICKET = new ShapedOreRecipe(getResource("recipe_ticket"), new ItemStack(ModItems.material, 1, 6), " B ", "ACA",
-				" B ", 'A', LibOreDicts.PHOTONIUM, 'B', LibOreDicts.SHADOWIUM, 'C', LibOreDict.GAIA_INGOT);
+		TICKET = new ShapedOreRecipe(getResource("recipe_ticket"), new ItemStack(ModItems.material, 1, 6), "DBD", "ACA",
+				"DBD", 'A', LibOreDicts.PHOTONIUM, 'B', LibOreDicts.SHADOWIUM, 'C', LibOreDict.GAIA_INGOT, 'D', LibOreDict.LIFE_ESSENCE);
 		TICKET.setRegistryName(getResource("recipe_ticket"));
 
 		REWARDBAG943 = new ShapelessOreRecipe(getResource("recipe_rewardbag943"),

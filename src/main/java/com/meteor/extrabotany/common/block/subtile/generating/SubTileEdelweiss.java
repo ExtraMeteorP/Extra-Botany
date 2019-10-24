@@ -22,9 +22,9 @@ public class SubTileEdelweiss extends SubTileGenerating{
 	
 	@Override
 	public void onUpdate() {
-		super.onUpdate();
 		if(redstoneSignal > 0)
 			return;
+		super.onUpdate();
 		
 		if(burnTime > 0)
 			burnTime--;

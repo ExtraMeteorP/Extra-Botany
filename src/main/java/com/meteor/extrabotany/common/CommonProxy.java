@@ -39,7 +39,6 @@ public class CommonProxy {
 		ModBrew.init();
 		ModRecipe.init();
 		LexiconData.init();
-		// ModWorld.init();
 		Integration.init();
 		DispenserBehaviors.init();
 		MinecraftForge.EVENT_BUS.register(new ModStageLock());

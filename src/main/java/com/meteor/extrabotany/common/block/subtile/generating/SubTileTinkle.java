@@ -33,9 +33,9 @@ public class SubTileTinkle extends SubTileGeneratingNature{
 	
 	@Override
 	public void onUpdate() {
-		super.onUpdate();
 		if(redstoneSignal > 0)
 			return;
+		super.onUpdate();
 		World world = this.supertile.getWorld();
 		if(!world.isRemote && world.getTotalWorldTime() % 20L == 0){
             NBTTagCompound tag = this.supertile.getTileData();

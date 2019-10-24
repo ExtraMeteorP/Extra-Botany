@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
-import vazkii.botania.client.core.helper.ShaderHelper;
 
 public class RenderVoid extends Render<EntityVoid>{
 

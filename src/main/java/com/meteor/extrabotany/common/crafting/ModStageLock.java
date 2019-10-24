@@ -43,11 +43,12 @@ public class ModStageLock {
 			BlockPos source = event.getEntityPlayer().getPosition();
 			float range = 12F;
 			List<EntityLivingBase> livings = event.getEntityPlayer().world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));		
-			for(EntityLivingBase living : livings) {
-				if(living instanceof EntityGaiaIII || living instanceof EntityVoidHerrscher)
-					if(!EntityGaiaIII.match(event.getItemStack()))
-						event.setCanceled(true);
-			}
+			if(ConfigHandler.GAIA_DISARM)
+				for(EntityLivingBase living : livings) {
+					if(living instanceof EntityGaiaIII || living instanceof EntityVoidHerrscher)
+						if(!EntityGaiaIII.match(event.getItemStack()))
+							event.setCanceled(true);
+				}
 		}
 	}
 

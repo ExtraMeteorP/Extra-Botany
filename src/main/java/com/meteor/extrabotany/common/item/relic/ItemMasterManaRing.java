@@ -1,10 +1,8 @@
 package com.meteor.extrabotany.common.item.relic;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
-import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemBaubleRelic;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;

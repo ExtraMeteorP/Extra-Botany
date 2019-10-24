@@ -118,6 +118,7 @@ public class ConfigHandler {
 	public static String[] REWARDBAG5 = new String[] {};
 	public static String[] REWARDBAG6 = new String[] {};
 	public static boolean ENABLE_TRUEDAMAGE = true;
+	public static boolean ENABLE_ILLEGALACTION = false;
 
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
@@ -168,6 +169,10 @@ public class ConfigHandler {
 		ENABLE_TRUEDAMAGE = loadPropBool("enable.truedamage", desc, ENABLE_TRUEDAMAGE);
 		desc = "Whether to disable advancement requirement for relics. Set true to make all relics no longer require advancements.Default is false.";
 		DISABLE_ADVANCEMENTREQUIREMENT = loadPropBool("disable.advancementrequirement", desc, DISABLE_ADVANCEMENTREQUIREMENT);
+		desc = "Whether to disable spam in logs. Set false to disable it.";
+		ENABLE_FEATURES = loadPropBool("enable.features", desc, ENABLE_FEATURES);
+		desc = "Whether to enable that there can be more people than when the boss is summoned. Set true to enable it";
+		ENABLE_ILLEGALACTION = loadPropBool("enable.illegalpeople", desc, ENABLE_ILLEGALACTION);
 
 		WHITELIST = CONFIG.getStringList("GaiaIII Disarm Whitelist", Configuration.CATEGORY_GENERAL, new String[] {},
 				"syntax: modid:name or modid:name:meta");
@@ -224,8 +229,6 @@ public class ConfigHandler {
 		ENABLE_GO = CONFIG.get("enable flowers", "geminiorchid", true).getBoolean(true);
 		ENABLE_NF = CONFIG.get("enable flowers", "necrofleur", true).getBoolean(true);
 
-		ENABLE_FEATURES = CONFIG.get("enable features", "easter eggs", true).getBoolean(true);
-
 		ENABLE_SHIELD = CONFIG.get("enable shields", "enable non-relic shields", true).getBoolean(true);
 
 		MG_MAXENERGY = CONFIG.getInt("max energy stored", "flux manafield", 40000, 1, Integer.MAX_VALUE, "");
@@ -241,11 +244,11 @@ public class ConfigHandler {
 		WRITTENBOOK_BURNTIME = CONFIG.getInt("written book burn time", "omniviolet", 65, 1, Integer.MAX_VALUE, "");
 		LP_OMNIVIOLET = CONFIG.get("omniviolet", "enable catalysis", true).getBoolean(true);
 
-		EFF_BELLFLOWER = CONFIG.getInt("efficiency", "bell flower", 8, 1, Integer.MAX_VALUE, "");
-		BASEY = CONFIG.getInt("base Y to work", "bell flower", 64, 1, Integer.MAX_VALUE, "");
+		EFF_BELLFLOWER = CONFIG.getInt("efficiency", "bell flower", 11, 1, Integer.MAX_VALUE, "");
+		BASEY = CONFIG.getInt("base Y to work", "bell flower", 100, 1, Integer.MAX_VALUE, "");
 		LP_BELLFLOWER = CONFIG.get("bell flower", "enable catalysis", true).getBoolean(true);
 
-		EFF_BLOODYENCHANTRESS = CONFIG.getInt("mana per tick", "bloodyenchantress", 20, 1, Integer.MAX_VALUE, "");
+		EFF_BLOODYENCHANTRESS = CONFIG.getInt("mana per tick", "bloodyenchantress", 22, 1, Integer.MAX_VALUE, "");
 		BLOOD_BURNTIME = CONFIG.getInt("blood burn time", "bloodyenchantress", 20, 1, Integer.MAX_VALUE, "");
 
 		EFF_MOONBLESS = CONFIG.getInt("mana per tick", "moonbless", 1, 1, Integer.MAX_VALUE, "");
@@ -258,8 +261,8 @@ public class ConfigHandler {
 		EFF_STONESIA = CONFIG.getInt("mana per tick", "stonesia", 5, 1, Integer.MAX_VALUE, "");
 		LP_STONESIA = CONFIG.get("stonesia", "enable catalysis", true).getBoolean(true);
 
-		ANNOYINGFLOWER_COST = CONFIG.getInt("mana cost for fishing", "annoying flower", 100, 1, Integer.MAX_VALUE, "");
-		TICKS = CONFIG.getInt("interval bewteen fishing", "annoying flower", 500, 1, Integer.MAX_VALUE, "");
+		ANNOYINGFLOWER_COST = CONFIG.getInt("mana cost for fishing", "annoying flower", 150, 1, Integer.MAX_VALUE, "");
+		TICKS = CONFIG.getInt("interval bewteen fishing", "annoying flower", 600, 1, Integer.MAX_VALUE, "");
 		TIMES = CONFIG.getInt("times fried chicken leg add", "annoying flower", 3, 1, Integer.MAX_VALUE, "");
 
 		BASECOST = CONFIG.getInt("mana cost at least", "stardust lotus", 20000, 1, Integer.MAX_VALUE, "");

@@ -16,9 +16,9 @@ public class SubTileGeminiOrchid extends SubTileGeneratingNature{
 	
 	@Override
 	public void onUpdate() {
-		super.onUpdate();
 		if(redstoneSignal > 0)
 			return;
+		super.onUpdate();
 		
 		int tempMax = 700;
 		int tempMin = 700;

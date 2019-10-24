@@ -31,9 +31,9 @@ public class SubTileOmniViolet extends SubTileGenerating {
 
 	@Override
 	public void onUpdate() {
-		super.onUpdate();
 		if (redstoneSignal > 0)
 			return;
+		super.onUpdate();
 
 		float buff = ConfigHandler.LP_OMNIVIOLET ? 1 + bookCases() * 0.05F : 1;
 

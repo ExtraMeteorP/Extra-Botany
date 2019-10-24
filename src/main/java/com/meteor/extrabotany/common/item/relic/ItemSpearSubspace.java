@@ -78,7 +78,7 @@ public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem {
 			World world = player.getEntityWorld();
 			EntitySubspace sub = new EntitySubspace(world, player);
 			sub.setLiveTicks(24);
-			sub.setDelay(6);
+			sub.setDelay(5);
 			sub.posX = player.posX;
 			sub.posY = player.posY + 2.5F + world.rand.nextFloat() * 0.2F;
 			sub.posZ = player.posZ;

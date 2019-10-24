@@ -281,10 +281,10 @@ public class ItemExcaliber extends ItemSword
 		String attacker = ItemNBTHelper.getString(burst.getSourceLens(), TAG_ATTACKER_USERNAME, "");
 
 		if (burst.getColor() == 0XFFAF00 || burst.getColor() == 0XFFD700) {
-			AxisAlignedBB axis1 = new AxisAlignedBB(entity.posX - 2.5F, entity.posY - 2.5F, entity.posZ - 2.5F,
-					entity.lastTickPosX + 2.5F, entity.lastTickPosY + 2.5F, entity.lastTickPosZ + 2.5F);
+			AxisAlignedBB axis1 = new AxisAlignedBB(entity.posX - 1.3F, entity.posY - 1.3F, entity.posZ - 1.3F,
+					entity.lastTickPosX + 1.3F, entity.lastTickPosY + 1.3F, entity.lastTickPosZ + 1.3F);
 			if (burst.getColor() == 0XFFD700)
-				axis1.grow(1.5F);
+				axis1.grow(2.2F);
 			List<EntityLivingBase> entities = entity.world.getEntitiesWithinAABB(EntityLivingBase.class, axis1);
 			for (EntityLivingBase living : entities) {
 				if ((living instanceof EntityPlayer && (living.getName().equals(attacker)
@@ -294,10 +294,15 @@ public class ItemExcaliber extends ItemSword
 					continue;
 				if (burst.getColor() == 0XFFD700 && living instanceof EntityVoidHerrscher)
 					continue;
-				if (entity.ticksExisted % 3 == 0)
-					ExtraBotanyAPI.dealTrueDamage(living, living, burst.getColor() == 0XFFD700 ? 1.2F : 2.2F);
-				if (living.hurtTime == 0)
-					living.attackEntityFrom(ItemRelic.damageSource(), burst.getColor() == 0XFFD700 ? 8F : 8F);
+				if (entity.isNonBoss() && entity.ticksExisted % 10 == 0) {
+					ExtraBotanyAPI.dealTrueDamage(living, living, burst.getColor() == 0XFFD700 ? 1.4F : 0.22F);
+				}
+				if (living.hurtResistantTime == 0 && !burst.isFake()) {
+					living.attackEntityFrom(ItemRelic.damageSource(), burst.getColor() == 0XFFD700 ? 10F :  living.isNonBoss() ? 16F : 22F);
+					ExtraBotanyAPI.dealTrueDamage(living, living, burst.getColor() == 0XFFD700 ? 4F : living.isNonBoss() ? 7F : 9F);
+					living.hurtResistantTime = 10;
+					burst.setFake(true);
+				}
 			}
 			return;
 		}

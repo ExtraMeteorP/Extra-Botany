@@ -62,6 +62,7 @@ public class ItemPureDaisyPendant extends ItemBauble implements IManaUsingItem, 
 					if(getCount(stack) % 64 == 0)
 						setCD(stack, 3000);
 			}
+			return EnumActionResult.SUCCESS;
 		}
 		return EnumActionResult.PASS;
 	}

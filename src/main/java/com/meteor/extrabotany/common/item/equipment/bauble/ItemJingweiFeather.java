@@ -10,13 +10,11 @@ import com.meteor.extrabotany.common.lib.LibItemsName;
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import vazkii.botania.api.mana.ManaItemHandler;
 
 public class ItemJingweiFeather extends ItemBauble implements IAdvancementRequired{
 

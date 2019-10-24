@@ -7,13 +7,11 @@ import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.item.Bonus;
 import com.meteor.extrabotany.api.item.WeightCategory;
-import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -21,7 +19,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vazkii.botania.common.item.ModItems;
 
 public class ItemRewardBag extends ItemBonusBase {
 

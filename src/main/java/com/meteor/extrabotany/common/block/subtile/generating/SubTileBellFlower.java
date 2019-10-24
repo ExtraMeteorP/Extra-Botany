@@ -13,20 +13,20 @@ public class SubTileBellFlower extends SubTileGeneratingNature{
 	
 	@Override
 	public void onUpdate() {
-		super.onUpdate();
 		if(redstoneSignal > 0)
 			return;
+		super.onUpdate();
 		
 		int baseGen = ConfigHandler.EFF_BELLFLOWER;
 		int baseY = ConfigHandler.BASEY;
 		int y = this.supertile.getPos().getY();
         
-        int buff = ConfigHandler.LP_BELLFLOWER ? isEnabled() ? 2 : 0 : 0;
+        int buff = ConfigHandler.LP_BELLFLOWER ? isEnabled() ? 1 : 0 : 0;
         
 		if(this.getWorld().canBlockSeeSky(this.supertile.getPos()) && y > baseY){
-			int rain = ConfigHandler.LP_BELLFLOWER ? this.getWorld().isRaining() ? 2 : 0 : 0;
-			int gen = (baseGen + rain + buff) * y/baseY;
-			if(this.ticksExisted % 8 == 0)
+			int rain = ConfigHandler.LP_BELLFLOWER ? this.getWorld().isRaining() ? 3 : 0 : 0;
+			int gen = (baseGen + rain + buff) * y / baseY;
+			if(this.ticksExisted % 10 == 0)
 				mana += gen;
 		}
 		

@@ -81,7 +81,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
-import vazkii.botania.api.BotaniaAPI;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class ModItems {
@@ -183,7 +182,6 @@ public class ModItems {
 	public static final Item bottledpixie = new ItemBottledPixie();
 
 	public static final Item mask = new ItemCosmetic();
-	// public static final Item gamewinner = new ItemGameWinner();
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {

@@ -8,6 +8,8 @@ botania.brew.floating=Floating
 
 extrabotany.nei.pedestal=Livingrock Pedestal
 tooltip.extrabotany.description=You can' use it until you complete corresponding advancement " %s ".
+botaniamisc.illegalBattle=There are more people than there were when the boss is summoned. That's illegal.
+botaniamisc.illegalInventory=You have something that isn't allowed in this boss fight. Check your inventory and tips in the lexicon again.
 
 item.extrabotany:manareader.name=Mana Reader
 item.extrabotany:binder.name=Position Reader

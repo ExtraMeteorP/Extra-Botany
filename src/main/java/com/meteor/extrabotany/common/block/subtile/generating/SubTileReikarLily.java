@@ -22,15 +22,15 @@ public class SubTileReikarLily extends SubTileGenerating {
 
 	@Override
 	public void onUpdate() {
-		super.onUpdate();
 		if (redstoneSignal > 0)
 			return;
+		super.onUpdate();
 
 		BlockPos pos = this.supertile.getPos();
 
 		if (getWorld().isRaining() && getWorld().canSeeSky(pos) && cd == 0) {
 			int baseY = ConfigHandler.RL_BASEY;
-			if (getWorld().rand.nextInt((int) (3000 * baseY / pos.getY())) == 1) {
+			if (getWorld().rand.nextInt((int) (4000 * baseY / pos.getY())) == 1) {
 				EntityLightningBolt bolt = new EntityLightningBolt(getWorld(), pos.getX(), pos.getY(), pos.getZ(),
 						true);
 				getWorld().spawnEntity(bolt);
@@ -63,7 +63,7 @@ public class SubTileReikarLily extends SubTileGenerating {
 
 	@Override
 	public int getMaxMana() {
-		return 100000;
+		return 12000;
 	}
 
 	@Override

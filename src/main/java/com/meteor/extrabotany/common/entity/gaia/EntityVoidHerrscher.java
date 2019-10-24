@@ -28,7 +28,6 @@ import com.meteor.extrabotany.common.lib.LibMisc;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSound;
@@ -171,16 +170,17 @@ public class EntityVoidHerrscher extends EntityCreature
 	public void setHealth(float health) {
 		super.setHealth(Math.max(health, getHealth() - 8F));
 	}
-	
+
 	private void punish() {
-		if(this.getPlayersAround().size() > this.playerCount) {
-			if(this.world.isRemote)
-				for(EntityPlayer player : this.getPlayersAround())
-					if(player != null && !player.isDead)
-						player.sendMessage(new TextComponentTranslation("botaniamisc.illegalBattle")
-								.setStyle(new Style().setColor(TextFormatting.RED)));
-			this.setDead();
-		}
+		if (!ConfigHandler.ENABLE_ILLEGALACTION)
+			if (this.getPlayersAround().size() > this.playerCount) {
+				if (this.world.isRemote)
+					for (EntityPlayer player : this.getPlayersAround())
+						if (player != null && !player.isDead)
+							player.sendMessage(new TextComponentTranslation("botaniamisc.illegalBattle")
+									.setStyle(new Style().setColor(TextFormatting.RED)));
+				this.setDead();
+			}
 	}
 
 	@Override
@@ -481,9 +481,9 @@ public class EntityVoidHerrscher extends EntityCreature
 			contributorlist.remove(index);
 		}
 	}
-	
+
 	private static boolean check(EntityPlayer player) {
-		if(player.isCreative())
+		if (player.isCreative())
 			return true;
 		if (!match(player.getHeldItemMainhand()))
 			return false;

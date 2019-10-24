@@ -74,7 +74,7 @@ public class EntityMagicArrow extends EntityThrowableCopy {
 					continue;
 				double attribute = player.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
 				if (living.hurtTime == 0) {
-					attackedFrom(living, player, (int) (getDamage() + attribute));
+					attackedFrom(living, player, (int) (getDamage() + attribute * 0.8F));
 				}
 
 			}

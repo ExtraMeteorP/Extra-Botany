@@ -31,7 +31,7 @@ public class ItemSuperCrown extends ItemBauble implements ICosmeticBauble{
 			return;
 		EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 		if(BaublesApi.isBaubleEquipped(player, ModItems.supercrown) != -1 && hasArmorSet(player))
-			event.setAmount(Math.max(0, event.getAmount() - 1));
+			event.setAmount(Math.max(0, event.getAmount() - 2));
 	}
 	
 	public boolean hasArmorSet(EntityPlayer player) {

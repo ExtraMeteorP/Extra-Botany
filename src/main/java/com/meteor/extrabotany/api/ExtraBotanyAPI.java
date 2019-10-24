@@ -50,11 +50,13 @@ public class ExtraBotanyAPI {
 	public static final List<RecipeStonesia> stonesiaRecipes = new ArrayList<RecipeStonesia>();
 	public static final List<RecipeOmniviolet> omnivioletRecipes = new ArrayList<RecipeOmniviolet>();
 	public static final ArmorMaterial orichalcosArmorMaterial = EnumHelper.addArmorMaterial("ORICHALCOS", "orichalcos",
-			50, new int[] { 4, 7, 8, 3 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
-	public static final ArmorMaterial shadowiumArmorMaterial = EnumHelper.addArmorMaterial("SHADOWIUM", "shadowium", 12,
-			new int[] { 3, 6, 5, 2 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 3F);
-	public static final ToolMaterial shadowiumToolMaterial = EnumHelper.addToolMaterial("SHADOWIUM", 3, 800, 6.5F, 2F,
+			50, new int[] { 4, 7, 8, 3 }, 50, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
+	public static final ArmorMaterial shadowiumArmorMaterial = EnumHelper.addArmorMaterial("SHADOWIUM", "shadowium", 23,
+			new int[] { 3, 7, 6, 3 }, 28, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 1.5F);
+	public static final ToolMaterial shadowiumToolMaterial = EnumHelper.addToolMaterial("SHADOWIUM", 3, 880, 6.5F, 2F,
 			12);
+	public static final ArmorMaterial goblinslayerArmorMaterial = EnumHelper.addArmorMaterial("GOBLINSLAYER", "goblinslayer", 21,
+			new int[] { 3, 6, 6, 3 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.5F);
 	
 	public static final ToolMaterial manasteelHammer = EnumHelper.addToolMaterial("MANASTEELHAMMER", 3, 400, 6.8F, 2F, 20);
 	

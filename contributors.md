@@ -29,7 +29,7 @@ SM_Chicov
 Azitate
 CKATEPTb
 TheresaMOD3
-Kguranana
+minatoapua
 NanayaShiki_
 Achsr
 silentsliver

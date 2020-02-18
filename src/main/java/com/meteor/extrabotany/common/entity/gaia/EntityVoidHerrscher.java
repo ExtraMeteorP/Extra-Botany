@@ -168,7 +168,7 @@ public class EntityVoidHerrscher extends EntityCreature
 
 	@Override
 	public void setHealth(float health) {
-		super.setHealth(Math.max(health, getHealth() - 8F));
+		super.setHealth(Math.max(health, getHealth() - 18F));
 	}
 
 	private void punish() {
@@ -325,31 +325,31 @@ public class EntityVoidHerrscher extends EntityCreature
 		if (getRankIII()) {
 			if (this.supportcd > 0)
 				this.supportcd--;
-			if (ticksExisted % 95 == 0) {
+			if (ticksExisted % 80 == 0) {
 				for (int t = 0; t < 2; t++)
 					spawnMissile(2);
 				heal(1F);
 			}
 			if (cd == 0 && skillType == 1) {
 				spawnVoidJudge();
-				cd = 240;
+				cd = 250;
 				skillType = 2;
 			}
 		}
 
 		if (getRankII())
-			if (ticksExisted % 115 == 0)
+			if (ticksExisted % 110 == 0)
 				spawnMissile(1);
 
-		if (ticksExisted > 60 && ticksExisted % 75 == 0) {
+		if (ticksExisted > 60 && ticksExisted % 60 == 0) {
 			spawnMissile(0);
-			if (world.rand.nextInt(10) < 3)
+			if (world.rand.nextInt(10) < 4)
 				spawnMissile(1);
 		}
 
 		int base = getHardcore() ? 9 + playerCount * 3 : 7 + playerCount * 3;
 		int count = getRankIII() ? base + 6 : getRankII() ? base + 2 : base;
-		if (ticksExisted > 200 && ticksExisted % (getRankIII() ? 230 : getRankII() ? 270 : 310) == 0)
+		if (ticksExisted > 200 && ticksExisted % (getRankIII() ? 220 : getRankII() ? 260 : 310) == 0)
 			for (int i = 0; i < count; i++) {
 				int x = source.getX() - 10 + rand.nextInt(20);
 				int z = source.getZ() - 10 + rand.nextInt(20);

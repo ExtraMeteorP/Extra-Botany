@@ -83,7 +83,7 @@ public class SubTileEdelweiss extends SubTileGenerating{
 	
 	@Override
 	public RadiusDescriptor getRadius() {
-		return new RadiusDescriptor.Square(toBlockPos(), 2);
+		return new RadiusDescriptor.Square(toBlockPos(), 1);
 	}
 
 }

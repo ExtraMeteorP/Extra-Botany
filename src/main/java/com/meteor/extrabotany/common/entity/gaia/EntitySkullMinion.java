@@ -88,7 +88,7 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 		float m = 0.35F;
 		for(int i = 0; i < 15; i++)
 			Botania.proxy.wispFX(posX, posY + 1, posZ, 0.95F, 0.15F, 0.12F, 0.5F, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m, (float) (Math.random() - 0.5F) * m);
-		int cap = 15;
+		int cap = 10;
 		return super.attackEntityFrom(source, Math.min(cap, par2));
 	}
 	

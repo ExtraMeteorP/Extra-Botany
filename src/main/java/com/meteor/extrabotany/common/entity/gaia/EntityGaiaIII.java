@@ -156,7 +156,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 	@Override
 	public void setHealth(float health) {
-		super.setHealth(Math.max(health, getHealth() - 8F));
+		super.setHealth(Math.max(health, getHealth() - 20F));
 	}
 
 	private void punish() {

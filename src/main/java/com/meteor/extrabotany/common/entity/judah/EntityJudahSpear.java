@@ -102,7 +102,8 @@ public class EntityJudahSpear extends Entity{
                         living.attackEntityFrom(DamageSource.causePlayerDamage(thrower), getDamage() * 1.6F);
                     else
                         living.attackEntityFrom(DamageSource.LIGHTNING_BOLT, getDamage() * 1.6F);
-                    ExtraBotanyAPI.addPotionEffect(living, ModPotions.divinejustice, 4);
+                    if(living.isNonBoss())
+                    	ExtraBotanyAPI.addPotionEffect(living, ModPotions.divinejustice, 4);
                     ExtraBotanyAPI.dealTrueDamage(thrower, living, getDamage() * 0.15F);
                     setFlag(true);
                 }

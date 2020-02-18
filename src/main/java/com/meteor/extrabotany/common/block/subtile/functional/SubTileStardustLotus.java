@@ -39,11 +39,11 @@ public class SubTileStardustLotus extends SubTileFunctionalNature{
 	private static final String TAG_Z = "Posz";
 	private static final String TAG_DIM = "dim";
 	private static final String TAG_PAPER = "haspaper";
-	int dim = 0;
-	int consumed = 0;
-	int shouldCost = 0;
-	int x,z = 0;
-	int y = -1;
+	private int dim = 0;
+	private int consumed = 0;
+	private int shouldCost = 0;
+	private int x,z = 0;
+	private int y = -1;
 	boolean hasPaper = false;
 	
 	@Override
@@ -127,7 +127,7 @@ public class SubTileStardustLotus extends SubTileFunctionalNature{
 		if(consumed >= shouldCost){
 			Botania.proxy.sparkleFX(posx + 0.5F, posy + 1F, posz + 0.5F, 1F, 0.1F, 1F, 5F, 10);
 			for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
-				living.attemptTeleport(x,y + 0.5,z);
+				living.setPosition(x, y+1F, z);
 				if(living instanceof EntityPlayer)
 					ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.STARDUSTLOTUS_TELEPORT);
 			}

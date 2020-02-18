@@ -35,7 +35,7 @@ public class Integration {
 		if (ConfigHandler.ENABLE_TOP)
 			FMLInterModComms.sendFunctionMessage("theoneprobe", "getTheOneProbe",
 					"com.meteor.extrabotany.client.integration.theoneprobe.TOPHandler");
-		if (Loader.isModLoaded("conarm") && ConfigHandler.ENABLE_CASUPPORT)
+		if (Loader.isModLoaded("conarm") && ConfigHandler.ENABLE_CASUPPORT && !Loader.isModLoaded("armoryexpansion"))
 			ConstructsArmoryCompat.init();
 	}
 

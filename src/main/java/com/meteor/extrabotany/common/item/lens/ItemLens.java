@@ -41,9 +41,9 @@ import vazkii.botania.common.item.lens.Lens;
 
 public class ItemLens extends ItemMod implements ILensControl, ICompositableLens, ITinyPlanetExcempt, IBrewItem {
 
-	public static final int SUBTYPES = 6;
+	public static final int SUBTYPES = 7;
 
-	public static final int PUSH = 0, SMELT = 1, MANA = 2, POTION = 3, CLOUD = 4, SEXPISTOL = 5;
+	public static final int PUSH = 0, SMELT = 1, MANA = 2, POTION = 3, CLOUD = 4, SEXPISTOL = 5, SUPERCONDUCTOR = 6;
 
 	private static final int PROP_NONE = 0, PROP_POWER = 1, PROP_ORIENTATION = 1 << 1, PROP_TOUCH = 1 << 2,
 			PROP_INTERACTION = 1 << 3, PROP_DAMAGE = 1 << 4, PROP_CONTROL = 1 << 5;
@@ -59,6 +59,7 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 		setProps(POTION, PROP_NONE);
 		setProps(CLOUD, PROP_NONE);
 		setProps(SEXPISTOL, PROP_CONTROL);
+		setProps(SUPERCONDUCTOR, PROP_NONE);
 
 		setLens(PUSH, new LensPush());
 		setLens(SMELT, new LensSmelt());
@@ -66,6 +67,7 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 		setLens(POTION, new LensPotion());
 		setLens(CLOUD, new LensCloud());
 		setLens(SEXPISTOL, new LensSexpistol());
+		setLens(SUPERCONDUCTOR, new LensSuperconductor());
 	}
 
 	private static final String TAG_COLOR = "color";
@@ -176,7 +178,7 @@ public class ItemLens extends ItemMod implements ILensControl, ICompositableLens
 		if (storedColor == 16)
 			return Color.HSBtoRGB(Botania.proxy.getWorldElapsedTicks() * 2 % 360 / 360F, 1F, 1F);
 
-		return EnumDyeColor.byMetadata(storedColor).getColorValue();
+		return EnumDyeColor.byMetadata(storedColor).colorValue;
 	}
 
 	public static int getStoredColor(ItemStack stack) {

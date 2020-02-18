@@ -80,5 +80,6 @@ public class LibLexicon {
 	
 	public static final String STARTGUIDE = "guide";
 	public static final String VOIDHERRSCHER = "voidherrscher";
+	public static final String SUPPLYBAG = "supplybag";
 
 }

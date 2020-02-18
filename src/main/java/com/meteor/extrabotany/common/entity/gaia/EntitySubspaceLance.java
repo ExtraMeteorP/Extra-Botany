@@ -129,9 +129,9 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 			for (EntityPlayer player : getPlayersAround()) {
 				RayTraceResult rtr = player.getEntityBoundingBox().grow(0.4).calculateIntercept(oldPosVec, newPosVec);
 				if (rtr != null) {
-					if (this.ticksExisted % 8 == 0 && player.getHealth() > 12) {
-						player.attackEntityFrom(DamageSource.GENERIC, 1);
-						player.attackEntityFrom(DamageSource.LIGHTNING_BOLT, 1);
+					if (this.ticksExisted % 6 == 0 && player.getHealth() > 12) {
+						player.attackEntityFrom(DamageSource.GENERIC.setDamageBypassesArmor().setDamageIsAbsolute(), 1F);
+						player.attackEntityFrom(DamageSource.LIGHTNING_BOLT.setDamageBypassesArmor().setDamageIsAbsolute(), 1F);
 						ExtraBotanyAPI.dealTrueDamage(this.getThrower(), player, 0.3F);
 						player.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 100, 1));
 					}

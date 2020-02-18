@@ -3,8 +3,8 @@ package com.meteor.extrabotany.client.render.entity.gaia;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
+import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.ClientProxy;
 import com.meteor.extrabotany.client.lib.LibResource;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
@@ -40,6 +40,7 @@ public class RenderGaiaIII extends RenderBiped<EntityGaiaIII> {
 	public ResourceLocation getEntityTexture(@Nonnull EntityGaiaIII entity) {
 		ResourceLocation resourceLocation = DefaultPlayerSkin.getDefaultSkinLegacy();
 		if (new GameProfile(null, entity.getCustomNameTag()) != null) {
+			ExtraBotany.proxy.preloadSkin(new GameProfile(null, entity.getCustomNameTag()));
 			Map<MinecraftProfileTexture.Type, MinecraftProfileTexture> map = Minecraft.getMinecraft().getSkinManager()
 					.loadSkinFromCache(new GameProfile(null, entity.getCustomNameTag()));
 			if (map.containsKey(MinecraftProfileTexture.Type.SKIN)) {

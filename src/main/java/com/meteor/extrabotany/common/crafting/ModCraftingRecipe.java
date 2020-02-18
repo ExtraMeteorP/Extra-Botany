@@ -132,6 +132,8 @@ public class ModCraftingRecipe {
 	public static IRecipe MANADRIVERRING;
 	public static IRecipe MAGICFINGER;
 	public static IRecipe CHARGEPAD;
+	public static IRecipe COREGODSTEAMPUNK;
+	public static IRecipe COREGODJIM;
 
 	public static void init() {
 
@@ -558,6 +560,14 @@ public class ModCraftingRecipe {
 		CHARGEPAD = new ShapedOreRecipe(getResource("recipe_chargepad"), new ItemStack(ModBlocks.chargepad), "AAA",
 				"CBC", "AAA", 'B', LibOreDict.LIVING_ROCK, 'A', LibOreDict.MANA_STEEL, 'C', LibOreDict.PIXIE_DUST);
 		CHARGEPAD.setRegistryName(getResource("recipe_chargepad"));
+		
+		COREGODSTEAMPUNK = new ShapelessOreRecipe(getResource("recipe_coregodc"), new ItemStack(ModItems.godcore, 1, 3),
+				LibOreDicts.COREGOD, new ItemStack(ModItems.material, 1, 2));
+		COREGODSTEAMPUNK.setRegistryName(getResource("recipe_coregodc"));
+		
+		COREGODJIM = new ShapelessOreRecipe(getResource("recipe_coregodd"), new ItemStack(ModItems.godcore, 1, 4),
+				LibOreDicts.COREGOD, new ItemStack(ModItems.cocktail));
+		COREGODJIM.setRegistryName(getResource("recipe_coregodd"));
 	}
 
 	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
@@ -583,7 +593,7 @@ public class ModCraftingRecipe {
 					JUDAHOATH, JUDAHOATHKIRA, GODWEAVE, PARKOUR, WALKINGCANE, GSHELM, GSCHEST, GSLEGS, GSBOOTS, TICKET,
 					REWARDBAG943, FOXEAR, LENSPUSH, LENSSMELT, LENSMANA, LENSPOTION, LENSCLOUD, LENSTRACK, MASK, PYLON,
 					GOGGLE1, GOGGLE2, GOGGLE3, GOGGLE4, BLACKGLASSES, QUESTIONMARK, VOIDCALLER, JINGWEIFEATHER,
-					MAGICFINGER, MANADRIVERRING, CHARGEPAD);
+					MAGICFINGER, MANADRIVERRING, CHARGEPAD, COREGODSTEAMPUNK, COREGODJIM);
 			if (ConfigHandler.ENABLE_SHIELD) {
 				event.getRegistry().registerAll(SHIELDMANASTEEL, SHIELDTERRASTEEL, SHIELDELEMENTIUM);
 			}

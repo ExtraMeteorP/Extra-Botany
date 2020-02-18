@@ -70,6 +70,8 @@ item.extrabotany:lenscloud.name=魔力透镜:云朵
 item.botania:lenscloud.short=云朵
 item.extrabotany:lenssexpistol.name=魔力透镜:追踪
 item.botania:lenssexpistol.short=追踪
+item.extrabotany:lenssuperconductor.name=魔力透镜:超导
+item.botania:lenssuperconductor.short=超导
 item.extrabotany:bottledstar.name=瓶中星
 item.extrabotany:bottledflame.name=瓶中火焰
 item.extrabotany:bottledpixie.name=瓶中精灵
@@ -87,6 +89,8 @@ item.extrabotany:thuglife.name=Thug Life
 item.extrabotany:magicfinger.name=魔术手指
 item.extrabotany:manadriverring.name=驭魔之戒
 item.extrabotany:jingweifeather.name=精卫之羽
+item.extrabotany:silenteternity.name=静籁永恒
+item.extrabotany:specialbag.name=限量补给包
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -233,6 +237,9 @@ itemGroup.extrabotany=额外植物学
 
 extrabotany.wings0=翅膀：律者
 extrabotany.wings1=翅膀：芙兰朵露
+extrabotany.wings2=翅膀：欧证
+extrabotany.wings3=翅膀：蒸汽朋克
+extrabotany.wings4=翅膀：吉米
 extrabotany.repairupgrade1=修复升级I
 extrabotany.repairupgrade2=修复升级II
 extrabotany.repairupgrade3=修复升级III
@@ -735,6 +742,12 @@ botania.entry.chargepad=力量框架
 botania.page.chargepad0=将魔力物品放入力量框架中 ，力量框架会抽取上方魔力 池的魔力来为其充能。如果 给予一个红石信号则会使该 过程反向进行。
 botania.page.chargepad1=
 botania.tagline.chargepad=
+
+botania.entry.supplybag=限量补给包
+botania.page.supplybag0=限量补给包一共包含100件物 品，这意味着你只需要开100 次就必定可以获得所有内容 ，其中包含稀有遗物静籁永 恒和稀有魔力透镜：超导。 <br>多余的限量补给包只会开出2个绿宝石。
+botania.page.supplybag1=静籁永恒是一件非常强大而 特殊的饰品，它有着666魔力 储量，装备时会每tick回复 666魔力。装备期间你无法 通过其他常规手段回复生命 值，但当你静止不动时会每 秒快速回复生命值，并免疫 绝大多数类型伤害。<br>静籁永恒还能冻结脚底的水和岩浆。
+botania.page.supplybag2=魔力透镜：超导可以大幅度提 升发射器的魔力传输效率， 但也会使其魔力光束变得十 分危险。<br>玩家触碰到该魔力光束会受到大量伤害。
+botania.tagline.supplybag=限量补给
 
 botania.entry.=
 botania.page.0=

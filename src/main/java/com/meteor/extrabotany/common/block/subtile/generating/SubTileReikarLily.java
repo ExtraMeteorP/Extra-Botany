@@ -33,7 +33,7 @@ public class SubTileReikarLily extends SubTileGenerating {
 			if (getWorld().rand.nextInt((int) (4000 * baseY / pos.getY())) == 1) {
 				EntityLightningBolt bolt = new EntityLightningBolt(getWorld(), pos.getX(), pos.getY(), pos.getZ(),
 						true);
-				getWorld().spawnEntity(bolt);
+				getWorld().addWeatherEffect(bolt);
 				cd += ConfigHandler.RL_CD;
 			}
 		}

@@ -99,11 +99,11 @@ public class EntityJudahSpear extends Entity{
                     for (int i = 0; i < 4; i++)
                         Botania.proxy.wispFX(living.posX, living.posY + 0.5F, living.posZ, r, g, b, 0.45F, (float) (Math.random() - 0.5F) * 0.5F, (float) (Math.random() - 0.5F) * 0.5F, (float) (Math.random() - 0.5F) * 0.5F);
                     if (ExtraBotany.isTableclothServer && thrower != null)
-                        living.attackEntityFrom(DamageSource.causePlayerDamage(thrower), getDamage() * 1.25F);
+                        living.attackEntityFrom(DamageSource.causePlayerDamage(thrower), getDamage() * 1.6F);
                     else
-                        living.attackEntityFrom(DamageSource.LIGHTNING_BOLT, getDamage() * 1.25F);
+                        living.attackEntityFrom(DamageSource.LIGHTNING_BOLT, getDamage() * 1.6F);
                     ExtraBotanyAPI.addPotionEffect(living, ModPotions.divinejustice, 4);
-                    ExtraBotanyAPI.dealTrueDamage(thrower, living, getDamage() * 0.35F);
+                    ExtraBotanyAPI.dealTrueDamage(thrower, living, getDamage() * 0.15F);
                     setFlag(true);
                 }
 

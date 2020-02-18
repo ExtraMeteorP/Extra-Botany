@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.Map;
+import java.util.Set;
 
+import com.google.common.collect.Sets;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.core.handler.ColorHandler;
 import com.meteor.extrabotany.client.core.handler.EventHandlerClient;
@@ -61,6 +63,7 @@ import com.meteor.extrabotany.common.entity.gaia.EntityVoid;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahSpear;
+import com.mojang.authlib.GameProfile;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -75,6 +78,7 @@ public class ClientProxy extends CommonProxy{
 	
 	public static boolean christmas = false;
 	public static boolean halloween = false;
+	private final Set<GameProfile> skinRequested = Sets.newHashSet();
 	
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
@@ -151,5 +155,13 @@ public class ClientProxy extends CommonProxy{
     public void setTinkersRenderColor(slimeknights.tconstruct.library.materials.Material material, int color) {
         material.setRenderInfo(color);
     }
+    
+    @Override
+	public void preloadSkin(GameProfile customSkin) {
+		if (!skinRequested.contains(customSkin)) {
+			Minecraft.getMinecraft().getSkinManager().loadProfileTextures(customSkin, (typeIn, location, profileTexture) -> {}, true);
+			skinRequested.add(customSkin);
+		}
+	}
 	
 }

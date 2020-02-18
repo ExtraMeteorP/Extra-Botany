@@ -111,12 +111,14 @@ public class ExtraBotanyCreativeTab extends CreativeTabs {
 		addBlock(ModBlocks.cocoondesire);
 		addItem(ModItems.rewardbag);
 		addItem(ModItems.rewardbag943);
+		addItem(ModItems.rewardbags);
 		addItem(ModItems.treasure);
 		addItem(ModItems.failnaught);
 		addItem(ModItems.camera);
 		addItem(ModItems.excaliber);
 		addItem(ModItems.relicshield);
 		addItem(ModItems.spearsubspace);
+		addItem(ModItems.silenteternity);
 		addItem(ModItems.judahoath);
 		addItem(ModItems.godcore);
 		addItem(ModItems.mastermanaring);

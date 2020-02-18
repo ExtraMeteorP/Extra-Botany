@@ -56,6 +56,9 @@ public class PotionLensRecipe extends IForgeRegistryEntry.Impl<IRecipe> implemen
 			if(!stack.isEmpty() && stack.getItem() instanceof ItemLens && item.isEmpty())
 				lens = stack;
 		}
+		
+		if(item.isEmpty() || lens.isEmpty())
+			return ItemStack.EMPTY;
 
 		Brew brew = BotaniaAPI.getBrewFromKey(ItemNBTHelper.getString(item, "brewKey", ""));
 		ItemStack copy = lens.copy();

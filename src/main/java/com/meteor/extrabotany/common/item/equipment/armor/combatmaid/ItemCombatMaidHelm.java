@@ -11,6 +11,7 @@ import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -91,7 +92,8 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor
 	@SubscribeEvent
 	public void onEntityAttacked(LivingHurtEvent event) {
 		Entity attacker = event.getSource().getImmediateSource();
-		if (attacker instanceof EntityPlayer) {
+		EntityLivingBase target = event.getEntityLiving();
+		if (attacker instanceof EntityPlayer && target != null && target != attacker) {
 			EntityPlayer player = (EntityPlayer) attacker;
 			if (hasArmorSet(player)) {
 				if (player.getHeldItemMainhand() == ItemStack.EMPTY

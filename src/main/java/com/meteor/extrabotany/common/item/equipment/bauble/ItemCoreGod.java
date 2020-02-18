@@ -50,7 +50,7 @@ public class ItemCoreGod extends ItemBaubleRelic implements IManaUsingItem, ICos
 	public static final List<String> playersWithFlight = new ArrayList();
 	
 	private static final int COST = 35;
-	final int types = 2;
+	public static final int types = 5;
 
 	public ItemCoreGod() {
 		super(LibItemsName.BAUBLE_COREGOD);
@@ -180,6 +180,35 @@ public class ItemCoreGod extends ItemBaubleRelic implements IManaUsingItem, ICos
 					icon = MiscellaneousIcons.INSTANCE.volantoroIcon;
 					break;
 				}
+				case 2:{
+					rz = 180F;
+					h = 1F;
+					i = 0.22F;
+					x = 0.16F;
+					rx = 0F;
+					ry = -(float) ((Math.sin((double) (player.ticksExisted + partialTicks) * (flying ? 0.3F : 0.2F)) + 0.6F) * (flying ? 8F : 5F));
+					icon = MiscellaneousIcons.INSTANCE.elfwingIcons[0];
+					break;
+				}
+				case 3:{
+					rz = 180F;
+					h = 1.03F;
+					i = 0.22F;
+					rx = 0F;
+					ry = -(float) ((Math.sin((double) (player.ticksExisted + partialTicks) * (flying ? 0.3F : 0.2F)) + 0.6F) * (flying ? 8F : 5F));
+					icon = MiscellaneousIcons.INSTANCE.mechanicalIcon;
+					break;
+				}
+				case 4:{
+					rz = 180F;
+					h = 1.03F;
+					i = 0.22F;
+					x = 0.16F;
+					rx = 0F;
+					ry = -(float) ((Math.sin((double) (player.ticksExisted + partialTicks) * (flying ? 0.45F : 0.25F)) + 0.6F) * (flying ? 12F : 6F));
+					icon = MiscellaneousIcons.INSTANCE.jimIcon;
+					break;
+				}
 			}
 			
 			Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
@@ -190,7 +219,7 @@ public class ItemCoreGod extends ItemBaubleRelic implements IManaUsingItem, ICos
 
 			float f = icon.getMinU();
 			float f1 = icon.getMaxU();
-			float f2 = icon.getMinV();
+			float f2 = icon.getMinV();  
 			float f3 = icon.getMaxV();
 			float sr = 1F / s;
 
@@ -211,6 +240,33 @@ public class ItemCoreGod extends ItemBaubleRelic implements IManaUsingItem, ICos
 			GlStateManager.rotate(-rz, 0F, 0F, 1F);
 			GlStateManager.popMatrix();
 			
+			if(meta == 2) {
+				for(int j = 1; j < 7; j++) {
+					GlStateManager.pushMatrix();
+					TextureAtlasSprite icon2 = MiscellaneousIcons.INSTANCE.elfwingIcons[j];
+					Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
+					GlStateManager.pushMatrix();
+					GlStateManager.translate(-x, 0F, 0F);
+					GlStateManager.rotate(rz, 0F, 0F, 1F);
+					GlStateManager.rotate(-8F*j, 0F, 0F, 1F);
+					GlStateManager.rotate(rx, 1F, 0F, 0F);
+					GlStateManager.rotate(1.6F*j, 1F, 0F, 0F);
+					GlStateManager.rotate(ry, 0F, 1F, 0F);
+					GlStateManager.scale(s, s, s);
+					GlStateManager.scale(Math.pow(0.85F, j), Math.pow(0.85F, j), Math.pow(0.85F, j));	
+					IconHelper.renderIconIn3D(Tessellator.getInstance(), icon2.getMaxU(), icon2.getMinV(), icon2.getMinU(), icon2.getMaxV(), icon2.getIconWidth(), icon2.getIconHeight(), 1F / 32F);
+					GlStateManager.scale(1F/Math.pow(0.85F, j), 1F/Math.pow(0.85F, j), 1F/Math.pow(0.85F, j));	
+					GlStateManager.scale(sr, sr, sr);
+					GlStateManager.rotate(-ry, 0F, 1F, 0F);
+					GlStateManager.rotate(-1.6F*j, 1F, 0F, 0F);
+					GlStateManager.rotate(-rx, 1F, 0F, 0F);
+					GlStateManager.rotate(8F*j, 0F, 0F, 1F);
+					GlStateManager.rotate(-rz, 0F, 0F, 1F);
+					GlStateManager.popMatrix();
+					GlStateManager.popMatrix();
+				}
+			}
+			
 			GlStateManager.pushMatrix();
 			GlStateManager.translate(x, 0F, 0F);
 			switch(meta){
@@ -229,7 +285,7 @@ public class ItemCoreGod extends ItemBaubleRelic implements IManaUsingItem, ICos
 					TextureAtlasSprite icon3 = MiscellaneousIcons.INSTANCE.godcoreIcons[2];
 					Minecraft.getMinecraft().renderEngine.bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 					GlStateManager.scale(s, s, s);
-					GlStateManager.color(0.85F, 0.42F, 0.02F, Math.max(0.2F, Math.min(1F, 0.45F + (float)Math.sin((double) (player.ticksExisted + partialTicks) * (flying ? 0.4F : 0.2F)))));
+					GlStateManager.color(0.85F, 0.42F, 0.02F, Math.max(0.5F, Math.min(1F, 0.45F + (float)Math.sin((double) (player.ticksExisted + partialTicks) * (flying ? 0.4F : 0.2F)))));
 					IconHelper.renderIconIn3D(Tessellator.getInstance(), icon3.getMaxU(), icon3.getMinV(), icon3.getMinU(), icon3.getMaxV(), icon3.getIconWidth(), icon3.getIconHeight(), 1F / 32F);
 					GlStateManager.scale(sr, sr, sr);
 					GlStateManager.popMatrix();
@@ -239,6 +295,53 @@ public class ItemCoreGod extends ItemBaubleRelic implements IManaUsingItem, ICos
 					GlStateManager.rotate(-rz, 0F, 0F, 1F);
 					break;
 				case 1:
+					GlStateManager.scale(-1F, 1F, 1F);
+					GlStateManager.rotate(rz, 0F, 0F, 1F);
+					GlStateManager.rotate(rx, 1F, 0F, 0F);
+					GlStateManager.rotate(ry, 0F, 1F, 0F);
+					GlStateManager.scale(s, s, s);			
+					IconHelper.renderIconIn3D(Tessellator.getInstance(), icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 1F / 32F);				
+					GlStateManager.scale(sr, sr, sr);			
+					GlStateManager.rotate(-ry, 1F, 0F, 0F);
+					GlStateManager.rotate(-rx, 1F, 0F, 0F);
+					GlStateManager.rotate(-rz, 0F, 0F, 1F);
+					break;
+				case 2:
+					for(int j = 0; j < 7; j++) {
+						GlStateManager.pushMatrix();
+						icon = MiscellaneousIcons.INSTANCE.elfwingIcons[j];
+						GlStateManager.scale(-1F, 1F, 1F);
+						GlStateManager.rotate(rz, 0F, 0F, 1F);
+						GlStateManager.rotate(-8F*j, 0F, 0F, 1F);
+						GlStateManager.rotate(rx, 1F, 0F, 0F);
+						GlStateManager.rotate(1.6F*j, 1F, 0F, 0F);
+						GlStateManager.rotate(ry, 0F, 1F, 0F);
+						GlStateManager.scale(s, s, s);		
+						GlStateManager.scale(Math.pow(0.85F, j), Math.pow(0.85F, j), Math.pow(0.85F, j));	
+						IconHelper.renderIconIn3D(Tessellator.getInstance(), icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 1F / 32F);				
+						GlStateManager.scale(1F/Math.pow(0.85F, j), 1F/Math.pow(0.85F, j), 1F/Math.pow(0.85F, j));	
+						GlStateManager.scale(sr, sr, sr);			
+						GlStateManager.rotate(-ry, 1F, 0F, 0F);
+						GlStateManager.rotate(-1.6F*j, 1F, 0F, 0F);
+						GlStateManager.rotate(-rx, 1F, 0F, 0F);
+						GlStateManager.rotate(8F*j, 0F, 0F, 1F);
+						GlStateManager.rotate(-rz, 0F, 0F, 1F);
+						GlStateManager.popMatrix();
+					}
+					break;
+				case 3:
+					GlStateManager.scale(-1F, 1F, 1F);
+					GlStateManager.rotate(rz, 0F, 0F, 1F);
+					GlStateManager.rotate(rx, 1F, 0F, 0F);
+					GlStateManager.rotate(ry, 0F, 1F, 0F);
+					GlStateManager.scale(s, s, s);			
+					IconHelper.renderIconIn3D(Tessellator.getInstance(), icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 1F / 32F);				
+					GlStateManager.scale(sr, sr, sr);			
+					GlStateManager.rotate(-ry, 1F, 0F, 0F);
+					GlStateManager.rotate(-rx, 1F, 0F, 0F);
+					GlStateManager.rotate(-rz, 0F, 0F, 1F);
+					break;
+				case 4:
 					GlStateManager.scale(-1F, 1F, 1F);
 					GlStateManager.rotate(rz, 0F, 0F, 1F);
 					GlStateManager.rotate(rx, 1F, 0F, 0F);

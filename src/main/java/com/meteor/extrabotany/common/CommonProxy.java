@@ -14,7 +14,9 @@ import com.meteor.extrabotany.common.entity.ModEntities;
 import com.meteor.extrabotany.common.integration.Integration;
 import com.meteor.extrabotany.common.item.equipment.shield.ItemShieldCopy;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
+import com.mojang.authlib.GameProfile;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -56,6 +58,10 @@ public class CommonProxy {
 	}
 
 	public void setTinkersRenderColor(slimeknights.tconstruct.library.materials.Material material, int color) {
+
+	}
+	
+	public void preloadSkin(GameProfile customSkin) {
 
 	}
 }

@@ -353,7 +353,7 @@ public class EntityVoidHerrscher extends EntityCreature
 			for (int i = 0; i < count; i++) {
 				int x = source.getX() - 10 + rand.nextInt(20);
 				int z = source.getZ() - 10 + rand.nextInt(20);
-				int y = world.getTopSolidOrLiquidBlock(new BlockPos(x, -1, z)).getY();
+				int y = (int) players.get(rand.nextInt(players.size())).posY;
 
 				EntitySkullLandmine landmine = new EntitySkullLandmine(world);
 				if (i % 8 == 0)
@@ -401,6 +401,8 @@ public class EntityVoidHerrscher extends EntityCreature
 			if (world.isRemote)
 				player.sendMessage(new TextComponentTranslation("extrabotanymisc.gaiaWarning3", "Boss")
 						.setStyle(new Style().setColor(TextFormatting.RED)));
+			if(!player.getHeldItemMainhand().isEmpty())
+				player.getCooldownTracker().setCooldown(player.getHeldItemMainhand().getItem(), 120);
 			ExtraBotanyAPI.dealTrueDamage(this, player, player.getMaxHealth() * 0.20F + 6);
 			spawnSubspaceLance(player.getPosition());
 			cd = 290;
@@ -427,7 +429,7 @@ public class EntityVoidHerrscher extends EntityCreature
 
 		if (tpDelay == 0 && getHealth() > 0) {
 			teleportRandomly();
-			tpDelay = getRankIII() ? 75 : 85;
+			tpDelay = getRankIII() ? 80 : 90;
 		}
 
 		if (dodgecd > 0)
@@ -538,7 +540,7 @@ public class EntityVoidHerrscher extends EntityCreature
 
 	private void spawnSubspaceLance(BlockPos pos) {
 		EntitySubspaceLance lance = new EntitySubspaceLance(world, this);
-		lance.setDamage(3);
+		lance.setDamage(4);
 		lance.setLife(1200);
 		lance.setPitch(-90F);
 		lance.setPosition(pos.getX(), pos.getY() + 12F, pos.getZ());
@@ -619,7 +621,7 @@ public class EntityVoidHerrscher extends EntityCreature
 		EntitySkullMissile missile = new EntitySkullMissile(this);
 		missile.setPosition(posX + (Math.random() - 0.5 * 0.1), posY + 1.8 + (Math.random() - 0.5 * 0.1),
 				posZ + (Math.random() - 0.5 * 0.1));
-		missile.setDamage(getHardcore() ? 6 : 4);
+		missile.setDamage(getHardcore() ? 7 : 5);
 		if (type > 0) {
 			missile.setFire(true);
 		}
@@ -910,7 +912,7 @@ public class EntityVoidHerrscher extends EntityCreature
 					getSource().getX(), getSource().getZ()) > ARENA_RANGE)
 				player.attemptTeleport(getSource().getX(), getSource().getY(), getSource().getZ());
 
-			int cap = 20;
+			int cap = 22;
 
 			this.setInvulTime(this.getInvulTime() + 10);
 
@@ -1041,6 +1043,9 @@ public class EntityVoidHerrscher extends EntityCreature
 			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.HERRSCHER_DEFEAT);
 			if (this.quickkill)
 				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ENDGAME_GOAL);
+			player.entityDropItem(new ItemStack(ModItems.rewardbags, 3),  0);
+			if(Math.random() <= 0.02F)
+				player.entityDropItem(new ItemStack(ModItems.godcore, 1, 2),  0);
 			posX = savePosX;
 			posY = savePosY;
 			posZ = savePosZ;

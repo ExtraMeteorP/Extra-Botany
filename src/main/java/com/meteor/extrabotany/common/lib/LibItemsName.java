@@ -13,6 +13,7 @@ public class LibItemsName {
 	public static final String GILDEDPOTATOBATTERY = "gildedpotatobattery";
 	public static final String CANDY = "candy";
 	public static final String CANDYBAG = "candybag";
+	public static final String SPECIALBAG = "specialbag";
 	
 	public static final String LENS = "lens";
 	
@@ -24,13 +25,7 @@ public class LibItemsName {
 	public static final String BUDDHISTRELICS = "buddhistrelics";
 	public static final String MASTERHANDBAG = "masterhandbag";
 	public static final String SPEARSUBSPACE = "spearsubspace";
-	
-	public static final String STONETIME = "timestone";
-	public static final String STONEPOWER = "powerstone";
-	public static final String STONEMIND = "mindstone";
-	public static final String STONEREALITY = "realitystone";
-	public static final String STONESOUL = "soulstone";
-	public static final String STONESPACE = "spacestone";
+	public static final String SILENTETERNITY = "silenteternity";
 	
 	public static final String JUDAHOATH = "judahoath";
 	public static final String[] JUDAHOATHS = new String[]{
@@ -45,7 +40,7 @@ public class LibItemsName {
 			"lenspotion",
 			"lenscloud",
 			"lenssexpistol",
-			"lensuser"
+			"lenssuperconductor"
 	};
 	
 	public static final String SHIELDMANASTEEL = "manasteelshield";
@@ -135,10 +130,8 @@ public class LibItemsName {
 	public static final String SWBOOTS = "shadowwarriorboots";
 	
 	public static final String SHADOWKATANA = "shadowkatana";
-	public static final String SHADOWIUMPICKAXE = "shadowiumpickaxe";
-	public static final String SHADOWIUMAXE = "shadowiumaxe";
-	public static final String SHADOWIUMSHOVEL = "shadowiumshovel";
-	public static final String SHADOWIUMHOE = "shadowiumhoe";
+	public static final String PHOTONSHOTGUN = "photonshotgun";
+	public static final String PHOTONSABER = "photonsaber";
 	
 	public static final String GSHELM = "goblinslayerhelm";
 	public static final String GSCHEST = "goblinslayerchest";

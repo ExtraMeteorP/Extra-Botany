@@ -5,6 +5,7 @@ import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.bonus.ItemCandyBag;
 import com.meteor.extrabotany.common.item.bonus.ItemRewardBag;
 import com.meteor.extrabotany.common.item.bonus.ItemRewardBag943;
+import com.meteor.extrabotany.common.item.bonus.ItemRewardBagSpecial;
 import com.meteor.extrabotany.common.item.brew.ItemBrewCocktail;
 import com.meteor.extrabotany.common.item.brew.ItemBrewInfiniteWine;
 import com.meteor.extrabotany.common.item.brew.ItemBrewSplashGrenade;
@@ -40,6 +41,7 @@ import com.meteor.extrabotany.common.item.equipment.bauble.ItemManaDriverRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemParkourRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemPureDaisyPendant;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemRedScarf;
+import com.meteor.extrabotany.common.item.equipment.bauble.ItemSilentEternity;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemSuperCrown;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemWallJumpingRing;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemWallRunningRing;
@@ -56,6 +58,7 @@ import com.meteor.extrabotany.common.item.equipment.tool.ItemMagicFinger;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemManaReader;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemMasterHandbag;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
+import com.meteor.extrabotany.common.item.equipment.tool.ItemPhotonShotgun;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemShadowKatana;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemWalkingCane;
 import com.meteor.extrabotany.common.item.lens.ItemLens;
@@ -125,6 +128,7 @@ public class ModItems {
 	public static final Item failnaught = new ItemFailnaught();
 	public static final Item excaliber = new ItemExcaliber();
 	public static final Item judahoath = new ItemJudahOath();
+	public static final Item silenteternity = new ItemSilentEternity();
 
 	public static final Item splashgrenade = new ItemBrewSplashGrenade();
 	public static final Item cocktail = new ItemBrewCocktail();
@@ -182,6 +186,8 @@ public class ModItems {
 	public static final Item bottledpixie = new ItemBottledPixie();
 
 	public static final Item mask = new ItemCosmetic();
+	public static final Item shotgun = new ItemPhotonShotgun();
+	public static final Item rewardbags = new ItemRewardBagSpecial();
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -262,11 +268,12 @@ public class ModItems {
 		r.register(bottledstar);
 		r.register(bottledpixie);
 		r.register(mask);
-		// r.register(gamewinner);
 		r.register(herrscherrecord);
 		r.register(jingweifeather);
 		r.register(manadriverring);
 		r.register(magicfinger);
+		r.register(silenteternity);
+		r.register(rewardbags);
 		registerOreDictionary();
 		// A
 		if (ConfigHandler.REWARDBAG1.length > 0)
@@ -299,7 +306,7 @@ public class ModItems {
 		OreDictionary.registerOre(LibOreDicts.SHADOWIUM, new ItemStack(material, 1, 5));
 		OreDictionary.registerOre(LibOreDicts.ORICHALCOS, new ItemStack(material, 1, 1));
 		OreDictionary.registerOre(LibOreDicts.GODWEAVE, new ItemStack(material, 1, 7));
-		for (int i = 0; i < 2; i++)
+		for (int i = 0; i < ItemCoreGod.types; i++)
 			OreDictionary.registerOre(LibOreDicts.COREGOD, new ItemStack(godcore, 1, i));
 	}
 }

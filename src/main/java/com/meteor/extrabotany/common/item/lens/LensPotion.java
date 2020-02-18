@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.item.lens;
 import java.util.List;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -10,6 +11,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.internal.IManaBurst;
 import vazkii.botania.api.mana.BurstProperties;
+import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.lens.Lens;
 
 public class LensPotion extends Lens {
@@ -39,13 +41,16 @@ public class LensPotion extends Lens {
 					if (!burst.isFake()) {
 						if (!entity.world.isRemote) {
 							for (PotionEffect effect : brew.getPotionEffects(stack)) {
-								PotionEffect newEffect = new PotionEffect(effect.getPotion(), effect.getDuration(),
-										effect.getAmplifier(), true, true);
+								PotionEffect newEffect = new PotionEffect(effect.getPotion(), effect.getDuration()/3,
+										Math.max(effect.getAmplifier()-1, 0), true, true);
 								if (effect.getPotion().isInstant())
 									effect.getPotion().affectEntity(living, living, living, newEffect.getAmplifier(),
 											1F);
 								else
 									living.addPotionEffect(newEffect);
+							}
+							if(living instanceof EntityPlayer) {
+								((EntityPlayer)living).getCooldownTracker().setCooldown(ModItems.manaGun, 40);
 							}
 						}
 					}

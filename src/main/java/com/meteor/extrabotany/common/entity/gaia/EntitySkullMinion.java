@@ -117,7 +117,7 @@ public class EntitySkullMinion extends EntityLiving implements IEntityWithShield
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.4);
-		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20);
+		getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(24);
 		getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0);
 	}
 	

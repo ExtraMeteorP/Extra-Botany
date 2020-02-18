@@ -276,7 +276,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 			for (int i = 0; i < count; i++) {
 				int x = source.getX() - 10 + rand.nextInt(20);
 				int z = source.getZ() - 10 + rand.nextInt(20);
-				int y = world.getTopSolidOrLiquidBlock(new BlockPos(x, -1, z)).getY();
+				int y = (int) players.get(rand.nextInt(players.size())).posY;
 
 				EntitySkullLandmine landmine = new EntitySkullLandmine(world);
 				if (i % 6 == 0)
@@ -727,9 +727,9 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 					getSource().getX(), getSource().getZ()) > ARENA_RANGE)
 				player.attemptTeleport(getSource().getX(), getSource().getY(), getSource().getZ());
 
-			int cap = 20;
+			int cap = 25;
 
-			if (getRankII())
+			if (getRankII() && Math.random() >= 0.25F)
 				teleportRandomly();
 
 			return super.attackEntityFrom(source, Math.min(cap, par2));

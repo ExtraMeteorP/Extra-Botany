@@ -3,7 +3,6 @@ package com.meteor.extrabotany.common.block.tile;
 import java.util.List;
 
 import com.google.common.base.Predicates;
-import com.meteor.extrabotany.common.core.config.ConfigHandler;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -82,6 +81,13 @@ public class TileQuantumManaBuffer extends TileMod implements IManaReceiver, ISp
 				int current = Math.min(space, manaToGet);
 				p.recieveMana(-current);
 				recieveMana(current);	
+			}else if (world.getTileEntity(pos.add(o)) instanceof TileQuantumManaBuffer) {
+				TileQuantumManaBuffer p = (TileQuantumManaBuffer) world.getTileEntity(pos.add(o));
+				int manaToGet = Math.min(speed, p.getCurrentMana());
+				int space = Math.max(0, getMaxMana() - getCurrentMana());
+				int current = Math.min(space, manaToGet);
+				p.recieveMana(-current);
+				recieveMana(current);	
 			}
 
 		for (BlockPos o : POOL_LOCATIONS2)// output
@@ -94,6 +100,13 @@ public class TileQuantumManaBuffer extends TileMod implements IManaReceiver, ISp
 				recieveMana(-current);	
 			} else if (world.getTileEntity(pos.add(o)) instanceof TileManaBuffer) {
 				TileManaBuffer p = (TileManaBuffer) world.getTileEntity(pos.add(o));
+				int manaToGet = Math.min(speed, getCurrentMana());
+				int space = Math.max(0, p.manaCap - p.getCurrentMana());
+				int current = Math.min(space, manaToGet);
+				p.recieveMana(current);
+				recieveMana(-current);
+			}else if (world.getTileEntity(pos.add(o)) instanceof TileQuantumManaBuffer) {
+				TileQuantumManaBuffer p = (TileQuantumManaBuffer) world.getTileEntity(pos.add(o));
 				int manaToGet = Math.min(speed, getCurrentMana());
 				int space = Math.max(0, p.manaCap - p.getCurrentMana());
 				int current = Math.min(space, manaToGet);

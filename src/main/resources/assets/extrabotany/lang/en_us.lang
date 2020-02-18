@@ -70,6 +70,8 @@ item.extrabotany:lenscloud.name=Mana Lens: Cloud
 item.botania:lenscloud.short=Cloud
 item.extrabotany:lenssexpistol.name=Mana Lens: Track
 item.botania:lenssexpistol.short=Track
+item.extrabotany:lenssuperconductor.name=Mana Lens: SUPERCONDUCTOR
+item.botania:lenssuperconductor.short=SUPERCONDUCTOR
 item.extrabotany:bottledstar.name=Bottled Star
 item.extrabotany:bottledflame.name=Bottled Flame
 item.extrabotany:bottledpixie.name=Bottled Pixie
@@ -87,6 +89,8 @@ item.extrabotany:thuglife.name=Thug Life
 item.extrabotany:magicfinger.name=Magic Finger
 item.extrabotany:manadriverring.name=Ring of Mana Drive
 item.extrabotany:jingweifeather.name=Feather of JingWei
+item.extrabotany:silenteternity.name=Silent Eternity
+item.extrabotany:specialbag.name=Supply Bag Limited Edition
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
@@ -233,6 +237,9 @@ itemGroup.extrabotany=ExtraBotany
 
 extrabotany.wings0=Wings: Godness
 extrabotany.wings1=Wings: Flandre
+extrabotany.wings2=Wings: Rainbow
+extrabotany.wings3=Wings: Steampunk
+extrabotany.wings4=Wings: Jim
 extrabotany.repairupgrade1=Repair Upgrade I
 extrabotany.repairupgrade2=Repair Upgrade II
 extrabotany.repairupgrade3=Repair Upgrade III
@@ -735,6 +742,12 @@ botania.entry.chargepad=Power Frame
 botania.page.chargepad0=Place a mana item in the Power Frame, and the Power Frame will extract mana from the mana pool above and transfer to the mana item. Giving a redstone signal will make the process reverse.
 botania.page.chargepad1=
 botania.tagline.chargepad=
+
+botania.entry.supplybag=Supply Bag Limited Edition
+botania.page.supplybag0=Supply Bag Limited Edition only has 100 stacks of items, including rare relic Silent Eternity and rare Mana Lens: SUPERCONDUCTOR, meaning that you could obtain all these things with 100 draws. <br>Spare supply bag will become 2 Emeralds.
+botania.page.supplybag1=Silent Eternity is a very powerful relic but hard to use. It has 666 mana storage and when you equip it, it will recover 666 mana every tick. When it is equiped, any normal kind of health recovery is banned, but if you stay still, you will quickly recover your health and be immune to most kind of damage. Any movement will interrupt this behavior. <br> Silent Eternity will also freeze the water and the lava under your feet.
+botania.page.supplybag2=Mana Lens: SUPERCONDUCTOR can make mana transfer become much more efficient, while making the mana beam become really dangerous to players. <br>The mana beam will deal high damage to only players.
+botania.tagline.supplybag=Limited Supply
 
 botania.entry.=
 botania.page.0=

@@ -46,8 +46,8 @@ public class LensCloud extends Lens {
 							cloud.setWaitTime(10);
 							cloud.setRadiusPerTick(-cloud.getRadius() / (float) cloud.getDuration());
 							for (PotionEffect effect : brew.getPotionEffects(stack)) {
-								PotionEffect newEffect = new PotionEffect(effect.getPotion(), effect.getDuration(),
-										effect.getAmplifier(), true, true);
+								PotionEffect newEffect = new PotionEffect(effect.getPotion(), effect.getDuration()/4,
+										Math.max(0, effect.getAmplifier()), true, true);
 								cloud.addEffect(newEffect);
 							}
 							entity.world.spawnEntity(cloud);

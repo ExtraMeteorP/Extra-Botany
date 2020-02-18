@@ -120,6 +120,7 @@ public class LexiconData {
 	public static LexiconEntry magicfinger;
 	public static LexiconEntry chargepad;
 	public static LexiconEntry necrofleur;
+	public static LexiconEntry supplybag;
 
 	public static void init() {
 
@@ -131,6 +132,10 @@ public class LexiconData {
 				new PageText("2"), new PageText("3"), new PageText("4"), new PageText("5"), new PageText("6"),
 				new PageText("7"));
 		herrscher.setPriority();
+		
+		supplybag = new DreamAdvancementEntry(LibLexicon.SUPPLYBAG, ExtraBotanyAPI.dreamCategory, LibAdvancements.HERRSCHER_DEFEAT);
+		supplybag.setLexiconPages(new PageText("0"), new PageText("1"), new PageText("2"));
+		supplybag.setIcon(new ItemStack(ModItems.rewardbags));
 
 		start = new BasicLexiconEntry(LibLexicon.STARTGUIDE, ExtraBotanyAPI.dreamCategory);
 		start.setLexiconPages(new PageText("0"), new PageText("1"));
@@ -500,6 +505,9 @@ public class LexiconData {
 		LexiconRecipeMappings.map(new ItemStack(ModItems.splashgrenade), splashgrenade, 0);
 		LexiconRecipeMappings.map(new ItemStack(ModItems.mask, 1, 8), herrscher, 0);
 		LexiconRecipeMappings.map(new ItemStack(ModItems.mask, 1, 9), herrscher, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.lens, 1, 6), supplybag, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.silenteternity), supplybag, 0);
+		LexiconRecipeMappings.map(new ItemStack(ModItems.rewardbags), supplybag, 0);
 	}
 
 	private static ResourceLocation getResource(String inName) {

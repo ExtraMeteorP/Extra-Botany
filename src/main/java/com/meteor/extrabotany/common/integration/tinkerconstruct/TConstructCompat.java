@@ -12,6 +12,7 @@ import com.meteor.extrabotany.common.lib.LibMisc;
 import com.meteor.extrabotany.common.lib.LibOreDicts;
 
 import net.minecraft.init.Items;
+import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.ArrowShaftMaterialStats;

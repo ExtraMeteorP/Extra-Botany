@@ -134,6 +134,8 @@ public class ModCraftingRecipe {
 	public static IRecipe CHARGEPAD;
 	public static IRecipe COREGODSTEAMPUNK;
 	public static IRecipe COREGODJIM;
+	public static IRecipe SAKURAOATH;
+	public static IRecipe TRIBLOODSTONE;
 
 	public static void init() {
 
@@ -181,7 +183,7 @@ public class ModCraftingRecipe {
 
 		FAILNAUGHT = new ShapedOreRecipe(getResource("recipe_failnaught"), new ItemStack(ModItems.failnaught), " #X",
 				"#AX", " #X", '#', LibOreDict.TERRA_STEEL, 'X', LibOreDict.MANA_STRING, 'A',
-				new ItemStack(ModItems.material, 1, 3));
+				LibOreDicts.ORICHALCOS);
 		FAILNAUGHT.setRegistryName(getResource("recipe_failnaught"));
 
 		CAMERA = new ShapedOreRecipe(getResource("recipe_camera"), new ItemStack(ModItems.camera), "###", "#A#", "XXX",
@@ -210,7 +212,7 @@ public class ModCraftingRecipe {
 
 		RELICSHIELD = new ShapedOreRecipe(getResource("recipe_relicshield"), new ItemStack(ModItems.relicshield), "ACA",
 				"ABA", "ABA", 'B', new ItemStack(Items.SHIELD), 'A', LibOreDict.TERRA_STEEL, 'C',
-				new ItemStack(ModItems.material, 1, 3));
+				LibOreDicts.ORICHALCOS);
 		RELICSHIELD.setRegistryName(getResource("recipe_relicshield"));
 
 		COCOONDESIRE = new ShapedOreRecipe(getResource("recipe_cocoondesire"), new ItemStack(ModBlocks.cocoondesire),
@@ -360,7 +362,7 @@ public class ModCraftingRecipe {
 		ORICHALCOS.setRegistryName(getResource("recipe_orichalcos"));
 
 		COREGOD = new ShapedOreRecipe(getResource("recipe_coregod"), new ItemStack(ModItems.godcore), "ABA", "ACA",
-				"AAA", 'A', LibOreDict.QUARTZ[6], 'B', new ItemStack(ModItems.material, 1, 3), 'C',
+				"AAA", 'A', LibOreDict.QUARTZ[6], 'B', LibOreDicts.ORICHALCOS, 'C',
 				new ItemStack(vazkii.botania.common.item.ModItems.flightTiara));
 		COREGOD.setRegistryName(getResource("recipe_coregod"));
 
@@ -393,7 +395,7 @@ public class ModCraftingRecipe {
 		COREGODA.setRegistryName(getResource("recipe_coregoda"));
 
 		JUDAHOATH = new ShapedOreRecipe(getResource("recipe_judahoath"), new ItemStack(ModItems.judahoath), "ABA",
-				"ACA", "AAA", 'B', new ItemStack(ModItems.gildedmashedpotato), 'A',
+				"ACA", "AAA", 'B', LibOreDicts.ORICHALCOS, 'A',
 				new ItemStack(vazkii.botania.common.item.ModItems.manaResource, 1, 14), 'C',
 				new ItemStack(ModItems.spiritFuel));
 		JUDAHOATH.setRegistryName(getResource("recipe_judahoath"));
@@ -402,6 +404,16 @@ public class ModCraftingRecipe {
 				new ItemStack(ModItems.judahoath, 1, 1), new ItemStack(ModItems.judahoath),
 				new ItemStack(ModItems.manadrink));
 		JUDAHOATHKIRA.setRegistryName(getResource("recipe_judahoathkira"));
+		
+		SAKURAOATH = new ShapelessOreRecipe(getResource("recipe_judahoathsakura"),
+				new ItemStack(ModItems.judahoath, 1, 2), new ItemStack(ModItems.judahoath),
+				new ItemStack(ModItems.material, 1, 10));
+		SAKURAOATH.setRegistryName(getResource("recipe_judahoathsakura"));
+		
+		TRIBLOODSTONE = new ShapedOreRecipe(getResource("recipe_tribloodstone"), new ItemStack(ModItems.material, 1, 10), " A ",
+				" B ", "A A", 'B', new ItemStack(vazkii.botania.common.block.ModBlocks.storage, 1, 4), 'A',
+				LibOreDict.DRAGONSTONE);
+		TRIBLOODSTONE.setRegistryName(getResource("recipe_tribloodstone"));
 
 		GODWEAVE = new ShapedOreRecipe(getResource("recipe_godweave"), new ItemStack(ModItems.material, 4, 7), "ABA",
 				"BCB", "ABA", 'B', LibOreDict.MANAWEAVE_CLOTH, 'A', LibOreDict.LIFE_ESSENCE, 'C', "ingotGold");
@@ -593,7 +605,7 @@ public class ModCraftingRecipe {
 					JUDAHOATH, JUDAHOATHKIRA, GODWEAVE, PARKOUR, WALKINGCANE, GSHELM, GSCHEST, GSLEGS, GSBOOTS, TICKET,
 					REWARDBAG943, FOXEAR, LENSPUSH, LENSSMELT, LENSMANA, LENSPOTION, LENSCLOUD, LENSTRACK, MASK, PYLON,
 					GOGGLE1, GOGGLE2, GOGGLE3, GOGGLE4, BLACKGLASSES, QUESTIONMARK, VOIDCALLER, JINGWEIFEATHER,
-					MAGICFINGER, MANADRIVERRING, CHARGEPAD, COREGODSTEAMPUNK, COREGODJIM);
+					MAGICFINGER, MANADRIVERRING, CHARGEPAD, COREGODSTEAMPUNK, COREGODJIM, SAKURAOATH, TRIBLOODSTONE);
 			if (ConfigHandler.ENABLE_SHIELD) {
 				event.getRegistry().registerAll(SHIELDMANASTEEL, SHIELDTERRASTEEL, SHIELDELEMENTIUM);
 			}

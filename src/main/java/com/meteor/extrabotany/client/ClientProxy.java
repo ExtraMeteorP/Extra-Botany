@@ -84,15 +84,20 @@ public class ClientProxy extends CommonProxy{
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
 		PersistentVariableHandler.setCacheFile(new File(Minecraft.getMinecraft().mcDataDir, "ExtraBotanyVars.dat"));
+		Minecraft.getMinecraft().addScheduledTask(()->this.loadAndSave());
+		//loadAndSave();
+		MinecraftForge.EVENT_BUS.register(MiscellaneousIcons.INSTANCE);
+		MinecraftForge.EVENT_BUS.register(EventHandlerClient.INSTANCE);
+		initRenderers();
+	}
+	
+	public void loadAndSave() {
 		try {
 			PersistentVariableHandler.load();
 			PersistentVariableHandler.save();
 		} catch (IOException e) {
 			ExtraBotany.logger.fatal("Persistent Variables couldn't load!!");
 		}
-		MinecraftForge.EVENT_BUS.register(MiscellaneousIcons.INSTANCE);
-		MinecraftForge.EVENT_BUS.register(EventHandlerClient.INSTANCE);
-		initRenderers();
 	}
 	
 	@Override

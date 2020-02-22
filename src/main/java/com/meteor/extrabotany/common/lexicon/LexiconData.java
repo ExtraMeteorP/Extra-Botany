@@ -132,8 +132,9 @@ public class LexiconData {
 				new PageText("2"), new PageText("3"), new PageText("4"), new PageText("5"), new PageText("6"),
 				new PageText("7"));
 		herrscher.setPriority();
-		
-		supplybag = new DreamAdvancementEntry(LibLexicon.SUPPLYBAG, ExtraBotanyAPI.dreamCategory, LibAdvancements.HERRSCHER_DEFEAT);
+
+		supplybag = new DreamAdvancementEntry(LibLexicon.SUPPLYBAG, ExtraBotanyAPI.dreamCategory,
+				LibAdvancements.HERRSCHER_DEFEAT);
 		supplybag.setLexiconPages(new PageText("0"), new PageText("1"), new PageText("2"));
 		supplybag.setIcon(new ItemStack(ModItems.rewardbags));
 
@@ -489,8 +490,10 @@ public class LexiconData {
 
 		judahoath = new DreamLexiconEntry(LibLexicon.RELIC_JUDAH, ExtraBotanyAPI.dreamCategory);
 		judahoath.setLexiconPages(new PageText("0"), new PageCraftingRecipe("1", getResource("recipe_judahoath")),
-				new PageCraftingRecipe("2", getResource("recipe_judahoathkira")));
-		
+				new PageCraftingRecipe("2", getResource("recipe_judahoathkira")),
+				new PageCraftingRecipe("3", getResource("recipe_judahoathsakura")),
+				new PageCraftingRecipe("4", getResource("recipe_tribloodstone")));
+
 		LexiconRecipeMappings.map(new ItemStack(ModItems.spiritFuel), spiritfuel, 0);
 		LexiconRecipeMappings.map(new ItemStack(ModItems.cocktail), manadrink, 0);
 		LexiconRecipeMappings.map(new ItemStack(ModItems.relics), relics, 0);

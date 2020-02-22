@@ -38,7 +38,7 @@ public class ItemMaterial extends ItemMod implements IFlowerComponent {
 
 	public static final String TAG_UUID = "uuid";
 
-	final int types = 10;
+	final int types = 11;
 
 	public ItemMaterial() {
 		super(LibItemsName.MATERIAL);
@@ -127,10 +127,8 @@ public class ItemMaterial extends ItemMod implements IFlowerComponent {
 	@Override
 	public void registerModels() {
 		for (int i = 0; i < LibItemsName.MANA_RESOURCE_NAMES.length; i++) {
-			if (!"UNUSED".equals(LibItemsName.MANA_RESOURCE_NAMES[i])) {
-				ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(
-						LibMisc.MOD_ID + ":" + LibItemsName.MANA_RESOURCE_NAMES[i], "inventory"));
-			}
+			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(
+				LibMisc.MOD_ID + ":" + LibItemsName.MANA_RESOURCE_NAMES[i], "inventory"));
 		}
 	}
 

@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.entity.judah;
 
+import java.awt.Point;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,6 +18,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -91,46 +93,79 @@ public class EntityJudahOath extends EntityThrowableCopy{
 			if(this.range <=13F)
 				this.range += 0.5F;
 			
-			if(this.ticksExisted % 4 == 0 && this.fakecount < 13){
-				EntityJudahSpear spear = new EntityJudahSpear(player, this.world);
-				spear.setUUID(getUniqueID());
-				spear.setRotation(180F);
-				spear.setPosition(this.posX, this.posY, this.posZ);
-				spear.setDamage(getDamage());
-				spear.setFake(true);
-				spear.setType(EntityJudahSpear.Type.byId(getType().ordinal()));
-				if(!this.world.isRemote)
-					this.world.spawnEntity(spear);	
-				this.fakecount+=1;
-			}
+			if(this.getType() != EntityJudahOath.Type.SAKURA) {
 			
-			
-			AxisAlignedBB axis = new AxisAlignedBB(posX-this.range+2.5F, posY-this.range+2.5F, posZ-this.range+2.5F, lastTickPosX+this.range-2.5F, lastTickPosY+this.range-2.5F, lastTickPosZ+this.range-2.5F);
-			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
-			double tx = posX;
-			double ty = posY + 10;
-			double tz = posZ;
+				if(this.ticksExisted % 4 == 0 && this.fakecount < 13){
+					EntityJudahSpear spear = new EntityJudahSpear(player, this.world);
+					spear.setUUID(getUniqueID());
+					spear.setRotation(180F);
+					spear.setPosition(this.posX, this.posY, this.posZ);
+					spear.setDamage(getDamage());
+					spear.setFake(true);
+					spear.setType(EntityJudahSpear.Type.byId(getType().ordinal()));
+					if(!this.world.isRemote)
+						this.world.spawnEntity(spear);	
+					this.fakecount+=1;
+				}
 				
-			for(EntityLivingBase living:entities){
-				if(living.getUniqueID() == getUUID() || living.isDead || FMLCommonHandler.instance().getMinecraftServerInstance() != null && !FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled() && living instanceof EntityPlayer)
-					continue;
-				living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 9));
-				tx = living.posX;
-				ty = living.posY + 10;
-				tz = living.posZ;
-			}
 				
-			if(this.standby > 20 && this.ticksExisted % 10 == 0 && this.count < 13) {		
-				EntityJudahSpear spear = new EntityJudahSpear(this.world);
-				spear.setUUID(getUniqueID());
-				spear.setRotation(0F);
-				spear.setPosition(tx,ty,tz);
-				spear.setDamage(getDamage());
-				spear.setFake(false);
-				spear.setType(EntityJudahSpear.Type.byId(getType().ordinal()));
-				if(!this.world.isRemote)
-					this.world.spawnEntity(spear);	
-				this.count+=1;
+				AxisAlignedBB axis = new AxisAlignedBB(posX-this.range+2.5F, posY-this.range+2.5F, posZ-this.range+2.5F, lastTickPosX+this.range-2.5F, lastTickPosY+this.range-2.5F, lastTickPosZ+this.range-2.5F);
+				List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, axis);
+				double tx = posX;
+				double ty = posY + 10;
+				double tz = posZ;
+					
+				for(EntityLivingBase living:entities){
+					if(living.getUniqueID() == getUUID() || living.isDead || FMLCommonHandler.instance().getMinecraftServerInstance() != null && !FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled() && living instanceof EntityPlayer)
+						continue;
+					living.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 20, 9));
+					tx = living.posX;
+					ty = living.posY + 10;
+					tz = living.posZ;
+				}
+					
+				if(this.standby > 20 && this.ticksExisted % 10 == 0 && this.count < 13) {		
+					EntityJudahSpear spear = new EntityJudahSpear(this.world);
+					spear.setUUID(getUniqueID());
+					spear.setRotation(0F);
+					spear.setPosition(tx,ty,tz);
+					spear.setDamage(getDamage());
+					spear.setFake(false);
+					spear.setType(EntityJudahSpear.Type.byId(getType().ordinal()));
+					if(!this.world.isRemote)
+						this.world.spawnEntity(spear);	
+					this.count+=1;
+				}
+				
+			}else {
+				//sakura
+				if(this.standby >= 20 && this.standby % 30 == 0 && this.count <= 2) {
+					Point center = new Point(this.getPosition().getX(), this.getPosition().getZ());
+					double angle = 72D;
+					Point p = new Point(this.getPosition().getX() - 11, this.getPosition().getZ());
+					p = rotatePointAbout(p, center, getRotation());
+					Point points[] = new Point[5];
+					for(int i = 0; i < 5; i++) {
+						p = rotatePointAbout(p, center, angle);
+						points[i] = p;
+					}
+					for(int i = 0; i < 5; i++) {
+						int index = i + 2 > 4 ? i-3 : i+2;
+						Point pstart = points[i];
+						pstart = rotatePointAbout(pstart, center, 36 * count);
+						Point pend = points[index];
+						pend = rotatePointAbout(pend, center, 36 * count);
+						BlockPos start = new BlockPos(pstart.x, this.getPosition().getY()+1, pstart.y);
+						BlockPos end = new BlockPos(pend.x, this.getPosition().getY()+1, pend.y);
+						EntityJudahSword sword = new EntityJudahSword(this.world, start, end);
+						sword.setDamage(6F);
+						sword.setPosition(start.getX(), start.getY(), start.getZ());
+						if(!world.isRemote) {
+							world.spawnEntity(sword);
+						}
+					}
+					count++;
+				}
 			}
 			
 			for(int i = 0; i < 360; i += 2) {
@@ -149,20 +184,28 @@ public class EntityJudahOath extends EntityThrowableCopy{
 						b=0.75F;
 						break;
 					case 2:
-						break;
-					case 3:
+						r=1.00F;
+						g=0.8F;
+						b=0.8F;
 						break;
 				}
 				float rad = i * (float) Math.PI / 180F;
-				double x = this.posX + 0.5 - Math.cos(rad) * this.range;
+				double x = this.getPosition().getX() + 0.5 - Math.cos(rad) * this.range;
 				double y = this.posY + 0.2;
-				double z = this.posZ + 0.5 - Math.sin(rad) * this.range;
+				double z = this.getPosition().getZ() + 0.5 - Math.sin(rad) * this.range;
 				Botania.proxy.sparkleFX(x, y, z, r , g, b, 1F, 3);
 			}
 		}
 		
 		if(this.standby > 140 || this.ticksExisted > 300)
 			this.setDead();
+	}
+	
+	private Point rotatePointAbout(Point in, Point about, double degrees) {
+		double rad = degrees * Math.PI / 180.0;
+		double newX = Math.cos(rad) * (in.x - about.x) - Math.sin(rad) * (in.y - about.y) + about.x;
+		double newY = Math.sin(rad) * (in.x - about.x) + Math.cos(rad) * (in.y - about.y) + about.y;
+		return new Point((int) newX, (int) newY);
 	}
 	
 	private EntityJudahOath.Status getStatus(){
@@ -229,7 +272,6 @@ public class EntityJudahOath extends EntityThrowableCopy{
     public static enum Type{
     	JUDAH(0, "judah"),
         KIRA(1, "kira"),
-        ETERNITY(2, "eternity"),
         SAKURA(2, "sakura");
 
         private final String name;

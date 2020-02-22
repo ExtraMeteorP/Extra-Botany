@@ -48,6 +48,7 @@ item.extrabotany:masterhandbag.name=旅行手袋
 item.extrabotany:coregod.name=律者核心
 item.extrabotany:judahoath.name=犹大的誓约
 item.extrabotany:judahoathkira.name=犹大的誓约KIRA
+item.extrabotany:judahoathsakura.name=樱花的誓约
 item.extrabotany:candy0.name=万圣节糖果Eins
 item.extrabotany:candy1.name=万圣节糖果Zwei
 item.extrabotany:candy2.name=万圣节糖果Drei
@@ -91,6 +92,7 @@ item.extrabotany:manadriverring.name=驭魔之戒
 item.extrabotany:jingweifeather.name=精卫之羽
 item.extrabotany:silenteternity.name=静籁永恒
 item.extrabotany:specialbag.name=限量补给包
+item.extrabotany:tribloodstone.name=三重血玉
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -364,7 +366,7 @@ botania.page.reikarlily1=就决定是你了!
 botania.tagline.reikarlily=个!十!百!千!万丈目闪电!
 
 botania.entry.edelweiss=雪绒花
-botania.page.edelweiss0=雪绒花可以通过吞噬雪傀儡 或者铁傀儡来产出&4魔力&0。
+botania.page.edelweiss0=雪绒花可以通过吞噬雪傀儡 来产出&4魔力&0。
 botania.page.edelweiss1=If you are reading this, you can read.
 botania.tagline.edelweiss=有些残忍
 
@@ -659,6 +661,8 @@ botania.entry.judahoath=犹大的誓约
 botania.page.judahoath0=使用后会消耗魔力展开犹大 的誓约，禁锢范围内的敌人 并召唤光矛攻击，削减敌人 的生命上限。
 botania.page.judahoath1=犹大的誓约
 botania.page.judahoath2=犹大的誓约KIRA
+botania.page.judahoath3=樱花的誓约
+botania.page.judahoath4=三重血玉
 botania.tagline.judahoath=
 
 botania.entry.bottledflame=瓶中火

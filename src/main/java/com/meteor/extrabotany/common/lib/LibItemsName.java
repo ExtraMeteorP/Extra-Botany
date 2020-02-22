@@ -30,7 +30,8 @@ public class LibItemsName {
 	public static final String JUDAHOATH = "judahoath";
 	public static final String[] JUDAHOATHS = new String[]{
 			"judahoath",
-			"judahoathkira"
+			"judahoathkira",
+			"judahoathsakura"
 	};
 	
 	public static final String[] LENSES = new String[]{
@@ -154,7 +155,8 @@ public class LibItemsName {
 		"ticket",
 		"godcloth",
 		"photonium",
-		"voidcaller"
+		"voidcaller",
+		"tribloodstone"
 	};
 	
 }

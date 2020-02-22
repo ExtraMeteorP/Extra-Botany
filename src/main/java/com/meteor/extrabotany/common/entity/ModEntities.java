@@ -12,6 +12,7 @@ import com.meteor.extrabotany.common.entity.gaia.EntityVoid;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahSpear;
+import com.meteor.extrabotany.common.entity.judah.EntityJudahSword;
 import com.meteor.extrabotany.common.lib.LibMisc;
 
 import net.minecraft.util.ResourceLocation;
@@ -62,6 +63,8 @@ public class ModEntities {
 		EntityRegistry.registerModEntity(makeName("subspacelance"), EntitySubspaceLance.class,
 				"extrabotany:subspacelance", id++, ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("aurafire"), EntityAuraFire.class, "extrabotany:aurafire", id++,
+				ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("judahsword"), EntityJudahSword.class, "extrabotany:judahsword", id++,
 				ExtraBotany.instance, 64, 10, true);
 	}
 

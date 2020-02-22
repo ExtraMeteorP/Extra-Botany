@@ -41,7 +41,7 @@ import vazkii.botania.client.core.helper.IconHelper;
 
 public class ItemJudahOath extends ItemModRelic implements ICosmeticItem, IManaUsingItem {
 
-	final int types = 2;
+	final int types = 3;
 
 	public ItemJudahOath() {
 		super(LibItemsName.JUDAHOATH);
@@ -81,12 +81,11 @@ public class ItemJudahOath extends ItemModRelic implements ICosmeticItem, IManaU
 	public ActionResult<ItemStack> onItemRightClick(@Nonnull World world, EntityPlayer player, @Nonnull EnumHand hand) {
 		ItemStack stack = player.getHeldItem(hand);
 		if (isRightPlayer(player, stack)
-				&& ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) player, 2000, true)) {
-			player.getCooldownTracker().setCooldown(this, 120);
+				&& ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) player, 2500, true)) {
+			player.getCooldownTracker().setCooldown(this, 80);
 			EntityJudahOath judah = new EntityJudahOath(world, player);
 			judah.shoot(player, player.rotationPitch, player.rotationYaw, 0F, 0.5F, 0F);
 			judah.setPosition(player.posX, player.posY + 1, player.posZ);
-			ExtraBotany.logger.info(MathHelper.wrapDegrees(-player.rotationYaw + 180));
 			judah.setRotation(MathHelper.wrapDegrees(-player.rotationYaw + 180));
 			judah.setDamage(7);
 			judah.setUUID(player.getUniqueID());

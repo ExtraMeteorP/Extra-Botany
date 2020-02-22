@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.item.equipment.tool;
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
 import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
 import com.meteor.extrabotany.common.block.tile.TileManaLiquefaction;
+import com.meteor.extrabotany.common.block.tile.TileQuantumManaBuffer;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 
@@ -77,6 +78,11 @@ public class ItemManaReader extends ItemMod{
     			if(!worldIn.isRemote)
     				player.sendMessage(new TextComponentTranslation(String.valueOf(mana) + "/" + String.valueOf(sg.getMaxMana())));
         	}	
+        }else if(te instanceof TileQuantumManaBuffer) {
+        	TileQuantumManaBuffer qmb = (TileQuantumManaBuffer) te;
+        	int mana = qmb.getCurrentMana();
+			if(!worldIn.isRemote)
+				sendMessage(player, mana);		
         }
 		return EnumActionResult.PASS;
 	}

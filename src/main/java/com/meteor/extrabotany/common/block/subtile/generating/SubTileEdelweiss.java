@@ -33,7 +33,7 @@ public class SubTileEdelweiss extends SubTileGenerating{
 		List<EntitySnowman> entities = getWorld().getEntitiesWithinAABB(EntitySnowman.class, axis);
 		for(EntitySnowman entity : entities){
 			if(mana < getMaxMana())
-				if(entity instanceof EntitySnowman && entity.isEntityAlive()){
+				if(entity instanceof EntitySnowman && entity.isEntityAlive() && !entity.isDead){
 					entity.setDead();
 					mana +=snowGolem * ConfigHandler.EFF_ELDELWEISS;
 					burnTime+=20 * ConfigHandler.EFF_ELDELWEISS;

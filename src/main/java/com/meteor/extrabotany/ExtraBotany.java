@@ -25,7 +25,6 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
@@ -36,7 +35,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @Mod(modid = LibMisc.MOD_ID, name = ExtraBotany.NAME, version = ExtraBotany.VERSION, dependencies = "required-after:botania@[r1.10-357,);"
 		+ "after:baubles@[1.5.2,);" + "after:waila;" + "after:theoneprobe;" + "after:thaumcraft@[6.1.BETA25,);"
 		+ "after:tconstruct;" + "after:mtlib;" + "after:crafttweaker;"
-		+ "before:armoryexpansion", updateJSON = ExtraBotany.UPDATE_URL, guiFactory = "com.meteor.extrabotany.common.core.config.ConfigGui")
+		+ "before:armoryexpansion", guiFactory = "com.meteor.extrabotany.common.core.config.ConfigGui")
 public class ExtraBotany {
 	public static final String MODID = "extrabotany";
 	public static final String NAME = "extrabotany";
@@ -47,9 +46,6 @@ public class ExtraBotany {
 	public static final List<IAction> LATE_REMOVALS = new LinkedList<>();
 	public static final List<IAction> LATE_ADDITIONS = new LinkedList<>();
 	public static Set<String> subtilesForCreativeMenu = new LinkedHashSet();
-
-	public static final String UPDATE_URL = "https://raw.github.com/ExtraMeteorP/ExtraBotany/master/" + LibMisc.MOD_ID
-			+ "_update.json";
 
 	@SidedProxy(serverSide = "com.meteor.extrabotany.common.CommonProxy", clientSide = "com.meteor.extrabotany.client.ClientProxy")
 	public static CommonProxy proxy;

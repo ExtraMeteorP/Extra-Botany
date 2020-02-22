@@ -36,13 +36,13 @@ public class LensPotion extends Lens {
 			ItemLens lens = (ItemLens) stack.getItem();
 			Brew brew = lens.getBrew(stack);
 			for (EntityLivingBase living : entities) {
-				if (mana >= 24) {
-					burst.setMana(mana - 24);
+				if (mana >= 40) {
+					burst.setMana(mana - 40);
 					if (!burst.isFake()) {
 						if (!entity.world.isRemote) {
 							for (PotionEffect effect : brew.getPotionEffects(stack)) {
 								PotionEffect newEffect = new PotionEffect(effect.getPotion(), effect.getDuration()/3,
-										Math.max(effect.getAmplifier()-1, 0), true, true);
+										effect.getAmplifier(), true, true);
 								if (effect.getPotion().isInstant())
 									effect.getPotion().affectEntity(living, living, living, newEffect.getAmplifier(),
 											1F);
@@ -50,8 +50,9 @@ public class LensPotion extends Lens {
 									living.addPotionEffect(newEffect);
 							}
 							if(living instanceof EntityPlayer) {
-								((EntityPlayer)living).getCooldownTracker().setCooldown(ModItems.manaGun, 40);
+								((EntityPlayer)living).getCooldownTracker().setCooldown(ModItems.manaGun, 20);
 							}
+							burst.setFake(true);
 						}
 					}
 				}

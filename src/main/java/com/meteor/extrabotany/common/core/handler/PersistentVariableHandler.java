@@ -36,7 +36,7 @@ public class PersistentVariableHandler {
 		NBTTagCompound cmp = new NBTTagCompound();
 
 		try {
-			URL url = new URL("https://raw.githubusercontent.com/ExtraMeteorP/Extra-Botany/master/contributors.md");
+			URL url = new URL("https://meteorofficial.coding.net/p/ExtraBotany/d/ExtraBotany/git/raw/master/contributors.md");
 			BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
 			String str;
 			while ((str = r.readLine()) != null) {

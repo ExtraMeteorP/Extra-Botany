@@ -48,6 +48,7 @@ item.extrabotany:masterhandbag.name=Mini Handbag
 item.extrabotany:coregod.name=Core of God
 item.extrabotany:judahoath.name=Judah Oath
 item.extrabotany:judahoathkira.name=Judah Oath KIRA
+item.extrabotany:judahoathsakura.name=Oath of Sakura
 item.extrabotany:candy0.name=Halloween Candy Eins
 item.extrabotany:candy1.name=Halloween Candy Zwei
 item.extrabotany:candy2.name=Halloween Candy Drei
@@ -91,6 +92,7 @@ item.extrabotany:manadriverring.name=Ring of Mana Drive
 item.extrabotany:jingweifeather.name=Feather of JingWei
 item.extrabotany:silenteternity.name=Silent Eternity
 item.extrabotany:specialbag.name=Supply Bag Limited Edition
+item.extrabotany:tribloodstone.name=Tri-Bloodstone
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
@@ -364,7 +366,7 @@ botania.page.reikarlily1=I Choose You!
 botania.tagline.reikarlily=Lightning Energy
 
 botania.entry.edelweiss=Edelweiss
-botania.page.edelweiss0=Edelweiss will swallow the snow golem or iron golem to produce mana.
+botania.page.edelweiss0=Edelweiss will swallow the snow golem to produce mana.
 botania.page.edelweiss1=If you are reading this, you can read.
 botania.tagline.edelweiss=A bit cruel
 
@@ -659,6 +661,8 @@ botania.entry.judahoath=Judah Oath
 botania.page.judahoath0=Use mana to set up Judah Oath, it will imprison the creatures in its range and shoot divine spear to attack them.
 botania.page.judahoath1=Judah Oath
 botania.page.judahoath2=Judah Oath KIRA
+botania.page.judahoath3=Oath of Sakura
+botania.page.judahoath4=Tri-Bloodstone
 botania.tagline.judahoath=
 
 botania.entry.bottledflame=Bottled Flame

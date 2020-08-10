@@ -338,7 +338,7 @@ public class ItemExcaliber extends ItemSword
 					|| FMLCommonHandler.instance().getMinecraftServerInstance() != null
 							&& !FMLCommonHandler.instance().getMinecraftServerInstance().isPVPEnabled()))
 				continue;
-
+			
 			if (living.isEntityAlive()) {
 				int cost = MANA_PER_DAMAGE / 3;
 				int mana = burst.getMana();

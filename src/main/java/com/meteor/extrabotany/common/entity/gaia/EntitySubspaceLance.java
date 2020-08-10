@@ -129,10 +129,10 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 			for (EntityPlayer player : getPlayersAround()) {
 				RayTraceResult rtr = player.getEntityBoundingBox().grow(0.4).calculateIntercept(oldPosVec, newPosVec);
 				if (rtr != null) {
-					if (this.ticksExisted % 6 == 0 && player.getHealth() > 12) {
-						player.attackEntityFrom(DamageSource.GENERIC.setDamageBypassesArmor().setDamageIsAbsolute(), 1F);
-						player.attackEntityFrom(DamageSource.LIGHTNING_BOLT.setDamageBypassesArmor().setDamageIsAbsolute(), 1F);
-						ExtraBotanyAPI.dealTrueDamage(this.getThrower(), player, 0.3F);
+					if (this.ticksExisted % 5 == 0 && player.getHealth() > 8) {
+						player.attackEntityFrom(DamageSource.GENERIC.setDamageBypassesArmor().setDamageIsAbsolute(), 1.2F);
+						player.attackEntityFrom(DamageSource.LIGHTNING_BOLT.setDamageBypassesArmor().setDamageIsAbsolute(), 1.2F);
+						ExtraBotanyAPI.dealTrueDamage(this.getThrower(), player, 0.4F);
 						player.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 100, 1));
 					}
 				}
@@ -171,7 +171,7 @@ public class EntitySubspaceLance extends EntityThrowableCopy implements IBossPro
 
 			EntityLivingBase target = (EntityLivingBase) entities.get(rand.nextInt(entities.size()));
 			if (!(target instanceof EntityVoidHerrscher)) {
-				if (target.getHealth() > 15)
+				if (target.getHealth() > 10)
 					ExtraBotanyAPI.dealTrueDamage(this.getThrower(), target, dmg + target.getMaxHealth() * 0.1F);
 				target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 100, 1));
 			}

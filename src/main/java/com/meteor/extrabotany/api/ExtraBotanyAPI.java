@@ -142,8 +142,10 @@ public class ExtraBotanyAPI {
 				return result;
 		
 		if(ConfigHandler.ENABLE_TRUEDAMAGE) {
-			if(!target.isNonBoss())
-				amount*=0.5F;
+			if(!target.isNonBoss() || target instanceof EntityPlayer && player.isNonBoss())
+				amount*=0.2F;
+			else
+				amount*=1.5F;
 			if (health > 0) {
 				float postHealth = Math.max(1, health - amount);
 				target.setHealth(postHealth);

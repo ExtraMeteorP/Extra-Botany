@@ -1,0 +1,53 @@
+{
+  "pools": [
+    {
+      "name": "pandorabox",
+      "conditions": [
+        { "condition": "killed_by_player" }
+      ],
+      "rolls": 1,
+      "entries": [{
+        "type": "item",
+        "name": "extrabotany:treasurebox"
+      }]
+    },
+	
+	{
+      "name": "limitiededition",
+      "conditions": [
+        { "condition": "killed_by_player" }
+      ],
+      "rolls": 1,
+      "entries": [{
+        "type": "item",
+        "name": "extrabotany:specialbag",
+		"functions": [
+		{ "function": "set_count", "count": 3 }
+		]
+      }]
+    },
+	
+	{
+      "name": "rainbow",
+      "conditions": [
+        { "condition": "killed_by_player" }
+      ],
+      "rolls": 1,
+      "entries": [{
+        "type": "item",
+        "name": "extrabotany:coregod",
+		"weight": 2,
+		"functions": [{
+		"function": "set_data",
+        "data": 2}
+		]
+      },
+	  {
+        "type": "empty",
+        "weight": 98
+      }
+	  
+	  ]
+    }
+  ]
+}

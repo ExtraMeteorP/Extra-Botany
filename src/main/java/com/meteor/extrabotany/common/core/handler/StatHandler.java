@@ -24,17 +24,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class StatHandler {
-	/**
-	@SubscribeEvent
-	public static void playerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-		if(PersistentVariableHandler.advertisements.size() > 0){
-			for(int i = 0; i < PersistentVariableHandler.advertisements.size(); i++){
-				ITextComponent component = ITextComponent.Serializer.fromJsonLenient(PersistentVariableHandler.advertisements.get(i));			
-				event.player.sendMessage(component);
-			}
-		}
-	}
-	**/
 	
 	@SubscribeEvent
 	public static void getAchievement(AdvancementEvent event) {
@@ -58,17 +47,19 @@ public class StatHandler {
 	}
 	
 	@SubscribeEvent
-	public static void checkAdvancements(TickEvent.PlayerTickEvent event) {
-		if(event.phase == Phase.END){
-			if(statsAmount(event.player) >= 18)
-				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.JINGWEIFEATHER);
-			if(statsAmount(event.player) >= 12)
-				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.MAGICFINGERGET);
-			if(statsAmount(event.player) >= 6)
-				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.MANADRIVERRING);
-			if(hasAllStats(event.player))
-				ExtraBotanyAPI.unlockAdvancement(event.player, LibAdvancements.ALLSTATS);
-		}
+	public static void checkAdvancements(AdvancementEvent event) {
+		if(!(event.getEntityLiving() instanceof EntityPlayer))
+			return;
+		EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+		if(statsAmount(player) >= 18)
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.JINGWEIFEATHER);
+		if(statsAmount(player) >= 12)
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.MAGICFINGERGET);
+		if(statsAmount(player) >= 6)
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.MANADRIVERRING);
+		if(hasAllStats(player))
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ALLSTATS);
+		
 	}
 	
 	public static String[] stats = new String[]{

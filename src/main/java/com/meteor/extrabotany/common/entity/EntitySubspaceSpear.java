@@ -86,7 +86,7 @@ public class EntitySubspaceSpear extends EntityThrowableCopy implements IBossPro
 				if (living == thrower)
 					continue;
 
-				if (ExtraBotany.isTableclothServer && EventUtils.cantAttack((EntityPlayer) thrower, living))
+				if (thrower instanceof EntityPlayer && ExtraBotany.isTableclothServer && EventUtils.cantAttack((EntityPlayer) thrower, living))
 					continue;
 
 				if (living.hurtResistantTime == 0) {

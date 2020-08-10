@@ -1007,7 +1007,7 @@ public class EntityVoidHerrscher extends EntityCreature
 
 	@Override
 	public ResourceLocation getLootTable() {
-		return new ResourceLocation(LibMisc.MOD_ID, "gaia_guardian_3");
+		return new ResourceLocation(LibMisc.MOD_ID, "void_herrscher");
 	}
 
 	@Override
@@ -1043,9 +1043,6 @@ public class EntityVoidHerrscher extends EntityCreature
 			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.HERRSCHER_DEFEAT);
 			if (this.quickkill)
 				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ENDGAME_GOAL);
-			player.entityDropItem(new ItemStack(ModItems.rewardbags, 3),  0);
-			if(Math.random() <= 0.02F)
-				player.entityDropItem(new ItemStack(ModItems.godcore, 1, 2),  0);
 			posX = savePosX;
 			posY = savePosY;
 			posZ = savePosZ;

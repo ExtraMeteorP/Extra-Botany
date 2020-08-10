@@ -67,7 +67,7 @@ public class ModPetalRecipe {
 					runeAutumn, runeGluttony);
 		if (ConfigHandler.ENABLE_TK)
 			tinkleRecipe = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(LibBlocksName.SUBTILE_TINKLE),
-					yellow, yellow, green, lime, runeEarth, new ItemStack(ModItems.material),
+					yellow, yellow, green, lime, runeEarth, runeWater, new ItemStack(ModItems.material),
 					new ItemStack(ModItems.material), manaPowder);
 		if (ConfigHandler.ENABLE_BF)
 			bellflowerRecipe = BotaniaAPI.registerPetalRecipe(

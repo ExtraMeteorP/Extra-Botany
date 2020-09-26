@@ -11,14 +11,14 @@ import com.meteor.extrabotany.common.brew.potion.PotionReflect;
 import com.meteor.extrabotany.common.brew.potion.PotionTemptation;
 import com.meteor.extrabotany.common.brew.potion.PotionVegetable;
 import com.meteor.extrabotany.common.brew.potion.PotionWitchCurse;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.potion.Potion;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class ModPotions {
 
 	public static final Potion mindcrack = new PotionMindCrack();

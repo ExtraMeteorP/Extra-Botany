@@ -1,7 +1,7 @@
 package com.meteor.extrabotany.client.integration.theoneprobe;
 
 import com.meteor.extrabotany.common.block.tile.TileManaLiquefaction;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
@@ -34,6 +34,6 @@ public class TOPManaLiquefaction implements IProbeInfoProvider{
 		
 	@Override
 	public String getID(){
-		return LibMisc.MOD_ID + ".manaliquefaction";
+		return Reference.MOD_ID + ".manaliquefaction";
 	}
 }

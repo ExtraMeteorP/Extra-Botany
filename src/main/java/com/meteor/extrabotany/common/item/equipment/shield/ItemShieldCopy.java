@@ -2,10 +2,9 @@ package com.meteor.extrabotany.common.item.equipment.shield;
 
 import javax.annotation.Nonnull;
 
-import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.client.render.IModelReg;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -39,7 +38,7 @@ public class ItemShieldCopy extends ItemShield implements IModelReg{
 
 	public ItemShieldCopy(ToolMaterial material, String name) {
 		setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
-		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+		setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		setUnlocalizedName(name);
 		this.name = name;
 		this.material = material;
@@ -54,7 +53,7 @@ public class ItemShieldCopy extends ItemShield implements IModelReg{
 	@Nonnull
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
+		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + Reference.MOD_ID + ":");
 	}
 
 	@SideOnly(Side.CLIENT)

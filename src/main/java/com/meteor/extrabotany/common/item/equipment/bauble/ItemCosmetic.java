@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import baubles.api.BaubleType;
 import net.minecraft.client.Minecraft;
@@ -167,7 +167,7 @@ public class ItemCosmetic extends ItemBauble implements ICosmeticBauble{
 			if (!"UNUSED".equals(LibItemsName.COSMETIC_NAMES[i])) {
 				ModelLoader.setCustomModelResourceLocation(
 					this, i,
-					new ModelResourceLocation(LibMisc.MOD_ID + ":" + LibItemsName.COSMETIC_NAMES[i], "inventory")
+					new ModelResourceLocation(Reference.MOD_ID + ":" + LibItemsName.COSMETIC_NAMES[i], "inventory")
 				);
 			}
 		}

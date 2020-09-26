@@ -29,7 +29,7 @@ import com.meteor.extrabotany.common.block.tile.TileQuantumManaBuffer;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.block.ItemBlockMod;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -42,7 +42,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.subtile.SubTileEntity;
 
-@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class ModBlocks {
 	
 	public static final Block pedestal = new BlockPedestal();
@@ -154,7 +154,7 @@ public class ModBlocks {
 	}
 	
 	private static void registerTile(Class<? extends TileEntity> clazz, String key) {
-		GameRegistry.registerTileEntity(clazz, LibMisc.MOD_ID + ":" + key);
+		GameRegistry.registerTileEntity(clazz, Reference.MOD_ID + ":" + key);
 	}
 
 }

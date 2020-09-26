@@ -5,7 +5,7 @@ import javax.annotation.Nonnull;
 import com.meteor.extrabotany.client.ClientProxy;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -89,7 +89,7 @@ public class ItemHalloweenCandy extends ItemFoodMod {
 	public void registerModels() {
 		for (int i = 0; i < types; i++) {
 			ModelLoader.setCustomModelResourceLocation(this, i,
-					new ModelResourceLocation(LibMisc.MOD_ID + ":" + LibItemsName.CANDY + i, "inventory"));
+					new ModelResourceLocation(Reference.MOD_ID + ":" + LibItemsName.CANDY + i, "inventory"));
 		}
 	}
 

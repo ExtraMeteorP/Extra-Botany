@@ -3,7 +3,7 @@ package com.meteor.extrabotany.client.core.handler;
 import com.meteor.extrabotany.client.particle.ParticleCloudPattern;
 import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import baubles.api.BaublesApi;
 import net.minecraft.client.Minecraft;
@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class ContributorHandler {
 	
 	@SideOnly(Side.CLIENT)

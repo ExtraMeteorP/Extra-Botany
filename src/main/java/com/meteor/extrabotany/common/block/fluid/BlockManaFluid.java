@@ -2,7 +2,7 @@ package com.meteor.extrabotany.common.block.fluid;
 
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.client.render.IModelReg;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -21,7 +21,7 @@ public class BlockManaFluid extends BlockFluidClassic implements IModelReg{
    
 	public BlockManaFluid(){
         super(ModFluid.fluidMana, Material.WATER);
-        setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "fluidedmana"));
+        setRegistryName(new ResourceLocation(Reference.MOD_ID, "fluidedmana"));
         setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
         setUnlocalizedName("fluidedmana");
     }
@@ -29,7 +29,7 @@ public class BlockManaFluid extends BlockFluidClassic implements IModelReg{
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerModels() {
-		final String location = LibMisc.MOD_ID + ":" + "fluid_mana";
+		final String location = Reference.MOD_ID + ":" + "fluid_mana";
         final Item itemFluid = Item.getItemFromBlock(this);
         ModelLoader.setCustomMeshDefinition(itemFluid, new ItemMeshDefinition()
         {

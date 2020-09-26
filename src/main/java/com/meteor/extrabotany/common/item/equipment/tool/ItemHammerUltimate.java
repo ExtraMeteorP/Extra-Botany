@@ -11,7 +11,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -41,7 +41,6 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.item.ISequentialBreaker;
 import vazkii.botania.api.mana.IManaGivingItem;
 import vazkii.botania.api.mana.IManaItem;
@@ -66,7 +65,7 @@ public class ItemHammerUltimate extends ItemHammer implements IManaItem, ISequen
 	public ItemHammerUltimate() {
 		super(LibItemsName.HAMMER_ULTIMATE, ExtraBotanyAPI.ultimateHammer);
 		setMaxDamage(3000);
-		addPropertyOverride(new ResourceLocation(LibMisc.MOD_ID, "enabled"), (itemStack, world, entityLivingBase) -> isEnabled(itemStack) ? 1 : 0);
+		addPropertyOverride(new ResourceLocation(Reference.MOD_ID, "enabled"), (itemStack, world, entityLivingBase) -> isEnabled(itemStack) ? 1 : 0);
 	}
 	
 	@SideOnly(Side.CLIENT)

@@ -1,7 +1,7 @@
 package com.meteor.extrabotany.client.integration.theoneprobe;
 
 import com.meteor.extrabotany.common.block.tile.TileManaBuffer;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
@@ -23,6 +23,6 @@ public class TOPManaBuffer implements IProbeInfoProvider{
 		
 		@Override
 	    public String getID(){
-	        return LibMisc.MOD_ID + ".manabuffer";
+	        return Reference.MOD_ID + ".manabuffer";
 	    }
 }

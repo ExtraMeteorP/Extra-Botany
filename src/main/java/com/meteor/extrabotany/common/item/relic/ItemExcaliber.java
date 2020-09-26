@@ -17,7 +17,7 @@ import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -85,7 +85,7 @@ public class ItemExcaliber extends ItemSword
 	public ItemExcaliber(String name) {
 		super(toolMaterial);
 		setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
-		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+		setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		setUnlocalizedName(name);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -368,7 +368,7 @@ public class ItemExcaliber extends ItemSword
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
 		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.",
-				"item." + LibMisc.MOD_ID + ":");
+				"item." + Reference.MOD_ID + ":");
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -6,7 +6,7 @@ import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -59,7 +59,7 @@ public class ItemFlyingBoat extends ItemMod {
 		for (int i = 0; i < LibItemsName.FLYING_BOAT_NAMES.length; i++)
 			if (!"UNUSED".equals(LibItemsName.FLYING_BOAT_NAMES[i]))
 				ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(
-						LibMisc.MOD_ID + ":" + LibItemsName.FLYING_BOAT_NAMES[i], "inventory"));
+						Reference.MOD_ID + ":" + LibItemsName.FLYING_BOAT_NAMES[i], "inventory"));
 	}
 
 	@Override

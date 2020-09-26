@@ -8,7 +8,7 @@ import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -128,7 +128,7 @@ public class ItemMaterial extends ItemMod implements IFlowerComponent {
 	public void registerModels() {
 		for (int i = 0; i < LibItemsName.MANA_RESOURCE_NAMES.length; i++) {
 			ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(
-				LibMisc.MOD_ID + ":" + LibItemsName.MANA_RESOURCE_NAMES[i], "inventory"));
+				Reference.MOD_ID + ":" + LibItemsName.MANA_RESOURCE_NAMES[i], "inventory"));
 		}
 	}
 

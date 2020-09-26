@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.item.ItemMod;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -51,7 +51,7 @@ public class ItemBrewBase extends ItemMod implements IBrewItem {
 		this.mutilplier = mutilplier;
 		this.amplifier = amplifier;
 		setMaxStackSize(1);
-		addPropertyOverride(new ResourceLocation(LibMisc.MOD_ID, "swigs_taken"),
+		addPropertyOverride(new ResourceLocation(Reference.MOD_ID, "swigs_taken"),
 				(stack, world, entity) -> swigs - getSwigsLeft(stack));
 	}
 

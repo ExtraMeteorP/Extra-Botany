@@ -3,7 +3,7 @@ package com.meteor.extrabotany.common.core.handler;
 import java.util.List;
 
 import com.google.common.collect.ImmutableList;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootEntry;
@@ -23,7 +23,7 @@ public class LootHandler {
 
 	public LootHandler() {
 		for (String s : TABLES) {
-			LootTableList.register(new ResourceLocation(LibMisc.MOD_ID, s));
+			LootTableList.register(new ResourceLocation(Reference.MOD_ID, s));
 		}
 	}
 
@@ -56,7 +56,7 @@ public class LootHandler {
 	}
 
 	private LootEntryTable getInjectEntry(String name, int weight) {
-		return new LootEntryTable(new ResourceLocation(LibMisc.MOD_ID, "inject/" + name), weight, 0,
+		return new LootEntryTable(new ResourceLocation(Reference.MOD_ID, "inject/" + name), weight, 0,
 				new LootCondition[0], "extrabotany_inject_entry");
 	}
 

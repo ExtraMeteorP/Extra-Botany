@@ -5,12 +5,11 @@ import java.util.UUID;
 import javax.annotation.Nonnull;
 
 import com.google.common.collect.Multimap;
-import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
 import com.meteor.extrabotany.client.render.ICosmeticItem;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -121,7 +120,7 @@ public class ItemJudahOath extends ItemModRelic implements ICosmeticItem, IManaU
 	public void registerModels() {
 		for (int i = 0; i < LibItemsName.JUDAHOATHS.length; i++) {
 			ModelLoader.setCustomModelResourceLocation(this, i,
-					new ModelResourceLocation(LibMisc.MOD_ID + ":" + LibItemsName.JUDAHOATHS[i], "inventory"));
+					new ModelResourceLocation(Reference.MOD_ID + ":" + LibItemsName.JUDAHOATHS[i], "inventory"));
 		}
 	}
 

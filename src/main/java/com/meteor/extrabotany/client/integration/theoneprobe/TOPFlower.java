@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.client.integration.theoneprobe;
 
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
@@ -9,13 +9,11 @@ import mcjty.theoneprobe.api.ProbeMode;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import vazkii.botania.api.subtile.SubTileEntity;
 import vazkii.botania.api.subtile.SubTileFunctional;
 import vazkii.botania.api.subtile.SubTileGenerating;
 import vazkii.botania.common.block.tile.TileSpecialFlower;
-import vazkii.botania.common.block.tile.mana.TilePool;
 
 public class TOPFlower implements IProbeInfoProvider{
 	   
@@ -40,6 +38,6 @@ public class TOPFlower implements IProbeInfoProvider{
 		
 		@Override
 	    public String getID(){
-	        return LibMisc.MOD_ID + ".flower";
+	        return Reference.MOD_ID + ".flower";
 	    }
 }

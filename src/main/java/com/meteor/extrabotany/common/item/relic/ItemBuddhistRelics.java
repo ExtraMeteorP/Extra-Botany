@@ -12,7 +12,7 @@ import com.meteor.extrabotany.common.core.network.PacketLeftClickCopy;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -50,7 +50,7 @@ public class ItemBuddhistRelics extends ItemModRelic implements IManaUsingItem, 
 
 	public ItemBuddhistRelics() {
 		super(LibItemsName.BUDDHISTRELICS);
-		addPropertyOverride(new ResourceLocation(LibMisc.MOD_ID, "mode"), (stack, world, entity) -> getMode(stack));
+		addPropertyOverride(new ResourceLocation(Reference.MOD_ID, "mode"), (stack, world, entity) -> getMode(stack));
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

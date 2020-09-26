@@ -23,7 +23,7 @@ import com.meteor.extrabotany.common.block.subtile.generating.SubTileSunBless;
 import com.meteor.extrabotany.common.block.subtile.generating.SubTileTinkle;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -44,7 +44,7 @@ import net.minecraftforge.registries.IRegistryDelegate;
 import vazkii.botania.api.BotaniaAPIClient;
 import vazkii.botania.client.model.SpecialFlowerModel;
 
-@Mod.EventBusSubscriber(value = Side.CLIENT, modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(value = Side.CLIENT, modid = Reference.MOD_ID)
 public class ModelHandler {
 	
 	public static boolean isClient = false;
@@ -53,7 +53,7 @@ public class ModelHandler {
 	@SideOnly(Side.CLIENT)
 	public static void registerModels(ModelRegistryEvent evt) {
 		ModelLoaderRegistry.registerLoader(SpecialFlowerModel.Loader.INSTANCE);
-		OBJLoader.INSTANCE.addDomain(LibMisc.MOD_ID.toLowerCase(Locale.ROOT));
+		OBJLoader.INSTANCE.addDomain(Reference.MOD_ID.toLowerCase(Locale.ROOT));
 
 		registerSubtiles();
 
@@ -133,7 +133,7 @@ public class ModelHandler {
 		for (int i = 0; i < maxExclusive; i++) {
 			ModelLoader.setCustomModelResourceLocation(
 					item, i,
-					new ModelResourceLocation(LibMisc.MOD_ID + ":" + metaToName.apply(i), "inventory")
+					new ModelResourceLocation(Reference.MOD_ID + ":" + metaToName.apply(i), "inventory")
 					);
 		}
 	}

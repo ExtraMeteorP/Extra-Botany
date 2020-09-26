@@ -74,7 +74,7 @@ import com.meteor.extrabotany.common.item.relic.ItemMasterManaRing;
 import com.meteor.extrabotany.common.item.relic.ItemSpearSubspace;
 import com.meteor.extrabotany.common.item.relic.ItemTreasure;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 import com.meteor.extrabotany.common.lib.LibOreDicts;
 
 import net.minecraft.item.Item;
@@ -85,7 +85,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
-@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class ModItems {
 
 	public static final Item manaReader = new ItemManaReader();

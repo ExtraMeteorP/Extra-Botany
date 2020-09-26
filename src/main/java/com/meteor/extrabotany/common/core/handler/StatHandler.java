@@ -4,7 +4,7 @@ import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.block.ModBlocks;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
@@ -17,32 +17,30 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class StatHandler {
 	
 	@SubscribeEvent
 	public static void getAchievement(AdvancementEvent event) {
 		if(!(event.getEntityLiving() instanceof EntityPlayer))
 			return;
-		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ALLSTATS)))
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ALLSTATS)))
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModBlocks.trophy), 0).setNoPickupDelay();		
-		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.HERRSCHER_DEFEAT)))
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.HERRSCHER_DEFEAT)))
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.mask,1,8), 0).setNoPickupDelay();
-		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ENDGAME_GOAL))){
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.ENDGAME_GOAL))){
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.mask,1,9), 0).setNoPickupDelay();
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.gaiarecord), 0).setNoPickupDelay();
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.herrscherrecord), 0).setNoPickupDelay();
 		}
-		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.JINGWEIFEATHER)))
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.JINGWEIFEATHER)))
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.jingweifeather), 0).setNoPickupDelay();
-		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.MANADRIVERRING)))
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.MANADRIVERRING)))
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.manadriverring), 0).setNoPickupDelay();
-		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.MAGICFINGERGET)))
+		if(event.getAdvancement() == ((EntityPlayerMP)event.getEntityPlayer()).getServerWorld().getAdvancementManager().getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX+LibAdvancements.MAGICFINGERGET)))
 			event.getEntityPlayer().entityDropItem(new ItemStack(ModItems.magicfinger), 0).setNoPickupDelay();
 	}
 	
@@ -125,7 +123,7 @@ public class StatHandler {
 	public static boolean hasStat(EntityPlayer player, String name){
 		if(player instanceof EntityPlayerMP){
 			AdvancementManager manager = ((EntityPlayerMP)player).getServerWorld().getAdvancementManager();
-			Advancement advancement = manager.getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+name));
+			Advancement advancement = manager.getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX+name));
 			if(advancement != null)
 				return ((EntityPlayerMP)player).getAdvancements().getProgress(advancement).isDone();
 		}
@@ -134,7 +132,7 @@ public class StatHandler {
     
     @SideOnly(Side.CLIENT)
     public static Advancement getSideAdvancement(String name) {
-    	return Minecraft.getMinecraft().player.connection.getAdvancementManager().getAdvancementList().getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX+name));
+    	return Minecraft.getMinecraft().player.connection.getAdvancementManager().getAdvancementList().getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX+name));
     }
     
     @SideOnly(Side.CLIENT)

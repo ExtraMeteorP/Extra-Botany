@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.core.config;
 
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -319,7 +319,7 @@ public class ConfigHandler {
 
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-		if (event.getModID().equals(LibMisc.MOD_ID))
+		if (event.getModID().equals(Reference.MOD_ID))
 			syncConfigs();
 	}
 

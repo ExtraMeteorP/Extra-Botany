@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.client.core.handler;
 
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -12,8 +12,8 @@ public class EventHandlerClient {
 
 	@SubscribeEvent
 	public void handleTextureStitchPreEvent(TextureStitchEvent.Pre event) {
-		event.getMap().registerSprite(new ResourceLocation(LibMisc.MOD_ID, "blocks/fluid/" + "mana" + "_still"));
-		event.getMap().registerSprite(new ResourceLocation(LibMisc.MOD_ID, "blocks/fluid/" + "mana" + "_flow"));
+		event.getMap().registerSprite(new ResourceLocation(Reference.MOD_ID, "blocks/fluid/" + "mana" + "_still"));
+		event.getMap().registerSprite(new ResourceLocation(Reference.MOD_ID, "blocks/fluid/" + "mana" + "_flow"));
 	}
 	
 }

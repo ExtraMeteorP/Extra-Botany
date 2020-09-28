@@ -11,7 +11,7 @@ import com.meteor.extrabotany.common.crafting.recipe.brew.InfiniteWineRemakeReci
 import com.meteor.extrabotany.common.crafting.recipe.brew.PotionLensRecipe;
 import com.meteor.extrabotany.common.crafting.recipe.brew.SplashGrenadeRecipe;
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 import com.meteor.extrabotany.common.lib.LibOreDicts;
 
 import net.minecraft.init.Blocks;
@@ -582,7 +582,7 @@ public class ModCraftingRecipe {
 		COREGODJIM.setRegistryName(getResource("recipe_coregodd"));
 	}
 
-	@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
+	@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 	public static class RegistrationHandlerRecipes {
 		@SubscribeEvent
 		public static void registerRecipes(final RegistryEvent.Register<IRecipe> event) {
@@ -590,9 +590,9 @@ public class ModCraftingRecipe {
 			final IForgeRegistry<IRecipe> registry = event.getRegistry();
 			if (ExtraBotany.thaumcraftLoaded) {
 				registry.register(new HelmRevealingRecipe(ModItems.coshelmrevealing, ModItems.cosmhelm)
-						.setRegistryName(LibMisc.MOD_ID, "cosmeticmaidhelm" + "_from_goggles"));
+						.setRegistryName(Reference.MOD_ID, "cosmeticmaidhelm" + "_from_goggles"));
 				registry.register(new HelmRevealingRecipe(ModItems.cmhelmrevealing, ModItems.cmhelm)
-						.setRegistryName(LibMisc.MOD_ID, "combatmaidhelm" + "_from_goggles"));
+						.setRegistryName(Reference.MOD_ID, "combatmaidhelm" + "_from_goggles"));
 			}
 			event.getRegistry().registerAll(SHADOWIUM, BLOCKSHADOWIUM, PHOTONIUM, BLOCKPHOTONIUM, DIMENSIONCATALYST,
 					BOTTLEDPIXIE, BOTTLEDFLAME, BOTTLEDSTAR, PEDESTAL, TERRASTEEL_HAMMER, ELEMENTIUM_HAMMER,
@@ -610,22 +610,22 @@ public class ModCraftingRecipe {
 				event.getRegistry().registerAll(SHIELDMANASTEEL, SHIELDTERRASTEEL, SHIELDELEMENTIUM);
 			}
 			event.getRegistry().register(
-					new CocktailRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_cocktail")));
+					new CocktailRecipe().setRegistryName(new ResourceLocation(Reference.MOD_ID, "recipe_cocktail")));
 			event.getRegistry().register(
-					new PotionLensRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_potionlens")));
+					new PotionLensRecipe().setRegistryName(new ResourceLocation(Reference.MOD_ID, "recipe_potionlens")));
 			event.getRegistry().register(new InfiniteWineRecipe()
-					.setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_infinitewine")));
+					.setRegistryName(new ResourceLocation(Reference.MOD_ID, "recipe_infinitewine")));
 			event.getRegistry().register(new InfiniteWineRemakeRecipe()
-					.setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_infinitewinereset")));
+					.setRegistryName(new ResourceLocation(Reference.MOD_ID, "recipe_infinitewinereset")));
 			event.getRegistry().register(new SplashGrenadeRecipe()
-					.setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_splashgrenade")));
+					.setRegistryName(new ResourceLocation(Reference.MOD_ID, "recipe_splashgrenade")));
 			event.getRegistry().register(
-					new EmptyBoundRecipe().setRegistryName(new ResourceLocation(LibMisc.MOD_ID, "recipe_emptybound")));
+					new EmptyBoundRecipe().setRegistryName(new ResourceLocation(Reference.MOD_ID, "recipe_emptybound")));
 		}
 	}
 
 	private static ResourceLocation getResource(String inName) {
-		return new ResourceLocation(LibMisc.MOD_ID, inName);
+		return new ResourceLocation(Reference.MOD_ID, inName);
 	}
 
 }

@@ -12,7 +12,7 @@ import com.meteor.extrabotany.client.core.handler.GuiHandler;
 import com.meteor.extrabotany.common.CommonProxy;
 import com.meteor.extrabotany.common.core.handler.Meme;
 import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.IAction;
@@ -32,16 +32,10 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = LibMisc.MOD_ID, name = ExtraBotany.NAME, version = ExtraBotany.VERSION, dependencies = "required-after:botania@[r1.10-357,);"
-		+ "after:baubles@[1.5.2,);" + "after:waila;" + "after:theoneprobe;" + "after:thaumcraft@[6.1.BETA25,);"
-		+ "after:tconstruct;" + "after:mtlib;" + "after:crafttweaker;"
-		+ "before:armoryexpansion", guiFactory = "com.meteor.extrabotany.common.core.config.ConfigGui")
+@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION, dependencies = Reference.DEPS, guiFactory = Reference.GUIFACTORY)
 public class ExtraBotany {
-	public static final String MODID = "extrabotany";
-	public static final String NAME = "extrabotany";
-	public static final String VERSION = "59";
 
-	public static final Logger logger = LogManager.getLogger(LibMisc.MOD_ID);
+	public static final Logger logger = LogManager.getLogger(Reference.MOD_ID);
 
 	public static final List<IAction> LATE_REMOVALS = new LinkedList<>();
 	public static final List<IAction> LATE_ADDITIONS = new LinkedList<>();
@@ -50,7 +44,7 @@ public class ExtraBotany {
 	@SidedProxy(serverSide = "com.meteor.extrabotany.common.CommonProxy", clientSide = "com.meteor.extrabotany.client.ClientProxy")
 	public static CommonProxy proxy;
 
-	@Instance(LibMisc.MOD_ID)
+	@Instance(Reference.MOD_ID)
 	public static ExtraBotany instance;
 
 	public static boolean thaumcraftLoaded = false;

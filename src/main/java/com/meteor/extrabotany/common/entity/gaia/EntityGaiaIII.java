@@ -21,11 +21,10 @@ import com.meteor.extrabotany.common.core.handler.StatHandler;
 import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemNatureOrb;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSound;
@@ -792,7 +791,7 @@ public class EntityGaiaIII extends EntityLiving implements IBotaniaBoss, IEntity
 
 	@Override
 	public ResourceLocation getLootTable() {
-		return new ResourceLocation(LibMisc.MOD_ID, "gaia_guardian_3");
+		return new ResourceLocation(Reference.MOD_ID, "gaia_guardian_3");
 	}
 
 	@Override

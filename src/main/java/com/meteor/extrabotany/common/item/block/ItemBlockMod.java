@@ -2,7 +2,7 @@ package com.meteor.extrabotany.common.item.block;
 
 import javax.annotation.Nonnull;
 
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -17,7 +17,7 @@ public class ItemBlockMod extends ItemBlock {
 	@Nonnull
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return getUnlocalizedNameInefficiently_(par1ItemStack).replaceAll("tile.", "tile." + LibMisc.MOD_ID + ":");
+		return getUnlocalizedNameInefficiently_(par1ItemStack).replaceAll("tile.", "tile." + Reference.MOD_ID + ":");
 	}
 
 	public String getUnlocalizedNameInefficiently_(ItemStack stack) {

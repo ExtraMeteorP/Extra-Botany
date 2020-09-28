@@ -11,7 +11,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
@@ -405,7 +405,7 @@ public class ItemCoreGod extends ItemBaubleRelic implements IManaUsingItem, ICos
 		for (int i = 0; i < types; i++) {
 			ModelLoader.setCustomModelResourceLocation(
 				this, i,
-				new ModelResourceLocation(LibMisc.MOD_ID + ":" + LibItemsName.BAUBLE_COREGOD, "inventory")
+				new ModelResourceLocation(Reference.MOD_ID + ":" + LibItemsName.BAUBLE_COREGOD, "inventory")
 			);
 		}
 	}

@@ -3,7 +3,7 @@ package com.meteor.extrabotany.common.block;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.client.core.handler.ModelHandler;
 import com.meteor.extrabotany.client.render.IModelReg;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -22,7 +22,7 @@ public class BlockMod extends Block implements IModelReg {
 	public BlockMod(Material par2Material, String name) {
 		super(par2Material);
 		setUnlocalizedName(name);
-		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+		setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		if(registerInCreative())
 			setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
 	}

@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.client.particle;
 
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ParticleCloudPattern extends Particle{
 	
 	private final Entity entity;
-	private ResourceLocation texture = new ResourceLocation(LibMisc.MOD_ID, "textures/particle/cloudpattern.png");
+	private ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/particle/cloudpattern.png");
 	
 	public ParticleCloudPattern(Entity entity) {
 		super(entity.world, entity.posX + entity.world.rand.nextDouble() - 0.5, entity.posY + 0.8F + entity.world.rand.nextDouble()*0.25F, entity.posZ + entity.world.rand.nextDouble() - 0.5);

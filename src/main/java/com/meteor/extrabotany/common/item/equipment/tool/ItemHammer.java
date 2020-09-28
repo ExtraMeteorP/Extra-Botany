@@ -5,7 +5,7 @@ import javax.annotation.Nonnull;
 import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.api.item.IHammer;
 import com.meteor.extrabotany.client.render.IModelReg;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
@@ -33,7 +33,7 @@ public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer, IMana
 	public ItemHammer(String name, ToolMaterial material) {
 		super(material);
 		setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
-		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+		setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		setUnlocalizedName(name);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
@@ -48,7 +48,7 @@ public class ItemHammer extends ItemPickaxe implements IModelReg, IHammer, IMana
 	@Nonnull
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
+		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + Reference.MOD_ID + ":");
 	}
 	
 	public void onUpdate(ItemStack stack, World world, Entity player, int par4, boolean par5) {

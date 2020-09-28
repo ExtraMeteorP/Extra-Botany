@@ -2,7 +2,7 @@ package com.meteor.extrabotany.common.core.config;
 
 import java.util.Set;
 
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -30,7 +30,7 @@ public class ConfigGui implements IModGuiFactory{
 
     @Override
     public GuiScreen createConfigGui(GuiScreen parentScreen){
-        return new GuiConfig(parentScreen, new ConfigElement(ConfigHandler.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), LibMisc.MOD_ID, false, false, LibMisc.MOD_ID, GuiConfig.getAbridgedConfigPath(ConfigHandler.CONFIG.toString()));
+        return new GuiConfig(parentScreen, new ConfigElement(ConfigHandler.CONFIG.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), Reference.MOD_ID, false, false, Reference.MOD_ID, GuiConfig.getAbridgedConfigPath(ConfigHandler.CONFIG.toString()));
     }
 
 }

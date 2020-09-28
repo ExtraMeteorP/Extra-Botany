@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import com.meteor.extrabotany.api.item.Bonus;
 import com.meteor.extrabotany.api.item.WeightCategory;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -63,7 +63,7 @@ public class ItemRewardBag extends ItemBonusBase {
 		for (int i = 0; i < LibItemsName.REWARD_BAGS_NAMES.length; i++) {
 			if (!"UNUSED".equals(LibItemsName.REWARD_BAGS_NAMES[i])) {
 				ModelLoader.setCustomModelResourceLocation(this, i, new ModelResourceLocation(
-						LibMisc.MOD_ID + ":" + LibItemsName.REWARD_BAGS_NAMES[i], "inventory"));
+						Reference.MOD_ID + ":" + LibItemsName.REWARD_BAGS_NAMES[i], "inventory"));
 			}
 		}
 	}

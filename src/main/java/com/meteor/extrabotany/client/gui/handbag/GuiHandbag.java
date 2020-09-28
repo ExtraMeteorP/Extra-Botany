@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.client.gui.handbag;
 
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiHandbag extends GuiContainer {
 
-	private static final ResourceLocation texture = new ResourceLocation(LibMisc.MOD_ID, "textures/gui/handbag.png");
+	private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/gui/handbag.png");
 
 	public GuiHandbag(EntityPlayer player, InventoryHandbag box) {
 		super(new ContainerHandbag(player, box));

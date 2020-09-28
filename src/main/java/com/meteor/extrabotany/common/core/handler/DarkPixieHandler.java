@@ -4,7 +4,7 @@ import com.meteor.extrabotany.api.item.IDarkElfSpawner;
 import com.meteor.extrabotany.common.entity.EntityDarkPixie;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior.ItemShadowWarriorHelm;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import baubles.api.BaublesApi;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.items.IItemHandler;
 import vazkii.botania.common.core.helper.PlayerHelper;
 
-@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public final class DarkPixieHandler {
 
 	private DarkPixieHandler() {}

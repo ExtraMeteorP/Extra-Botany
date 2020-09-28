@@ -2,7 +2,7 @@ package com.meteor.extrabotany.client.integration.theoneprobe;
 
 import com.meteor.extrabotany.common.block.tile.TileManaGenerator;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
@@ -25,6 +25,6 @@ public class TOPManaGenerator implements IProbeInfoProvider{
 		
 		@Override
 	    public String getID(){
-	        return LibMisc.MOD_ID + ".managenerator";
+	        return Reference.MOD_ID + ".managenerator";
 	    }
 }

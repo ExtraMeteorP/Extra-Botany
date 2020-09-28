@@ -9,7 +9,7 @@ import com.blamejared.mtlib.utils.BaseListRemoval;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeOmniviolet;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.annotations.ModOnly;
@@ -19,7 +19,7 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 @ZenClass("mods.extrabotany.Omniviolet")
-@ModOnly(LibMisc.MOD_ID)
+@ModOnly(Reference.MOD_ID)
 @ZenRegister
 public class Omniviolet {
 	

@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.item.ItemMod;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import baubles.api.BaublesApi;
 import baubles.api.IBauble;
@@ -39,7 +39,7 @@ import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.core.helper.PlayerHelper;
 import vazkii.botania.common.entity.EntityDoppleganger;
 
-@Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAttachable, IPhantomInkable {
 
 	private static final String TAG_HASHCODE = "playerHashcode";
@@ -62,7 +62,7 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 			IItemHandler inv = BaublesApi.getBaublesHandler((EntityPlayer) evt.getEntityLiving());
 			for(int i = 0; i < inv.getSlots(); i++) {
 				ItemStack stack = inv.getStackInSlot(i);
-				if (!stack.isEmpty() && stack.getItem().getRegistryName().getResourceDomain().equals(LibMisc.MOD_ID)) {
+				if (!stack.isEmpty() && stack.getItem().getRegistryName().getResourceDomain().equals(Reference.MOD_ID)) {
 					((ItemBauble) stack.getItem()).onUnequipped(stack, evt.getEntityLiving());
 				}
 			}
@@ -96,7 +96,7 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 
 						stack.shrink(1);
 
-						PlayerHelper.grantCriterion((EntityPlayerMP) player, new ResourceLocation(LibMisc.MOD_ID, "main/bauble_wear"), "code_triggered");
+						PlayerHelper.grantCriterion((EntityPlayerMP) player, new ResourceLocation(Reference.MOD_ID, "main/bauble_wear"), "code_triggered");
 
 						if(!stackInSlot.isEmpty()) {
 							((IBauble) stackInSlot.getItem()).onUnequipped(stackInSlot, player);
@@ -167,7 +167,7 @@ public abstract class ItemBauble extends ItemMod implements IBauble, ICosmeticAt
 		if(player != null) {
 			if(!player.world.isRemote) {
 				player.world.playSound(null, player.posX, player.posY, player.posZ, ModSounds.equipBauble, SoundCategory.PLAYERS, 0.1F, 1.3F);
-				PlayerHelper.grantCriterion((EntityPlayerMP) player, new ResourceLocation(LibMisc.MOD_ID, "main/bauble_wear"), "code_triggered");
+				PlayerHelper.grantCriterion((EntityPlayerMP) player, new ResourceLocation(Reference.MOD_ID, "main/bauble_wear"), "code_triggered");
 			}
 
 			onEquippedOrLoadedIntoWorld(stack, player);

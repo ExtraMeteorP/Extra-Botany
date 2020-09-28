@@ -12,14 +12,13 @@ import com.meteor.extrabotany.common.crafting.recipe.RecipeOmniviolet;
 import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -108,7 +107,7 @@ public class ExtraBotanyAPI {
 			PlayerAdvancements advancements = ((EntityPlayerMP) player).getAdvancements();
 			AdvancementManager manager = ((WorldServer) player.getEntityWorld()).getAdvancementManager();
 			Advancement advancement = manager
-					.getAdvancement(new ResourceLocation(LibMisc.MOD_ID, LibAdvancements.PREFIX + name));
+					.getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX + name));
 			if (advancement != null)
 				advancements.grantCriterion(advancement, "ebt_trigger");
 		}

@@ -24,7 +24,7 @@ import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
@@ -1007,7 +1007,7 @@ public class EntityVoidHerrscher extends EntityCreature
 
 	@Override
 	public ResourceLocation getLootTable() {
-		return new ResourceLocation(LibMisc.MOD_ID, "void_herrscher");
+		return new ResourceLocation(Reference.MOD_ID, "void_herrscher");
 	}
 
 	@Override

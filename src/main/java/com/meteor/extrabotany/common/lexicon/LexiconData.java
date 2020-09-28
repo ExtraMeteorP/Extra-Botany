@@ -17,7 +17,7 @@ import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lexicon.page.PagePedestalRecipe;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibLexicon;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -514,7 +514,7 @@ public class LexiconData {
 	}
 
 	private static ResourceLocation getResource(String inName) {
-		return new ResourceLocation(LibMisc.MOD_ID, inName);
+		return new ResourceLocation(Reference.MOD_ID, inName);
 	}
 
 }

@@ -8,11 +8,10 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import com.meteor.extrabotany.ExtraBotany;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 import com.meteor.extrabotany.common.lib.LibOreDicts;
 
 import net.minecraft.init.Items;
-import net.minecraftforge.fml.common.Loader;
 import slimeknights.tconstruct.library.MaterialIntegration;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.ArrowShaftMaterialStats;
@@ -28,8 +27,8 @@ public class TConstructCompat {
     private static final Map<String, MaterialIntegration> materialIntegrations = new LinkedHashMap<>();
     private static final Map<String, CompletionStage<?>> materialIntegrationStages = new LinkedHashMap<>();
     
-    public static Material material = new Material(LibMisc.MOD_ID + ":" + LibOreDicts.SHADOWIUM, 0x800080);
-    public static Material orichalcos = new Material(LibMisc.MOD_ID + ":" + LibOreDicts.ORICHALCOS, 0xC71585);
+    public static Material material = new Material(Reference.MOD_ID + ":" + LibOreDicts.SHADOWIUM, 0x800080);
+    public static Material orichalcos = new Material(Reference.MOD_ID + ":" + LibOreDicts.ORICHALCOS, 0xC71585);
 
     public static void preInit() {
     	register();

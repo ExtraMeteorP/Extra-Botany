@@ -1,6 +1,6 @@
 package com.meteor.extrabotany.common.core.network;
 
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +16,7 @@ public class ExtraBotanyNetwork extends NetworkWrapper {
 	public static ExtraBotanyNetwork instance = new ExtraBotanyNetwork();
 
 	public ExtraBotanyNetwork() {
-		super(LibMisc.MOD_ID);
+		super(Reference.MOD_ID);
 	}
 
 	public void setup() {

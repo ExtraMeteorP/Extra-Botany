@@ -11,7 +11,7 @@ import com.meteor.extrabotany.ExtraBotanyCreativeTab;
 import com.meteor.extrabotany.client.model.ModelArmorCosmeticMaid;
 import com.meteor.extrabotany.client.render.IModelReg;
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -61,14 +61,14 @@ public class ItemCosmeticMaidArmor extends ItemArmor implements ISpecialArmor, I
 		super(mat, 0, type);
 		this.type = type;
 		setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
-		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+		setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 		setUnlocalizedName(name);
 	}
 
 	@Nonnull
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
-		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + LibMisc.MOD_ID + ":");
+		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.", "item." + Reference.MOD_ID + ":");
 	}
 
 	@Override

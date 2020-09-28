@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.client.model.ModelSubspaceSpear;
 import com.meteor.extrabotany.common.entity.EntitySubspaceSpear;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 public class RenderSubspaceSpear extends Render<EntitySubspaceSpear> {
 	
 	private static final ModelSubspaceSpear model = new ModelSubspaceSpear();
-	private static final ResourceLocation SPEAR_TEXTURES = new ResourceLocation(LibMisc.MOD_ID, "textures/entity/spearsubspace.png");
+	private static final ResourceLocation SPEAR_TEXTURES = new ResourceLocation(Reference.MOD_ID, "textures/entity/spearsubspace.png");
 	
 	public RenderSubspaceSpear(RenderManager renderManager) {
 		super(renderManager);

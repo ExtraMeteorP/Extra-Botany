@@ -2,7 +2,7 @@ package com.meteor.extrabotany.client.render.entity;
 
 import com.meteor.extrabotany.client.model.ModelBoatCopy;
 import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.model.IMultipassModel;
 import net.minecraft.client.model.ModelBase;
@@ -18,9 +18,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderFlyingBoat extends Render<EntityFlyingBoat>
 {
     private static final ResourceLocation[] BOAT_TEXTURES = new ResourceLocation[]{
-    		new ResourceLocation(LibMisc.MOD_ID, "textures/entity/boat/boat_flying_manasteel.png"),
-    		new ResourceLocation(LibMisc.MOD_ID, "textures/entity/boat/boat_flying.png"),
-    		new ResourceLocation(LibMisc.MOD_ID, "textures/entity/boat/boat_flying_terrasteel.png")
+    		new ResourceLocation(Reference.MOD_ID, "textures/entity/boat/boat_flying_manasteel.png"),
+    		new ResourceLocation(Reference.MOD_ID, "textures/entity/boat/boat_flying.png"),
+    		new ResourceLocation(Reference.MOD_ID, "textures/entity/boat/boat_flying_terrasteel.png")
     };
 
     /** instance of ModelBoat for rendering */

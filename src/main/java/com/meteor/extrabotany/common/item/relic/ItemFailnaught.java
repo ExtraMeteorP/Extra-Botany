@@ -14,7 +14,7 @@ import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.entity.EntityMagicArrow;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -60,7 +60,7 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 	public ItemFailnaught() {
 		super();
 		setCreativeTab(ExtraBotanyCreativeTab.INSTANCE);
-		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, LibItemsName.FAILNAUGHT));
+		setRegistryName(new ResourceLocation(Reference.MOD_ID, LibItemsName.FAILNAUGHT));
 		setUnlocalizedName(LibItemsName.FAILNAUGHT);
 		addPropertyOverride(new ResourceLocation("minecraft:pull"), (stack, worldIn, entityIn) -> {
 			if (entityIn == null) {
@@ -155,7 +155,7 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 	@Override
 	public String getUnlocalizedNameInefficiently(@Nonnull ItemStack par1ItemStack) {
 		return super.getUnlocalizedNameInefficiently(par1ItemStack).replaceAll("item\\.",
-				"item." + LibMisc.MOD_ID + ":");
+				"item." + Reference.MOD_ID + ":");
 	}
 
 	@SideOnly(Side.CLIENT)

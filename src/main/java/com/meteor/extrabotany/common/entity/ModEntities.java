@@ -13,7 +13,7 @@ import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahSpear;
 import com.meteor.extrabotany.common.entity.judah.EntityJudahSword;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -69,7 +69,7 @@ public class ModEntities {
 	}
 
 	private static ResourceLocation makeName(String s) {
-		return new ResourceLocation(LibMisc.MOD_ID, s);
+		return new ResourceLocation(Reference.MOD_ID, s);
 	}
 
 }

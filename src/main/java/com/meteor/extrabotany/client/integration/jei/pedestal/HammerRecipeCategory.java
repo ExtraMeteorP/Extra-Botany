@@ -3,7 +3,7 @@ package com.meteor.extrabotany.client.integration.jei.pedestal;
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.common.item.ModItems;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -88,6 +88,6 @@ public class HammerRecipeCategory implements IRecipeCategory {
 	@Nonnull
 	@Override
 	public String getModName() {
-		return LibMisc.MOD_ID;
+		return Reference.MOD_ID;
 	}
 }

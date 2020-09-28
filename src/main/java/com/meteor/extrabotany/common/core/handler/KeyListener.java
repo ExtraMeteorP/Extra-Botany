@@ -2,7 +2,7 @@ package com.meteor.extrabotany.common.core.handler;
 
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
-import com.meteor.extrabotany.common.lib.LibMisc;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
-@Mod.EventBusSubscriber(value = Side.CLIENT, modid = LibMisc.MOD_ID)
+@Mod.EventBusSubscriber(value = Side.CLIENT, modid = Reference.MOD_ID)
 public class KeyListener {
 
     @SubscribeEvent

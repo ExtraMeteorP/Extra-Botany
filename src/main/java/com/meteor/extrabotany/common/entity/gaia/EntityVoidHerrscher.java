@@ -17,6 +17,7 @@ import com.google.common.base.Optional;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.api.entity.IBossProjectile;
 import com.meteor.extrabotany.api.entity.IEntityWithShield;
+import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.ModSounds;
 import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
@@ -95,7 +96,7 @@ public class EntityVoidHerrscher extends EntityCreature
 
 	public static final float ARENA_RANGE = 15F;
 	private static final int SPAWN_TICKS = 160;
-	private static final float MAX_HP = 300F;
+	private static final float MAX_HP = 400F;
 
 	private static final String TAG_INVUL_TIME = "invulTime";
 	private static final String TAG_AGGRO = "aggro";
@@ -108,7 +109,10 @@ public class EntityVoidHerrscher extends EntityCreature
 	private static final String TAG_SHIELD = "shield";
 	private static final String TAG_HARDCORE = "hardcore";
 	private static final String TAG_SHIELDS = "shields";
+	private static final String TAG_DAMAGETAKEN = "damagetaken";
 
+	private static final DataParameter<Float> DAMAGE_TAKEN = EntityDataManager.createKey(EntityVoidHerrscher.class,
+			DataSerializers.FLOAT);
 	private static final DataParameter<Integer> INVUL_TIME = EntityDataManager.createKey(EntityVoidHerrscher.class,
 			DataSerializers.VARINT);
 	private static final DataParameter<Integer> SHIELD = EntityDataManager.createKey(EntityVoidHerrscher.class,
@@ -168,7 +172,7 @@ public class EntityVoidHerrscher extends EntityCreature
 
 	@Override
 	public void setHealth(float health) {
-		super.setHealth(Math.max(health, getHealth() - 18F));
+		super.setHealth(Math.max(health, getHealth() - 25F));
 	}
 
 	private void punish() {
@@ -258,7 +262,7 @@ public class EntityVoidHerrscher extends EntityCreature
 			if (!playersWhoAttacked.contains(player.getUniqueID()))
 				playersWhoAttacked.add(player.getUniqueID());
 
-		if (!getRankII() && (getHealth() <= getMaxHealth() * 0.80F || getHardcore())) {
+		if (!getRankII() && (getHealth() <= getMaxHealth() * 0.80F)) {
 			setRankII(true);
 			setShield(5);
 			spawnDivineJudge();
@@ -269,7 +273,7 @@ public class EntityVoidHerrscher extends EntityCreature
 		}
 
 		if (!getRankIII()
-				&& (getHealth() <= getMaxHealth() * 0.40F || getHardcore() && getHealth() <= getMaxHealth() * 0.6F)) {
+				&& (getHealth() <= getMaxHealth() * 0.25F)) {
 			setRankIII(true);
 			setShields(3);
 			for (int i = 0; i < 4; i++) {
@@ -314,6 +318,8 @@ public class EntityVoidHerrscher extends EntityCreature
 				clearPotions(player);
 				keepInsideArena(player);
 				player.capabilities.isFlying = player.capabilities.isFlying && player.capabilities.isCreativeMode;
+				int potionLevel = 1 + (getRankIII() ? 2 : 0) + this.ticksExisted >= 1800 ? 2 : 0;
+				player.addPotionEffect(new PotionEffect(ModPotions.witchcurse, 200, potionLevel));
 				if (this.supportcd == 0)
 					support(player);
 			}
@@ -405,7 +411,7 @@ public class EntityVoidHerrscher extends EntityCreature
 				player.getCooldownTracker().setCooldown(player.getHeldItemMainhand().getItem(), 120);
 			ExtraBotanyAPI.dealTrueDamage(this, player, player.getMaxHealth() * 0.20F + 6);
 			spawnSubspaceLance(player.getPosition());
-			cd = 290;
+			cd = 270;
 			skillType = getRankIII() ? 1 : world.rand.nextInt(2);
 		}
 
@@ -414,13 +420,13 @@ public class EntityVoidHerrscher extends EntityCreature
 				spawnDivineJudge();
 			else
 				spawnSubspaceLanceRandomly();
-			cd = 350;
+			cd = 290;
 			skillType = getRankIII() ? 3 : 0;
 		}
 
 		if (cd == 0 && !world.isRemote && skillType == 3) {
 			spawnSubspaceLanceRandomly();
-			cd = 200;
+			cd = 180;
 			skillType = world.rand.nextInt(1);
 		}
 
@@ -429,7 +435,7 @@ public class EntityVoidHerrscher extends EntityCreature
 
 		if (tpDelay == 0 && getHealth() > 0) {
 			teleportRandomly();
-			tpDelay = getRankIII() ? 80 : 90;
+			tpDelay = getRankIII() ? 75 : 90;
 		}
 
 		if (dodgecd > 0)
@@ -702,6 +708,7 @@ public class EntityVoidHerrscher extends EntityCreature
 			e.setPosition(pos.getX() + 0.5, pos.getY() + 3, pos.getZ() + 0.5);
 			e.source = pos;
 			e.hardMode = hard;
+			e.setHardcore(hard);
 			e.setShield(5);
 			int playerCount = e.getPlayersAround().size();
 			e.playerCount = playerCount;
@@ -786,6 +793,7 @@ public class EntityVoidHerrscher extends EntityCreature
 		dataManager.register(HARDCORE, false);
 		dataManager.register(SHIELD, 0);
 		dataManager.register(SHIELDS, 0);
+		dataManager.register(DAMAGE_TAKEN, 0F);
 	}
 
 	public int getShields() {
@@ -823,6 +831,14 @@ public class EntityVoidHerrscher extends EntityCreature
 	public int getInvulTime() {
 		return dataManager.get(INVUL_TIME);
 	}
+	
+	public float getDamageTaken() {
+		return dataManager.get(DAMAGE_TAKEN);
+	}
+	
+	public void setDamageTaken(float time) {
+		dataManager.set(DAMAGE_TAKEN, time);
+	}
 
 	public BlockPos getSource() {
 		return source;
@@ -847,6 +863,7 @@ public class EntityVoidHerrscher extends EntityCreature
 		cmp.setBoolean(TAG_RANKII, getRankII());
 		cmp.setBoolean(TAG_RANKIII, getRankIII());
 		cmp.setInteger(TAG_SHIELDS, getShields());
+		cmp.setFloat(TAG_DAMAGETAKEN, getDamageTaken());
 	}
 
 	@Override
@@ -869,6 +886,7 @@ public class EntityVoidHerrscher extends EntityCreature
 			this.bossInfo.setName(this.getDisplayName());
 		}
 		setShields(cmp.getInteger(TAG_SHIELDS));
+		setDamageTaken(cmp.getFloat(TAG_DAMAGETAKEN));
 	}
 
 	@Override
@@ -912,15 +930,12 @@ public class EntityVoidHerrscher extends EntityCreature
 					getSource().getX(), getSource().getZ()) > ARENA_RANGE)
 				player.attemptTeleport(getSource().getX(), getSource().getY(), getSource().getZ());
 
-			int cap = 22;
+			int cap = 25;
 
 			this.setInvulTime(this.getInvulTime() + 10);
 
-			if (getRankII())
-				teleportRandomly();
-
-			if (this.cd > 120)
-				this.cd -= 20;
+			if (this.cd > 80)
+				this.cd -= 15;
 
 			if (dodgecd == 0) {
 				EntityVoid vo = new EntityVoid(this);
@@ -945,6 +960,14 @@ public class EntityVoidHerrscher extends EntityCreature
 					setShields(getShields() - 1);
 					dodgecd = 0;
 				}
+			}
+			
+			this.setDamageTaken(getDamageTaken() + Math.min(cap, par2));
+			if(getDamageTaken() >= 80F) {
+				setDamageTaken(0);
+				teleportRandomly();
+				this.tpDelay = 65;
+				ExtraBotanyAPI.dealTrueDamage(this, player, player.getMaxHealth() * 0.10F + 6);
 			}
 
 			return super.attackEntityFrom(source, Math.min(cap, par2));
@@ -973,13 +996,13 @@ public class EntityVoidHerrscher extends EntityCreature
 		if (attacker != null) {
 			Vector3 thisVector = Vector3.fromEntityCenter(this);
 			Vector3 playerVector = Vector3.fromEntityCenter(attacker);
-			Vector3 motionVector = thisVector.subtract(playerVector).normalize().multiply(0.75);
+			Vector3 motionVector = thisVector.subtract(playerVector).normalize().multiply(0.2);
 
 			if (getHealth() > 0) {
 				motionX = -motionVector.x;
-				motionY = 0.5;
+				motionY = 0.25;
 				motionZ = -motionVector.z;
-				tpDelay = 4;
+				this.tpDelay = Math.max(this.tpDelay - 4,  0);
 			}
 		}
 	}

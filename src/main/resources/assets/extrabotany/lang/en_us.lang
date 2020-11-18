@@ -93,6 +93,7 @@ item.extrabotany:jingweifeather.name=Feather of JingWei
 item.extrabotany:silenteternity.name=Silent Eternity
 item.extrabotany:specialbag.name=Supply Bag Limited Edition
 item.extrabotany:tribloodstone.name=Tri-Bloodstone
+item.extrabotany:firstfractal.name=Zenith - First Fractal
 
 item.extrabotany:kinggarden.name=Garden of King's Law
 item.extrabotany:rewardbag1.name=Reward Bag Eins
@@ -863,6 +864,8 @@ advancement.extrabotany:ringSet=Rings, Rings, and More Rings
 advancement.extrabotany:ringSet.desc=Collect most kinds of the rings.
 advancement.extrabotany:bottleSet=Inside Out
 advancement.extrabotany:bottleSet.desc=Collect all kinds of bottles.
+advancement.extrabotany:firstfractalCraft=Infinity +1 Sword
+advancement.extrabotany:firstfractalCraft.desc=Obtain the Zenith - First Fractal
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=

@@ -26,6 +26,9 @@ public class LibItemsName {
 	public static final String MASTERHANDBAG = "masterhandbag";
 	public static final String SPEARSUBSPACE = "spearsubspace";
 	public static final String SILENTETERNITY = "silenteternity";
+	public static final String RAINBOWCURSOR = "rainbowcursor";
+	public static final String FIRSTFRACTAL = "firstfractal";
+	public static final String DAEDALUSSTORMBOW = "daedalusstormbow";
 	
 	public static final String JUDAHOATH = "judahoath";
 	public static final String[] JUDAHOATHS = new String[]{

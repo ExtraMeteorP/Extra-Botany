@@ -25,6 +25,7 @@ public class ModRuneRecipe {
 	public static RecipeRuneAltar recipeElvenking;
 	public static RecipeRuneAltar recipeAllforone;
 	public static RecipeRuneAltar recipePhotonium;
+	public static RecipeRuneAltar recipeFirstFractal;
 
 	public static void init() {
 		recipeGoldpotato = BotaniaAPI.registerRuneAltarRecipe(new ItemStack(ModItems.material, 1, 2), 800,
@@ -76,6 +77,14 @@ public class ModRuneRecipe {
 		recipePhotonium = BotaniaAPI.registerRuneAltarRecipe(new ItemStack(ModItems.material, 1, 8), 4200,
 				LibOreDict.ELEMENTIUM, new ItemStack(ModItems.material), new ItemStack(ModItems.material),
 				new ItemStack(ModItems.gildedmashedpotato), new ItemStack(ModItems.material));
+		recipeFirstFractal = BotaniaAPI.registerRuneAltarRecipe(new ItemStack(ModItems.firstfractal), 1000000,
+				new ItemStack(ModItems.gildedmashedpotato), new ItemStack(ModItems.excaliber),
+				new ItemStack(ModItems.relics), new ItemStack(ModItems.shadowkatana), new ItemStack(Items.WOODEN_SWORD),
+				new ItemStack(vazkii.botania.common.item.ModItems.terraSword),
+				new ItemStack(vazkii.botania.common.item.ModItems.starSword),
+				new ItemStack(vazkii.botania.common.item.ModItems.elementiumSword),
+				new ItemStack(vazkii.botania.common.item.ModItems.thunderSword),
+				new ItemStack(vazkii.botania.common.item.ModItems.manasteelSword));
 	}
 
 }

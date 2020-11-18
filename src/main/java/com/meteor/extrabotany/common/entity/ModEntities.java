@@ -66,6 +66,8 @@ public class ModEntities {
 				ExtraBotany.instance, 64, 10, true);
 		EntityRegistry.registerModEntity(makeName("judahsword"), EntityJudahSword.class, "extrabotany:judahsword", id++,
 				ExtraBotany.instance, 64, 10, true);
+		EntityRegistry.registerModEntity(makeName("phantomsword"), EntityPhantomSword.class, "extrabotany:phantomsword", id++,
+				ExtraBotany.instance, 64, 10, true);
 	}
 
 	private static ResourceLocation makeName(String s) {

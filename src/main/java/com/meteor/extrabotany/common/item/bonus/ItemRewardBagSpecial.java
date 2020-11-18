@@ -85,7 +85,7 @@ public class ItemRewardBagSpecial extends ItemMod {
 		NBTTagCompound nbt = player.getEntityData().getCompoundTag(player.PERSISTED_NBT_TAG);
 		if (!nbt.hasKey(TAG_POOL))
 			initPool(player);
-		if (nbt.hasKey(TAG_POOL)) {
+		if (nbt.hasKey(TAG_POOL) && !world.isRemote) {
 			ItemStack reward = draw(player).copy();
 			player.entityDropItem(reward, 0).setNoPickupDelay();
 			stack.shrink(1);

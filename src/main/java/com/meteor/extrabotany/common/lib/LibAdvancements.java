@@ -45,6 +45,7 @@ public class LibAdvancements {
 	public static final String TINKLE_USE = "tinkleUse";
 	public static final String ULTIMATEHAMMER_CRAFT = "ultimatehammerCraft";
 	public static final String ULTIMATEHAMMER_UPGRADE = "ultimatehammerUpgrade";
+	public static final String FIRSTFRACTAL_CRAFT = "firstfractalCraft";
 
 	public static final String JUDAHOATH = "judahoathCraft";
 	

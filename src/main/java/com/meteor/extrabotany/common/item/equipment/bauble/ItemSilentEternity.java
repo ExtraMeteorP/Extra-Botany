@@ -62,7 +62,7 @@ public class ItemSilentEternity extends ItemBaubleRelic implements IManaItem{
 			if(getX(stack) == player.posX && getY(stack) == player.posY && getZ(stack) == player.posZ) {
 				setStopticks(stack, getStopticks(stack)+1);
 				if(getStopticks(stack) > 15) {
-					player.setHealth(Math.min(player.getMaxHealth(), player.getHealth()+0.5F));
+					player.setHealth(Math.min(player.getMaxHealth(), player.getHealth()+0.4F));
 					player.addPotionEffect(new PotionEffect(ModPotions.eternity, 10));
 				}
 			}else

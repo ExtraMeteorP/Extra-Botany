@@ -25,11 +25,7 @@ public class SubTileEnchantedOrchid extends SubTileFunctional{
 	int consumed = 0;
 	int shouldCost = 0;
 	boolean hasIngot = false;
-	
-	private static final BlockPos[] OFFSETS = { 
-			new BlockPos(0, -1, 0), new BlockPos(0, -1, 1), new BlockPos(0, -1, -1), new BlockPos(1, -1, 0), new BlockPos(-1, -1, 0), new BlockPos(1, -1, 1), new BlockPos(-1, -1, -1), new BlockPos(1, -1, -1), new BlockPos(-1, -1, 1), 
-	};
-	
+
 	@Override
 	public void writeToPacketNBT(NBTTagCompound cmp) {
 		super.writeToPacketNBT(cmp);
@@ -75,8 +71,8 @@ public class SubTileEnchantedOrchid extends SubTileFunctional{
 		int r = ConfigHandler.EO_RANGE;
 		
 		if(consumed >= shouldCost){
-			for(int x = -r; x < r; x++)
-				for(int z = -r; z < r; z++){
+			for(int x = -r; x <= r; x++)
+				for(int z = -r; z <= r; z++){
 					if(getWorld().getBlockState(getPos().add(x, -1, z)).getBlock() == Blocks.GRASS && hasIngot){
 						if(!getWorld().isRemote)
 							getWorld().setBlockState(getPos().add(x, -1, z), ModBlocks.enchantedSoil.getDefaultState());

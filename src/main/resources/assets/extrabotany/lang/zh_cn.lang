@@ -93,6 +93,7 @@ item.extrabotany:jingweifeather.name=精卫之羽
 item.extrabotany:silenteternity.name=静籁永恒
 item.extrabotany:specialbag.name=限量补给包
 item.extrabotany:tribloodstone.name=三重血玉
+item.extrabotany:firstfractal.name=天顶剑丨最初分型
 
 item.extrabotany:kinggarden.name=王之花园
 item.extrabotany:rewardbag1.name=奖励袋Eins
@@ -863,6 +864,8 @@ advancement.extrabotany:ringSet=Rings, Rings, and More Rings
 advancement.extrabotany:ringSet.desc=收集绝大多数种类的戒指
 advancement.extrabotany:bottleSet=Inside Out
 advancement.extrabotany:bottleSet.desc=收集所有种类的瓶子
+advancement.extrabotany:firstfractalCraft=Infinity +1 Sword
+advancement.extrabotany:firstfractalCraft.desc=获得天顶剑丨最初分型
 
 advancement.extrabotany:=
 advancement.extrabotany:.desc=

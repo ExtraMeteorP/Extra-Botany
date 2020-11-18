@@ -67,15 +67,18 @@ import com.meteor.extrabotany.common.item.record.ItemRecordB;
 import com.meteor.extrabotany.common.item.relic.ItemAchilleshield;
 import com.meteor.extrabotany.common.item.relic.ItemBuddhistRelics;
 import com.meteor.extrabotany.common.item.relic.ItemCamera;
+import com.meteor.extrabotany.common.item.relic.ItemDaedalusStormbow;
 import com.meteor.extrabotany.common.item.relic.ItemExcaliber;
 import com.meteor.extrabotany.common.item.relic.ItemFailnaught;
+import com.meteor.extrabotany.common.item.relic.ItemFirstFractal;
 import com.meteor.extrabotany.common.item.relic.ItemJudahOath;
 import com.meteor.extrabotany.common.item.relic.ItemMasterManaRing;
+import com.meteor.extrabotany.common.item.relic.ItemRainbowCursor;
 import com.meteor.extrabotany.common.item.relic.ItemSpearSubspace;
 import com.meteor.extrabotany.common.item.relic.ItemTreasure;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-import com.meteor.extrabotany.common.lib.Reference;
 import com.meteor.extrabotany.common.lib.LibOreDicts;
+import com.meteor.extrabotany.common.lib.Reference;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -188,6 +191,10 @@ public class ModItems {
 	public static final Item mask = new ItemCosmetic();
 	public static final Item shotgun = new ItemPhotonShotgun();
 	public static final Item rewardbags = new ItemRewardBagSpecial();
+	
+	public static final Item firstfractal = new ItemFirstFractal();
+//	public static final Item daedalusstormbow = new ItemDaedalusStormbow();
+//	public static final Item rainbowcursor = new ItemRainbowCursor();
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
@@ -274,6 +281,9 @@ public class ModItems {
 		r.register(magicfinger);
 		r.register(silenteternity);
 		r.register(rewardbags);
+		r.register(firstfractal);
+//		r.register(rainbowcursor);
+//		r.register(daedalusstormbow);
 		registerOreDictionary();
 		// A
 		if (ConfigHandler.REWARDBAG1.length > 0)

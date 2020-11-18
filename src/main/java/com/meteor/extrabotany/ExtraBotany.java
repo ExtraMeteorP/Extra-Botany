@@ -1,16 +1,25 @@
 package com.meteor.extrabotany;
 
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import javax.imageio.ImageIO;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.meteor.extrabotany.client.core.handler.EventHandlerClient;
 import com.meteor.extrabotany.client.core.handler.GuiHandler;
 import com.meteor.extrabotany.common.CommonProxy;
 import com.meteor.extrabotany.common.core.handler.Meme;
+import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
 import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
 import com.meteor.extrabotany.common.lib.Reference;
 

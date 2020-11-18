@@ -16,7 +16,7 @@ public class SubTileReikarLily extends SubTileGenerating {
 	private static final String TAG_BURN_TIME = "burnTime";
 	private static final String TAG_COOLDOWN = "cooldown";
 	private static final String TAG_CD = "cd";
-	private static final int RANGE = 3;
+	private static final int RANGE = 4;
 
 	int burnTime, cooldown, cd;
 
@@ -34,6 +34,10 @@ public class SubTileReikarLily extends SubTileGenerating {
 				EntityLightningBolt bolt = new EntityLightningBolt(getWorld(), pos.getX(), pos.getY(), pos.getZ(),
 						true);
 				getWorld().addWeatherEffect(bolt);
+				EntityLightningBolt bolt2 = new EntityLightningBolt(getWorld(), pos.getX(), pos.getY(), pos.getZ(),
+						true);
+				if(!getWorld().isRemote)
+					getWorld().spawnEntity(bolt2);
 				cd += ConfigHandler.RL_CD;
 			}
 		}

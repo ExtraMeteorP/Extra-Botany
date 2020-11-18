@@ -124,6 +124,7 @@ public class ExtraBotanyCreativeTab extends CreativeTabs {
 		addItem(ModItems.mastermanaring);
 		addItem(ModItems.allforone);
 		addItem(ModItems.relics);
+		addItem(ModItems.firstfractal);
 		addItem(ModItems.cocktail);
 		addItem(ModItems.infinitewine);
 		addItem(ModItems.splashgrenade);

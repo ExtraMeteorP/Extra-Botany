@@ -74,11 +74,9 @@ public class EntitySkullLandmine extends Entity{
 				for(EntityPlayer player : players) {
 					float amplifier = StatHandler.hasStat(player, LibAdvancements.GAIA_DEFEAT) ? 1.0F : 0.7F;
 					player.attackEntityFrom(DamageSource.causeIndirectMagicDamage(this, summoner), 6 * amplifier);
-					for(int i = 0; i < 3; i++)
-						ExtraBotanyAPI.addPotionEffect(player, ModPotions.witchcurse, 20);
 					if(getType() == 1){
 						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.LANDMINE_ACTIVE);
-						ExtraBotanyAPI.dealTrueDamage(this.summoner, player, (player.getMaxHealth() * 0.35F + 8) * amplifier);
+						ExtraBotanyAPI.dealTrueDamage(this.summoner, player, (player.getMaxHealth() * 0.30F + 8) * amplifier);
 					}
 					if(getType() == 2 && ConfigHandler.GAIA_DISARM)
 						player.dropItem(true);

@@ -5,6 +5,8 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class PlayerStatHandler {
 	
+	private static final String TAG_RAINBOWCURSOR = "rainbowcursor";
+	
 	public static NBTTagCompound getPlayerPersistentNBT(EntityPlayer player) {
         NBTTagCompound nbt = player.getEntityData().getCompoundTag("PlayerPersisted");
         if (!nbt.hasKey("extrabotany_data")) {
@@ -43,6 +45,21 @@ public class PlayerStatHandler {
 		NBTTagCompound nbt = getPlayerPersistentNBT(player);
 		if (nbt.hasKey("extrabotany_data")) {
 			((NBTTagCompound) nbt.getTag("extrabotany_data")).setInteger("greenhatTicks", d);;
+        }
+	}
+	
+	public static boolean getCursor(EntityPlayer player){
+		NBTTagCompound nbt = getPlayerPersistentNBT(player);
+		if (nbt.hasKey("extrabotany_data")) {
+            return ((NBTTagCompound) nbt.getTag("extrabotany_data")).getBoolean(TAG_RAINBOWCURSOR);
+        }
+		return false;
+	}
+	
+	public static void setCursor(EntityPlayer player, boolean b){
+		NBTTagCompound nbt = getPlayerPersistentNBT(player);
+		if (nbt.hasKey("extrabotany_data")) {
+			((NBTTagCompound) nbt.getTag("extrabotany_data")).setBoolean(TAG_RAINBOWCURSOR, b);;
         }
 	}
 

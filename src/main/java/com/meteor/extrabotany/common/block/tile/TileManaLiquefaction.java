@@ -24,25 +24,25 @@ import vazkii.botania.common.block.tile.TileMod;
 import vazkii.botania.common.block.tile.mana.TileSpreader;
 
 public class TileManaLiquefaction extends TileMod implements ITickable, IManaReceiver, ISparkAttachable{
-	
+
 	private static final String TAG_MANA = "mana";
 	private static final String TAG_ENERGY = "energy";
 	int mana;
-	public int energy = 0;
+	public int energy = ConfigHandler.INITIAL_LIQUEFACTION_ENERGY;
 	private static final int MAX_ENERGY = 16000;
-	
+
 	@Override
 	public void update() {
-		
+
 		if(!ConfigHandler.DISABLE_MANALIQUEFICATION)
 			return;
-		
+
 		int redstoneSignal = 0;
 		for(EnumFacing dir : EnumFacing.VALUES) {
 			int redstoneSide = this.getWorld().getRedstonePower(this.getPos().offset(dir), dir);
 			redstoneSignal = Math.max(redstoneSignal, redstoneSide);
 		}
-		
+
 		for(EnumFacing e : EnumFacing.VALUES) {
 			BlockPos neighbor = getPos().offset(e);
 			if(!world.isBlockLoaded(neighbor))
@@ -63,17 +63,19 @@ public class TileManaLiquefaction extends TileMod implements ITickable, IManaRec
 			if(storage != null) {
 				if(redstoneSignal == 0){
 					if(!isFull()){
-						if(storage.drain(new FluidStack(ModFluid.fluidMana, 1), true)!=null)
-							energy += 1;
+						if(storage.drain(new FluidStack(ModFluid.fluidMana, ConfigHandler.LIQUEFACTION_STORAGE_DRAIN_CONTAINER), true)!=null)
+							energy += ConfigHandler.LIQUEFACTION_STORAGE_DRAIN;
 					}
 				}else{
-					if(energy >=25)
-						energy -= storage.fill(new FluidStack(ModFluid.fluidMana, 25), true);
+					if(energy >= ConfigHandler.LIQUEFACTION_STORAGE_PUMP) {
+						energy -= ConfigHandler.LIQUEFACTION_STORAGE_PUMP;
+						storage.fill(new FluidStack(ModFluid.fluidMana, ConfigHandler.LIQUEFACTION_STORAGE_PUMP_CONTAINER), true);
+					}
 				}
 			}
-			
+
 			int speed = ConfigHandler.MG_TRANSFERSPEED;
-			
+
 			if(te instanceof TileSpreader && redstoneSignal == 0){
 				TileSpreader p = (TileSpreader) te;
 				if(getCurrentMana() >= speed && p.getCurrentMana() < p.getMaxMana()){
@@ -83,21 +85,21 @@ public class TileManaLiquefaction extends TileMod implements ITickable, IManaRec
 				}
 			}
 		}
-		
+
 		if(redstoneSignal == 0){
-			if(energy > 0 && getCurrentMana() <= 998000){
-				recieveMana(2000);
-				energy -=2;
+			if(energy > 0 && getCurrentMana() <= ConfigHandler.MAX_LIQUEFACTION_MANA - ConfigHandler.LIQUEFACTION_MANA_RECEIVE){
+				recieveMana(ConfigHandler.LIQUEFACTION_MANA_RECEIVE);
+				energy -= ConfigHandler.LIQUEFACTION_ENERGY_LOSS;
 			}
 		}else{
-			if(getCurrentMana() >= 2000){
-				recieveMana(-2000);
-				energy +=2;
+			if(getCurrentMana() >= ConfigHandler.LIQUEFACTION_MANA_GIVE){
+				recieveMana(-ConfigHandler.LIQUEFACTION_MANA_GIVE);
+				energy += ConfigHandler.LIQUEFACTION_ENERGY_GAIN;
 			}
 		}
-		
+
 	}
-	
+
 	@Override
 	public boolean canRecieveManaFromBursts() {
 		return true;
@@ -105,12 +107,12 @@ public class TileManaLiquefaction extends TileMod implements ITickable, IManaRec
 
 	@Override
 	public boolean isFull() {
-		return this.mana >= 1000000;
+		return this.mana >= ConfigHandler.MAX_LIQUEFACTION_MANA;
 	}
 
 	@Override
 	public void recieveMana(int mana) {
-		this.mana = Math.min(1000000, this.mana + mana);
+		this.mana = Math.min(ConfigHandler.MAX_LIQUEFACTION_MANA, this.mana + mana);
 	}
 
 	@Override
@@ -155,7 +157,7 @@ public class TileManaLiquefaction extends TileMod implements ITickable, IManaRec
 
 	@Override
 	public int getAvailableSpaceForMana() {
-		int space = Math.max(0, 1000000 - getCurrentMana());
+		int space = Math.max(0, ConfigHandler.MAX_LIQUEFACTION_MANA - getCurrentMana());
 		if(space > 0)
 			return space;
 		else return 0;

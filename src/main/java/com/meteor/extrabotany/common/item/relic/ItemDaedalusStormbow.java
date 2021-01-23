@@ -189,6 +189,7 @@ public class ItemDaedalusStormbow extends ItemBow implements IManaUsingItem, IRe
 		return angle + f;
 	}
 
+	/* does not compile when private, public works, did not investigate - jackowski626 */
 	private ItemStack findAmmo(EntityPlayer player) {
 		if (this.isArrow(player.getHeldItem(EnumHand.OFF_HAND))) {
 			return player.getHeldItem(EnumHand.OFF_HAND);

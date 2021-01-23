@@ -120,6 +120,17 @@ public class ConfigHandler {
 	public static boolean ENABLE_TRUEDAMAGE = true;
 	public static boolean ENABLE_ILLEGALACTION = false;
 
+	public static int INITIAL_LIQUEFACTION_ENERGY = 0;
+	public static int MAX_LIQUEFACTION_MANA = 1000000;
+	public static int LIQUEFACTION_STORAGE_DRAIN = 1;
+	public static int LIQUEFACTION_STORAGE_DRAIN_CONTAINER = 1;
+	public static int LIQUEFACTION_STORAGE_PUMP = 25;
+	public static int LIQUEFACTION_STORAGE_PUMP_CONTAINER = 25;
+	public static int LIQUEFACTION_MANA_RECEIVE = 2000;
+	public static int LIQUEFACTION_ENERGY_LOSS = 2;
+	public static int LIQUEFACTION_MANA_GIVE = 2000;
+	public static int LIQUEFACTION_ENERGY_GAIN = 2;
+
 	public void loadConfig(FMLPreInitializationEvent event) {
 		CONFIG = new Configuration(event.getSuggestedConfigurationFile());
 		CONFIG.load();
@@ -291,6 +302,28 @@ public class ConfigHandler {
 
 		EFF_GEMINIORCHID = CONFIG.getFloat("efficiency", "geminiorchid", 1F, 0, Integer.MAX_VALUE, "");
 		EFF_ELDELWEISS = CONFIG.getFloat("efficiency", "edelweiss", 1F, 0, Integer.MAX_VALUE, "");
+
+		INITIAL_LIQUEFACTION_ENERGY = CONFIG.getInt("How much mana the device contains upon creation. Default is 0", "mana liquefaction", 0, 0,
+				Integer.MAX_VALUE, "");
+		MAX_LIQUEFACTION_MANA = CONFIG.getInt("How much mana can the Mana Liquefaction Device store. Default is 1000000", "mana liquefaction", 1000000, 0,
+				Integer.MAX_VALUE, "");
+		LIQUEFACTION_STORAGE_DRAIN = CONFIG.getInt("How much mana the Mana Liquefaction Device drains from containers on update. Default is 1", "mana liquefaction", 1, 0,
+				Integer.MAX_VALUE, "");
+		LIQUEFACTION_STORAGE_DRAIN_CONTAINER = CONFIG.getInt("How much energy the Mana Liquefaction Device gets from \"one drain\". Default is 1", "mana liquefaction", 1, 0,
+				Integer.MAX_VALUE, "");
+		LIQUEFACTION_STORAGE_PUMP = CONFIG.getInt("How much mana the Mana Liquefaction Device pumps at a time into a container. Default is 25", "mana liquefaction", 25, 0,
+				Integer.MAX_VALUE, "");
+		LIQUEFACTION_STORAGE_PUMP_CONTAINER = CONFIG.getInt("How much a container gets mana from one transfer from Mana Liquefaction Device. Default is 25", "mana liquefaction", 25, 0,
+				Integer.MAX_VALUE, "");
+		LIQUEFACTION_MANA_RECEIVE = CONFIG.getInt("How much a Mana Liquefaction Device receives mana on update. Default is 2000", "mana liquefaction", 2000, 0,
+				Integer.MAX_VALUE, "");
+
+		LIQUEFACTION_ENERGY_LOSS = CONFIG.getInt("How much energy a Mana Liquefaction Device loses on update. Default is 2", "mana liquefaction", 2, 0,
+				Integer.MAX_VALUE, "");
+		LIQUEFACTION_MANA_GIVE = CONFIG.getInt("How much a Mana Liquefaction Device gives mana on update. Default is 2000", "mana liquefaction", 2000, 0,
+				Integer.MAX_VALUE, "");
+		LIQUEFACTION_ENERGY_GAIN = CONFIG.getInt("How much energy a Mana Liquefaction Device receives on update. Default is 2", "mana liquefaction", 2, 0,
+				Integer.MAX_VALUE, "");
 
 		if (CONFIG.hasChanged())
 			CONFIG.save();

@@ -15,7 +15,7 @@ ext {
     moddesc = "A Botania Addon adds some new flowers and miscs."
 }
 group = "com.meteor.extrabotany"
-version = "r1.1-60"
+version = "r1.1-61"
 
 archivesBaseName = modname
 

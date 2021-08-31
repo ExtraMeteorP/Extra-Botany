@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.jingweifeather",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:jingweifeather",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.jingweifeather0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.jingweifeather1",
+      "recipe": "extrabotany:jingweifeather"
+    }
+  ]
+}

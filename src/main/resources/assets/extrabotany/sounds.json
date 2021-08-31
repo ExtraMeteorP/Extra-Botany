@@ -1,6 +1,7 @@
 {
-	"music.gaia3": { "sounds":[{"name": "extrabotany:music/dbg", "stream": true}] },
-	"music.herrscher": { "sounds":[{"name": "extrabotany:music/salvation", "stream": true}] },
-	"annoyingflower": { "sounds":["extrabotany:annoyingflower"], "subtitle": "extrabotany.subtitle.annoyingFlower" },
-	"spearsubspace": { "sounds":["extrabotany:spearsubspace"], "subtitle": "extrabotany.subtitle.spearsubspace" }
+	"cyclone": { "sounds":["extrabotany:cyclone"], "subtitle": "extrabotany.subtitle.cyclone" },
+	"shoot": { "sounds":["extrabotany:shoot"], "subtitle": "extrabotany.subtitle.shoot" },
+	"slash": { "sounds":["extrabotany:slash"], "subtitle": "extrabotany.subtitle.slash" },
+	"rideon": { "sounds":["extrabotany:rideon"], "subtitle": "extrabotany.subtitle.rideon" },
+	"flamescionult": { "sounds":["extrabotany:flamescionult"], "subtitle": "extrabotany.subtitle.flamescionult" }
 }

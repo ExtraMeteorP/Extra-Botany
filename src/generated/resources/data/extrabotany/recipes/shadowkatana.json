@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S",
+    "W"
+  ],
+  "key": {
+    "W": {
+      "item": "botania:livingwood_twig"
+    },
+    "S": {
+      "item": "extrabotany:shadowium"
+    }
+  },
+  "result": {
+    "item": "extrabotany:shadowkatana"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "botania:mana_ring"
+    },
+    {
+      "tag": "botania:runes/mana"
+    }
+  ],
+  "result": {
+    "item": "extrabotany:manadrivering"
+  }
+}

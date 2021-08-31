@@ -1,0 +1,21 @@
+{
+  "type": "botania:armor_upgrade",
+  "pattern": [
+    "SAS",
+	"TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "botania:gaia_ingot"
+    },
+    "S": {
+      "item": "extrabotany:goldcloth"
+    },
+    "A": {
+      "item": "botania:terrasteel_boots"
+    }
+  },
+  "result": {
+    "item": "extrabotany:maid_boots"
+  }
+}

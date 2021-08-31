@@ -1,0 +1,24 @@
+{
+  "type": "botania:runic_altar",
+  "output": {
+    "item": "extrabotany:aquastone"
+  },
+  "mana": 2000,
+  "ingredients": [
+    {
+      "tag": "botania:runes/water"
+    },
+	{
+      "tag": "botania:runes/water"
+    },
+    {
+      "tag": "forge:gems/mana_diamond"
+    },
+    {
+      "tag": "forge:gems/lapis"
+    },
+    {
+      "tag": "forge:gems/quartz"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " RG",
+    " WR",
+    "W  "
+  ],
+  "key": {
+    "R": {
+      "tag": "botania:livingrock"
+    },
+    "W": {
+      "item": "botania:livingwood_twig"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "result": {
+    "item": "extrabotany:walkingcane"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1",
+    "2",
+	"0"
+  ],
+  "key": {
+    "1": {
+      "item": "extrabotany:heromedal"
+    },
+	"0": {
+      "item": "botania:dreamwood_twig"
+    },
+	"2": {
+      "item": "botania:terra_sword"
+    }
+  },
+  "result": {
+    "item": "extrabotany:excaliber"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "extrabotany:relicupgrade",
+  "group": "extrabotany:coregod_wings",
+  "ingredients": [
+    {
+      "item": "extrabotany:coregod"
+    },
+    {
+      "item": "botania:quartz_lavender"
+    }
+  ],
+  "result": {
+    "item": "extrabotany:coregod",
+    "nbt": "{variant:1}"
+  }
+}

@@ -1,75 +1,75 @@
 {
-  "parent": "minecraft:item/generated",
+"parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "extrabotany:items/infinitewine1",
-    "layer1": "extrabotany:items/infinitewine"
+    "layer0": "extrabotany:item/infinitewine",
+    "layer1": "extrabotany:item/infinitewine1"
   },
   "overrides": [
     {
       "predicate": {
-        "extrabotany:swigs_taken": 1
+        "extrabotany:swigs_taken": 1.0
       },
-      "model": "extrabotany:item/infinitewine"
+      "model": "extrabotany:item/infinitewine_1"
     },
     {
       "predicate": {
-        "extrabotany:swigs_taken": 2
+        "extrabotany:swigs_taken": 2.0
+      },
+      "model": "extrabotany:item/infinitewine_1"
+    },
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 3.0
+      },
+      "model": "extrabotany:item/infinitewine_2"
+    },
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 4.0
+      },
+      "model": "extrabotany:item/infinitewine_2"
+    },
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 5.0
       },
       "model": "extrabotany:item/infinitewine_3"
     },
     {
       "predicate": {
-        "extrabotany:swigs_taken": 3
+        "extrabotany:swigs_taken": 6.0
       },
       "model": "extrabotany:item/infinitewine_3"
     },
     {
       "predicate": {
-        "extrabotany:swigs_taken": 4
+        "extrabotany:swigs_taken": 7.0
+      },
+      "model": "extrabotany:item/infinitewine_4"
+    },
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 8.0
+      },
+      "model": "extrabotany:item/infinitewine_4"
+    },
+    {
+      "predicate": {
+        "extrabotany:swigs_taken": 9.0
       },
       "model": "extrabotany:item/infinitewine_5"
     },
-	{
+    {
       "predicate": {
-        "extrabotany:swigs_taken": 5
+        "extrabotany:swigs_taken": 10.0
       },
       "model": "extrabotany:item/infinitewine_5"
-    },    
-	{
+    },
+    {
       "predicate": {
-        "extrabotany:swigs_taken": 6
+        "extrabotany:swigs_taken": 11.0
       },
-      "model": "extrabotany:item/infinitewine_7"
-    },    
-	{
-      "predicate": {
-        "extrabotany:swigs_taken": 7
-      },
-      "model": "extrabotany:item/infinitewine_7"
-    },    
-	{
-      "predicate": {
-        "extrabotany:swigs_taken": 8
-      },
-      "model": "extrabotany:item/infinitewine_9"
-    },    
-	{
-      "predicate": {
-        "extrabotany:swigs_taken": 9
-      },
-      "model": "extrabotany:item/infinitewine_9"
-    },    
-	{
-      "predicate": {
-        "extrabotany:swigs_taken": 10
-      },
-      "model": "extrabotany:item/infinitewine_11"
-    },    
-	{
-      "predicate": {
-        "extrabotany:swigs_taken": 11
-      },
-      "model": "extrabotany:item/infinitewine_11"
+      "model": "extrabotany:item/infinitewine_6"
     }
   ]
 }

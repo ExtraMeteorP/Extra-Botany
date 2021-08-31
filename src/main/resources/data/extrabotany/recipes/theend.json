@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 0 ",
+    "021",
+	" 1 "
+  ],
+  "key": {
+    "0": {
+      "item": "extrabotany:orichalcos"
+    },
+	"1": {
+      "item": "botania:gaia_ingot"
+    },
+	"2": {
+      "item": "extrabotany:spirit"
+    }
+  },
+  "result": {
+    "item": "extrabotany:theend"
+  }
+}

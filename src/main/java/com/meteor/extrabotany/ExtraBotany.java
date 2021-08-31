@@ -1,140 +1,115 @@
 package com.meteor.extrabotany;
 
-import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-
-import javax.imageio.ImageIO;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.meteor.extrabotany.client.core.handler.EventHandlerClient;
-import com.meteor.extrabotany.client.core.handler.GuiHandler;
-import com.meteor.extrabotany.common.CommonProxy;
-import com.meteor.extrabotany.common.core.handler.Meme;
-import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
-import com.meteor.extrabotany.common.core.network.ExtraBotanyNetwork;
-import com.meteor.extrabotany.common.lib.Reference;
-
-import crafttweaker.CraftTweakerAPI;
-import crafttweaker.IAction;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.GameSettings;
+import com.meteor.extrabotany.client.ClientProxy;
+import com.meteor.extrabotany.common.ExtraBotanyGroup;
+import com.meteor.extrabotany.common.ServerProxy;
+import com.meteor.extrabotany.common.blocks.ModBlocks;
+import com.meteor.extrabotany.common.blocks.ModSubtiles;
+import com.meteor.extrabotany.common.blocks.tile.ModTiles;
+import com.meteor.extrabotany.common.capability.CapabilityHandler;
+import com.meteor.extrabotany.common.core.ConfigHandler;
+import com.meteor.extrabotany.common.core.EquipmentHandler;
+import com.meteor.extrabotany.common.core.IProxy;
+import com.meteor.extrabotany.common.core.ModSounds;
+import com.meteor.extrabotany.common.entities.ModEntities;
+import com.meteor.extrabotany.common.entities.ego.EntityEGO;
+import com.meteor.extrabotany.common.items.ModItems;
+import com.meteor.extrabotany.common.libs.LibMisc;
+import com.meteor.extrabotany.common.potions.ModPotions;
+import com.meteor.extrabotany.data.DataGenerators;
+import net.minecraft.block.Block;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraftforge.fml.common.Loader;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.potion.Effect;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.SoundEvent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION, dependencies = Reference.DEPS, guiFactory = Reference.GUIFACTORY)
+@Mod(LibMisc.MOD_ID)
 public class ExtraBotany {
 
-	public static final Logger logger = LogManager.getLogger(Reference.MOD_ID);
+    public static ItemGroup itemGroup = new ExtraBotanyGroup();
 
-	public static final List<IAction> LATE_REMOVALS = new LinkedList<>();
-	public static final List<IAction> LATE_ADDITIONS = new LinkedList<>();
-	public static Set<String> subtilesForCreativeMenu = new LinkedHashSet();
+    public static IProxy proxy;
 
-	@SidedProxy(serverSide = "com.meteor.extrabotany.common.CommonProxy", clientSide = "com.meteor.extrabotany.client.ClientProxy")
-	public static CommonProxy proxy;
+    public static boolean curiosLoaded = false;
 
-	@Instance(Reference.MOD_ID)
-	public static ExtraBotany instance;
+    @OnlyIn(Dist.CLIENT)
+    public static KeyBinding keyForward;
+    @OnlyIn(Dist.CLIENT)
+    public static KeyBinding keyBackward;
+    @OnlyIn(Dist.CLIENT)
+    public static KeyBinding keyLeft;
+    @OnlyIn(Dist.CLIENT)
+    public static KeyBinding keyRight;
+    @OnlyIn(Dist.CLIENT)
+    public static KeyBinding keyUp;
+    @OnlyIn(Dist.CLIENT)
+    public static KeyBinding keyFlight;
 
-	public static boolean thaumcraftLoaded = false;
-	public static boolean naturalpledgeLoaded = false;
-	public static boolean zh_cn = false;
+    public ExtraBotany() {
+        proxy = DistExecutor.runForDist(() -> ClientProxy::new, () -> ServerProxy::new);
+        proxy.registerHandlers();
 
-	public static boolean isTableclothServer = false;
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigHandler.CLIENT_SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.COMMON_SPEC);
 
-	static {
-		try {
-			Class.forName("com.gamerforea.eventhelper.EventHelperMod");
-			isTableclothServer = true;
-		} catch (ClassNotFoundException e) {
-		}
-	}
+        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modBus.addListener(this::commonSetup);
+        modBus.addGenericListener(EntityType.class, ModEntities::registerEntities);
+        modBus.addGenericListener(SoundEvent.class, ModSounds::registerSounds);
+        modBus.addGenericListener(IRecipeSerializer.class, ModItems::registerRecipeSerializers);
+        modBus.addGenericListener(Item.class, ModItems::registerItems);
+        modBus.addGenericListener(Block.class, ModBlocks::registerBlocks);
+        modBus.addGenericListener(Item.class, ModBlocks::registerItemBlocks);
+        modBus.addGenericListener(Block.class, ModSubtiles::registerBlocks);
+        modBus.addGenericListener(Item.class, ModSubtiles::registerItemBlocks);
+        modBus.addGenericListener(TileEntityType.class, ModTiles::registerTiles);
+        modBus.addGenericListener(TileEntityType.class, ModSubtiles::registerTEs);
+        modBus.addGenericListener(Effect.class, ModPotions::registerPotions);
+        IEventBus forgeBus = MinecraftForge.EVENT_BUS;
+    }
 
-	public static void addSubTileToCreativeMenu(String key) {
-		subtilesForCreativeMenu.add(key);
-	}
+    private void commonSetup(FMLCommonSetupEvent event) {
+        curiosLoaded = ModList.get().isLoaded("curios");
+        CapabilityHandler.register();
+        EquipmentHandler.init();
 
-	public ExtraBotany() {
-		super();
-	}
+        event.enqueueWork(() -> {
+            GlobalEntityTypeAttributes.put(ModEntities.EGO, MobEntity.func_233666_p_()
+                    .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.55)
+                    .createMutableAttribute(Attributes.MAX_HEALTH, EntityEGO.MAX_HP)
+                    .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 1.0)
+                    .createMutableAttribute(Attributes.ARMOR, 20)
+                    .createMutableAttribute(Attributes.FOLLOW_RANGE, 35)
+                    .createMutableAttribute(Attributes.ATTACK_DAMAGE, 8)
+                    .create());
 
-	@SideOnly(Side.CLIENT)
-	public static KeyBinding keyForward;
-	@SideOnly(Side.CLIENT)
-	public static KeyBinding keyBackward;
-	@SideOnly(Side.CLIENT)
-	public static KeyBinding keyLeft;
-	@SideOnly(Side.CLIENT)
-	public static KeyBinding keyRight;
-	@SideOnly(Side.CLIENT)
-	public static KeyBinding keyUp;
-	@SideOnly(Side.CLIENT)
-	public static KeyBinding keyDown;
-
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		proxy.preInit(event);
-		ExtraBotanyNetwork.instance.setup();
-		thaumcraftLoaded = Loader.isModLoaded("thaumcraft");
-		naturalpledgeLoaded = Loader.isModLoaded("botanicaladdons");
-		if (event.getSide().isClient()) {
-			Minecraft mc = Minecraft.getMinecraft();
-			GameSettings gameSettings = mc.gameSettings;
-			keyForward = Minecraft.getMinecraft().gameSettings.keyBindForward;
-			keyBackward = Minecraft.getMinecraft().gameSettings.keyBindBack;
-			keyLeft = Minecraft.getMinecraft().gameSettings.keyBindLeft;
-			keyRight = Minecraft.getMinecraft().gameSettings.keyBindRight;
-			keyUp = Minecraft.getMinecraft().gameSettings.keyBindJump;
-			keyDown = Minecraft.getMinecraft().gameSettings.keyBindSneak;
-			if (gameSettings.language.equals("zh_cn"))
-				zh_cn = true;
-		}
-		logger.info("Welcome to the World of the supreme principle of Mana");
-	}
-
-	@EventHandler
-	public void Init(FMLInitializationEvent event) {
-		proxy.init(event);
-		NetworkRegistry.INSTANCE.registerGuiHandler(ExtraBotany.instance, new GuiHandler());
-	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		if (Loader.isModLoaded("mtlib") && Loader.isModLoaded("crafttweaker")) {
-			try {
-				LATE_REMOVALS.forEach(CraftTweakerAPI::apply);
-				LATE_ADDITIONS.forEach(CraftTweakerAPI::apply);
-			} catch (Exception e) {
-				e.printStackTrace();
-				CraftTweakerAPI.logError("Error while applying actions", e);
-			}
-		}
-		Meme.init();
-	}
-
-	@EventHandler
-	public void serverStarting(FMLServerStartingEvent event) {
-		proxy.serverStarting(event);
-	}
+            GlobalEntityTypeAttributes.put(ModEntities.EGOMINION, MobEntity.func_233666_p_()
+                    .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.5)
+                    .createMutableAttribute(Attributes.MAX_HEALTH, 60)
+                    .createMutableAttribute(Attributes.KNOCKBACK_RESISTANCE, 1.0)
+                    .createMutableAttribute(Attributes.ARMOR, 15)
+                    .createMutableAttribute(Attributes.FOLLOW_RANGE, 35)
+                    .createMutableAttribute(Attributes.ATTACK_DAMAGE, 7)
+                    .create());
+        });
+    }
 
 }

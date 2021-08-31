@@ -1,0 +1,41 @@
+{
+  "name": "extrabotany.entry.aerialite",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:aerialite",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.aerialite0"
+    },
+    {
+      "type": "botania:terrasteel",
+      "text": "extrabotany.page.aerialite1",
+      "recipe": "extrabotany:terra_plate/aerialite"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.aerialite2"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.aerialite3",
+      "recipe": "extrabotany:shootingguardian_helm"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.aerialite4",
+      "recipe": "extrabotany:shootingguardian_chest"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.aerialite5",
+      "recipe": "extrabotany:shootingguardian_legs"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.aerialite6",
+      "recipe": "extrabotany:shootingguardian_boots"
+    }
+  ]
+}

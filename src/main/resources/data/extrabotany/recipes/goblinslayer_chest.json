@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 0",
+    "000",
+	"000"
+  ],
+  "key": {
+    "0": {
+      "item": "extrabotany:photonium"
+    }
+  },
+  "result": {
+    "item": "extrabotany:goblinslayer_chest"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "extrabotany.entry.lens",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:lens_mana",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.lens0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.lens1",
+      "recipe": "extrabotany:lens_mana"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.lens2"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.lens3",
+      "recipe": "extrabotany:lens_push"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.lens4"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.lens5",
+      "recipe": "extrabotany:lens_trace"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.lens6"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.lens7",
+      "recipe": "extrabotany:lens_smelt"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.lens8"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.lens9",
+      "recipe": "extrabotany:lens_potion"
+    }
+  ]
+}

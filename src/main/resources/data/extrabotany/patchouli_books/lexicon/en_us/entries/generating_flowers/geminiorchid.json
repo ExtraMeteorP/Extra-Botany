@@ -1,0 +1,21 @@
+{
+  "name": "extrabotany.entry.geminiorchid",
+  "category": "botania:generating_flowers",
+  "icon": "extrabotany:geminiorchid",
+  "advancement": "botania:main/pure_daisy_pickup",
+  "turnin": "botania:main/generating_flower",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.geminiorchid0"
+    },
+    {
+      "type": "botania:petal_apothecary",
+      "text": "extrabotany.page.geminiorchid1",
+      "recipe": "extrabotany:petal_apothecary/geminiorchid"
+    }
+  ],
+  "extra_recipe_mappings": {
+    "extrabotany:floating_geminiorchid": 1
+  }
+}

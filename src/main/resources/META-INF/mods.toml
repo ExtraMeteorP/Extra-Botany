@@ -1,0 +1,18 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+license="All rights reserved"
+[[mods]] #mandatory
+modId="extrabotany"
+version="${file.jarVersion}" 
+displayName="ExtraBotany"
+authors="ExtraMeteorP"
+description='''
+none
+'''
+
+[[dependencies.extrabotany]]
+    modId="curios"
+    mandatory=true
+    versionRange="[FORGE-1.16.2-2.0,)"
+    ordering="AFTER"
+    side="BOTH"

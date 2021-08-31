@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "extrabotany:cosmiccarkey"
+    }
+  ],
+  "result": {
+    "item": "extrabotany:cosmiccarkeyaccessory"
+  }
+}

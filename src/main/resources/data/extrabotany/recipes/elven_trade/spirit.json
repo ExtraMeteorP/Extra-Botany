@@ -1,0 +1,13 @@
+{
+  "type": "botania:elven_trade",
+  "ingredients": [
+    {
+      "item": "extrabotany:spiritfuel"
+    }
+  ],
+  "output": [
+    {
+      "item": "extrabotany:spirit"
+    }
+  ]
+}

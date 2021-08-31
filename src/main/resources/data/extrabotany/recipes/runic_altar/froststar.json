@@ -1,0 +1,24 @@
+{
+  "type": "botania:runic_altar",
+  "output": {
+    "item": "extrabotany:froststar"
+  },
+  "mana": 2000,
+  "ingredients": [
+    {
+      "tag": "botania:runes/mana"
+    },
+    {
+      "tag": "forge:ingots/manasteel"
+    },
+    {
+      "tag": "forge:ingots/manasteel"
+    },
+    {
+      "item": "minecraft:ice"
+    },
+    {
+      "item": "minecraft:ice"
+    }
+  ]
+}

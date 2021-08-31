@@ -1,0 +1,1 @@
+MixinConnector: com.meteor.extrabotany.common.MixinConnector

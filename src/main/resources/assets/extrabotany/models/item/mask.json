@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "item/handheld",
   "textures": {
-    "layer0": "extrabotany:items/mask"
+    "layer0": "extrabotany:item/mask"
   }
 }

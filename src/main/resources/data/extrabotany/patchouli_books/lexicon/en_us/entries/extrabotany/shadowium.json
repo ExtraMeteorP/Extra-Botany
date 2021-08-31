@@ -1,0 +1,46 @@
+{
+  "name": "extrabotany.entry.shadowium",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:shadowium",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.shadowium0"
+    },
+    {
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.shadowium1",
+      "recipe": "extrabotany:runic_altar/shadowium"
+    },
+	{
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.shadowium2",
+      "recipe": "extrabotany:runic_altar/shadowium_"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.shadowium3"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.shadowium4",
+      "recipe": "extrabotany:shadowwarrior_helm"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.shadowium5",
+      "recipe": "extrabotany:shadowwarrior_chest"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.shadowium6",
+      "recipe": "extrabotany:shadowwarrior_legs"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.shadowium7",
+      "recipe": "extrabotany:shadowwarrior_boots"
+    }
+  ]
+}

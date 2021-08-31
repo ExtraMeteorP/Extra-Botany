@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.nightmarefuel",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:nightmarefuel",
+  "advancement": "botania:main/pure_daisy_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.nightmarefuel0"
+    },
+    {
+      "type": "botania:mana_infusion",
+      "text": "extrabotany.page.nightmarefuel1",
+      "recipes": "extrabotany:mana_infusion/nightmarefuel"
+    }
+  ]
+}

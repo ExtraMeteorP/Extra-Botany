@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.manabuffer",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:manabuffer",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.manabuffer0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.manabuffer1",
+      "recipe": "extrabotany:manabuffer"
+    }
+  ]
+}

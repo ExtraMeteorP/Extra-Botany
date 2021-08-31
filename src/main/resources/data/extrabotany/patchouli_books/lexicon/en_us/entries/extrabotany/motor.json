@@ -1,0 +1,28 @@
+{
+  "name": "extrabotany.entry.motor",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:motor",
+  "entry_color": "ffaa00",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.motor0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.motor1",
+      "recipe": "extrabotany:motor"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.motor2",
+      "recipe": "extrabotany:motor_to_accessory"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.motor3",
+      "recipe": "extrabotany:accessory_to_motor"
+    }
+  ]
+}

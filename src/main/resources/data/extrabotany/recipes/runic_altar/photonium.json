@@ -1,0 +1,37 @@
+{
+  "type": "botania:runic_altar",
+  "output": {
+    "item": "extrabotany:photonium",
+	"count": 3
+  },
+  "mana": 15000,
+  "ingredients": [
+    {
+      "tag": "forge:ingots/elementium"
+    },
+    {
+      "tag": "forge:ingots/elementium"
+    },
+    {
+      "tag": "forge:ingots/elementium"
+    },
+    {
+      "item": "extrabotany:gildedmashedpotato"
+    },
+    {
+      "item": "extrabotany:spiritfuel"
+    },
+    {
+      "item": "extrabotany:spiritfuel"
+    },
+    {
+      "item": "extrabotany:spiritfuel"
+    },
+    {
+      "item": "extrabotany:spiritfuel"
+    },
+    {
+      "item": "extrabotany:spiritfuel"
+    }
+  ]
+}

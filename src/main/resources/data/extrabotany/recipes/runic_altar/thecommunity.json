@@ -1,0 +1,24 @@
+{
+  "type": "botania:runic_altar",
+  "output": {
+    "item": "extrabotany:thecommunity"
+  },
+  "mana": 10000,
+  "ingredients": [
+    {
+      "item": "extrabotany:thechaos"
+    },   
+	{
+      "item": "extrabotany:aerostone"
+    },   
+	{
+      "item": "extrabotany:earthstone"
+    },   
+	{
+      "item": "extrabotany:aquastone"
+    },   
+	{
+      "item": "extrabotany:ignisstone"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "extrabotany:block/shapes/cross",
+  "textures": {
+    "cross": "extrabotany:block/annoyingflower"
+  }
+}

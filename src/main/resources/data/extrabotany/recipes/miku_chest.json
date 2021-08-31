@@ -1,0 +1,19 @@
+{
+  "type": "botania:armor_upgrade",
+  "pattern": [
+    "TTT",
+    "TAT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "botania:manaweave_cloth"
+    },
+    "A": {
+      "item": "botania:manasteel_chestplate"
+    }
+  },
+  "result": {
+    "item": "extrabotany:miku_chest"
+  }
+}

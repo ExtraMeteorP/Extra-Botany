@@ -1,0 +1,11 @@
+{
+  "type": "extrabotany:relicupgrade",
+  "ingredients": [
+    {
+      "item": "extrabotany:motor"
+    }
+  ],
+  "result": {
+    "item": "extrabotany:motoraccessory"
+  }
+}

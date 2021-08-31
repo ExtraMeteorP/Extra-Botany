@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.powerframe",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:powerframe",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.powerframe0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.powerframe1",
+      "recipe": "extrabotany:powerframe"
+    }
+  ]
+}

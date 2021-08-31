@@ -1,0 +1,22 @@
+{
+  "name": "extrabotany.entry.spiritfuel",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:spiritfuel",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.spiritfuel0"
+    },
+    {
+      "type": "botania:elven_trade",
+      "text": "extrabotany.page.spiritfuel1",
+      "recipes": "extrabotany:elven_trade/spiritfuel"
+    },
+    {
+      "type": "botania:elven_trade",
+      "text": "extrabotany.page.spiritfuel2",
+      "recipes": "extrabotany:elven_trade/spirit"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "extrabotany.entry.advancedmaterial",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:thechaos",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.advancedmaterial0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.advancedmaterial1",
+      "recipe": "extrabotany:thechaos"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.advancedmaterial2",
+      "recipe": "extrabotany:theorigin"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.advancedmaterial3",
+      "recipe": "extrabotany:theend"
+    },
+    {
+      "type": "botania:terrasteel",
+      "text": "extrabotany.page.advancedmaterial4",
+      "recipe": "extrabotany:terra_plate/theuniverse"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 13",
+    "123",
+	" 13"
+  ],
+  "key": {
+    "3": {
+      "item": "botania:mana_string"
+    },
+	"1": {
+      "tag": "forge:ingots/terrasteel"
+    },
+	"2": {
+      "item": "extrabotany:orichalcos"
+    }
+  },
+  "result": {
+    "item": "extrabotany:failnaught"
+  }
+}

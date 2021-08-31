@@ -1,0 +1,46 @@
+{
+  "name": "extrabotany.entry.photonium",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:photonium",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.photonium0"
+    },
+    {
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.photonium1",
+      "recipe": "extrabotany:runic_altar/photonium"
+    },
+	{
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.photonium2",
+      "recipe": "extrabotany:runic_altar/photonium_"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.photonium3"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.photonium4",
+      "recipe": "extrabotany:goblinslayer_helm"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.photonium5",
+      "recipe": "extrabotany:goblinslayer_chest"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.photonium6",
+      "recipe": "extrabotany:goblinslayer_legs"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.photonium7",
+      "recipe": "extrabotany:goblinslayer_boots"
+    }
+  ]
+}

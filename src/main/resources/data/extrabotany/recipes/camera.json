@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    "121",
+	"000"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:ingots/terrasteel"
+    },
+	"1": {
+      "item": "botania:dark_quartz"
+    },
+	"2": {
+      "item": "extrabotany:heromedal"
+    }
+  },
+  "result": {
+    "item": "extrabotany:camera"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.froststar",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:froststar",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.froststar0"
+    },
+    {
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.froststar1",
+      "recipe": "extrabotany:runic_altar/froststar"
+    }
+  ]
+}

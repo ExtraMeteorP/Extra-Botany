@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "extrabotany:items/froststar"
+    "layer0": "extrabotany:item/froststar"
   }
 }

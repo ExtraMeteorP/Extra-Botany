@@ -1,0 +1,16 @@
+{
+  "name": "extrabotany.entry.header",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:pylon",
+  "priority": true,
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.header0"
+    },
+    {
+      "type": "text",
+      "text": "extrabotany.page.header1"
+    }
+  ]
+}

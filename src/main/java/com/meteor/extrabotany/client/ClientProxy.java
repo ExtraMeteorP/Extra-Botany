@@ -1,175 +1,140 @@
 package com.meteor.extrabotany.client;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.Map;
-import java.util.Set;
-
-import com.google.common.collect.Sets;
 import com.meteor.extrabotany.ExtraBotany;
-import com.meteor.extrabotany.client.core.handler.ColorHandler;
-import com.meteor.extrabotany.client.core.handler.EventHandlerClient;
-import com.meteor.extrabotany.client.core.handler.MiscellaneousIcons;
-import com.meteor.extrabotany.client.render.CosmeticItemRenderLayer;
-import com.meteor.extrabotany.client.render.entity.RenderBottledStar;
-import com.meteor.extrabotany.client.render.entity.RenderDarkPixie;
-import com.meteor.extrabotany.client.render.entity.RenderFlowerWeapon;
-import com.meteor.extrabotany.client.render.entity.RenderFlyingBoat;
-import com.meteor.extrabotany.client.render.entity.RenderMagicArrow;
-import com.meteor.extrabotany.client.render.entity.RenderPhantomSword;
-import com.meteor.extrabotany.client.render.entity.RenderSplashGrenade;
-import com.meteor.extrabotany.client.render.entity.RenderSubspace;
-import com.meteor.extrabotany.client.render.entity.RenderSubspaceSpear;
-import com.meteor.extrabotany.client.render.entity.RenderVoid;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderDomain;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderGaiaIII;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullLandmine;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullMinion;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderSkullMissile;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderSubspaceLance;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderSwordDomain;
-import com.meteor.extrabotany.client.render.entity.gaia.RenderVoidHerrscher;
-import com.meteor.extrabotany.client.render.entity.judah.RenderJudahOath;
-import com.meteor.extrabotany.client.render.entity.judah.RenderJudahSpear;
-import com.meteor.extrabotany.client.render.tile.RenderChargePad;
-import com.meteor.extrabotany.client.render.tile.RenderCocoonDesire;
-import com.meteor.extrabotany.client.render.tile.RenderLivingrockBarrel;
-import com.meteor.extrabotany.client.render.tile.RenderPedestal;
-import com.meteor.extrabotany.client.render.tile.RenderQuantumManaBuffer;
-import com.meteor.extrabotany.common.CommonProxy;
-import com.meteor.extrabotany.common.block.tile.TileChargePad;
-import com.meteor.extrabotany.common.block.tile.TileCocoonDesire;
-import com.meteor.extrabotany.common.block.tile.TileLivingrockBarrel;
-import com.meteor.extrabotany.common.block.tile.TilePedestal;
-import com.meteor.extrabotany.common.block.tile.TileQuantumManaBuffer;
-import com.meteor.extrabotany.common.core.handler.PersistentVariableHandler;
-import com.meteor.extrabotany.common.entity.EntityBottledStar;
-import com.meteor.extrabotany.common.entity.EntityDarkPixie;
-import com.meteor.extrabotany.common.entity.EntityFlowerWeapon;
-import com.meteor.extrabotany.common.entity.EntityFlyingBoat;
-import com.meteor.extrabotany.common.entity.EntityMagicArrow;
-import com.meteor.extrabotany.common.entity.EntityPhantomSword;
-import com.meteor.extrabotany.common.entity.EntitySplashGrenade;
-import com.meteor.extrabotany.common.entity.EntitySubspace;
-import com.meteor.extrabotany.common.entity.EntitySubspaceSpear;
-import com.meteor.extrabotany.common.entity.gaia.EntityDomain;
-import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
-import com.meteor.extrabotany.common.entity.gaia.EntitySkullLandmine;
-import com.meteor.extrabotany.common.entity.gaia.EntitySkullMinion;
-import com.meteor.extrabotany.common.entity.gaia.EntitySkullMissile;
-import com.meteor.extrabotany.common.entity.gaia.EntitySubspaceLance;
-import com.meteor.extrabotany.common.entity.gaia.EntitySwordDomain;
-import com.meteor.extrabotany.common.entity.gaia.EntityVoid;
-import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
-import com.meteor.extrabotany.common.entity.judah.EntityJudahOath;
-import com.meteor.extrabotany.common.entity.judah.EntityJudahSpear;
-import com.mojang.authlib.GameProfile;
-
+import com.meteor.extrabotany.client.handler.*;
+import com.meteor.extrabotany.client.renderer.entity.*;
+import com.meteor.extrabotany.common.blocks.ModBlocks;
+import com.meteor.extrabotany.common.core.IProxy;
+import com.meteor.extrabotany.common.entities.ModEntities;
+import com.meteor.extrabotany.common.items.brew.ItemBrewBase;
+import com.meteor.extrabotany.common.libs.LibMisc;
+import net.minecraft.block.FlowerBlock;
+import net.minecraft.block.TallFlowerBlock;
+import net.minecraft.client.GameSettings;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.entity.PlayerRenderer;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
+import net.minecraft.item.IItemPropertyGetter;
+import net.minecraft.item.ItemModelsProperties;
+import net.minecraft.util.IItemProvider;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import vazkii.botania.common.block.decor.BlockFloatingFlower;
+import vazkii.botania.common.block.decor.BlockModMushroom;
 
-public class ClientProxy extends CommonProxy{
-	
-	public static boolean christmas = false;
-	public static boolean halloween = false;
-	private final Set<GameProfile> skinRequested = Sets.newHashSet();
-	
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		super.preInit(event);
-		PersistentVariableHandler.setCacheFile(new File(Minecraft.getMinecraft().mcDataDir, "ExtraBotanyVars.dat"));
-		Minecraft.getMinecraft().addScheduledTask(()->this.loadAndSave());
-		//loadAndSave();
-		MinecraftForge.EVENT_BUS.register(MiscellaneousIcons.INSTANCE);
-		MinecraftForge.EVENT_BUS.register(EventHandlerClient.INSTANCE);
-		initRenderers();
-	}
-	
-	public void loadAndSave() {
-		try {
-			PersistentVariableHandler.load();
-			PersistentVariableHandler.save();
-		} catch (IOException e) {
-			ExtraBotany.logger.fatal("Persistent Variables couldn't load!!");
-		}
-	}
-	
-	@Override
-	public void init(FMLInitializationEvent event) {
-		super.init(event);
-		ColorHandler.init();
-		LocalDateTime now = LocalDateTime.now();
-		if (now.getMonth() == Month.DECEMBER && now.getDayOfMonth() >= 16 || now.getMonth() == Month.JANUARY && now.getDayOfMonth() <= 2)
-			christmas = true;
-		if(now.getMonth() == Month.OCTOBER)
-			halloween = true;
-		if(halloween)
-			ExtraBotany.logger.info("Trick or treat?");
-		if(christmas)
-			ExtraBotany.logger.info("Happy Christmas!");
-		
-		Map<String, RenderPlayer> skinMap = Minecraft.getMinecraft().getRenderManager().getSkinMap();
-		RenderPlayer render;
-		render = skinMap.get("default");
-		render.addLayer(new CosmeticItemRenderLayer());
+import java.util.Map;
 
-		render = skinMap.get("slim");
-		render.addLayer(new CosmeticItemRenderLayer());
-	}
-	
-	@Override
-	public void postInit(FMLPostInitializationEvent event) {
-		super.postInit(event);
-	}
-	
-	private void initRenderers() {
-		//ClientRegistry.bindTileEntitySpecialRenderer(TileGildedTinyPotato.class, new RenderGildedTinyPotato());
-		ClientRegistry.bindTileEntitySpecialRenderer(TilePedestal.class, new RenderPedestal());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileCocoonDesire.class, new RenderCocoonDesire());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileLivingrockBarrel.class, new RenderLivingrockBarrel());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileQuantumManaBuffer.class, new RenderQuantumManaBuffer());
-		ClientRegistry.bindTileEntitySpecialRenderer(TileChargePad.class, new RenderChargePad());
-		RenderingRegistry.registerEntityRenderingHandler(EntityDarkPixie.class, RenderDarkPixie::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityFlyingBoat.class, RenderFlyingBoat::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityFlowerWeapon.class, RenderFlowerWeapon::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkullMissile.class, RenderSkullMissile::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkullLandmine.class, RenderSkullLandmine::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkullMinion.class, RenderSkullMinion::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityGaiaIII.class, RenderGaiaIII::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySplashGrenade.class, RenderSplashGrenade::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySwordDomain.class, RenderSwordDomain::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityDomain.class, RenderDomain::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityMagicArrow.class, RenderMagicArrow::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySubspace.class, RenderSubspace::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySubspaceSpear.class, RenderSubspaceSpear::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityJudahOath.class, RenderJudahOath::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityJudahSpear.class, RenderJudahSpear::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityBottledStar.class, RenderBottledStar::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityVoid.class, RenderVoid::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityVoidHerrscher.class, RenderVoidHerrscher::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntitySubspaceLance.class, RenderSubspaceLance::new);
-		RenderingRegistry.registerEntityRenderingHandler(EntityPhantomSword.class, RenderPhantomSword::new);
-	}
-	
-    @Override
-    public void setTinkersRenderColor(slimeknights.tconstruct.library.materials.Material material, int color) {
-        material.setRenderInfo(color);
+import static com.meteor.extrabotany.common.items.ModItems.*;
+
+public class ClientProxy implements IProxy {
+
+    public void registerModels(ModelRegistryEvent evt) {
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.MOTOR, RenderMotor::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.KEY_OF_TRUTH, RenderKeyOfTruth::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.SLASH, RenderSlash::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.UFO, RenderUfo::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.PHANTOMSWORD, RenderPhantomSword::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.FLAMESCIONSLASH, RenderFlamescionSlash::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.SRENGTHENSLASH, RenderStrengthenSlash::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.ULT, RenderFlamescionUlt::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.SWORD, RenderFlamescionSword::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.VOID, RenderFlamescionVoid::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.EGO, RenderEGO::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.EGOMINION, RenderEGO::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.EGOLANDMINE, RenderEGOLandmine::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.MAGICARROW, RenderDummy::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.AURAFIRE, RenderDummy::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.INFLUXWAVER, RenderProjectileBase::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.TRUETERRABLADE, RenderProjectileBase::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.TRUESHADOWKATANA, RenderProjectileBase::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.SPLASHGRENADE, renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer()));
     }
-    
+
+    public void onClientSetUpEvent(FMLClientSetupEvent event) {
+        Minecraft mc = Minecraft.getInstance();
+        GameSettings gameSettings = mc.gameSettings;
+        ExtraBotany.keyForward = gameSettings.keyBindForward;
+        ExtraBotany.keyBackward = gameSettings.keyBindBack;
+        ExtraBotany.keyLeft = gameSettings.keyBindLeft;
+        ExtraBotany.keyRight = gameSettings.keyBindRight;
+        ExtraBotany.keyUp = gameSettings.keyBindJump;
+        ExtraBotany.keyFlight = gameSettings.keyBindSprint;
+
+        registerRenderTypes();
+        event.enqueueWork(ClientProxy::registerPropertyGetters);
+    }
+
     @Override
-	public void preloadSkin(GameProfile customSkin) {
-		if (!skinRequested.contains(customSkin)) {
-			Minecraft.getMinecraft().getSkinManager().loadProfileTextures(customSkin, (typeIn, location, profileTexture) -> {}, true);
-			skinRequested.add(customSkin);
-		}
-	}
-	
+    public void registerHandlers() {
+        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+        modBus.addListener(this::onClientSetUpEvent);
+        modBus.addListener(this::loadComplete);
+        modBus.addListener(this::registerModels);
+        modBus.addListener(MiscellaneousIcons.INSTANCE::onModelRegister);
+        modBus.addListener(MiscellaneousIcons.INSTANCE::onModelBake);
+        modBus.addListener(ModelHandler::registerModels);
+
+        IEventBus forgeBus = MinecraftForge.EVENT_BUS;
+        forgeBus.addListener(HUDHandler::onOverlayRender);
+        forgeBus.addListener(ClientTickHandler::clientTickEnd);
+    }
+
+    private static void registerRenderTypes() {
+        RenderTypeLookup.setRenderLayer(ModBlocks.powerframe, RenderType.getCutout());
+        Registry.BLOCK.stream().filter(b -> Registry.BLOCK.getKey(b).getNamespace().equals(LibMisc.MOD_ID))
+                .forEach(b -> {
+                    if (b instanceof BlockFloatingFlower || b instanceof FlowerBlock
+                            || b instanceof TallFlowerBlock || b instanceof BlockModMushroom) {
+                        RenderTypeLookup.setRenderLayer(b, RenderType.getCutout());
+                    }
+                });
+    }
+
+    private void loadComplete(FMLLoadCompleteEvent event) {
+        DeferredWorkQueue.runLater(() -> {
+            initAuxiliaryRender();
+            ColorHandler.init();
+        });
+    }
+
+    private static void registerPropertyGetter(IItemProvider item, ResourceLocation id, IItemPropertyGetter propGetter) {
+        ItemModelsProperties.registerProperty(item.asItem(), id, propGetter);
+    }
+
+    private static void registerPropertyGetters() {
+        IItemPropertyGetter brewGetter = (stack, world, entity) -> {
+            ItemBrewBase item = ((ItemBrewBase) stack.getItem());
+            return item.getSwigs() - item.getSwigsLeft(stack);
+        };
+        registerPropertyGetter(cocktail, prefix("swigs_taken"), brewGetter);
+        registerPropertyGetter(infinitewine, prefix("swigs_taken"), brewGetter);
+    }
+
+    private void initAuxiliaryRender() {
+        Map<String, PlayerRenderer> skinMap = Minecraft.getInstance().getRenderManager().getSkinMap();
+        PlayerRenderer render;
+        render = skinMap.get("default");
+
+        render.addLayer(new LayerHerrscher(render));
+        render.addLayer(new LayerFlamescion(render));
+
+        render = skinMap.get("slim");
+
+        render.addLayer(new LayerHerrscher(render));
+        render.addLayer(new LayerFlamescion(render));
+    }
+
 }

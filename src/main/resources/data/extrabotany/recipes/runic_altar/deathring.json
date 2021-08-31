@@ -1,0 +1,24 @@
+{
+  "type": "botania:runic_altar",
+  "output": {
+    "item": "extrabotany:deathring"
+  },
+  "mana": 2000,
+  "ingredients": [
+    {
+      "tag": "botania:runes/envy"
+    },
+    {
+      "tag": "forge:ingots/manasteel"
+    },
+    {
+      "tag": "forge:ingots/manasteel"
+    },
+    {
+      "tag": "forge:gems/mana_diamond"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  ]
+}

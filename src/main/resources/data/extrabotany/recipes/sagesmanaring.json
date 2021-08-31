@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "121",
+    "303",
+	"131"
+  ],
+  "key": {
+    "3": {
+      "item": "botania:mana_tablet"
+    },
+	"1": {
+      "tag": "forge:ingots/terrasteel"
+    },
+	"2": {
+      "item": "extrabotany:heromedal"
+    },
+	"0": {
+      "item": "botania:mana_ring_greater"
+    }
+  },
+  "result": {
+    "item": "extrabotany:sagesmanaring"
+  }
+}

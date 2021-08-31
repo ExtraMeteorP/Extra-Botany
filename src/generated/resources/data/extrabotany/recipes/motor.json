@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PAP",
+    "PHP",
+    "PAP"
+  ],
+  "key": {
+    "A": {
+      "item": "extrabotany:aerialite"
+    },
+    "P": {
+      "item": "extrabotany:photonium"
+    },
+    "H": {
+      "item": "extrabotany:heromedal"
+    }
+  },
+  "result": {
+    "item": "extrabotany:motor"
+  }
+}

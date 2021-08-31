@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.natureorb",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:natureorb",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.natureorb0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.natureorb1",
+      "recipe": "extrabotany:natureorb"
+    }
+  ]
+}

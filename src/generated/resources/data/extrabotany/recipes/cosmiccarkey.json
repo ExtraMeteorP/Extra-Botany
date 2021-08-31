@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EPE",
+    "MTM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:ingots/manasteel"
+    },
+    "T": {
+      "item": "extrabotany:theorigin"
+    },
+    "E": {
+      "item": "botania:ender_air_bottle"
+    },
+    "P": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "result": {
+    "item": "extrabotany:cosmiccarkey"
+  }
+}

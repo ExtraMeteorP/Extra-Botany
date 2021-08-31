@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "extrabotany:items/jingweifeather"
+    "layer0": "extrabotany:item/jingweifeather"
   }
 }

@@ -1,0 +1,33 @@
+{
+  "name": "extrabotany.entry.coregod",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:coregod",
+  "entry_color": "ffaa00",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.coregod0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.coregod1",
+      "recipe": "extrabotany:coregod"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.coregod2",
+      "recipe": "extrabotany:coregod_1"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.coregod3",
+      "recipe": "extrabotany:coregod_2"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.coregod4",
+      "recipe": "extrabotany:coregod_3"
+    }
+  ]
+}

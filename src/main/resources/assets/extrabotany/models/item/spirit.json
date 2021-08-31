@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "extrabotany:items/spirit"
+    "layer0": "extrabotany:item/spirit"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "minecraft:cooked_chicken"
+  },
+  "output": {
+    "item": "extrabotany:friedchicken"
+  },
+  "mana": 600
+}

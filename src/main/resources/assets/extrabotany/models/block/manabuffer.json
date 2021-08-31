@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "extrabotany:block/manabarrel_bottom",
+    "top": "extrabotany:block/manabarrel_top",
+    "side": "extrabotany:block/manabarrel_side"
+  }
+}

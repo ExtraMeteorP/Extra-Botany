@@ -1,178 +1,139 @@
 package com.meteor.extrabotany.api;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.meteor.extrabotany.common.items.ModItems;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 
-import com.gamerforea.eventhelper.util.EventUtils;
-import com.meteor.extrabotany.ExtraBotany;
-import com.meteor.extrabotany.common.core.config.ConfigHandler;
-import com.meteor.extrabotany.common.crafting.recipe.RecipeOmniviolet;
-import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
-import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
-import com.meteor.extrabotany.common.lib.LibAdvancements;
-import com.meteor.extrabotany.common.lib.Reference;
-
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementManager;
-import net.minecraft.advancements.PlayerAdvancements;
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.WorldServer;
-import net.minecraftforge.common.util.EnumHelper;
-import vazkii.botania.api.BotaniaAPI;
-import vazkii.botania.api.lexicon.KnowledgeType;
-import vazkii.botania.api.lexicon.LexiconCategory;
-import vazkii.botania.api.recipe.RecipeManaInfusion;
+import javax.annotation.Nonnull;
+import java.util.function.Supplier;
 
 public class ExtraBotanyAPI {
 
-	public static IBlockState dimensionState;
+    public static ExtraBotanyAPI INSTANCE = new ExtraBotanyAPI();
 
-	public static final KnowledgeType dreamKnowledge;
-	public static LexiconCategory dreamCategory;
+    private enum ArmorMaterial implements IArmorMaterial {
+        MIKU("miku", 5, new int[] { 2, 4, 5, 1 }, 22, () -> SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, () -> ModItems.manadrink, 0),
+        MAID("maid", 40, new int[] { 4, 7, 9, 4 }, 32, () -> SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, () -> ModItems.goldcloth, 3),
+        GOBLINSLAYER("goblinslayer", 27, new int[] { 3, 5, 7, 2 }, 30, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> ModItems.photonium, 1),
+        SHADOWWARRIOR("shadowwarrior", 24, new int[] { 2, 5, 6, 2 }, 26, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> ModItems.shadowium, 1),
+        SHOOTINGGUARDIAN("shootingguardian", 34, new int[] { 3, 7, 8, 4 }, 34, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> ModItems.orichalcos, 2),
+        SILENTSAGES("silentsages", 50, new int[] { 4, 8, 9, 5 }, 40, () -> SoundEvents.ITEM_ARMOR_EQUIP_IRON, () -> ModItems.orichalcos, 3);
 
-	public static final List<RecipePedestal> pedestalRecipes = new ArrayList<RecipePedestal>();
-	public static final List<RecipeStonesia> stonesiaRecipes = new ArrayList<RecipeStonesia>();
-	public static final List<RecipeOmniviolet> omnivioletRecipes = new ArrayList<RecipeOmniviolet>();
-	public static final ArmorMaterial orichalcosArmorMaterial = EnumHelper.addArmorMaterial("ORICHALCOS", "orichalcos",
-			50, new int[] { 4, 7, 8, 3 }, 50, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4F);
-	public static final ArmorMaterial shadowiumArmorMaterial = EnumHelper.addArmorMaterial("SHADOWIUM", "shadowium", 23,
-			new int[] { 3, 7, 6, 3 }, 28, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 1.5F);
-	public static final ToolMaterial shadowiumToolMaterial = EnumHelper.addToolMaterial("SHADOWIUM", 3, 880, 6.5F, 2F,
-			12);
-	public static final ArmorMaterial goblinslayerArmorMaterial = EnumHelper.addArmorMaterial("GOBLINSLAYER", "goblinslayer", 21,
-			new int[] { 3, 6, 6, 3 }, 40, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.5F);
-	
-	public static final ToolMaterial manasteelHammer = EnumHelper.addToolMaterial("MANASTEELHAMMER", 3, 400, 6.8F, 2F, 20);
-	
-	public static final ToolMaterial elementiumHammer = EnumHelper.addToolMaterial("ELEMENTIUMHAMMER", 3, 900, 6.8F, 2F, 20);
-	
-	public static final ToolMaterial terrasteelHammer = EnumHelper.addToolMaterial("TERRASTEELHAMMER", 4, 3000, 9.8F, 3F, 26);
-	
-	public static final ToolMaterial ultimateHammer = EnumHelper.addToolMaterial("ULTIMATEHAMMER", 4, 3000, 10.5F, 3F, 40);
+        private final String name;
+        private final int durabilityMultiplier;
+        private final int[] damageReduction;
+        private final int enchantability;
+        private final Supplier<SoundEvent> equipSound;
+        private final Supplier<Item> repairItem;
+        private final float toughness;
+        private static final int[] MAX_DAMAGE_ARRAY = new int[] { 13, 15, 16, 11 };
 
+        ArmorMaterial(String name, int durabilityMultiplier, int[] damageReduction, int enchantability, Supplier<SoundEvent> equipSound, Supplier<Item> repairItem, float toughness) {
+            this.name = name;
+            this.durabilityMultiplier = durabilityMultiplier;
+            this.damageReduction = damageReduction;
+            this.enchantability = enchantability;
+            this.equipSound = equipSound;
+            this.repairItem = repairItem;
+            this.toughness = toughness;
+        }
 
-	public static final Set<Block> gaiaBreakBlacklist = new HashSet<>();
+        @Override
+        public int getDurability(EquipmentSlotType slot) {
+            return durabilityMultiplier * MAX_DAMAGE_ARRAY[slot.getIndex()];
+        }
 
-	static {
-		dreamKnowledge = BotaniaAPI.registerKnowledgeType("dream", TextFormatting.DARK_RED, false);
-		blacklistBlockFromGaiaGuardian(Blocks.BEACON);
-	}
+        @Override
+        public int getDamageReductionAmount(EquipmentSlotType slot) {
+            return damageReduction[slot.getIndex()];
+        }
 
-	public static void blacklistBlockFromGaiaGuardian(Block block) {
-		gaiaBreakBlacklist.add(block);
-	}
+        @Override
+        public int getEnchantability() {
+            return enchantability;
+        }
 
-	public static RecipeManaInfusion registerManaDimensionRecipe(ItemStack output, Object input, int mana) {
-		RecipeManaInfusion recipe = BotaniaAPI.registerManaInfusionRecipe(output, input, mana);
-		recipe.setCatalyst(dimensionState);
-		return recipe;
-	}
+        @Nonnull
+        @Override
+        public SoundEvent getSoundEvent() {
+            return equipSound.get();
+        }
 
-	public static RecipePedestal registerPedestalRecipe(ItemStack output, ItemStack input) {
-		RecipePedestal recipe = new RecipePedestal(output, input);
-		pedestalRecipes.add(recipe);
-		return recipe;
-	}
+        @Nonnull
+        @Override
+        public Ingredient getRepairMaterial() {
+            return Ingredient.fromItems(repairItem.get());
+        }
 
-	public static RecipeStonesia registerStonesiaRecipe(int output, Object input) {
-		RecipeStonesia recipe = new RecipeStonesia(output, input);
-		stonesiaRecipes.add(recipe);
-		return recipe;
-	}
+        @Nonnull
+        @Override
+        public String getName() {
+            return name;
+        }
 
-	public static RecipeOmniviolet registerOmnivioletRecipe(int output, ItemStack input) {
-		RecipeOmniviolet recipe = new RecipeOmniviolet(output, input);
-		omnivioletRecipes.add(recipe);
-		return recipe;
-	}
+        @Override
+        public float getToughness() {
+            return toughness;
+        }
 
-	public static void unlockAdvancement(EntityPlayer player, String name) {
-		if (player instanceof EntityPlayerMP) {
-			PlayerAdvancements advancements = ((EntityPlayerMP) player).getAdvancements();
-			AdvancementManager manager = ((WorldServer) player.getEntityWorld()).getAdvancementManager();
-			Advancement advancement = manager
-					.getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX + name));
-			if (advancement != null)
-				advancements.grantCriterion(advancement, "ebt_trigger");
-		}
-	}
+        @Override
+        public float getKnockbackResistance() {
+            return 0;
+        }
+    }
 
-	public static boolean cantAttack(EntityLivingBase attacker, EntityLivingBase target) {
-		if (ExtraBotany.isTableclothServer)
-			return attacker instanceof EntityPlayer && EventUtils.cantAttack((EntityPlayer) attacker, target);
-		else
-			return false;
-	}
+    public IArmorMaterial getMaidArmorMaterial() {
+        return ArmorMaterial.MAID;
+    }
 
-	public static float dealTrueDamage(EntityLivingBase player, EntityLivingBase target, float amount) {
-		float result = 0;
+    public IArmorMaterial getMikuArmorMaterial() {
+        return ArmorMaterial.MIKU;
+    }
 
-		if (target == null)
-			return result;
-		if (!(target instanceof EntityLivingBase))
-			return result;
-		if (!target.isEntityAlive())
-			return result;
-		if (amount < 0)
-			return result;
-		if (player != null && cantAttack(player, target))
-			return result;
+    public IArmorMaterial getGoblinSlayerArmorMaterial() {
+        return ArmorMaterial.GOBLINSLAYER;
+    }
 
-		target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), 0.01F);
-		float health = target.getHealth();
-		if (target instanceof EntityPlayer)
-			if (((EntityPlayer) target).isCreative())
-				return result;
-		
-		if(ConfigHandler.ENABLE_TRUEDAMAGE) {
-			if(!target.isNonBoss())
-				amount*=0.5F;
-			if (health > 0) {
-				float postHealth = Math.max(1, health - amount);
-				target.setHealth(postHealth);
-				if (health <= amount) {
-					if (target instanceof EntityPlayer)
-						target.onKillCommand();
-					else
-						target.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(),
-								Integer.MAX_VALUE - 1F);
-				}
-				result = health - postHealth;
-			}
-		}else {
-			target.attackEntityFrom(DamageSource.causeIndirectMagicDamage(player, target), amount);
-		}
-		return result;
-	}
+    public IArmorMaterial getShadowWarriorArmorMaterial() {
+        return ArmorMaterial.SHADOWWARRIOR;
+    }
 
-	public static void addPotionEffect(EntityLivingBase entity, Potion potion, int time, int max, boolean multi) {
-		if (!entity.isPotionActive(potion))
-			entity.addPotionEffect(new PotionEffect(potion, time, 0));
-		else {
-			int amp = entity.getActivePotionEffect(potion).getAmplifier();
-			int t = multi ? time + 200 * amp : time;
-			entity.addPotionEffect(new PotionEffect(potion, t, Math.min(max, amp + 1)));
-		}
-	}
+    public IArmorMaterial getShootingGuardianArmorMaterial() {
+        return ArmorMaterial.SHOOTINGGUARDIAN;
+    }
 
-	public static void addPotionEffect(EntityLivingBase entity, Potion potion, int max) {
-		addPotionEffect(entity, potion, 100, max, false);
-	}
+    public IArmorMaterial getSilentSagesArmorMaterial() {
+        return ArmorMaterial.SILENTSAGES;
+    }
 
+    public static void addPotionEffect(LivingEntity entity, Effect potion, int time, int max, boolean multi) {
+        if (!entity.isPotionActive(potion))
+            entity.addPotionEffect(new EffectInstance(potion, time, 0));
+        else {
+            int amp = entity.getActivePotionEffect(potion).getAmplifier();
+            int t = multi ? time + 200 * amp : time;
+            entity.addPotionEffect(new EffectInstance(potion, t, Math.min(max, amp + 1)));
+        }
+    }
+
+    public static void addPotionEffect(LivingEntity entity, Effect potion, int max) {
+        addPotionEffect(entity, potion, 100, max, false);
+    }
+
+    public static float calcDamage(float orig, PlayerEntity player){
+        if(player == null)
+            return orig;
+        double value = player.getAttributeValue(Attributes.ATTACK_DAMAGE);
+        return (float) (orig + value);
+    }
+    
 }

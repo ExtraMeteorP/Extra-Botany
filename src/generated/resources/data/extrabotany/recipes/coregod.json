@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GHG",
+    "GFG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "botania:quartz_sunny"
+    },
+    "H": {
+      "item": "extrabotany:heromedal"
+    },
+    "F": {
+      "item": "botania:flight_tiara"
+    }
+  },
+  "result": {
+    "item": "extrabotany:coregod"
+  }
+}

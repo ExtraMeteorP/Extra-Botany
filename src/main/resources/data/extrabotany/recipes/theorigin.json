@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 0 ",
+    "021",
+	" 1 "
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:ingots/terrasteel"
+    },
+	"1": {
+      "item": "extrabotany:aerialite"
+    },
+	"2": {
+      "item": "extrabotany:spirit"
+    }
+  },
+  "result": {
+    "item": "extrabotany:theorigin"
+  }
+}

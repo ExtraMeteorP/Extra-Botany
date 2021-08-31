@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "KMK",
+    "KGK",
+    "KMK"
+  ],
+  "key": {
+    "K": {
+      "item": "botania:fabulous_pool"
+    },
+    "M": {
+      "item": "botania:lens_normal"
+    },
+    "G": {
+      "item": "botania:gaia_ingot"
+    }
+  },
+  "result": {
+    "item": "extrabotany:manabuffer"
+  }
+}

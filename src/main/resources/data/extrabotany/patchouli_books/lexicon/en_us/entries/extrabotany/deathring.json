@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.deathring",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:deathring",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.deathring0"
+    },
+    {
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.deathring1",
+      "recipe": "extrabotany:runic_altar/deathring"
+    }
+  ]
+}

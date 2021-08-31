@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 0 ",
+    "021",
+	" 1 "
+  ],
+  "key": {
+    "0": {
+      "item": "extrabotany:shadowium"
+    },
+	"1": {
+      "item": "extrabotany:photonium"
+    },
+	"2": {
+      "item": "extrabotany:spirit"
+    }
+  },
+  "result": {
+    "item": "extrabotany:thechaos"
+  }
+}

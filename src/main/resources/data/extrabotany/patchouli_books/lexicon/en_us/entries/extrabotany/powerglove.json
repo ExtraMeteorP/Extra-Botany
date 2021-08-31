@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.powerglove",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:powerglove",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.powerglove0"
+    },
+    {
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.powerglove1",
+      "recipe": "extrabotany:runic_altar/powerglove"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RPR",
+    "IFI",
+    "RPR"
+  ],
+  "key": {
+    "R": {
+      "item": "botania:quartz_red"
+    },
+    "P": {
+      "item": "botania:pixie_dust"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "I": {
+      "tag": "botania:runes/fire"
+    }
+  },
+  "result": {
+    "item": "extrabotany:jingweifeather"
+  }
+}

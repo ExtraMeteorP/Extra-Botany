@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.peaceamulet",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:peaceamulet",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.peaceamulet0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.peaceamulet1",
+      "recipe": "extrabotany:peaceamulet"
+    }
+  ]
+}

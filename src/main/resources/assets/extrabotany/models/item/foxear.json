@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "item/handheld",
   "textures": {
-    "layer0": "extrabotany:items/foxear"
+    "layer0": "extrabotany:item/foxear"
   }
 }

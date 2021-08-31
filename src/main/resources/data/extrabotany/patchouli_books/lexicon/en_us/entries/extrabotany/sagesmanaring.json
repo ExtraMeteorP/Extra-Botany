@@ -1,0 +1,18 @@
+{
+  "name": "extrabotany.entry.sagesmanaring",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:sagesmanaring",
+  "entry_color": "ffaa00",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.sagesmanaring0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.sagesmanaring1",
+      "recipe": "extrabotany:sagesmanaring"
+    }
+  ]
+}

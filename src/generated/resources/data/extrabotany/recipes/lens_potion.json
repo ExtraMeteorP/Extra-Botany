@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "botania:lens_normal"
+    },
+    {
+      "tag": "botania:runes/spring"
+    },
+    {
+      "item": "botania:mana_powder"
+    },
+    {
+      "tag": "forge:gems/dragonstone"
+    },
+    {
+      "item": "botania:ender_air_bottle"
+    }
+  ],
+  "result": {
+    "item": "extrabotany:lens_potion"
+  }
+}

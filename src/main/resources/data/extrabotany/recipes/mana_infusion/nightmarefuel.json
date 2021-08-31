@@ -1,0 +1,10 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "minecraft:coal"
+  },
+  "output": {
+    "item": "extrabotany:nightmarefuel"
+  },
+  "mana": 2000
+}

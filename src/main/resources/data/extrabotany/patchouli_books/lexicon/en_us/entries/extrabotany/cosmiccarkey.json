@@ -1,0 +1,27 @@
+{
+  "name": "extrabotany.entry.cosmiccarkey",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:cosmiccarkey",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.cosmiccarkey0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.cosmiccarkey1",
+      "recipe": "extrabotany:cosmiccarkey"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.cosmiccarkey2",
+      "recipe": "extrabotany:cosmiccarkey_to_accessory"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.cosmiccarkey3",
+      "recipe": "extrabotany:accessory_to_cosmiccarkey"
+    }
+  ]
+}

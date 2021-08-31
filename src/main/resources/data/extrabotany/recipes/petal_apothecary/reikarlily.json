@@ -1,0 +1,35 @@
+{
+  "type": "botania:petal_apothecary",
+  "output": {
+    "item": "extrabotany:reikarlily"
+  },
+  "ingredients": [
+    {
+      "tag": "botania:petals/light_blue"
+    },
+    {
+      "tag": "botania:petals/light_blue"
+    },
+    {
+      "tag": "botania:petals/cyan"
+    },
+    {
+      "tag": "botania:petals/cyan"
+    },
+    {
+      "tag": "botania:petals/blue"
+    },
+    {
+      "tag": "botania:runes/pride"
+    },
+    {
+      "tag": "botania:runes/sloth"
+    },
+    {
+      "tag": "botania:runes/envy"
+    },
+    {
+      "item": "botania:life_essence"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "botania:terra_plate",
+  "mana": 500000,
+  "ingredients": [
+    {
+      "item": "botania:gaia_ingot"
+    },
+    {
+      "item": "extrabotany:gildedmashedpotato"
+    },
+    {
+      "item": "extrabotany:heromedal"
+    }
+  ],
+  "result": {
+    "item": "extrabotany:orichalcos"
+  }
+}

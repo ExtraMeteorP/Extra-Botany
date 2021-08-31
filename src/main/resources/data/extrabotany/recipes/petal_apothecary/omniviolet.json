@@ -1,0 +1,29 @@
+{
+  "type": "botania:petal_apothecary",
+  "output": {
+    "item": "extrabotany:omniviolet"
+  },
+  "ingredients": [
+    {
+      "tag": "botania:petals/blue"
+    },
+    {
+      "tag": "botania:petals/blue"
+    },
+    {
+      "tag": "botania:petals/purple"
+    },
+    {
+      "tag": "botania:petals/purple"
+    },
+    {
+      "tag": "botania:runes/spring"
+    },
+    {
+      "tag": "botania:runes/mana"
+    },
+	{
+      "tag": "botania:runes/lust"
+    }
+  ]
+}

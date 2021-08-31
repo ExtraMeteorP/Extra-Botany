@@ -1,0 +1,21 @@
+{
+  "name": "extrabotany.entry.moonbless",
+  "category": "botania:generating_flowers",
+  "icon": "extrabotany:moonbless",
+  "advancement": "botania:main/pure_daisy_pickup",
+  "turnin": "botania:main/generating_flower",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.moonbless0"
+    },
+    {
+      "type": "botania:petal_apothecary",
+      "text": "extrabotany.page.moonbless1",
+      "recipe": "extrabotany:petal_apothecary/moonbless"
+    }
+  ],
+  "extra_recipe_mappings": {
+    "extrabotany:floating_moonbless": 1
+  }
+}

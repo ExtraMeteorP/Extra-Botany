@@ -1,0 +1,18 @@
+{
+  "type": "botania:terra_plate",
+  "mana": 1000000,
+  "ingredients": [
+    {
+      "item": "extrabotany:thechaos"
+    },
+    {
+      "item": "extrabotany:theorigin"
+    },
+    {
+      "item": "extrabotany:theend"
+    }
+  ],
+  "result": {
+    "item": "extrabotany:theuniverse"
+  }
+}

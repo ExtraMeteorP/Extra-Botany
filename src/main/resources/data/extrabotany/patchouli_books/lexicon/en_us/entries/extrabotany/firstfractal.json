@@ -1,0 +1,18 @@
+{
+  "name": "extrabotany.entry.firstfractal",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:firstfractal",
+  "entry_color": "ffaa00",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.firstfractal0"
+    },
+    {
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.firstfractal1",
+      "recipe": "extrabotany:runic_altar/firstfractal"
+    }
+  ]
+}

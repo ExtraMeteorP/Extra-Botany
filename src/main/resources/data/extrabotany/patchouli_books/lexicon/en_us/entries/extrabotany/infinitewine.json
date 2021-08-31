@@ -1,0 +1,16 @@
+{
+  "name": "extrabotany.entry.infinitewine",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:infinitewine",
+  "entry_color": "ffaa00",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.infinitewine0"
+    }
+  ],
+  "extra_recipe_mappings": {
+    "extrabotany:infinitewine": 0
+  }
+}

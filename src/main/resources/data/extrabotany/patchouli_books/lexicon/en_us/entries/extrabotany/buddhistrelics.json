@@ -1,0 +1,13 @@
+{
+  "name": "extrabotany.entry.buddhistrelics",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:buddhistrelics",
+  "entry_color": "ffaa00",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.buddhistrelics0"
+    }
+  ]
+}

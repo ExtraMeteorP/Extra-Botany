@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  0",
+    "12 ",
+	"31 "
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:ingots/terrasteel"
+    },
+	"1": {
+      "item": "botania:life_essence"
+    },
+	"2": {
+      "item": "extrabotany:theorigin"
+    },
+	"3": {
+      "item": "botania:terra_sword"
+    }
+  },
+  "result": {
+    "item": "extrabotany:trueterrablade"
+  }
+}

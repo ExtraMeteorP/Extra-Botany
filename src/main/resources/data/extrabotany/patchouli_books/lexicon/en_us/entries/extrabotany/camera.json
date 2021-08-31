@@ -1,0 +1,18 @@
+{
+  "name": "extrabotany.entry.camera",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:camera",
+  "entry_color": "ffaa00",
+  "advancement": "botania:main/gaia_guardian_kill",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.camera0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.camera1",
+      "recipe": "extrabotany:camera"
+    }
+  ]
+}

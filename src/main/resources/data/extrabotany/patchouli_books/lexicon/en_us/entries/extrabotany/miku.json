@@ -1,0 +1,32 @@
+{
+  "name": "extrabotany.entry.miku",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:miku_helm",
+  "advancement": "botania:main/pure_daisy_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.miku0"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.miku1",
+      "recipe": "extrabotany:miku_helm"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.miku2",
+      "recipe": "extrabotany:miku_chest"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.miku3",
+      "recipe": "extrabotany:miku_legs"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.miku4",
+      "recipe": "extrabotany:miku_boots"
+    }
+  ]
+}

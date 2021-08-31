@@ -1,0 +1,30 @@
+{
+  "name": "extrabotany.entry.brew",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:manadrink",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.brew0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.brew1",
+      "recipe": "extrabotany:emptybottle"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.brew2"
+    },
+	    {
+      "type": "text",
+      "text": "extrabotany.page.brew3"
+    }
+  ],
+  "extra_recipe_mappings": {
+    "extrabotany:manadrink": 0,
+	"extrabotany:cocktail": 2,
+	"extrabotany:splashgrenade": 3
+  }
+}

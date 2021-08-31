@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "010",
+	"000"
+  ],
+  "key": {
+    "0": {
+      "tag": "botania:petals/yellow"
+    },
+	"1": {
+      "item": "extrabotany:spirit"
+    }
+  },
+  "result": {
+    "item": "extrabotany:supercrown"
+  }
+}

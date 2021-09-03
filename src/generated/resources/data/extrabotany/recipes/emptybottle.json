@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M M",
+    "M M",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "item": "botania:mana_glass"
+    }
+  },
+  "result": {
+    "item": "extrabotany:emptybottle",
+    "count": 3
+  }
+}

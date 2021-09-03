@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:coregod"
+    },
+    "title": {
+      "translate": "extrabotany.coregodcraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.coregodcraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/egodefeat",
+  "criteria": {
+    "coregod": {
+      "trigger": "botania:relic_bind",
+      "conditions": {
+        "relic": 
+          {
+            "item": "extrabotany:coregod"
+          }
+      }
+    }
+  }
+}

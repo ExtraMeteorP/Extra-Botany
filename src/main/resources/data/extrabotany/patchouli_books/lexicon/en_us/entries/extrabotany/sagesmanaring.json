@@ -3,7 +3,7 @@
   "category": "extrabotany:extrabotany",
   "icon": "extrabotany:sagesmanaring",
   "entry_color": "ffaa00",
-  "advancement": "botania:main/gaia_guardian_kill",
+  "advancement": "extrabotany:main/egodefeat",
   "pages": [
     {
       "type": "text",

@@ -1,0 +1,59 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:maid_helm"
+    },
+    "title": {
+      "translate": "extrabotany.armorsetmaid.title"
+    },
+    "description": {
+      "translate": "extrabotany.armorsetmaid.desc"
+    }
+  },
+  "parent": "extrabotany:main/spiritfragmentcraft",
+  "criteria": {
+    "head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:maid_helm"
+          }
+        ]
+      }
+    },
+    "chest": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:maid_chest"
+          }
+        ]
+      }
+    },
+    "legs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:maid_legs"
+          }
+        ]
+      }
+    },
+    "feet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:maid_boots"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [ "head", "chest", "legs", "feet" ]
+  ]
+}

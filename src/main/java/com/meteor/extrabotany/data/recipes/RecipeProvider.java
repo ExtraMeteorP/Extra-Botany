@@ -7,7 +7,9 @@ import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.Tags;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.lib.ModTags;
@@ -183,5 +185,26 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider{
                     .build(WrapperResult.ofType(RelicUpgradeRecipe.SERIALIZER, WrapperResult.transformJson(consumer, json -> json.getAsJsonObject("result").addProperty("nbt", "{variant:" + tiaraType + "}")
                     )), "extrabotany:coregod_" + tiaraType);
         }
+
+        ShapedRecipeBuilder.shapedRecipe(emptybottle, 3)
+                .key('M', vazkii.botania.common.block.ModBlocks.manaGlass)
+                .patternLine("M M")
+                .patternLine("M M")
+                .patternLine(" M ")
+                .addCriterion("has_item", hasItem(Items.GLASS))
+                .build(consumer);
+
+        ShapelessRecipeBuilder.shapelessRecipe(challengeticket)
+                .addIngredient(thechaos)
+                .addIngredient(ModItems.gaiaIngot)
+                .addCriterion("has_item", hasItem(ModItems.gaiaIngot))
+                .build(consumer);
+
+        ShapelessRecipeBuilder.shapelessRecipe(gildedmashedpotato)
+                .addIngredient(gildedpotato)
+                .addIngredient(Items.BOWL)
+                .addIngredient(Items.SUGAR)
+                .addCriterion("has_item", hasItem(gildedpotato))
+                .build(consumer);
     }
 }

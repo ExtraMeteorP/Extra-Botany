@@ -1,5 +1,6 @@
 package com.meteor.extrabotany.common.handler;
 
+import com.meteor.extrabotany.common.libs.LibMisc;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.advancements.AdvancementProgress;
@@ -24,6 +25,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import vazkii.botania.common.core.helper.PlayerHelper;
 
 import java.util.Map;
 
@@ -31,6 +33,10 @@ import java.util.Map;
 public final class AdvancementHandler {
 
     public static final AdvancementHandler INSTANCE = new AdvancementHandler();
+
+    public void grantAdvancement(ServerPlayerEntity player, String id){
+        PlayerHelper.grantCriterion(player, new ResourceLocation(LibMisc.MOD_ID, "main/" + id), "code_triggered");
+    }
 
     public static boolean checkAdvancement(PlayerEntity player, String advancement){
         ResourceLocation id = ResourceLocation.tryCreate(advancement);
@@ -121,6 +127,7 @@ public final class AdvancementHandler {
                 }
             }
         }
+
     }
 
 }

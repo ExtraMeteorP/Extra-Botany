@@ -20,6 +20,31 @@
 	    {
       "type": "text",
       "text": "extrabotany.page.brew3"
+    },
+    {
+      "type": "botania:brew",
+      "text": "extrabotany.page.brew4",
+      "recipe": "extrabotany:brew/revolution"
+    },
+    {
+      "type": "botania:brew",
+      "text": "extrabotany.page.brew5",
+      "recipe": "extrabotany:brew/shell"
+    },
+    {
+      "type": "botania:brew",
+      "text": "extrabotany.page.brew6",
+      "recipe": "extrabotany:brew/allmighty"
+    },
+    {
+      "type": "botania:brew",
+      "text": "extrabotany.page.brew7",
+      "recipe": "extrabotany:brew/deadpool"
+    },
+    {
+      "type": "botania:brew",
+      "text": "extrabotany.page.brew8",
+      "recipe": "extrabotany:brew/floating"
     }
   ],
   "extra_recipe_mappings": {

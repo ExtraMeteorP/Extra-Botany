@@ -2,9 +2,12 @@ package com.meteor.extrabotany.common.blocks.generating;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.blocks.ModSubtiles;
+import com.meteor.extrabotany.common.handler.AdvancementHandler;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import com.meteor.extrabotany.common.potions.ModPotions;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
@@ -54,6 +57,9 @@ public class SubTileBloodyEnchantress extends TileEntityGeneratingFlower {
                             }else
                                 break;
                             ExtraBotanyAPI.addPotionEffect(living, ModPotions.bloodtemptation, 100, 10, true);
+                            if(living instanceof ServerPlayerEntity){
+                                AdvancementHandler.INSTANCE.grantAdvancement((ServerPlayerEntity) living, LibAdvancementNames.BLOODYENCHANTRESSUSE);
+                            }
                             living.attackEntityFrom(DamageSource.MAGIC.setDamageIsAbsolute().setDamageBypassesArmor(), 3F);
                             living.attackEntityFrom(DamageSource.MAGIC, 0.01F);
                             burnTime+=20;

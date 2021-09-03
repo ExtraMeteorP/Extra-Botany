@@ -18,13 +18,18 @@
       "multiblock_id": "botania:gaia_ritual",
       "text": "botania.page.ego2"
     },
-    {
-      "type": "text",
-      "text": "extrabotany.page.ego3"
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.ego3",
+      "recipe": "extrabotany:challengeticket"
     },
     {
       "type": "text",
       "text": "extrabotany.page.ego4"
+    },
+    {
+      "type": "text",
+      "text": "extrabotany.page.ego5"
     }
   ],
   "extra_recipe_mappings": {

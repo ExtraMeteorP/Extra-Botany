@@ -1,7 +1,10 @@
 package com.meteor.extrabotany.common.blocks.generating;
 
 import com.meteor.extrabotany.common.blocks.ModSubtiles;
+import com.meteor.extrabotany.common.handler.AdvancementHandler;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -44,6 +47,7 @@ public class SubTileTinkleFlower extends TileEntityGeneratingFlower {
                         addMana(30);
 
                     player.addExhaustion(0.02F);
+                    AdvancementHandler.INSTANCE.grantAdvancement((ServerPlayerEntity) player, LibAdvancementNames.TINKLEUSE);
                     time %= limit;
                 }
 

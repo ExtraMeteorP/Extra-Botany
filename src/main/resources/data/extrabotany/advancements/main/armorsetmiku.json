@@ -1,0 +1,59 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:miku_helm"
+    },
+    "title": {
+      "translate": "extrabotany.armorsetmiku.title"
+    },
+    "description": {
+      "translate": "extrabotany.armorsetmiku.desc"
+    }
+  },
+  "parent": "extrabotany:main/nightmarefueleat",
+  "criteria": {
+    "head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:miku_helm"
+          }
+        ]
+      }
+    },
+    "chest": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:miku_chest"
+          }
+        ]
+      }
+    },
+    "legs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:miku_legs"
+          }
+        ]
+      }
+    },
+    "feet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:miku_boots"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [ "head", "chest", "legs", "feet" ]
+  ]
+}

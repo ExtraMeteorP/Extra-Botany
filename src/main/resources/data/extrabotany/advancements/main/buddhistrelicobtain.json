@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:buddhistrelics"
+    },
+    "title": {
+      "translate": "extrabotany.buddhistrelicobtain.title"
+    },
+    "description": {
+      "translate": "extrabotany.buddhistrelicobtain.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/egodefeat",
+  "criteria": {
+    "buddhistrelic": {
+      "trigger": "botania:relic_bind",
+      "conditions": {
+        "relic": 
+          {
+            "item": "extrabotany:buddhistrelics"
+          }
+      }
+    }
+  }
+}

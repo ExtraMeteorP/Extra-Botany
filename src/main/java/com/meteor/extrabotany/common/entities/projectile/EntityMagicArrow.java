@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.entities.projectile;
 
 import com.meteor.extrabotany.common.entities.ModEntities;
+import com.meteor.extrabotany.common.handler.DamageHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -65,26 +66,14 @@ public class EntityMagicArrow extends ThrowableEntity {
             AxisAlignedBB axis = new AxisAlignedBB(getPosX() - 2F, getPosY() - 2F, getPosZ() - 2F, lastTickPosX + 2F,
                     lastTickPosY + 2F, lastTickPosZ + 2F);
             List<LivingEntity> entities = world.getEntitiesWithinAABB(LivingEntity.class, axis);
-            for (LivingEntity living : entities) {
-                if (living == thrower)
-                    continue;
-
-                if (living.hurtTime == 0) {
-                    attackedFrom(living, player, getDamage());
-                }
-
+            List<LivingEntity> livings = DamageHandler.INSTANCE.getFilteredEntities(entities, player);
+            for (LivingEntity living : livings) {
+                DamageHandler.INSTANCE.dmg(living, player, getDamage(), DamageHandler.INSTANCE.NETURAL_PIERCING);
             }
         }
 
         if (ticksExisted > getLife())
             remove();
-    }
-
-    public static void attackedFrom(LivingEntity target, PlayerEntity player, float i) {
-        if (player != null)
-            target.attackEntityFrom(DamageSource.causePlayerDamage(player), i);
-        else
-            target.attackEntityFrom(DamageSource.GENERIC, i);
     }
 
     @Override

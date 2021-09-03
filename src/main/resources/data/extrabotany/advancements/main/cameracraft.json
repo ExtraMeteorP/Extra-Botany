@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:camera"
+    },
+    "title": {
+      "translate": "extrabotany.cameracraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.cameracraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/egodefeat",
+  "criteria": {
+    "camera": {
+      "trigger": "botania:relic_bind",
+      "conditions": {
+        "relic": 
+          {
+            "item": "extrabotany:camera"
+          }
+      }
+    }
+  }
+}

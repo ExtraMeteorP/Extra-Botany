@@ -81,6 +81,7 @@ public class ModItems {
     public static final Item flamescionweapon = new ItemFlamescionWeapon();
     public static final Item silverbullet = new ItemSilverBullet(unstackable());
     public static final Item walkingcane = new ItemWalkingCane(unstackable());
+    public static final Item manareader = new Item(unstackable());
     public static final Item shadowkatana = new ItemShadowKatana(unstackable());
 
     public static final Item peaceamulet = new ItemBauble(unstackable());
@@ -213,6 +214,7 @@ public class ModItems {
         register(r, LibItemNames.FLAMESCIONWEAPON, flamescionweapon);
         register(r, LibItemNames.SILVERBULLET, silverbullet);
         register(r, LibItemNames.WALKINGCANE, walkingcane);
+        register(r, LibItemNames.MANAREADER, manareader);
         register(r, LibItemNames.SHADOWKATANA, shadowkatana);
 
         register(r, LibItemNames.AEROSTONE, aerostone);

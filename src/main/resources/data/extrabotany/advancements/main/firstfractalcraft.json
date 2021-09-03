@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:firstfractal"
+    },
+    "title": {
+      "translate": "extrabotany.firstfractalcraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.firstfractalcraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/theuniversecraft",
+  "criteria": {
+    "firstfractal": {
+      "trigger": "botania:relic_bind",
+      "conditions": {
+        "relic": 
+          {
+            "item": "extrabotany:firstfractal"
+          }
+      }
+    }
+  }
+}

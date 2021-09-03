@@ -37,13 +37,13 @@ public class ItemCamera extends ItemRelic implements IManaUsingItem {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onLivingUpdate(LivingEvent.LivingUpdateEvent event){
-        if(event.getEntity() instanceof ItemEntity)
-            return;
-        if(!(event.getEntityLiving() instanceof PlayerEntity)){
-            if(event.getEntityLiving().getPersistentData().getInt(TAG_FREEZETIME) > 0){
-                event.getEntityLiving().getPersistentData().putInt(TAG_FREEZETIME,
-                        event.getEntityLiving().getPersistentData().getInt(TAG_FREEZETIME)-1);
-                event.setCanceled(true);
+        if(event.getEntity() instanceof LivingEntity) {
+            if (!(event.getEntityLiving() instanceof PlayerEntity)) {
+                if (event.getEntityLiving().getPersistentData().getInt(TAG_FREEZETIME) > 0) {
+                    event.getEntityLiving().getPersistentData().putInt(TAG_FREEZETIME,
+                            event.getEntityLiving().getPersistentData().getInt(TAG_FREEZETIME) - 1);
+                    event.setCanceled(true);
+                }
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.items;
 
 import com.meteor.extrabotany.common.entities.ego.EntityEGO;
+import com.meteor.extrabotany.common.entities.ego.EntityEGOLandmine;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,7 +23,7 @@ public class ItemChallengeTicket extends Item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity player, Hand handIn) {
         ItemStack itemstack = player.getHeldItem(handIn);
         //EntityEGOMinion.spawn(worldIn, player.getPosition(), 60);
-        //EntityEGOLandmine.spawnLandmine(4, worldIn, player.getPosition(), null);
+        //EntityEGOLandmine.spawnLandmine(7, worldIn, player.getPosition(), null);
         return  ActionResult.resultPass(itemstack);
     }
 
@@ -31,5 +32,6 @@ public class ItemChallengeTicket extends Item {
     public ActionResultType onItemUse(ItemUseContext ctx) {
         ItemStack stack = ctx.getItem();
         return EntityEGO.spawn(ctx.getPlayer(), stack, ctx.getWorld(), ctx.getPos()) ? ActionResultType.SUCCESS : ActionResultType.FAIL;
+        //return ActionResultType.CONSUME;
     }
 }

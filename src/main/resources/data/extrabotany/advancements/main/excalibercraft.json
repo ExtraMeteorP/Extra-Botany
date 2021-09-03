@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:excaliber"
+    },
+    "title": {
+      "translate": "extrabotany.excalibercraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.excalibercraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/egodefeat",
+  "criteria": {
+    "excaliber": {
+      "trigger": "botania:relic_bind",
+      "conditions": {
+        "relic": {
+          "item": "extrabotany:excaliber"
+        }
+      }
+    }
+  }
+}

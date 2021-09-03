@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:heromedal"
+    },
+    "title": {
+      "translate": "extrabotany.egodefeat.title"
+    },
+    "description": {
+      "translate": "extrabotany.egodefeat.desc"
+    }
+  },
+  "parent": "extrabotany:main/natureorbcraft",
+  "criteria": {
+    "ego": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "extrabotany:ego"
+        }
+      }
+    }
+  }
+}

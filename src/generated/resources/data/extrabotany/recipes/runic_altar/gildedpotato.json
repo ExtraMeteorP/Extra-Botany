@@ -1,0 +1,25 @@
+{
+  "type": "botania:runic_altar",
+  "output": {
+    "item": "extrabotany:gildedpotato",
+    "count": 4
+  },
+  "mana": 2000,
+  "ingredients": [
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "tag": "forge:ingots/gold"
+    }
+  ]
+}

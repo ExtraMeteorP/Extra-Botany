@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:powerframe"
+    },
+    "title": {
+      "translate": "extrabotany.powerframecraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.powerframecraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/nightmarefueleat",
+  "criteria": {
+    "powerframe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:powerframe"
+          }
+        ]
+      }
+    }
+  }
+}

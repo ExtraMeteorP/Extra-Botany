@@ -1,0 +1,59 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:shadowwarrior_helm"
+    },
+    "title": {
+      "translate": "extrabotany.armorsetshadowwarrior.title"
+    },
+    "description": {
+      "translate": "extrabotany.armorsetshadowwarrior.desc"
+    }
+  },
+  "parent": "extrabotany:main/spiritfragmentcraft",
+  "criteria": {
+    "head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:shadowwarrior_helm"
+          }
+        ]
+      }
+    },
+    "chest": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:shadowwarrior_chest"
+          }
+        ]
+      }
+    },
+    "legs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:shadowwarrior_legs"
+          }
+        ]
+      }
+    },
+    "feet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:shadowwarrior_boots"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [ "head", "chest", "legs", "feet" ]
+  ]
+}

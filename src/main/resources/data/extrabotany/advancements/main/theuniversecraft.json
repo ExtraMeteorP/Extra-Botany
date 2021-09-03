@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:theuniverse"
+    },
+    "title": {
+      "translate": "extrabotany.theuniversecraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.theuniversecraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/egodefeat",
+  "criteria": {
+    "theuniverse": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:theuniverse"
+          }
+        ]
+      }
+    }
+  }
+}

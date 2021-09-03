@@ -135,6 +135,73 @@ public class EntityEGOLandmine extends Entity {
                 }
 
                 case 5:{
+                    for(int i = 0; i < 6; i++){
+                        Vector3d mp = vecSource.add(unit.mul(5, 0, 5).rotateYaw((float) (Math.PI * 2 / 6F * i)));
+                        EntityEGOLandmine mid = new EntityEGOLandmine(world);
+                        mid.summoner = ego;
+                        mid.setPosition(mp.x, mp.y, mp.z);
+                        mid.setLandmineType(0);
+                        world.addEntity(mid);
+                        for(int j = 0; j < 16; j++){
+                            Vector3d u = unit.mul(2, 0, 2).rotateYaw((float) (Math.PI / 8F * j));
+                            Vector3d end = mp.add(u);
+                            EntityEGOLandmine landmine = new EntityEGOLandmine(world);
+                            landmine.summoner = ego;
+                            landmine.setPosition(end.x, end.y, end.z);
+                            landmine.setLandmineType(2);
+                            world.addEntity(landmine);
+                        }
+                    }
+                    break;
+                }
+
+                case 6:{
+                    for(int i = 0; i < 72; i++){
+                        Vector3d mp = vecSource.add(unit.mul(7, 0, 7).rotateYaw((float) (Math.PI * 2 / 72F * i)));
+                        EntityEGOLandmine mid = new EntityEGOLandmine(world);
+                        mid.summoner = ego;
+                        mid.setPosition(mp.x, mp.y, mp.z);
+                        mid.setLandmineType(2);
+                        world.addEntity(mid);
+                        if(i % 5 == 0){
+                            for(int j = 0; j < 12; j++){
+                                Vector3d u = unit.mul(4, 0, 4).rotateYaw((float) (Math.PI / 6F * j));
+                                Vector3d end = mp.add(u);
+                                EntityEGOLandmine landmine = new EntityEGOLandmine(world);
+                                landmine.summoner = ego;
+                                landmine.setPosition(end.x, end.y, end.z);
+                                landmine.setLandmineType(i % 2);
+                                world.addEntity(landmine);
+                            }
+                        }
+                    }
+                    break;
+                }
+
+                case 7:{
+                    for(int i = 0; i < 6; i++){
+                        for(int l1 = 0; l1 < 11; l1++){
+                            Vector3d mp = vecSource.add(unit.mul(l1, 0, l1).rotateYaw((float) (Math.PI * 2 / 6F * i)));
+                            EntityEGOLandmine mid = new EntityEGOLandmine(world);
+                            mid.summoner = ego;
+                            mid.setPosition(mp.x, mp.y, mp.z);
+                            mid.setLandmineType(1);
+                            world.addEntity(mid);
+                            if(l1 == 5){
+                                for(int j = 0; j < 6; j++){
+                                    for(int l2 = 0; l2 < 7; l2++){
+                                        Vector3d end = mp.add(unit.mul(l2*0.6F, 0, l2*0.6F).rotateYaw((float) (Math.PI * 2 / 6F * j + Math.PI / 6F)));
+                                        EntityEGOLandmine landmine = new EntityEGOLandmine(world);
+                                        landmine.summoner = ego;
+                                        landmine.setPosition(end.x, end.y, end.z);
+                                        landmine.setLandmineType(j % 3);
+                                        world.addEntity(landmine);
+                                    }
+                                }
+                            }
+                        }
+
+                    }
                     break;
                 }
             }
@@ -169,7 +236,7 @@ public class EntityEGOLandmine extends Entity {
                 world.addParticle(data, getPosX() - range + Math.random() * range * 2, getPosY(), getPosZ() - range + Math.random() * range * 2, 0, - -0.015F, 0);
             }
 
-        if (ticksExisted >= 40) {
+        if (ticksExisted >= 50) {
             world.playSound(null, getPosX(), getPosY(), getPosZ(), ModSounds.gaiaTrap, SoundCategory.NEUTRAL, 0.3F, 1F);
 
             float m = 0.35F;
@@ -179,9 +246,10 @@ public class EntityEGOLandmine extends Entity {
             }
 
             if (!world.isRemote) {
-                List<PlayerEntity> players = world.getEntitiesWithinAABB(PlayerEntity.class, getBoundingBox());
+                List<PlayerEntity> players = world.getEntitiesWithinAABB(PlayerEntity.class, getBoundingBox().grow(0, 12, 0));
                 for (PlayerEntity player : players) {
-                    player.attackEntityFrom(DamageSource.causeIndirectMagicDamage(this, summoner), 8F);
+                    DamageHandler.INSTANCE.dmg(player, summoner, 5F, DamageHandler.INSTANCE.LIFE_LOSING);
+                    player.attackEntityFrom(DamageSource.causeIndirectMagicDamage(this, summoner), 10F);
                     player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 25, 0));
                     EffectInstance wither = new EffectInstance(Effects.WITHER, 120, 2);
                     wither.getCurativeItems().clear();
@@ -192,7 +260,7 @@ public class EntityEGOLandmine extends Entity {
                             player.drop(true);
                             break;
                         case 2:
-                            DamageHandler.INSTANCE.dmg(player, summoner, 10F, DamageHandler.INSTANCE.MAGIC_PIERCING);
+                            DamageHandler.INSTANCE.dmg(player, summoner, 10F, DamageHandler.INSTANCE.LIFE_LOSING);
                             break;
                     }
                 }

@@ -9,6 +9,7 @@ public class LibItemNames {
     public static final String FLAMESCIONWEAPON = "flamescionweapon";
 
     public static final String WALKINGCANE = "walkingcane";
+    public static final String MANAREADER = "manareader";
     
     public static final String MANADRIVERRING = "manadrivering";
     public static final String FROSTSTAR = "froststar";

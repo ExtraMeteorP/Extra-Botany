@@ -14,9 +14,9 @@ import com.meteor.extrabotany.common.core.ModSounds;
 import com.meteor.extrabotany.common.entities.ModEntities;
 import com.meteor.extrabotany.common.entities.ego.EntityEGO;
 import com.meteor.extrabotany.common.items.ModItems;
+import com.meteor.extrabotany.common.items.brew.ModBrew;
 import com.meteor.extrabotany.common.libs.LibMisc;
 import com.meteor.extrabotany.common.potions.ModPotions;
-import com.meteor.extrabotany.data.DataGenerators;
 import net.minecraft.block.Block;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.EntityType;
@@ -40,6 +40,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import vazkii.botania.api.brew.Brew;
 
 @Mod(LibMisc.MOD_ID)
 public class ExtraBotany {
@@ -49,6 +52,8 @@ public class ExtraBotany {
     public static IProxy proxy;
 
     public static boolean curiosLoaded = false;
+
+    public static final Logger LOGGER = LogManager.getLogger(LibMisc.MOD_ID);
 
     @OnlyIn(Dist.CLIENT)
     public static KeyBinding keyForward;
@@ -75,6 +80,7 @@ public class ExtraBotany {
         modBus.addGenericListener(EntityType.class, ModEntities::registerEntities);
         modBus.addGenericListener(SoundEvent.class, ModSounds::registerSounds);
         modBus.addGenericListener(IRecipeSerializer.class, ModItems::registerRecipeSerializers);
+        modBus.addGenericListener(Brew.class, ModBrew::registerBrews);
         modBus.addGenericListener(Item.class, ModItems::registerItems);
         modBus.addGenericListener(Block.class, ModBlocks::registerBlocks);
         modBus.addGenericListener(Item.class, ModBlocks::registerItemBlocks);

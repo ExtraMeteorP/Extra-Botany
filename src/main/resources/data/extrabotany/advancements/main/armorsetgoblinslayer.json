@@ -1,0 +1,59 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:goblinslayer_helm"
+    },
+    "title": {
+      "translate": "extrabotany.armorsetgoblinslayer.title"
+    },
+    "description": {
+      "translate": "extrabotany.armorsetgoblinslayer.desc"
+    }
+  },
+  "parent": "extrabotany:main/spiritfragmentcraft",
+  "criteria": {
+    "head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:goblinslayer_helm"
+          }
+        ]
+      }
+    },
+    "chest": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:goblinslayer_chest"
+          }
+        ]
+      }
+    },
+    "legs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:goblinslayer_legs"
+          }
+        ]
+      }
+    },
+    "feet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:goblinslayer_boots"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [ "head", "chest", "legs", "feet" ]
+  ]
+}

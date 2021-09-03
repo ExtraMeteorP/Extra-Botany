@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:spirit"
+    },
+    "title": {
+      "translate": "extrabotany.spiritfragmentcraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.spiritfragmentcraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/nightmarefueleat",
+  "criteria": {
+    "spirit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:spirit"
+          }
+        ]
+      }
+    }
+  }
+}

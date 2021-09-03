@@ -7,8 +7,14 @@ public final class ConfigHandler {
 
     public static class Client {
 
-        public Client(ForgeConfigSpec.Builder builder) {
+        public final ForgeConfigSpec.BooleanValue disablelogInfo;
 
+        public Client(ForgeConfigSpec.Builder builder) {
+            builder.push("client");
+            disablelogInfo = builder
+                    .comment("Whether to disable the spam in the logs. Default is false.")
+                    .define("disableLogSpam", false);
+            builder.pop();
         }
 
     }
@@ -23,18 +29,8 @@ public final class ConfigHandler {
 
     public static class Common {
 
-        public final ForgeConfigSpec.BooleanValue spawnWithMedal;
-        public final ForgeConfigSpec.IntValue soundInterval;
-
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("common");
-            spawnWithMedal = builder
-                    .comment("Whether players will be rewarded with a Paimon Medal when they first join the world. Default is true.")
-                    .define("spawnWithMedal", true);
-
-            soundInterval = builder
-                    .comment("The interval of Paimon's speech. Default is 1200 ticks.")
-                    .defineInRange("soundInterval", 1200, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }

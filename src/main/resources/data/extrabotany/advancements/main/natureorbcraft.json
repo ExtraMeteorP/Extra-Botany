@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:natureorb"
+    },
+    "title": {
+      "translate": "extrabotany.natureorbcraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.natureorbcraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/nightmarefueleat",
+  "criteria": {
+    "natureorb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:natureorb"
+          }
+        ]
+      }
+    }
+  }
+}

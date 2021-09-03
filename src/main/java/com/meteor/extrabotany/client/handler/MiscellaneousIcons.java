@@ -2,14 +2,23 @@ package com.meteor.extrabotany.client.handler;
 
 import com.meteor.extrabotany.common.libs.LibMisc;
 import net.minecraft.client.renderer.model.IBakedModel;
+import net.minecraft.client.renderer.model.RenderMaterial;
+import net.minecraft.client.renderer.texture.AtlasTexture;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import vazkii.botania.mixin.AccessorModelBakery;
+
+import java.util.Set;
+
+import static com.meteor.extrabotany.common.items.ModItems.prefix;
 
 public class MiscellaneousIcons {
 
     public static final MiscellaneousIcons INSTANCE = new MiscellaneousIcons();
+
+    public final RenderMaterial dimensionCatalystOverlay = mainAtlas("block/dimensioncatalyst");
 
     public final IBakedModel[] firstFractalWeaponModels = new IBakedModel[10];
     public final IBakedModel[] strengthenSlashModel = new IBakedModel[1];
@@ -21,6 +30,8 @@ public class MiscellaneousIcons {
     public final IBakedModel[] coregodModel = new IBakedModel[1];
 
     public void onModelRegister(ModelRegistryEvent evt) {
+        Set<RenderMaterial> materials = AccessorModelBakery.getMaterials();
+        materials.add(dimensionCatalystOverlay);
         for (int i = 0; i < 10; i++) {
             ModelLoader.addSpecialModel(new ResourceLocation(LibMisc.MOD_ID,"icon/sworddomain_" + i));
         }
@@ -48,6 +59,10 @@ public class MiscellaneousIcons {
             coregodWingsModel[i] = evt.getModelRegistry().get(new ResourceLocation(LibMisc.MOD_ID, "icon/wing_" + i));
         }
         coregodModel[0] = evt.getModelRegistry().get(new ResourceLocation(LibMisc.MOD_ID, "icon/wing_coregod"));
+    }
+
+    private static RenderMaterial mainAtlas(String name) {
+        return new RenderMaterial(AtlasTexture.LOCATION_BLOCKS_TEXTURE, prefix(name));
     }
 
 }

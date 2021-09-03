@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:infinitewine"
+    },
+    "title": {
+      "translate": "extrabotany.infinitewinecraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.infinitewinecraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/egodefeat",
+  "criteria": {
+    "infinitewine": {
+      "trigger": "botania:relic_bind",
+      "conditions": {
+        "relic": 
+          {
+            "item": "extrabotany:infinitewine"
+          }
+      }
+    }
+  }
+}

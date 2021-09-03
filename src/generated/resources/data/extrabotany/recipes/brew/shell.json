@@ -1,0 +1,18 @@
+{
+  "type": "botania:brew",
+  "brew": "extrabotany:shell",
+  "ingredients": [
+    {
+      "item": "minecraft:nether_wart"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:scute"
+    },
+    {
+      "item": "minecraft:obsidian"
+    }
+  ]
+}

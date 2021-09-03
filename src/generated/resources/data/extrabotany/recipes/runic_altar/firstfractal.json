@@ -1,0 +1,48 @@
+{
+  "type": "botania:runic_altar",
+  "output": {
+    "nbt": {
+      "Damage": 0
+    },
+    "item": "extrabotany:firstfractal"
+  },
+  "mana": 500000,
+  "ingredients": [
+    {
+      "item": "extrabotany:trueshadowkatana"
+    },
+    {
+      "item": "extrabotany:trueterrablade"
+    },
+    {
+      "item": "extrabotany:influxwaver"
+    },
+    {
+      "item": "extrabotany:starwrath"
+    },
+    {
+      "item": "extrabotany:excaliber"
+    },
+    {
+      "item": "minecraft:wooden_sword"
+    },
+    {
+      "item": "minecraft:diamond_sword"
+    },
+    {
+      "item": "minecraft:netherite_sword"
+    },
+    {
+      "item": "botania:manasteel_sword"
+    },
+    {
+      "item": "botania:elementium_sword"
+    },
+    {
+      "item": "extrabotany:gildedmashedpotato"
+    },
+    {
+      "item": "extrabotany:theuniverse"
+    }
+  ]
+}

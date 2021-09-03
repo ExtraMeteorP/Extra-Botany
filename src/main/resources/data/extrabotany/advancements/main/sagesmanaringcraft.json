@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:sagesmanaring"
+    },
+    "title": {
+      "translate": "extrabotany.sagesmanaringcraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.sagesmanaringcraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/egodefeat",
+  "criteria": {
+    "sagesmanaring": {
+      "trigger": "botania:relic_bind",
+      "conditions": {
+        "relic": 
+          {
+            "item": "extrabotany:sagesmanaring"
+          }
+      }
+    }
+  }
+}

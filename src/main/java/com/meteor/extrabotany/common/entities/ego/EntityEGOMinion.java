@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.entities.ego;
 import com.google.common.collect.ImmutableList;
 import com.meteor.extrabotany.client.renderer.entity.layers.HeldFakeItemLayer;
 import com.meteor.extrabotany.common.entities.ModEntities;
+import com.meteor.extrabotany.common.handler.ContributorListHandler;
 import com.meteor.extrabotany.common.items.ModItems;
 import com.meteor.extrabotany.common.items.relic.ItemInfluxWaver;
 import com.meteor.extrabotany.common.items.relic.ItemStarWrath;
@@ -37,7 +38,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import vazkii.botania.common.core.helper.Vector3;
 
 import javax.annotation.Nonnull;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -236,7 +237,14 @@ public class EntityEGOMinion extends MonsterEntity {
     }
 
     public static void spawn(World world, BlockPos pos, float health){
-        String[] names = new String[]{"Vazkii", "ExtraMeteorP", "Notch", "GoldYgg"};
+        List<String> names = new ArrayList<>(ContributorListHandler.contributorsMap.keySet());
+        Collections.shuffle(names);
+        if(names.isEmpty()){
+            names.add("ExtraMeteorP");
+            names.add("Vazkii");
+            names.add("Notch");
+            names.add("LexManos");
+        }
         if (!world.isRemote) {
             int type = 0;
             for (BlockPos spawnpos : SPAWN_LOCATIONS) {
@@ -244,7 +252,7 @@ public class EntityEGOMinion extends MonsterEntity {
                 BlockPos mpos = pos.add(spawnpos.getX(), spawnpos.getY(), spawnpos.getZ());
                 minion.setPosition(mpos.getX(), mpos.getY(), mpos.getZ());
                 minion.setMinionType(type++);
-                minion.setCustomName(new StringTextComponent(names[type]));
+                minion.setCustomName(new StringTextComponent(names.get(type)));
                 minion.getAttribute(Attributes.MAX_HEALTH).setBaseValue(health);
                 minion.getAttribute(Attributes.ARMOR).setBaseValue(10);
                 minion.onInitialSpawn((ServerWorld) world, world.getDifficultyForLocation(minion.getPosition()), SpawnReason.EVENT, null, null);

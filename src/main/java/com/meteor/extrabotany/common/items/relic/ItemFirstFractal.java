@@ -1,18 +1,38 @@
 package com.meteor.extrabotany.common.items.relic;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.entities.projectile.EntityPhantomSword;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.Attribute;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemTier;
 import net.minecraft.item.Rarity;
 import net.minecraft.util.math.BlockPos;
+
+import javax.annotation.Nonnull;
+import java.util.UUID;
 
 public class ItemFirstFractal extends ItemSwordRelic {
 
     public ItemFirstFractal() {
         super(ItemTier.NETHERITE, 10, -1.6F, new Properties().group(ExtraBotany.itemGroup).rarity(Rarity.EPIC).maxStackSize(1).setNoRepair());
+    }
+
+    @Nonnull
+    @Override
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(@Nonnull EquipmentSlotType slot) {
+        Multimap<Attribute, AttributeModifier> ret = super.getAttributeModifiers(slot);
+        if (slot == EquipmentSlotType.MAINHAND) {
+            ret = HashMultimap.create(ret);
+            ret.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(UUID.fromString("995829fa-94c0-41bd-b046-0468c509a488"), "Fractal modifier", 0.3D, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        }
+        return ret;
     }
 
     public void attackEntity(LivingEntity player, Entity target){

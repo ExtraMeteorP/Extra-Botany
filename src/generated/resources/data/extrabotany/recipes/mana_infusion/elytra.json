@@ -1,0 +1,17 @@
+{
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "extrabotany:theorigin"
+  },
+  "output": {
+    "nbt": {
+      "Damage": 0
+    },
+    "item": "minecraft:elytra"
+  },
+  "mana": 50000,
+  "catalyst": {
+    "type": "block",
+    "block": "extrabotany:dimensioncatalyst"
+  }
+}

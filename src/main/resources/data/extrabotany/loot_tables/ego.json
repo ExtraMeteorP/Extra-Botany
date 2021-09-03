@@ -1,0 +1,16 @@
+{
+  "pools": [
+    {
+      "name": "treasurebox",
+      "conditions": [{ "condition": "botania:killed_by_player" }],
+      "rolls": 1,
+      "entries": [{
+        "type": "item",
+        "name": "extrabotany:treasurebox",
+        "functions": [
+          { "function": "set_count", "count": 1 }
+        ]
+      }]
+    }
+  ]
+}

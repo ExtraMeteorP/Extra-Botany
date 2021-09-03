@@ -4,8 +4,10 @@ import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.client.handler.*;
 import com.meteor.extrabotany.client.renderer.entity.*;
 import com.meteor.extrabotany.common.blocks.ModBlocks;
+import com.meteor.extrabotany.common.handler.ContributorListHandler;
 import com.meteor.extrabotany.common.core.IProxy;
 import com.meteor.extrabotany.common.entities.ModEntities;
+import com.meteor.extrabotany.common.handler.MemeHandler;
 import com.meteor.extrabotany.common.items.brew.ItemBrewBase;
 import com.meteor.extrabotany.common.libs.LibMisc;
 import net.minecraft.block.FlowerBlock;
@@ -72,7 +74,7 @@ public class ClientProxy implements IProxy {
         ExtraBotany.keyRight = gameSettings.keyBindRight;
         ExtraBotany.keyUp = gameSettings.keyBindJump;
         ExtraBotany.keyFlight = gameSettings.keyBindSprint;
-
+        ContributorListHandler.firstStart();
         registerRenderTypes();
         event.enqueueWork(ClientProxy::registerPropertyGetters);
     }
@@ -107,6 +109,7 @@ public class ClientProxy implements IProxy {
         DeferredWorkQueue.runLater(() -> {
             initAuxiliaryRender();
             ColorHandler.init();
+            MemeHandler.spam();
         });
     }
 

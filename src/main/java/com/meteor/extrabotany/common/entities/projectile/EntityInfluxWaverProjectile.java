@@ -95,8 +95,9 @@ public class EntityInfluxWaverProjectile extends EntityProjectileBase{
                     if(getThrower() instanceof PlayerEntity) {
                         DamageHandler.INSTANCE.dmg(living, getThrower(), 10F, DamageHandler.INSTANCE.NETURAL);
                     }else{
-                        DamageHandler.INSTANCE.dmg(living, getThrower(), 0.05F, DamageHandler.INSTANCE.LIFE_LOSING);
-                        DamageHandler.INSTANCE.dmg(living, getThrower(), 5F, DamageHandler.INSTANCE.MAGIC);
+                        if(living.hurtResistantTime == 0)
+                            DamageHandler.INSTANCE.dmg(living, getThrower(), 2.5F, DamageHandler.INSTANCE.LIFE_LOSING);
+                        DamageHandler.INSTANCE.dmg(living, getThrower(), 7F, DamageHandler.INSTANCE.MAGIC);
                     }
                     flag = living.removed;
                     if(getStrikeTimes() > 0 && !flag){

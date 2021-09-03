@@ -17,6 +17,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.PacketBuffer;
@@ -37,7 +38,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.BossInfo;
@@ -65,9 +65,11 @@ import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static com.meteor.extrabotany.common.items.ModItems.prefix;
+
 public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
 
-    public static final float ARENA_RANGE = 15F;
+    public static final float ARENA_RANGE = 13F;
     public static final int ARENA_HEIGHT = 5;
 
     public static final float MAX_HP = 600F;
@@ -107,9 +109,10 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
     private final ServerBossInfo bossInfo = (ServerBossInfo) new ServerBossInfo(ModEntities.EGO.getName(), BossInfo.Color.PINK, BossInfo.Overlay.PROGRESS).setCreateFog(true);;
     private UUID bossInfoUUID = bossInfo.getUniqueId();
     public PlayerEntity trueKiller = null;
-    private int MAX_WAVE = 5;
+    private int MAX_WAVE = 6;
     private int wave = 0;
-    private Integer[] waves = new Integer[]{0, 1, 2, 3, 4};
+    private int tpTimes = 0;
+    private Integer[] waves = new Integer[]{0, 1, 2, 3, 4, 5, 6, 7};
 
     public EntityEGO(EntityType<EntityEGO> type, World world) {
         super(type, world);
@@ -599,15 +602,6 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
 
         List<Integer> WAVES = Arrays.asList(waves);
 
-        if(attackDelay > 0){
-            attackDelay--;
-        }else{
-            if(tryAttack()){
-                int delay = (int) (80 - getStage() * 15 + 15 * Math.random());
-                attackDelay = delay;
-            }
-        }
-
         if (world.isRemote) {
             particles();
             PlayerEntity player = Botania.proxy.getClientPlayer();
@@ -641,6 +635,7 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
                 }
 
             }
+
             if(getStage() == 2){
                 if(invul >= 20){
                     setMotion(getMotion().getX(), 0, getMotion().getZ());
@@ -649,6 +644,15 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
                         setInvulTime(0);
                     return;
                 }
+            }
+        }
+
+        if(attackDelay > 0){
+            attackDelay--;
+        }else{
+            if(tryAttack()){
+                int delay = (int) (80 - getStage() * 15 + 15 * Math.random());
+                attackDelay = delay;
             }
         }
 
@@ -678,7 +682,7 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
         if(changeWeaponDelay > 0){
             changeWeaponDelay--;
         }else{
-            changeWeaponDelay = 160;
+            changeWeaponDelay = 100;
             int weaponType = getStage() == 0 ? world.rand.nextInt(2) : getStage() == 1 ? world.rand.nextInt(4) : 4;
             setWeaponType(weaponType);
         }
@@ -688,13 +692,19 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
         }else{
             if(tryAttack()) {
                 teleportRandomly();
+                tpTimes++;
                 tpDelay = 100 - getStage() * 10;
             }
         }
 
+        if(getStage() >= 1 && tpTimes % 7 == 0){
+            EntityEGOLandmine.spawnLandmine(world.rand.nextInt(8), world, source, this);
+            tpTimes++;
+        }
+
         if(getStage() == 0 && getHealth() < 0.75F * getMaxHealth()) {
             setStage(1);
-            setInvulTime(300);
+            setInvulTime(460);
             Collections.shuffle(WAVES);
             this.setPositionAndUpdate(source.getX()+0.5, source.getY()+3, source.getZ()+0.5);
         }
@@ -716,6 +726,14 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
     @Override
     public boolean isNonBoss() {
         return false;
+    }
+
+    @Override
+    public ResourceLocation getLootTable() {
+        if (getStage() < 2) {
+            return LootTables.EMPTY;
+        }
+        return prefix("ego");
     }
 
     @Override

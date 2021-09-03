@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:manabuffer"
+    },
+    "title": {
+      "translate": "extrabotany.manabuffercraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.manabuffercraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/nightmarefueleat",
+  "criteria": {
+    "manabuffer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:manabuffer"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:tinkleflower"
+    },
+    "title": {
+      "translate": "extrabotany.tinkleuse.title"
+    },
+    "description": {
+      "translate": "extrabotany.tinkleuse.desc"
+    }
+  },
+  "parent": "extrabotany:main/nightmarefueleat",
+  "criteria": {
+	"code_triggered": {
+		"trigger": "minecraft:impossible"
+    }
+  }
+}

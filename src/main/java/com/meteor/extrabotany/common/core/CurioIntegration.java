@@ -3,6 +3,7 @@ package com.meteor.extrabotany.common.core;
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.common.capability.SimpleCapProvider;
 import com.meteor.extrabotany.common.items.bauble.ItemBauble;
+import com.meteor.extrabotany.common.libs.LibMisc;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -39,8 +40,7 @@ public class CurioIntegration extends EquipmentHandler{
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.CHARM.getMessageBuilder().size(2).build());
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.BODY.getMessageBuilder().build());
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.HEAD.getMessageBuilder().build());
-        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new Builder("mount").priority(30).icon(
-                new ResourceLocation(CuriosApi.MODID, "item/empty_mount_slot")).build());
+        InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("mount").priority(30).build());
     }
 
     @Override

@@ -1,0 +1,59 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:shootingguardian_helm"
+    },
+    "title": {
+      "translate": "extrabotany.armorsetshootingguardian.title"
+    },
+    "description": {
+      "translate": "extrabotany.armorsetshootingguardian.desc"
+    }
+  },
+  "parent": "extrabotany:main/spiritfragmentcraft",
+  "criteria": {
+    "head": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:shootingguardian_helm"
+          }
+        ]
+      }
+    },
+    "chest": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:shootingguardian_chest"
+          }
+        ]
+      }
+    },
+    "legs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:shootingguardian_legs"
+          }
+        ]
+      }
+    },
+    "feet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:shootingguardian_boots"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [ "head", "chest", "legs", "feet" ]
+  ]
+}

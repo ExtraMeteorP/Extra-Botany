@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:manareader"
+    },
+    "title": {
+      "translate": "extrabotany.manareadercraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.manareadercraft.desc"
+    }
+  },
+  "parent": "extrabotany:main/nightmarefueleat",
+  "criteria": {
+    "manareader": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "extrabotany:manareader"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -12,12 +12,15 @@ import net.minecraft.item.ItemTier;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
+import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.Vector3;
 
 import java.util.List;
 import java.util.Random;
 
 public class ItemTrueShadowKatana extends ItemSwordRelic {
+
+    public static final int MANA_PER_DAMAGE = 800;
 
     public ItemTrueShadowKatana(Properties prop) {
         super(ItemTier.DIAMOND, 5, -2F, prop);
@@ -82,7 +85,8 @@ public class ItemTrueShadowKatana extends ItemSwordRelic {
     @Override
     public void onLeftClick(PlayerEntity player, Entity target) {
         if (!player.world.isRemote && !player.getHeldItemMainhand().isEmpty() && player.getHeldItemMainhand().getItem() == this
-                && player.getCooledAttackStrength(0) == 1) {
+                && player.getCooledAttackStrength(0) == 1
+                && ManaItemHandler.instance().requestManaExactForTool(player.getHeldItemMainhand(), player, MANA_PER_DAMAGE, true)) {
             attackEntity(player, target);
         }
     }

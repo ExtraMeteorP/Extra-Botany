@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.blocks;
 
 import com.meteor.extrabotany.common.blocks.tile.TilePowerFrame;
+import com.meteor.extrabotany.common.items.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.entity.player.PlayerEntity;
@@ -38,7 +39,7 @@ public class BlockPowerFrame extends BlockMod implements ITileEntityProvider {
             InventoryHelper.withdrawFromInventory(frame, player);
             VanillaPacketDispatcher.dispatchTEToNearbyPlayers(frame);
             return ActionResultType.SUCCESS;
-        }else if(!stack.isEmpty() && stack.getItem() instanceof IManaItem){
+        }else if(!stack.isEmpty() && stack.getItem() instanceof IManaItem || stack.getItem() == ModItems.natureorb){
             boolean result = frame.addItem(player, stack, hand);
             VanillaPacketDispatcher.dispatchTEToNearbyPlayers(frame);
             return result ? ActionResultType.SUCCESS : ActionResultType.PASS;

@@ -45,6 +45,8 @@ public class SubTileAnnoyingFlower extends TileEntityFunctionalFlower {
                 if(getWorld().getTileEntity(posi) instanceof TileAltar){
                     TileAltar te = (TileAltar) getWorld().getTileEntity(posi);
                     hasWater = te.getFluid() == IPetalApothecary.State.WATER;
+                    if(hasWater)
+                        break;
                 }
             }
         }

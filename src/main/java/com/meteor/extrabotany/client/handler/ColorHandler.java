@@ -4,6 +4,8 @@ import com.meteor.extrabotany.common.items.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
+import net.minecraft.item.DyeColor;
+import net.minecraft.util.math.MathHelper;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.brew.IBrewItem;
 import vazkii.botania.client.core.handler.ClientTickHandler;
@@ -36,5 +38,14 @@ public final class ColorHandler {
 
             return r << 16 | g << 8 | b;
         }, ModItems.infinitewine, ModItems.splashgrenade, ModItems.cocktail);
+
+        items.register((s, t) -> {
+            if (t != 0) {
+                return -1;
+            }
+
+            return MathHelper.hsvToRGB(ClientTickHandler.ticksInGame * 2 % 360 / 360F, 0.25F, 1F);
+        }, ModItems.universalpetal);
+
     }
 }

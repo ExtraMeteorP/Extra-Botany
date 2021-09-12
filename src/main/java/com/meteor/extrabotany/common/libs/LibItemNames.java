@@ -27,9 +27,21 @@ public class LibItemNames {
     public static final String POWERGLOVE = "powerglove";
     public static final String MOTORACCESSORY = "motoraccessory";
     public static final String COSMICCARKEYACCESSORY = "cosmiccarkeyaccessory";
+    public static final String SUNRING = "sunring";
+    public static final String MOONPENDANT = "moonpendant";
+    public static final String POTATOCHIPS = "potatochips";
+
+    public static final String RECORDEGO = "recordego";
+    public static final String RECORDHERRSCHER = "recordherrscher";
 
     public static final String SHADOWKATANA = "shadowkatana";
+    public static final String RODOFDISCORD = "rodofdiscord";
 
+    public static final String JUDAHOATH = "judahoath";
+    public static final String JUDAHOATHSAKURA = "judahoathsakura";
+    public static final String JUDAHOATHIDOL = "judahoathidol";
+
+    public static final String UUZFAN = "uuzfan";
     public static final String TRUETERRABLADE = "trueterrablade";
     public static final String TRUESHADOWKATANA = "trueshadowkatana";
     public static final String INFLUXWAVER = "influxwaver";

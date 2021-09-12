@@ -25,6 +25,8 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import top.theillusivec4.curios.api.CuriosApi;
+import vazkii.botania.common.core.handler.EquipmentHandler;
 import vazkii.botania.common.core.helper.PlayerHelper;
 
 import java.util.Map;
@@ -38,8 +40,8 @@ public final class AdvancementHandler {
         PlayerHelper.grantCriterion(player, new ResourceLocation(LibMisc.MOD_ID, "main/" + id), "code_triggered");
     }
 
-    public static boolean checkAdvancement(PlayerEntity player, String advancement){
-        ResourceLocation id = ResourceLocation.tryCreate(advancement);
+    public static boolean checkAdvancement(PlayerEntity player, String modid, String advancement){
+        ResourceLocation id = ResourceLocation.tryCreate(modid + ":main/" + advancement);
         if(id != null) {
             if (player instanceof ServerPlayerEntity) {
                 AdvancementManager manager = player.getServer().getAdvancementManager();
@@ -53,8 +55,8 @@ public final class AdvancementHandler {
     }
 
     @OnlyIn(Dist.CLIENT)
-    public static Advancement getSideAdvancement(String advancement){
-        ResourceLocation id = ResourceLocation.tryCreate(advancement);
+    public static Advancement getSideAdvancement(String modid, String advancement){
+        ResourceLocation id = ResourceLocation.tryCreate(modid + ":main/" + advancement);
         if(id != null){
             ClientPlayNetHandler netHandler = Minecraft.getInstance().player.connection;
             ClientAdvancementManager manager = netHandler.getAdvancementManager();
@@ -64,16 +66,15 @@ public final class AdvancementHandler {
         return null;
     }
 
-    @OnlyIn(Dist.CLIENT)
-    public static boolean hasDone(String advancement) {
-        ResourceLocation id = ResourceLocation.tryCreate(advancement);
+    public static boolean hasDone(String modid, String advancement) {
+        ResourceLocation id = ResourceLocation.tryCreate(modid + ":main/" + advancement);
         if (id != null) {
             ClientPlayNetHandler conn = Minecraft.getInstance().getConnection();
             if (conn != null) {
                 ClientAdvancementManager cm = conn.getAdvancementManager();
                 Advancement adv = cm.getAdvancementList().getAdvancement(id);
                 if (adv != null) {
-                    Map<Advancement, AdvancementProgress> progressMap = ObfuscationReflectionHelper.getPrivateValue(ClientAdvancementManager.class, cm, "advancementToProgress");
+                    Map<Advancement, AdvancementProgress> progressMap = ObfuscationReflectionHelper.getPrivateValue(ClientAdvancementManager.class, cm, "field_192803_d");
                     AdvancementProgress progress = progressMap.get(adv);
                     return progress != null && progress.isDone();
                 }
@@ -87,7 +88,7 @@ public final class AdvancementHandler {
         if (event.isCancelable() && !event.getPlayer().isCreative()) {
             if (event.getItemStack().getItem() instanceof IAdvancementRequirement) {
                 IAdvancementRequirement r = (IAdvancementRequirement) event.getItemStack().getItem();
-                if (!checkAdvancement(event.getPlayer(), r.getAdvancementName()))
+                if (!checkAdvancement(event.getPlayer(), LibMisc.MOD_ID, r.getAdvancementName()))
                     event.setCanceled(true);
             }
         }
@@ -100,10 +101,9 @@ public final class AdvancementHandler {
             IAdvancementRequirement r = (IAdvancementRequirement) event.getItemStack().getItem();
             ClientPlayerEntity playerSP = Minecraft.getInstance().player;
             if (playerSP != null) {
-                Advancement adv = getSideAdvancement(r.getAdvancementName());
-                if (!hasDone(r.getAdvancementName()))
-                    event.getToolTip().add(new TranslationTextComponent("tooltip.extrabotany.description",
-                            new TranslationTextComponent("advancement.extrabotany:" + r.getAdvancementName())).mergeStyle(TextFormatting.RED));
+                if (!hasDone(LibMisc.MOD_ID, r.getAdvancementName()))
+                    event.getToolTip().add(new TranslationTextComponent("extrabotanymisc.description",
+                            new TranslationTextComponent("extrabotany." + r.getAdvancementName() + ".title")).mergeStyle(TextFormatting.RED));
             }
         }
     }
@@ -116,11 +116,25 @@ public final class AdvancementHandler {
             if (player.isCreative()) {
                 return;
             }
+
+            CuriosApi.getCuriosHelper().getEquippedCurios(player).ifPresent((c) ->{
+                for(int i = 0; i < c.getSlots(); i++){
+                    final ItemStack stack = c.getStackInSlot(i);
+                    if (stack.getItem() instanceof IAdvancementRequirement) {
+                        IAdvancementRequirement r = (IAdvancementRequirement) stack.getItem();
+                        if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) {
+                            c.setStackInSlot(i, ItemStack.EMPTY);
+                            player.dropItem(stack, false);
+                        }
+                    }
+                }
+            });
+
             for (final EquipmentSlotType slot : EquipmentSlotType.values()) {
                 final ItemStack stack = player.getItemStackFromSlot(slot);
                 if (stack.getItem() instanceof IAdvancementRequirement) {
                     IAdvancementRequirement r = (IAdvancementRequirement) stack.getItem();
-                    if (!checkAdvancement(player, r.getAdvancementName())) {
+                    if (!checkAdvancement(player, LibMisc.MOD_ID, r.getAdvancementName())) {
                         player.setItemStackToSlot(slot, ItemStack.EMPTY);
                         player.dropItem(stack, false);
                     }

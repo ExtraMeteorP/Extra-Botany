@@ -29,9 +29,13 @@ public final class ConfigHandler {
 
     public static class Common {
 
+        public final ForgeConfigSpec.BooleanValue disableDisarm;
+
         public Common(ForgeConfigSpec.Builder builder) {
             builder.push("common");
-
+            disableDisarm = builder
+                    .comment("Whether to disable the Ego's disarm. Default is false.")
+                    .define("disableDisarm", false);
             builder.pop();
         }
 

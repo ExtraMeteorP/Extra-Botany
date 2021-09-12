@@ -23,5 +23,6 @@ public class LibEntityNames {
     public static final String TRUETERRABLADE_PROJECTILE = "trueterrablade_projectile";
     public static final String TRUESHADOWKATANA_PROJECTILE = "trueshadowkatana_projectile";
     public static final String INFLUXWAVER_PROJECTILE = "influxwaver_projectile";
+    public static final String BUTTERFLY_PROJECTILE = "butterfly_projectile";
 
 }

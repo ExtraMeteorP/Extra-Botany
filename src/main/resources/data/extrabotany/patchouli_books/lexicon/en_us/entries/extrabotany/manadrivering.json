@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.manadrivering",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:manadrivering",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.manadrivering0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.manadrivering1",
+      "recipe": "extrabotany:manadrivering"
+    }
+  ]
+}

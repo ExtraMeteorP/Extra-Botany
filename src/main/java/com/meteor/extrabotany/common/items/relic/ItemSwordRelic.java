@@ -22,6 +22,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import vazkii.botania.api.item.IRelic;
+import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.advancements.RelicBindTrigger;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
@@ -33,6 +34,7 @@ import java.util.UUID;
 public class ItemSwordRelic extends SwordItem implements IRelic, IItemWithLeftClick {
 
     private static final String TAG_SOULBIND_UUID = "soulbindUUID";
+    private static final int MANA_PER_DAMAGE = 120;
 
     public ItemSwordRelic(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builderIn) {
         super(tier, attackDamageIn, attackSpeedIn, builderIn);
@@ -97,6 +99,10 @@ public class ItemSwordRelic extends SwordItem implements IRelic, IItemWithLeftCl
     public void updateRelic(ItemStack stack, PlayerEntity player) {
         if (stack.isEmpty() || !(stack.getItem() instanceof IRelic)) {
             return;
+        }
+
+        if (!player.world.isRemote && stack.getDamage() > 0 && ManaItemHandler.instance().requestManaExact(stack, player, MANA_PER_DAMAGE * 2, true)) {
+            stack.setDamage(stack.getDamage() - 1);
         }
 
         boolean rightPlayer = true;

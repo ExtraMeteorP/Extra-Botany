@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.dimensioncatalyst",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:dimensioncatalyst",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.dimensioncatalyst0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.dimensioncatalyst1",
+      "recipe": "extrabotany:dimensioncatalyst"
+    }
+  ]
+}

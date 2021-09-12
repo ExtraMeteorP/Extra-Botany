@@ -24,6 +24,8 @@ public class LibAdvancementNames {
     public static final String BUDDHISTRELICOBTAIN = "buddhistrelicobtain";
     public static final String THEUNIVERSECRAFT = "theuniversecraft";
     public static final String FIRSTFRACTALCRAFT = "firstfractalcraft";
+    public static final String SUNRINGCRAFT = "sunringcraft";
+    public static final String MOONPENDANTCRAFT = "moonpendantcraft";
 
     public static final String ARMORSETMIKU = "armorsetmiku";
     public static final String ARMORSETMAID = "armorsetmaid";

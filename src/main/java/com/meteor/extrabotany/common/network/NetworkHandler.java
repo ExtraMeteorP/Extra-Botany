@@ -3,11 +3,13 @@ package com.meteor.extrabotany.common.network;
 import com.meteor.extrabotany.common.libs.LibMisc;
 import com.meteor.extrabotany.common.network.flamescion.*;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.fml.network.NetworkDirection;
 import net.minecraftforge.fml.network.NetworkRegistry;
 import net.minecraftforge.fml.network.PacketDistributor;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
@@ -115,6 +117,14 @@ public class NetworkHandler {
                 MountPack::new,
                 MountPack::handler
         );
+
+        INSTANCE.registerMessage(
+                nextID(),
+                PotatoChipsPack.class,
+                PotatoChipsPack::toBytes,
+                PotatoChipsPack::new,
+                PotatoChipsPack::handler
+        );
     }
 
     public static void sendToNearby(World world, BlockPos pos, Object toSend) {
@@ -129,6 +139,10 @@ public class NetworkHandler {
 
     public static void sendToNearby(World world, Entity e, Object toSend) {
         sendToNearby(world, new BlockPos(e.getPosX(), e.getPosY(), e.getPosZ()), toSend);
+    }
+
+    public static void sendTo(ServerPlayerEntity playerMP, Object toSend) {
+        INSTANCE.sendTo(toSend, playerMP.connection.getNetworkManager(), NetworkDirection.PLAY_TO_CLIENT);
     }
 
 }

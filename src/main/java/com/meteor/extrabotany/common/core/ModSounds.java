@@ -14,6 +14,9 @@ public class ModSounds {
     public static final SoundEvent slash = makeSoundEvent("slash");
     public static final SoundEvent flamescionult = makeSoundEvent("flamescionult");
 
+    public static final SoundEvent swordland = makeSoundEvent("music.ego");
+    public static final SoundEvent salvation = makeSoundEvent("music.herrscher");
+
     private static SoundEvent makeSoundEvent(String name) {
         ResourceLocation loc = new ResourceLocation(LibMisc.MOD_ID, name);
         return new SoundEvent(loc).setRegistryName(loc);
@@ -26,6 +29,8 @@ public class ModSounds {
         r.register(shoot);
         r.register(slash);
         r.register(flamescionult);
+        r.register(swordland);
+        r.register(salvation);
     }
 
     private ModSounds() {}

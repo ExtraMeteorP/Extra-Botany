@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GMG",
+    "MIM",
+    "GMG"
+  ],
+  "key": {
+    "G": {
+      "item": "botania:life_essence"
+    },
+    "I": {
+      "tag": "forge:ingots/gold"
+    },
+    "M": {
+      "item": "botania:manaweave_cloth"
+    }
+  },
+  "result": {
+    "item": "extrabotany:goldcloth",
+    "count": 4
+  }
+}

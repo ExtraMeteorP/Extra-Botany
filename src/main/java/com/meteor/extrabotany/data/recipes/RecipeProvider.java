@@ -206,5 +206,91 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider{
                 .addIngredient(Items.SUGAR)
                 .addCriterion("has_item", hasItem(gildedpotato))
                 .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(manareader)
+                .key('L', ModItems.livingwoodTwig)
+                .key('M', ModTags.Items.GEMS_MANA_DIAMOND)
+                .key('P', ModItems.manaPowder)
+                .patternLine(" PM")
+                .patternLine(" LP")
+                .patternLine("L  ")
+                .addCriterion("has_item", hasItem(ModItems.livingwoodTwig))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(universalpetal, 8)
+                .key('L', ModItems.lifeEssence)
+                .key('P', ModTags.Items.PETALS)
+                .patternLine("PPP")
+                .patternLine("PLP")
+                .patternLine("PPP")
+                .addCriterion("has_item", hasItem(ModItems.lifeEssence))
+                .build(consumer);
+
+        ShapelessRecipeBuilder.shapelessRecipe(elementrune, 8)
+                .addIngredient(ModItems.lifeEssence)
+                .addIngredient(ModTags.Items.RUNES_AIR)
+                .addIngredient(ModTags.Items.RUNES_EARTH)
+                .addIngredient(ModTags.Items.RUNES_WATER)
+                .addIngredient(ModTags.Items.RUNES_FIRE)
+                .addIngredient(ModTags.Items.RUNES_SPRING)
+                .addIngredient(ModTags.Items.RUNES_SUMMER)
+                .addIngredient(ModTags.Items.RUNES_AUTUMN)
+                .addIngredient(ModTags.Items.RUNES_WINTER)
+                .addCriterion("has_item", hasItem(ModItems.lifeEssence))
+                .build(consumer);
+
+        ShapelessRecipeBuilder.shapelessRecipe(sinrune, 8)
+                .addIngredient(ModItems.lifeEssence)
+                .addIngredient(ModTags.Items.RUNES_MANA)
+                .addIngredient(ModTags.Items.RUNES_PRIDE)
+                .addIngredient(ModTags.Items.RUNES_GLUTTONY)
+                .addIngredient(ModTags.Items.RUNES_WRATH)
+                .addIngredient(ModTags.Items.RUNES_GREED)
+                .addIngredient(ModTags.Items.RUNES_ENVY)
+                .addIngredient(ModTags.Items.RUNES_LUST)
+                .addIngredient(ModTags.Items.RUNES_SLOTH)
+                .addCriterion("has_item", hasItem(ModItems.lifeEssence))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(goldcloth, 4)
+                .key('G', ModItems.lifeEssence)
+                .key('I', Tags.Items.INGOTS_GOLD)
+                .key('M', ModItems.manaweaveCloth)
+                .patternLine("GMG")
+                .patternLine("MIM")
+                .patternLine("GMG")
+                .addCriterion("has_item", hasItem(ModItems.lifeEssence))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(rodofdiscord)
+                .key('T', ModItems.livingwoodTwig)
+                .key('P', ModItems.pixieDust)
+                .key('C', thechaos)
+                .patternLine(" PC")
+                .patternLine(" TP")
+                .patternLine("T  ")
+                .addCriterion("has_item", hasItem(thechaos))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(ModBlocks.dimensioncatalyst)
+                .key('L', ModTags.Items.LIVINGROCK)
+                .key('E', Items.ENDER_PEARL)
+                .key('N', nightmarefuel)
+                .key('A', vazkii.botania.common.block.ModBlocks.alchemyCatalyst)
+                .patternLine("LEL")
+                .patternLine("NAN")
+                .patternLine("LNL")
+                .addCriterion("has_item", hasItem(nightmarefuel))
+                .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(natureorb)
+                .key('D', ModTags.Items.GEMS_DRAGONSTONE)
+                .key('T', ModTags.Items.INGOTS_TERRASTEEL)
+                .key('M', ModItems.manaPearl)
+                .patternLine("TDT")
+                .patternLine("DMD")
+                .patternLine("TDT")
+                .addCriterion("has_item", hasItem(ModItems.terrasteel))
+                .build(consumer);
     }
 }

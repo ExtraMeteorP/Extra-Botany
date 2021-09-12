@@ -2,6 +2,8 @@ package com.meteor.extrabotany.common.items.relic;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.entities.projectile.EntityMagicArrow;
+import com.meteor.extrabotany.common.handler.IAdvancementRequirement;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -32,7 +34,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class ItemFailnaught extends BowItem implements IRelic, IManaUsingItem {
+public class ItemFailnaught extends BowItem implements IRelic, IManaUsingItem, IAdvancementRequirement {
 
     private static final String TAG_SOULBIND_UUID = "soulbindUUID";
     private static final int MANA_PER_DAMAGE = 160;
@@ -56,17 +58,17 @@ public class ItemFailnaught extends BowItem implements IRelic, IManaUsingItem {
             int i = (int) ((getUseDuration(stack) - timeLeft) * 1F);
             if (i < 8)
                 return;
-            int rank = (i - 8) / 5;
+            int rank = (i - 8) / 10;
             if (isRightPlayer(player, stack)
                     && ManaItemHandler.instance().requestManaExactForTool(stack, player, Math.min(800, 350 + rank * 20), true)) {
                 EntityMagicArrow arrow = new EntityMagicArrow(worldIn, player);
                 arrow.setPosition(player.getPosX(), player.getPosY(), player.getPosZ());
                 arrow.func_234612_a_(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
-                arrow.setDamage((int) Math.min(80, ExtraBotanyAPI.INSTANCE.calcDamage(8 + rank * 2, player)));
+                arrow.setDamage((int) Math.min(50, ExtraBotanyAPI.INSTANCE.calcDamage(7 + rank, player)));
                 arrow.rotationYaw = player.rotationYaw;
                 int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
                 if (j > 0) {
-                    arrow.setDamage(arrow.getDamage() + j * 2);
+                    arrow.setDamage(arrow.getDamage() + j);
                 }
                 arrow.setLife(Math.min(150, 5 + i * 4));
 
@@ -121,6 +123,10 @@ public class ItemFailnaught extends BowItem implements IRelic, IManaUsingItem {
             return;
         }
 
+        if (!player.world.isRemote && stack.getDamage() > 0 && ManaItemHandler.instance().requestManaExact(stack, player, MANA_PER_DAMAGE * 2, true)) {
+            stack.setDamage(stack.getDamage() - 1);
+        }
+
         boolean rightPlayer = true;
 
         if (!hasUUID(stack)) {
@@ -171,6 +177,11 @@ public class ItemFailnaught extends BowItem implements IRelic, IManaUsingItem {
     @Override
     public boolean usesMana(ItemStack stack) {
         return true;
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGODEFEAT;
     }
 
 }

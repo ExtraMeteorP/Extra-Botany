@@ -1,5 +1,7 @@
 package com.meteor.extrabotany.common.items.relic;
 
+import com.meteor.extrabotany.common.handler.IAdvancementRequirement;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -13,7 +15,7 @@ import vazkii.botania.common.item.relic.ItemRelicBauble;
 
 import javax.annotation.Nonnull;
 
-public class ItemSagesManaRing extends ItemRelicBauble implements IManaItem, IManaTooltipDisplay {
+public class ItemSagesManaRing extends ItemRelicBauble implements IManaItem, IManaTooltipDisplay, IAdvancementRequirement {
 
     protected static final int MAX_MANA = Integer.MAX_VALUE - 1;
 
@@ -101,6 +103,11 @@ public class ItemSagesManaRing extends ItemRelicBauble implements IManaItem, IMa
     @Override
     public int getRGBDurabilityForDisplay(ItemStack stack) {
         return MathHelper.hsvToRGB(getManaFractionForDisplay(stack) / 3.0F, 1.0F, 1.0F);
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGODEFEAT;
     }
 
 }

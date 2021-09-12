@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.blocks;
 
 import com.meteor.extrabotany.common.blocks.functional.SubTileAnnoyingFlower;
+import com.meteor.extrabotany.common.blocks.functional.SubTileSerenitian;
 import com.meteor.extrabotany.common.blocks.generating.*;
 import com.meteor.extrabotany.common.libs.LibBlockNames;
 import com.meteor.extrabotany.common.libs.LibMisc;
@@ -55,6 +56,9 @@ public class ModSubtiles {
     public static final Block bloodyenchantress = new BlockSpecialFlower(Effects.WITHER, 360, FLOWER_PROPS, SubTileBloodyEnchantress::new);
     public static final Block bloodyenchantressFloating = new BlockFloatingSpecialFlower(FLOATING_PROPS, SubTileBloodyEnchantress::new);
 
+    public static final Block serenitian = new BlockSpecialFlower(Effects.HERO_OF_THE_VILLAGE, 360, FLOWER_PROPS, SubTileSerenitian::new);
+    public static final Block serenitianFloating = new BlockFloatingSpecialFlower(FLOATING_PROPS, SubTileSerenitian::new);
+
     public static final TileEntityType<SubTileBellFlower> BELL_FLOWER = TileEntityType.Builder.create(SubTileBellFlower::new, bellflower, bellflowerFloating).build(null);
     public static final TileEntityType<SubTileEdelweiss> EDELWEISS = TileEntityType.Builder.create(SubTileEdelweiss::new, edelweiss, edelweissFloating).build(null);
     public static final TileEntityType<SubTileSunBless> SUNBLESS = TileEntityType.Builder.create(SubTileSunBless::new, sunbless, sunblessFloating).build(null);
@@ -65,6 +69,7 @@ public class ModSubtiles {
     public static final TileEntityType<SubTileReikarLily> REIKARLILY = TileEntityType.Builder.create(SubTileReikarLily::new, reikarlily, reikarlilyFloating).build(null);
     public static final TileEntityType<SubTileAnnoyingFlower> ANNOYING_FLOWER = TileEntityType.Builder.create(SubTileAnnoyingFlower::new, annoyingflower, annoyingflowerFloating).build(null);
     public static final TileEntityType<SubTileBloodyEnchantress> BLOODY_ENCHANTRESS = TileEntityType.Builder.create(SubTileBloodyEnchantress::new, bloodyenchantress, bloodyenchantressFloating).build(null);
+    public static final TileEntityType<SubTileSerenitian> SERENITIAN = TileEntityType.Builder.create(SubTileSerenitian::new, serenitian, serenitianFloating).build(null);
 
     private static ResourceLocation floating(ResourceLocation orig) {
         return new ResourceLocation(orig.getNamespace(), "floating_" + orig.getPath());
@@ -91,6 +96,7 @@ public class ModSubtiles {
         registerPair(r, LibBlockNames.GENERATING_REIKARLILY, reikarlily, reikarlilyFloating);
         registerPair(r, LibBlockNames.FUNCTIONAL_ANNOYINGFLOWER, annoyingflower, annoyingflowerFloating);
         registerPair(r, LibBlockNames.GENERATING_BLOODYENCHANTRESS, bloodyenchantress, bloodyenchantressFloating);
+        registerPair(r, LibBlockNames.FUNCTIONAL_SERENITIAN, serenitian, serenitianFloating);
     }
 
     public static void registerPair(IForgeRegistry<Block> r, ResourceLocation name, Block flower, Block floating){
@@ -111,6 +117,7 @@ public class ModSubtiles {
         registerPairItemBlocks(r, reikarlily, reikarlilyFloating);
         registerPairItemBlocks(r, annoyingflower, annoyingflowerFloating);
         registerPairItemBlocks(r, bloodyenchantress, bloodyenchantressFloating);
+        registerPairItemBlocks(r, serenitian, serenitianFloating);
     }
 
     public static void registerPairItemBlocks(IForgeRegistry<Item> r, Block flower, Block floating){
@@ -131,6 +138,7 @@ public class ModSubtiles {
         register(r, getId(reikarlily), REIKARLILY);
         register(r, getId(annoyingflower), ANNOYING_FLOWER);
         register(r, getId(bloodyenchantress), BLOODY_ENCHANTRESS);
+        register(r, getId(serenitian), SERENITIAN);
     }
 
     public static <V extends IForgeRegistryEntry<V>> void register(IForgeRegistry<V> reg, ResourceLocation name, IForgeRegistryEntry<V> thing) {

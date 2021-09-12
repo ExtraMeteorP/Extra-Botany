@@ -61,6 +61,7 @@ public class ClientProxy implements IProxy {
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.INFLUXWAVER, RenderProjectileBase::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.TRUETERRABLADE, RenderProjectileBase::new);
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.TRUESHADOWKATANA, RenderProjectileBase::new);
+        RenderingRegistry.registerEntityRenderingHandler(ModEntities.BUTTERFLY, RenderButterflyProjectile::new);
 
         RenderingRegistry.registerEntityRenderingHandler(ModEntities.SPLASHGRENADE, renderManager -> new SpriteRenderer<>(renderManager, Minecraft.getInstance().getItemRenderer()));
     }
@@ -74,7 +75,6 @@ public class ClientProxy implements IProxy {
         ExtraBotany.keyRight = gameSettings.keyBindRight;
         ExtraBotany.keyUp = gameSettings.keyBindJump;
         ExtraBotany.keyFlight = gameSettings.keyBindSprint;
-        ContributorListHandler.firstStart();
         registerRenderTypes();
         event.enqueueWork(ClientProxy::registerPropertyGetters);
     }

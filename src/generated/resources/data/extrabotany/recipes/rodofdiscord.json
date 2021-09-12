@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " PC",
+    " TP",
+    "T  "
+  ],
+  "key": {
+    "T": {
+      "item": "botania:livingwood_twig"
+    },
+    "P": {
+      "item": "botania:pixie_dust"
+    },
+    "C": {
+      "item": "extrabotany:thechaos"
+    }
+  },
+  "result": {
+    "item": "extrabotany:rodofdiscord"
+  }
+}

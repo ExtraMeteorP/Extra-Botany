@@ -111,7 +111,7 @@ public class EntityPhantomSword extends EntityProjectileBase {
             for (LivingEntity living : list) {
                 if(getThrower() instanceof PlayerEntity) {
                     DamageHandler.INSTANCE.dmg(living, getThrower(), 1F, DamageHandler.INSTANCE.LIFE_LOSING);
-                    DamageHandler.INSTANCE.dmg(living, getThrower(), 9F, DamageHandler.INSTANCE.MAGIC_PIERCING);
+                    DamageHandler.INSTANCE.dmg(living, getThrower(), 7F, DamageHandler.INSTANCE.MAGIC_PIERCING);
                 }else{
                     if(living.hurtResistantTime == 0)
                         DamageHandler.INSTANCE.dmg(living, getThrower(), 2.5F, DamageHandler.INSTANCE.LIFE_LOSING);;

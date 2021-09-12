@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " PM",
+    " LP",
+    "L  "
+  ],
+  "key": {
+    "L": {
+      "item": "botania:livingwood_twig"
+    },
+    "M": {
+      "tag": "forge:gems/mana_diamond"
+    },
+    "P": {
+      "item": "botania:mana_powder"
+    }
+  },
+  "result": {
+    "item": "extrabotany:manareader"
+  }
+}

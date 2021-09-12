@@ -70,14 +70,14 @@ public class ItemBaubleCosmetic extends ItemBauble {
                     break;
                 case FOX_MASK:
                     ms.push();
-                    ms.translate(0.02F, -0.3, -0.25);
-                    ms.scale(0.7F, -0.7F, -0.7F);
+                    ms.translate(0.02F, -0.3, -0.3);
+                    ms.scale(0.66F, -0.65F, -0.65F);
                     renderItem(stack, ms, buffers, light);
                     ms.pop();
                     break;
                 case MASK:
                     ms.push();
-                    ms.translate(0F, -0.3, -0.25);
+                    ms.translate(0F, -0.3, -0.3);
                     ms.scale(0.65F, -0.65F, -0.65F);
                     renderItem(stack, ms, buffers, light);
                     ms.pop();

@@ -26,6 +26,7 @@ public class ModelHandler {
         ClientRegistry.bindTileEntityRenderer(ModSubtiles.REIKARLILY, RenderTileSpecialFlower::new);
         ClientRegistry.bindTileEntityRenderer(ModSubtiles.ANNOYING_FLOWER, RenderTileSpecialFlower::new);
         ClientRegistry.bindTileEntityRenderer(ModSubtiles.BLOODY_ENCHANTRESS, RenderTileSpecialFlower::new);
+        ClientRegistry.bindTileEntityRenderer(ModSubtiles.SERENITIAN, RenderTileSpecialFlower::new);
 
         ClientRegistry.bindTileEntityRenderer(ModTiles.POWER_FRAME, RenderPowerFrame::new);
     }

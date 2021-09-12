@@ -4,6 +4,8 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.ExtraBotany;
 import com.meteor.extrabotany.common.entities.projectile.EntityPhantomSword;
+import com.meteor.extrabotany.common.handler.IAdvancementRequirement;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
@@ -18,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import javax.annotation.Nonnull;
 import java.util.UUID;
 
-public class ItemFirstFractal extends ItemSwordRelic {
+public class ItemFirstFractal extends ItemSwordRelic implements IAdvancementRequirement {
 
     public ItemFirstFractal() {
         super(ItemTier.NETHERITE, 10, -1.6F, new Properties().group(ExtraBotany.itemGroup).rarity(Rarity.EPIC).maxStackSize(1).setNoRepair());
@@ -71,6 +73,11 @@ public class ItemFirstFractal extends ItemSwordRelic {
                 && player.getCooledAttackStrength(0) == 1) {
             attackEntity(player, target);
         }
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGODEFEAT;
     }
 
 }

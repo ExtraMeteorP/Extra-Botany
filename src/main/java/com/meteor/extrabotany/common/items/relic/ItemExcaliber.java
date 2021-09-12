@@ -3,6 +3,8 @@ package com.meteor.extrabotany.common.items.relic;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.meteor.extrabotany.common.handler.DamageHandler;
+import com.meteor.extrabotany.common.handler.IAdvancementRequirement;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
@@ -34,7 +36,7 @@ import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.UUID;
 
-public class ItemExcaliber extends ItemSwordRelic implements IManaUsingItem, ILensEffect {
+public class ItemExcaliber extends ItemSwordRelic implements IManaUsingItem, ILensEffect, IAdvancementRequirement {
 
     private static final String TAG_ATTACKER_USERNAME = "attackerUsername";
     private static final String TAG_HOME_ID = "homeID";
@@ -159,5 +161,10 @@ public class ItemExcaliber extends ItemSwordRelic implements IManaUsingItem, ILe
     @Override
     public boolean usesMana(ItemStack stack) {
         return true;
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGODEFEAT;
     }
 }

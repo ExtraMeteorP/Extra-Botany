@@ -53,7 +53,7 @@ public class ItemMaidHelm extends ItemMaidArmor{
             if (player.shouldHeal() && player.ticksExisted % 40 == 0
                     && ManaItemHandler.instance().requestManaExactForTool(stack, player, 20, true))
                 player.heal(1F);
-            if (player.ticksExisted % 40 == 0)
+            if (player.ticksExisted % 40 == 0 && !world.isRemote)
                 clearPotions(stack, player);
         }
     }
@@ -91,8 +91,8 @@ public class ItemMaidHelm extends ItemMaidArmor{
 
     public void clearPotions(ItemStack stack, PlayerEntity player) {
         List<Effect> potionsToRemove = player.getActivePotionEffects().stream()
-                .filter(effect -> effect.getPotion().getEffectType() == EffectType.HARMFUL)
-                .filter(effect -> effect.getPotion().getCurativeItems().contains(new ItemStack(Items.MILK_BUCKET)))
+                .filter(effect -> effect.getPotion().getEffectType() == EffectType.HARMFUL
+                && effect.getCurativeItems().stream().anyMatch(e -> e.isItemEqual(new ItemStack(Items.MILK_BUCKET))))
                 .map(EffectInstance::getPotion)
                 .distinct()
                 .collect(Collectors.toList());

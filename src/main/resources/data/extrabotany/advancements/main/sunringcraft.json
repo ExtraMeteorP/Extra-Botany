@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "extrabotany:sunring"
+    },
+    "title": {
+      "translate": "extrabotany.sunringcraft.title"
+    },
+    "description": {
+      "translate": "extrabotany.sunringcraft.desc"
+    },
+	"frame": "challenge"
+  },
+  "parent": "extrabotany:main/egodefeat",
+  "criteria": {
+    "sunring": {
+      "trigger": "botania:relic_bind",
+      "conditions": {
+        "relic": 
+          {
+            "item": "extrabotany:sunring"
+          }
+      }
+    }
+  }
+}

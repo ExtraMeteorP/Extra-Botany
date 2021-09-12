@@ -15,6 +15,7 @@
 
 	"block.extrabotany.powerframe": "力量框架",
 	"block.extrabotany.manabuffer": "魔力缓存器",
+	"block.extrabotany.dimensioncatalyst": "次元催化器",
 
 	"item.extrabotany.cosmiccarkeyaccessory": "宇宙车钥匙饰品",
 	"item.extrabotany.motoraccessory": "重装摩托饰品",
@@ -51,6 +52,8 @@
 	"item.extrabotany.blackglasses":"黑框眼镜",
 	"item.extrabotany.redscarf":"红领巾",
 	"item.extrabotany.mask":"石鬼面",
+	"item.extrabotany.recordego":"损坏的唱片",
+	"item.extrabotany.recordherrscher":"损坏的唱片",
 
 	"item.extrabotany.aerostone":"风之符石",
 	"item.extrabotany.earthstone":"地之符石",
@@ -62,7 +65,12 @@
 	"item.extrabotany.manadrivering":"驭魔之戒",
 	"item.extrabotany.natureorb":"自然蕴息宝珠",
 	"item.extrabotany.powerglove":"强力手套",
+	"item.extrabotany.sunring":"圣阳尊戒",
+	"item.extrabotany.moonpendant":"蚀月之心",
+	"item.extrabotany.potatochips":"薯片",
 
+	"item.extrabotany.manareader":"魔力读取器",
+	"item.extrabotany.rodofdiscord":"不谐传送杖",
 	"item.extrabotany.shadowkatana":"影刃",
 	"item.extrabotany.trueshadowkatana":"真影刃",
 	"item.extrabotany.influxwaver":"波涌之刃",
@@ -102,13 +110,20 @@
 	"item.extrabotany.silverbullet":"银翼射手",
 	"item.extrabotany.coregod":"律者核心",
 	"item.extrabotany.buddhistrelics":"源初造物丨虚空万藏",
+	"item.extrabotany.challengeticket":"寄给自己的邀请函",
 
 	"item.extrabotany.lens_mana": "魔力透镜：魔力",
+	"item.extrabotany.lens_mana.short": "魔力",
 	"item.extrabotany.lens_potion": "魔力透镜：药水",
+	"item.extrabotany.lens_potion.short": "药水",
 	"item.extrabotany.lens_push": "魔力透镜：冲击",
+	"item.extrabotany.lens_push.short": "冲击",
 	"item.extrabotany.lens_trace": "魔力透镜：追踪",
+	"item.extrabotany.lens_trace.short": "追踪",
 	"item.extrabotany.lens_superconductor": "魔力透镜：超导",
+	"item.extrabotany.lens_superconductor.short": "超导",
 	"item.extrabotany.lens_smelt": "魔力透镜：冶炼",
+	"item.extrabotany.lens_smelt.short": "冶炼",
 
 	"item.extrabotany.treasurebox":"潘多拉魔盒",
 	"item.extrabotany.rewardbaga":"奖励袋Eins",
@@ -146,6 +161,9 @@
 	"block.extrabotany.bloodyenchantress":"鲜血妖姬",
 	"block.extrabotany.floating_bloodyenchantress":"浮空鲜血妖姬",
 	"block.extrabotany.bloodyenchantress.reference":"用鲜血和暗影缔结契约吧",
+	"block.extrabotany.serenitian":"永寂龙胆",
+	"block.extrabotany.floating_serenitian":"浮空永寂龙胆",
+	"block.extrabotany.serenitian.reference":"无念，断绝",
 
 	"extrabotany.armorset.miku.desc":"超强魔力亲和",
 	"extrabotany.armorset.maid.desc0":"空手怪力",
@@ -164,6 +182,8 @@
 	"extrabotany.armorset.miku.name":"星空歌姬",
 	"extrabotany.armorset.maid.name":"昴星团战斗女仆",
 	"extrabotany.armorset.shootingguardian.name":"银翼射手",
+	"item.extrabotany.recordego.desc":"Swordland",
+	"item.extrabotany.recordherrscher.desc":"Salvation",
 
 	"entity.extrabotany.keyoftruth": "真理之钥",
 	"entity.extrabotany.slash": "心斩",
@@ -190,9 +210,18 @@
 	"extrabotany.wings2": "翅膀：吉米",
 	"extrabotany.wings3": "翅膀：蒸汽朋克",
 
+	"extrabotany.natureorb": "自然之息： %s / %s",
+	"extrabotany.natureorbeffect1": "魔力的加护",
+	"extrabotany.natureorbeffect2": "再生的加护",
+	"extrabotany.natureorbeffect3": "森罗的加护",
+
 	"extrabotany.foxmaskinfo0":"与君相别离，不知何日是归期，我如朝露转瞬晞",
 	"extrabotany.foxmaskinfo1":"如今面具和花散里分开了",
 	"extrabotany.foxmaskinfo2":"派蒙也不会叫她面具巫女小姐了",
+
+	"extrabotanymisc.inventoryUnfeasible":"你的背包里包含违禁物品，请再次检查你的背包！",
+	"extrabotanymisc.unlegalPlayercount":"在场玩家数大于召唤时的玩家数，这是不符合规则的！",
+	"extrabotanymisc.description":"你无法使用该物品直到你完成进度 <%s>.",
 	
 	"extrabotany.subtitle.cyclone":"重装摩托：蓄力攻击",
 	"extrabotany.subtitle.shoot":"重装摩托：真理之钥",
@@ -222,6 +251,12 @@
 
 	"extrabotany.category.extrabotany":"额外的知识",
 
+	"extrabotany.entry.annoyingflower":"神烦花",
+	"extrabotany.page.annoyingflower0":"在$(item)神烦花$(0)周围摆放上一个带水的花药台，它就可以消耗$(thing)魔力$(0)来自动钓鱼。如果给它投喂香香鸡的话，它接下来几次的工作效率会得到大幅提高并有更高概率钓到稀有物品。",
+	"extrabotany.page.annoyingflower1":"光与热。",
+	"extrabotany.page.annoyingflower2":"浸泡过$(thing)魔力$(0)的香香鸡能够回复更多的饱食度。",
+	"extrabotany.page.annoyingflower3":"毕竟我也不是什么恶魔。",
+
 	"extrabotany.entry.bloodyenchantress":"鲜血妖姬",
 	"extrabotany.page.bloodyenchantress0":"$(item)鲜血妖姬$(0)能够将生物的生命值转化为$(thing)魔力$(0)，一旦有生物在其附近就会开始$(thing)魔力$(0)的转化，效率较为可观。需要注意的是通过这种方式献祭的生物不会有任何掉落。",
 	"extrabotany.page.bloodyenchantress1":"每次噬咬都会给对方添加血之诱惑效果并不断叠加，每层效果都会降低花的产魔，并且周围生物血之诱惑效果等级总和超过一定值时会停止工作。",
@@ -236,11 +271,11 @@
 	"extrabotany.page.moonbless1":"愚者的播种。",
 
 	"extrabotany.entry.omniviolet":"全知瑾",
-	"extrabotany.page.omniviolet0":"知识就是力量，全知瑾能够将书本或成书转化为$(thing)魔力$(0)。 如果你在其周围按附魔台方式摆放上书架的话能够起到催化剂的效果，增加其产魔效率。",
+	"extrabotany.page.omniviolet0":"知识就是力量，$(item)全知瑾$(0)能够将书本或成书转化为$(thing)魔力$(0)。 如果你在其周围按附魔台方式摆放上书架的话能够起到催化剂的效果，增加其产魔效率。",
 	"extrabotany.page.omniviolet1":"阿克夏记录。",
 
 	"extrabotany.entry.tinkle":"叮当舞花",
-	"extrabotany.page.tinkle0":"叮当舞花可以将玩家的动能变为魔力。玩家在其附近移动时会产出$(thing)魔力$(0)，但也会加速玩家的饱食度消耗。",
+	"extrabotany.page.tinkle0":"$(item)叮当舞花$(0)可以将玩家的动能变为魔力。玩家在其附近移动时会产出$(thing)魔力$(0)，但也会加速玩家的饱食度消耗。",
 	"extrabotany.page.tinkle1":"叮咚，我来找你了哦",
 
 	"extrabotany.entry.bellflower":"风铃花",
@@ -248,16 +283,20 @@
 	"extrabotany.page.bellflower1":"只有风暴才能击倒大树。",
 
 	"extrabotany.entry.reikarlily":"雷卡兰",
-	"extrabotany.page.reikarlily0":"雷卡兰可以将闪电的巨大能量转化为$(thing)魔力$(0)，每当有闪电劈在其附近时，就会立刻产出巨大$(thing)魔力$(0)，并且余热会使其继续缓慢地产出$(thing)魔力$(0)。雷卡兰本身也具有一定的雷电吸引能力。",
+	"extrabotany.page.reikarlily0":"$(item)雷卡兰$(0)可以将闪电的巨大能量转化为$(thing)魔力$(0)，每当有闪电劈在其附近时，就会立刻产出巨大$(thing)魔力$(0)，并且余热会使其继续缓慢地产出$(thing)魔力$(0)。雷卡兰本身也具有一定的雷电吸引能力。",
 	"extrabotany.page.reikarlily1":"就决定是你了!",
 
 	"extrabotany.entry.edelweiss":"雪绒花",
-	"extrabotany.page.edelweiss0":"雪绒花可以通过吞噬雪傀儡来产出$(thing)魔力$(0)。虽然$(thing)魔力$(0)产出是瞬时的，但也需要一小会的冷却。",
+	"extrabotany.page.edelweiss0":"$(item)雪绒花$(0)可以通过吞噬雪傀儡来产出$(thing)魔力$(0)。虽然$(thing)魔力$(0)产出是瞬时的，但也需要一小会的冷却。",
 	"extrabotany.page.edelweiss1":"If you are reading this, you can read.",
 
 	"extrabotany.entry.geminiorchid":"双子兰",
-	"extrabotany.page.geminiorchid0":"双子兰相当于一台温差发电机。假如你在其周围8格内一格倒入岩浆，一格倒入水，它就会开始产出$(thing)魔力$(0)。8格内的最大温差越大，$(thing)魔力$(0)产出也就越快。<br>注意，这是一朵被动产能花。",
+	"extrabotany.page.geminiorchid0":"$(item)双子兰$(0)相当于一台温差发电机。假如你在其周围8格内一格倒入岩浆，一格倒入水，它就会开始产出$(thing)魔力$(0)。8格内的最大温差越大，$(thing)魔力$(0)产出也就越快。<br>注意，这是一朵被动产能花。",
 	"extrabotany.page.geminiorchid1":"我就是力量的化身!",
+
+	"extrabotany.entry.serenitian":"永寂龙胆",
+	"extrabotany.page.serenitian0":"$(item)永寂龙胆$(0)可以使周围同一平面上的被动产能花停止枯萎的进程，并使进程归零。",
+	"extrabotany.page.serenitian1":"事事皆虚空",
 
 	"extrabotany.entry.manabuffer":"魔力缓存器",
 	"extrabotany.page.manabuffer0":"魔力缓存器可以缓存大量的魔力，其储存量相当于64个魔力池。它可以从相邻四面的魔力池或魔力缓存器中吸取魔力，并向上方的魔力池或魔力缓存器输出魔力。",
@@ -325,15 +364,15 @@
 	"extrabotany.page.photonium7":"哥布林杀手靴子",
 
 	"extrabotany.entry.header":"欢迎来到世界",
-	"extrabotany.page.header0":"",
-	"extrabotany.page.header1":"",
+	"extrabotany.page.header0":"欢迎来到魔力至上主义的世界。您是一位具有极大潜力的人，我在您的身上看到了未来。我相信您正渴求着更多的知识，而我正是来改变您，向您传授知识的人。<br>欢迎加群799481464讨论。",
+	"extrabotany.page.header1":"每当您解锁新的进度时，书中的知识都会增加。我在此可以给您一个提示，食用梦魇燃料可以获得精神燃料。",
 
 	"extrabotany.entry.advancedmaterial":"高等形式",
-	"extrabotany.page.advancedmaterial0":"",
-	"extrabotany.page.advancedmaterial1":"",
-	"extrabotany.page.advancedmaterial2":"",
-	"extrabotany.page.advancedmaterial3":"",
-	"extrabotany.page.advancedmaterial4":"",
+	"extrabotany.page.advancedmaterial0":"借助$(item)精神碎片$(0)的力量将两种材料结合构成的高等形式，这类材料拥有着更强的属性与潜力。",
+	"extrabotany.page.advancedmaterial1":"混沌物质",
+	"extrabotany.page.advancedmaterial2":"起源物质",
+	"extrabotany.page.advancedmaterial3":"终末物质",
+	"extrabotany.page.advancedmaterial4":"宇宙物质",
 
 	"extrabotany.entry.aerialite":"天空锭",
 	"extrabotany.page.aerialite0":"将天空的力量与大量的魔力注入到$(item)龙石$(0)中得到的高级合金，拥有着媲美$(item)泰拉钢$(0)的优秀属性。",
@@ -407,8 +446,8 @@
 	"extrabotany.page.lens9":"药水",
 
 	"extrabotany.entry.nightmarefuel":"梦魇燃料",
-	"extrabotany.page.nightmarefuel0":"",
-	"extrabotany.page.nightmarefuel1":"",
+	"extrabotany.page.nightmarefuel0":"$(item)梦魇燃料$(0)是噩梦的集合体，食用后会遭遇不幸，但也可能是美梦的开始。",
+	"extrabotany.page.nightmarefuel1":"大脑在颤抖。",
 
 	"extrabotany.entry.peaceamulet":"和平友好之证",
 	"extrabotany.page.peaceamulet0":"装备$(item)和平友好之证$(0)后，本Mod内的所有装备不再会对其他玩家和非敌对生物造成影响。",
@@ -419,31 +458,73 @@
 	"extrabotany.page.powerglove1":"",
 
 	"extrabotany.entry.spiritfuel":"精神燃料",
-	"extrabotany.page.spiritfuel0":"",
-	"extrabotany.page.spiritfuel1":"",
-	"extrabotany.page.spiritfuel2":"",
+	"extrabotany.page.spiritfuel0":"$(item)精神燃料$(0)是一种非常重要的材料。它有两种获取方式，一种是食用$(item)梦魇燃料$(0)，另一种是通过精灵交易。精灵门可以将精神燃料精炼为$(item)精神碎片$(0)。",
+	"extrabotany.page.spiritfuel1":"精神燃料",
+	"extrabotany.page.spiritfuel2":"精神碎片",
 
 	"extrabotany.entry.natureorb":"自然蕴息宝珠",
-	"extrabotany.page.natureorb0":"",
-	"extrabotany.page.natureorb1":"",
+	"extrabotany.page.natureorb0":"$(item)自然蕴息宝珠$(0)可以储存自然之息，利用自然的力量来守护携带者。魔力的加护会提供魔力，再生的加护会加快生命恢复，森罗的加护会清除负面状态。你需要搭建一个多方块结构来为自然蕴息宝珠充能，结构中魔力池中的魔力可以加快这一进度。",
+	"extrabotany.page.natureorb1":"不是气血宝珠。",
+	"extrabotany.page.natureorb2":"同样可以增幅力量框架",
 
-	"extrabotany.entry.ego":"本我 (盖亚III)",
-	"extrabotany.page.ego0":"",
-	"extrabotany.page.ego1":"",
-	"extrabotany.page.ego2":"",
-	"extrabotany.page.ego3":"",
-	"extrabotany.page.ego4":"",
+	"extrabotany.entry.ego":"本我 (盖亚守护者III)",
+	"extrabotany.page.ego0":"可以消耗自然蕴息宝珠中储存的自然之息来召唤本我，这一过程需要消耗20w自然之息；也可以使用邀请函来召唤。挑战本我需要遵守其规则之力，首先玩家不能携带、持有、装备任何非植物魔法或原版或额外植物学的物品，否则会被缴械在地上。",
+	"extrabotany.page.ego1":"其次参与战斗的玩家数不能超过召唤时的玩家数，否则本我会离开。本我诸武精通，在第一阶段会使用$(item)真泰拉之刃$(0)或$(item)真影刃$(0)。在进入第二阶段时会进入一段时间的无敌，期间会连续释放地雷阵，挑战者需要及时规避。不同颜色的地雷会有不同的效果。",
+	"extrabotany.page.ego2":"战地",
+	"extrabotany.page.ego3":"邀请函",
+	"extrabotany.page.ego4":"第二阶段的本我会使用$(item)波涌之刃$(0)或$(item)狂星之怒$(0),同时每累积一定传送次数会再次召唤地雷阵。当血量低于一定值时会进入第三阶段，无敌、回复生命的同时会召唤四个仆从攻击挑战者。仆从分别使用四种武器，提前击败仆从可以提前结束本我的无敌状态。",
+	"extrabotany.page.ego5":"本我在第三阶段只会使用$(item)最初分型$(0)对玩家进行攻击，其能力值在这一阶段会达到峰值。击败本我可以得到$(item)潘多拉魔盒$(0)，打开它可以获得丰富的奖励，包含一个$(item)英雄勋章$(0)。",
+	"extrabotany.page.ego6":"至高教义",
 
 	"extrabotany.entry.elementstone":"元素符石",
 	"extrabotany.page.elementstone0":"将元素符文炼制成对应的符石。$(item)风之符石$(0)可以增加佩戴者的移速，$(item)地之符石$(0)可以提高佩戴者的护甲，$(item)水之符石$(0)可以减少佩戴者的魔力消耗，$(item)火之符石$(0)可以提升佩戴者的攻击力。",
-	"extrabotany.page.elementstone1":"",
-	"extrabotany.page.elementstone2":"",
-	"extrabotany.page.elementstone3":"",
-	"extrabotany.page.elementstone4":"",
+	"extrabotany.page.elementstone1":"风之符石",
+	"extrabotany.page.elementstone2":"地之符石",
+	"extrabotany.page.elementstone3":"水之符石",
+	"extrabotany.page.elementstone4":"火之符石",
 
 	"extrabotany.entry.jingweifeather":"精卫之羽",
-	"extrabotany.page.jingweifeather0":"",
+	"extrabotany.page.jingweifeather0":"装备$(item)精卫之羽$(0)后，每次空手攻击都可以发射出一个火球，造成伤害的时候回复1点吸收值，吸收值最多叠加到10点。",
 	"extrabotany.page.jingweifeather1":"",
+
+	"extrabotany.entry.sunring":"圣阳尊戒",
+	"extrabotany.page.sunring0":"$(item)圣阳尊戒$(0)拥有所有作为材料的饰品的效果。",
+	"extrabotany.page.sunring1":"",
+
+	"extrabotany.entry.moonpendant":"蚀月之心",
+	"extrabotany.page.moonpendant0":"$(item)蚀月之心$(0)拥有所有作为材料的饰品的效果。",
+	"extrabotany.page.moonpendant1":"",
+
+	"extrabotany.entry.rodofdiscord":"不谐传送杖",
+	"extrabotany.page.rodofdiscord0":"$(item)不谐传送杖$(0)可以消耗魔力传送到准心所指的位置，但每次使用后会使使用者进入反胃状态。在冷却期间继续使用会消耗使用者的生命值。",
+	"extrabotany.page.rodofdiscord1":"",
+
+	"extrabotany.entry.goldcloth":"莱茵河的黄金",
+	"extrabotany.page.goldcloth0":"$(item)莱茵河的黄金$(0)是一种优秀的材料。除此之外，它可以用来修改遗物的绑定，只需要将它和遗物合成，就能使遗物恢复成未绑定的状态。",
+	"extrabotany.page.goldcloth1":"",
+	"extrabotany.page.goldcloth2":"泰拉钢套的改进版，拥有超强的再生能力和防御力，并且能清除负面效果，同时能使装备者获得空手怪力。",
+	"extrabotany.page.goldcloth3":"昴星团战斗女仆头饰",
+	"extrabotany.page.goldcloth4":"昴星团战斗女仆服",
+	"extrabotany.page.goldcloth5":"昴星团战斗女仆裙甲",
+	"extrabotany.page.goldcloth6":"昴星团战斗女仆靴子",
+
+	"extrabotany.entry.dimensioncatalyst":"次元催化器",
+	"extrabotany.page.dimensioncatalyst0":"$(item)次元催化器$(0)连接了主世界与其他两个次元，它可以消耗$(thing)魔力$(0)来将主世界的资源转化为其他次元内的资源。",
+	"extrabotany.page.dimensioncatalyst1":"",
+
+	"extrabotany.entry.gildedpotato":"镀金土豆",
+	"extrabotany.page.gildedpotato0":"镀金了的土豆，可能在未来会有大用处。",
+	"extrabotany.page.gildedpotato1":"奇迹和魔法都是存在的",
+	"extrabotany.page.gildedpotato2":"镀金土豆做成的土豆泥，食用后会获得意想不到的效果。",
+	"extrabotany.page.gildedpotato3":"金色传说",
+
+	"extrabotany.entry.potatochips":"薯片",
+	"extrabotany.page.potatochips0":"$(item)薯片$(0)拥有着和不死图腾类似的效果。装备后，在受到致死伤害时会激活，消耗魔力获得多种增益并回复生命至5点。这一效果有30秒的冷却，如果伤害来源为Boss则会延长至10分钟。",
+	"extrabotany.page.potatochips1":"",
+
+	"extrabotany.entry.manadrivering":"驭魔之戒",
+	"extrabotany.page.manadrivering0":"装备上$(item)驭魔之戒$(0)后它会将你所拥有的魔力扩散到空气中，来为周围的功能花提供魔力。",
+	"extrabotany.page.manadrivering1":"",
 
 	"extrabotany.root.title":"欢迎来到世界",
 	"extrabotany.root.desc":"不要错过今天，去过好每一天",
@@ -461,7 +542,7 @@
 	"extrabotany.buddhistrelicobtain.desc":"获得源初造物丨虚空万藏",
 	"extrabotany.infinitewinecraft.title":"shake it",
 	"extrabotany.infinitewinecraft.desc":"获得无限之酒",
-	"extrabotany.firstfractalcraft.title":"Crystalline",
+	"extrabotany.firstfractalcraft.title":"Infinity +1 Sword",
 	"extrabotany.firstfractalcraft.desc":"获得最初分型",
 	"extrabotany.theuniversecraft.title":"Gears of Love",
 	"extrabotany.theuniversecraft.desc":"获得宇宙物质",
@@ -492,6 +573,10 @@
 	"extrabotany.armorsetshadowwarrior.title":"Crazy ∞ nighT",
 	"extrabotany.armorsetshadowwarrior.desc":"装备一套暗影武士",
 	"extrabotany.armorsetshootingguardian.title":"CONNECT",
-	"extrabotany.armorsetshootingguardian.desc":"装备一套银翼护卫"
+	"extrabotany.armorsetshootingguardian.desc":"装备一套银翼护卫",
+	"extrabotany.sunringcraft.title":"Promise",
+	"extrabotany.sunringcraft.desc":"获得圣阳尊戒",
+	"extrabotany.moonpendantcraft.title":"Crystalline",
+	"extrabotany.moonpendantcraft.desc":"获得蚀月之心"
 
 }

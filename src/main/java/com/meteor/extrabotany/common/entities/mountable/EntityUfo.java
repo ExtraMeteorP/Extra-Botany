@@ -79,7 +79,7 @@ public class EntityUfo extends EntityMountable {
                     * MathHelper.cos(player.rotationPitch / 180.0F * (float) Math.PI) * speed);
             double mz = (double) (MathHelper.cos(player.rotationYaw / 180.0F * (float) Math.PI)
                     * MathHelper.cos(player.rotationPitch / 180.0F * (float) Math.PI) * speed);
-            double my = this.getMotion().y;
+            double my = 0;
 
             Vector3d f0 = new Vector3d(0, 0, 0);
             Vector3d vecf = new Vector3d(mx, my, mz);
@@ -99,19 +99,15 @@ public class EntityUfo extends EntityMountable {
             if(this.backInputDown) {
                 f0 = f0.add(vecb);
             }
-
+            if(this.spaceInputDown)
+                f0 = f0.add(0, 0.35D, 0);
+            else if(this.ctrlInputDown)
+                f0 = f0.add(0, -0.35D, 0);
 
             if(f0.length() != 0)
                 this.rotationYaw = getRotationFromVector(player.rotationYaw, f0.normalize());
 
             this.setMotion(f0);
-
-            if(this.spaceInputDown) {
-                this.setPosition(getPosX(), getPosY() + 0.35D, getPosZ());
-            }
-            else if(this.ctrlInputDown) {
-                this.setPosition(getPosX(), getPosY() - 0.35D, getPosZ());
-            }
 
         }
 

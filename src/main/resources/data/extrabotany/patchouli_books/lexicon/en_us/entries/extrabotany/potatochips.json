@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.potatochips",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:potatochips",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.potatochips0"
+    },
+    {
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.potatochips1",
+      "recipe": "extrabotany:runic_altar/potatochips"
+    }
+  ]
+}

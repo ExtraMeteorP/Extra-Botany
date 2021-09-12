@@ -1,0 +1,26 @@
+{
+  "name": "extrabotany.entry.gildedpotato",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:gildedpotato",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.gildedpotato0"
+    },
+    {
+      "type": "botania:runic_altar",
+      "text": "extrabotany.page.gildedpotato1",
+      "recipe": "extrabotany:runic_altar/gildedpotato"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.gildedpotato2"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.gildedpotato3",
+      "recipe": "extrabotany:gildedmashedpotato"
+    }
+  ]
+}

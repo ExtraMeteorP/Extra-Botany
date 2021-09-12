@@ -60,7 +60,7 @@ public class EntityTrueShadowKatanaProjectile extends EntityProjectileBase{
             for (LivingEntity living : list) {
                 living.hurtResistantTime = 0;
                 if(getThrower() instanceof PlayerEntity) {
-                    DamageHandler.INSTANCE.dmg(living, getThrower(), 6F, DamageHandler.INSTANCE.NETURAL);
+                    DamageHandler.INSTANCE.dmg(living, getThrower(), 5F, DamageHandler.INSTANCE.NETURAL);
                 }else{
                     if(living.hurtResistantTime == 0)
                         DamageHandler.INSTANCE.dmg(living, getThrower(), 2F, DamageHandler.INSTANCE.LIFE_LOSING);;

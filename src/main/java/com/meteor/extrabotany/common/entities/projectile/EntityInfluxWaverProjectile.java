@@ -58,7 +58,7 @@ public class EntityInfluxWaverProjectile extends EntityProjectileBase{
     @Override
     public void tick() {
 
-        if(this.removeFlag != -1 && this.ticksExisted >= this.removeFlag + 6){
+        if(this.removeFlag != -1 && this.ticksExisted >= this.removeFlag + 4){
             if(!world.isRemote && !getNext().equals(BlockPos.ZERO)) {
                 EntityInfluxWaverProjectile proj = make(getNext());
                 world.addEntity(proj);
@@ -93,7 +93,7 @@ public class EntityInfluxWaverProjectile extends EntityProjectileBase{
                 if(!living.removed) {
                     living.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 60, 1));
                     if(getThrower() instanceof PlayerEntity) {
-                        DamageHandler.INSTANCE.dmg(living, getThrower(), 10F, DamageHandler.INSTANCE.NETURAL);
+                        DamageHandler.INSTANCE.dmg(living, getThrower(), 12F, DamageHandler.INSTANCE.NETURAL);
                     }else{
                         if(living.hurtResistantTime == 0)
                             DamageHandler.INSTANCE.dmg(living, getThrower(), 2.5F, DamageHandler.INSTANCE.LIFE_LOSING);

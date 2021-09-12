@@ -3,5 +3,8 @@
 	"shoot": { "sounds":["extrabotany:shoot"], "subtitle": "extrabotany.subtitle.shoot" },
 	"slash": { "sounds":["extrabotany:slash"], "subtitle": "extrabotany.subtitle.slash" },
 	"rideon": { "sounds":["extrabotany:rideon"], "subtitle": "extrabotany.subtitle.rideon" },
-	"flamescionult": { "sounds":["extrabotany:flamescionult"], "subtitle": "extrabotany.subtitle.flamescionult" }
+	"flamescionult": { "sounds":["extrabotany:flamescionult"], "subtitle": "extrabotany.subtitle.flamescionult" },
+	
+	"music.ego": { "sounds":[{"name": "extrabotany:music/swordland", "stream": true}] },
+	"music.herrscher": { "sounds":[{"name": "extrabotany:music/salvation", "stream": true}] }
 }

@@ -7,6 +7,7 @@ import com.meteor.extrabotany.common.entities.mountable.EntityMotor;
 import com.meteor.extrabotany.common.entities.mountable.EntityUfo;
 import com.meteor.extrabotany.common.entities.projectile.*;
 import com.meteor.extrabotany.common.libs.LibEntityNames;
+import com.meteor.extrabotany.common.libs.LibItemNames;
 import com.meteor.extrabotany.common.libs.LibMisc;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
@@ -169,6 +170,14 @@ public class ModEntities {
             .setShouldReceiveVelocityUpdates(true)
             .build("");
 
+    public static final EntityType<EntityButterflyProjectile> BUTTERFLY = EntityType.Builder.<EntityButterflyProjectile>create(
+            EntityButterflyProjectile::new, EntityClassification.MISC)
+            .size(0.1F, 0.1F)
+            .setUpdateInterval(10)
+            .setTrackingRange(64)
+            .setShouldReceiveVelocityUpdates(true)
+            .build("");
+
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> evt) {
         IForgeRegistry<EntityType<?>> r = evt.getRegistry();
         register(r, LibEntityNames.KEYOFTRUTH, KEY_OF_TRUTH);
@@ -192,6 +201,7 @@ public class ModEntities {
         register(r, LibEntityNames.INFLUXWAVER_PROJECTILE, INFLUXWAVER);
         register(r, LibEntityNames.TRUETERRABLADE_PROJECTILE,TRUETERRABLADE);
         register(r, LibEntityNames.TRUESHADOWKATANA_PROJECTILE, TRUESHADOWKATANA);
+        register(r, LibEntityNames.BUTTERFLY_PROJECTILE, BUTTERFLY);
     }
 
     public static <V extends IForgeRegistryEntry<V>> void register(IForgeRegistry<V> reg, ResourceLocation name, IForgeRegistryEntry<V> thing) {

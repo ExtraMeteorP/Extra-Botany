@@ -1,6 +1,8 @@
 package com.meteor.extrabotany.common.items.relic;
 
+import com.meteor.extrabotany.common.handler.IAdvancementRequirement;
 import com.meteor.extrabotany.common.items.ModItems;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ItemStack;
@@ -15,7 +17,7 @@ import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelic;
 
-public class ItemBuddhistrelics extends ItemRelic {
+public class ItemBuddhistrelics extends ItemRelic implements IAdvancementRequirement {
 
     public static final String TAG_MORPHING = "buddhist:morphing";
     public static final String TAG_DATA = "buddhist:data";
@@ -131,4 +133,8 @@ public class ItemBuddhistrelics extends ItemRelic {
         return ItemStack.EMPTY;
     }
 
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGODEFEAT;
+    }
 }

@@ -20,4 +20,5 @@ public class LibBlockNames {
     public static final ResourceLocation GENERATING_BLOODYENCHANTRESS = new ResourceLocation(LibMisc.MOD_ID,"bloodyenchantress");
 
     public static final ResourceLocation FUNCTIONAL_ANNOYINGFLOWER = new ResourceLocation(LibMisc.MOD_ID, "annoyingflower");
+    public static final ResourceLocation FUNCTIONAL_SERENITIAN = new ResourceLocation(LibMisc.MOD_ID, "serenitian");
 }

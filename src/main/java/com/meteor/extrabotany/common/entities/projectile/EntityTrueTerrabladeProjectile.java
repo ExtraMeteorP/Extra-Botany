@@ -56,7 +56,7 @@ public class EntityTrueTerrabladeProjectile extends EntityProjectileBase{
             List<LivingEntity> list = DamageHandler.INSTANCE.getFilteredEntities(entities, getThrower());
             for (LivingEntity living : list) {
                 if(getThrower() instanceof PlayerEntity) {
-                    DamageHandler.INSTANCE.dmg(living, getThrower(), 10F, DamageHandler.INSTANCE.NETURAL);
+                    DamageHandler.INSTANCE.dmg(living, getThrower(), 11F, DamageHandler.INSTANCE.NETURAL);
                 }else{
                     if(living.hurtResistantTime == 0)
                         DamageHandler.INSTANCE.dmg(living, getThrower(), 2.5F, DamageHandler.INSTANCE.LIFE_LOSING);

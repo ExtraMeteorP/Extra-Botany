@@ -28,6 +28,7 @@ public class MiscellaneousIcons {
     public final IBakedModel[] trueshadowkatanaprojectileModel = new IBakedModel[1];
     public final IBakedModel[] coregodWingsModel = new IBakedModel[4];
     public final IBakedModel[] coregodModel = new IBakedModel[1];
+    public final IBakedModel[] butterflyprojectileModel = new IBakedModel[1];
 
     public void onModelRegister(ModelRegistryEvent evt) {
         Set<RenderMaterial> materials = AccessorModelBakery.getMaterials();
@@ -44,6 +45,7 @@ public class MiscellaneousIcons {
             ModelLoader.addSpecialModel(new ResourceLocation(LibMisc.MOD_ID,"icon/wing_" + i));
         }
         ModelLoader.addSpecialModel(new ResourceLocation(LibMisc.MOD_ID,"icon/wing_coregod"));
+        ModelLoader.addSpecialModel(new ResourceLocation(LibMisc.MOD_ID,"icon/butterflyprojectile"));
     }
 
     public void onModelBake(ModelBakeEvent evt) {
@@ -59,6 +61,7 @@ public class MiscellaneousIcons {
             coregodWingsModel[i] = evt.getModelRegistry().get(new ResourceLocation(LibMisc.MOD_ID, "icon/wing_" + i));
         }
         coregodModel[0] = evt.getModelRegistry().get(new ResourceLocation(LibMisc.MOD_ID, "icon/wing_coregod"));
+        butterflyprojectileModel[0] = evt.getModelRegistry().get(new ResourceLocation(LibMisc.MOD_ID, "icon/butterflyprojectile"));
     }
 
     private static RenderMaterial mainAtlas(String name) {

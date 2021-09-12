@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LEL",
+    "NAN",
+    "LNL"
+  ],
+  "key": {
+    "L": {
+      "tag": "botania:livingrock"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "N": {
+      "item": "extrabotany:nightmarefuel"
+    },
+    "A": {
+      "item": "botania:alchemy_catalyst"
+    }
+  },
+  "result": {
+    "item": "extrabotany:dimensioncatalyst"
+  }
+}

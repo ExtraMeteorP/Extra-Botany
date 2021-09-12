@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TDT",
+    "DMD",
+    "TDT"
+  ],
+  "key": {
+    "D": {
+      "tag": "forge:gems/dragonstone"
+    },
+    "T": {
+      "tag": "forge:ingots/terrasteel"
+    },
+    "M": {
+      "item": "botania:mana_pearl"
+    }
+  },
+  "result": {
+    "item": "extrabotany:natureorb"
+  }
+}

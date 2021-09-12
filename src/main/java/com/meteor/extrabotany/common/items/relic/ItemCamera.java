@@ -1,5 +1,7 @@
 package com.meteor.extrabotany.common.items.relic;
 
+import com.meteor.extrabotany.common.handler.IAdvancementRequirement;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
@@ -23,7 +25,7 @@ import vazkii.botania.common.item.relic.ItemRelic;
 
 import javax.annotation.Nonnull;
 
-public class ItemCamera extends ItemRelic implements IManaUsingItem {
+public class ItemCamera extends ItemRelic implements IManaUsingItem, IAdvancementRequirement {
 
     public static final int MANA_PER_DAMAGE = 1500;
     public static final int RANGE = 20;
@@ -88,5 +90,10 @@ public class ItemCamera extends ItemRelic implements IManaUsingItem {
     @Override
     public boolean usesMana(ItemStack stack) {
         return true;
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGODEFEAT;
     }
 }

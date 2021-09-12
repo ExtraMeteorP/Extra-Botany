@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.items.bauble;
 
 import com.meteor.extrabotany.common.handler.DamageHandler;
+import net.minecraft.enchantment.FrostWalkerEnchantment;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -25,6 +26,11 @@ public class ItemFrostStar extends ItemBauble implements IManaUsingItem {
         super.onWornTick(stack, entity);
         if(entity instanceof PlayerEntity) {
             if (!entity.world.isRemote) {
+                boolean lastOnGround = entity.isOnGround();
+                entity.setOnGround(true);
+                FrostWalkerEnchantment.freezeNearby(entity, entity.world, entity.getPosition(), 8);
+                entity.setOnGround(lastOnGround);
+
                 for (LivingEntity living : entity.getEntityWorld().getEntitiesWithinAABB(LivingEntity.class, new AxisAlignedBB(entity.getPosition().add(-RANGE, -RANGE, -RANGE), entity.getPosition().add(RANGE + 1, RANGE + 1, RANGE + 1)))) {
                     if (living.isSpectatedByPlayer((ServerPlayerEntity)entity)
                             && living != entity

@@ -1,0 +1,41 @@
+{
+  "name": "extrabotany.entry.goldcloth",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:goldcloth",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.goldcloth0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.goldcloth1",
+      "recipe": "extrabotany:goldcloth"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.goldcloth2"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.goldcloth3",
+      "recipe": "extrabotany:maid_helm"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.goldcloth4",
+      "recipe": "extrabotany:maid_chest"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.goldcloth5",
+      "recipe": "extrabotany:maid_legs"
+    },
+	{
+      "type": "crafting",
+      "text": "extrabotany.page.goldcloth6",
+      "recipe": "extrabotany:maid_boots"
+    }
+  ]
+}

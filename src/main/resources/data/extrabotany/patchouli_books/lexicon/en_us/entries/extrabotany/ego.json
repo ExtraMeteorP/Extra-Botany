@@ -30,6 +30,11 @@
     {
       "type": "text",
       "text": "extrabotany.page.ego5"
+    },
+    {
+      "type": "botania:terrasteel",
+      "text": "extrabotany.page.ego6",
+      "recipe": "extrabotany:terra_plate/orichalcos"
     }
   ],
   "extra_recipe_mappings": {

@@ -1,13 +1,17 @@
 package com.meteor.extrabotany.common.entities.ego;
 
 import com.google.common.collect.ImmutableList;
+import com.meteor.extrabotany.common.core.ConfigHandler;
+import com.meteor.extrabotany.common.core.ModSounds;
 import com.meteor.extrabotany.common.entities.ModEntities;
 import com.meteor.extrabotany.common.items.ModItems;
+import com.meteor.extrabotany.common.items.bauble.ItemNatureOrb;
 import com.meteor.extrabotany.common.items.relic.*;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.TickableSound;
 import net.minecraft.client.renderer.Rectangle2d;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.attributes.Attributes;
@@ -127,6 +131,13 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
             return false;
         }
 
+        if(!checkInventory(player)){
+            if (!world.isRemote) {
+                player.sendMessage(new TranslationTextComponent("extrabotanymisc.inventoryUnfeasible").mergeStyle(TextFormatting.RED), Util.DUMMY_UUID);
+            }
+            return false;
+        }
+
         //check difficulty
         if (world.getDifficulty() == Difficulty.PEACEFUL) {
             if (!world.isRemote) {
@@ -162,9 +173,20 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
             return false;
         }
 
+        if(stack.getItem() == ModItems.natureorb){
+            ItemNatureOrb orb = (ItemNatureOrb) stack.getItem();
+            if(orb.getXP(stack) < 200000)
+                return false;
+        }
+
         //all checks ok, spawn the boss
         if (!world.isRemote) {
-            stack.shrink(1);
+
+            if(stack.getItem() == ModItems.natureorb){
+                ItemNatureOrb orb = (ItemNatureOrb) stack.getItem();
+                orb.setXP(stack, orb.getXP(stack) - 200000);
+            }else
+                stack.shrink(1);
 
             EntityEGO e = ModEntities.EGO.create(world);
             e.setPosition(pos.getX() + 0.5, pos.getY() + 3, pos.getZ() + 0.5);
@@ -560,6 +582,51 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
         }
     }
 
+    public static boolean checkFeasibility(ItemStack stack){
+        if(stack.isEmpty())
+            return true;
+
+        String modid = stack.getItem().getRegistryName().getNamespace();
+        if(modid.contains("extrabotany") || modid.contains("botania") || modid.contains("minecraft")){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean checkInventory(PlayerEntity player){
+        if (player.isCreative() || ConfigHandler.COMMON.disableDisarm.get()) {
+            return true;
+        }
+        for(int i = 0; i < player.inventory.getInventoryStackLimit(); i++){
+            final ItemStack stack = player.inventory.getStackInSlot(i);
+            if(!checkFeasibility(stack))
+                return false;
+        }
+        return true;
+    }
+
+    public static void disarm(PlayerEntity player){
+        if (!ConfigHandler.COMMON.disableDisarm.get() && !player.isCreative()) {
+            for(int i = 0; i < player.inventory.getInventoryStackLimit(); i++){
+                final ItemStack stack = player.inventory.getStackInSlot(i);
+                if(!checkFeasibility(stack)){
+                    player.dropItem(stack, false);
+                    player.inventory.setInventorySlotContents(i, ItemStack.EMPTY);
+                }
+            }
+        }
+    }
+
+    public void unlegalPlayercount(){
+        if(getPlayersAround().size() > playerCount){
+            for(PlayerEntity player : getPlayersAround())
+                if (!world.isRemote) {
+                    player.sendMessage(new TranslationTextComponent("extrabotanymisc.unlegalPlayercount").mergeStyle(TextFormatting.RED), Util.DUMMY_UUID);
+                }
+            remove();
+        }
+    }
+
     public boolean tryAttack(){
         if(getPlayersAround().isEmpty())
             return false;
@@ -620,6 +687,10 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
         if (world.getDifficulty() == Difficulty.PEACEFUL) {
             remove();
         }
+
+        if(!world.isRemote)
+            for(PlayerEntity player : getPlayersAround())
+                disarm(player);
 
         if(invul > 0){
             setInvulTime(invul - 1);
@@ -888,6 +959,7 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
         long msb = additionalData.readLong();
         long lsb = additionalData.readLong();
         bossInfoUUID = new UUID(msb, lsb);
+        Minecraft.getInstance().getSoundHandler().play(new EntityEGO.EgoMusic(this));
     }
 
     @Nonnull
@@ -900,4 +972,26 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
     public boolean canBeLeashedTo(PlayerEntity player) {
         return false;
     }
+
+    @OnlyIn(Dist.CLIENT)
+    private static class EgoMusic extends TickableSound {
+        private final EntityEGO guardian;
+
+        public EgoMusic(EntityEGO guardian) {
+            super(ModSounds.swordland, SoundCategory.RECORDS);
+            this.guardian = guardian;
+            this.x = guardian.getSource().getX();
+            this.y = guardian.getSource().getY();
+            this.z = guardian.getSource().getZ();
+            // this.repeat = true; TODO restore once LWJGL3/vanilla bug fixed?
+        }
+
+        @Override
+        public void tick() {
+            if (!guardian.isAlive()) {
+                finishPlaying();
+            }
+        }
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.meteor.extrabotany.common.items.bauble;
 
 import com.meteor.extrabotany.client.handler.MiscellaneousIcons;
+import com.meteor.extrabotany.common.handler.IAdvancementRequirement;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -39,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ItemCoreGod extends ItemRelicBauble implements IManaUsingItem {
+public class ItemCoreGod extends ItemRelicBauble implements IManaUsingItem, IAdvancementRequirement {
 
     private static final String TAG_VARIANT = "variant";
 
@@ -264,6 +266,11 @@ public class ItemCoreGod extends ItemRelicBauble implements IManaUsingItem {
 
     public static int getVariant(ItemStack stack) {
         return ItemNBTHelper.getInt(stack, TAG_VARIANT, 0);
+    }
+
+    @Override
+    public String getAdvancementName() {
+        return LibAdvancementNames.EGODEFEAT;
     }
 
 }

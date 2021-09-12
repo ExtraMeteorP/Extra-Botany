@@ -1,0 +1,35 @@
+{
+  "type": "botania:petal_apothecary",
+  "output": {
+    "item": "extrabotany:serenitian"
+  },
+  "ingredients": [
+    {
+      "tag": "botania:petals/purple"
+    },
+    {
+      "tag": "botania:petals/purple"
+    },
+    {
+      "tag": "botania:petals/blue"
+    },
+    {
+      "tag": "botania:petals/blue"
+    },
+    {
+      "tag": "botania:runes/mana"
+    },
+    {
+      "tag": "botania:runes/sloth"
+    },
+    {
+      "tag": "botania:runes/greed"
+    },
+    {
+      "item": "botania:life_essence"
+    },
+	{
+      "item": "minecraft:wither_rose"
+    }
+  ]
+}

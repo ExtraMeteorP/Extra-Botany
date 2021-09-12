@@ -1,0 +1,21 @@
+{
+  "name": "extrabotany.entry.serenitian",
+  "category": "botania:functional_flowers",
+  "icon": "extrabotany:serenitian",
+  "advancement": "botania:main/pure_daisy_pickup",
+  "turnin": "botania:main/functional_flower",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.serenitian0"
+    },
+    {
+      "type": "botania:petal_apothecary",
+      "text": "extrabotany.page.serenitian1",
+      "recipe": "extrabotany:petal_apothecary/serenitian"
+    }
+  ],
+  "extra_recipe_mappings": {
+    "extrabotany:floating_serenitian": 1
+  }
+}

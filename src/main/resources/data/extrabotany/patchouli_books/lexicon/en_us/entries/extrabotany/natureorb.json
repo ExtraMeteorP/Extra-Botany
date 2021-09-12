@@ -12,6 +12,11 @@
       "type": "crafting",
       "text": "extrabotany.page.natureorb1",
       "recipe": "extrabotany:natureorb"
+    },
+	{
+      "type": "multiblock",
+      "multiblock_id": "extrabotany:frame_adv",
+      "text": "extrabotany.page.natureorb2"
     }
   ]
 }

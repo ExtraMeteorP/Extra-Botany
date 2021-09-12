@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.rodofdiscord",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:rodofdiscord",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.rodofdiscord0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.rodofdiscord1",
+      "recipe": "extrabotany:rodofdiscord"
+    }
+  ]
+}

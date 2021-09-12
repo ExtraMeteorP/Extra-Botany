@@ -1,7 +1,10 @@
 package com.meteor.extrabotany.common.items;
 
+import com.meteor.extrabotany.common.handler.AdvancementHandler;
+import com.meteor.extrabotany.common.libs.LibAdvancementNames;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Stats;
@@ -22,6 +25,8 @@ public class ItemNightmareFuel extends Item {
             if (!playerentity.abilities.isCreativeMode) {
                 stack.shrink(1);
             }
+            if(entityLiving instanceof ServerPlayerEntity)
+                AdvancementHandler.INSTANCE.grantAdvancement((ServerPlayerEntity) playerentity, LibAdvancementNames.NIGHTMAREFUELEAT);
         }
 
         if (playerentity == null || !playerentity.abilities.isCreativeMode) {

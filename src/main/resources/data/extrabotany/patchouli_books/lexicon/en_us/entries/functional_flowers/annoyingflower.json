@@ -1,6 +1,6 @@
 {
   "name": "extrabotany.entry.annoyingflower",
-  "category": "botania:generating_flowers",
+  "category": "botania:functional_flowers",
   "icon": "extrabotany:annoyingflower",
   "advancement": "botania:main/pure_daisy_pickup",
   "turnin": "botania:main/functional_flower",
@@ -11,8 +11,17 @@
     },
     {
       "type": "botania:petal_apothecary",
-      "text": "botania.page.annoyingflower1",
+      "text": "extrabotany.page.annoyingflower1",
       "recipe": "extrabotany:petal_apothecary/annoyingflower"
+    },
+	{
+      "type": "text",
+      "text": "extrabotany.page.annoyingflower2"
+    },
+    {
+      "type": "botania:mana_infusion",
+      "text": "extrabotany.page.annoyingflower3",
+      "recipes": "extrabotany:mana_infusion/friedchicken"
     }
   ],
   "extra_recipe_mappings": {

@@ -21,7 +21,7 @@ public class ItemInfluxWaver extends ItemSwordRelic {
     public void attackEntity(LivingEntity player, Entity target){
         Vector3d targetpos = target == null ? Helper.PosToVec(raytraceFromEntity(player, 64F, true).getPos()).add(0, 1, 0) : target.getPositionVec().add(0, 1, 0);
         EntityInfluxWaverProjectile proj = new EntityInfluxWaverProjectile(player.world, player);
-        proj.setPosition(player.getPosX(), player.getPosY()+0.5D, player.getPosZ());
+        proj.setPosition(player.getPosX(), player.getPosY()+1.1D, player.getPosZ());
         proj.setTargetPos(targetpos);
         proj.faceTargetAccurately(0.7F);
         proj.setStrikeTimes(3);

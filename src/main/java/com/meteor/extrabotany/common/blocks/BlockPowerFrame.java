@@ -16,8 +16,10 @@ import net.minecraft.world.World;
 import vazkii.botania.api.internal.VanillaPacketDispatcher;
 import vazkii.botania.api.mana.IManaItem;
 import vazkii.botania.common.block.BlockMod;
+import vazkii.botania.common.block.tile.TileSimpleInventory;
 import vazkii.botania.common.core.helper.InventoryHelper;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class BlockPowerFrame extends BlockMod implements ITileEntityProvider {
@@ -54,4 +56,16 @@ public class BlockPowerFrame extends BlockMod implements ITileEntityProvider {
     public TileEntity createNewTileEntity(IBlockReader iBlockReader) {
         return new TilePowerFrame();
     }
+
+    @Override
+    public void onReplaced(@Nonnull BlockState state, @Nonnull World world, @Nonnull BlockPos pos, @Nonnull BlockState newState, boolean isMoving) {
+        if (state.getBlock() != newState.getBlock()) {
+            TileEntity te = world.getTileEntity(pos);
+            if (te instanceof TileSimpleInventory) {
+                net.minecraft.inventory.InventoryHelper.dropInventoryItems(world, pos, ((TileSimpleInventory) te).getItemHandler());
+            }
+            super.onReplaced(state, world, pos, newState, isMoving);
+        }
+    }
+
 }

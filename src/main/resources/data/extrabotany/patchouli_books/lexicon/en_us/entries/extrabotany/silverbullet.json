@@ -1,0 +1,17 @@
+{
+  "name": "extrabotany.entry.silverbullet",
+  "category": "extrabotany:extrabotany",
+  "icon": "extrabotany:silverbullet",
+  "advancement": "botania:main/runic_altar_pickup",
+  "pages": [
+    {
+      "type": "text",
+      "text": "extrabotany.page.silverbullet0"
+    },
+    {
+      "type": "crafting",
+      "text": "extrabotany.page.silverbullet1",
+      "recipe": "extrabotany:silverbullet"
+    }
+  ]
+}

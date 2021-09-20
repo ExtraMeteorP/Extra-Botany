@@ -27,7 +27,6 @@ public class RelicUpgradeRecipe implements ICraftingRecipe {
         return compose.matches(inv, world);
     }
 
-
     @Nonnull
     @Override
     public ItemStack getCraftingResult(@Nonnull CraftingInventory inv) {
@@ -73,7 +72,7 @@ public class RelicUpgradeRecipe implements ICraftingRecipe {
         return SERIALIZER;
     }
 
-    public static final IRecipeSerializer<RelicUpgradeRecipe> SERIALIZER = new RelicUpgradeRecipe.Serializer();
+    public static final IRecipeSerializer<RelicUpgradeRecipe> SERIALIZER = new Serializer();
 
     private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<RelicUpgradeRecipe> {
         @Override

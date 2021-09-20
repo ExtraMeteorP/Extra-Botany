@@ -31,7 +31,7 @@ public class ItemInfiniteWine extends ItemBrewBase implements IRelic, IManaUsing
     private static final int MANA_PER_DAMAGE = 12000;
 
     public ItemInfiniteWine(Properties builder) {
-        super(builder, 12, 18, 1.5F, 1, ()-> ModItems.emptybottle);
+        super(builder, 12, 18, 1.5F, 1, ()-> ModItems.heromedal);
     }
 
     @Override

@@ -47,7 +47,7 @@ public class ItemJingweiFeather extends ItemBauble implements IItemWithLeftClick
         if(living.getHeldItemMainhand().isEmpty() && living.getCooledAttackStrength(0) == 1)
             if(ManaItemHandler.instance().requestManaExactForTool(new ItemStack(this), living, MANA_PER_DAMAGE, true)){
                 EntityAuraFire proj = new EntityAuraFire(living.world, living);
-                proj.setPosition(living.getPosX(), living.getPosY()+0.8D, living.getPosZ());
+                proj.setPosition(living.getPosX(), living.getPosY()+1.1D, living.getPosZ());
                 proj.func_234612_a_(living, living.rotationPitch, living.rotationYaw, 0.0F, 0.8F, 0.9F);
                 if(!living.world.isRemote)
                     living.world.addEntity(proj);

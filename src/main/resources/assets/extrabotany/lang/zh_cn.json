@@ -6,6 +6,7 @@
 	"effect.extrabotany.flamescion":"薪炎强化",
 	"effect.extrabotany.timelock":"时空锁定",
 	"effect.extrabotany.incandescence":"灼热模式",
+	"effect.extrabotany.bloodtemptation":"血之诱惑",
 
 	"extrabotany.brew.revolution":"革命",
 	"extrabotany.brew.allmighty":"全能",
@@ -274,9 +275,9 @@
 	"extrabotany.page.omniviolet0":"知识就是力量，$(item)全知瑾$(0)能够将书本或成书转化为$(thing)魔力$(0)。 如果你在其周围按附魔台方式摆放上书架的话能够起到催化剂的效果，增加其产魔效率。",
 	"extrabotany.page.omniviolet1":"阿克夏记录。",
 
-	"extrabotany.entry.tinkle":"叮当舞花",
-	"extrabotany.page.tinkle0":"$(item)叮当舞花$(0)可以将玩家的动能变为魔力。玩家在其附近移动时会产出$(thing)魔力$(0)，但也会加速玩家的饱食度消耗。",
-	"extrabotany.page.tinkle1":"叮咚，我来找你了哦",
+	"extrabotany.entry.tinkleflower":"叮当舞花",
+	"extrabotany.page.tinkleflower0":"$(item)叮当舞花$(0)可以将玩家的动能变为魔力。玩家在其附近移动时会产出$(thing)魔力$(0)，但也会加速玩家的饱食度消耗。",
+	"extrabotany.page.tinkleflower1":"叮咚，我来找你了哦",
 
 	"extrabotany.entry.bellflower":"风铃花",
 	"extrabotany.page.bellflower0":"能将风能转化为$(thing)魔力$(0)的花，需要摆放在露天的地方，海拔越高效率越高。但它仍会枯萎。",
@@ -525,6 +526,10 @@
 	"extrabotany.entry.manadrivering":"驭魔之戒",
 	"extrabotany.page.manadrivering0":"装备上$(item)驭魔之戒$(0)后它会将你所拥有的魔力扩散到空气中，来为周围的功能花提供魔力。",
 	"extrabotany.page.manadrivering1":"",
+
+	"extrabotany.entry.silverbullet":"银翼射手",
+	"extrabotany.page.silverbullet0":"$(item)魔力脉冲枪$(0)的升级版。 $(item)银翼射手$(0)会发射更为强力的魔力脉冲。如果你装备有一套银翼护卫，银翼射手不再会消耗魔力值。",
+	"extrabotany.page.silverbullet1":"",
 
 	"extrabotany.root.title":"欢迎来到世界",
 	"extrabotany.root.desc":"不要错过今天，去过好每一天",

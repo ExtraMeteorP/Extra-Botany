@@ -72,7 +72,7 @@ public class RelicUpgradeShapedRecipe implements ICraftingRecipe {
         return SERIALIZER;
     }
 
-    public static final IRecipeSerializer<RelicUpgradeShapedRecipe> SERIALIZER = new RelicUpgradeShapedRecipe.Serializer();
+    public static final IRecipeSerializer<RelicUpgradeShapedRecipe> SERIALIZER = new Serializer();
 
     private static class Serializer extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<RelicUpgradeShapedRecipe> {
         @Override

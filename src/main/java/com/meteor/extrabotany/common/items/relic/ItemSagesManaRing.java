@@ -12,6 +12,7 @@ import vazkii.botania.api.mana.IManaItem;
 import vazkii.botania.api.mana.IManaTooltipDisplay;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.relic.ItemRelicBauble;
+import vazkii.botania.common.lib.ModTags;
 
 import javax.annotation.Nonnull;
 
@@ -57,7 +58,9 @@ public class ItemSagesManaRing extends ItemRelicBauble implements IManaItem, IMa
 
     @Override
     public void addMana(ItemStack stack, int mana) {
-        setMana(stack, Math.min(getMana(stack) + mana, getMaxMana(stack)) / stack.getCount());
+        int space = Math.max(getMaxMana(stack) - getMana(stack), 0);
+        int manaToTransfer = Math.min(space, mana);
+        setMana(stack, Math.min(getMana(stack) + manaToTransfer, getMaxMana(stack)) / stack.getCount());
     }
 
     @Override
@@ -102,7 +105,7 @@ public class ItemSagesManaRing extends ItemRelicBauble implements IManaItem, IMa
 
     @Override
     public int getRGBDurabilityForDisplay(ItemStack stack) {
-        return MathHelper.hsvToRGB(getManaFractionForDisplay(stack) / 3.0F, 1.0F, 1.0F);
+        return MathHelper.hsvToRGB(Math.max(0, getManaFractionForDisplay(stack) / 3.0F), 1.0F, 1.0F);
     }
 
     @Override

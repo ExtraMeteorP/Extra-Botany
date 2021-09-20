@@ -1,6 +1,7 @@
 package com.meteor.extrabotany.common.items.brew;
 
 import com.google.common.collect.Lists;
+import com.meteor.extrabotany.common.items.ModItems;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
@@ -67,6 +68,9 @@ public class ItemBrewBase extends Item implements IBrewItem {
     @Nonnull
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, @Nonnull Hand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+        if(getSwigsLeft(stack) <= 0)
+            return ActionResult.resultFail(stack);
         return DrinkHelper.startDrinking(world, player, hand);
     }
 
@@ -89,7 +93,8 @@ public class ItemBrewBase extends Item implements IBrewItem {
 
             int swigs = getSwigsLeft(stack);
             if (living instanceof PlayerEntity && !((PlayerEntity) living).abilities.isCreativeMode) {
-                if (swigs == 1) {
+
+                if (swigs == 1 && stack.getItem() != ModItems.infinitewine) {
                     ItemStack result = getBaseStack();
                     if (!((PlayerEntity) living).inventory.addItemStackToInventory(result)) {
                         return result;

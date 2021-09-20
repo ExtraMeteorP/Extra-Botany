@@ -14,6 +14,7 @@ import net.minecraft.entity.item.BoatEntity;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.datasync.DataParameter;
@@ -26,18 +27,25 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
+import vazkii.botania.common.core.helper.ItemNBTHelper;
 
+import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public class EntityMotor extends EntityMountable {
 
     private static final String TAG_CYCLONETICKS = "cycloneticks";
     private static final String TAG_TECTONICENERGY = "tectonicenergy";
+    private static final String TAG_OWNERUUID = "owneruuid";
 
     private static final DataParameter<Integer> CYCLONE_TICKS = EntityDataManager.createKey(EntityMotor.class,
             DataSerializers.VARINT);
     private static final DataParameter<Integer> TECTONIC_ENERGY = EntityDataManager.createKey(EntityMotor.class,
             DataSerializers.VARINT);
+    private static final DataParameter<Optional<UUID>> OWNER_UUID = EntityDataManager.createKey(EntityMotor.class,
+            DataSerializers.OPTIONAL_UNIQUE_ID);
 
     public int ridingTicks = 0;
 
@@ -83,6 +91,7 @@ public class EntityMotor extends EntityMountable {
         super.registerData();
         this.dataManager.register(TECTONIC_ENERGY, 0);
         this.dataManager.register(CYCLONE_TICKS, 0);
+        this.dataManager.register(OWNER_UUID, Optional.empty());
     }
 
     @Override
@@ -93,6 +102,13 @@ public class EntityMotor extends EntityMountable {
     @Override
     public Item getItemBoat() {
         return ModItems.motor;
+    }
+
+    @Override
+    public ItemStack getItemStack(){
+        ItemStack motor = new ItemStack(getItemBoat());
+        ItemNBTHelper.setString(motor, "soulbindUUID", getOwnerId().toString());
+        return getMountable() ? ItemStack.EMPTY : motor;
     }
 
     @Override
@@ -369,6 +385,7 @@ public class EntityMotor extends EntityMountable {
         super.readAdditional(compound);
         setTectonicEnergy(compound.getInt(TAG_TECTONICENERGY));
         setCycloneTicks(compound.getInt(TAG_CYCLONETICKS));
+        setOwnerId(compound.getUniqueId(TAG_OWNERUUID));
     }
 
     @Override
@@ -376,6 +393,18 @@ public class EntityMotor extends EntityMountable {
         super.writeAdditional(compound);
         compound.putInt(TAG_TECTONICENERGY, getTectonicEnergy());
         compound.putInt(TAG_CYCLONETICKS, getCycloneTicks());
+        if (this.getOwnerId() != null) {
+            compound.putUniqueId(TAG_OWNERUUID, this.getOwnerId());
+        }
+    }
+
+    @Nullable
+    public UUID getOwnerId() {
+        return this.dataManager.get(OWNER_UUID).orElse((UUID)null);
+    }
+
+    public void setOwnerId(@Nullable UUID p_184754_1_) {
+        this.dataManager.set(OWNER_UUID, Optional.ofNullable(p_184754_1_));
     }
 
     public void setCycloneTicks(int i) {

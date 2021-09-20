@@ -59,6 +59,8 @@ import vazkii.botania.client.fx.WispParticleData;
 import vazkii.botania.common.Botania;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.core.helper.Vector3;
+import vazkii.botania.common.entity.EntityDoppleganger;
+import vazkii.botania.common.entity.EntityMagicLandmine;
 import vazkii.botania.common.lib.ModTags;
 import vazkii.botania.common.network.PacketBotaniaEffect;
 import vazkii.botania.common.network.PacketHandler;
@@ -73,7 +75,7 @@ import static com.meteor.extrabotany.common.items.ModItems.prefix;
 
 public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
 
-    public static final float ARENA_RANGE = 13F;
+    public static final float ARENA_RANGE = 12F;
     public static final int ARENA_HEIGHT = 5;
 
     public static final float MAX_HP = 600F;
@@ -423,6 +425,14 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
 
         playSound(SoundEvents.ENTITY_GENERIC_EXPLODE, 20F, (1F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2F) * 0.7F);
         world.addParticle(ParticleTypes.EXPLOSION_EMITTER, getPosX(), getPosY(), getPosZ(), 1D, 0D, 0D);
+
+        for (EntityEGOLandmine landmine : world.getEntitiesWithinAABB(EntityEGOLandmine.class, getArenaBB(getSource()))) {
+            landmine.remove();
+        }
+
+        for (EntityEGOMinion minion : world.getEntitiesWithinAABB(EntityEGOMinion.class, getArenaBB(getSource()))) {
+            minion.remove();
+        }
     }
 
     @Override
@@ -459,19 +469,22 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
     }
 
     public List<PlayerEntity> getPlayersAround() {
-        float range = 15F;
-        return world.getEntitiesWithinAABB(PlayerEntity.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range), player -> isTruePlayer(player) && !player.isSpectator());
+        return world.getEntitiesWithinAABB(PlayerEntity.class, getArenaBB(source), player -> isTruePlayer(player) && !player.isSpectator());
     }
 
     private static int countEGOAround(World world, BlockPos source) {
-        float range = 15F;
-        List<EntityEGO> l = world.getEntitiesWithinAABB(EntityEGO.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
+        List<EntityEGO> l = world.getEntitiesWithinAABB(EntityEGO.class, getArenaBB(source));
         return l.size();
     }
 
+    @Nonnull
+    private static AxisAlignedBB getArenaBB(@Nonnull BlockPos source) {
+        double range = ARENA_RANGE + 3D;
+        return new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range);
+    }
+
     private static int countEGOMinionAround(World world, BlockPos source) {
-        float range = 15F;
-        List<EntityEGOMinion> l = world.getEntitiesWithinAABB(EntityEGOMinion.class, new AxisAlignedBB(source.getX() + 0.5 - range, source.getY() + 0.5 - range, source.getZ() + 0.5 - range, source.getX() + 0.5 + range, source.getY() + 0.5 + range, source.getZ() + 0.5 + range));
+        List<EntityEGOMinion> l = world.getEntitiesWithinAABB(EntityEGOMinion.class, getArenaBB(source));
         return l.size();
     }
 
@@ -692,6 +705,8 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
             for(PlayerEntity player : getPlayersAround())
                 disarm(player);
 
+        unlegalPlayercount();
+
         if(invul > 0){
             setInvulTime(invul - 1);
             if(getStage() == 1){
@@ -783,7 +798,7 @@ public class EntityEGO extends MobEntity implements IEntityAdditionalSpawnData {
             setStage(2);
             setInvulTime(600);
             setWeaponType(4);
-            EntityEGOMinion.spawn(world, getSource(), 60F * playerCount);
+            EntityEGOMinion.spawn(this, world, getSource(), 60F * playerCount);
             this.setPositionAndUpdate(source.getX()+0.5, source.getY()+3, source.getZ()+0.5);
         }
 

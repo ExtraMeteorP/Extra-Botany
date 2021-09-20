@@ -45,7 +45,7 @@ public class ItemSplashGrenade extends Item implements IBrewItem {
 
         EntitySplashGrenade sg = new EntitySplashGrenade(worldIn, playerIn);
         sg.setItem(itemstack);
-        sg.setPosition(playerIn.getPosX(), playerIn.getPosY()+0.8F, playerIn.getPosZ());
+        sg.setPosition(playerIn.getPosX(), playerIn.getPosY()+1.1D, playerIn.getPosZ());
         sg.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, -5.0F, 0.8F, 1.0F);
         if (!worldIn.isRemote) {
             worldIn.addEntity(sg);

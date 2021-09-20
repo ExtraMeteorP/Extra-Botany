@@ -75,8 +75,13 @@ public final class DamageHandler {
                 }
             }
             case MAGIC: {
-                DamageSource s = DamageSource.causeIndirectMagicDamage(source, source);
-                return target.attackEntityFrom(s, amount);
+                if(source == null){
+                    DamageSource s = DamageSource.MAGIC;
+                    return target.attackEntityFrom(s, amount);
+                }else{
+                    DamageSource s = DamageSource.causeIndirectMagicDamage(source, source);
+                    return target.attackEntityFrom(s, amount);
+                }
             }
             case NETURAL_PIERCING: {
                 target.hurtResistantTime=0;
@@ -94,8 +99,13 @@ public final class DamageHandler {
             }
             case MAGIC_PIERCING: {
                 target.hurtResistantTime=0;
-                DamageSource s = DamageSource.causeIndirectMagicDamage(source, source).setDamageBypassesArmor().setDamageIsAbsolute();
-                return target.attackEntityFrom(s, amount);
+                if(source == null){
+                    DamageSource s = DamageSource.MAGIC.setDamageBypassesArmor().setDamageIsAbsolute();
+                    return target.attackEntityFrom(s, amount);
+                }else{
+                    DamageSource s = DamageSource.causeIndirectMagicDamage(source, source).setDamageBypassesArmor().setDamageIsAbsolute();
+                    return target.attackEntityFrom(s, amount);
+                }
             }
             case LIFE_LOSING:{
                 if(!(target instanceof LivingEntity))

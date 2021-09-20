@@ -6,6 +6,7 @@
 	"effect.extrabotany.flamescion":"Flamescion Strength",
 	"effect.extrabotany.timelock":"Time Lock",
 	"effect.extrabotany.incandescence":"Incandesence Mode",
+	"effect.extrabotany.bloodtemptation":"Blood Temptation",
 
 	"extrabotany.brew.revolution":"Revolution",
 	"extrabotany.brew.allmighty":"All-mighty",
@@ -274,9 +275,9 @@
 	"extrabotany.page.omniviolet0":"According to a saying, knowledge is power. The $(item)Omniviolet$(0) converts Books or Written Books into $(thing)Mana$(0). To increase the amount of mana generated, Bookshelves can be placed around the Omniviolet in a similar fashion to an Enchantment Table. ",
 	"extrabotany.page.omniviolet1":"Akashic Records.",
 
-	"extrabotany.entry.tinkle":"Tinkle Flower",
-	"extrabotany.page.tinkle0":"The $(item)Tinkle flower converts kinetic energy of nearby moving players into $(thing)Mana$(0). It will also increase players' energy consumption.",
-	"extrabotany.page.tinkle1":"Ding dong, here I come to find you.",
+	"extrabotany.entry.tinkleflower":"Tinkle Flower",
+	"extrabotany.page.tinkleflower0":"The $(item)Tinkle flower converts kinetic energy of nearby moving players into $(thing)Mana$(0). It will also increase players' energy consumption.",
+	"extrabotany.page.tinkleflower1":"Ding dong, here I come to find you.",
 
 	"extrabotany.entry.bellflower":"Bell Flower",
 	"extrabotany.page.bellflower0":"When placed in the open, the Bell Flower creates $(thing)Mana$(0) from wind. The higher it is, the more mana it produces. A Livingrock Pedestal nearby with a Nature Orb in it can increase its mana generation efficiency. Since it is a passive flower, it will decay.",
@@ -525,6 +526,10 @@
 	"extrabotany.entry.manadrivering":"Ring of Mana Drive",
 	"extrabotany.page.manadrivering0":"After equipping $(item)Ring of Mana Drive$(0), your mana will spread into air, supplying the functional flowers nearby.",
 	"extrabotany.page.manadrivering1":"",
+
+	"extrabotany.entry.silverbullet":"Silver Bullet",
+	"extrabotany.page.silverbullet0":"An upgrade to $(item)Mana Blaster$(0). $(item)Silver Bullet$(0) shoots more powerful mana bursts. If you are wearing a set of Shooting Guardian, Silver Bullet no longer require Mana.",
+	"extrabotany.page.silverbullet1":"",
 
 	"extrabotany.root.title":"Welcome to the World",
 	"extrabotany.root.desc":"Don't have a good day, have a great day",

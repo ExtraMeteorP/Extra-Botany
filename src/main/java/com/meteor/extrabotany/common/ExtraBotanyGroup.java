@@ -102,6 +102,7 @@ public final class ExtraBotanyGroup extends ItemGroup {
         addItem(manareader);
         addItem(walkingcane);
         addItem(shadowkatana);
+        addItem(silverbullet);
         addItem(rodofdiscord);
         addItem(influxwaver);
         addItem(starwrath);

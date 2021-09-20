@@ -58,13 +58,13 @@ public class ItemFailnaught extends BowItem implements IRelic, IManaUsingItem, I
             int i = (int) ((getUseDuration(stack) - timeLeft) * 1F);
             if (i < 8)
                 return;
-            int rank = (i - 8) / 10;
+            int rank = (i - 8) / 5;
             if (isRightPlayer(player, stack)
                     && ManaItemHandler.instance().requestManaExactForTool(stack, player, Math.min(800, 350 + rank * 20), true)) {
                 EntityMagicArrow arrow = new EntityMagicArrow(worldIn, player);
-                arrow.setPosition(player.getPosX(), player.getPosY(), player.getPosZ());
+                arrow.setPosition(player.getPosX(), player.getPosY()+1.1D, player.getPosZ());
                 arrow.func_234612_a_(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
-                arrow.setDamage((int) Math.min(50, ExtraBotanyAPI.INSTANCE.calcDamage(7 + rank, player)));
+                arrow.setDamage((int) Math.min(50, ExtraBotanyAPI.INSTANCE.calcDamage(7 + rank * 0.5F, player)));
                 arrow.rotationYaw = player.rotationYaw;
                 int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
                 if (j > 0) {

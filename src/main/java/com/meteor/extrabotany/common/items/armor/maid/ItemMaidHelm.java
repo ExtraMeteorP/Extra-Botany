@@ -48,12 +48,12 @@ public class ItemMaidHelm extends ItemMaidArmor{
     @Override
     public void onArmorTick(ItemStack stack, World world, PlayerEntity player) {
         super.onArmorTick(stack, world, player);
-        if(hasArmorSet(player)) {
+        if(hasArmorSet(player) && !player.world.isRemote) {
             ManaItemHandler.instance().dispatchManaExact(stack, player, 1, true);
             if (player.shouldHeal() && player.ticksExisted % 40 == 0
                     && ManaItemHandler.instance().requestManaExactForTool(stack, player, 20, true))
                 player.heal(1F);
-            if (player.ticksExisted % 40 == 0 && !world.isRemote)
+            if (player.ticksExisted % 40 == 0)
                 clearPotions(stack, player);
         }
     }

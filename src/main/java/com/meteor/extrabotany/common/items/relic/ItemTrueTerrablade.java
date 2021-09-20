@@ -22,7 +22,7 @@ public class ItemTrueTerrablade extends ItemSwordRelic{
         Vector3d targetpos = target == null ? Helper.PosToVec(raytraceFromEntity(player, 80F, true).getPos()).add(0, 1, 0) : target.getPositionVec().add(0, 1, 0);
 
         EntityTrueTerrabladeProjectile proj = new EntityTrueTerrabladeProjectile(player.world, player);
-        proj.setPosition(player.getPosX(), player.getPosY()+0.5D, player.getPosZ());
+        proj.setPosition(player.getPosX(), player.getPosY()+1.1D, player.getPosZ());
         proj.setTargetPos(targetpos);
         proj.faceTargetAccurately(0.8F);
         player.world.addEntity(proj);

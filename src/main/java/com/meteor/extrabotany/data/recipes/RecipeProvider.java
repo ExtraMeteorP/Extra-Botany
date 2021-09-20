@@ -292,5 +292,16 @@ public class RecipeProvider extends net.minecraft.data.RecipeProvider{
                 .patternLine("TDT")
                 .addCriterion("has_item", hasItem(ModItems.terrasteel))
                 .build(consumer);
+
+        ShapedRecipeBuilder.shapedRecipe(silverbullet)
+                .key('P', photonium)
+                .key('C', thechaos)
+                .key('M', ModItems.manaGun)
+                .key('S', ModTags.Items.INGOTS_MANASTEEL)
+                .patternLine("PPS")
+                .patternLine(" MC")
+                .patternLine("  P")
+                .addCriterion("has_item", hasItem(photonium))
+                .build(consumer);
     }
 }

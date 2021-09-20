@@ -71,19 +71,20 @@ public class ItemNatureOrb extends ItemBauble{
         super.onWornTick(stack, entity);
         if(entity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) entity;
-
-            if(getXP(stack) > 100000)
-                ManaItemHandler.instance().dispatchManaExact(stack, player, 1, true);
-            if(getXP(stack) > 200000)
-                ManaItemHandler.instance().dispatchManaExact(stack, player, 1, true);
-            if(getXP(stack) > 300000){
-                ManaItemHandler.instance().dispatchManaExact(stack, player, 1, true);
-                if(player.ticksExisted % 60 == 0)
-                    player.heal(1F);
-            }
-            if(getXP(stack) > 400000){
-                if(player.ticksExisted % 40 == 0 && !player.world.isRemote){
-                    clearPotions(stack, player);
+            if(!player.world.isRemote) {
+                if (getXP(stack) > 100000 && player.ticksExisted % 5 == 0)
+                    ManaItemHandler.instance().dispatchManaExact(stack, player, 5, true);
+                if (getXP(stack) > 200000 && player.ticksExisted % 5 == 0)
+                    ManaItemHandler.instance().dispatchManaExact(stack, player, 5, true);
+                if (getXP(stack) > 300000 && player.ticksExisted % 5 == 0) {
+                    ManaItemHandler.instance().dispatchManaExact(stack, player, 5, true);
+                    if (player.ticksExisted % 60 == 0)
+                        player.heal(1F);
+                }
+                if (getXP(stack) > 400000) {
+                    if (player.ticksExisted % 40 == 0) {
+                        clearPotions(stack, player);
+                    }
                 }
             }
         }

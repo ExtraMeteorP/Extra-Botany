@@ -31,6 +31,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.util.FakePlayer;
@@ -43,6 +44,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class EntityEGOMinion extends MonsterEntity {
+
+    public EntityEGO summoner;
 
     private static final List<BlockPos> SPAWN_LOCATIONS = ImmutableList.of(
             new BlockPos(6, 1, 6),
@@ -83,8 +86,12 @@ public class EntityEGOMinion extends MonsterEntity {
     public void livingTick() {
         super.livingTick();
 
-        if(!world.isRemote)
+        if(!world.isRemote) {
             clearPotions(this);
+            if (world.getDifficulty() == Difficulty.PEACEFUL || summoner == null || summoner.removed) {
+                remove();
+            }
+        }
 
         float RANGE = 16F;
         AxisAlignedBB axis = new AxisAlignedBB(getPositionVec().add(-RANGE, -RANGE, -RANGE)
@@ -138,7 +145,6 @@ public class EntityEGOMinion extends MonsterEntity {
             if(tryAttack())
                 this.attackCooldown = 90 + world.rand.nextInt(40);
         }
-
 
     }
 
@@ -236,7 +242,7 @@ public class EntityEGOMinion extends MonsterEntity {
         setMinionType(cmp.getInt(TAG_TYPE));
     }
 
-    public static void spawn(World world, BlockPos pos, float health){
+    public static void spawn(EntityEGO summoner, World world, BlockPos pos, float health){
         List<String> names = new ArrayList<>(ContributorListHandler.contributorsMap.keySet());
         Collections.shuffle(names);
         if(names.isEmpty()){
@@ -249,6 +255,7 @@ public class EntityEGOMinion extends MonsterEntity {
             int type = 0;
             for (BlockPos spawnpos : SPAWN_LOCATIONS) {
                 EntityEGOMinion minion = new EntityEGOMinion(world);
+                minion.summoner = summoner;
                 BlockPos mpos = pos.add(spawnpos.getX(), spawnpos.getY(), spawnpos.getZ());
                 minion.setPosition(mpos.getX(), mpos.getY(), mpos.getZ());
                 minion.setCustomName(new StringTextComponent(names.get(type)));

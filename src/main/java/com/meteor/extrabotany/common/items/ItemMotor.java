@@ -52,6 +52,7 @@ public class ItemMotor extends ItemRelic {
             if (raytraceresult.getType() == RayTraceResult.Type.BLOCK) {
                 EntityMotor boatentity = new EntityMotor(worldIn, raytraceresult.getHitVec().x, raytraceresult.getHitVec().y, raytraceresult.getHitVec().z);
                 boatentity.rotationYaw = playerIn.rotationYaw;
+                boatentity.setOwnerId(playerIn.getUniqueID());
                 if (!worldIn.hasNoCollisions(boatentity, boatentity.getBoundingBox().grow(-0.1D))) {
                     return ActionResult.resultFail(itemstack);
                 } else {

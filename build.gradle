@@ -1,12 +1,13 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        maven { url "https://maven.minecraftforge.net/" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3.4'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 ext {
@@ -35,52 +36,47 @@ minecraft {
 repositories {
     mavenCentral()
     maven {
-        name = 'Curseforge Maven'
-        url = 'http://minecraft.curseforge.com/api/maven/'
-    }
-    maven {
         name = 'jared maven'
-        url = 'https://maven.blamejared.com/'
+        url = 'https://maven.blamejared.com'
     }
     maven {
         name = 'DVS1 Maven FS'
         url = 'http://dvs1.progwml6.com/files/maven'
     }
     maven {
-        name = 'tehnut'
-        url = 'http://maven.tehnut.info'
-    }
-    maven {
         name = "The One Probe"
         url = "https://maven.tterrag.com"
     }
     maven {
-        name = "why does this build require Redstone Flux"
-        url = "https://maven.covers1624.net"
+        name = "cursemaven"
+        url = "https://cursemaven.com"
+    }
+    maven {
+        url = "http://maven.mcmoddev.com"
     }
 }
 
 dependencies {
-    compile "vazkii.botania:Botania:r1.10-363.148"
+    compile "vazkii.botania:Botania:r1.10-364.4:api"
 
-    compile 'jei:jei_1.12.2:4.15.0.291'
-    compile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2"
-    compile 'mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.22-13'
+    compile 'mezz.jei:jei_1.12.2:4.16.1.301'
+    compile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2:api"
+    compile 'mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.28-17'
 
-    compile 'CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.19.548'
-    compile "com.blamejared:MTLib:3.0.4.8"
+    compile 'CraftTweaker2:CraftTweaker2-API:4.1.20.670'
+    compile "com.blamejared:MTLib:3.0.5.9"
 
-    compile 'baubles:Baubles:1.12:1.5.2'
-    compile "thaumcraft:Thaumcraft:1.12.2:6.1.BETA26"
+    compile 'com.azanor:Baubles:1.12-1.5.2:api'
+    compile "curse.maven:thaumcraft-223628:2629023"
 
     compile 'slimeknights.mantle:Mantle:1.12-1.3.3.49'
     compile 'slimeknights:TConstruct:1.12.2-2.13.0.184'
-    compile 'constructs-armory:conarm:1.12.2:1.2.5.4'
+    compile 'curse.maven:conarm-287683:3174535'
 }
 
 jar {
     manifest {
-       attributes 'FMLAT': 'extrabotany_at.cfg'
+        attributes 'FMLAT': 'extrabotany_at.cfg'
     }
 }
 
@@ -102,3 +98,4 @@ processResources {
         exclude 'mcmod.info'
     }
 }
+

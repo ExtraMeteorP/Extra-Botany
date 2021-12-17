@@ -88,8 +88,12 @@ public class ItemFirstFractal extends ItemSword implements IRelic, IModelReg, IM
 	
 	@SubscribeEvent
 	public void leftClick(PlayerInteractEvent.LeftClickBlock evt) {
+		if (evt.getWorld().isRemote) {
+			return;
+		}
+
 		if (!evt.getItemStack().isEmpty() && evt.getItemStack().getItem() == this) {
-			ExtraBotanyNetwork.sendToServer(new PacketLeftClickFractal());
+			trySpawnPhantomSword(evt.getEntityPlayer(), null);
 		}
 	}
 

@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.item.relic;
 
 import java.util.List;
 import java.util.UUID;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -15,7 +14,6 @@ import com.meteor.extrabotany.common.entity.EntityMagicArrow;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.Reference;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -34,12 +32,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
@@ -267,8 +260,7 @@ public class ItemFailnaught extends ItemBow implements IManaUsingItem, IRelic, I
 	}
 
 	@Override
-	public String getAdvancementName(ItemStack stack) {
-		return LibAdvancements.GAIA_DEFEAT;
+	public ResourceLocation getRequiredAdvancementId(ItemStack stack) {
+		return LibAdvancements.GAIA_DEFEAT_ID;
 	}
-
 }

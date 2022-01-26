@@ -6,7 +6,6 @@ import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.item.equipment.tool.ItemBinder;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -129,7 +128,7 @@ public class SubTileStardustLotus extends SubTileFunctionalNature{
 			for(EntityLivingBase living : supertile.getWorld().getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE), supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)))){
 				living.setPosition(x, y+1F, z);
 				if(living instanceof EntityPlayer)
-					ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.STARDUSTLOTUS_TELEPORT);
+					ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.STARDUST_LOTUS_TELEPORT_ID);
 			}
 		}
 	}

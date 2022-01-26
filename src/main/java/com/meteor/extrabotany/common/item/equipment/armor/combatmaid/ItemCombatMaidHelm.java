@@ -3,13 +3,11 @@ package com.meteor.extrabotany.common.item.equipment.armor.combatmaid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.annotation.Nullable;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -58,7 +56,7 @@ public class ItemCombatMaidHelm extends ItemCombatMaidArmor
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
 		super.onArmorTick(world, player, stack);
 		if (hasArmorSet(player)) {
-			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COMBAT);
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COMBAT_ID);
 			if (player.shouldHeal() && player.ticksExisted % 50 == 0
 					&& ManaItemHandler.requestManaExactForTool(stack, player, 20, true))
 				player.heal(1F);

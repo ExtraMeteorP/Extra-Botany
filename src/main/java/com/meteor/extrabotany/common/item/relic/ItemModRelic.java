@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.item.relic;
 
 import java.util.List;
 import java.util.UUID;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -10,7 +9,6 @@ import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -21,6 +19,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -144,8 +143,7 @@ public class ItemModRelic extends ItemMod implements IRelic, IAdvancementRequire
 	}
 
 	@Override
-	public String getAdvancementName(ItemStack stack) {
-		return LibAdvancements.GAIA_DEFEAT;
+	public ResourceLocation getRequiredAdvancementId(ItemStack stack) {
+		return LibAdvancements.GAIA_DEFEAT_ID;
 	}
-
 }

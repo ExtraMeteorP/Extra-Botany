@@ -1,14 +1,14 @@
 package com.meteor.extrabotany.common.item.equipment.bauble;
 
+import baubles.api.BaubleType;
 import com.meteor.extrabotany.api.item.IAdvancementRequired;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
-import baubles.api.BaubleType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
@@ -55,8 +55,7 @@ public class ItemManaDriverRing extends ItemBauble implements IManaUsingItem, IA
 	}
 
 	@Override
-	public String getAdvancementName(ItemStack stack) {
-		return LibAdvancements.MANADRIVERRING;
+	public ResourceLocation getRequiredAdvancementId(ItemStack stack) {
+		return LibAdvancements.MANA_DRIVER_RING_ID;
 	}
-
 }

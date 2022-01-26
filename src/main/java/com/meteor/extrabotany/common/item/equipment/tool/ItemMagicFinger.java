@@ -5,7 +5,6 @@ import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.item.ItemMod;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,6 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vazkii.botania.api.mana.ManaItemHandler;
@@ -47,9 +47,7 @@ public class ItemMagicFinger extends ItemMod implements IAdvancementRequired{
     }
 
 	@Override
-	public String getAdvancementName(ItemStack stack) {
-		return LibAdvancements.MAGICFINGERGET;
+	public ResourceLocation getRequiredAdvancementId(ItemStack stack) {
+		return LibAdvancements.MAGIC_FINGER_GET_ID;
 	}
-        
-
 }

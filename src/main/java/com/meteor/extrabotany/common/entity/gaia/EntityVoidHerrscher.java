@@ -1,17 +1,11 @@
 package com.meteor.extrabotany.common.entity.gaia;
 
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.awt.*;
 import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import javax.annotation.Nonnull;
-
-import org.lwjgl.opengl.ARBShaderObjects;
 
 import com.google.common.base.Optional;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
@@ -26,7 +20,6 @@ import com.meteor.extrabotany.common.item.ItemMaterial;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.Reference;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -62,23 +55,16 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.BossInfo;
-import net.minecraft.world.BossInfoServer;
-import net.minecraft.world.EnumDifficulty;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
+import net.minecraft.world.*;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.opengl.ARBShaderObjects;
 import vazkii.botania.api.boss.IBotaniaBoss;
 import vazkii.botania.api.internal.ShaderCallback;
 import vazkii.botania.api.state.BotaniaStateProps;
@@ -1063,9 +1049,9 @@ public class EntityVoidHerrscher extends EntityCreature
 			posY = player.posY;
 			posZ = player.posZ;
 			super.dropLoot(wasRecentlyHit, lootingModifier, DamageSource.causePlayerDamage(player));
-			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.HERRSCHER_DEFEAT);
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.HERRSCHER_DEFEAT_ID);
 			if (this.quickkill)
-				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ENDGAME_GOAL);
+				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ENDGAME_GOAL_ID);
 			posX = savePosX;
 			posY = savePosY;
 			posZ = savePosZ;

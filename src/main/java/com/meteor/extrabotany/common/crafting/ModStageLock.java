@@ -7,7 +7,6 @@ import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.core.handler.StatHandler;
 import com.meteor.extrabotany.common.entity.gaia.EntityGaiaIII;
 import com.meteor.extrabotany.common.entity.gaia.EntityVoidHerrscher;
-
 import net.minecraft.advancements.Advancement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -36,7 +35,7 @@ public class ModStageLock {
 		if (event.isCancelable() && !event.getEntityPlayer().isCreative()) {
 			if (event.getItemStack().getItem() instanceof IAdvancementRequired) {
 				IAdvancementRequired r = (IAdvancementRequired) event.getItemStack().getItem();
-				if (!StatHandler.hasStat(event.getEntityPlayer(), r.getAdvancementName(event.getItemStack())))
+				if (!StatHandler.hasStat(event.getEntityPlayer(), r.getRequiredAdvancementId(event.getItemStack())))
 					event.setCanceled(true);
 			}
 			
@@ -61,8 +60,8 @@ public class ModStageLock {
 			IAdvancementRequired r = (IAdvancementRequired) event.getItemStack().getItem();
 			EntityPlayerSP playerSP = Minecraft.getMinecraft().player;
 			if (playerSP != null) {
-				Advancement adv = StatHandler.getSideAdvancement(r.getAdvancementName(event.getItemStack()));
-				if (!StatHandler.hasAdvancement(r.getAdvancementName(event.getItemStack())))
+				Advancement adv = StatHandler.getSideAdvancement(r.getRequiredAdvancementId(event.getItemStack()));
+				if (!StatHandler.hasAdvancement(r.getRequiredAdvancementId(event.getItemStack())))
 					event.getToolTip().add(TextFormatting.RED + "" + TextFormatting.ITALIC + I18n.format(
 							"tooltip.extrabotany.description",
 							I18n.format("advancement.extrabotany:" + r.getAdvancementName(event.getItemStack()))));
@@ -83,7 +82,7 @@ public class ModStageLock {
 				final ItemStack stack = player.getItemStackFromSlot(slot);
 				if (stack.getItem() instanceof IAdvancementRequired) {
 					IAdvancementRequired r = (IAdvancementRequired) stack.getItem();
-					if (!StatHandler.hasStat(player, r.getAdvancementName(stack))) {
+					if (!StatHandler.hasStat(player, r.getRequiredAdvancementId(stack))) {
 						player.setItemStackToSlot(slot, ItemStack.EMPTY);
 						player.dropItem(stack, false);
 					}

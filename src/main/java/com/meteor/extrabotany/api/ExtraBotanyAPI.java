@@ -13,7 +13,6 @@ import com.meteor.extrabotany.common.crafting.recipe.RecipePedestal;
 import com.meteor.extrabotany.common.crafting.recipe.RecipeStonesia;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.Reference;
-
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementManager;
 import net.minecraft.advancements.PlayerAdvancements;
@@ -102,14 +101,28 @@ public class ExtraBotanyAPI {
 		return recipe;
 	}
 
+	@Deprecated
 	public static void unlockAdvancement(EntityPlayer player, String name) {
+		unlockAdvancement(player, new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX + name));
+	}
+
+	public static void unlockAdvancement(EntityPlayer player, ResourceLocation id) {
+		AdvancementManager manager = ((WorldServer) player.getEntityWorld()).getAdvancementManager();
+		Advancement advancement = manager.getAdvancement(id);
+
+		if (advancement != null) {
+			unlockAdvancement(player, advancement);
+		}
+	}
+
+	public static void unlockAdvancement(EntityPlayer player, Advancement advancement) {
 		if (player instanceof EntityPlayerMP) {
 			PlayerAdvancements advancements = ((EntityPlayerMP) player).getAdvancements();
-			AdvancementManager manager = ((WorldServer) player.getEntityWorld()).getAdvancementManager();
-			Advancement advancement = manager
-					.getAdvancement(new ResourceLocation(Reference.MOD_ID, LibAdvancements.PREFIX + name));
-			if (advancement != null)
+
+			if (!advancements.getProgress(advancement).isDone()) {
+				//only grant criterion when not done, otherwise sponge will fire event causing item dupe.
 				advancements.grantCriterion(advancement, "ebt_trigger");
+			}
 		}
 	}
 
@@ -126,7 +139,7 @@ public class ExtraBotanyAPI {
 		if (target == null)
 			return result;
 		if (!(target instanceof EntityLivingBase))
-			return result;
+			return result; //this branch is impossible
 		if (!target.isEntityAlive())
 			return result;
 		if (amount < 0)

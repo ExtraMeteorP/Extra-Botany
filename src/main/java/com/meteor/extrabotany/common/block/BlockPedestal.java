@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.block;
 
 import java.util.Arrays;
 import java.util.Random;
-
 import javax.annotation.Nonnull;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
@@ -15,7 +14,6 @@ import com.meteor.extrabotany.common.item.equipment.tool.ItemKingGarden;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibBlocksName;
-
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -114,7 +112,7 @@ public class BlockPedestal extends BlockMod implements ILexiconable{
 							if(!world.isRemote)
 								stack.setRepair(te.getItem(), stack.getRepair(te.getItem()) + 1);
 							heldItem.shrink(5);
-							ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ULTIMATEHAMMER_UPGRADE);
+							ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ULTIMATE_HAMMER_UPGRADE_ID);
 							return true;
 						}else if(heldItem.getItem() == ModItems.elementiumSword && stack.getAttack(te.getItem()) < 10){
 							if(!world.isRemote)
@@ -132,7 +130,7 @@ public class BlockPedestal extends BlockMod implements ILexiconable{
 						heldItem.damageItem(1, player);
 						te.markForUpdate();
 						world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BLOCK_ANVIL_HIT, SoundCategory.PLAYERS, 0.5F, world.rand.nextFloat() - world.rand.nextFloat() * 0.2F + 1, false);
-						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.FRAGMENT_FORGE);
+						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.FRAGMENT_FORGE_ID);
 						return true;
 					}else if(te.getItem().getItem() instanceof ItemKingGarden && !heldItem.isEmpty()){
 						te.setStrikes(0);
@@ -189,7 +187,7 @@ public class BlockPedestal extends BlockMod implements ILexiconable{
 						te.markForUpdate();
 						ItemLexicon l = (ItemLexicon) heldItem.getItem();
 						l.unlockKnowledge(heldItem, ExtraBotanyAPI.dreamKnowledge);
-						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.NEWKNOWLEDGE_UNLOCK);
+						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.NEW_KNOWLEDGE_UNLOCK_ID);
 						return true;
 					}else if(player.inventory.addItemStackToInventory(((TilePedestal)tile).getItem())){
 						te.setStrikes(0);

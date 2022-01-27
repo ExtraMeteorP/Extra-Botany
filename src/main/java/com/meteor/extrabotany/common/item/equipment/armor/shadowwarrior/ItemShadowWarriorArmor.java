@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.item.equipment.armor.shadowwarrior;
 
 import java.util.List;
 import java.util.UUID;
-
 import javax.annotation.Nullable;
 
 import com.google.common.collect.Multimap;
@@ -12,7 +11,6 @@ import com.meteor.extrabotany.client.model.ModelArmorShadowWarrior;
 import com.meteor.extrabotany.common.item.ModItems;
 import com.meteor.extrabotany.common.item.equipment.armor.cosmeticmaid.ItemCosmeticMaidArmor;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -56,7 +54,7 @@ public class ItemShadowWarriorArmor extends ItemCosmeticMaidArmor implements IDa
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
 		super.onArmorTick(world, player, stack);
 		if(hasArmorSet(player) && !world.isDaytime()) {
-			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_SW);
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_SW_ID);
 			ItemNBTHelper.setBoolean(stack, TAG_NIGHT, true);
 			player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 1));
 		}else

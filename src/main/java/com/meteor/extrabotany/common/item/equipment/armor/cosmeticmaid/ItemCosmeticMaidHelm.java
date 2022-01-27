@@ -5,7 +5,6 @@ import javax.annotation.Nullable;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -26,7 +25,7 @@ public class ItemCosmeticMaidHelm  extends ItemCosmeticMaidArmor implements IMan
 	public void onArmorTick(World world, EntityPlayer player, ItemStack stack) {
 		super.onArmorTick(world, player, stack);
 		if(hasArmorSet(player)) {
-			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COS);
+			ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ARMORSET_COS_ID);
 		}
 	}
 	

@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.item.relic;
 
 import java.util.List;
 import java.util.UUID;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -13,7 +12,6 @@ import com.meteor.extrabotany.common.entity.EntityItemUnbreakable;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.Reference;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -32,12 +30,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
@@ -341,8 +334,7 @@ public class ItemDaedalusStormbow extends ItemBow implements IManaUsingItem, IRe
 	}
 
 	@Override
-	public String getAdvancementName(ItemStack stack) {
-		return LibAdvancements.NATUREORB_CRAFT;
+	public ResourceLocation getRequiredAdvancementId(ItemStack stack) {
+		return LibAdvancements.NATURE_ORB_CRAFT_ID;
 	}
-
 }

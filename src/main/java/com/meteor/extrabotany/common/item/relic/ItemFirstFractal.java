@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.item.relic;
 
 import java.util.List;
 import java.util.UUID;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -17,7 +16,6 @@ import com.meteor.extrabotany.common.entity.EntityPhantomSword;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
 import com.meteor.extrabotany.common.lib.Reference;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -265,9 +263,7 @@ public class ItemFirstFractal extends ItemSword implements IRelic, IModelReg, IM
 	}
 	
 	@Override
-	public String getAdvancementName(ItemStack stack) {
-		return LibAdvancements.HERRSCHER_DEFEAT;
+	public ResourceLocation getRequiredAdvancementId(ItemStack stack) {
+		return LibAdvancements.HERRSCHER_DEFEAT_ID;
 	}
-
-
 }

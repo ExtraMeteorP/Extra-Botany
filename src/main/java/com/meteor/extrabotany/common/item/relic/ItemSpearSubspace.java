@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.item.relic;
 
 import java.util.Random;
 import java.util.UUID;
-
 import javax.annotation.Nonnull;
 
 import com.google.common.collect.Multimap;
@@ -13,7 +12,6 @@ import com.meteor.extrabotany.common.core.network.PacketLeftClickSpear;
 import com.meteor.extrabotany.common.entity.EntitySubspace;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -26,6 +24,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -183,8 +182,7 @@ public class ItemSpearSubspace extends ItemModRelic implements IManaUsingItem {
 	}
 
 	@Override
-	public String getAdvancementName(ItemStack stack) {
-		return LibAdvancements.HERRSCHER_DEFEAT;
+	public ResourceLocation getRequiredAdvancementId(ItemStack stack) {
+		return LibAdvancements.HERRSCHER_DEFEAT_ID;
 	}
-
 }

@@ -5,7 +5,6 @@ import com.meteor.extrabotany.common.brew.ModPotions;
 import com.meteor.extrabotany.common.core.config.ConfigHandler;
 import com.meteor.extrabotany.common.lexicon.LexiconData;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -67,7 +66,7 @@ public class SubTileBloodyEnchantress extends SubTileGenerating {
 								break;
 							ExtraBotanyAPI.addPotionEffect(living, ModPotions.bloodtemptation, 100, 10, true);
 							if(living instanceof EntityPlayer){
-								ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.BLOODYENCHANTRESS_USE);
+								ExtraBotanyAPI.unlockAdvancement((EntityPlayer)living, LibAdvancements.BLOODY_ENCHANTRESS_USE_ID);
 								ExtraBotanyAPI.dealTrueDamage(living, living, 3F);
 							}else{
 								living.setHealth(living.getHealth() - 3F);

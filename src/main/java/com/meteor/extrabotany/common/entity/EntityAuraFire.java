@@ -2,7 +2,6 @@ package com.meteor.extrabotany.common.entity;
 
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -65,7 +64,7 @@ public class EntityAuraFire extends EntityThrowableCopy {
 					player.setAbsorptionAmount(Math.min(10, player.getAbsorptionAmount() + 1F));
 					ManaItemHandler.requestManaExactForTool(new ItemStack(Items.APPLE), player, 300, true);
 					if (dmg >= 40)
-						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ONEPUCHMAN);
+						ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.ONE_PUNCHMAN_ID);
 					this.setDead();
 				}
 			}

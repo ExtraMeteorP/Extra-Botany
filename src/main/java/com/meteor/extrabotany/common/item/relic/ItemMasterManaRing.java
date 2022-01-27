@@ -2,12 +2,11 @@ package com.meteor.extrabotany.common.item.relic;
 
 import javax.annotation.Nonnull;
 
+import baubles.api.BaubleType;
 import com.meteor.extrabotany.api.ExtraBotanyAPI;
 import com.meteor.extrabotany.common.item.equipment.bauble.ItemBaubleRelic;
 import com.meteor.extrabotany.common.lib.LibAdvancements;
 import com.meteor.extrabotany.common.lib.LibItemsName;
-
-import baubles.api.BaubleType;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -119,8 +118,8 @@ public class ItemMasterManaRing extends ItemBaubleRelic implements IManaItem, IM
 		if (!world.isRemote && entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) entity;
 			updateRelic(stack, player);
-			if (getMana(stack) == Integer.MAX_VALUE - 1 && !world.isRemote)
-				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.MASTERMANARING_FILL);
+			if (getMana(stack) == Integer.MAX_VALUE - 1)
+				ExtraBotanyAPI.unlockAdvancement(player, LibAdvancements.MASTER_MANA_RING_FILL_ID);
 		}
 	}
 

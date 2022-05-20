@@ -107,11 +107,13 @@ public class ExtraBotanyAPI {
 	}
 
 	public static void unlockAdvancement(EntityPlayer player, ResourceLocation id) {
-		AdvancementManager manager = ((WorldServer) player.getEntityWorld()).getAdvancementManager();
-		Advancement advancement = manager.getAdvancement(id);
+		if (player instanceof EntityPlayerMP) {
+			AdvancementManager manager = ((WorldServer) player.getEntityWorld()).getAdvancementManager();
+			Advancement advancement = manager.getAdvancement(id);
 
-		if (advancement != null) {
-			unlockAdvancement(player, advancement);
+			if (advancement != null) {
+				unlockAdvancement(player, advancement);
+			}
 		}
 	}
 

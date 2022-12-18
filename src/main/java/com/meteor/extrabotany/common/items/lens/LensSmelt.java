@@ -55,7 +55,7 @@ public class LensSmelt extends Lens {
 
                     IRecipe<?> irecipe = world.getRecipeManager().getRecipe(IRecipeType.SMELTING, new Inventory(new ItemStack(block)),world).orElse(null);
 
-                    if(!irecipe.getRecipeOutput().isEmpty()) {
+                    if(irecipe != null || !irecipe.getRecipeOutput().isEmpty()) {
 
                         world.removeBlock(collidePos, false);
                         if (ConfigHandler.COMMON.blockBreakParticles.get()) {
